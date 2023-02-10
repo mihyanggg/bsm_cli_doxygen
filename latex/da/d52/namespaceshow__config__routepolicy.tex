@@ -1,0 +1,417 @@
+\hypertarget{namespaceshow__config__routepolicy}{}\doxysection{show\+\_\+config\+\_\+routepolicy 네임스페이스 참조}
+\label{namespaceshow__config__routepolicy}\index{show\_config\_routepolicy@{show\_config\_routepolicy}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceshow__config__routepolicy_a8c8e889f2b69aaccf6e5e9b54a4bd8ab}{show\+\_\+routemap\+\_\+setcommunity}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__routepolicy_a4677af3b3a071be8428b21f18fc9825e}{show\+\_\+routemap\+\_\+setextcommunity}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__routepolicy_aa3d6dace29059e000e0b72f59ec087a0}{show\+\_\+routemap\+\_\+set\+\_\+metric}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__routepolicy_a5b3fae5395e4609d398df07d3cbdbbc1}{show\+\_\+routemap\+\_\+match\+\_\+evpn}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__routepolicy_abb7327ef20c8a009947204773200c2a6}{show\+\_\+routemap\+\_\+matchintf}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__routepolicy_a5384760a2c9de4989360778eb9c14d30}{show\+\_\+routemap\+\_\+matchpeer}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__routepolicy_a2a77138423fa08482b5293e541eea398}{show\+\_\+routemap\+\_\+matchtag}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__routepolicy_a00e85c40db885ae58c7e6263d8c2024c}{show\+\_\+prefix\+\_\+lists}} (render\+\_\+tables, ip\+\_\+mode)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__routepolicy_a51345c630a6993d7eb64bfa142330539}{show\+\_\+v4prefix\+\_\+lists}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__routepolicy_a899e26f71288b413506bb65dc14eba1e}{show\+\_\+v6prefix\+\_\+lists}} (render\+\_\+tables)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespaceshow__config__routepolicy_a00e85c40db885ae58c7e6263d8c2024c}\label{namespaceshow__config__routepolicy_a00e85c40db885ae58c7e6263d8c2024c}} 
+\index{show\_config\_routepolicy@{show\_config\_routepolicy}!show\_prefix\_lists@{show\_prefix\_lists}}
+\index{show\_prefix\_lists@{show\_prefix\_lists}!show\_config\_routepolicy@{show\_config\_routepolicy}}
+\doxysubsubsection{\texorpdfstring{show\_prefix\_lists()}{show\_prefix\_lists()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+routepolicy.\+show\+\_\+prefix\+\_\+lists (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables,  }\item[{}]{ip\+\_\+mode }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+routepolicy.\+py 파일의 188 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{188 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__routepolicy_a00e85c40db885ae58c7e6263d8c2024c}{show\_prefix\_lists}}(render\_tables, ip\_mode):}
+\DoxyCodeLine{189     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{190     temp = \{\}}
+\DoxyCodeLine{191     get\_prefix\_name = render\_tables[\textcolor{stringliteral}{'prefix-\/list-\/name'}] \textcolor{keywordflow}{if} \textcolor{stringliteral}{'prefix-\/list-\/name'} \textcolor{keywordflow}{in} render\_tables \textcolor{keywordflow}{else} \textcolor{keywordtype}{None}}
+\DoxyCodeLine{192     \textcolor{comment}{\# Fetch IPv4 or Ipv6 mode and store from PREFIX\_SET\_LIST table and then filter PREFIX\_LIST}}
+\DoxyCodeLine{193     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/routing-\/policy-\/sets:sonic-\/routing-\/policy-\/sets/PREFIX\_SET/PREFIX\_SET\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{194         prefix\_set = render\_tables[\textcolor{stringliteral}{'sonic-\/routing-\/policy-\/sets:sonic-\/routing-\/policy-\/sets/PREFIX\_SET/PREFIX\_SET\_LIST'}]}
+\DoxyCodeLine{195         \textcolor{keywordflow}{for} temp\_prefix \textcolor{keywordflow}{in} prefix\_set:}
+\DoxyCodeLine{196             name = temp\_prefix[\textcolor{stringliteral}{"name"}]}
+\DoxyCodeLine{197             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'mode'} \textcolor{keywordflow}{in} temp\_prefix:}
+\DoxyCodeLine{198                temp[name] = temp\_prefix[\textcolor{stringliteral}{"mode"}]}
+\DoxyCodeLine{199 }
+\DoxyCodeLine{200     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/routing-\/policy-\/sets:sonic-\/routing-\/policy-\/sets/PREFIX/PREFIX\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{201         prefix\_list = render\_tables[\textcolor{stringliteral}{'sonic-\/routing-\/policy-\/sets:sonic-\/routing-\/policy-\/sets/PREFIX/PREFIX\_LIST'}]}
+\DoxyCodeLine{202         \textcolor{keywordflow}{for} prefix \textcolor{keywordflow}{in} prefix\_list:}
+\DoxyCodeLine{203             mode = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{204             mask\_range\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{205             prefix\_name = prefix[\textcolor{stringliteral}{"set\_name"}]}
+\DoxyCodeLine{206             \textcolor{keywordflow}{if} get\_prefix\_name \textcolor{keywordflow}{and} prefix\_name != get\_prefix\_name:}
+\DoxyCodeLine{207                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{209             \textcolor{comment}{\# Display only IP or IPv6 prefixes based on request.}}
+\DoxyCodeLine{210             \textcolor{keywordflow}{if} temp[prefix\_name] != ip\_mode:}
+\DoxyCodeLine{211                \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{212             \textcolor{keywordflow}{if} temp[prefix\_name] == \textcolor{stringliteral}{"IPv4"}:}
+\DoxyCodeLine{213                cmd\_prfx = \textcolor{stringliteral}{'ip prefix-\/list '}}
+\DoxyCodeLine{214             \textcolor{keywordflow}{elif} temp[prefix\_name] == \textcolor{stringliteral}{"IPv6"}:}
+\DoxyCodeLine{215                cmd\_prfx = \textcolor{stringliteral}{'ipv6 prefix-\/list '}}
+\DoxyCodeLine{216             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{217                \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{218 }
+\DoxyCodeLine{219             mask\_range = prefix[\textcolor{stringliteral}{'masklength\_range'}]}
+\DoxyCodeLine{220 }
+\DoxyCodeLine{221             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'action'} \textcolor{keywordflow}{in} prefix:}
+\DoxyCodeLine{222                 \textcolor{keywordflow}{if} mask\_range != \textcolor{stringliteral}{"exact"}:}
+\DoxyCodeLine{223                    prefix\_val = prefix[\textcolor{stringliteral}{'ip\_prefix'}].split(\textcolor{stringliteral}{"/"})}
+\DoxyCodeLine{224                    mask\_range\_val = prefix[\textcolor{stringliteral}{'masklength\_range'}].split(\textcolor{stringliteral}{".."})}
+\DoxyCodeLine{225                    \textcolor{keywordflow}{if} prefix\_val[1] == mask\_range\_val[0]:}
+\DoxyCodeLine{226                       mask\_range\_str = \textcolor{stringliteral}{" le "} + mask\_range\_val[1]}
+\DoxyCodeLine{227                    \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{228                       mask\_range\_str = \textcolor{stringliteral}{" ge "} + mask\_range\_val[0] + \textcolor{stringliteral}{" le "} + mask\_range\_val[1]}
+\DoxyCodeLine{229 }
+\DoxyCodeLine{230                 cmd\_str = cmd\_str + cmd\_prfx + prefix[\textcolor{stringliteral}{'set\_name'}] + \textcolor{stringliteral}{" seq "} + str(prefix[\textcolor{stringliteral}{'sequence\_number'}]) + \textcolor{stringliteral}{" "} + prefix[\textcolor{stringliteral}{'action'}].lower() + \textcolor{stringliteral}{" "} + prefix[\textcolor{stringliteral}{'ip\_prefix'}] + mask\_range\_str + \textcolor{stringliteral}{";"} ;}
+\DoxyCodeLine{231 }
+\DoxyCodeLine{232     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{233 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d52/namespaceshow__config__routepolicy_a00e85c40db885ae58c7e6263d8c2024c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__routepolicy_a5b3fae5395e4609d398df07d3cbdbbc1}\label{namespaceshow__config__routepolicy_a5b3fae5395e4609d398df07d3cbdbbc1}} 
+\index{show\_config\_routepolicy@{show\_config\_routepolicy}!show\_routemap\_match\_evpn@{show\_routemap\_match\_evpn}}
+\index{show\_routemap\_match\_evpn@{show\_routemap\_match\_evpn}!show\_config\_routepolicy@{show\_config\_routepolicy}}
+\doxysubsubsection{\texorpdfstring{show\_routemap\_match\_evpn()}{show\_routemap\_match\_evpn()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+routepolicy.\+show\+\_\+routemap\+\_\+match\+\_\+evpn (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+routepolicy.\+py 파일의 103 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{103 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__routepolicy_a5b3fae5395e4609d398df07d3cbdbbc1}{show\_routemap\_match\_evpn}}(render\_tables):}
+\DoxyCodeLine{104     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{105     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'route-\/map-\/name'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} render\_tables.keys() :}
+\DoxyCodeLine{106         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{107     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'seq-\/num'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} render\_tables.keys() :}
+\DoxyCodeLine{108         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110     rmap\_name = render\_tables[\textcolor{stringliteral}{'route-\/map-\/name'}]}
+\DoxyCodeLine{111     seq\_num =  render\_tables[\textcolor{stringliteral}{'seq-\/num'}]}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/route-\/map:sonic-\/route-\/map/ROUTE\_MAP/ROUTE\_MAP\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{114         tbl\_rec\_list = render\_tables[\textcolor{stringliteral}{'sonic-\/route-\/map:sonic-\/route-\/map/ROUTE\_MAP/ROUTE\_MAP\_LIST'}]}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116         \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} isinstance(tbl\_rec\_list, list) :}
+\DoxyCodeLine{117             tbl\_rec\_list = [ tbl\_rec\_list ]}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119         \textcolor{keywordflow}{for} rmap \textcolor{keywordflow}{in} tbl\_rec\_list :}
+\DoxyCodeLine{120             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'route\_map\_name'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} rmap.keys() :}
+\DoxyCodeLine{121                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{122             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'stmt\_name'}  \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} rmap.keys() :}
+\DoxyCodeLine{123                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{124             \textcolor{keywordflow}{if} rmap[\textcolor{stringliteral}{'route\_map\_name'}] != rmap\_name :}
+\DoxyCodeLine{125                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{126             \textcolor{keywordflow}{if} rmap[\textcolor{stringliteral}{'stmt\_name'}] != seq\_num :}
+\DoxyCodeLine{127                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'match\_evpn\_default\_type5\_route'} \textcolor{keywordflow}{in} rmap.keys() :}
+\DoxyCodeLine{130                 cmd\_str += \textcolor{stringliteral}{"match evpn default-\/route ;"}}
+\DoxyCodeLine{131             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'match\_evpn\_advertise\_route\_type'} \textcolor{keywordflow}{in} rmap.keys() :}
+\DoxyCodeLine{132                 cmd\_str += \textcolor{stringliteral}{"match evpn route-\/type \{\} ;"}.format(rmap[\textcolor{stringliteral}{'match\_evpn\_advertise\_route\_type'}].lower())}
+\DoxyCodeLine{133             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'match\_evpn\_vni\_number'} \textcolor{keywordflow}{in} rmap.keys() :}
+\DoxyCodeLine{134                 cmd\_str += \textcolor{stringliteral}{"match evpn vni \{\} ;"}.format(rmap[\textcolor{stringliteral}{'match\_evpn\_vni\_number'}])}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceshow__config__routepolicy_abb7327ef20c8a009947204773200c2a6}\label{namespaceshow__config__routepolicy_abb7327ef20c8a009947204773200c2a6}} 
+\index{show\_config\_routepolicy@{show\_config\_routepolicy}!show\_routemap\_matchintf@{show\_routemap\_matchintf}}
+\index{show\_routemap\_matchintf@{show\_routemap\_matchintf}!show\_config\_routepolicy@{show\_config\_routepolicy}}
+\doxysubsubsection{\texorpdfstring{show\_routemap\_matchintf()}{show\_routemap\_matchintf()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+routepolicy.\+show\+\_\+routemap\+\_\+matchintf (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+routepolicy.\+py 파일의 137 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{137 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__routepolicy_abb7327ef20c8a009947204773200c2a6}{show\_routemap\_matchintf}}(render\_tables):}
+\DoxyCodeLine{138     cmd\_prfx = \textcolor{stringliteral}{'match interface '}}
+\DoxyCodeLine{139     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceshow__config__if__cmd_a8f6524ea64da425e224a6857ae3449fd}{show\_get\_if\_cmd}}(render\_tables,}
+\DoxyCodeLine{140                            \textcolor{stringliteral}{'sonic-\/route-\/map:sonic-\/route-\/map/ROUTE\_MAP/ROUTE\_MAP\_LIST'},}
+\DoxyCodeLine{141                            \textcolor{stringliteral}{'match\_interface'},}
+\DoxyCodeLine{142                            cmd\_prfx)}
+\DoxyCodeLine{143 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d52/namespaceshow__config__routepolicy_abb7327ef20c8a009947204773200c2a6_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__routepolicy_a5384760a2c9de4989360778eb9c14d30}\label{namespaceshow__config__routepolicy_a5384760a2c9de4989360778eb9c14d30}} 
+\index{show\_config\_routepolicy@{show\_config\_routepolicy}!show\_routemap\_matchpeer@{show\_routemap\_matchpeer}}
+\index{show\_routemap\_matchpeer@{show\_routemap\_matchpeer}!show\_config\_routepolicy@{show\_config\_routepolicy}}
+\doxysubsubsection{\texorpdfstring{show\_routemap\_matchpeer()}{show\_routemap\_matchpeer()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+routepolicy.\+show\+\_\+routemap\+\_\+matchpeer (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+routepolicy.\+py 파일의 144 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{144 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__routepolicy_a5384760a2c9de4989360778eb9c14d30}{show\_routemap\_matchpeer}}(render\_tables):}
+\DoxyCodeLine{145     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{146     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/route-\/map:sonic-\/route-\/map/ROUTE\_MAP/ROUTE\_MAP\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{147         rmap = render\_tables[\textcolor{stringliteral}{'sonic-\/route-\/map:sonic-\/route-\/map/ROUTE\_MAP/ROUTE\_MAP\_LIST'}]}
+\DoxyCodeLine{148         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'match\_neighbor'} \textcolor{keywordflow}{in} rmap:}
+\DoxyCodeLine{149             peers = rmap[\textcolor{stringliteral}{'match\_neighbor'}]}
+\DoxyCodeLine{150             cmd\_prfx = \textcolor{stringliteral}{'match peer '}}
+\DoxyCodeLine{151             \textcolor{comment}{\# even though its leaf list of peers, currently only one is supported.}}
+\DoxyCodeLine{152             \textcolor{comment}{\# in future if we support more than one, based on how we accept,}}
+\DoxyCodeLine{153             \textcolor{comment}{\# the show runn has to be changed.}}
+\DoxyCodeLine{154             \textcolor{keywordflow}{for} peer \textcolor{keywordflow}{in} peers:}
+\DoxyCodeLine{155                 \textcolor{keywordflow}{if} peer.startswith(\textcolor{stringliteral}{'Eth'}):}
+\DoxyCodeLine{156                    cmd\_str = cmd\_prfx + peer}
+\DoxyCodeLine{157                 \textcolor{keywordflow}{elif} peer.startswith(\textcolor{stringliteral}{'Vlan'}):}
+\DoxyCodeLine{158                    intf\_split = peer.split(\textcolor{stringliteral}{'Vlan'})}
+\DoxyCodeLine{159                    cmd\_str = cmd\_prfx + \textcolor{stringliteral}{'Vlan '} + intf\_split[1]}
+\DoxyCodeLine{160                 \textcolor{keywordflow}{elif} peer.startswith(\textcolor{stringliteral}{'PortChannel'}):}
+\DoxyCodeLine{161                    intf\_split = peer.split(\textcolor{stringliteral}{'PortChannel'})}
+\DoxyCodeLine{162                    cmd\_str = cmd\_prfx +  \textcolor{stringliteral}{'PortChannel '} + intf\_split[1]}
+\DoxyCodeLine{163                 \textcolor{keywordflow}{elif} len(peer) > 0:}
+\DoxyCodeLine{164                    cmd\_str = cmd\_prfx + peer}
+\DoxyCodeLine{165                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{166                    \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{169 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceshow__config__routepolicy_a2a77138423fa08482b5293e541eea398}\label{namespaceshow__config__routepolicy_a2a77138423fa08482b5293e541eea398}} 
+\index{show\_config\_routepolicy@{show\_config\_routepolicy}!show\_routemap\_matchtag@{show\_routemap\_matchtag}}
+\index{show\_routemap\_matchtag@{show\_routemap\_matchtag}!show\_config\_routepolicy@{show\_config\_routepolicy}}
+\doxysubsubsection{\texorpdfstring{show\_routemap\_matchtag()}{show\_routemap\_matchtag()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+routepolicy.\+show\+\_\+routemap\+\_\+matchtag (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+routepolicy.\+py 파일의 170 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{170 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__routepolicy_a2a77138423fa08482b5293e541eea398}{show\_routemap\_matchtag}}(render\_tables):}
+\DoxyCodeLine{171     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{172     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/route-\/map:sonic-\/route-\/map/ROUTE\_MAP/ROUTE\_MAP\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{173         rmap = render\_tables[\textcolor{stringliteral}{'sonic-\/route-\/map:sonic-\/route-\/map/ROUTE\_MAP/ROUTE\_MAP\_LIST'}]}
+\DoxyCodeLine{174         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'match\_tag'} \textcolor{keywordflow}{in} rmap:}
+\DoxyCodeLine{175             tags = rmap[\textcolor{stringliteral}{'match\_tag'}]}
+\DoxyCodeLine{176             cmd\_prfx = \textcolor{stringliteral}{'match tag '}}
+\DoxyCodeLine{177             \textcolor{comment}{\# even though its leaf list of tags, currently only one is supported.}}
+\DoxyCodeLine{178             \textcolor{comment}{\# in future if we support more than one, based on how we accept,}}
+\DoxyCodeLine{179             \textcolor{comment}{\# the show runn has to be changed.}}
+\DoxyCodeLine{180             \textcolor{keywordflow}{for} tag \textcolor{keywordflow}{in} tags:}
+\DoxyCodeLine{181                 cmd\_str = cmd\_prfx + str(tag)}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{183     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{185 }
+\DoxyCodeLine{186 \textcolor{comment}{\# IPv4/IPv6 prefix lists related}}
+\DoxyCodeLine{187 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceshow__config__routepolicy_aa3d6dace29059e000e0b72f59ec087a0}\label{namespaceshow__config__routepolicy_aa3d6dace29059e000e0b72f59ec087a0}} 
+\index{show\_config\_routepolicy@{show\_config\_routepolicy}!show\_routemap\_set\_metric@{show\_routemap\_set\_metric}}
+\index{show\_routemap\_set\_metric@{show\_routemap\_set\_metric}!show\_config\_routepolicy@{show\_config\_routepolicy}}
+\doxysubsubsection{\texorpdfstring{show\_routemap\_set\_metric()}{show\_routemap\_set\_metric()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+routepolicy.\+show\+\_\+routemap\+\_\+set\+\_\+metric (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+routepolicy.\+py 파일의 50 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{50 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__routepolicy_aa3d6dace29059e000e0b72f59ec087a0}{show\_routemap\_set\_metric}}(render\_tables):}
+\DoxyCodeLine{51     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{52     \textcolor{comment}{\#print("show\_routemap\_set\_metric render tables \{\}".format(render\_tables))}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'route-\/map-\/name'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} render\_tables.keys() :}
+\DoxyCodeLine{55         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{56     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'seq-\/num'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} render\_tables.keys() :}
+\DoxyCodeLine{57         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     rmap\_name = render\_tables[\textcolor{stringliteral}{'route-\/map-\/name'}]}
+\DoxyCodeLine{60     seq\_num =  render\_tables[\textcolor{stringliteral}{'seq-\/num'}]}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/route-\/map:sonic-\/route-\/map/ROUTE\_MAP/ROUTE\_MAP\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{63         tbl\_rec\_list = render\_tables[\textcolor{stringliteral}{'sonic-\/route-\/map:sonic-\/route-\/map/ROUTE\_MAP/ROUTE\_MAP\_LIST'}]}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65         \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} isinstance(tbl\_rec\_list, list) :}
+\DoxyCodeLine{66             tbl\_rec\_list = [ tbl\_rec\_list ]}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68         \textcolor{keywordflow}{for} rmap \textcolor{keywordflow}{in} tbl\_rec\_list :}
+\DoxyCodeLine{69             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'route\_map\_name'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} rmap.keys() :}
+\DoxyCodeLine{70                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{71             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'stmt\_name'}  \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} rmap.keys() :}
+\DoxyCodeLine{72                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{73             \textcolor{keywordflow}{if} rmap[\textcolor{stringliteral}{'route\_map\_name'}] != rmap\_name :}
+\DoxyCodeLine{74                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{75             \textcolor{keywordflow}{if} rmap[\textcolor{stringliteral}{'stmt\_name'}] != seq\_num :}
+\DoxyCodeLine{76                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78             curr\_cmd = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{79             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'set\_metric\_action'} \textcolor{keywordflow}{in} rmap.keys() :}
+\DoxyCodeLine{80                 metric\_action = rmap[\textcolor{stringliteral}{'set\_metric\_action'}]}
+\DoxyCodeLine{81                 metric\_value = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{82                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'set\_metric'} \textcolor{keywordflow}{in} rmap.keys() :}
+\DoxyCodeLine{83                     metric\_value = rmap[\textcolor{stringliteral}{'set\_metric'}]}
+\DoxyCodeLine{84                 \textcolor{keywordflow}{if} metric\_value != \textcolor{stringliteral}{''} :}
+\DoxyCodeLine{85                     \textcolor{keywordflow}{if} metric\_action == \textcolor{stringliteral}{'METRIC\_SET\_VALUE'} :}
+\DoxyCodeLine{86                         curr\_cmd = \textcolor{stringliteral}{"set metric \{\} ;"}.format(metric\_value)}
+\DoxyCodeLine{87                     \textcolor{keywordflow}{elif} metric\_action == \textcolor{stringliteral}{'METRIC\_ADD\_VALUE'} :}
+\DoxyCodeLine{88                         curr\_cmd = \textcolor{stringliteral}{"set metric +\{\} ;"}.format(metric\_value)}
+\DoxyCodeLine{89                     \textcolor{keywordflow}{elif} metric\_action == \textcolor{stringliteral}{'METRIC\_SUBTRACT\_VALUE'} :}
+\DoxyCodeLine{90                         curr\_cmd = \textcolor{stringliteral}{"set metric -\/\{\} ;"}.format(metric\_value)}
+\DoxyCodeLine{91                 \textcolor{keywordflow}{if} metric\_action == \textcolor{stringliteral}{'METRIC\_SET\_RTT'} :}
+\DoxyCodeLine{92                     curr\_cmd = \textcolor{stringliteral}{"set metric rtt ;"}}
+\DoxyCodeLine{93                 \textcolor{keywordflow}{elif} metric\_action == \textcolor{stringliteral}{'METRIC\_ADD\_RTT'} :}
+\DoxyCodeLine{94                     curr\_cmd = \textcolor{stringliteral}{"set metric +rtt ;"}}
+\DoxyCodeLine{95                 \textcolor{keywordflow}{elif} metric\_action == \textcolor{stringliteral}{'METRIC\_SUBTRACT\_RTT'} :}
+\DoxyCodeLine{96                     curr\_cmd = \textcolor{stringliteral}{"set metric -\/rtt ;"}}
+\DoxyCodeLine{97             \textcolor{keywordflow}{if} curr\_cmd == \textcolor{stringliteral}{''} \textcolor{keywordflow}{and} \textcolor{stringliteral}{'set\_med'} \textcolor{keywordflow}{in} rmap.keys() :}
+\DoxyCodeLine{98                 curr\_cmd = \textcolor{stringliteral}{"set metric \{\} ;"}.format(rmap[\textcolor{stringliteral}{'set\_med'}])}
+\DoxyCodeLine{99             cmd\_str += curr\_cmd}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{102 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceshow__config__routepolicy_a8c8e889f2b69aaccf6e5e9b54a4bd8ab}\label{namespaceshow__config__routepolicy_a8c8e889f2b69aaccf6e5e9b54a4bd8ab}} 
+\index{show\_config\_routepolicy@{show\_config\_routepolicy}!show\_routemap\_setcommunity@{show\_routemap\_setcommunity}}
+\index{show\_routemap\_setcommunity@{show\_routemap\_setcommunity}!show\_config\_routepolicy@{show\_config\_routepolicy}}
+\doxysubsubsection{\texorpdfstring{show\_routemap\_setcommunity()}{show\_routemap\_setcommunity()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+routepolicy.\+show\+\_\+routemap\+\_\+setcommunity (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+routepolicy.\+py 파일의 22 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__routepolicy_a8c8e889f2b69aaccf6e5e9b54a4bd8ab}{show\_routemap\_setcommunity}}(render\_tables):}
+\DoxyCodeLine{23     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/route-\/map:sonic-\/route-\/map/ROUTE\_MAP/ROUTE\_MAP\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{26         rmap = render\_tables[\textcolor{stringliteral}{'sonic-\/route-\/map:sonic-\/route-\/map/ROUTE\_MAP/ROUTE\_MAP\_LIST'}]}
+\DoxyCodeLine{27         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'set\_community\_inline'} \textcolor{keywordflow}{in} rmap:}
+\DoxyCodeLine{28             coms = rmap[\textcolor{stringliteral}{'set\_community\_inline'}]}
+\DoxyCodeLine{29             cmd\_str = \textcolor{stringliteral}{'set community '} + \textcolor{stringliteral}{' '}.join(coms)  }
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{32 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceshow__config__routepolicy_a4677af3b3a071be8428b21f18fc9825e}\label{namespaceshow__config__routepolicy_a4677af3b3a071be8428b21f18fc9825e}} 
+\index{show\_config\_routepolicy@{show\_config\_routepolicy}!show\_routemap\_setextcommunity@{show\_routemap\_setextcommunity}}
+\index{show\_routemap\_setextcommunity@{show\_routemap\_setextcommunity}!show\_config\_routepolicy@{show\_config\_routepolicy}}
+\doxysubsubsection{\texorpdfstring{show\_routemap\_setextcommunity()}{show\_routemap\_setextcommunity()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+routepolicy.\+show\+\_\+routemap\+\_\+setextcommunity (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+routepolicy.\+py 파일의 33 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{33 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__routepolicy_a4677af3b3a071be8428b21f18fc9825e}{show\_routemap\_setextcommunity}}(render\_tables):}
+\DoxyCodeLine{34     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/route-\/map:sonic-\/route-\/map/ROUTE\_MAP/ROUTE\_MAP\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{37         rmap = render\_tables[\textcolor{stringliteral}{'sonic-\/route-\/map:sonic-\/route-\/map/ROUTE\_MAP/ROUTE\_MAP\_LIST'}]}
+\DoxyCodeLine{38         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'set\_ext\_community\_inline'} \textcolor{keywordflow}{in} rmap:}
+\DoxyCodeLine{39             coms = rmap[\textcolor{stringliteral}{'set\_ext\_community\_inline'}]}
+\DoxyCodeLine{40             \textcolor{keywordflow}{for} item \textcolor{keywordflow}{in} coms:}
+\DoxyCodeLine{41                \textcolor{comment}{\#leaf list will come like "route-\/target:44:22,route-\/target:77:99"}}
+\DoxyCodeLine{42                \textcolor{comment}{\# remove route-\/target/route-\/origin and show"}}
+\DoxyCodeLine{43                \textcolor{keywordflow}{if} \textcolor{stringliteral}{'route-\/target'} \textcolor{keywordflow}{in} item:}
+\DoxyCodeLine{44                   cmd\_str = cmd\_str + \textcolor{stringliteral}{"set extcommunity rt "} + item[13:] + \textcolor{stringliteral}{";"}}
+\DoxyCodeLine{45                \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'route-\/origin'} \textcolor{keywordflow}{in} item:}
+\DoxyCodeLine{46                   cmd\_str = cmd\_str + \textcolor{stringliteral}{"set extcommunity soo "} + item[13:] + \textcolor{stringliteral}{";"}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{49 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceshow__config__routepolicy_a51345c630a6993d7eb64bfa142330539}\label{namespaceshow__config__routepolicy_a51345c630a6993d7eb64bfa142330539}} 
+\index{show\_config\_routepolicy@{show\_config\_routepolicy}!show\_v4prefix\_lists@{show\_v4prefix\_lists}}
+\index{show\_v4prefix\_lists@{show\_v4prefix\_lists}!show\_config\_routepolicy@{show\_config\_routepolicy}}
+\doxysubsubsection{\texorpdfstring{show\_v4prefix\_lists()}{show\_v4prefix\_lists()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+routepolicy.\+show\+\_\+v4prefix\+\_\+lists (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+routepolicy.\+py 파일의 234 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{234 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__routepolicy_a51345c630a6993d7eb64bfa142330539}{show\_v4prefix\_lists}}(render\_tables):}
+\DoxyCodeLine{235     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceshow__config__routepolicy_a00e85c40db885ae58c7e6263d8c2024c}{show\_prefix\_lists}}(render\_tables, \textcolor{stringliteral}{"IPv4"})}
+\DoxyCodeLine{236 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d52/namespaceshow__config__routepolicy_a51345c630a6993d7eb64bfa142330539_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__routepolicy_a899e26f71288b413506bb65dc14eba1e}\label{namespaceshow__config__routepolicy_a899e26f71288b413506bb65dc14eba1e}} 
+\index{show\_config\_routepolicy@{show\_config\_routepolicy}!show\_v6prefix\_lists@{show\_v6prefix\_lists}}
+\index{show\_v6prefix\_lists@{show\_v6prefix\_lists}!show\_config\_routepolicy@{show\_config\_routepolicy}}
+\doxysubsubsection{\texorpdfstring{show\_v6prefix\_lists()}{show\_v6prefix\_lists()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+routepolicy.\+show\+\_\+v6prefix\+\_\+lists (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+routepolicy.\+py 파일의 237 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{237 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__routepolicy_a899e26f71288b413506bb65dc14eba1e}{show\_v6prefix\_lists}}(render\_tables):}
+\DoxyCodeLine{238     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceshow__config__routepolicy_a00e85c40db885ae58c7e6263d8c2024c}{show\_prefix\_lists}}(render\_tables, \textcolor{stringliteral}{"IPv6"})}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d52/namespaceshow__config__routepolicy_a899e26f71288b413506bb65dc14eba1e_cgraph}
+\end{center}
+\end{figure}

@@ -1,0 +1,179 @@
+\hypertarget{namespacesonic__cli__clear__bgp}{}\doxysection{sonic\+\_\+cli\+\_\+clear\+\_\+bgp 네임스페이스 참조}
+\label{namespacesonic__cli__clear__bgp}\index{sonic\_cli\_clear\_bgp@{sonic\_cli\_clear\_bgp}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__clear__bgp_ad3f15263387b7729ebce8a5a352a412c}{clear\+\_\+bgp\+\_\+api}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__clear__bgp_adb39d98b37db66a9a6be9b4fdc82913d}{run}} (\mbox{\hyperlink{namespacesonic__cli__clear__bgp_a7ef68f1ae52c13043959ce6a9350b41a}{func}}, args)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacesonic__cli__clear__bgp_a7ef68f1ae52c13043959ce6a9350b41a}{func}} = sys.\+argv\mbox{[}1\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__clear__bgp_ad3f15263387b7729ebce8a5a352a412c}\label{namespacesonic__cli__clear__bgp_ad3f15263387b7729ebce8a5a352a412c}} 
+\index{sonic\_cli\_clear\_bgp@{sonic\_cli\_clear\_bgp}!clear\_bgp\_api@{clear\_bgp\_api}}
+\index{clear\_bgp\_api@{clear\_bgp\_api}!sonic\_cli\_clear\_bgp@{sonic\_cli\_clear\_bgp}}
+\doxysubsubsection{\texorpdfstring{clear\_bgp\_api()}{clear\_bgp\_api()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+clear\+\_\+bgp.\+clear\+\_\+bgp\+\_\+api (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+clear\+\_\+bgp.\+py 파일의 23 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__clear__bgp_ad3f15263387b7729ebce8a5a352a412c}{clear\_bgp\_api}}(args):}
+\DoxyCodeLine{24    api = cc.ApiClient()}
+\DoxyCodeLine{25    keypath = []}
+\DoxyCodeLine{26    body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{27    asnval = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{28    address = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{29    vrfname = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{30    prefixip = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{31    ifname = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{32    pg = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{33    af = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{34    cinall = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{35    clearall = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{36    external = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{37    dampening = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{38    dampeningIndex = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{39    cin = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{40    cout = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{41    soft = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{42    asn, asnval = args[0].split(\textcolor{stringliteral}{"="})}
+\DoxyCodeLine{43    nipv4, nipv4ip = args[1].split(\textcolor{stringliteral}{"="})}
+\DoxyCodeLine{44    nipv6, nipv6ip = args[2].split(\textcolor{stringliteral}{"="})}
+\DoxyCodeLine{45    \textcolor{keywordflow}{if} args[3] == \textcolor{stringliteral}{'cleartype=ip-\/prefix'}:}
+\DoxyCodeLine{46        \textcolor{comment}{\# clear bgp ipv4/v6 unicast [vrf X] <ipv4-\/prefix>}}
+\DoxyCodeLine{47        prefixip = args[11] \textcolor{keywordflow}{if} args[9] == \textcolor{stringliteral}{'vrf'} \textcolor{keywordflow}{else} args[9]}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49    \textcolor{keywordflow}{if} args[5] == \textcolor{stringliteral}{'clearall'}:}
+\DoxyCodeLine{50        clearall = \textcolor{keyword}{True}}
+\DoxyCodeLine{51  }
+\DoxyCodeLine{52    i = 6}
+\DoxyCodeLine{53    \textcolor{keywordflow}{for} arg \textcolor{keywordflow}{in} args[6:]:}
+\DoxyCodeLine{54         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"vrf"} == arg:}
+\DoxyCodeLine{55            vrfname = args[i+1]}
+\DoxyCodeLine{56         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"interface"} == arg:}
+\DoxyCodeLine{57            ifname = args[i+1]}
+\DoxyCodeLine{58         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"peer-\/group"} == arg:}
+\DoxyCodeLine{59            pg = args[i+1]}
+\DoxyCodeLine{60         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"ipv4"} == arg:}
+\DoxyCodeLine{61            af = \textcolor{stringliteral}{"IPv4"}}
+\DoxyCodeLine{62         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"ipv6"} == arg:}
+\DoxyCodeLine{63            af = \textcolor{stringliteral}{"IPv6"}}
+\DoxyCodeLine{64         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"evpn"} == arg:}
+\DoxyCodeLine{65            af = \textcolor{stringliteral}{"EVPN"}}
+\DoxyCodeLine{66         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"*"} == arg:}
+\DoxyCodeLine{67            cinall = \textcolor{keyword}{True}}
+\DoxyCodeLine{68         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"external"} == arg:}
+\DoxyCodeLine{69            external = \textcolor{keyword}{True}}
+\DoxyCodeLine{70         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"dampening"} == arg:}
+\DoxyCodeLine{71            dampeningIndex = i}
+\DoxyCodeLine{72         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"in"} == arg:}
+\DoxyCodeLine{73            cin = \textcolor{keyword}{True}}
+\DoxyCodeLine{74         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"out"} == arg:}
+\DoxyCodeLine{75            cout = \textcolor{keyword}{True}}
+\DoxyCodeLine{76         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"soft"} == arg:}
+\DoxyCodeLine{77            soft = \textcolor{keyword}{True}}
+\DoxyCodeLine{78         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{79            \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{80         i = i + 1}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82    \textcolor{keywordflow}{if} dampeningIndex != \textcolor{stringliteral}{""}:}
+\DoxyCodeLine{83       af = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{84       vrfname = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{85       pg = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{86       external = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{87       ifname = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{88       dampening = \textcolor{keyword}{True};}
+\DoxyCodeLine{89       \textcolor{keywordflow}{if} len(args) > 8:}
+\DoxyCodeLine{90          \textcolor{keywordflow}{if} args[4] == \textcolor{stringliteral}{'dampopt=ip-\/prefix'}:}
+\DoxyCodeLine{91             prefixip = args [dampeningIndex + 1]}
+\DoxyCodeLine{92          \textcolor{keywordflow}{elif} args[4] == \textcolor{stringliteral}{'dampopt=ip-\/addr'}:}
+\DoxyCodeLine{93             address = args [dampeningIndex + 1]}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95    \textcolor{keywordflow}{if} nipv4ip != \textcolor{stringliteral}{""}:}
+\DoxyCodeLine{96       address = nipv4ip}
+\DoxyCodeLine{97    \textcolor{keywordflow}{if} nipv6ip != \textcolor{stringliteral}{""}:}
+\DoxyCodeLine{98       address = nipv6ip}
+\DoxyCodeLine{99    keypath = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/bgp-\/clear:clear-\/bgp'})}
+\DoxyCodeLine{100    \textcolor{keywordflow}{if} clearall == \textcolor{keyword}{True}:}
+\DoxyCodeLine{101       \textcolor{keywordflow}{if} asnval != \textcolor{stringliteral}{""}:}
+\DoxyCodeLine{102           body = \{\textcolor{stringliteral}{"sonic-\/bgp-\/clear:input"}: \{ \textcolor{stringliteral}{"clear-\/all"}: clearall, \textcolor{stringliteral}{"vrf-\/name"}: vrfname, \textcolor{stringliteral}{"all"}: cinall, \textcolor{stringliteral}{"address"}: address, \textcolor{stringliteral}{"interface"}: ifname, \textcolor{stringliteral}{"asn"}: int(asnval), \textcolor{stringliteral}{"prefix"}: prefixip, \textcolor{stringliteral}{"peer-\/group"}: pg, \textcolor{stringliteral}{"external"}: external, \textcolor{stringliteral}{"in"}: cin, \textcolor{stringliteral}{"out"}: cout, \textcolor{stringliteral}{"soft"}: soft\}\}}
+\DoxyCodeLine{103       \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{104           body = \{\textcolor{stringliteral}{"sonic-\/bgp-\/clear:input"}: \{ \textcolor{stringliteral}{"clear-\/all"}: clearall, \textcolor{stringliteral}{"vrf-\/name"}: vrfname, \textcolor{stringliteral}{"all"}: cinall, \textcolor{stringliteral}{"dampening"}: dampening, \textcolor{stringliteral}{"address"}: address, \textcolor{stringliteral}{"interface"}: ifname, \textcolor{stringliteral}{"prefix"}: prefixip, \textcolor{stringliteral}{"peer-\/group"}: pg, \textcolor{stringliteral}{"external"}: external, \textcolor{stringliteral}{"in"}: cin, \textcolor{stringliteral}{"out"}: cout, \textcolor{stringliteral}{"soft"}: soft\}\}}
+\DoxyCodeLine{105    \textcolor{keywordflow}{elif} asnval != \textcolor{stringliteral}{""}:}
+\DoxyCodeLine{106       body = \{\textcolor{stringliteral}{"sonic-\/bgp-\/clear:input"}: \{ \textcolor{stringliteral}{"vrf-\/name"}: vrfname, \textcolor{stringliteral}{"family"}: af, \textcolor{stringliteral}{"all"}: cinall, \textcolor{stringliteral}{"address"}: address, \textcolor{stringliteral}{"interface"}: ifname, \textcolor{stringliteral}{"asn"}: int(asnval), \textcolor{stringliteral}{"prefix"}: prefixip, \textcolor{stringliteral}{"peer-\/group"}: pg, \textcolor{stringliteral}{"external"}: external, \textcolor{stringliteral}{"in"}: cin, \textcolor{stringliteral}{"out"}: cout, \textcolor{stringliteral}{"soft"}: soft\}\}}
+\DoxyCodeLine{107    \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{108       body = \{\textcolor{stringliteral}{"sonic-\/bgp-\/clear:input"}: \{ \textcolor{stringliteral}{"vrf-\/name"}: vrfname, \textcolor{stringliteral}{"family"}: af, \textcolor{stringliteral}{"all"}: cinall, \textcolor{stringliteral}{"dampening"}: dampening, \textcolor{stringliteral}{"address"}: address, \textcolor{stringliteral}{"interface"}: ifname, \textcolor{stringliteral}{"prefix"}: prefixip, \textcolor{stringliteral}{"peer-\/group"}: pg, \textcolor{stringliteral}{"external"}: external, \textcolor{stringliteral}{"in"}: cin, \textcolor{stringliteral}{"out"}: cout, \textcolor{stringliteral}{"soft"}: soft\}\}}
+\DoxyCodeLine{109    \textcolor{keywordflow}{return} api.post(keypath, body)}
+\DoxyCodeLine{110 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/de8/namespacesonic__cli__clear__bgp_ad3f15263387b7729ebce8a5a352a412c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__clear__bgp_adb39d98b37db66a9a6be9b4fdc82913d}\label{namespacesonic__cli__clear__bgp_adb39d98b37db66a9a6be9b4fdc82913d}} 
+\index{sonic\_cli\_clear\_bgp@{sonic\_cli\_clear\_bgp}!run@{run}}
+\index{run@{run}!sonic\_cli\_clear\_bgp@{sonic\_cli\_clear\_bgp}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+clear\+\_\+bgp.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+clear\+\_\+bgp.\+py 파일의 111 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{111 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__clear__bgp_adb39d98b37db66a9a6be9b4fdc82913d}{run}}(func, args):}
+\DoxyCodeLine{112     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'clear\_bgp'}:}
+\DoxyCodeLine{113         response = \mbox{\hyperlink{namespacesonic__cli__clear__bgp_ad3f15263387b7729ebce8a5a352a412c}{clear\_bgp\_api}}(args)}
+\DoxyCodeLine{114         \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{115             \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{116                 \textcolor{comment}{\# Get Command Output}}
+\DoxyCodeLine{117                 api\_response = response.content}
+\DoxyCodeLine{118                 \textcolor{keywordflow}{if} api\_response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{119                     print(\textcolor{stringliteral}{"Failed"})}
+\DoxyCodeLine{120                     sys.exit(1)}
+\DoxyCodeLine{121         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{122             \textcolor{keywordflow}{print} response.error\_message()}
+\DoxyCodeLine{123             sys.exit(1)}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{126        \textcolor{keywordflow}{return}}
+\DoxyCodeLine{127 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/de8/namespacesonic__cli__clear__bgp_adb39d98b37db66a9a6be9b4fdc82913d_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__clear__bgp_a7ef68f1ae52c13043959ce6a9350b41a}\label{namespacesonic__cli__clear__bgp_a7ef68f1ae52c13043959ce6a9350b41a}} 
+\index{sonic\_cli\_clear\_bgp@{sonic\_cli\_clear\_bgp}!func@{func}}
+\index{func@{func}!sonic\_cli\_clear\_bgp@{sonic\_cli\_clear\_bgp}}
+\doxysubsubsection{\texorpdfstring{func}{func}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+clear\+\_\+bgp.\+func = sys.\+argv\mbox{[}1\mbox{]}}
+
+
+
+sonic\+\_\+cli\+\_\+clear\+\_\+bgp.\+py 파일의 131 번째 라인에서 정의되었습니다.
+

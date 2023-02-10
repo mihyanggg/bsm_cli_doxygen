@@ -1,0 +1,241 @@
+\hypertarget{namespacesonic__cli__watermark}{}\doxysection{sonic\+\_\+cli\+\_\+watermark 네임스페이스 참조}
+\label{namespacesonic__cli__watermark}\index{sonic\_cli\_watermark@{sonic\_cli\_watermark}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__watermark_a161b21dbf4469f652f71d3faa5fb0bca}{invoke\+\_\+api}} (\mbox{\hyperlink{namespacesonic__cli__watermark_a192f58221d4eca9c87c0abe0ea057eb0}{func}}, args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__watermark_aa967e7da325b2d5eafb80524c96eedfe}{get\+\_\+list\+\_\+sonic\+\_\+watermark\+\_\+sonic\+\_\+watermark\+\_\+watermark\+\_\+table\+\_\+watermark\+\_\+table\+\_\+list}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__watermark_aa9200a38d5cc06bea097102b4bf44d46}{get\+\_\+list\+\_\+sonic\+\_\+watermark\+\_\+sonic\+\_\+watermark\+\_\+snapshot\+\_\+table\+\_\+snapshot\+\_\+table\+\_\+list}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__watermark_a7addb0edc6ea20b6bd3e87e5113d1853}{run}} (\mbox{\hyperlink{namespacesonic__cli__watermark_a192f58221d4eca9c87c0abe0ea057eb0}{func}}, args)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacesonic__cli__watermark_a192f58221d4eca9c87c0abe0ea057eb0}{func}} = sys.\+argv\mbox{[}1\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__watermark_aa9200a38d5cc06bea097102b4bf44d46}\label{namespacesonic__cli__watermark_aa9200a38d5cc06bea097102b4bf44d46}} 
+\index{sonic\_cli\_watermark@{sonic\_cli\_watermark}!get\_list\_sonic\_watermark\_sonic\_watermark\_snapshot\_table\_snapshot\_table\_list@{get\_list\_sonic\_watermark\_sonic\_watermark\_snapshot\_table\_snapshot\_table\_list}}
+\index{get\_list\_sonic\_watermark\_sonic\_watermark\_snapshot\_table\_snapshot\_table\_list@{get\_list\_sonic\_watermark\_sonic\_watermark\_snapshot\_table\_snapshot\_table\_list}!sonic\_cli\_watermark@{sonic\_cli\_watermark}}
+\doxysubsubsection{\texorpdfstring{get\_list\_sonic\_watermark\_sonic\_watermark\_snapshot\_table\_snapshot\_table\_list()}{get\_list\_sonic\_watermark\_sonic\_watermark\_snapshot\_table\_snapshot\_table\_list()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+watermark.\+get\+\_\+list\+\_\+sonic\+\_\+watermark\+\_\+sonic\+\_\+watermark\+\_\+snapshot\+\_\+table\+\_\+snapshot\+\_\+table\+\_\+list (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+watermark.\+py 파일의 51 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{51 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__watermark_aa9200a38d5cc06bea097102b4bf44d46}{get\_list\_sonic\_watermark\_sonic\_watermark\_snapshot\_table\_snapshot\_table\_list}}(args):}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     api\_response = \{\}}
+\DoxyCodeLine{54     api = cc.ApiClient()}
+\DoxyCodeLine{55     path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/watermark:sonic-\/watermark/SNAPSHOT\_TABLE/SNAPSHOT\_TABLE\_LIST'})}
+\DoxyCodeLine{56     response = api.get(path)}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{59         \textcolor{keywordflow}{if} response.content:}
+\DoxyCodeLine{60             api\_response = response.content[\textcolor{stringliteral}{'sonic-\/watermark:SNAPSHOT\_TABLE\_LIST'}]}
+\DoxyCodeLine{61             \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(len(api\_response)):}
+\DoxyCodeLine{62                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'interval'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} api\_response[i]:}
+\DoxyCodeLine{63                    print(\textcolor{stringliteral}{"Failed : Required mandatory parameters are not found"})}
+\DoxyCodeLine{64                    \textcolor{keywordflow}{return}}
+\DoxyCodeLine{65         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{66         api\_response = [\{\textcolor{stringliteral}{"interval"}:10\}] }
+\DoxyCodeLine{67     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{68         \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\%Error: REST API transaction failure"}}
+\DoxyCodeLine{69     \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{"show\_watermark\_snapshot\_interval.j2"}, api\_response)}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d17/namespacesonic__cli__watermark_aa9200a38d5cc06bea097102b4bf44d46_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d17/namespacesonic__cli__watermark_aa9200a38d5cc06bea097102b4bf44d46_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__watermark_aa967e7da325b2d5eafb80524c96eedfe}\label{namespacesonic__cli__watermark_aa967e7da325b2d5eafb80524c96eedfe}} 
+\index{sonic\_cli\_watermark@{sonic\_cli\_watermark}!get\_list\_sonic\_watermark\_sonic\_watermark\_watermark\_table\_watermark\_table\_list@{get\_list\_sonic\_watermark\_sonic\_watermark\_watermark\_table\_watermark\_table\_list}}
+\index{get\_list\_sonic\_watermark\_sonic\_watermark\_watermark\_table\_watermark\_table\_list@{get\_list\_sonic\_watermark\_sonic\_watermark\_watermark\_table\_watermark\_table\_list}!sonic\_cli\_watermark@{sonic\_cli\_watermark}}
+\doxysubsubsection{\texorpdfstring{get\_list\_sonic\_watermark\_sonic\_watermark\_watermark\_table\_watermark\_table\_list()}{get\_list\_sonic\_watermark\_sonic\_watermark\_watermark\_table\_watermark\_table\_list()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+watermark.\+get\+\_\+list\+\_\+sonic\+\_\+watermark\+\_\+sonic\+\_\+watermark\+\_\+watermark\+\_\+table\+\_\+watermark\+\_\+table\+\_\+list (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+watermark.\+py 파일의 30 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{30 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__watermark_aa967e7da325b2d5eafb80524c96eedfe}{get\_list\_sonic\_watermark\_sonic\_watermark\_watermark\_table\_watermark\_table\_list}}(args):}
+\DoxyCodeLine{31    }
+\DoxyCodeLine{32     api\_response = \{\}}
+\DoxyCodeLine{33     api = cc.ApiClient()}
+\DoxyCodeLine{34     path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/watermark:sonic-\/watermark/WATERMARK\_TABLE/WATERMARK\_TABLE\_LIST'})}
+\DoxyCodeLine{35     response = api.get(path)}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{38         \textcolor{keywordflow}{if} response.content:}
+\DoxyCodeLine{39             api\_response = response.content[\textcolor{stringliteral}{'sonic-\/watermark:WATERMARK\_TABLE\_LIST'}]}
+\DoxyCodeLine{40             \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(len(api\_response)):}
+\DoxyCodeLine{41                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'interval'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} api\_response[i]:}
+\DoxyCodeLine{42                    print(\textcolor{stringliteral}{"Failed : Required mandatory parameters are not found"})}
+\DoxyCodeLine{43                    \textcolor{keywordflow}{return}}
+\DoxyCodeLine{44         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{45         api\_response = [\{\textcolor{stringliteral}{"interval"}:120\}] }
+\DoxyCodeLine{46     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{47         \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\%Error: REST API transaction failure"}}
+\DoxyCodeLine{48     \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{"show\_watermark\_telemetry\_interval.j2"}, api\_response)}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d17/namespacesonic__cli__watermark_aa967e7da325b2d5eafb80524c96eedfe_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d17/namespacesonic__cli__watermark_aa967e7da325b2d5eafb80524c96eedfe_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__watermark_a161b21dbf4469f652f71d3faa5fb0bca}\label{namespacesonic__cli__watermark_a161b21dbf4469f652f71d3faa5fb0bca}} 
+\index{sonic\_cli\_watermark@{sonic\_cli\_watermark}!invoke\_api@{invoke\_api}}
+\index{invoke\_api@{invoke\_api}!sonic\_cli\_watermark@{sonic\_cli\_watermark}}
+\doxysubsubsection{\texorpdfstring{invoke\_api()}{invoke\_api()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+watermark.\+invoke\+\_\+api (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+watermark.\+py 파일의 6 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{6 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__watermark_a161b21dbf4469f652f71d3faa5fb0bca}{invoke\_api}}(func, args):}
+\DoxyCodeLine{7     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{8     api = cc.ApiClient()}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10     \textcolor{comment}{\# Set/Get/Delete WATERMARK\_TABLE/SNAPSHOT\_TABLE table entries.}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_sonic\_watermark\_sonic\_watermark\_watermark\_table\_watermark\_table\_list\_interval'}:}
+\DoxyCodeLine{13        path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/watermark:sonic-\/watermark/WATERMARK\_TABLE/WATERMARK\_TABLE\_LIST'})}
+\DoxyCodeLine{14        body = \{ \textcolor{stringliteral}{"sonic-\/watermark:WATERMARK\_TABLE\_LIST"}: [ \{\textcolor{stringliteral}{"telemetryIntarvalPrefix"}: \textcolor{stringliteral}{'TELEMETRY\_INTERVAL'}, \textcolor{stringliteral}{"interval"}: int(args[3])\} ] \}}
+\DoxyCodeLine{15        \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_sonic\_watermark\_sonic\_watermark\_snapshot\_table\_snapshot\_table\_list\_interval'}:}
+\DoxyCodeLine{18        path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/watermark:sonic-\/watermark/SNAPSHOT\_TABLE/SNAPSHOT\_TABLE\_LIST'})}
+\DoxyCodeLine{19        body = \{ \textcolor{stringliteral}{"sonic-\/watermark:SNAPSHOT\_TABLE\_LIST"}: [ \{\textcolor{stringliteral}{"snapshotIntarvalPrefix"}: \textcolor{stringliteral}{"SNAPSHOT\_INTERVAL"}, \textcolor{stringliteral}{"interval"}: int(args[2])\} ] \}}
+\DoxyCodeLine{20        \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_list\_sonic\_watermark\_sonic\_watermark\_snapshot\_table\_snapshot\_table\_list'}:}
+\DoxyCodeLine{23        path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/watermark:sonic-\/watermark/SNAPSHOT\_TABLE/SNAPSHOT\_TABLE\_LIST'})}
+\DoxyCodeLine{24        \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_list\_sonic\_watermark\_sonic\_watermark\_watermark\_table\_watermark\_table\_list'}:}
+\DoxyCodeLine{27        path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/watermark:sonic-\/watermark/WATERMARK\_TABLE/WATERMARK\_TABLE\_LIST'})}
+\DoxyCodeLine{28        \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{29 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d17/namespacesonic__cli__watermark_a161b21dbf4469f652f71d3faa5fb0bca_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__watermark_a7addb0edc6ea20b6bd3e87e5113d1853}\label{namespacesonic__cli__watermark_a7addb0edc6ea20b6bd3e87e5113d1853}} 
+\index{sonic\_cli\_watermark@{sonic\_cli\_watermark}!run@{run}}
+\index{run@{run}!sonic\_cli\_watermark@{sonic\_cli\_watermark}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+watermark.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+watermark.\+py 파일의 72 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{72 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__watermark_a7addb0edc6ea20b6bd3e87e5113d1853}{run}}(func, args):}
+\DoxyCodeLine{73     }
+\DoxyCodeLine{74     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'get\_list\_sonic\_watermark\_sonic\_watermark\_watermark\_table\_watermark\_table\_list'}:}
+\DoxyCodeLine{75     \mbox{\hyperlink{namespacesonic__cli__watermark_aa967e7da325b2d5eafb80524c96eedfe}{get\_list\_sonic\_watermark\_sonic\_watermark\_watermark\_table\_watermark\_table\_list}}(args)}
+\DoxyCodeLine{76     \textcolor{keywordflow}{return}}
+\DoxyCodeLine{77     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_list\_sonic\_watermark\_sonic\_watermark\_snapshot\_table\_snapshot\_table\_list'}:}
+\DoxyCodeLine{78     \mbox{\hyperlink{namespacesonic__cli__watermark_aa9200a38d5cc06bea097102b4bf44d46}{get\_list\_sonic\_watermark\_sonic\_watermark\_snapshot\_table\_snapshot\_table\_list}}(args)}
+\DoxyCodeLine{79     \textcolor{keywordflow}{return}}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81     response = \mbox{\hyperlink{namespacesonic__cli__watermark_a161b21dbf4469f652f71d3faa5fb0bca}{invoke\_api}}(func, args)}
+\DoxyCodeLine{82     \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{83         \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{84             \textcolor{comment}{\# Get Command Output}}
+\DoxyCodeLine{85             api\_response = response.content}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87             \textcolor{keywordflow}{if} api\_response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{88                 print(\textcolor{stringliteral}{"Failed"})}
+\DoxyCodeLine{89     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{90             api\_response = response.content}
+\DoxyCodeLine{91             \textcolor{keywordflow}{if} \textcolor{stringliteral}{"ietf-\/restconf:errors"} \textcolor{keywordflow}{in} api\_response:}
+\DoxyCodeLine{92                  err = api\_response[\textcolor{stringliteral}{"ietf-\/restconf:errors"}]}
+\DoxyCodeLine{93                  \textcolor{keywordflow}{if} \textcolor{stringliteral}{"error"} \textcolor{keywordflow}{in} err:}
+\DoxyCodeLine{94                      errList = err[\textcolor{stringliteral}{"error"}]}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96                      errDict = \{\}}
+\DoxyCodeLine{97                      \textcolor{keywordflow}{for} dict \textcolor{keywordflow}{in} errList:}
+\DoxyCodeLine{98                          \textcolor{keywordflow}{for} k, v \textcolor{keywordflow}{in} dict.iteritems():}
+\DoxyCodeLine{99                               errDict[k] = v}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101                      \textcolor{keywordflow}{if} \textcolor{stringliteral}{"error-\/message"} \textcolor{keywordflow}{in} errDict:}
+\DoxyCodeLine{102                          \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\%Error: "} + errDict[\textcolor{stringliteral}{"error-\/message"}]}
+\DoxyCodeLine{103                          \textcolor{keywordflow}{return}}
+\DoxyCodeLine{104                      \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\%Error: Transaction Failure"}}
+\DoxyCodeLine{105                      \textcolor{keywordflow}{return}}
+\DoxyCodeLine{106             \textcolor{keywordflow}{print} response.error\_message()}
+\DoxyCodeLine{107             \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\%Error: Transaction Failure"}}
+\DoxyCodeLine{108 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d17/namespacesonic__cli__watermark_a7addb0edc6ea20b6bd3e87e5113d1853_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__watermark_a192f58221d4eca9c87c0abe0ea057eb0}\label{namespacesonic__cli__watermark_a192f58221d4eca9c87c0abe0ea057eb0}} 
+\index{sonic\_cli\_watermark@{sonic\_cli\_watermark}!func@{func}}
+\index{func@{func}!sonic\_cli\_watermark@{sonic\_cli\_watermark}}
+\doxysubsubsection{\texorpdfstring{func}{func}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+watermark.\+func = sys.\+argv\mbox{[}1\mbox{]}}
+
+
+
+sonic\+\_\+cli\+\_\+watermark.\+py 파일의 111 번째 라인에서 정의되었습니다.
+

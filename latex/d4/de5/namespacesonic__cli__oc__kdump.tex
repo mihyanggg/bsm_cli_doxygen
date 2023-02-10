@@ -1,0 +1,200 @@
+\hypertarget{namespacesonic__cli__oc__kdump}{}\doxysection{sonic\+\_\+cli\+\_\+oc\+\_\+kdump 네임스페이스 참조}
+\label{namespacesonic__cli__oc__kdump}\index{sonic\_cli\_oc\_kdump@{sonic\_cli\_oc\_kdump}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__oc__kdump_a64eb67a74293f4f60ff7186b72d960a4}{invoke}} (func, args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__oc__kdump_ad0a9c455e78a0fee7c146d3023b3a478}{show\+\_\+kdump\+\_\+record}} (args, value)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__oc__kdump_ac8be12dca2c8d6360173afd5285ad66f}{run}} (func, args)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__oc__kdump_a64eb67a74293f4f60ff7186b72d960a4}\label{namespacesonic__cli__oc__kdump_a64eb67a74293f4f60ff7186b72d960a4}} 
+\index{sonic\_cli\_oc\_kdump@{sonic\_cli\_oc\_kdump}!invoke@{invoke}}
+\index{invoke@{invoke}!sonic\_cli\_oc\_kdump@{sonic\_cli\_oc\_kdump}}
+\doxysubsubsection{\texorpdfstring{invoke()}{invoke()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+oc\+\_\+kdump.\+invoke (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+oc\+\_\+kdump.\+py 파일의 6 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{6 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__oc__kdump_a64eb67a74293f4f60ff7186b72d960a4}{invoke}}(func, args):}
+\DoxyCodeLine{7     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{8     cl = cc.ApiClient()}
+\DoxyCodeLine{9     msg = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11     \textcolor{keywordflow}{if} func \textcolor{keywordflow}{in} [\textcolor{stringliteral}{'memory'}, \textcolor{stringliteral}{'num\_dumps'}]:}
+\DoxyCodeLine{12         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/system:system/openconfig-\/system-\/ext:kdump/state'})}
+\DoxyCodeLine{13         \textcolor{keywordflow}{return} cl.get(path)}
+\DoxyCodeLine{14     \textcolor{keywordflow}{elif} func \textcolor{keywordflow}{in} [\textcolor{stringliteral}{'status'}]:}
+\DoxyCodeLine{15         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/system:system/openconfig-\/system-\/ext:kdump/state'})}
+\DoxyCodeLine{16         \textcolor{keywordflow}{return} cl.get(path)}
+\DoxyCodeLine{17     \textcolor{keywordflow}{elif} func \textcolor{keywordflow}{in} [\textcolor{stringliteral}{'files'}, \textcolor{stringliteral}{'log'}]:}
+\DoxyCodeLine{18         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/system:system/openconfig-\/system-\/ext:kdump/kdump-\/records'})}
+\DoxyCodeLine{19         \textcolor{keywordflow}{return} cl.get(path)}
+\DoxyCodeLine{20     \textcolor{keywordflow}{else}: }
+\DoxyCodeLine{21         msg = \textcolor{stringliteral}{"Kdump configuration has been updated in the startup configuration"}}
+\DoxyCodeLine{22         mem\_msg = \textcolor{stringliteral}{"\(\backslash\)nKdump updated memory will be only operational after the system reboots"}}
+\DoxyCodeLine{23         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/system:system/openconfig-\/system-\/ext:kdump/config'})}
+\DoxyCodeLine{24         \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'enable'} \textcolor{keywordflow}{or} func == \textcolor{stringliteral}{'disable'}:}
+\DoxyCodeLine{25             body = \{}
+\DoxyCodeLine{26                        \textcolor{stringliteral}{"openconfig-\/system-\/ext:config"}: \{}
+\DoxyCodeLine{27                            \textcolor{stringliteral}{"enable"}: \textcolor{keyword}{False} \textcolor{keywordflow}{if}  func == \textcolor{stringliteral}{'disable'} \textcolor{keywordflow}{else} \textcolor{keyword}{True}}
+\DoxyCodeLine{28                        \}}
+\DoxyCodeLine{29                    \}}
+\DoxyCodeLine{30             msg = msg + \textcolor{stringliteral}{"\(\backslash\)nKdump configuration changes will be applied after the system reboots"}}
+\DoxyCodeLine{31         \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'config'}:}
+\DoxyCodeLine{32             param = args[0]}
+\DoxyCodeLine{33             value = args[1]}
+\DoxyCodeLine{34             \textcolor{keywordflow}{if} param == \textcolor{stringliteral}{'memory'}:}
+\DoxyCodeLine{35                 msg = msg + mem\_msg}
+\DoxyCodeLine{36             \textcolor{keywordflow}{elif} param == \textcolor{stringliteral}{'max-\/dumps'}:}
+\DoxyCodeLine{37                 value = int(args[1])}
+\DoxyCodeLine{38             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{39                 \textcolor{keywordflow}{return} \textcolor{keywordtype}{None}}
+\DoxyCodeLine{40             body = \{}
+\DoxyCodeLine{41                        \textcolor{stringliteral}{"openconfig-\/system-\/ext:config"}: \{}
+\DoxyCodeLine{42                           param : value}
+\DoxyCodeLine{43                        \}}
+\DoxyCodeLine{44                    \}}
+\DoxyCodeLine{45         \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'reset'}:}
+\DoxyCodeLine{46             \textcolor{keywordflow}{if} args[0] == \textcolor{stringliteral}{'memory'}:}
+\DoxyCodeLine{47                 msg = msg + mem\_msg}
+\DoxyCodeLine{48             \textcolor{keywordflow}{elif} args[0] != \textcolor{stringliteral}{'max-\/dumps'}:}
+\DoxyCodeLine{49                 \textcolor{keywordflow}{return} \textcolor{keywordtype}{None}}
+\DoxyCodeLine{50             path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/system:system/openconfig-\/system-\/ext:kdump/config/\{\}'}.format(args[0]))}
+\DoxyCodeLine{51             res = cl.delete(path)}
+\DoxyCodeLine{52             \textcolor{keywordflow}{if} res.ok():}
+\DoxyCodeLine{53                print(msg)}
+\DoxyCodeLine{54             \textcolor{keywordflow}{return} res}
+\DoxyCodeLine{55         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{56             \textcolor{keywordflow}{return} \textcolor{keywordtype}{None}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58         res = cl.patch(path,body)}
+\DoxyCodeLine{59         \textcolor{keywordflow}{if} res.ok():}
+\DoxyCodeLine{60             print(msg)}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62         \textcolor{keywordflow}{return} res}
+\DoxyCodeLine{63 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d4/de5/namespacesonic__cli__oc__kdump_a64eb67a74293f4f60ff7186b72d960a4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__oc__kdump_ac8be12dca2c8d6360173afd5285ad66f}\label{namespacesonic__cli__oc__kdump_ac8be12dca2c8d6360173afd5285ad66f}} 
+\index{sonic\_cli\_oc\_kdump@{sonic\_cli\_oc\_kdump}!run@{run}}
+\index{run@{run}!sonic\_cli\_oc\_kdump@{sonic\_cli\_oc\_kdump}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+oc\+\_\+kdump.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+oc\+\_\+kdump.\+py 파일의 85 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{85 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__oc__kdump_ac8be12dca2c8d6360173afd5285ad66f}{run}}(func, args):}
+\DoxyCodeLine{86     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{87         api\_response = \mbox{\hyperlink{namespacesonic__cli__oc__kdump_a64eb67a74293f4f60ff7186b72d960a4}{invoke}}(func, args)}
+\DoxyCodeLine{88         \textcolor{keywordflow}{if} api\_response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{89             print(\textcolor{stringliteral}{"Invalid input parameters"})}
+\DoxyCodeLine{90             \textcolor{keywordflow}{return} -\/1}
+\DoxyCodeLine{91         \textcolor{keywordflow}{elif} api\_response.ok():}
+\DoxyCodeLine{92             \textcolor{keywordflow}{if} api\_response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{93                 response = api\_response.content}
+\DoxyCodeLine{94                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/system-\/ext:state'} \textcolor{keywordflow}{in} response.keys():}
+\DoxyCodeLine{95                     value = response[\textcolor{stringliteral}{'openconfig-\/system-\/ext:state'}]}
+\DoxyCodeLine{96                     \textcolor{keywordflow}{if} value \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{97                         \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], value)}
+\DoxyCodeLine{98                         \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'status'}:}
+\DoxyCodeLine{99                             \mbox{\hyperlink{namespacesonic__cli__oc__kdump_ac8be12dca2c8d6360173afd5285ad66f}{run}}(\textcolor{stringliteral}{'files'}, [\textcolor{stringliteral}{'show\_oc\_kdump\_files.j2'}])}
+\DoxyCodeLine{100                 \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'openconfig-\/system-\/ext:kdump-\/records'} \textcolor{keywordflow}{in} response.keys():}
+\DoxyCodeLine{101                     value = response[\textcolor{stringliteral}{'openconfig-\/system-\/ext:kdump-\/records'}]}
+\DoxyCodeLine{102                     \textcolor{keywordflow}{if} value \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{103                         \textcolor{keywordflow}{if} func != \textcolor{stringliteral}{'log'}:}
+\DoxyCodeLine{104                             \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], value)}
+\DoxyCodeLine{105                         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{106                             \mbox{\hyperlink{namespacesonic__cli__oc__kdump_ad0a9c455e78a0fee7c146d3023b3a478}{show\_kdump\_record}}(args, value)}
+\DoxyCodeLine{107                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{108                     \textcolor{keywordflow}{if} func \textcolor{keywordflow}{in} [\textcolor{stringliteral}{'status'}, \textcolor{stringliteral}{'files'}, \textcolor{stringliteral}{'log'}]:}
+\DoxyCodeLine{109                         print(\textcolor{stringliteral}{'No kernel core dump files'})}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{112             print(api\_response.error\_message())}
+\DoxyCodeLine{113             \textcolor{keywordflow}{return} -\/1}
+\DoxyCodeLine{114     \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} ex:}
+\DoxyCodeLine{115         print(ex)}
+\DoxyCodeLine{116         print(\textcolor{stringliteral}{"\%Error: Transaction Failure"})}
+\DoxyCodeLine{117         \textcolor{keywordflow}{return} -\/1}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d4/de5/namespacesonic__cli__oc__kdump_ac8be12dca2c8d6360173afd5285ad66f_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__oc__kdump_ad0a9c455e78a0fee7c146d3023b3a478}\label{namespacesonic__cli__oc__kdump_ad0a9c455e78a0fee7c146d3023b3a478}} 
+\index{sonic\_cli\_oc\_kdump@{sonic\_cli\_oc\_kdump}!show\_kdump\_record@{show\_kdump\_record}}
+\index{show\_kdump\_record@{show\_kdump\_record}!sonic\_cli\_oc\_kdump@{sonic\_cli\_oc\_kdump}}
+\doxysubsubsection{\texorpdfstring{show\_kdump\_record()}{show\_kdump\_record()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+oc\+\_\+kdump.\+show\+\_\+kdump\+\_\+record (\begin{DoxyParamCaption}\item[{}]{args,  }\item[{}]{value }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+oc\+\_\+kdump.\+py 파일의 64 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{64 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__oc__kdump_ad0a9c455e78a0fee7c146d3023b3a478}{show\_kdump\_record}}(args, value):}
+\DoxyCodeLine{65     lines = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{66     \textcolor{keywordflow}{if} len(args) == 2:}
+\DoxyCodeLine{67         record\_num = args[1]}
+\DoxyCodeLine{68     \textcolor{keywordflow}{elif} len(args) == 3:}
+\DoxyCodeLine{69         record\_num = args[1]}
+\DoxyCodeLine{70         lines = args[2]}
+\DoxyCodeLine{71     kdump\_records = value.get(\textcolor{stringliteral}{'kdump-\/record'})}
+\DoxyCodeLine{72     \textcolor{keywordflow}{if} kdump\_records \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None} \textcolor{keywordflow}{and} \(\backslash\)}
+\DoxyCodeLine{73        int(record\_num) <= len(kdump\_records) \textcolor{keywordflow}{and} int(record\_num) > 0:}
+\DoxyCodeLine{74         r = sorted(kdump\_records, reverse=\textcolor{keyword}{True})[int(record\_num)-\/1]}
+\DoxyCodeLine{75         \textcolor{keywordflow}{if} r[\textcolor{stringliteral}{'state'}][\textcolor{stringliteral}{'vmcore-\/diagnostic-\/message'}] != \textcolor{stringliteral}{''}:}
+\DoxyCodeLine{76             \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], \textcolor{stringliteral}{"File: \{\}"}.format(r[\textcolor{stringliteral}{'state'}][\textcolor{stringliteral}{'vmcore-\/diagnostic-\/message-\/file'}]))}
+\DoxyCodeLine{77             \textcolor{keywordflow}{if} lines \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{78                 output\_lines = r[\textcolor{stringliteral}{'state'}][\textcolor{stringliteral}{'vmcore-\/diagnostic-\/message'}].split(\textcolor{stringliteral}{'\(\backslash\)n'})[-\/(int(lines)+1):]}
+\DoxyCodeLine{79                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], \textcolor{stringliteral}{"\(\backslash\)n"}.join(output\_lines))}
+\DoxyCodeLine{80             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{81                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], r[\textcolor{stringliteral}{'state'}][\textcolor{stringliteral}{'vmcore-\/diagnostic-\/message'}])}
+\DoxyCodeLine{82             \textcolor{keywordflow}{return}}
+\DoxyCodeLine{83     \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], \textcolor{stringliteral}{'Kernel crash log not found'})}
+\DoxyCodeLine{84 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d4/de5/namespacesonic__cli__oc__kdump_ad0a9c455e78a0fee7c146d3023b3a478_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d4/de5/namespacesonic__cli__oc__kdump_ad0a9c455e78a0fee7c146d3023b3a478_icgraph}
+\end{center}
+\end{figure}

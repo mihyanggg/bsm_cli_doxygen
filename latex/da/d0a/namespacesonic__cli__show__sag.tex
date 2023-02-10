@@ -1,0 +1,221 @@
+\hypertarget{namespacesonic__cli__show__sag}{}\doxysection{sonic\+\_\+cli\+\_\+show\+\_\+sag 네임스페이스 참조}
+\label{namespacesonic__cli__show__sag}\index{sonic\_cli\_show\_sag@{sonic\_cli\_show\_sag}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__show__sag_ac3a9162b9edbec5670f1cad5c682470d}{get\+\_\+value}} (in\+\_\+dict, \mbox{\hyperlink{DB-PARSED_8txt_ade21f1b8207be12557c95ca35b93ef08}{ifname}}, field, default)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__show__sag_a4c3522991fd3fce8fc2e2aaf9365bd82}{get\+\_\+if\+\_\+master\+\_\+and\+\_\+oper}} (in\+\_\+data, state\+\_\+data)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__show__sag_a1baf6aa6d54e0c092a563a2cc96d5682}{invoke\+\_\+api}} (\mbox{\hyperlink{namespacesonic__cli__show__sag_a162cdd4f79c30ca002641bb2f3422fe3}{func}}, args=\mbox{[}$\,$\mbox{]})
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__show__sag_ae50654402db8f239474739efc6491c48}{run}} (\mbox{\hyperlink{namespacesonic__cli__show__sag_a162cdd4f79c30ca002641bb2f3422fe3}{func}}, args)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacesonic__cli__show__sag_a162cdd4f79c30ca002641bb2f3422fe3}{func}} = sys.\+argv\mbox{[}1\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__show__sag_a4c3522991fd3fce8fc2e2aaf9365bd82}\label{namespacesonic__cli__show__sag_a4c3522991fd3fce8fc2e2aaf9365bd82}} 
+\index{sonic\_cli\_show\_sag@{sonic\_cli\_show\_sag}!get\_if\_master\_and\_oper@{get\_if\_master\_and\_oper}}
+\index{get\_if\_master\_and\_oper@{get\_if\_master\_and\_oper}!sonic\_cli\_show\_sag@{sonic\_cli\_show\_sag}}
+\doxysubsubsection{\texorpdfstring{get\_if\_master\_and\_oper()}{get\_if\_master\_and\_oper()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+show\+\_\+sag.\+get\+\_\+if\+\_\+master\+\_\+and\+\_\+oper (\begin{DoxyParamCaption}\item[{}]{in\+\_\+data,  }\item[{}]{state\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+sag.\+py 파일의 37 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{37 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__show__sag_a4c3522991fd3fce8fc2e2aaf9365bd82}{get\_if\_master\_and\_oper}}(in\_data, state\_data):}
+\DoxyCodeLine{38     data = in\_data}
+\DoxyCodeLine{39     totalgwipv4 = 0}
+\DoxyCodeLine{40     adminupgwipv4 = 0}
+\DoxyCodeLine{41     operupgwipv4 = 0}
+\DoxyCodeLine{42     totalgwipv6 = 0}
+\DoxyCodeLine{43     adminupgwipv6 = 0}
+\DoxyCodeLine{44     operupgwipv6 = 0}
+\DoxyCodeLine{45     output = \{\}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{keywordflow}{for} item \textcolor{keywordflow}{in} data:}
+\DoxyCodeLine{48         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"ifname"} \textcolor{keywordflow}{in} item:}
+\DoxyCodeLine{49             \textcolor{keywordflow}{if} item[\textcolor{stringliteral}{"ifname"}] \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} output:}
+\DoxyCodeLine{50                 output[item[\textcolor{stringliteral}{"ifname"}]] = \{\}}
+\DoxyCodeLine{51             vrf = \mbox{\hyperlink{namespacesonic__cli__show__sag_ac3a9162b9edbec5670f1cad5c682470d}{get\_value}}(state\_data, item[\textcolor{stringliteral}{"ifname"}], \textcolor{stringliteral}{"vrf"}, \textcolor{stringliteral}{""})}
+\DoxyCodeLine{52             \textcolor{keywordflow}{if} vrf != \textcolor{stringliteral}{"default"}:}
+\DoxyCodeLine{53                 output[item[\textcolor{stringliteral}{"ifname"}]][\textcolor{stringliteral}{"master"}] = vrf}
+\DoxyCodeLine{54             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{55                 output[item[\textcolor{stringliteral}{"ifname"}]][\textcolor{stringliteral}{"master"}] = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{56             \textcolor{keywordflow}{for} ip \textcolor{keywordflow}{in} item[\textcolor{stringliteral}{'gwip'}]:}
+\DoxyCodeLine{57                 output[item[\textcolor{stringliteral}{"ifname"}]][ip] = \{\}}
+\DoxyCodeLine{58                 output[item[\textcolor{stringliteral}{"ifname"}]][ip][\textcolor{stringliteral}{"admin\_state"}] = \textcolor{stringliteral}{"down"}}
+\DoxyCodeLine{59                 output[item[\textcolor{stringliteral}{"ifname"}]][ip][\textcolor{stringliteral}{"oper\_state"}] = \textcolor{stringliteral}{"down"}}
+\DoxyCodeLine{60                 \textcolor{keywordflow}{if} item[\textcolor{stringliteral}{"table\_distinguisher"}] == \textcolor{stringliteral}{"IPv6"}:}
+\DoxyCodeLine{61                     iplist = \mbox{\hyperlink{namespacesonic__cli__show__sag_ac3a9162b9edbec5670f1cad5c682470d}{get\_value}}(state\_data, item[\textcolor{stringliteral}{"ifname"}], \textcolor{stringliteral}{"v6GwIp"}, [])}
+\DoxyCodeLine{62                     \textcolor{keywordflow}{if} ip \textcolor{keywordflow}{in} iplist:}
+\DoxyCodeLine{63                         output[item[\textcolor{stringliteral}{"ifname"}]][ip][\textcolor{stringliteral}{"admin\_state"}] = \textcolor{stringliteral}{"up"}}
+\DoxyCodeLine{64                         output[item[\textcolor{stringliteral}{"ifname"}]][ip][\textcolor{stringliteral}{"oper\_state"}] = \mbox{\hyperlink{namespacesonic__cli__show__sag_ac3a9162b9edbec5670f1cad5c682470d}{get\_value}}(state\_data, item[\textcolor{stringliteral}{"ifname"}], \textcolor{stringliteral}{"oper"}, \textcolor{stringliteral}{"down"})}
+\DoxyCodeLine{65                     totalgwipv6 = totalgwipv6 + 1}
+\DoxyCodeLine{66                     \textcolor{keywordflow}{if} output[item[\textcolor{stringliteral}{"ifname"}]][ip][\textcolor{stringliteral}{"admin\_state"}] == \textcolor{stringliteral}{"up"}:}
+\DoxyCodeLine{67                         adminupgwipv6 = adminupgwipv6 + 1}
+\DoxyCodeLine{68                     \textcolor{keywordflow}{if} output[item[\textcolor{stringliteral}{"ifname"}]][ip][\textcolor{stringliteral}{"oper\_state"}] == \textcolor{stringliteral}{"up"}:}
+\DoxyCodeLine{69                         operupgwipv6 = operupgwipv6 + 1}
+\DoxyCodeLine{70                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{71                     iplist = \mbox{\hyperlink{namespacesonic__cli__show__sag_ac3a9162b9edbec5670f1cad5c682470d}{get\_value}}(state\_data, item[\textcolor{stringliteral}{"ifname"}], \textcolor{stringliteral}{"v4GwIp"}, [])}
+\DoxyCodeLine{72                     \textcolor{keywordflow}{if} ip \textcolor{keywordflow}{in} iplist:}
+\DoxyCodeLine{73                         output[item[\textcolor{stringliteral}{"ifname"}]][ip][\textcolor{stringliteral}{"admin\_state"}] = \textcolor{stringliteral}{"up"}}
+\DoxyCodeLine{74                         output[item[\textcolor{stringliteral}{"ifname"}]][ip][\textcolor{stringliteral}{"oper\_state"}] = \mbox{\hyperlink{namespacesonic__cli__show__sag_ac3a9162b9edbec5670f1cad5c682470d}{get\_value}}(state\_data, item[\textcolor{stringliteral}{"ifname"}], \textcolor{stringliteral}{"oper"}, \textcolor{stringliteral}{"down"})}
+\DoxyCodeLine{75                     totalgwipv4 = totalgwipv4 + 1}
+\DoxyCodeLine{76                     \textcolor{keywordflow}{if} output[item[\textcolor{stringliteral}{"ifname"}]][ip][\textcolor{stringliteral}{"admin\_state"}] == \textcolor{stringliteral}{"up"}:}
+\DoxyCodeLine{77                         adminupgwipv4 = adminupgwipv4 + 1}
+\DoxyCodeLine{78                     \textcolor{keywordflow}{if} output[item[\textcolor{stringliteral}{"ifname"}]][ip][\textcolor{stringliteral}{"oper\_state"}] == \textcolor{stringliteral}{"up"}:}
+\DoxyCodeLine{79                         operupgwipv4 = operupgwipv4 + 1}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81     output[\textcolor{stringliteral}{"counters"}] = \{\}}
+\DoxyCodeLine{82     output[\textcolor{stringliteral}{"counters"}][\textcolor{stringliteral}{"totalgw"}] = \{\textcolor{stringliteral}{'IPv4'}:totalgwipv4, \textcolor{stringliteral}{'IPv6'}:totalgwipv6\}}
+\DoxyCodeLine{83     output[\textcolor{stringliteral}{"counters"}][\textcolor{stringliteral}{"adminupgw"}] = \{\textcolor{stringliteral}{'IPv4'}:adminupgwipv4, \textcolor{stringliteral}{'IPv6'}:adminupgwipv6\}}
+\DoxyCodeLine{84     output[\textcolor{stringliteral}{"counters"}][\textcolor{stringliteral}{"operupgw"}] = \{\textcolor{stringliteral}{'IPv4'}:operupgwipv4, \textcolor{stringliteral}{'IPv6'}:operupgwipv6\}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     \textcolor{keywordflow}{return} output}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d0a/namespacesonic__cli__show__sag_a4c3522991fd3fce8fc2e2aaf9365bd82_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d0a/namespacesonic__cli__show__sag_a4c3522991fd3fce8fc2e2aaf9365bd82_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__show__sag_ac3a9162b9edbec5670f1cad5c682470d}\label{namespacesonic__cli__show__sag_ac3a9162b9edbec5670f1cad5c682470d}} 
+\index{sonic\_cli\_show\_sag@{sonic\_cli\_show\_sag}!get\_value@{get\_value}}
+\index{get\_value@{get\_value}!sonic\_cli\_show\_sag@{sonic\_cli\_show\_sag}}
+\doxysubsubsection{\texorpdfstring{get\_value()}{get\_value()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+show\+\_\+sag.\+get\+\_\+value (\begin{DoxyParamCaption}\item[{}]{in\+\_\+dict,  }\item[{}]{ifname,  }\item[{}]{field,  }\item[{}]{default }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+sag.\+py 파일의 30 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{30 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__show__sag_ac3a9162b9edbec5670f1cad5c682470d}{get\_value}}(in\_dict, ifname, field, default):}
+\DoxyCodeLine{31     \textcolor{keywordflow}{for} item \textcolor{keywordflow}{in} in\_dict:}
+\DoxyCodeLine{32         \textcolor{keywordflow}{if} item[\textcolor{stringliteral}{"ifname"}] == ifname \textcolor{keywordflow}{and} field \textcolor{keywordflow}{in} item:}
+\DoxyCodeLine{33             \textcolor{keywordflow}{return} item[field]}
+\DoxyCodeLine{34     \textcolor{keywordflow}{return} default}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d0a/namespacesonic__cli__show__sag_ac3a9162b9edbec5670f1cad5c682470d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__show__sag_a1baf6aa6d54e0c092a563a2cc96d5682}\label{namespacesonic__cli__show__sag_a1baf6aa6d54e0c092a563a2cc96d5682}} 
+\index{sonic\_cli\_show\_sag@{sonic\_cli\_show\_sag}!invoke\_api@{invoke\_api}}
+\index{invoke\_api@{invoke\_api}!sonic\_cli\_show\_sag@{sonic\_cli\_show\_sag}}
+\doxysubsubsection{\texorpdfstring{invoke\_api()}{invoke\_api()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+show\+\_\+sag.\+invoke\+\_\+api (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args = {\ttfamily \mbox{[}\mbox{]}} }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+sag.\+py 파일의 89 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{89 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__show__sag_a1baf6aa6d54e0c092a563a2cc96d5682}{invoke\_api}}(func, args=[]):}
+\DoxyCodeLine{90     api = cc.ApiClient()}
+\DoxyCodeLine{91     keypath = []}
+\DoxyCodeLine{92     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{93     output = \{\}}
+\DoxyCodeLine{94     }
+\DoxyCodeLine{95     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/sag:sonic-\/sag/SAG/SAG\_LIST'})}
+\DoxyCodeLine{96     res = api.get(keypath)}
+\DoxyCodeLine{97     output[\textcolor{stringliteral}{"sag"}] = res.content}
+\DoxyCodeLine{98     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/sag:sonic-\/sag/SAG\_GLOBAL/SAG\_GLOBAL\_LIST'})}
+\DoxyCodeLine{99     res = api.get(keypath)}
+\DoxyCodeLine{100     output[\textcolor{stringliteral}{"global"}] = res.content}
+\DoxyCodeLine{101     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/sag:sonic-\/sag/SAG\_INTF/SAG\_INTF\_LIST'})}
+\DoxyCodeLine{102     res = api.get(keypath)}
+\DoxyCodeLine{103     output[\textcolor{stringliteral}{"sagstate"}] = res.content}
+\DoxyCodeLine{104     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'get\_ip\_sag'}:}
+\DoxyCodeLine{105         output[\textcolor{stringliteral}{"family"}] = \textcolor{stringliteral}{"IPv4"}}
+\DoxyCodeLine{106     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{107         output[\textcolor{stringliteral}{"family"}] = \textcolor{stringliteral}{"IPv6"}}
+\DoxyCodeLine{108     \textcolor{keywordflow}{return} output}
+\DoxyCodeLine{109     }
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d0a/namespacesonic__cli__show__sag_a1baf6aa6d54e0c092a563a2cc96d5682_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__show__sag_ae50654402db8f239474739efc6491c48}\label{namespacesonic__cli__show__sag_ae50654402db8f239474739efc6491c48}} 
+\index{sonic\_cli\_show\_sag@{sonic\_cli\_show\_sag}!run@{run}}
+\index{run@{run}!sonic\_cli\_show\_sag@{sonic\_cli\_show\_sag}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+show\+\_\+sag.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+sag.\+py 파일의 112 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{112 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__show__sag_ae50654402db8f239474739efc6491c48}{run}}(func, args):}
+\DoxyCodeLine{113     response = \mbox{\hyperlink{namespacesonic__cli__show__sag_a1baf6aa6d54e0c092a563a2cc96d5682}{invoke\_api}}(func, args[1:])}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115     api\_response = response}
+\DoxyCodeLine{116     \textcolor{keywordflow}{if} \textcolor{stringliteral}{"sonic-\/sag:SAG\_LIST"} \textcolor{keywordflow}{in} api\_response[\textcolor{stringliteral}{"sag"}]:}
+\DoxyCodeLine{117         api\_response[\textcolor{stringliteral}{"miscmap"}] = \mbox{\hyperlink{namespacesonic__cli__show__sag_a4c3522991fd3fce8fc2e2aaf9365bd82}{get\_if\_master\_and\_oper}}(api\_response[\textcolor{stringliteral}{"sag"}][\textcolor{stringliteral}{"sonic-\/sag:SAG\_LIST"}], api\_response[\textcolor{stringliteral}{"sagstate"}][\textcolor{stringliteral}{"sonic-\/sag:SAG\_INTF\_LIST"}])}
+\DoxyCodeLine{118     \textcolor{comment}{\#print(api\_response)}}
+\DoxyCodeLine{119     \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], api\_response)}
+\DoxyCodeLine{120 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d0a/namespacesonic__cli__show__sag_ae50654402db8f239474739efc6491c48_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__show__sag_a162cdd4f79c30ca002641bb2f3422fe3}\label{namespacesonic__cli__show__sag_a162cdd4f79c30ca002641bb2f3422fe3}} 
+\index{sonic\_cli\_show\_sag@{sonic\_cli\_show\_sag}!func@{func}}
+\index{func@{func}!sonic\_cli\_show\_sag@{sonic\_cli\_show\_sag}}
+\doxysubsubsection{\texorpdfstring{func}{func}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+show\+\_\+sag.\+func = sys.\+argv\mbox{[}1\mbox{]}}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+sag.\+py 파일의 124 번째 라인에서 정의되었습니다.
+

@@ -1,0 +1,578 @@
+\hypertarget{namespaceshow__config__spanning__tree}{}\doxysection{show\+\_\+config\+\_\+spanning\+\_\+tree 네임스페이스 참조}
+\label{namespaceshow__config__spanning__tree}\index{show\_config\_spanning\_tree@{show\_config\_spanning\_tree}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceshow__config__spanning__tree_a472703d3b02648017065e6565b70e21c}{ret\+\_\+err}} (console\+\_\+err\+\_\+msg, syslog\+\_\+msg)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__spanning__tree_a04c75499ba388d47d5113a414dca5f04}{show\+\_\+config\+\_\+spanning\+\_\+tree\+\_\+global\+\_\+max\+\_\+age}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__spanning__tree_a1ba00ac66c90459243980276c055fc84}{show\+\_\+config\+\_\+spanning\+\_\+tree\+\_\+global\+\_\+loop\+\_\+guard}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__spanning__tree_ab131346251ac499f9ab3d856880a280a}{show\+\_\+config\+\_\+spanning\+\_\+tree\+\_\+global\+\_\+portfast}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__spanning__tree_a0d787785b69871e18f656a30e8166c6d}{show\+\_\+config\+\_\+spanning\+\_\+tree\+\_\+global\+\_\+hello\+\_\+time}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__spanning__tree_ab8af0db3491ea08e00df4569b7b8856b}{show\+\_\+config\+\_\+spanning\+\_\+tree\+\_\+global\+\_\+priority}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__spanning__tree_a2f8d2d3729fb1131548bdf7605d30e17}{show\+\_\+config\+\_\+spanning\+\_\+tree\+\_\+global\+\_\+fwd\+\_\+delay}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__spanning__tree_a0bccfc670b4418d750905e9c24ed0458}{show\+\_\+config\+\_\+spanning\+\_\+tree\+\_\+global\+\_\+root\+\_\+guard\+\_\+time}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__spanning__tree_a36ae24b7752dce5362b45de0021229ff}{show\+\_\+config\+\_\+spanning\+\_\+tree\+\_\+vlan}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__spanning__tree_a5f680c52f46a3d3cf95b06615a7aadc4}{show\+\_\+config\+\_\+no\+\_\+spanning\+\_\+tree\+\_\+vlan}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__spanning__tree_a0a334c0a1eea9a60f8663cfa9f0a6875}{show\+\_\+config\+\_\+spanning\+\_\+tree\+\_\+intf\+\_\+vlan}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__spanning__tree_a8a023d6f701dcbe781961cdb1cb7362a}{show\+\_\+config\+\_\+spanning\+\_\+tree\+\_\+intf}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__spanning__tree_a5e8aaf735a5521c9e38aba1546350607}{show\+\_\+config\+\_\+spanning\+\_\+tree\+\_\+intf\+\_\+guard}} (render\+\_\+tables)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{namespaceshow__config__spanning__tree_a87ae2636ce6535e81eddd127ee1643f0}{g\+\_\+err\+\_\+transaction\+\_\+fail}} = \textquotesingle{}\%Error\+: Transaction Failure\textquotesingle{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespaceshow__config__spanning__tree_a472703d3b02648017065e6565b70e21c}\label{namespaceshow__config__spanning__tree_a472703d3b02648017065e6565b70e21c}} 
+\index{show\_config\_spanning\_tree@{show\_config\_spanning\_tree}!ret\_err@{ret\_err}}
+\index{ret\_err@{ret\_err}!show\_config\_spanning\_tree@{show\_config\_spanning\_tree}}
+\doxysubsubsection{\texorpdfstring{ret\_err()}{ret\_err()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+spanning\+\_\+tree.\+ret\+\_\+err (\begin{DoxyParamCaption}\item[{}]{console\+\_\+err\+\_\+msg,  }\item[{}]{syslog\+\_\+msg }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+spanning\+\_\+tree.\+py 파일의 27 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{27 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__spanning__tree_a472703d3b02648017065e6565b70e21c}{ret\_err}}(console\_err\_msg, syslog\_msg):}
+\DoxyCodeLine{28     \textcolor{keywordflow}{if} len(syslog\_msg) != 0:}
+\DoxyCodeLine{29         log.syslog(log.LOG\_ERR, str(syslog\_msg))}
+\DoxyCodeLine{30     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, console\_err\_msg}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d58/namespaceshow__config__spanning__tree_a472703d3b02648017065e6565b70e21c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__spanning__tree_a5f680c52f46a3d3cf95b06615a7aadc4}\label{namespaceshow__config__spanning__tree_a5f680c52f46a3d3cf95b06615a7aadc4}} 
+\index{show\_config\_spanning\_tree@{show\_config\_spanning\_tree}!show\_config\_no\_spanning\_tree\_vlan@{show\_config\_no\_spanning\_tree\_vlan}}
+\index{show\_config\_no\_spanning\_tree\_vlan@{show\_config\_no\_spanning\_tree\_vlan}!show\_config\_spanning\_tree@{show\_config\_spanning\_tree}}
+\doxysubsubsection{\texorpdfstring{show\_config\_no\_spanning\_tree\_vlan()}{show\_config\_no\_spanning\_tree\_vlan()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+spanning\+\_\+tree.\+show\+\_\+config\+\_\+no\+\_\+spanning\+\_\+tree\+\_\+vlan (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+spanning\+\_\+tree.\+py 파일의 188 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{188 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__spanning__tree_a5f680c52f46a3d3cf95b06615a7aadc4}{show\_config\_no\_spanning\_tree\_vlan}}(render\_tables):}
+\DoxyCodeLine{189     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{190     disabled\_vlans = []}
+\DoxyCodeLine{191     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/spanning-\/tree:sonic-\/spanning-\/tree/STP\_VLAN/STP\_VLAN\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{192         \textcolor{keywordflow}{for} db\_entry \textcolor{keywordflow}{in} render\_tables[\textcolor{stringliteral}{'sonic-\/spanning-\/tree:sonic-\/spanning-\/tree/STP\_VLAN/STP\_VLAN\_LIST'}]:}
+\DoxyCodeLine{193             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'enabled'} \textcolor{keywordflow}{in} db\_entry.keys() \textcolor{keywordflow}{and} db\_entry[\textcolor{stringliteral}{"enabled"}] == \textcolor{keyword}{False}:}
+\DoxyCodeLine{194                 disabled\_vlans.append(db\_entry[\textcolor{stringliteral}{'name'}][4:])}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{196     \textcolor{keywordflow}{if} len(disabled\_vlans) != 0:}
+\DoxyCodeLine{197         disabled\_vlans = [int(vlanid) \textcolor{keywordflow}{for} vlanid \textcolor{keywordflow}{in} disabled\_vlans]}
+\DoxyCodeLine{198         disabled\_vlans = sorted(disabled\_vlans)}
+\DoxyCodeLine{199 }
+\DoxyCodeLine{200         cmd\_str = \textcolor{stringliteral}{"no spanning-\/tree vlan "} + cli\_stp.convert\_list\_to\_range\_groups(disabled\_vlans)}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{202     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{204 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceshow__config__spanning__tree_a2f8d2d3729fb1131548bdf7605d30e17}\label{namespaceshow__config__spanning__tree_a2f8d2d3729fb1131548bdf7605d30e17}} 
+\index{show\_config\_spanning\_tree@{show\_config\_spanning\_tree}!show\_config\_spanning\_tree\_global\_fwd\_delay@{show\_config\_spanning\_tree\_global\_fwd\_delay}}
+\index{show\_config\_spanning\_tree\_global\_fwd\_delay@{show\_config\_spanning\_tree\_global\_fwd\_delay}!show\_config\_spanning\_tree@{show\_config\_spanning\_tree}}
+\doxysubsubsection{\texorpdfstring{show\_config\_spanning\_tree\_global\_fwd\_delay()}{show\_config\_spanning\_tree\_global\_fwd\_delay()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+spanning\+\_\+tree.\+show\+\_\+config\+\_\+spanning\+\_\+tree\+\_\+global\+\_\+fwd\+\_\+delay (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+spanning\+\_\+tree.\+py 파일의 111 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{111 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__spanning__tree_a2f8d2d3729fb1131548bdf7605d30e17}{show\_config\_spanning\_tree\_global\_fwd\_delay}}(render\_tables):}
+\DoxyCodeLine{112     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{113     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/spanning-\/tree:sonic-\/spanning-\/tree/STP/STP\_LIST'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{114         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116     \textcolor{keywordflow}{if} len(render\_tables[\textcolor{stringliteral}{'sonic-\/spanning-\/tree:sonic-\/spanning-\/tree/STP/STP\_LIST'}]) == 0:}
+\DoxyCodeLine{117         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119     db\_entry = render\_tables[\textcolor{stringliteral}{'sonic-\/spanning-\/tree:sonic-\/spanning-\/tree/STP/STP\_LIST'}][0]}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'forward\_delay'} \textcolor{keywordflow}{in} db\_entry.keys() \textcolor{keywordflow}{and} db\_entry[\textcolor{stringliteral}{'forward\_delay'}] != 15:}
+\DoxyCodeLine{122         cmd\_str = \textcolor{stringliteral}{'spanning-\/tree forward-\/time '} + str(db\_entry[\textcolor{stringliteral}{'forward\_delay'}])}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceshow__config__spanning__tree_a0d787785b69871e18f656a30e8166c6d}\label{namespaceshow__config__spanning__tree_a0d787785b69871e18f656a30e8166c6d}} 
+\index{show\_config\_spanning\_tree@{show\_config\_spanning\_tree}!show\_config\_spanning\_tree\_global\_hello\_time@{show\_config\_spanning\_tree\_global\_hello\_time}}
+\index{show\_config\_spanning\_tree\_global\_hello\_time@{show\_config\_spanning\_tree\_global\_hello\_time}!show\_config\_spanning\_tree@{show\_config\_spanning\_tree}}
+\doxysubsubsection{\texorpdfstring{show\_config\_spanning\_tree\_global\_hello\_time()}{show\_config\_spanning\_tree\_global\_hello\_time()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+spanning\+\_\+tree.\+show\+\_\+config\+\_\+spanning\+\_\+tree\+\_\+global\+\_\+hello\+\_\+time (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+spanning\+\_\+tree.\+py 파일의 78 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{78 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__spanning__tree_a0d787785b69871e18f656a30e8166c6d}{show\_config\_spanning\_tree\_global\_hello\_time}}(render\_tables):}
+\DoxyCodeLine{79     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{80     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/spanning-\/tree:sonic-\/spanning-\/tree/STP/STP\_LIST'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{81         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83     \textcolor{keywordflow}{if} len(render\_tables[\textcolor{stringliteral}{'sonic-\/spanning-\/tree:sonic-\/spanning-\/tree/STP/STP\_LIST'}]) == 0:}
+\DoxyCodeLine{84         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     db\_entry = render\_tables[\textcolor{stringliteral}{'sonic-\/spanning-\/tree:sonic-\/spanning-\/tree/STP/STP\_LIST'}][0]}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'hello\_time'} \textcolor{keywordflow}{in} db\_entry.keys() \textcolor{keywordflow}{and} db\_entry[\textcolor{stringliteral}{'hello\_time'}] != 2:}
+\DoxyCodeLine{89         cmd\_str = \textcolor{stringliteral}{'spanning-\/tree hello-\/time '} + str(db\_entry[\textcolor{stringliteral}{'hello\_time'}])}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceshow__config__spanning__tree_a1ba00ac66c90459243980276c055fc84}\label{namespaceshow__config__spanning__tree_a1ba00ac66c90459243980276c055fc84}} 
+\index{show\_config\_spanning\_tree@{show\_config\_spanning\_tree}!show\_config\_spanning\_tree\_global\_loop\_guard@{show\_config\_spanning\_tree\_global\_loop\_guard}}
+\index{show\_config\_spanning\_tree\_global\_loop\_guard@{show\_config\_spanning\_tree\_global\_loop\_guard}!show\_config\_spanning\_tree@{show\_config\_spanning\_tree}}
+\doxysubsubsection{\texorpdfstring{show\_config\_spanning\_tree\_global\_loop\_guard()}{show\_config\_spanning\_tree\_global\_loop\_guard()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+spanning\+\_\+tree.\+show\+\_\+config\+\_\+spanning\+\_\+tree\+\_\+global\+\_\+loop\+\_\+guard (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+spanning\+\_\+tree.\+py 파일의 48 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{48 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__spanning__tree_a1ba00ac66c90459243980276c055fc84}{show\_config\_spanning\_tree\_global\_loop\_guard}}(render\_tables):}
+\DoxyCodeLine{49     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{50     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/spanning-\/tree:sonic-\/spanning-\/tree/STP/STP\_LIST'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{51         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{keywordflow}{if} len(render\_tables[\textcolor{stringliteral}{'sonic-\/spanning-\/tree:sonic-\/spanning-\/tree/STP/STP\_LIST'}]) == 0:}
+\DoxyCodeLine{54         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     db\_entry = render\_tables[\textcolor{stringliteral}{'sonic-\/spanning-\/tree:sonic-\/spanning-\/tree/STP/STP\_LIST'}][0]}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'loop\_guard'} \textcolor{keywordflow}{in} db\_entry.keys() \textcolor{keywordflow}{and} db\_entry[\textcolor{stringliteral}{'loop\_guard'}] != \textcolor{keyword}{False}:}
+\DoxyCodeLine{59         cmd\_str = \textcolor{stringliteral}{'spanning-\/tree loopguard default'}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{62 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceshow__config__spanning__tree_a04c75499ba388d47d5113a414dca5f04}\label{namespaceshow__config__spanning__tree_a04c75499ba388d47d5113a414dca5f04}} 
+\index{show\_config\_spanning\_tree@{show\_config\_spanning\_tree}!show\_config\_spanning\_tree\_global\_max\_age@{show\_config\_spanning\_tree\_global\_max\_age}}
+\index{show\_config\_spanning\_tree\_global\_max\_age@{show\_config\_spanning\_tree\_global\_max\_age}!show\_config\_spanning\_tree@{show\_config\_spanning\_tree}}
+\doxysubsubsection{\texorpdfstring{show\_config\_spanning\_tree\_global\_max\_age()}{show\_config\_spanning\_tree\_global\_max\_age()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+spanning\+\_\+tree.\+show\+\_\+config\+\_\+spanning\+\_\+tree\+\_\+global\+\_\+max\+\_\+age (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+spanning\+\_\+tree.\+py 파일의 33 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{33 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__spanning__tree_a04c75499ba388d47d5113a414dca5f04}{show\_config\_spanning\_tree\_global\_max\_age}}(render\_tables):}
+\DoxyCodeLine{34     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{35     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/spanning-\/tree:sonic-\/spanning-\/tree/STP/STP\_LIST'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{36         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keywordflow}{if} len(render\_tables[\textcolor{stringliteral}{'sonic-\/spanning-\/tree:sonic-\/spanning-\/tree/STP/STP\_LIST'}]) == 0:}
+\DoxyCodeLine{39         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     db\_entry = render\_tables[\textcolor{stringliteral}{'sonic-\/spanning-\/tree:sonic-\/spanning-\/tree/STP/STP\_LIST'}][0]}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'max\_age'} \textcolor{keywordflow}{in} db\_entry.keys() \textcolor{keywordflow}{and} db\_entry[\textcolor{stringliteral}{'max\_age'}] != 20:}
+\DoxyCodeLine{44         cmd\_str = \textcolor{stringliteral}{'spanning-\/tree max-\/age '} + str(db\_entry[\textcolor{stringliteral}{'max\_age'}])}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{47 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceshow__config__spanning__tree_ab131346251ac499f9ab3d856880a280a}\label{namespaceshow__config__spanning__tree_ab131346251ac499f9ab3d856880a280a}} 
+\index{show\_config\_spanning\_tree@{show\_config\_spanning\_tree}!show\_config\_spanning\_tree\_global\_portfast@{show\_config\_spanning\_tree\_global\_portfast}}
+\index{show\_config\_spanning\_tree\_global\_portfast@{show\_config\_spanning\_tree\_global\_portfast}!show\_config\_spanning\_tree@{show\_config\_spanning\_tree}}
+\doxysubsubsection{\texorpdfstring{show\_config\_spanning\_tree\_global\_portfast()}{show\_config\_spanning\_tree\_global\_portfast()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+spanning\+\_\+tree.\+show\+\_\+config\+\_\+spanning\+\_\+tree\+\_\+global\+\_\+portfast (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+spanning\+\_\+tree.\+py 파일의 63 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{63 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__spanning__tree_ab131346251ac499f9ab3d856880a280a}{show\_config\_spanning\_tree\_global\_portfast}}(render\_tables):}
+\DoxyCodeLine{64     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{65     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/spanning-\/tree:sonic-\/spanning-\/tree/STP/STP\_LIST'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{66         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     \textcolor{keywordflow}{if} len(render\_tables[\textcolor{stringliteral}{'sonic-\/spanning-\/tree:sonic-\/spanning-\/tree/STP/STP\_LIST'}]) == 0:}
+\DoxyCodeLine{69         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71     db\_entry = render\_tables[\textcolor{stringliteral}{'sonic-\/spanning-\/tree:sonic-\/spanning-\/tree/STP/STP\_LIST'}][0]}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'portfast'} \textcolor{keywordflow}{in} db\_entry.keys() \textcolor{keywordflow}{and} db\_entry[\textcolor{stringliteral}{'portfast'}] != \textcolor{keyword}{False}:}
+\DoxyCodeLine{74         cmd\_str = \textcolor{stringliteral}{'spanning-\/tree portfast default'}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{77 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceshow__config__spanning__tree_ab8af0db3491ea08e00df4569b7b8856b}\label{namespaceshow__config__spanning__tree_ab8af0db3491ea08e00df4569b7b8856b}} 
+\index{show\_config\_spanning\_tree@{show\_config\_spanning\_tree}!show\_config\_spanning\_tree\_global\_priority@{show\_config\_spanning\_tree\_global\_priority}}
+\index{show\_config\_spanning\_tree\_global\_priority@{show\_config\_spanning\_tree\_global\_priority}!show\_config\_spanning\_tree@{show\_config\_spanning\_tree}}
+\doxysubsubsection{\texorpdfstring{show\_config\_spanning\_tree\_global\_priority()}{show\_config\_spanning\_tree\_global\_priority()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+spanning\+\_\+tree.\+show\+\_\+config\+\_\+spanning\+\_\+tree\+\_\+global\+\_\+priority (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+spanning\+\_\+tree.\+py 파일의 94 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{94 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__spanning__tree_ab8af0db3491ea08e00df4569b7b8856b}{show\_config\_spanning\_tree\_global\_priority}}(render\_tables):}
+\DoxyCodeLine{95     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{96     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/spanning-\/tree:sonic-\/spanning-\/tree/STP/STP\_LIST'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{97         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99     \textcolor{keywordflow}{if} len(render\_tables[\textcolor{stringliteral}{'sonic-\/spanning-\/tree:sonic-\/spanning-\/tree/STP/STP\_LIST'}]) == 0:}
+\DoxyCodeLine{100         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102     db\_entry = render\_tables[\textcolor{stringliteral}{'sonic-\/spanning-\/tree:sonic-\/spanning-\/tree/STP/STP\_LIST'}][0]}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'priority'} \textcolor{keywordflow}{in} db\_entry.keys() \textcolor{keywordflow}{and} db\_entry[\textcolor{stringliteral}{'priority'}] != 32768:}
+\DoxyCodeLine{105         cmd\_str = \textcolor{stringliteral}{'spanning-\/tree priority '} + str(db\_entry[\textcolor{stringliteral}{'priority'}])}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceshow__config__spanning__tree_a0bccfc670b4418d750905e9c24ed0458}\label{namespaceshow__config__spanning__tree_a0bccfc670b4418d750905e9c24ed0458}} 
+\index{show\_config\_spanning\_tree@{show\_config\_spanning\_tree}!show\_config\_spanning\_tree\_global\_root\_guard\_time@{show\_config\_spanning\_tree\_global\_root\_guard\_time}}
+\index{show\_config\_spanning\_tree\_global\_root\_guard\_time@{show\_config\_spanning\_tree\_global\_root\_guard\_time}!show\_config\_spanning\_tree@{show\_config\_spanning\_tree}}
+\doxysubsubsection{\texorpdfstring{show\_config\_spanning\_tree\_global\_root\_guard\_time()}{show\_config\_spanning\_tree\_global\_root\_guard\_time()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+spanning\+\_\+tree.\+show\+\_\+config\+\_\+spanning\+\_\+tree\+\_\+global\+\_\+root\+\_\+guard\+\_\+time (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+spanning\+\_\+tree.\+py 파일의 127 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{127 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__spanning__tree_a0bccfc670b4418d750905e9c24ed0458}{show\_config\_spanning\_tree\_global\_root\_guard\_time}}(render\_tables):}
+\DoxyCodeLine{128     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{129     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/spanning-\/tree:sonic-\/spanning-\/tree/STP/STP\_LIST'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{130         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132     \textcolor{keywordflow}{if} len(render\_tables[\textcolor{stringliteral}{'sonic-\/spanning-\/tree:sonic-\/spanning-\/tree/STP/STP\_LIST'}]) == 0:}
+\DoxyCodeLine{133         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135     db\_entry = render\_tables[\textcolor{stringliteral}{'sonic-\/spanning-\/tree:sonic-\/spanning-\/tree/STP/STP\_LIST'}][0]}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'rootguard\_timeout'} \textcolor{keywordflow}{in} db\_entry.keys() \textcolor{keywordflow}{and} db\_entry[\textcolor{stringliteral}{'rootguard\_timeout'}] != 30:}
+\DoxyCodeLine{138         cmd\_str = \textcolor{stringliteral}{'spanning-\/tree guard root timeout '} + str(db\_entry[\textcolor{stringliteral}{'rootguard\_timeout'}])}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceshow__config__spanning__tree_a8a023d6f701dcbe781961cdb1cb7362a}\label{namespaceshow__config__spanning__tree_a8a023d6f701dcbe781961cdb1cb7362a}} 
+\index{show\_config\_spanning\_tree@{show\_config\_spanning\_tree}!show\_config\_spanning\_tree\_intf@{show\_config\_spanning\_tree\_intf}}
+\index{show\_config\_spanning\_tree\_intf@{show\_config\_spanning\_tree\_intf}!show\_config\_spanning\_tree@{show\_config\_spanning\_tree}}
+\doxysubsubsection{\texorpdfstring{show\_config\_spanning\_tree\_intf()}{show\_config\_spanning\_tree\_intf()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+spanning\+\_\+tree.\+show\+\_\+config\+\_\+spanning\+\_\+tree\+\_\+intf (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+spanning\+\_\+tree.\+py 파일의 253 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{253 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__spanning__tree_a8a023d6f701dcbe781961cdb1cb7362a}{show\_config\_spanning\_tree\_intf}}(render\_tables):}
+\DoxyCodeLine{254     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{255     cmd\_list = []}
+\DoxyCodeLine{256 }
+\DoxyCodeLine{257     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'name'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} render\_tables.keys():}
+\DoxyCodeLine{258         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceshow__config__spanning__tree_a472703d3b02648017065e6565b70e21c}{ret\_err}}(g\_err\_transaction\_fail, \textcolor{stringliteral}{'key:name not found in render\_tables'})}
+\DoxyCodeLine{259 }
+\DoxyCodeLine{260     cmd\_prfx = \textcolor{stringliteral}{'spanning-\/tree '}}
+\DoxyCodeLine{261     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/spanning-\/tree:sonic-\/spanning-\/tree/STP\_PORT/STP\_PORT\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{262         \textcolor{keywordflow}{for} db\_entry \textcolor{keywordflow}{in} render\_tables[\textcolor{stringliteral}{'sonic-\/spanning-\/tree:sonic-\/spanning-\/tree/STP\_PORT/STP\_PORT\_LIST'}]:}
+\DoxyCodeLine{263 }
+\DoxyCodeLine{264             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'ifname'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} db\_entry.keys():}
+\DoxyCodeLine{265                 \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceshow__config__spanning__tree_a472703d3b02648017065e6565b70e21c}{ret\_err}}(g\_err\_transaction\_fail, \textcolor{stringliteral}{'key:ifname not found in STP\_PORT\_DB, render\_table[name] = \{\}'}.format(render\_tables[\textcolor{stringliteral}{'name'}]))}
+\DoxyCodeLine{266 }
+\DoxyCodeLine{267             \textcolor{keywordflow}{if} render\_tables[\textcolor{stringliteral}{'name'}] != db\_entry[\textcolor{stringliteral}{'ifname'}]:}
+\DoxyCodeLine{268                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{269 }
+\DoxyCodeLine{270             \textcolor{comment}{\#print all}}
+\DoxyCodeLine{271             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'bpdu\_filter'} \textcolor{keywordflow}{in} db\_entry:}
+\DoxyCodeLine{272                 \textcolor{keywordflow}{if} db\_entry[\textcolor{stringliteral}{'bpdu\_filter'}] == \textcolor{stringliteral}{'enable'}:}
+\DoxyCodeLine{273                     cmd\_list.append(cmd\_prfx + \textcolor{stringliteral}{'bpdufilter enable'})}
+\DoxyCodeLine{274                 \textcolor{keywordflow}{elif} db\_entry[\textcolor{stringliteral}{'bpdu\_filter'}] == \textcolor{stringliteral}{'disable'}:}
+\DoxyCodeLine{275                     cmd\_list.append(cmd\_prfx + \textcolor{stringliteral}{'bpdufilter disable'})}
+\DoxyCodeLine{276             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'bpdu\_guard'} \textcolor{keywordflow}{and} \textcolor{stringliteral}{'bpdu\_guard\_do\_disable'} \textcolor{keywordflow}{in} db\_entry:}
+\DoxyCodeLine{277                 \textcolor{keywordflow}{if} db\_entry[\textcolor{stringliteral}{'bpdu\_guard\_do\_disable'}]:}
+\DoxyCodeLine{278                     cmd\_list.append(cmd\_prfx + \textcolor{stringliteral}{'bpduguard port-\/shutdown'})}
+\DoxyCodeLine{279                 \textcolor{keywordflow}{elif} db\_entry[\textcolor{stringliteral}{'bpdu\_guard'}]:}
+\DoxyCodeLine{280                     cmd\_list.append(cmd\_prfx + \textcolor{stringliteral}{'bpduguard'})}
+\DoxyCodeLine{281 }
+\DoxyCodeLine{282             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'path\_cost'} \textcolor{keywordflow}{in} db\_entry:}
+\DoxyCodeLine{283                 cmd\_list.append(cmd\_prfx + \textcolor{stringliteral}{'cost '} + str(db\_entry[\textcolor{stringliteral}{'path\_cost'}]))}
+\DoxyCodeLine{284 }
+\DoxyCodeLine{285             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'link\_type'} \textcolor{keywordflow}{in} db\_entry \textcolor{keywordflow}{and} db\_entry[\textcolor{stringliteral}{'link\_type'}] != \textcolor{stringliteral}{'auto'}:}
+\DoxyCodeLine{286                 cmd\_list.append(cmd\_prfx + \textcolor{stringliteral}{'link-\/type '} + db\_entry[\textcolor{stringliteral}{'link\_type'}])}
+\DoxyCodeLine{287 }
+\DoxyCodeLine{288             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'priority'} \textcolor{keywordflow}{in} db\_entry:}
+\DoxyCodeLine{289                 cmd\_list.append(cmd\_prfx + \textcolor{stringliteral}{'port-\/priority '} + str(db\_entry[\textcolor{stringliteral}{'priority'}]))}
+\DoxyCodeLine{290 }
+\DoxyCodeLine{291             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'edge\_port'} \textcolor{keywordflow}{in} db\_entry \textcolor{keywordflow}{and} db\_entry[\textcolor{stringliteral}{'edge\_port'}]:}
+\DoxyCodeLine{292                 cmd\_list.append(cmd\_prfx + \textcolor{stringliteral}{'port type edge'})}
+\DoxyCodeLine{293 }
+\DoxyCodeLine{294             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'uplink\_fast'} \textcolor{keywordflow}{in} db\_entry \textcolor{keywordflow}{and} db\_entry[\textcolor{stringliteral}{'uplink\_fast'}]:}
+\DoxyCodeLine{295                 cmd\_list.append(cmd\_prfx + \textcolor{stringliteral}{'uplinkfast'})}
+\DoxyCodeLine{296 }
+\DoxyCodeLine{297     \textcolor{keywordflow}{if} cmd\_list:}
+\DoxyCodeLine{298         cmd\_str = \textcolor{stringliteral}{';'}.join(cmd\_list)}
+\DoxyCodeLine{299     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{300 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d58/namespaceshow__config__spanning__tree_a8a023d6f701dcbe781961cdb1cb7362a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__spanning__tree_a5e8aaf735a5521c9e38aba1546350607}\label{namespaceshow__config__spanning__tree_a5e8aaf735a5521c9e38aba1546350607}} 
+\index{show\_config\_spanning\_tree@{show\_config\_spanning\_tree}!show\_config\_spanning\_tree\_intf\_guard@{show\_config\_spanning\_tree\_intf\_guard}}
+\index{show\_config\_spanning\_tree\_intf\_guard@{show\_config\_spanning\_tree\_intf\_guard}!show\_config\_spanning\_tree@{show\_config\_spanning\_tree}}
+\doxysubsubsection{\texorpdfstring{show\_config\_spanning\_tree\_intf\_guard()}{show\_config\_spanning\_tree\_intf\_guard()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+spanning\+\_\+tree.\+show\+\_\+config\+\_\+spanning\+\_\+tree\+\_\+intf\+\_\+guard (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+spanning\+\_\+tree.\+py 파일의 301 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{301 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__spanning__tree_a5e8aaf735a5521c9e38aba1546350607}{show\_config\_spanning\_tree\_intf\_guard}}(render\_tables):}
+\DoxyCodeLine{302     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{303     cmd\_list = []}
+\DoxyCodeLine{304 }
+\DoxyCodeLine{305     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'name'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} render\_tables.keys():}
+\DoxyCodeLine{306         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceshow__config__spanning__tree_a472703d3b02648017065e6565b70e21c}{ret\_err}}(g\_err\_transaction\_fail, \textcolor{stringliteral}{'key:name not found in render\_tables'})}
+\DoxyCodeLine{307 }
+\DoxyCodeLine{308     cmd\_prfx = \textcolor{stringliteral}{'spanning-\/tree '}}
+\DoxyCodeLine{309     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/spanning-\/tree:sonic-\/spanning-\/tree/STP\_PORT/STP\_PORT\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{310         \textcolor{keywordflow}{for} db\_entry \textcolor{keywordflow}{in} render\_tables[\textcolor{stringliteral}{'sonic-\/spanning-\/tree:sonic-\/spanning-\/tree/STP\_PORT/STP\_PORT\_LIST'}]:}
+\DoxyCodeLine{311 }
+\DoxyCodeLine{312             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'ifname'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} db\_entry.keys():}
+\DoxyCodeLine{313                 \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceshow__config__spanning__tree_a472703d3b02648017065e6565b70e21c}{ret\_err}}(g\_err\_transaction\_fail, \textcolor{stringliteral}{'key:ifname not found in STP\_PORT\_DB, render\_table[name] = \{\}'}.format(render\_tables[\textcolor{stringliteral}{'name'}]))}
+\DoxyCodeLine{314 }
+\DoxyCodeLine{315             \textcolor{keywordflow}{if} render\_tables[\textcolor{stringliteral}{'name'}] != db\_entry[\textcolor{stringliteral}{'ifname'}]:}
+\DoxyCodeLine{316                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{317 }
+\DoxyCodeLine{318             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'root\_guard'} \textcolor{keywordflow}{in} db\_entry \textcolor{keywordflow}{and} db\_entry[\textcolor{stringliteral}{'root\_guard'}]:}
+\DoxyCodeLine{319                 cmd\_list.append(cmd\_prfx + \textcolor{stringliteral}{'guard root'})}
+\DoxyCodeLine{320             \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'loop\_guard'} \textcolor{keywordflow}{in} db\_entry \textcolor{keywordflow}{and} db\_entry[\textcolor{stringliteral}{'loop\_guard'}] == \textcolor{stringliteral}{'true'}:}
+\DoxyCodeLine{321                 cmd\_list.append(cmd\_prfx + \textcolor{stringliteral}{'guard loop'})}
+\DoxyCodeLine{322             \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'loop\_guard'} \textcolor{keywordflow}{in} db\_entry \textcolor{keywordflow}{and} db\_entry[\textcolor{stringliteral}{'loop\_guard'}] == \textcolor{stringliteral}{'none'}:}
+\DoxyCodeLine{323                 cmd\_list.append(cmd\_prfx + \textcolor{stringliteral}{'guard none'})}
+\DoxyCodeLine{324 }
+\DoxyCodeLine{325     \textcolor{keywordflow}{if} cmd\_list:}
+\DoxyCodeLine{326         cmd\_str = \textcolor{stringliteral}{';'}.join(cmd\_list)}
+\DoxyCodeLine{327     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{328 }
+\DoxyCodeLine{329 }
+\DoxyCodeLine{330 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d58/namespaceshow__config__spanning__tree_a5e8aaf735a5521c9e38aba1546350607_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__spanning__tree_a0a334c0a1eea9a60f8663cfa9f0a6875}\label{namespaceshow__config__spanning__tree_a0a334c0a1eea9a60f8663cfa9f0a6875}} 
+\index{show\_config\_spanning\_tree@{show\_config\_spanning\_tree}!show\_config\_spanning\_tree\_intf\_vlan@{show\_config\_spanning\_tree\_intf\_vlan}}
+\index{show\_config\_spanning\_tree\_intf\_vlan@{show\_config\_spanning\_tree\_intf\_vlan}!show\_config\_spanning\_tree@{show\_config\_spanning\_tree}}
+\doxysubsubsection{\texorpdfstring{show\_config\_spanning\_tree\_intf\_vlan()}{show\_config\_spanning\_tree\_intf\_vlan()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+spanning\+\_\+tree.\+show\+\_\+config\+\_\+spanning\+\_\+tree\+\_\+intf\+\_\+vlan (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+spanning\+\_\+tree.\+py 파일의 205 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{205 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__spanning__tree_a0a334c0a1eea9a60f8663cfa9f0a6875}{show\_config\_spanning\_tree\_intf\_vlan}}(render\_tables):}
+\DoxyCodeLine{206     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{207     cmd\_list = []}
+\DoxyCodeLine{208     vpdata = \{\textcolor{stringliteral}{'cost'}:\{\}, \textcolor{stringliteral}{'prio'}:\{\}\}}
+\DoxyCodeLine{209 }
+\DoxyCodeLine{210     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'name'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} render\_tables.keys():}
+\DoxyCodeLine{211         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceshow__config__spanning__tree_a472703d3b02648017065e6565b70e21c}{ret\_err}}(g\_err\_transaction\_fail, \textcolor{stringliteral}{'key:name not found in render\_tables'})}
+\DoxyCodeLine{212 }
+\DoxyCodeLine{213     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/spanning-\/tree:sonic-\/spanning-\/tree/STP\_VLAN\_PORT/STP\_VLAN\_PORT\_LIST'} \textcolor{keywordflow}{in} render\_tables \(\backslash\)}
+\DoxyCodeLine{214             \textcolor{keywordflow}{and} \textcolor{stringliteral}{'sonic-\/spanning-\/tree:sonic-\/spanning-\/tree/STP\_PORT/STP\_PORT\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{216         \textcolor{keywordflow}{for} db\_entry \textcolor{keywordflow}{in} render\_tables[\textcolor{stringliteral}{'sonic-\/spanning-\/tree:sonic-\/spanning-\/tree/STP\_VLAN\_PORT/STP\_VLAN\_PORT\_LIST'}]:}
+\DoxyCodeLine{217             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'ifname'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} db\_entry.keys():}
+\DoxyCodeLine{218                 \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceshow__config__spanning__tree_a472703d3b02648017065e6565b70e21c}{ret\_err}}(g\_err\_transaction\_fail, \textcolor{stringliteral}{'key:ifname not found in STP\_VLAN\_PORT\_DB, render\_table[name] = \{\}'}.format(render\_tables[\textcolor{stringliteral}{'name'}]))}
+\DoxyCodeLine{219 }
+\DoxyCodeLine{220             \textcolor{keywordflow}{if} render\_tables[\textcolor{stringliteral}{'name'}] != db\_entry[\textcolor{stringliteral}{'ifname'}]:}
+\DoxyCodeLine{221                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{222 }
+\DoxyCodeLine{223             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'vlan-\/name'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} db\_entry.keys():}
+\DoxyCodeLine{224                 \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceshow__config__spanning__tree_a472703d3b02648017065e6565b70e21c}{ret\_err}}(g\_err\_transaction\_fail, \textcolor{stringliteral}{'key:vlan-\/name not found in STP\_VLAN\_PORT\_DB -\/ \{\}'}.format(db\_entry[\textcolor{stringliteral}{'ifname'}]))}
+\DoxyCodeLine{225 }
+\DoxyCodeLine{226             vlan\_name = db\_entry[\textcolor{stringliteral}{'vlan-\/name'}]}
+\DoxyCodeLine{227             vlanid = vlan\_name[len(\textcolor{stringliteral}{'Vlan'}):]}
+\DoxyCodeLine{228             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'path\_cost'} \textcolor{keywordflow}{in} db\_entry.keys():}
+\DoxyCodeLine{229                 key = int(db\_entry[\textcolor{stringliteral}{'path\_cost'}])}
+\DoxyCodeLine{230                 \textcolor{keywordflow}{if} key \textcolor{keywordflow}{in} vpdata[\textcolor{stringliteral}{'cost'}].keys():}
+\DoxyCodeLine{231                     vpdata[\textcolor{stringliteral}{'cost'}][key].append(int(vlanid))}
+\DoxyCodeLine{232                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{233                     vpdata[\textcolor{stringliteral}{'cost'}][key] = [int(vlanid)]}
+\DoxyCodeLine{234             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'priority'} \textcolor{keywordflow}{in} db\_entry.keys():}
+\DoxyCodeLine{235                 key = int(db\_entry[\textcolor{stringliteral}{'priority'}])}
+\DoxyCodeLine{236                 \textcolor{keywordflow}{if} key \textcolor{keywordflow}{in} vpdata[\textcolor{stringliteral}{'prio'}].keys():}
+\DoxyCodeLine{237                     vpdata[\textcolor{stringliteral}{'prio'}][key].append(int(vlanid))}
+\DoxyCodeLine{238                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{239                     vpdata[\textcolor{stringliteral}{'prio'}][key] = [int(vlanid)]}
+\DoxyCodeLine{240 }
+\DoxyCodeLine{241     \textcolor{keywordflow}{for} cost \textcolor{keywordflow}{in} sorted(vpdata[\textcolor{stringliteral}{'cost'}].keys()):}
+\DoxyCodeLine{242         vrange = cli\_stp.convert\_list\_to\_range\_groups(vpdata[\textcolor{stringliteral}{'cost'}][cost])}
+\DoxyCodeLine{243         cmd\_list.append(\textcolor{stringliteral}{'spanning-\/tree vlan '} + vrange + \textcolor{stringliteral}{' cost '} + str(cost))}
+\DoxyCodeLine{244     \textcolor{keywordflow}{for} prio \textcolor{keywordflow}{in} sorted(vpdata[\textcolor{stringliteral}{'prio'}].keys()):}
+\DoxyCodeLine{245         vrange = cli\_stp.convert\_list\_to\_range\_groups(vpdata[\textcolor{stringliteral}{'prio'}][prio])}
+\DoxyCodeLine{246         cmd\_list.append(\textcolor{stringliteral}{'spanning-\/tree vlan '} + vrange + \textcolor{stringliteral}{' port-\/priority '} + str(prio))}
+\DoxyCodeLine{247     }
+\DoxyCodeLine{248     \textcolor{keywordflow}{if} cmd\_list:}
+\DoxyCodeLine{249         cmd\_str = \textcolor{stringliteral}{';'}.join(cmd\_list)}
+\DoxyCodeLine{250     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{251 }
+\DoxyCodeLine{252 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d58/namespaceshow__config__spanning__tree_a0a334c0a1eea9a60f8663cfa9f0a6875_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__spanning__tree_a36ae24b7752dce5362b45de0021229ff}\label{namespaceshow__config__spanning__tree_a36ae24b7752dce5362b45de0021229ff}} 
+\index{show\_config\_spanning\_tree@{show\_config\_spanning\_tree}!show\_config\_spanning\_tree\_vlan@{show\_config\_spanning\_tree\_vlan}}
+\index{show\_config\_spanning\_tree\_vlan@{show\_config\_spanning\_tree\_vlan}!show\_config\_spanning\_tree@{show\_config\_spanning\_tree}}
+\doxysubsubsection{\texorpdfstring{show\_config\_spanning\_tree\_vlan()}{show\_config\_spanning\_tree\_vlan()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+spanning\+\_\+tree.\+show\+\_\+config\+\_\+spanning\+\_\+tree\+\_\+vlan (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+spanning\+\_\+tree.\+py 파일의 143 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{143 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__spanning__tree_a36ae24b7752dce5362b45de0021229ff}{show\_config\_spanning\_tree\_vlan}}(render\_tables):}
+\DoxyCodeLine{144     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/spanning-\/tree:sonic-\/spanning-\/tree/STP/STP\_LIST'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{147         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149     \textcolor{keywordflow}{if} len(render\_tables[\textcolor{stringliteral}{'sonic-\/spanning-\/tree:sonic-\/spanning-\/tree/STP/STP\_LIST'}]) == 0:}
+\DoxyCodeLine{150         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{152     db\_entry = render\_tables[\textcolor{stringliteral}{'sonic-\/spanning-\/tree:sonic-\/spanning-\/tree/STP/STP\_LIST'}][0]}
+\DoxyCodeLine{153     }
+\DoxyCodeLine{154     missing\_fields = [field \textcolor{keywordflow}{for} field \textcolor{keywordflow}{in} [\textcolor{stringliteral}{'forward\_delay'}, \textcolor{stringliteral}{'hello\_time'}, \textcolor{stringliteral}{'max\_age'}, \textcolor{stringliteral}{'priority'}] \textcolor{keywordflow}{if} field \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} db\_entry.keys()]}
+\DoxyCodeLine{155     \textcolor{keywordflow}{if} len(missing\_fields) != 0:}
+\DoxyCodeLine{156         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceshow__config__spanning__tree_a472703d3b02648017065e6565b70e21c}{ret\_err}}(g\_err\_transaction\_fail, \textcolor{stringliteral}{'keys : \{\} not found in STP-\/GLOBAL'}.format(missing\_fields))}
+\DoxyCodeLine{157         }
+\DoxyCodeLine{158     g\_stp = \{\}}
+\DoxyCodeLine{159     g\_stp[\textcolor{stringliteral}{'forwarding-\/delay'}] = db\_entry[\textcolor{stringliteral}{'forward\_delay'}]}
+\DoxyCodeLine{160     g\_stp[\textcolor{stringliteral}{'hello-\/time'}] = db\_entry[\textcolor{stringliteral}{'hello\_time'}]}
+\DoxyCodeLine{161     g\_stp[\textcolor{stringliteral}{'max-\/age'}] = db\_entry[\textcolor{stringliteral}{'max\_age'}]}
+\DoxyCodeLine{162     g\_stp[\textcolor{stringliteral}{'bridge-\/priority'}] = db\_entry[\textcolor{stringliteral}{'priority'}]}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164     vlist = []}
+\DoxyCodeLine{165     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/spanning-\/tree:sonic-\/spanning-\/tree/STP\_VLAN/STP\_VLAN\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{166         \textcolor{keywordflow}{for} db\_entry \textcolor{keywordflow}{in} render\_tables[\textcolor{stringliteral}{'sonic-\/spanning-\/tree:sonic-\/spanning-\/tree/STP\_VLAN/STP\_VLAN\_LIST'}]:}
+\DoxyCodeLine{167             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'name'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} db\_entry.keys():}
+\DoxyCodeLine{168                 \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{170             vdata = \{\}}
+\DoxyCodeLine{171             vid = int(db\_entry[\textcolor{stringliteral}{'name'}][len(\textcolor{stringliteral}{'Vlan'}):])}
+\DoxyCodeLine{172             vdata[\textcolor{stringliteral}{'vlan-\/id'}] = vid}
+\DoxyCodeLine{173             vdata[\textcolor{stringliteral}{'config'}] = \{\}}
+\DoxyCodeLine{174             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'forward\_delay'} \textcolor{keywordflow}{in} db\_entry:}
+\DoxyCodeLine{175                 vdata[\textcolor{stringliteral}{'config'}][\textcolor{stringliteral}{'forwarding-\/delay'}] = db\_entry[\textcolor{stringliteral}{'forward\_delay'}]}
+\DoxyCodeLine{176             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'hello\_time'} \textcolor{keywordflow}{in} db\_entry:}
+\DoxyCodeLine{177                 vdata[\textcolor{stringliteral}{'config'}][\textcolor{stringliteral}{'hello-\/time'}] = db\_entry[\textcolor{stringliteral}{'hello\_time'}]}
+\DoxyCodeLine{178             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'max\_age'} \textcolor{keywordflow}{in} db\_entry:}
+\DoxyCodeLine{179                 vdata[\textcolor{stringliteral}{'config'}][\textcolor{stringliteral}{'max-\/age'}] = db\_entry[\textcolor{stringliteral}{'max\_age'}]}
+\DoxyCodeLine{180             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'priority'} \textcolor{keywordflow}{in} db\_entry:}
+\DoxyCodeLine{181                 vdata[\textcolor{stringliteral}{'config'}][\textcolor{stringliteral}{'bridge-\/priority'}] = db\_entry[\textcolor{stringliteral}{'priority'}]}
+\DoxyCodeLine{182             vlist.append(vdata)}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184     cli\_stp.show\_run\_config\_vlan(vlist, g\_stp)}
+\DoxyCodeLine{185     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d58/namespaceshow__config__spanning__tree_a36ae24b7752dce5362b45de0021229ff_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespaceshow__config__spanning__tree_a87ae2636ce6535e81eddd127ee1643f0}\label{namespaceshow__config__spanning__tree_a87ae2636ce6535e81eddd127ee1643f0}} 
+\index{show\_config\_spanning\_tree@{show\_config\_spanning\_tree}!g\_err\_transaction\_fail@{g\_err\_transaction\_fail}}
+\index{g\_err\_transaction\_fail@{g\_err\_transaction\_fail}!show\_config\_spanning\_tree@{show\_config\_spanning\_tree}}
+\doxysubsubsection{\texorpdfstring{g\_err\_transaction\_fail}{g\_err\_transaction\_fail}}
+{\footnotesize\ttfamily string show\+\_\+config\+\_\+spanning\+\_\+tree.\+g\+\_\+err\+\_\+transaction\+\_\+fail = \textquotesingle{}\%Error\+: Transaction Failure\textquotesingle{}}
+
+
+
+show\+\_\+config\+\_\+spanning\+\_\+tree.\+py 파일의 25 번째 라인에서 정의되었습니다.
+

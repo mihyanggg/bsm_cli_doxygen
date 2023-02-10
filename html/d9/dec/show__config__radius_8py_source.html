@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: cli/show_config_radius.py 소스 파일</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'검색');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','검색');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_2990d7c532eb7441b74916b8f5365141.html">cli</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">show_config_radius.py</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d9/dec/show__config__radius_8py.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="../../d8/db0/namespaceshow__config__radius.html">    1</a></span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">from</span> show_config_if_cmd <span class="keyword">import</span> show_render_if_cmd</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"># show_radius_global_key renders running config for &#39;radius-server key&#39;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="../../d8/db0/namespaceshow__config__radius.html#a2a343a91c3f5832d1ffc42e88fa3b78f">   23</a></span>&#160;<span class="keyword">def </span><a class="code" href="../../d8/db0/namespaceshow__config__radius.html#a2a343a91c3f5832d1ffc42e88fa3b78f">show_radius_global_key</a>(render_tables):</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    cmd = <span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    entry = <a class="code" href="../../d8/db0/namespaceshow__config__radius.html#a69ebbbd1f69c1907343206a7ca82d901">get_radius_entry</a>(render_tables)</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">if</span> (<span class="stringliteral">&#39;passkey&#39;</span> <span class="keywordflow">in</span> entry) <span class="keywordflow">and</span> entry[<span class="stringliteral">&#39;passkey&#39;</span>]:</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        cmd = <span class="stringliteral">&#39;radius-server key &#39;</span> + entry.get(<span class="stringliteral">&#39;passkey&#39;</span>) + <span class="stringliteral">&#39; encrypted&#39;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">return</span> <span class="stringliteral">&#39;CB_SUCCESS&#39;</span>, cmd</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"># show_radius_statistics_config renders running config for &#39;radius-server statistics&#39;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../d8/db0/namespaceshow__config__radius.html#acba5f8b101c1a917602f643b95b2ca5a">   31</a></span>&#160;<span class="keyword">def </span><a class="code" href="../../d8/db0/namespaceshow__config__radius.html#acba5f8b101c1a917602f643b95b2ca5a">show_radius_statistics_config</a>(render_tables):</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    cmd = <span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    entry = <a class="code" href="../../d8/db0/namespaceshow__config__radius.html#a69ebbbd1f69c1907343206a7ca82d901">get_radius_entry</a>(render_tables)</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">if</span> ( <span class="stringliteral">&#39;statistics&#39;</span> <span class="keywordflow">in</span> entry ) <span class="keywordflow">and</span> entry[<span class="stringliteral">&#39;statistics&#39;</span>]:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        cmd = <span class="stringliteral">&#39;radius-server statistics enable&#39;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">return</span> <span class="stringliteral">&#39;CB_SUCCESS&#39;</span>, cmd</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"># get_radius_entry returns global RADIUS_LIST entry</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment"># Returns an empty dict if no matching entry found.</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d8/db0/namespaceshow__config__radius.html#a69ebbbd1f69c1907343206a7ca82d901">   40</a></span>&#160;<span class="keyword">def </span><a class="code" href="../../d8/db0/namespaceshow__config__radius.html#a69ebbbd1f69c1907343206a7ca82d901">get_radius_entry</a>(data):</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">for</span> entry <span class="keywordflow">in</span> data.get(<span class="stringliteral">&#39;sonic-system-radius:sonic-system-radius/RADIUS/RADIUS_LIST&#39;</span>, []):</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">if</span> entry.get(<span class="stringliteral">&#39;global_key&#39;</span>) == <span class="stringliteral">&#39;global&#39;</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="keywordflow">return</span> entry </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span> {}</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment"># To show the running configuration of the &#39;radius-server host&#39;</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../d8/db0/namespaceshow__config__radius.html#af6b663d69f7dedd80beeecadaddeb043">   47</a></span>&#160;<span class="keyword">def </span><a class="code" href="../../d8/db0/namespaceshow__config__radius.html#af6b663d69f7dedd80beeecadaddeb043">show_radius_host_config</a>(render_tables):</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    cmd = <span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">for</span> entry <span class="keywordflow">in</span> render_tables.get(<span class="stringliteral">&#39;sonic-system-radius:sonic-system-radius/RADIUS_SERVER/RADIUS_SERVER_LIST&#39;</span>, []):</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">if</span> cmd != <span class="stringliteral">&#39;&#39;</span>:</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            cmd += <span class="stringliteral">&#39;;&#39;</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        cmd += <span class="stringliteral">&#39;radius-server host &#39;</span> + entry.get(<span class="stringliteral">&#39;ipaddress&#39;</span>)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        auth_port = entry.get(<span class="stringliteral">&#39;auth_port&#39;</span>)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">if</span> auth_port != <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            cmd += <span class="stringliteral">&#39; auth-port &#39;</span> + str(auth_port)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">if</span> entry.get(<span class="stringliteral">&#39;timeout&#39;</span>) != <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            cmd += <span class="stringliteral">&#39; timeout &#39;</span> + str(entry.get(<span class="stringliteral">&#39;timeout&#39;</span>))</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">if</span> entry.get(<span class="stringliteral">&#39;retransmit&#39;</span>) != <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            cmd += <span class="stringliteral">&#39; retransmit &#39;</span> + str(entry.get(<span class="stringliteral">&#39;retransmit&#39;</span>))</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">if</span> entry.get(<span class="stringliteral">&#39;passkey&#39;</span>) != <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            cmd += <span class="stringliteral">&#39; key &#39;</span> + entry.get(<span class="stringliteral">&#39;passkey&#39;</span>)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            cmd += <span class="stringliteral">&#39; encrypted &#39;</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">if</span> entry.get(<span class="stringliteral">&#39;auth_type&#39;</span>) != <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            cmd += <span class="stringliteral">&#39; auth-type &#39;</span> + entry.get(<span class="stringliteral">&#39;auth_type&#39;</span>)</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        priority = entry.get(<span class="stringliteral">&#39;priority&#39;</span>)</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">if</span> priority != <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            cmd += <span class="stringliteral">&#39; priority &#39;</span> + str(priority)</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">if</span> entry.get(<span class="stringliteral">&#39;vrf&#39;</span>) != <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            cmd += <span class="stringliteral">&#39; vrf &#39;</span> + entry.get(<span class="stringliteral">&#39;vrf&#39;</span>)</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        src_intf = entry.get(<span class="stringliteral">&#39;src_intf&#39;</span>)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">if</span> src_intf != <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            cmd += <span class="stringliteral">&#39; source-interface &#39;</span> + \</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                   <a class="code" href="../../d8/d29/namespaceshow__config__if__cmd.html#a8b1e27fd62439957aa7bb5fb16c078e7">show_render_if_cmd</a>( entry, <span class="stringliteral">&#39;src_intf&#39;</span>, <span class="stringliteral">&#39;&#39;</span>, <span class="keywordtype">None</span>)</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">return</span> <span class="stringliteral">&#39;CB_SUCCESS&#39;</span>, cmd</div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="anamespaceshow__config__radius_html_a2a343a91c3f5832d1ffc42e88fa3b78f"><div class="ttname"><a href="../../d8/db0/namespaceshow__config__radius.html#a2a343a91c3f5832d1ffc42e88fa3b78f">show_config_radius.show_radius_global_key</a></div><div class="ttdeci">def show_radius_global_key(render_tables)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dec/show__config__radius_8py_source.html#l00023">show_config_radius.py:23</a></div></div>
+<div class="ttc" id="anamespaceshow__config__if__cmd_html_a8b1e27fd62439957aa7bb5fb16c078e7"><div class="ttname"><a href="../../d8/d29/namespaceshow__config__if__cmd.html#a8b1e27fd62439957aa7bb5fb16c078e7">show_config_if_cmd.show_render_if_cmd</a></div><div class="ttdeci">def show_render_if_cmd(table_rec, attr_name, cmd_prfx, cmd_str)</div><div class="ttdoc">Copyright 2020 Dell, Inc.</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d71/show__config__if__cmd_8py_source.html#l00023">show_config_if_cmd.py:23</a></div></div>
+<div class="ttc" id="anamespaceshow__config__radius_html_a69ebbbd1f69c1907343206a7ca82d901"><div class="ttname"><a href="../../d8/db0/namespaceshow__config__radius.html#a69ebbbd1f69c1907343206a7ca82d901">show_config_radius.get_radius_entry</a></div><div class="ttdeci">def get_radius_entry(data)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dec/show__config__radius_8py_source.html#l00040">show_config_radius.py:40</a></div></div>
+<div class="ttc" id="anamespaceshow__config__radius_html_af6b663d69f7dedd80beeecadaddeb043"><div class="ttname"><a href="../../d8/db0/namespaceshow__config__radius.html#af6b663d69f7dedd80beeecadaddeb043">show_config_radius.show_radius_host_config</a></div><div class="ttdeci">def show_radius_host_config(render_tables)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dec/show__config__radius_8py_source.html#l00047">show_config_radius.py:47</a></div></div>
+<div class="ttc" id="anamespaceshow__config__radius_html_acba5f8b101c1a917602f643b95b2ca5a"><div class="ttname"><a href="../../d8/db0/namespaceshow__config__radius.html#acba5f8b101c1a917602f643b95b2ca5a">show_config_radius.show_radius_statistics_config</a></div><div class="ttdeci">def show_radius_statistics_config(render_tables)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dec/show__config__radius_8py_source.html#l00031">show_config_radius.py:31</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+다음에 의해 생성됨 :  &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

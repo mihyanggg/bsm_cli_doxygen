@@ -1,0 +1,6 @@
+{% for mac_list in json_output %}
+{{'MAC Entries for all vlans : '.ljust(20)}} {{(mac_list['vlan-mac'] | string).ljust(20)}}
+{{'Dynamic Address Count : '.ljust(20)}} {{(mac_list['dynamic-mac'] | string).ljust(20)}}
+{{'Static Address (User-defined) Count : '.ljust(20)}} {{(mac_list['static-mac'] | string).ljust(20)}}
+{{'Total MAC Addresses in Use:'.ljust(20)}} {{(mac_list['total-mac'] | string).ljust(20)}}
+{% endfor %}

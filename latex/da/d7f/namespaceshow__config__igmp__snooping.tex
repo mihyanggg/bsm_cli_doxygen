@@ -1,0 +1,148 @@
+\hypertarget{namespaceshow__config__igmp__snooping}{}\doxysection{show\+\_\+config\+\_\+igmp\+\_\+snooping 네임스페이스 참조}
+\label{namespaceshow__config__igmp__snooping}\index{show\_config\_igmp\_snooping@{show\_config\_igmp\_snooping}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceshow__config__igmp__snooping_a926e7125a0ff739eec1594cfac03aab5}{show\+\_\+igmp\+\_\+snooping\+\_\+intf\+\_\+config}} (render\+\_\+tables)
+\begin{DoxyCompactList}\small\item\em Copyright 2020 Broadcom. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceshow__config__igmp__snooping_a94a28863b0395be2c6e571197245ec53}{show\+\_\+mrouterports}} (render\+\_\+tables, vlan\+\_\+key, cmd\+\_\+prefix)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__igmp__snooping_ae06207cce2b246981336ea31a8027db8}{show\+\_\+multicast\+\_\+static\+\_\+grps}} (render\+\_\+tables, vlan\+\_\+key, cmd\+\_\+prefix)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespaceshow__config__igmp__snooping_a926e7125a0ff739eec1594cfac03aab5}\label{namespaceshow__config__igmp__snooping_a926e7125a0ff739eec1594cfac03aab5}} 
+\index{show\_config\_igmp\_snooping@{show\_config\_igmp\_snooping}!show\_igmp\_snooping\_intf\_config@{show\_igmp\_snooping\_intf\_config}}
+\index{show\_igmp\_snooping\_intf\_config@{show\_igmp\_snooping\_intf\_config}!show\_config\_igmp\_snooping@{show\_config\_igmp\_snooping}}
+\doxysubsubsection{\texorpdfstring{show\_igmp\_snooping\_intf\_config()}{show\_igmp\_snooping\_intf\_config()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+igmp\+\_\+snooping.\+show\+\_\+igmp\+\_\+snooping\+\_\+intf\+\_\+config (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+Copyright 2020 Broadcom. 
+
+The term \char`\"{}\+Broadcom\char`\"{} refers to Broadcom Inc. and/or its subsidiaries.
+
+Licensed under the Apache License, Version 2.\+0 (the \char`\"{}\+License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at \begin{DoxyVerb}http://www.apache.org/licenses/LICENSE-2.0
+\end{DoxyVerb}
+
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\+A\+S I\+S\char`\"{} B\+A\+S\+IS, W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+T\+I\+ES OR C\+O\+N\+D\+I\+T\+I\+O\+NS OF A\+NY K\+I\+ND, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+show\+\_\+config\+\_\+igmp\+\_\+snooping.\+py 파일의 20 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{20 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__igmp__snooping_a926e7125a0ff739eec1594cfac03aab5}{show\_igmp\_snooping\_intf\_config}}(render\_tables):}
+\DoxyCodeLine{21     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{22     cmd\_end = \textcolor{stringliteral}{';'}}
+\DoxyCodeLine{23     cmd\_prefix = \textcolor{stringliteral}{'ip igmp snooping'}}
+\DoxyCodeLine{24     vlan\_key = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{25     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'name'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{26         vlan\_key = render\_tables[\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/igmp-\/snooping:sonic-\/igmp-\/snooping/CFG\_L2MC\_TABLE/CFG\_L2MC\_TABLE\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{29         igmps\_intfs = render\_tables[\textcolor{stringliteral}{'sonic-\/igmp-\/snooping:sonic-\/igmp-\/snooping/CFG\_L2MC\_TABLE/CFG\_L2MC\_TABLE\_LIST'}]}
+\DoxyCodeLine{30         \textcolor{keywordflow}{for} igmps \textcolor{keywordflow}{in} igmps\_intfs:}
+\DoxyCodeLine{31             \textcolor{keywordflow}{if} vlan\_key == igmps[\textcolor{stringliteral}{'vlan-\/name'}]:}
+\DoxyCodeLine{32                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'enabled'} \textcolor{keywordflow}{in} igmps:}
+\DoxyCodeLine{33                     cmd\_str += cmd\_prefix + cmd\_end}
+\DoxyCodeLine{34                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'querier'} \textcolor{keywordflow}{in} igmps \textcolor{keywordflow}{and} igmps[\textcolor{stringliteral}{'querier'}] == \textcolor{keyword}{True}:}
+\DoxyCodeLine{35                     cmd\_str += cmd\_prefix + \textcolor{stringliteral}{' querier'} + cmd\_end}
+\DoxyCodeLine{36                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'fast-\/leave'} \textcolor{keywordflow}{in} igmps \textcolor{keywordflow}{and} igmps[\textcolor{stringliteral}{'fast-\/leave'}] == \textcolor{keyword}{True}:}
+\DoxyCodeLine{37                     cmd\_str += cmd\_prefix + \textcolor{stringliteral}{' fast-\/leave'} + cmd\_end}
+\DoxyCodeLine{38                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'query-\/interval'} \textcolor{keywordflow}{in} igmps:}
+\DoxyCodeLine{39                     cmd\_str += cmd\_prefix + \textcolor{stringliteral}{' query-\/interval \{\}'}.format(igmps[\textcolor{stringliteral}{'query-\/interval'}]) + cmd\_end}
+\DoxyCodeLine{40                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'last-\/member-\/query-\/interval'} \textcolor{keywordflow}{in} igmps:}
+\DoxyCodeLine{41                     cmd\_str += cmd\_prefix + \textcolor{stringliteral}{' last-\/member-\/query-\/interval \{\}'}.format(igmps[\textcolor{stringliteral}{'last-\/member-\/query-\/interval'}]) + cmd\_end}
+\DoxyCodeLine{42                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'query-\/max-\/response-\/time'} \textcolor{keywordflow}{in} igmps:}
+\DoxyCodeLine{43                     cmd\_str += cmd\_prefix + \textcolor{stringliteral}{' query-\/max-\/response-\/time \{\}'}.format(igmps[\textcolor{stringliteral}{'query-\/max-\/response-\/time'}]) + cmd\_end}
+\DoxyCodeLine{44                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'version'} \textcolor{keywordflow}{in} igmps:}
+\DoxyCodeLine{45                     cmd\_str += cmd\_prefix + \textcolor{stringliteral}{' version \{\}'}.format(igmps[\textcolor{stringliteral}{'version'}]) + cmd\_end}
+\DoxyCodeLine{46     }
+\DoxyCodeLine{47     status, sub\_cmd\_str = \mbox{\hyperlink{namespaceshow__config__igmp__snooping_a94a28863b0395be2c6e571197245ec53}{show\_mrouterports}}(render\_tables, vlan\_key, cmd\_prefix)}
+\DoxyCodeLine{48     \textcolor{keywordflow}{if} status == \textcolor{stringliteral}{'CB\_SUCCESS'} :}
+\DoxyCodeLine{49         cmd\_str += sub\_cmd\_str + cmd\_end}
+\DoxyCodeLine{50     }
+\DoxyCodeLine{51     status, sub\_cmd\_str = \mbox{\hyperlink{namespaceshow__config__igmp__snooping_ae06207cce2b246981336ea31a8027db8}{show\_multicast\_static\_grps}}(render\_tables, vlan\_key, cmd\_prefix)}
+\DoxyCodeLine{52     \textcolor{keywordflow}{if} status == \textcolor{stringliteral}{'CB\_SUCCESS'} :}
+\DoxyCodeLine{53         cmd\_str += sub\_cmd\_str + cmd\_end}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{56 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d7f/namespaceshow__config__igmp__snooping_a926e7125a0ff739eec1594cfac03aab5_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__igmp__snooping_a94a28863b0395be2c6e571197245ec53}\label{namespaceshow__config__igmp__snooping_a94a28863b0395be2c6e571197245ec53}} 
+\index{show\_config\_igmp\_snooping@{show\_config\_igmp\_snooping}!show\_mrouterports@{show\_mrouterports}}
+\index{show\_mrouterports@{show\_mrouterports}!show\_config\_igmp\_snooping@{show\_config\_igmp\_snooping}}
+\doxysubsubsection{\texorpdfstring{show\_mrouterports()}{show\_mrouterports()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+igmp\+\_\+snooping.\+show\+\_\+mrouterports (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables,  }\item[{}]{vlan\+\_\+key,  }\item[{}]{cmd\+\_\+prefix }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+igmp\+\_\+snooping.\+py 파일의 57 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{57 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__igmp__snooping_a94a28863b0395be2c6e571197245ec53}{show\_mrouterports}}(render\_tables, vlan\_key, cmd\_prefix):}
+\DoxyCodeLine{58     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{59     cmd\_end = \textcolor{stringliteral}{';'}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/igmp-\/snooping:sonic-\/igmp-\/snooping/CFG\_L2MC\_MROUTER\_TABLE/CFG\_L2MC\_MROUTER\_TABLE\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{62         mrouter\_intfs = render\_tables[\textcolor{stringliteral}{'sonic-\/igmp-\/snooping:sonic-\/igmp-\/snooping/CFG\_L2MC\_MROUTER\_TABLE/CFG\_L2MC\_MROUTER\_TABLE\_LIST'}]}
+\DoxyCodeLine{63         \textcolor{keywordflow}{for} mrouter \textcolor{keywordflow}{in} mrouter\_intfs:}
+\DoxyCodeLine{64             \textcolor{keywordflow}{if} vlan\_key == mrouter[\textcolor{stringliteral}{'vlan-\/name'}]:}
+\DoxyCodeLine{65                 cmd\_str += cmd\_prefix + \textcolor{stringliteral}{' mrouter interface '} + str(mrouter[\textcolor{stringliteral}{'mrouter-\/intf'}]) + cmd\_end}
+\DoxyCodeLine{66     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{67 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d7f/namespaceshow__config__igmp__snooping_a94a28863b0395be2c6e571197245ec53_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__igmp__snooping_ae06207cce2b246981336ea31a8027db8}\label{namespaceshow__config__igmp__snooping_ae06207cce2b246981336ea31a8027db8}} 
+\index{show\_config\_igmp\_snooping@{show\_config\_igmp\_snooping}!show\_multicast\_static\_grps@{show\_multicast\_static\_grps}}
+\index{show\_multicast\_static\_grps@{show\_multicast\_static\_grps}!show\_config\_igmp\_snooping@{show\_config\_igmp\_snooping}}
+\doxysubsubsection{\texorpdfstring{show\_multicast\_static\_grps()}{show\_multicast\_static\_grps()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+igmp\+\_\+snooping.\+show\+\_\+multicast\+\_\+static\+\_\+grps (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables,  }\item[{}]{vlan\+\_\+key,  }\item[{}]{cmd\+\_\+prefix }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+igmp\+\_\+snooping.\+py 파일의 68 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{68 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__igmp__snooping_ae06207cce2b246981336ea31a8027db8}{show\_multicast\_static\_grps}}(render\_tables, vlan\_key, cmd\_prefix):}
+\DoxyCodeLine{69     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{70     cmd\_end = \textcolor{stringliteral}{';'}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/igmp-\/snooping:sonic-\/igmp-\/snooping/CFG\_L2MC\_STATIC\_MEMBER\_TABLE/CFG\_L2MC\_STATIC\_MEMBER\_TABLE\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{73         igmpgrps = render\_tables[\textcolor{stringliteral}{'sonic-\/igmp-\/snooping:sonic-\/igmp-\/snooping/CFG\_L2MC\_STATIC\_MEMBER\_TABLE/CFG\_L2MC\_STATIC\_MEMBER\_TABLE\_LIST'}]}
+\DoxyCodeLine{74         \textcolor{keywordflow}{for} igmpgrp \textcolor{keywordflow}{in} igmpgrps:}
+\DoxyCodeLine{75             \textcolor{keywordflow}{if} vlan\_key == igmpgrp[\textcolor{stringliteral}{'vlan-\/name'}]:}
+\DoxyCodeLine{76                 cmd\_str += cmd\_prefix + \textcolor{stringliteral}{' static-\/group '} + igmpgrp[\textcolor{stringliteral}{'group-\/addr'}] + \textcolor{stringliteral}{' interface '} + str(igmpgrp[\textcolor{stringliteral}{'out-\/intf'}]) + cmd\_end}
+\DoxyCodeLine{77     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d7f/namespaceshow__config__igmp__snooping_ae06207cce2b246981336ea31a8027db8_icgraph}
+\end{center}
+\end{figure}

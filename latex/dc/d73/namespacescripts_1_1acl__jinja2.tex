@@ -1,0 +1,61 @@
+\hypertarget{namespacescripts_1_1acl__jinja2}{}\doxysection{scripts.\+acl\+\_\+jinja2 네임스페이스 참조}
+\label{namespacescripts_1_1acl__jinja2}\index{scripts.acl\_jinja2@{scripts.acl\_jinja2}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacescripts_1_1acl__jinja2_af1e58deee8789befae12471aa4f80bf6}{acl\+\_\+show}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+dictionary \mbox{\hyperlink{namespacescripts_1_1acl__jinja2_a2f15c76e06bf617b986390f48e26c481}{acl\+\_\+out}}
+\item 
+\mbox{\hyperlink{namespacescripts_1_1acl__jinja2_ab0f622f91c2bcc577e8dc3c46aaa8ab5}{T\+H\+I\+S\+\_\+\+D\+IR}} = os.\+path.\+dirname(os.\+path.\+abspath(\+\_\+\+\_\+file\+\_\+\+\_\+))
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacescripts_1_1acl__jinja2_af1e58deee8789befae12471aa4f80bf6}\label{namespacescripts_1_1acl__jinja2_af1e58deee8789befae12471aa4f80bf6}} 
+\index{scripts.acl\_jinja2@{scripts.acl\_jinja2}!acl\_show@{acl\_show}}
+\index{acl\_show@{acl\_show}!scripts.acl\_jinja2@{scripts.acl\_jinja2}}
+\doxysubsubsection{\texorpdfstring{acl\_show()}{acl\_show()}}
+{\footnotesize\ttfamily def scripts.\+acl\+\_\+jinja2.\+acl\+\_\+show (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+acl\+\_\+jinja2.\+py 파일의 55 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{55 \textcolor{keyword}{def }\mbox{\hyperlink{namespacescripts_1_1acl__jinja2_af1e58deee8789befae12471aa4f80bf6}{acl\_show}}():}
+\DoxyCodeLine{56     \textcolor{comment}{\# Create the jinja2 environment.}}
+\DoxyCodeLine{57     \textcolor{comment}{\# Notice the use of trim\_blocks, which greatly helps control whitespace.}}
+\DoxyCodeLine{58     j2\_env = Environment(loader=FileSystemLoader(THIS\_DIR),}
+\DoxyCodeLine{59                          trim\_blocks=\textcolor{keyword}{True})}
+\DoxyCodeLine{60     \textcolor{keywordflow}{print} (j2\_env.get\_template(\textcolor{stringliteral}{'acl\_show.j2'}).render(acl\_out=acl\_out))}
+\DoxyCodeLine{61 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacescripts_1_1acl__jinja2_a2f15c76e06bf617b986390f48e26c481}\label{namespacescripts_1_1acl__jinja2_a2f15c76e06bf617b986390f48e26c481}} 
+\index{scripts.acl\_jinja2@{scripts.acl\_jinja2}!acl\_out@{acl\_out}}
+\index{acl\_out@{acl\_out}!scripts.acl\_jinja2@{scripts.acl\_jinja2}}
+\doxysubsubsection{\texorpdfstring{acl\_out}{acl\_out}}
+{\footnotesize\ttfamily dictionary scripts.\+acl\+\_\+jinja2.\+acl\+\_\+out}
+
+
+
+acl\+\_\+jinja2.\+py 파일의 4 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacescripts_1_1acl__jinja2_ab0f622f91c2bcc577e8dc3c46aaa8ab5}\label{namespacescripts_1_1acl__jinja2_ab0f622f91c2bcc577e8dc3c46aaa8ab5}} 
+\index{scripts.acl\_jinja2@{scripts.acl\_jinja2}!THIS\_DIR@{THIS\_DIR}}
+\index{THIS\_DIR@{THIS\_DIR}!scripts.acl\_jinja2@{scripts.acl\_jinja2}}
+\doxysubsubsection{\texorpdfstring{THIS\_DIR}{THIS\_DIR}}
+{\footnotesize\ttfamily scripts.\+acl\+\_\+jinja2.\+T\+H\+I\+S\+\_\+\+D\+IR = os.\+path.\+dirname(os.\+path.\+abspath(\+\_\+\+\_\+file\+\_\+\+\_\+))}
+
+
+
+acl\+\_\+jinja2.\+py 파일의 53 번째 라인에서 정의되었습니다.
+

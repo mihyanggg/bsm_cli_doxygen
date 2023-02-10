@@ -1,0 +1,372 @@
+\hypertarget{namespaceshow__config__bfd}{}\doxysection{show\+\_\+config\+\_\+bfd 네임스페이스 참조}
+\label{namespaceshow__config__bfd}\index{show\_config\_bfd@{show\_config\_bfd}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceshow__config__bfd_aa626e34859bb9fd2d5b727a477421456}{bfd\+\_\+get\+\_\+key\+\_\+values}} (in\+\_\+map)
+\begin{DoxyCompactList}\small\item\em Copyright 2020 Broadcom. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceshow__config__bfd_a7a1de2e122e57752da216e84ead1ae80}{bfd\+\_\+generate\+\_\+command}} (in\+\_\+map, key\+\_\+name, cmd\+\_\+prefix, match\+\_\+value=\{\}, cmd\+\_\+suffix=\textquotesingle{} ;\textquotesingle{}, default=\textquotesingle{}\textquotesingle{})
+\item 
+def \mbox{\hyperlink{namespaceshow__config__bfd_a371750732d13535ae1c837b63e44abc8}{bfd\+\_\+generate\+\_\+peer\+\_\+view\+\_\+cmd}} (rec, cmd\+\_\+prefix)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__bfd_ace5ad5eb501a7f370ba0a1f09b58493a}{bfd\+\_\+generate\+\_\+shop\+\_\+config}} (shop\+\_\+rec)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__bfd_a04ae62fa1683191f184faab6d0a264ed}{bfd\+\_\+generate\+\_\+mhop\+\_\+config}} (mhop\+\_\+rec)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__bfd_a2249801c681453997821731861aa5508}{show\+\_\+bfd\+\_\+config}} (render\+\_\+tables)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespaceshow__config__bfd_a7a1de2e122e57752da216e84ead1ae80}\label{namespaceshow__config__bfd_a7a1de2e122e57752da216e84ead1ae80}} 
+\index{show\_config\_bfd@{show\_config\_bfd}!bfd\_generate\_command@{bfd\_generate\_command}}
+\index{bfd\_generate\_command@{bfd\_generate\_command}!show\_config\_bfd@{show\_config\_bfd}}
+\doxysubsubsection{\texorpdfstring{bfd\_generate\_command()}{bfd\_generate\_command()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+bfd.\+bfd\+\_\+generate\+\_\+command (\begin{DoxyParamCaption}\item[{}]{in\+\_\+map,  }\item[{}]{key\+\_\+name,  }\item[{}]{cmd\+\_\+prefix,  }\item[{}]{match\+\_\+value = {\ttfamily \{\}},  }\item[{}]{cmd\+\_\+suffix = {\ttfamily \textquotesingle{}~;\textquotesingle{}},  }\item[{}]{default = {\ttfamily \textquotesingle{}\textquotesingle{}} }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+bfd.\+py 파일의 24 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__bfd_a7a1de2e122e57752da216e84ead1ae80}{bfd\_generate\_command}}(in\_map, key\_name, cmd\_prefix, match\_value=\{\}, cmd\_suffix=' ;', default='') :}
+\DoxyCodeLine{25     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keywordflow}{if} in\_map == \textcolor{keywordtype}{None} :}
+\DoxyCodeLine{28         \textcolor{keywordflow}{return} \textcolor{stringliteral}{''}}
+\DoxyCodeLine{29     \textcolor{keywordflow}{if} key\_name == \textcolor{keywordtype}{None} \textcolor{keywordflow}{or} key\_name == \textcolor{stringliteral}{''} :}
+\DoxyCodeLine{30         \textcolor{keywordflow}{return} \textcolor{stringliteral}{''}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keywordflow}{if} key\_name \textcolor{keywordflow}{in} in\_map :}
+\DoxyCodeLine{33         \textcolor{keywordflow}{if} len(match\_value) :}
+\DoxyCodeLine{34             \textcolor{keywordflow}{for} key, value \textcolor{keywordflow}{in} match\_value.items() :}
+\DoxyCodeLine{35                 \textcolor{keywordflow}{if} in\_map[key\_name] == key :}
+\DoxyCodeLine{36                     \textcolor{keywordflow}{if} value != \textcolor{stringliteral}{''} :}
+\DoxyCodeLine{37                         cmd\_str = \textcolor{stringliteral}{'\{\} \{\} \{\}'}.format(cmd\_prefix, value, cmd\_suffix)}
+\DoxyCodeLine{38                     \textcolor{keywordflow}{else} :}
+\DoxyCodeLine{39                         cmd\_str = \textcolor{stringliteral}{'\{\} \{\}'}.format(cmd\_prefix, cmd\_suffix)}
+\DoxyCodeLine{40         \textcolor{keywordflow}{else} :}
+\DoxyCodeLine{41             value = in\_map[key\_name]}
+\DoxyCodeLine{42             \textcolor{keywordflow}{if} ((default != \textcolor{stringliteral}{''}) \textcolor{keywordflow}{and} (value != default)):}
+\DoxyCodeLine{43                 cmd\_str = \textcolor{stringliteral}{'\{\} \{\} \{\}'}.format(cmd\_prefix, value, cmd\_suffix)}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{keywordflow}{return} cmd\_str}
+\DoxyCodeLine{46 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/dcd/namespaceshow__config__bfd_a7a1de2e122e57752da216e84ead1ae80_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__bfd_a04ae62fa1683191f184faab6d0a264ed}\label{namespaceshow__config__bfd_a04ae62fa1683191f184faab6d0a264ed}} 
+\index{show\_config\_bfd@{show\_config\_bfd}!bfd\_generate\_mhop\_config@{bfd\_generate\_mhop\_config}}
+\index{bfd\_generate\_mhop\_config@{bfd\_generate\_mhop\_config}!show\_config\_bfd@{show\_config\_bfd}}
+\doxysubsubsection{\texorpdfstring{bfd\_generate\_mhop\_config()}{bfd\_generate\_mhop\_config()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+bfd.\+bfd\+\_\+generate\+\_\+mhop\+\_\+config (\begin{DoxyParamCaption}\item[{}]{mhop\+\_\+rec }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+bfd.\+py 파일의 92 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{92 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__bfd_a04ae62fa1683191f184faab6d0a264ed}{bfd\_generate\_mhop\_config}}(mhop\_rec):}
+\DoxyCodeLine{93     cmd\_str = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{94     cmd\_end = \textcolor{stringliteral}{' ;'}}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96     present, remoteaddr, intfname, vrfname, localaddr = \mbox{\hyperlink{namespaceshow__config__bfd_aa626e34859bb9fd2d5b727a477421456}{bfd\_get\_key\_values}}(mhop\_rec)}
+\DoxyCodeLine{97     cmd\_str += \textcolor{stringliteral}{' peer '} + remoteaddr + \textcolor{stringliteral}{' multihop'}}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99     \textcolor{keywordflow}{if} (localaddr != \textcolor{stringliteral}{"null"}):}
+\DoxyCodeLine{100         cmd\_str += \textcolor{stringliteral}{" local-\/address "} + localaddr}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102     \textcolor{keywordflow}{if} (vrfname != \textcolor{stringliteral}{'default'}):}
+\DoxyCodeLine{103         cmd\_str += \textcolor{stringliteral}{' vrf '} + vrfname}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105     \textcolor{keywordflow}{if} (intfname != \textcolor{stringliteral}{"null"}):}
+\DoxyCodeLine{106         cmd\_str += \textcolor{stringliteral}{' interface '} + intfname}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108     cmd\_str += cmd\_end}
+\DoxyCodeLine{109     cmd\_str += \mbox{\hyperlink{namespaceshow__config__bfd_a371750732d13535ae1c837b63e44abc8}{bfd\_generate\_peer\_view\_cmd}}(mhop\_rec, \textcolor{stringliteral}{'  '})}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111     \textcolor{keywordflow}{return} cmd\_str}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113 \textcolor{stringliteral}{'''}}
+\DoxyCodeLine{114 \textcolor{stringliteral}{def show\_bfd\_config(render\_tables):}}
+\DoxyCodeLine{115 \textcolor{stringliteral}{    cmd\_str = ''}}
+\DoxyCodeLine{116 \textcolor{stringliteral}{    cmd\_end = ' ;'}}
+\DoxyCodeLine{117 \textcolor{stringliteral}{    addr\_family = "ipv4"}}
+\DoxyCodeLine{118 \textcolor{stringliteral}{    mhopflag = False}}
+\DoxyCodeLine{119 \textcolor{stringliteral}{    shop\_record\_list = \{\}}}
+\DoxyCodeLine{120 \textcolor{stringliteral}{    mhop\_record\_list = \{\}}}
+\DoxyCodeLine{121 \textcolor{stringliteral}{}}
+\DoxyCodeLine{122 \textcolor{stringliteral}{    print(show\_bfd\_config)}}
+\DoxyCodeLine{123 \textcolor{stringliteral}{    print(render\_tables)}}
+\DoxyCodeLine{124 \textcolor{stringliteral}{}}
+\DoxyCodeLine{125 \textcolor{stringliteral}{    present, vrf\_name = bfd\_get\_key\_value(render\_tables, "vrfname")}}
+\DoxyCodeLine{126 \textcolor{stringliteral}{    present, peerip = bfd\_get\_key\_value(render\_tables, "peer\_ip")}}
+\DoxyCodeLine{127 \textcolor{stringliteral}{    present, localip = bfd\_get\_key\_value(render\_tables, "local\_ip")}}
+\DoxyCodeLine{128 \textcolor{stringliteral}{    present, interface = bfd\_get\_key\_value(render\_tables, "interfacename")}}
+\DoxyCodeLine{129 \textcolor{stringliteral}{}}
+\DoxyCodeLine{130 \textcolor{stringliteral}{    print(vrf\_name)}}
+\DoxyCodeLine{131 \textcolor{stringliteral}{    print(peerip)}}
+\DoxyCodeLine{132 \textcolor{stringliteral}{    print(interface)}}
+\DoxyCodeLine{133 \textcolor{stringliteral}{    print(localip)}}
+\DoxyCodeLine{134 \textcolor{stringliteral}{}}
+\DoxyCodeLine{135 \textcolor{stringliteral}{    shop\_tbl\_path = 'sonic-\/bfd:sonic-\/bfd/BFD\_PEER\_SINGLE\_HOP/BFD\_PEER\_SINGLE\_HOP\_LIST'}}
+\DoxyCodeLine{136 \textcolor{stringliteral}{    mhop\_tbl\_path = 'sonic-\/bfd:sonic-\/bfd/BFD\_PEER\_MULTI\_HOP/BFD\_PEER\_MULTI\_HOP\_LIST'}}
+\DoxyCodeLine{137 \textcolor{stringliteral}{}}
+\DoxyCodeLine{138 \textcolor{stringliteral}{    if (shop\_tbl\_path in render\_tables):}}
+\DoxyCodeLine{139 \textcolor{stringliteral}{        shop\_record = True}}
+\DoxyCodeLine{140 \textcolor{stringliteral}{        shop\_record\_list = render\_tables[shop\_tbl\_path]}}
+\DoxyCodeLine{141 \textcolor{stringliteral}{        if not isinstance(shop\_record\_list, list):}}
+\DoxyCodeLine{142 \textcolor{stringliteral}{            shop\_record\_list = [shop\_record\_list]}}
+\DoxyCodeLine{143 \textcolor{stringliteral}{}}
+\DoxyCodeLine{144 \textcolor{stringliteral}{    if (mhop\_tbl\_path in render\_tables):}}
+\DoxyCodeLine{145 \textcolor{stringliteral}{        mhop\_record = True}}
+\DoxyCodeLine{146 \textcolor{stringliteral}{        mhop\_record\_list = render\_tables[mhop\_tbl\_path]}}
+\DoxyCodeLine{147 \textcolor{stringliteral}{        if not isinstance(mhop\_record\_list, list) :}}
+\DoxyCodeLine{148 \textcolor{stringliteral}{            mhop\_record\_list = [mhop\_record\_list]}}
+\DoxyCodeLine{149 \textcolor{stringliteral}{}}
+\DoxyCodeLine{150 \textcolor{stringliteral}{    if (shop\_record == False and mhop\_record == False):}}
+\DoxyCodeLine{151 \textcolor{stringliteral}{        return 'CB\_SUCCESS', cmd\_str}}
+\DoxyCodeLine{152 \textcolor{stringliteral}{}}
+\DoxyCodeLine{153 \textcolor{stringliteral}{    cmd\_str += "bfd" + cmd\_end}}
+\DoxyCodeLine{154 \textcolor{stringliteral}{}}
+\DoxyCodeLine{155 \textcolor{stringliteral}{    for shop\_rec in shop\_record\_list:}}
+\DoxyCodeLine{156 \textcolor{stringliteral}{        present, remoteaddr, intfname, vrfname, localaddr = bfd\_get\_key\_values(shop\_rec)}}
+\DoxyCodeLine{157 \textcolor{stringliteral}{        if (vrf\_name == vrfname and peerip == remoteaddr and interface == intfname and localip == localaddr):}}
+\DoxyCodeLine{158 \textcolor{stringliteral}{            \#cmd\_str += bfd\_generate\_peer\_view\_cmd(shop\_rec, '')}}
+\DoxyCodeLine{159 \textcolor{stringliteral}{            cmd\_str += bfd\_generate\_shop\_config(shop\_rec)}}
+\DoxyCodeLine{160 \textcolor{stringliteral}{}}
+\DoxyCodeLine{161 \textcolor{stringliteral}{    for mhop\_rec in mhop\_record\_list:}}
+\DoxyCodeLine{162 \textcolor{stringliteral}{        present, remoteaddr, intfname, vrfname, localaddr = bfd\_get\_key\_values(mhop\_rec)}}
+\DoxyCodeLine{163 \textcolor{stringliteral}{        if (vrf\_name == vrfname and peerip == remoteaddr and interface == intfname and localip == localaddr):}}
+\DoxyCodeLine{164 \textcolor{stringliteral}{            \#cmd\_str += bfd\_generate\_peer\_view\_cmd(mhop\_rec, '')}}
+\DoxyCodeLine{165 \textcolor{stringliteral}{            cmd\_str += bfd\_generate\_mhop\_config(mhop\_rec)}}
+\DoxyCodeLine{166 \textcolor{stringliteral}{}}
+\DoxyCodeLine{167 \textcolor{stringliteral}{    return 'CB\_SUCCESS', cmd\_str}}
+\DoxyCodeLine{168 \textcolor{stringliteral}{'''}}
+\DoxyCodeLine{169 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/dcd/namespaceshow__config__bfd_a04ae62fa1683191f184faab6d0a264ed_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/dcd/namespaceshow__config__bfd_a04ae62fa1683191f184faab6d0a264ed_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__bfd_a371750732d13535ae1c837b63e44abc8}\label{namespaceshow__config__bfd_a371750732d13535ae1c837b63e44abc8}} 
+\index{show\_config\_bfd@{show\_config\_bfd}!bfd\_generate\_peer\_view\_cmd@{bfd\_generate\_peer\_view\_cmd}}
+\index{bfd\_generate\_peer\_view\_cmd@{bfd\_generate\_peer\_view\_cmd}!show\_config\_bfd@{show\_config\_bfd}}
+\doxysubsubsection{\texorpdfstring{bfd\_generate\_peer\_view\_cmd()}{bfd\_generate\_peer\_view\_cmd()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+bfd.\+bfd\+\_\+generate\+\_\+peer\+\_\+view\+\_\+cmd (\begin{DoxyParamCaption}\item[{}]{rec,  }\item[{}]{cmd\+\_\+prefix }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+bfd.\+py 파일의 47 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{47 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__bfd_a371750732d13535ae1c837b63e44abc8}{bfd\_generate\_peer\_view\_cmd}}(rec, cmd\_prefix):}
+\DoxyCodeLine{48     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     default\_value = 3}
+\DoxyCodeLine{51     cmd\_str += \mbox{\hyperlink{namespaceshow__config__bfd_a7a1de2e122e57752da216e84ead1ae80}{bfd\_generate\_command}}(rec, \textcolor{stringliteral}{'detection-\/multiplier'}, cmd\_prefix + \textcolor{stringliteral}{'detect-\/multiplier'}, default=default\_value)}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     default\_value = 50}
+\DoxyCodeLine{54     cmd\_str += \mbox{\hyperlink{namespaceshow__config__bfd_a7a1de2e122e57752da216e84ead1ae80}{bfd\_generate\_command}}(rec, \textcolor{stringliteral}{'desired-\/minimum-\/echo-\/receive'}, cmd\_prefix + \textcolor{stringliteral}{'echo-\/interval'}, default=default\_value)}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     match\_value = \{ \textcolor{keyword}{True} : \textcolor{stringliteral}{''} \}}
+\DoxyCodeLine{57     cmd\_str += \mbox{\hyperlink{namespaceshow__config__bfd_a7a1de2e122e57752da216e84ead1ae80}{bfd\_generate\_command}}(rec, \textcolor{stringliteral}{'echo-\/active'}, cmd\_prefix + \textcolor{stringliteral}{'echo-\/mode'}, match\_value=match\_value)}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     default\_value = 300}
+\DoxyCodeLine{60     cmd\_str += \mbox{\hyperlink{namespaceshow__config__bfd_a7a1de2e122e57752da216e84ead1ae80}{bfd\_generate\_command}}(rec, \textcolor{stringliteral}{'required-\/minimum-\/receive'}, cmd\_prefix + \textcolor{stringliteral}{'receive-\/interval'}, default=default\_value)}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     match\_value = \{ \textcolor{keyword}{False} : \textcolor{stringliteral}{''} \}}
+\DoxyCodeLine{63     cmd\_str += \mbox{\hyperlink{namespaceshow__config__bfd_a7a1de2e122e57752da216e84ead1ae80}{bfd\_generate\_command}}(rec, \textcolor{stringliteral}{'enabled'}, cmd\_prefix + \textcolor{stringliteral}{'shutdown'}, match\_value=match\_value)}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     default\_value = 300}
+\DoxyCodeLine{66     cmd\_str += \mbox{\hyperlink{namespaceshow__config__bfd_a7a1de2e122e57752da216e84ead1ae80}{bfd\_generate\_command}}(rec, \textcolor{stringliteral}{'desired-\/minimum-\/tx-\/interval'}, cmd\_prefix + \textcolor{stringliteral}{'transmit-\/interval'}, default=default\_value)}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     \textcolor{keywordflow}{return} cmd\_str}
+\DoxyCodeLine{69 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/dcd/namespaceshow__config__bfd_a371750732d13535ae1c837b63e44abc8_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/dcd/namespaceshow__config__bfd_a371750732d13535ae1c837b63e44abc8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__bfd_ace5ad5eb501a7f370ba0a1f09b58493a}\label{namespaceshow__config__bfd_ace5ad5eb501a7f370ba0a1f09b58493a}} 
+\index{show\_config\_bfd@{show\_config\_bfd}!bfd\_generate\_shop\_config@{bfd\_generate\_shop\_config}}
+\index{bfd\_generate\_shop\_config@{bfd\_generate\_shop\_config}!show\_config\_bfd@{show\_config\_bfd}}
+\doxysubsubsection{\texorpdfstring{bfd\_generate\_shop\_config()}{bfd\_generate\_shop\_config()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+bfd.\+bfd\+\_\+generate\+\_\+shop\+\_\+config (\begin{DoxyParamCaption}\item[{}]{shop\+\_\+rec }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+bfd.\+py 파일의 70 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{70 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__bfd_ace5ad5eb501a7f370ba0a1f09b58493a}{bfd\_generate\_shop\_config}}(shop\_rec):}
+\DoxyCodeLine{71     cmd\_str = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{72     cmd\_end = \textcolor{stringliteral}{' ;'}}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74     present, remoteaddr, intfname, vrfname, localaddr = \mbox{\hyperlink{namespaceshow__config__bfd_aa626e34859bb9fd2d5b727a477421456}{bfd\_get\_key\_values}}(shop\_rec)}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76     cmd\_str += \textcolor{stringliteral}{' peer '} + remoteaddr}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78     \textcolor{keywordflow}{if} (localaddr != \textcolor{stringliteral}{"null"}):}
+\DoxyCodeLine{79         cmd\_str += \textcolor{stringliteral}{" local-\/address "} + localaddr}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81     \textcolor{keywordflow}{if} (vrfname != \textcolor{stringliteral}{'default'}):}
+\DoxyCodeLine{82             cmd\_str += \textcolor{stringliteral}{' vrf '} + vrfname}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84     \textcolor{keywordflow}{if} (intfname != \textcolor{stringliteral}{"null"}):}
+\DoxyCodeLine{85         cmd\_str += \textcolor{stringliteral}{' interface '} + intfname}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87     cmd\_str += cmd\_end}
+\DoxyCodeLine{88     cmd\_str += \mbox{\hyperlink{namespaceshow__config__bfd_a371750732d13535ae1c837b63e44abc8}{bfd\_generate\_peer\_view\_cmd}}(shop\_rec, \textcolor{stringliteral}{'  '})}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90     \textcolor{keywordflow}{return} cmd\_str}
+\DoxyCodeLine{91 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/dcd/namespaceshow__config__bfd_ace5ad5eb501a7f370ba0a1f09b58493a_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/dcd/namespaceshow__config__bfd_ace5ad5eb501a7f370ba0a1f09b58493a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__bfd_aa626e34859bb9fd2d5b727a477421456}\label{namespaceshow__config__bfd_aa626e34859bb9fd2d5b727a477421456}} 
+\index{show\_config\_bfd@{show\_config\_bfd}!bfd\_get\_key\_values@{bfd\_get\_key\_values}}
+\index{bfd\_get\_key\_values@{bfd\_get\_key\_values}!show\_config\_bfd@{show\_config\_bfd}}
+\doxysubsubsection{\texorpdfstring{bfd\_get\_key\_values()}{bfd\_get\_key\_values()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+bfd.\+bfd\+\_\+get\+\_\+key\+\_\+values (\begin{DoxyParamCaption}\item[{}]{in\+\_\+map }\end{DoxyParamCaption})}
+
+
+
+Copyright 2020 Broadcom. 
+
+The term Broadcom refers to Broadcom Inc. and/or its subsidiaries. 
+
+show\+\_\+config\+\_\+bfd.\+py 파일의 19 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{19 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__bfd_aa626e34859bb9fd2d5b727a477421456}{bfd\_get\_key\_values}}(in\_map) :}
+\DoxyCodeLine{20     \textcolor{keywordflow}{if} in\_map == \textcolor{keywordtype}{None} :}
+\DoxyCodeLine{21         \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{22     \textcolor{keywordflow}{return} \textcolor{keyword}{True}, in\_map[\textcolor{stringliteral}{"remote-\/address"}], in\_map[\textcolor{stringliteral}{"interface"}], in\_map[\textcolor{stringliteral}{"vrf"}], in\_map[\textcolor{stringliteral}{"local-\/address"}]}
+\DoxyCodeLine{23 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/dcd/namespaceshow__config__bfd_aa626e34859bb9fd2d5b727a477421456_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__bfd_a2249801c681453997821731861aa5508}\label{namespaceshow__config__bfd_a2249801c681453997821731861aa5508}} 
+\index{show\_config\_bfd@{show\_config\_bfd}!show\_bfd\_config@{show\_bfd\_config}}
+\index{show\_bfd\_config@{show\_bfd\_config}!show\_config\_bfd@{show\_config\_bfd}}
+\doxysubsubsection{\texorpdfstring{show\_bfd\_config()}{show\_bfd\_config()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+bfd.\+show\+\_\+bfd\+\_\+config (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+bfd.\+py 파일의 170 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{170 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__bfd_a2249801c681453997821731861aa5508}{show\_bfd\_config}}(render\_tables):}
+\DoxyCodeLine{171     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{172     cmd\_end = \textcolor{stringliteral}{' ;'}}
+\DoxyCodeLine{173     shop\_record = \textcolor{keyword}{False}}
+\DoxyCodeLine{174     mhop\_record = \textcolor{keyword}{False}}
+\DoxyCodeLine{175     shop\_record\_list = \{\}}
+\DoxyCodeLine{176     mhop\_record\_list = \{\}}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{178     shop\_tbl\_path = \textcolor{stringliteral}{'sonic-\/bfd:sonic-\/bfd/BFD\_PEER\_SINGLE\_HOP/BFD\_PEER\_SINGLE\_HOP\_LIST'}}
+\DoxyCodeLine{179     mhop\_tbl\_path = \textcolor{stringliteral}{'sonic-\/bfd:sonic-\/bfd/BFD\_PEER\_MULTI\_HOP/BFD\_PEER\_MULTI\_HOP\_LIST'}}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181     \textcolor{keywordflow}{if} (shop\_tbl\_path \textcolor{keywordflow}{in} render\_tables):}
+\DoxyCodeLine{182         shop\_record = \textcolor{keyword}{True}}
+\DoxyCodeLine{183         shop\_record\_list = render\_tables[shop\_tbl\_path]}
+\DoxyCodeLine{184         \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} isinstance(shop\_record\_list, list):}
+\DoxyCodeLine{185             shop\_record\_list = [shop\_record\_list]}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187     \textcolor{keywordflow}{if} (mhop\_tbl\_path \textcolor{keywordflow}{in} render\_tables):}
+\DoxyCodeLine{188         mhop\_record = \textcolor{keyword}{True}}
+\DoxyCodeLine{189         mhop\_record\_list = render\_tables[mhop\_tbl\_path]}
+\DoxyCodeLine{190         \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} isinstance(mhop\_record\_list, list) :}
+\DoxyCodeLine{191             mhop\_record\_list = [mhop\_record\_list]}
+\DoxyCodeLine{192 }
+\DoxyCodeLine{193     \textcolor{keywordflow}{if} (shop\_record == \textcolor{keyword}{False} \textcolor{keywordflow}{and} mhop\_record == \textcolor{keyword}{False}):}
+\DoxyCodeLine{194         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{196     cmd\_str += \textcolor{stringliteral}{"bfd"} + cmd\_end}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{198     \textcolor{keywordflow}{for} shop\_rec \textcolor{keywordflow}{in} shop\_record\_list:}
+\DoxyCodeLine{199         cmd\_str += \mbox{\hyperlink{namespaceshow__config__bfd_ace5ad5eb501a7f370ba0a1f09b58493a}{bfd\_generate\_shop\_config}}(shop\_rec)}
+\DoxyCodeLine{200         cmd\_str += \textcolor{stringliteral}{' !'}}
+\DoxyCodeLine{201         cmd\_str += cmd\_end}
+\DoxyCodeLine{202 }
+\DoxyCodeLine{203     \textcolor{keywordflow}{for} mhop\_rec \textcolor{keywordflow}{in} mhop\_record\_list:}
+\DoxyCodeLine{204         cmd\_str += \mbox{\hyperlink{namespaceshow__config__bfd_a04ae62fa1683191f184faab6d0a264ed}{bfd\_generate\_mhop\_config}}(mhop\_rec)}
+\DoxyCodeLine{205         cmd\_str += \textcolor{stringliteral}{' !'}}
+\DoxyCodeLine{206         cmd\_str += cmd\_end}
+\DoxyCodeLine{207 }
+\DoxyCodeLine{208     \textcolor{comment}{\#cmd\_str += cmd\_end}}
+\DoxyCodeLine{209 }
+\DoxyCodeLine{210     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/dcd/namespaceshow__config__bfd_a2249801c681453997821731861aa5508_cgraph}
+\end{center}
+\end{figure}

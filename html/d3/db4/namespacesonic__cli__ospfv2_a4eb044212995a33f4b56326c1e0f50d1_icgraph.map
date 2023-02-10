@@ -1,0 +1,5 @@
+<map id="sonic_cli_ospfv2.patch_ospf_router_area_config" name="sonic_cli_ospfv2.patch_ospf_router_area_config">
+<area shape="rect" id="node1" title="OSPF Area config" alt="" coords="459,5,644,47"/>
+<area shape="rect" id="node2" href="$d3/db4/namespacesonic__cli__ospfv2.html#a1ca823200052990df428f87e62a13cd3" title="OSPF CLI invoke function" alt="" coords="208,13,411,39"/>
+<area shape="rect" id="node3" href="$d3/db4/namespacesonic__cli__ospfv2.html#a9b5fc87a427eb8e8ff63d5683871974f" title=" " alt="" coords="5,13,160,39"/>
+</map>

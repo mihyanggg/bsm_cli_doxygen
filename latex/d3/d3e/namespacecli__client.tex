@@ -1,0 +1,111 @@
+\hypertarget{namespacecli__client}{}\doxysection{cli\+\_\+client 네임스페이스 참조}
+\label{namespacecli__client}\index{cli\_client@{cli\_client}}
+\doxysubsection*{클래스}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classcli__client_1_1ApiClient}{Api\+Client}}
+\item 
+class \mbox{\hyperlink{classcli__client_1_1Path}{Path}}
+\item 
+class \mbox{\hyperlink{classcli__client_1_1Response}{Response}}
+\end{DoxyCompactItemize}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacecli__client_a0983532ee8e1b0c7914dba8a6da195c2}{\+\_\+has\+\_\+json\+\_\+content}} (resp)
+\item 
+def \mbox{\hyperlink{namespacecli__client_afa510436e423388d08c190175e3b4bed}{default\+\_\+error\+\_\+message\+\_\+formatter}} (status\+\_\+code, err\+\_\+entry)
+\item 
+def \mbox{\hyperlink{namespacecli__client_af9ddbc1e8c45be621a29ed7764488be5}{add\+\_\+error\+\_\+prefix}} (err\+\_\+msg)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacecli__client_a0983532ee8e1b0c7914dba8a6da195c2}\label{namespacecli__client_a0983532ee8e1b0c7914dba8a6da195c2}} 
+\index{cli\_client@{cli\_client}!\_has\_json\_content@{\_has\_json\_content}}
+\index{\_has\_json\_content@{\_has\_json\_content}!cli\_client@{cli\_client}}
+\doxysubsubsection{\texorpdfstring{\_has\_json\_content()}{\_has\_json\_content()}}
+{\footnotesize\ttfamily def cli\+\_\+client.\+\_\+has\+\_\+json\+\_\+content (\begin{DoxyParamCaption}\item[{}]{resp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+cli\+\_\+client.\+py 파일의 250 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{250 \textcolor{keyword}{def }\mbox{\hyperlink{namespacecli__client_a0983532ee8e1b0c7914dba8a6da195c2}{\_has\_json\_content}}(resp):}
+\DoxyCodeLine{251     ctype = resp.headers.get(\textcolor{stringliteral}{'Content-\/Type'})}
+\DoxyCodeLine{252     \textcolor{keywordflow}{return} (ctype \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None} \textcolor{keywordflow}{and} \textcolor{stringliteral}{'json'} \textcolor{keywordflow}{in} ctype)}
+\DoxyCodeLine{253 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacecli__client_af9ddbc1e8c45be621a29ed7764488be5}\label{namespacecli__client_af9ddbc1e8c45be621a29ed7764488be5}} 
+\index{cli\_client@{cli\_client}!add\_error\_prefix@{add\_error\_prefix}}
+\index{add\_error\_prefix@{add\_error\_prefix}!cli\_client@{cli\_client}}
+\doxysubsubsection{\texorpdfstring{add\_error\_prefix()}{add\_error\_prefix()}}
+{\footnotesize\ttfamily def cli\+\_\+client.\+add\+\_\+error\+\_\+prefix (\begin{DoxyParamCaption}\item[{}]{err\+\_\+msg }\end{DoxyParamCaption})}
+
+
+
+cli\+\_\+client.\+py 파일의 271 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{271 \textcolor{keyword}{def }\mbox{\hyperlink{namespacecli__client_af9ddbc1e8c45be621a29ed7764488be5}{add\_error\_prefix}}(err\_msg):}
+\DoxyCodeLine{272     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} err\_msg.startswith(\textcolor{stringliteral}{"\%Error"}):}
+\DoxyCodeLine{273         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'\%Error: '} + err\_msg}
+\DoxyCodeLine{274     \textcolor{keywordflow}{return} err\_msg}
+\DoxyCodeLine{275 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d3e/namespacecli__client_af9ddbc1e8c45be621a29ed7764488be5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacecli__client_afa510436e423388d08c190175e3b4bed}\label{namespacecli__client_afa510436e423388d08c190175e3b4bed}} 
+\index{cli\_client@{cli\_client}!default\_error\_message\_formatter@{default\_error\_message\_formatter}}
+\index{default\_error\_message\_formatter@{default\_error\_message\_formatter}!cli\_client@{cli\_client}}
+\doxysubsubsection{\texorpdfstring{default\_error\_message\_formatter()}{default\_error\_message\_formatter()}}
+{\footnotesize\ttfamily def cli\+\_\+client.\+default\+\_\+error\+\_\+message\+\_\+formatter (\begin{DoxyParamCaption}\item[{}]{status\+\_\+code,  }\item[{}]{err\+\_\+entry }\end{DoxyParamCaption})}
+
+
+
+cli\+\_\+client.\+py 파일의 258 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{258 \textcolor{keyword}{def }\mbox{\hyperlink{namespacecli__client_afa510436e423388d08c190175e3b4bed}{default\_error\_message\_formatter}}(status\_code, err\_entry):}
+\DoxyCodeLine{259     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'error-\/message'} \textcolor{keywordflow}{in} err\_entry:}
+\DoxyCodeLine{260         err\_msg = err\_entry[\textcolor{stringliteral}{'error-\/message'}]}
+\DoxyCodeLine{261         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacecli__client_af9ddbc1e8c45be621a29ed7764488be5}{add\_error\_prefix}}(err\_msg)}
+\DoxyCodeLine{262     err\_tag = err\_entry.get(\textcolor{stringliteral}{'error-\/tag'})}
+\DoxyCodeLine{263     \textcolor{keywordflow}{if} err\_tag == \textcolor{stringliteral}{'invalid-\/value'}:}
+\DoxyCodeLine{264         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'\%Error: validation failed'}}
+\DoxyCodeLine{265     \textcolor{keywordflow}{if} err\_tag == \textcolor{stringliteral}{'operation-\/not-\/supported'}:}
+\DoxyCodeLine{266         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'\%Error: not supported'}}
+\DoxyCodeLine{267     \textcolor{keywordflow}{if} err\_tag == \textcolor{stringliteral}{'access-\/denied'}:}
+\DoxyCodeLine{268         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'\%Error: not authorized'}}
+\DoxyCodeLine{269     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'\%Error: operation failed'}}
+\DoxyCodeLine{270 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d3e/namespacecli__client_afa510436e423388d08c190175e3b4bed_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d3e/namespacecli__client_afa510436e423388d08c190175e3b4bed_icgraph}
+\end{center}
+\end{figure}

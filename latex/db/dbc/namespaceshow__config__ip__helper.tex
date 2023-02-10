@@ -1,0 +1,135 @@
+\hypertarget{namespaceshow__config__ip__helper}{}\doxysection{show\+\_\+config\+\_\+ip\+\_\+helper 네임스페이스 참조}
+\label{namespaceshow__config__ip__helper}\index{show\_config\_ip\_helper@{show\_config\_ip\_helper}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceshow__config__ip__helper_ae5f977dbb52a8bdeeb7b5272071f6377}{show\+\_\+ip\+\_\+helper\+\_\+address}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__ip__helper_aeaa3d1516c22d9f6059e9155eefc9f4b}{show\+\_\+ip\+\_\+helper\+\_\+include\+\_\+ports}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__ip__helper_a8c2e9ea6a27efe90e6a41c6a27e4cd30}{show\+\_\+ip\+\_\+helper\+\_\+exclude\+\_\+ports}} (render\+\_\+tables)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+dictionary \mbox{\hyperlink{namespaceshow__config__ip__helper_ad88d29673d7216c8c05da7e84b3d97dd}{default\+\_\+protocol\+\_\+string}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespaceshow__config__ip__helper_ae5f977dbb52a8bdeeb7b5272071f6377}\label{namespaceshow__config__ip__helper_ae5f977dbb52a8bdeeb7b5272071f6377}} 
+\index{show\_config\_ip\_helper@{show\_config\_ip\_helper}!show\_ip\_helper\_address@{show\_ip\_helper\_address}}
+\index{show\_ip\_helper\_address@{show\_ip\_helper\_address}!show\_config\_ip\_helper@{show\_config\_ip\_helper}}
+\doxysubsubsection{\texorpdfstring{show\_ip\_helper\_address()}{show\_ip\_helper\_address()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+ip\+\_\+helper.\+show\+\_\+ip\+\_\+helper\+\_\+address (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+ip\+\_\+helper.\+py 파일의 10 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{10 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__ip__helper_ae5f977dbb52a8bdeeb7b5272071f6377}{show\_ip\_helper\_address}}(render\_tables):}
+\DoxyCodeLine{11     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{12     cmd\_prfx = \textcolor{stringliteral}{'ip helper-\/address '}}
+\DoxyCodeLine{13     intfdata = []}
+\DoxyCodeLine{14     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/interface:sonic-\/interface/INTERFACE/INTERFACE\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{15         intfdata = render\_tables[\textcolor{stringliteral}{'sonic-\/interface:sonic-\/interface/INTERFACE/INTERFACE\_LIST'}]}
+\DoxyCodeLine{16         key = \textcolor{stringliteral}{'portname'}}
+\DoxyCodeLine{17     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/vlan-\/interface:sonic-\/vlan-\/interface/VLAN\_INTERFACE/VLAN\_INTERFACE\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{18         intfdata = render\_tables[\textcolor{stringliteral}{'sonic-\/vlan-\/interface:sonic-\/vlan-\/interface/VLAN\_INTERFACE/VLAN\_INTERFACE\_LIST'}]}
+\DoxyCodeLine{19         key = \textcolor{stringliteral}{'vlanName'}}
+\DoxyCodeLine{20     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/portchannel-\/interface:sonic-\/portchannel-\/interface/PORTCHANNEL\_INTERFACE/PORTCHANNEL\_INTERFACE\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{21         intfdata = render\_tables[\textcolor{stringliteral}{'sonic-\/portchannel-\/interface:sonic-\/portchannel-\/interface/PORTCHANNEL\_INTERFACE/PORTCHANNEL\_INTERFACE\_LIST'}]}
+\DoxyCodeLine{22         key = \textcolor{stringliteral}{'pch\_name'}}
+\DoxyCodeLine{23     \textcolor{keywordflow}{for} item \textcolor{keywordflow}{in} intfdata:}
+\DoxyCodeLine{24         \textcolor{keywordflow}{if} render\_tables[\textcolor{stringliteral}{'name'}] == item[key]:}
+\DoxyCodeLine{25             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'helper\_addresses'} \textcolor{keywordflow}{in} item:}
+\DoxyCodeLine{26                 \textcolor{keywordflow}{for} addr \textcolor{keywordflow}{in} item[\textcolor{stringliteral}{'helper\_addresses'}]:}
+\DoxyCodeLine{27                     arglist = addr.split(\textcolor{stringliteral}{"|"})}
+\DoxyCodeLine{28                     \textcolor{keywordflow}{if} len(arglist) > 1:}
+\DoxyCodeLine{29                         cmd\_str = cmd\_str + cmd\_prfx + \textcolor{stringliteral}{'vrf '} + arglist[0] + \textcolor{stringliteral}{' '} + arglist[1] + \textcolor{stringliteral}{';'}}
+\DoxyCodeLine{30                     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{31                         cmd\_str = cmd\_str + cmd\_prfx + arglist[0] + \textcolor{stringliteral}{';'}}
+\DoxyCodeLine{32     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{33 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceshow__config__ip__helper_a8c2e9ea6a27efe90e6a41c6a27e4cd30}\label{namespaceshow__config__ip__helper_a8c2e9ea6a27efe90e6a41c6a27e4cd30}} 
+\index{show\_config\_ip\_helper@{show\_config\_ip\_helper}!show\_ip\_helper\_exclude\_ports@{show\_ip\_helper\_exclude\_ports}}
+\index{show\_ip\_helper\_exclude\_ports@{show\_ip\_helper\_exclude\_ports}!show\_config\_ip\_helper@{show\_config\_ip\_helper}}
+\doxysubsubsection{\texorpdfstring{show\_ip\_helper\_exclude\_ports()}{show\_ip\_helper\_exclude\_ports()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+ip\+\_\+helper.\+show\+\_\+ip\+\_\+helper\+\_\+exclude\+\_\+ports (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+ip\+\_\+helper.\+py 파일의 46 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{46 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__ip__helper_a8c2e9ea6a27efe90e6a41c6a27e4cd30}{show\_ip\_helper\_exclude\_ports}}(render\_tables):}
+\DoxyCodeLine{47     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{48     cmd\_prfx = \textcolor{stringliteral}{'ip forward-\/protocol udp exclude '}}
+\DoxyCodeLine{49     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/ip-\/helper:sonic-\/ip-\/helper/UDP\_BROADCAST\_FORWARDING/UDP\_BROADCAST\_FORWARDING\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{50         data = render\_tables[\textcolor{stringliteral}{'sonic-\/ip-\/helper:sonic-\/ip-\/helper/UDP\_BROADCAST\_FORWARDING/UDP\_BROADCAST\_FORWARDING\_LIST'}]}
+\DoxyCodeLine{51         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'exclude\_default\_ports'} \textcolor{keywordflow}{in} data[0]:}
+\DoxyCodeLine{52             ports = data[0][\textcolor{stringliteral}{'exclude\_default\_ports'}]}
+\DoxyCodeLine{53             \textcolor{keywordflow}{for} port \textcolor{keywordflow}{in} ports:}
+\DoxyCodeLine{54                 \textcolor{keywordflow}{if} port \textcolor{keywordflow}{in} default\_protocol\_string:}
+\DoxyCodeLine{55                     cmd\_str = cmd\_str + cmd\_prfx + default\_protocol\_string[port] + \textcolor{stringliteral}{';'}}
+\DoxyCodeLine{56                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{57                     cmd\_str = cmd\_str + cmd\_prfx + str(port) + \textcolor{stringliteral}{';'}}
+\DoxyCodeLine{58     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceshow__config__ip__helper_aeaa3d1516c22d9f6059e9155eefc9f4b}\label{namespaceshow__config__ip__helper_aeaa3d1516c22d9f6059e9155eefc9f4b}} 
+\index{show\_config\_ip\_helper@{show\_config\_ip\_helper}!show\_ip\_helper\_include\_ports@{show\_ip\_helper\_include\_ports}}
+\index{show\_ip\_helper\_include\_ports@{show\_ip\_helper\_include\_ports}!show\_config\_ip\_helper@{show\_config\_ip\_helper}}
+\doxysubsubsection{\texorpdfstring{show\_ip\_helper\_include\_ports()}{show\_ip\_helper\_include\_ports()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+ip\+\_\+helper.\+show\+\_\+ip\+\_\+helper\+\_\+include\+\_\+ports (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+ip\+\_\+helper.\+py 파일의 34 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{34 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__ip__helper_aeaa3d1516c22d9f6059e9155eefc9f4b}{show\_ip\_helper\_include\_ports}}(render\_tables):}
+\DoxyCodeLine{35     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{36     cmd\_prfx = \textcolor{stringliteral}{'ip forward-\/protocol udp include '}}
+\DoxyCodeLine{37     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/ip-\/helper:sonic-\/ip-\/helper/UDP\_BROADCAST\_FORWARDING/UDP\_BROADCAST\_FORWARDING\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{38         data = render\_tables[\textcolor{stringliteral}{'sonic-\/ip-\/helper:sonic-\/ip-\/helper/UDP\_BROADCAST\_FORWARDING/UDP\_BROADCAST\_FORWARDING\_LIST'}]}
+\DoxyCodeLine{39         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'include\_ports'} \textcolor{keywordflow}{in} data[0]:}
+\DoxyCodeLine{40             ports = data[0][\textcolor{stringliteral}{'include\_ports'}]}
+\DoxyCodeLine{41             \textcolor{keywordflow}{for} port \textcolor{keywordflow}{in} ports:}
+\DoxyCodeLine{42                 \textcolor{keywordflow}{if} port \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} default\_protocol\_string:}
+\DoxyCodeLine{43                     cmd\_str = cmd\_str + cmd\_prfx + str(port) + \textcolor{stringliteral}{';'}}
+\DoxyCodeLine{44     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{45 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespaceshow__config__ip__helper_ad88d29673d7216c8c05da7e84b3d97dd}\label{namespaceshow__config__ip__helper_ad88d29673d7216c8c05da7e84b3d97dd}} 
+\index{show\_config\_ip\_helper@{show\_config\_ip\_helper}!default\_protocol\_string@{default\_protocol\_string}}
+\index{default\_protocol\_string@{default\_protocol\_string}!show\_config\_ip\_helper@{show\_config\_ip\_helper}}
+\doxysubsubsection{\texorpdfstring{default\_protocol\_string}{default\_protocol\_string}}
+{\footnotesize\ttfamily dictionary show\+\_\+config\+\_\+ip\+\_\+helper.\+default\+\_\+protocol\+\_\+string}
+
+{\bfseries 초기값\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  \{}
+\DoxyCodeLine{2     69: \textcolor{stringliteral}{"tftp"},}
+\DoxyCodeLine{3     53: \textcolor{stringliteral}{"dns"},}
+\DoxyCodeLine{4     37: \textcolor{stringliteral}{"ntp"},}
+\DoxyCodeLine{5     137: \textcolor{stringliteral}{"netbios-\/name-\/server"},}
+\DoxyCodeLine{6     138: \textcolor{stringliteral}{"netbios-\/datagram-\/server"},}
+\DoxyCodeLine{7     49: \textcolor{stringliteral}{"tacacs"}}
+\DoxyCodeLine{8 \}}
+
+\end{DoxyCode}
+
+
+show\+\_\+config\+\_\+ip\+\_\+helper.\+py 파일의 1 번째 라인에서 정의되었습니다.
+

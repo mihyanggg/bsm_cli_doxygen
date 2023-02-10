@@ -1,0 +1,237 @@
+\hypertarget{namespacesonic-cli-static-route}{}\doxysection{sonic-\/cli-\/static-\/route 네임스페이스 참조}
+\label{namespacesonic-cli-static-route}\index{sonic-\/cli-\/static-\/route@{sonic-\/cli-\/static-\/route}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic-cli-static-route_a0edb2c5fd621ab8d25dc31087b6d3139}{invoke\+\_\+api}} (\mbox{\hyperlink{namespacesonic-cli-static-route_a80f7c5d2d4b4146e50a68b6ea8d29eb0}{func}}, args=\mbox{[}$\,$\mbox{]})
+\item 
+def \mbox{\hyperlink{namespacesonic-cli-static-route_a0378eb486bf81921718dc4faf6c9b2d1}{run}} (\mbox{\hyperlink{namespacesonic-cli-static-route_a80f7c5d2d4b4146e50a68b6ea8d29eb0}{func}}, args)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{namespacesonic-cli-static-route_a65d824752bd28619963201f39a7be034}{I\+D\+E\+N\+T\+I\+F\+I\+ER}} = \textquotesingle{}S\+T\+A\+T\+IC\textquotesingle{}
+\item 
+string \mbox{\hyperlink{namespacesonic-cli-static-route_a426b0535b40d65ad7f7456ef2c366d1a}{N\+A\+M\+E1}} = \textquotesingle{}static\textquotesingle{}
+\item 
+dictionary \mbox{\hyperlink{namespacesonic-cli-static-route_a0039c457e5b1c7e0eada140f8d94fe47}{restconf\+\_\+map}}
+\item 
+dictionary \mbox{\hyperlink{namespacesonic-cli-static-route_a6d16c095adf61138fe30b13dbc9ff0b3}{restconf\+\_\+map\+\_\+del}}
+\item 
+\mbox{\hyperlink{namespacesonic-cli-static-route_a80f7c5d2d4b4146e50a68b6ea8d29eb0}{func}} = sys.\+argv\mbox{[}1\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic-cli-static-route_a0edb2c5fd621ab8d25dc31087b6d3139}\label{namespacesonic-cli-static-route_a0edb2c5fd621ab8d25dc31087b6d3139}} 
+\index{sonic-\/cli-\/static-\/route@{sonic-\/cli-\/static-\/route}!invoke\_api@{invoke\_api}}
+\index{invoke\_api@{invoke\_api}!sonic-\/cli-\/static-\/route@{sonic-\/cli-\/static-\/route}}
+\doxysubsubsection{\texorpdfstring{invoke\_api()}{invoke\_api()}}
+{\footnotesize\ttfamily def sonic-\/cli-\/static-\/route.\+invoke\+\_\+api (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args = {\ttfamily \mbox{[}\mbox{]}} }\end{DoxyParamCaption})}
+
+
+
+sonic-\/cli-\/static-\/route.\+py 파일의 42 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{42 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic-cli-static-route_a0edb2c5fd621ab8d25dc31087b6d3139}{invoke\_api}}(func, args=[]):}
+\DoxyCodeLine{43     api = cc.ApiClient()}
+\DoxyCodeLine{44     keypath = []}
+\DoxyCodeLine{45     op, attr = func.split(\textcolor{stringliteral}{'\_'}, 1)}
+\DoxyCodeLine{46     uri = restconf\_map[attr]}
+\DoxyCodeLine{47        }
+\DoxyCodeLine{48     \textcolor{keywordflow}{if} op == \textcolor{stringliteral}{'patch'}:}
+\DoxyCodeLine{49         \textcolor{keywordflow}{if} attr == \textcolor{stringliteral}{'openconfig\_network\_instance\_network\_instances\_network\_instance\_protocols\_protocol\_static\_routes\_static\_next\_hops\_next\_hop'}:}
+\DoxyCodeLine{50             body =  \{ \textcolor{stringliteral}{"openconfig-\/network-\/instance:static-\/routes"}: \{ \textcolor{stringliteral}{"static"}: [}
+\DoxyCodeLine{51                       \{}
+\DoxyCodeLine{52                        \textcolor{stringliteral}{"prefix"}: args[1],}
+\DoxyCodeLine{53                        \textcolor{stringliteral}{"next-\/hops"}: \{ \textcolor{stringliteral}{"next-\/hop"}: [ \{}
+\DoxyCodeLine{54                           \textcolor{stringliteral}{"index"}: \textcolor{stringliteral}{""},}
+\DoxyCodeLine{55                           \textcolor{stringliteral}{"config"}: \{}
+\DoxyCodeLine{56                              \textcolor{stringliteral}{"index"}: \textcolor{stringliteral}{""}}
+\DoxyCodeLine{57                           \}\}]}
+\DoxyCodeLine{58                        \}\}}
+\DoxyCodeLine{59                     ]\}\} }
+\DoxyCodeLine{60             conf\_ip = \textcolor{stringliteral}{"false"}}
+\DoxyCodeLine{61             index\_v = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{62             \textcolor{keywordflow}{if} ((args[2] != \textcolor{stringliteral}{'interface'}) \textcolor{keywordflow}{and} (args[2] != \textcolor{stringliteral}{'blackhole'})):}
+\DoxyCodeLine{63                 \textcolor{comment}{\# its the ip address}}
+\DoxyCodeLine{64                 body[\textcolor{stringliteral}{"openconfig-\/network-\/instance:static-\/routes"}][\textcolor{stringliteral}{"static"}][0][\textcolor{stringliteral}{"next-\/hops"}][\textcolor{stringliteral}{"next-\/hop"}][0][\textcolor{stringliteral}{"config"}][\textcolor{stringliteral}{"next-\/hop"}] =args[2]}
+\DoxyCodeLine{65                 index\_v =  args[2]}
+\DoxyCodeLine{66                 conf\_ip =\textcolor{stringliteral}{"true"}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68             i = 2 }
+\DoxyCodeLine{69             while(i<len(args)): }
+\DoxyCodeLine{70                 \textcolor{keywordflow}{if} args[i].isdigit():}
+\DoxyCodeLine{71                     body[\textcolor{stringliteral}{"openconfig-\/network-\/instance:static-\/routes"}][\textcolor{stringliteral}{"static"}][0][\textcolor{stringliteral}{"next-\/hops"}][\textcolor{stringliteral}{"next-\/hop"}][0][\textcolor{stringliteral}{"config"}][\textcolor{stringliteral}{"metric"}]=int(args[i])}
+\DoxyCodeLine{72                 \textcolor{keywordflow}{elif} args[i]==\textcolor{stringliteral}{'interface'}:}
+\DoxyCodeLine{73                     i+=1}
+\DoxyCodeLine{74                     \textcolor{keywordflow}{if} (args[i] == \textcolor{stringliteral}{'Management0'}): }
+\DoxyCodeLine{75                         args[i] = \textcolor{stringliteral}{'eth0'}}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77                     body[\textcolor{stringliteral}{"openconfig-\/network-\/instance:static-\/routes"}][\textcolor{stringliteral}{"static"}][0][\textcolor{stringliteral}{"next-\/hops"}][\textcolor{stringliteral}{"next-\/hop"}][0][\textcolor{stringliteral}{"interface-\/ref"}] = \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"interface"}: args[i]\}\}}
+\DoxyCodeLine{78                     index\_v =  args[i]}
+\DoxyCodeLine{79                     \textcolor{keywordflow}{if}  conf\_ip == \textcolor{stringliteral}{"true"} : index\_v = index\_v +  \textcolor{stringliteral}{'\_'} + args[2]}
+\DoxyCodeLine{80                 \textcolor{keywordflow}{elif} args[i] == \textcolor{stringliteral}{'nexthop-\/vrf'}:}
+\DoxyCodeLine{81                     i+=1}
+\DoxyCodeLine{82                     body[\textcolor{stringliteral}{"openconfig-\/network-\/instance:static-\/routes"}][\textcolor{stringliteral}{"static"}][0][\textcolor{stringliteral}{"next-\/hops"}][\textcolor{stringliteral}{"next-\/hop"}][0][\textcolor{stringliteral}{"config"}][\textcolor{stringliteral}{"nexthop-\/network-\/instance"}] =args[i]}
+\DoxyCodeLine{83                     index\_v = index\_v +  \textcolor{stringliteral}{'\_'} + args[i]}
+\DoxyCodeLine{84                 \textcolor{keywordflow}{elif} args[i] == \textcolor{stringliteral}{'tag'}:}
+\DoxyCodeLine{85                     i+=1}
+\DoxyCodeLine{86                     body[\textcolor{stringliteral}{"openconfig-\/network-\/instance:static-\/routes"}][\textcolor{stringliteral}{"static"}][0][\textcolor{stringliteral}{"next-\/hops"}][\textcolor{stringliteral}{"next-\/hop"}][0][\textcolor{stringliteral}{"config"}][\textcolor{stringliteral}{"tag"}] = int(args[i])}
+\DoxyCodeLine{87                 \textcolor{keywordflow}{elif} args[i] == \textcolor{stringliteral}{'blackhole'}:}
+\DoxyCodeLine{88                     body[\textcolor{stringliteral}{"openconfig-\/network-\/instance:static-\/routes"}][\textcolor{stringliteral}{"static"}][0][\textcolor{stringliteral}{"next-\/hops"}][\textcolor{stringliteral}{"next-\/hop"}][0][\textcolor{stringliteral}{"config"}][\textcolor{stringliteral}{"blackhole"}] =\textcolor{keyword}{True}}
+\DoxyCodeLine{89                     index\_v = \textcolor{stringliteral}{"DROP"}}
+\DoxyCodeLine{90                 \textcolor{keywordflow}{elif} args[i] == \textcolor{stringliteral}{'track'}:}
+\DoxyCodeLine{91                     i+=1}
+\DoxyCodeLine{92                     body[\textcolor{stringliteral}{"openconfig-\/network-\/instance:static-\/routes"}][\textcolor{stringliteral}{"static"}][0][\textcolor{stringliteral}{"next-\/hops"}][\textcolor{stringliteral}{"next-\/hop"}][0][\textcolor{stringliteral}{"config"}][\textcolor{stringliteral}{"track"}] =int(args[i])}
+\DoxyCodeLine{93                 i+=1}
+\DoxyCodeLine{94             keypath = cc.Path(uri,}
+\DoxyCodeLine{95                       name=args[0], identifier = IDENTIFIER, name1=NAME1)}
+\DoxyCodeLine{96             body[\textcolor{stringliteral}{"openconfig-\/network-\/instance:static-\/routes"}][\textcolor{stringliteral}{"static"}][0][\textcolor{stringliteral}{"next-\/hops"}][\textcolor{stringliteral}{"next-\/hop"}][0][\textcolor{stringliteral}{"index"}] = index\_v }
+\DoxyCodeLine{97             body[\textcolor{stringliteral}{"openconfig-\/network-\/instance:static-\/routes"}][\textcolor{stringliteral}{"static"}][0][\textcolor{stringliteral}{"next-\/hops"}][\textcolor{stringliteral}{"next-\/hop"}][0][\textcolor{stringliteral}{"config"}][\textcolor{stringliteral}{"index"}] = index\_v}
+\DoxyCodeLine{98             \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{99         \textcolor{keywordflow}{else}:  }
+\DoxyCodeLine{100             \textcolor{keywordflow}{return} api.cli\_not\_implemented(func)     }
+\DoxyCodeLine{101     \textcolor{keywordflow}{elif} op == \textcolor{stringliteral}{'delete'}:}
+\DoxyCodeLine{102         uri = restconf\_map\_del[attr]}
+\DoxyCodeLine{103         \textcolor{keywordflow}{if} attr == \textcolor{stringliteral}{'openconfig\_network\_instance\_network\_instances\_network\_instance\_protocols\_protocol\_static\_routes\_static\_next\_hops\_next\_hop'}:}
+\DoxyCodeLine{104             i = 2}
+\DoxyCodeLine{105             index\_v = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{106             conf\_ip = \textcolor{stringliteral}{"false"}}
+\DoxyCodeLine{107             \textcolor{keywordflow}{if} ((args[2] != \textcolor{stringliteral}{'interface'}) \textcolor{keywordflow}{and} (args[2] != \textcolor{stringliteral}{'blackhole'})):}
+\DoxyCodeLine{108                 index\_v =  args[2]}
+\DoxyCodeLine{109                 conf\_ip =\textcolor{stringliteral}{"true"}}
+\DoxyCodeLine{110             while(i<len(args)):}
+\DoxyCodeLine{111                 \textcolor{keywordflow}{if} args[i]==\textcolor{stringliteral}{'interface'}:}
+\DoxyCodeLine{112                     i+=1}
+\DoxyCodeLine{113                     \textcolor{keywordflow}{if} (args[i] == \textcolor{stringliteral}{'Management0'}): }
+\DoxyCodeLine{114                         args[i] = \textcolor{stringliteral}{'eth0'}}
+\DoxyCodeLine{115                     index\_v =  args[i]}
+\DoxyCodeLine{116                     \textcolor{keywordflow}{if} conf\_ip ==\textcolor{stringliteral}{"true"}: index\_v = index\_v +  \textcolor{stringliteral}{'\_'} + args[2]}
+\DoxyCodeLine{117                 \textcolor{keywordflow}{elif} args[i] == \textcolor{stringliteral}{'nexthop-\/vrf'}:}
+\DoxyCodeLine{118                     i+=1}
+\DoxyCodeLine{119                     index\_v = index\_v +  \textcolor{stringliteral}{'\_'} + args[i]}
+\DoxyCodeLine{120                 \textcolor{keywordflow}{elif} args[i] == \textcolor{stringliteral}{'blackhole'}:}
+\DoxyCodeLine{121                     index\_v = \textcolor{stringliteral}{"DROP"}}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123                 i+=1}
+\DoxyCodeLine{124             keypath = cc.Path(uri,}
+\DoxyCodeLine{125                       name=args[0], identifier = IDENTIFIER, name1=NAME1, prefix = args[1], index=index\_v)}
+\DoxyCodeLine{126             \textcolor{keywordflow}{return} api.delete(keypath) }
+\DoxyCodeLine{127         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{128             \textcolor{keywordflow}{return} api.cli\_not\_implemented(func)}
+\DoxyCodeLine{129     \textcolor{keywordflow}{return} api.cli\_not\_implemented(func) }
+\DoxyCodeLine{130 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d9c/namespacesonic-cli-static-route_a0edb2c5fd621ab8d25dc31087b6d3139_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic-cli-static-route_a0378eb486bf81921718dc4faf6c9b2d1}\label{namespacesonic-cli-static-route_a0378eb486bf81921718dc4faf6c9b2d1}} 
+\index{sonic-\/cli-\/static-\/route@{sonic-\/cli-\/static-\/route}!run@{run}}
+\index{run@{run}!sonic-\/cli-\/static-\/route@{sonic-\/cli-\/static-\/route}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic-\/cli-\/static-\/route.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic-\/cli-\/static-\/route.\+py 파일의 131 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{131 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic-cli-static-route_a0378eb486bf81921718dc4faf6c9b2d1}{run}}(func, args):}
+\DoxyCodeLine{132     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{133         response = \mbox{\hyperlink{namespacesonic-cli-static-route_a0edb2c5fd621ab8d25dc31087b6d3139}{invoke\_api}}(func, args)}
+\DoxyCodeLine{134         \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response.ok():}
+\DoxyCodeLine{135            print(response.error\_message())}
+\DoxyCodeLine{136     \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} e:}
+\DoxyCodeLine{137         print(\textcolor{stringliteral}{"\%Error: Static Route Transaction Failure"})}
+\DoxyCodeLine{138 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d9c/namespacesonic-cli-static-route_a0378eb486bf81921718dc4faf6c9b2d1_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacesonic-cli-static-route_a80f7c5d2d4b4146e50a68b6ea8d29eb0}\label{namespacesonic-cli-static-route_a80f7c5d2d4b4146e50a68b6ea8d29eb0}} 
+\index{sonic-\/cli-\/static-\/route@{sonic-\/cli-\/static-\/route}!func@{func}}
+\index{func@{func}!sonic-\/cli-\/static-\/route@{sonic-\/cli-\/static-\/route}}
+\doxysubsubsection{\texorpdfstring{func}{func}}
+{\footnotesize\ttfamily sonic-\/cli-\/static-\/route.\+func = sys.\+argv\mbox{[}1\mbox{]}}
+
+
+
+sonic-\/cli-\/static-\/route.\+py 파일의 142 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic-cli-static-route_a65d824752bd28619963201f39a7be034}\label{namespacesonic-cli-static-route_a65d824752bd28619963201f39a7be034}} 
+\index{sonic-\/cli-\/static-\/route@{sonic-\/cli-\/static-\/route}!IDENTIFIER@{IDENTIFIER}}
+\index{IDENTIFIER@{IDENTIFIER}!sonic-\/cli-\/static-\/route@{sonic-\/cli-\/static-\/route}}
+\doxysubsubsection{\texorpdfstring{IDENTIFIER}{IDENTIFIER}}
+{\footnotesize\ttfamily string sonic-\/cli-\/static-\/route.\+I\+D\+E\+N\+T\+I\+F\+I\+ER = \textquotesingle{}S\+T\+A\+T\+IC\textquotesingle{}}
+
+
+
+sonic-\/cli-\/static-\/route.\+py 파일의 28 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic-cli-static-route_a426b0535b40d65ad7f7456ef2c366d1a}\label{namespacesonic-cli-static-route_a426b0535b40d65ad7f7456ef2c366d1a}} 
+\index{sonic-\/cli-\/static-\/route@{sonic-\/cli-\/static-\/route}!NAME1@{NAME1}}
+\index{NAME1@{NAME1}!sonic-\/cli-\/static-\/route@{sonic-\/cli-\/static-\/route}}
+\doxysubsubsection{\texorpdfstring{NAME1}{NAME1}}
+{\footnotesize\ttfamily string sonic-\/cli-\/static-\/route.\+N\+A\+M\+E1 = \textquotesingle{}static\textquotesingle{}}
+
+
+
+sonic-\/cli-\/static-\/route.\+py 파일의 29 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic-cli-static-route_a0039c457e5b1c7e0eada140f8d94fe47}\label{namespacesonic-cli-static-route_a0039c457e5b1c7e0eada140f8d94fe47}} 
+\index{sonic-\/cli-\/static-\/route@{sonic-\/cli-\/static-\/route}!restconf\_map@{restconf\_map}}
+\index{restconf\_map@{restconf\_map}!sonic-\/cli-\/static-\/route@{sonic-\/cli-\/static-\/route}}
+\doxysubsubsection{\texorpdfstring{restconf\_map}{restconf\_map}}
+{\footnotesize\ttfamily dictionary sonic-\/cli-\/static-\/route.\+restconf\+\_\+map}
+
+{\bfseries 초기값\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  \{}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3     \textcolor{stringliteral}{'openconfig\_network\_instance\_network\_instances\_network\_instance\_protocols\_protocol\_static\_routes\_static\_next\_hops\_next\_hop'} :}
+\DoxyCodeLine{4         \textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{name\}/protocols/protocol=\{identifier\},\{name1\}/static-\/routes'},}
+\DoxyCodeLine{5 \}}
+
+\end{DoxyCode}
+
+
+sonic-\/cli-\/static-\/route.\+py 파일의 31 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic-cli-static-route_a6d16c095adf61138fe30b13dbc9ff0b3}\label{namespacesonic-cli-static-route_a6d16c095adf61138fe30b13dbc9ff0b3}} 
+\index{sonic-\/cli-\/static-\/route@{sonic-\/cli-\/static-\/route}!restconf\_map\_del@{restconf\_map\_del}}
+\index{restconf\_map\_del@{restconf\_map\_del}!sonic-\/cli-\/static-\/route@{sonic-\/cli-\/static-\/route}}
+\doxysubsubsection{\texorpdfstring{restconf\_map\_del}{restconf\_map\_del}}
+{\footnotesize\ttfamily dictionary sonic-\/cli-\/static-\/route.\+restconf\+\_\+map\+\_\+del}
+
+{\bfseries 초기값\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  \{}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3     \textcolor{stringliteral}{'openconfig\_network\_instance\_network\_instances\_network\_instance\_protocols\_protocol\_static\_routes\_static\_next\_hops\_next\_hop'} :}
+\DoxyCodeLine{4         \textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{name\}/protocols/protocol=\{identifier\},\{name1\}/static-\/routes/static=\{prefix\}/next-\/hops/next-\/hop=\{index\}'},}
+\DoxyCodeLine{5 \}}
+
+\end{DoxyCode}
+
+
+sonic-\/cli-\/static-\/route.\+py 파일의 36 번째 라인에서 정의되었습니다.
+

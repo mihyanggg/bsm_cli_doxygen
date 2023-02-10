@@ -1,0 +1,221 @@
+\hypertarget{namespacesonic__cli__sag}{}\doxysection{sonic\+\_\+cli\+\_\+sag 네임스페이스 참조}
+\label{namespacesonic__cli__sag}\index{sonic\_cli\_sag@{sonic\_cli\_sag}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__sag_acc9092ea3c213eb97f814884347bbc1d}{invoke}} (func, args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__sag_af7c8d5c61ca4ecb9b73a9fdad8a5c42d}{run}} (func, args)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__sag_acc9092ea3c213eb97f814884347bbc1d}\label{namespacesonic__cli__sag_acc9092ea3c213eb97f814884347bbc1d}} 
+\index{sonic\_cli\_sag@{sonic\_cli\_sag}!invoke@{invoke}}
+\index{invoke@{invoke}!sonic\_cli\_sag@{sonic\_cli\_sag}}
+\doxysubsubsection{\texorpdfstring{invoke()}{invoke()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+sag.\+invoke (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+sag.\+py 파일의 29 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__sag_acc9092ea3c213eb97f814884347bbc1d}{invoke}}(func, args):}
+\DoxyCodeLine{30     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{31     aa = cc.ApiClient()}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{comment}{\# SAG delete ipv4 anycast gateway address}}
+\DoxyCodeLine{34     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'del\_llist\_openconfig\_interfaces\_ext\_interfaces\_interface\_subinterfaces\_subinterface\_ipv4\_sag\_ipv4\_config\_static\_anycast\_gateway'} :}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36         parent\_if = args[0]}
+\DoxyCodeLine{37         sub\_if = \textcolor{stringliteral}{"0"}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39         sag\_key = collections.defaultdict(dict)}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'.'} \textcolor{keywordflow}{in} parent\_if:}
+\DoxyCodeLine{42             parent\_if = args[0].split(\textcolor{stringliteral}{'.'})[0]}
+\DoxyCodeLine{43             sub\_if = args[0].split(\textcolor{stringliteral}{'.'})[1]}
+\DoxyCodeLine{44             sag\_key = \{}
+\DoxyCodeLine{45                 \textcolor{stringliteral}{"name"}: parent\_if,}
+\DoxyCodeLine{46                 \textcolor{stringliteral}{"index"}: sub\_if,}
+\DoxyCodeLine{47                 \textcolor{stringliteral}{"static-\/anycast-\/gateway"}: args[1]}
+\DoxyCodeLine{48                 \}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/openconfig-\/interfaces-\/ext:sag-\/ipv4/config/static-\/anycast-\/gateway=\{static-\/anycast-\/gateway\}'}, **sag\_key)}
+\DoxyCodeLine{51         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{52             sag\_key = \{}
+\DoxyCodeLine{53                 \textcolor{stringliteral}{"name"}: parent\_if,}
+\DoxyCodeLine{54                 \textcolor{stringliteral}{"static-\/anycast-\/gateway"}: args[1]}
+\DoxyCodeLine{55                  \}}
+\DoxyCodeLine{56             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv4/openconfig-\/interfaces-\/ext:sag-\/ipv4/config/static-\/anycast-\/gateway=\{static-\/anycast-\/gateway\}'}, **sag\_key)}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60     \textcolor{comment}{\# SAG configure ipv4 anycast gateway address}}
+\DoxyCodeLine{61     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_openconfig\_interfaces\_ext\_interfaces\_interface\_subinterfaces\_subinterface\_ipv4\_sag\_ipv4\_config\_static\_anycast\_gateway'} :}
+\DoxyCodeLine{62         parent\_if = args[0]}
+\DoxyCodeLine{63         sub\_if = \textcolor{stringliteral}{"0"}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'.'} \textcolor{keywordflow}{in} parent\_if:}
+\DoxyCodeLine{66             parent\_if = args[0].split(\textcolor{stringliteral}{'.'})[0]}
+\DoxyCodeLine{67             sub\_if = args[0].split(\textcolor{stringliteral}{'.'})[1]}
+\DoxyCodeLine{68             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/openconfig-\/interfaces-\/ext:sag-\/ipv4/config/static-\/anycast-\/gateway'},}
+\DoxyCodeLine{69                               name=parent\_if, index=sub\_if)}
+\DoxyCodeLine{70         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{71             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv4/openconfig-\/interfaces-\/ext:sag-\/ipv4/config/static-\/anycast-\/gateway'},}
+\DoxyCodeLine{72                               name=args[0])}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74         body = collections.defaultdict(dict)}
+\DoxyCodeLine{75         body = \{}
+\DoxyCodeLine{76                      \textcolor{stringliteral}{"openconfig-\/interfaces-\/ext:static-\/anycast-\/gateway"}: [args[1]]}
+\DoxyCodeLine{77                \}}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81     \textcolor{comment}{\# SAG delete ipv6 anycast gateway address}}
+\DoxyCodeLine{82     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'del\_llist\_openconfig\_interfaces\_ext\_interfaces\_interface\_subinterfaces\_subinterface\_ipv6\_sag\_ipv6\_config\_static\_anycast\_gateway'} :}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84         parent\_if = args[0]}
+\DoxyCodeLine{85         sub\_if = \textcolor{stringliteral}{"0"}}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87         sag\_key = collections.defaultdict(dict)}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'.'} \textcolor{keywordflow}{in} parent\_if:}
+\DoxyCodeLine{90             parent\_if = args[0].split(\textcolor{stringliteral}{'.'})[0]}
+\DoxyCodeLine{91             sub\_if = args[0].split(\textcolor{stringliteral}{'.'})[1]}
+\DoxyCodeLine{92             sag\_key = \{}
+\DoxyCodeLine{93                 \textcolor{stringliteral}{"name"}: parent\_if,}
+\DoxyCodeLine{94                 \textcolor{stringliteral}{"index"}: sub\_if,}
+\DoxyCodeLine{95                 \textcolor{stringliteral}{"static-\/anycast-\/gateway"}: args[1]}
+\DoxyCodeLine{96                 \}}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv6/openconfig-\/interfaces-\/ext:sag-\/ipv6/config/static-\/anycast-\/gateway=\{static-\/anycast-\/gateway\}'}, **sag\_key)}
+\DoxyCodeLine{99         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{100             sag\_key = \{}
+\DoxyCodeLine{101                 \textcolor{stringliteral}{"name"}: parent\_if,}
+\DoxyCodeLine{102                 \textcolor{stringliteral}{"static-\/anycast-\/gateway"}: args[1]}
+\DoxyCodeLine{103                  \}}
+\DoxyCodeLine{104             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv6/openconfig-\/interfaces-\/ext:sag-\/ipv6/config/static-\/anycast-\/gateway=\{static-\/anycast-\/gateway\}'}, **sag\_key)}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108     \textcolor{comment}{\# SAG configure ipv6 anycast gateway address}}
+\DoxyCodeLine{109     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_openconfig\_interfaces\_ext\_interfaces\_interface\_subinterfaces\_subinterface\_ipv6\_sag\_ipv6\_config\_static\_anycast\_gateway'} :}
+\DoxyCodeLine{110         parent\_if = args[0]}
+\DoxyCodeLine{111         sub\_if = \textcolor{stringliteral}{"0"}}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'.'} \textcolor{keywordflow}{in} parent\_if:}
+\DoxyCodeLine{114             parent\_if = args[0].split(\textcolor{stringliteral}{'.'})[0]}
+\DoxyCodeLine{115             sub\_if = args[0].split(\textcolor{stringliteral}{'.'})[1]}
+\DoxyCodeLine{116             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv6/openconfig-\/interfaces-\/ext:sag-\/ipv6/config/static-\/anycast-\/gateway'},}
+\DoxyCodeLine{117                               name=parent\_if, index=sub\_if)}
+\DoxyCodeLine{118         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{119             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv6/openconfig-\/interfaces-\/ext:sag-\/ipv6/config/static-\/anycast-\/gateway'},}
+\DoxyCodeLine{120                               name=args[0])}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122         body = collections.defaultdict(dict)}
+\DoxyCodeLine{123         body = \{}
+\DoxyCodeLine{124                      \textcolor{stringliteral}{"openconfig-\/interfaces-\/ext:static-\/anycast-\/gateway"}: [args[1]]}
+\DoxyCodeLine{125                \}}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129     \textcolor{comment}{\# SAG delete global mac}}
+\DoxyCodeLine{130     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'delete\_openconfig\_network\_instance\_ext\_network\_instances\_network\_instance\_global\_sag\_config\_anycast\_mac'} :}
+\DoxyCodeLine{131         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{name\}/openconfig-\/network-\/instance-\/ext:global-\/sag/config/anycast-\/mac'},}
+\DoxyCodeLine{132                           name=\textcolor{stringliteral}{"default"})}
+\DoxyCodeLine{133         \textcolor{keywordflow}{return} aa.delete(keypath)         }
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136     \textcolor{comment}{\# SAG configure global mac}}
+\DoxyCodeLine{137     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_openconfig\_network\_instance\_ext\_network\_instances\_network\_instance\_global\_sag\_config\_anycast\_mac'} :}
+\DoxyCodeLine{138         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{name\}/openconfig-\/network-\/instance-\/ext:global-\/sag/config/anycast-\/mac'},}
+\DoxyCodeLine{139                           name=\textcolor{stringliteral}{"default"})}
+\DoxyCodeLine{140         body = collections.defaultdict(dict)}
+\DoxyCodeLine{141         body = \{}
+\DoxyCodeLine{142                     \textcolor{stringliteral}{"openconfig-\/network-\/instance-\/ext:anycast-\/mac"}: args[0]}
+\DoxyCodeLine{143                \}}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145         \textcolor{keywordflow}{return} aa.patch(keypath, body)      }
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147     \textcolor{comment}{\# SAG IPv4 enable/disable}}
+\DoxyCodeLine{148     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_openconfig\_network\_instance\_ext\_network\_instances\_network\_instance\_global\_sag\_config\_ipv4\_enable'} :}
+\DoxyCodeLine{149         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{name\}/openconfig-\/network-\/instance-\/ext:global-\/sag/config/ipv4-\/enable'},}
+\DoxyCodeLine{150                           name=\textcolor{stringliteral}{"default"})}
+\DoxyCodeLine{151         \textcolor{keywordflow}{if} args[0] == \textcolor{stringliteral}{"enable"}:}
+\DoxyCodeLine{152              body = \{ \textcolor{stringliteral}{"openconfig-\/network-\/instance-\/ext:ipv4-\/enable"}: \textcolor{keyword}{True} \}}
+\DoxyCodeLine{153         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{"x"}:}
+\DoxyCodeLine{154              body = \{ \textcolor{stringliteral}{"openconfig-\/network-\/instance-\/ext:ipv4-\/enable"}: \textcolor{keyword}{False} \}}
+\DoxyCodeLine{155         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157     \textcolor{comment}{\# SAG IPv6 enable/disable}}
+\DoxyCodeLine{158     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_openconfig\_network\_instance\_ext\_network\_instances\_network\_instance\_global\_sag\_config\_ipv6\_enable'} :}
+\DoxyCodeLine{159         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{name\}/openconfig-\/network-\/instance-\/ext:global-\/sag/config/ipv6-\/enable'},}
+\DoxyCodeLine{160                           name=\textcolor{stringliteral}{"default"})}
+\DoxyCodeLine{161         \textcolor{keywordflow}{if} args[0] == \textcolor{stringliteral}{"enable"}:}
+\DoxyCodeLine{162              body = \{ \textcolor{stringliteral}{"openconfig-\/network-\/instance-\/ext:ipv6-\/enable"}: \textcolor{keyword}{True} \}}
+\DoxyCodeLine{163         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{"x"}:}
+\DoxyCodeLine{164              body = \{ \textcolor{stringliteral}{"openconfig-\/network-\/instance-\/ext:ipv6-\/enable"}: \textcolor{keyword}{False} \}}
+\DoxyCodeLine{165         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{166 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{dc/de4/namespacesonic__cli__sag_acc9092ea3c213eb97f814884347bbc1d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__sag_af7c8d5c61ca4ecb9b73a9fdad8a5c42d}\label{namespacesonic__cli__sag_af7c8d5c61ca4ecb9b73a9fdad8a5c42d}} 
+\index{sonic\_cli\_sag@{sonic\_cli\_sag}!run@{run}}
+\index{run@{run}!sonic\_cli\_sag@{sonic\_cli\_sag}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+sag.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+sag.\+py 파일의 167 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{167 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__sag_af7c8d5c61ca4ecb9b73a9fdad8a5c42d}{run}}(func, args):}
+\DoxyCodeLine{168     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{169         api\_response = \mbox{\hyperlink{namespacesonic__cli__sag_acc9092ea3c213eb97f814884347bbc1d}{invoke}}(func, args)}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{171         \textcolor{keywordflow}{if} api\_response.ok():}
+\DoxyCodeLine{172             response = api\_response.content}
+\DoxyCodeLine{173             \textcolor{keywordflow}{if} response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{174                 \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{175             \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'openconfig-\/interfaces:config'} \textcolor{keywordflow}{in} response.keys():}
+\DoxyCodeLine{176                 value = response[\textcolor{stringliteral}{'openconfig-\/interfaces:config'}]}
+\DoxyCodeLine{177                 \textcolor{keywordflow}{if} value \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{178                     \textcolor{keywordflow}{return}}
+\DoxyCodeLine{179                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[2], value)}
+\DoxyCodeLine{180             \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'openconfig-\/network-\/instance:config'} \textcolor{keywordflow}{in} response.keys():}
+\DoxyCodeLine{181                 value = response[\textcolor{stringliteral}{'openconfig-\/interfaces:config'}]}
+\DoxyCodeLine{182                 \textcolor{keywordflow}{if} value \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{183                     \textcolor{keywordflow}{return}}
+\DoxyCodeLine{184                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[2], value)             }
+\DoxyCodeLine{185         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{186             \textcolor{comment}{\#error response}}
+\DoxyCodeLine{187             print(api\_response.error\_message())}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189     \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{190             \textcolor{comment}{\# system/network error}}
+\DoxyCodeLine{191             \textcolor{keywordflow}{raise}}
+\DoxyCodeLine{192 }
+\DoxyCodeLine{193 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/de4/namespacesonic__cli__sag_af7c8d5c61ca4ecb9b73a9fdad8a5c42d_cgraph}
+\end{center}
+\end{figure}

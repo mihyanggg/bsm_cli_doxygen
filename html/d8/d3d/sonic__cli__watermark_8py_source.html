@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: cli/sonic_cli_watermark.py 소스 파일</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'검색');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','검색');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_2990d7c532eb7441b74916b8f5365141.html">cli</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">sonic_cli_watermark.py</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d8/d3d/sonic__cli__watermark_8py.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="../../db/d17/namespacesonic__cli__watermark.html">    1</a></span>&#160;<span class="keyword">import</span> sys</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keyword">import</span> cli_client <span class="keyword">as</span> cc</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">from</span> rpipe_utils <span class="keyword">import</span> pipestr</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">from</span> <a class="code" href="../../d1/d3d/namespacescripts_1_1render__cli.html">scripts.render_cli</a> <span class="keyword">import</span> show_cli_output</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="../../db/d17/namespacesonic__cli__watermark.html#a161b21dbf4469f652f71d3faa5fb0bca">    6</a></span>&#160;<span class="keyword">def </span><a class="code" href="../../db/d17/namespacesonic__cli__watermark.html#a161b21dbf4469f652f71d3faa5fb0bca">invoke_api</a>(func, args):</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    body = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    api = cc.ApiClient()</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="comment"># Set/Get/Delete WATERMARK_TABLE/SNAPSHOT_TABLE table entries.</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordflow">if</span> func == <span class="stringliteral">&#39;patch_sonic_watermark_sonic_watermark_watermark_table_watermark_table_list_interval&#39;</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;       path = cc.Path(<span class="stringliteral">&#39;/restconf/data/sonic-watermark:sonic-watermark/WATERMARK_TABLE/WATERMARK_TABLE_LIST&#39;</span>)</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;       body = { <span class="stringliteral">&quot;sonic-watermark:WATERMARK_TABLE_LIST&quot;</span>: [ {<span class="stringliteral">&quot;telemetryIntarvalPrefix&quot;</span>: <span class="stringliteral">&#39;TELEMETRY_INTERVAL&#39;</span>, <span class="stringliteral">&quot;interval&quot;</span>: int(args[3])} ] }</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;       <span class="keywordflow">return</span> api.patch(path, body)</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">elif</span> func == <span class="stringliteral">&#39;patch_sonic_watermark_sonic_watermark_snapshot_table_snapshot_table_list_interval&#39;</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;       path = cc.Path(<span class="stringliteral">&#39;/restconf/data/sonic-watermark:sonic-watermark/SNAPSHOT_TABLE/SNAPSHOT_TABLE_LIST&#39;</span>)</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;       body = { <span class="stringliteral">&quot;sonic-watermark:SNAPSHOT_TABLE_LIST&quot;</span>: [ {<span class="stringliteral">&quot;snapshotIntarvalPrefix&quot;</span>: <span class="stringliteral">&quot;SNAPSHOT_INTERVAL&quot;</span>, <span class="stringliteral">&quot;interval&quot;</span>: int(args[2])} ] }</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;       <span class="keywordflow">return</span> api.patch(path, body)</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">elif</span> func == <span class="stringliteral">&#39;delete_list_sonic_watermark_sonic_watermark_snapshot_table_snapshot_table_list&#39;</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;       path = cc.Path(<span class="stringliteral">&#39;/restconf/data/sonic-watermark:sonic-watermark/SNAPSHOT_TABLE/SNAPSHOT_TABLE_LIST&#39;</span>)</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;       <span class="keywordflow">return</span> api.delete(path)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">elif</span> func == <span class="stringliteral">&#39;delete_list_sonic_watermark_sonic_watermark_watermark_table_watermark_table_list&#39;</span>:</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;       path = cc.Path(<span class="stringliteral">&#39;/restconf/data/sonic-watermark:sonic-watermark/WATERMARK_TABLE/WATERMARK_TABLE_LIST&#39;</span>)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;       <span class="keywordflow">return</span> api.delete(path)</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../db/d17/namespacesonic__cli__watermark.html#aa967e7da325b2d5eafb80524c96eedfe">   30</a></span>&#160;<span class="keyword">def </span><a class="code" href="../../db/d17/namespacesonic__cli__watermark.html#aa967e7da325b2d5eafb80524c96eedfe">get_list_sonic_watermark_sonic_watermark_watermark_table_watermark_table_list</a>(args):</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;   </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    api_response = {}</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    api = cc.ApiClient()</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    path = cc.Path(<span class="stringliteral">&#39;/restconf/data/sonic-watermark:sonic-watermark/WATERMARK_TABLE/WATERMARK_TABLE_LIST&#39;</span>)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    response = api.get(path)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">if</span> response.ok():</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">if</span> response.content:</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            api_response = response.content[<span class="stringliteral">&#39;sonic-watermark:WATERMARK_TABLE_LIST&#39;</span>]</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(len(api_response)):</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                <span class="keywordflow">if</span> <span class="stringliteral">&#39;interval&#39;</span> <span class="keywordflow">not</span> <span class="keywordflow">in</span> api_response[i]:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                   print(<span class="stringliteral">&quot;Failed : Required mandatory parameters are not found&quot;</span>)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                   <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        api_response = [{<span class="stringliteral">&quot;interval&quot;</span>:120}] </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">print</span> <span class="stringliteral">&quot;%Error: REST API transaction failure&quot;</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="../../d1/d3d/namespacescripts_1_1render__cli.html#a21c728cd1db8b5bd209adc5f3325305d">show_cli_output</a>(<span class="stringliteral">&quot;show_watermark_telemetry_interval.j2&quot;</span>, api_response)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="../../db/d17/namespacesonic__cli__watermark.html#aa9200a38d5cc06bea097102b4bf44d46">   51</a></span>&#160;<span class="keyword">def </span><a class="code" href="../../db/d17/namespacesonic__cli__watermark.html#aa9200a38d5cc06bea097102b4bf44d46">get_list_sonic_watermark_sonic_watermark_snapshot_table_snapshot_table_list</a>(args):</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    api_response = {}</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    api = cc.ApiClient()</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    path = cc.Path(<span class="stringliteral">&#39;/restconf/data/sonic-watermark:sonic-watermark/SNAPSHOT_TABLE/SNAPSHOT_TABLE_LIST&#39;</span>)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    response = api.get(path)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">if</span> response.ok():</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">if</span> response.content:</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            api_response = response.content[<span class="stringliteral">&#39;sonic-watermark:SNAPSHOT_TABLE_LIST&#39;</span>]</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(len(api_response)):</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                <span class="keywordflow">if</span> <span class="stringliteral">&#39;interval&#39;</span> <span class="keywordflow">not</span> <span class="keywordflow">in</span> api_response[i]:</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                   print(<span class="stringliteral">&quot;Failed : Required mandatory parameters are not found&quot;</span>)</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                   <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        api_response = [{<span class="stringliteral">&quot;interval&quot;</span>:10}] </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">print</span> <span class="stringliteral">&quot;%Error: REST API transaction failure&quot;</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="../../d1/d3d/namespacescripts_1_1render__cli.html#a21c728cd1db8b5bd209adc5f3325305d">show_cli_output</a>(<span class="stringliteral">&quot;show_watermark_snapshot_interval.j2&quot;</span>, api_response)</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="../../db/d17/namespacesonic__cli__watermark.html#a7addb0edc6ea20b6bd3e87e5113d1853">   72</a></span>&#160;<span class="keyword">def </span><a class="code" href="../../db/d17/namespacesonic__cli__watermark.html#a7addb0edc6ea20b6bd3e87e5113d1853">run</a>(func, args):</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">if</span> func == <span class="stringliteral">&#39;get_list_sonic_watermark_sonic_watermark_watermark_table_watermark_table_list&#39;</span>:</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <a class="code" href="../../db/d17/namespacesonic__cli__watermark.html#aa967e7da325b2d5eafb80524c96eedfe">get_list_sonic_watermark_sonic_watermark_watermark_table_watermark_table_list</a>(args)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">elif</span> func == <span class="stringliteral">&#39;get_list_sonic_watermark_sonic_watermark_snapshot_table_snapshot_table_list&#39;</span>:</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <a class="code" href="../../db/d17/namespacesonic__cli__watermark.html#aa9200a38d5cc06bea097102b4bf44d46">get_list_sonic_watermark_sonic_watermark_snapshot_table_snapshot_table_list</a>(args)</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    response = <a class="code" href="../../db/d17/namespacesonic__cli__watermark.html#a161b21dbf4469f652f71d3faa5fb0bca">invoke_api</a>(func, args)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">if</span> response.ok():</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">if</span> response.content <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <span class="comment"># Get Command Output</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            api_response = response.content</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            <span class="keywordflow">if</span> api_response <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                print(<span class="stringliteral">&quot;Failed&quot;</span>)</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            api_response = response.content</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <span class="keywordflow">if</span> <span class="stringliteral">&quot;ietf-restconf:errors&quot;</span> <span class="keywordflow">in</span> api_response:</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                 err = api_response[<span class="stringliteral">&quot;ietf-restconf:errors&quot;</span>]</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                 <span class="keywordflow">if</span> <span class="stringliteral">&quot;error&quot;</span> <span class="keywordflow">in</span> err:</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                     errList = err[<span class="stringliteral">&quot;error&quot;</span>]</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                     errDict = {}</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                     <span class="keywordflow">for</span> dict <span class="keywordflow">in</span> errList:</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                         <span class="keywordflow">for</span> k, v <span class="keywordflow">in</span> dict.iteritems():</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                              errDict[k] = v</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                     <span class="keywordflow">if</span> <span class="stringliteral">&quot;error-message&quot;</span> <span class="keywordflow">in</span> errDict:</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                         <span class="keywordflow">print</span> <span class="stringliteral">&quot;%Error: &quot;</span> + errDict[<span class="stringliteral">&quot;error-message&quot;</span>]</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                         <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                     <span class="keywordflow">print</span> <span class="stringliteral">&quot;%Error: Transaction Failure&quot;</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                     <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <span class="keywordflow">print</span> response.error_message()</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            <span class="keywordflow">print</span> <span class="stringliteral">&quot;%Error: Transaction Failure&quot;</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keywordflow">if</span> __name__ == <span class="stringliteral">&#39;__main__&#39;</span>:</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    pipestr().<a class="code" href="../../d1/d3d/namespacescripts_1_1render__cli.html#ae395c999bb2be70d73ce51b6d352167b">write</a>(sys.argv)</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="../../db/d17/namespacesonic__cli__watermark.html#a192f58221d4eca9c87c0abe0ea057eb0">  111</a></span>&#160;    func = sys.argv[1]</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    print(func)</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordflow">if</span> func == <span class="stringliteral">&#39;get_list_sonic_watermark_sonic_watermark_watermark_table_watermark_table_list&#39;</span>:</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <a class="code" href="../../db/d17/namespacesonic__cli__watermark.html#aa967e7da325b2d5eafb80524c96eedfe">get_list_sonic_watermark_sonic_watermark_watermark_table_watermark_table_list</a>(sys.argv[2:])</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordflow">elif</span> func == <span class="stringliteral">&#39;get_list_sonic_watermark_sonic_watermark_snapshot_table_snapshot_table_list&#39;</span>:</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <a class="code" href="../../db/d17/namespacesonic__cli__watermark.html#aa9200a38d5cc06bea097102b4bf44d46">get_list_sonic_watermark_sonic_watermark_snapshot_table_snapshot_table_list</a>(sys.argv[2:])</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordflow">else</span> :</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <a class="code" href="../../db/d17/namespacesonic__cli__watermark.html#a7addb0edc6ea20b6bd3e87e5113d1853">run</a>(func, sys.argv[2:])</div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="anamespacesonic__cli__watermark_html_a161b21dbf4469f652f71d3faa5fb0bca"><div class="ttname"><a href="../../db/d17/namespacesonic__cli__watermark.html#a161b21dbf4469f652f71d3faa5fb0bca">sonic_cli_watermark.invoke_api</a></div><div class="ttdeci">def invoke_api(func, args)</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d3d/sonic__cli__watermark_8py_source.html#l00006">sonic_cli_watermark.py:6</a></div></div>
+<div class="ttc" id="anamespacescripts_1_1render__cli_html"><div class="ttname"><a href="../../d1/d3d/namespacescripts_1_1render__cli.html">scripts.render_cli</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d21/render__cli_8py_source.html#l00001">render_cli.py:1</a></div></div>
+<div class="ttc" id="anamespacescripts_1_1render__cli_html_ae395c999bb2be70d73ce51b6d352167b"><div class="ttname"><a href="../../d1/d3d/namespacescripts_1_1render__cli.html#ae395c999bb2be70d73ce51b6d352167b">scripts.render_cli.write</a></div><div class="ttdeci">def write(t_str, continuation=False)</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d21/render__cli_8py_source.html#l00125">render_cli.py:125</a></div></div>
+<div class="ttc" id="anamespacesonic__cli__watermark_html_aa967e7da325b2d5eafb80524c96eedfe"><div class="ttname"><a href="../../db/d17/namespacesonic__cli__watermark.html#aa967e7da325b2d5eafb80524c96eedfe">sonic_cli_watermark.get_list_sonic_watermark_sonic_watermark_watermark_table_watermark_table_list</a></div><div class="ttdeci">def get_list_sonic_watermark_sonic_watermark_watermark_table_watermark_table_list(args)</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d3d/sonic__cli__watermark_8py_source.html#l00030">sonic_cli_watermark.py:30</a></div></div>
+<div class="ttc" id="anamespacesonic__cli__watermark_html_a7addb0edc6ea20b6bd3e87e5113d1853"><div class="ttname"><a href="../../db/d17/namespacesonic__cli__watermark.html#a7addb0edc6ea20b6bd3e87e5113d1853">sonic_cli_watermark.run</a></div><div class="ttdeci">def run(func, args)</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d3d/sonic__cli__watermark_8py_source.html#l00072">sonic_cli_watermark.py:72</a></div></div>
+<div class="ttc" id="anamespacesonic__cli__watermark_html_aa9200a38d5cc06bea097102b4bf44d46"><div class="ttname"><a href="../../db/d17/namespacesonic__cli__watermark.html#aa9200a38d5cc06bea097102b4bf44d46">sonic_cli_watermark.get_list_sonic_watermark_sonic_watermark_snapshot_table_snapshot_table_list</a></div><div class="ttdeci">def get_list_sonic_watermark_sonic_watermark_snapshot_table_snapshot_table_list(args)</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d3d/sonic__cli__watermark_8py_source.html#l00051">sonic_cli_watermark.py:51</a></div></div>
+<div class="ttc" id="anamespacescripts_1_1render__cli_html_a21c728cd1db8b5bd209adc5f3325305d"><div class="ttname"><a href="../../d1/d3d/namespacescripts_1_1render__cli.html#a21c728cd1db8b5bd209adc5f3325305d">scripts.render_cli.show_cli_output</a></div><div class="ttdeci">def show_cli_output(template_file, response, continuation=False, **kwargs)</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d21/render__cli_8py_source.html#l00144">render_cli.py:144</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+다음에 의해 생성됨 :  &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

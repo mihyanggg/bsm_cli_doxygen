@@ -1,0 +1,179 @@
+\hypertarget{namespacesonic-cli-ip-route-rpc}{}\doxysection{sonic-\/cli-\/ip-\/route-\/rpc 네임스페이스 참조}
+\label{namespacesonic-cli-ip-route-rpc}\index{sonic-\/cli-\/ip-\/route-\/rpc@{sonic-\/cli-\/ip-\/route-\/rpc}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic-cli-ip-route-rpc_a4a6cb09cc9f66910af983916a7609458}{get\+Prefix\+And\+Len}} (item)
+\item 
+def \mbox{\hyperlink{namespacesonic-cli-ip-route-rpc_a9801bbcc1fa51de0bc8d75f39ff2d54e}{invoke\+\_\+api}} (\mbox{\hyperlink{namespacesonic-cli-ip-route-rpc_a82c1ca9cc68894b17e973f4d9902bf5b}{func}}, args)
+\item 
+def \mbox{\hyperlink{namespacesonic-cli-ip-route-rpc_a334019879f26941c3de679ee9b445c02}{run}} (\mbox{\hyperlink{namespacesonic-cli-ip-route-rpc_a82c1ca9cc68894b17e973f4d9902bf5b}{func}}, args)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+list \mbox{\hyperlink{namespacesonic-cli-ip-route-rpc_af3fa1b14ca26d1ad90bf9b0227974cf3}{Show\+Opts}} = \mbox{[} \char`\"{}summary\char`\"{}, \char`\"{}bgp\char`\"{}, \char`\"{}connected\char`\"{}, \char`\"{}static\char`\"{}, \char`\"{}ospf\char`\"{} \mbox{]}
+\item 
+\mbox{\hyperlink{namespacesonic-cli-ip-route-rpc_a82c1ca9cc68894b17e973f4d9902bf5b}{func}} = sys.\+argv\mbox{[}1\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic-cli-ip-route-rpc_a4a6cb09cc9f66910af983916a7609458}\label{namespacesonic-cli-ip-route-rpc_a4a6cb09cc9f66910af983916a7609458}} 
+\index{sonic-\/cli-\/ip-\/route-\/rpc@{sonic-\/cli-\/ip-\/route-\/rpc}!getPrefixAndLen@{getPrefixAndLen}}
+\index{getPrefixAndLen@{getPrefixAndLen}!sonic-\/cli-\/ip-\/route-\/rpc@{sonic-\/cli-\/ip-\/route-\/rpc}}
+\doxysubsubsection{\texorpdfstring{getPrefixAndLen()}{getPrefixAndLen()}}
+{\footnotesize\ttfamily def sonic-\/cli-\/ip-\/route-\/rpc.\+get\+Prefix\+And\+Len (\begin{DoxyParamCaption}\item[{}]{item }\end{DoxyParamCaption})}
+
+
+
+sonic-\/cli-\/ip-\/route-\/rpc.\+py 파일의 9 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{9 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic-cli-ip-route-rpc_a4a6cb09cc9f66910af983916a7609458}{getPrefixAndLen}}(item):}
+\DoxyCodeLine{10     ip = netaddr.IPNetwork(item)}
+\DoxyCodeLine{11     \textcolor{keywordflow}{return} (ip.value, ip.prefixlen)}
+\DoxyCodeLine{12 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacesonic-cli-ip-route-rpc_a9801bbcc1fa51de0bc8d75f39ff2d54e}\label{namespacesonic-cli-ip-route-rpc_a9801bbcc1fa51de0bc8d75f39ff2d54e}} 
+\index{sonic-\/cli-\/ip-\/route-\/rpc@{sonic-\/cli-\/ip-\/route-\/rpc}!invoke\_api@{invoke\_api}}
+\index{invoke\_api@{invoke\_api}!sonic-\/cli-\/ip-\/route-\/rpc@{sonic-\/cli-\/ip-\/route-\/rpc}}
+\doxysubsubsection{\texorpdfstring{invoke\_api()}{invoke\_api()}}
+{\footnotesize\ttfamily def sonic-\/cli-\/ip-\/route-\/rpc.\+invoke\+\_\+api (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic-\/cli-\/ip-\/route-\/rpc.\+py 파일의 14 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{14 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic-cli-ip-route-rpc_a9801bbcc1fa51de0bc8d75f39ff2d54e}{invoke\_api}}(func, args):}
+\DoxyCodeLine{15     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{16     vrfname = \textcolor{stringliteral}{"default"}}
+\DoxyCodeLine{17     prefix = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{18     options = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{19     address = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{20     af = \textcolor{stringliteral}{"IPv4"}}
+\DoxyCodeLine{21     protocol\_name = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{22     api = cc.ApiClient()}
+\DoxyCodeLine{23     i = 0}
+\DoxyCodeLine{24     \textcolor{keywordflow}{for} arg \textcolor{keywordflow}{in} args:}
+\DoxyCodeLine{25         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"vrf"} == arg:}
+\DoxyCodeLine{26            vrfname = args[i+1]}
+\DoxyCodeLine{27         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"ipv4"} == arg:}
+\DoxyCodeLine{28            af = \textcolor{stringliteral}{"IPv4"}}
+\DoxyCodeLine{29         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"ipv6"} == arg:}
+\DoxyCodeLine{30            af = \textcolor{stringliteral}{"IPv6"}}
+\DoxyCodeLine{31         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"prefix"} == arg:}
+\DoxyCodeLine{32            prefix = args[i+1]}
+\DoxyCodeLine{33         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"address"} == arg:}
+\DoxyCodeLine{34            address = args[i+1]}
+\DoxyCodeLine{35         \textcolor{keywordflow}{elif} arg \textcolor{keywordflow}{in} ShowOpts:}
+\DoxyCodeLine{36            options = arg}
+\DoxyCodeLine{37         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{38            \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{39         i = i + 1}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/ip-\/show:show-\/ip-\/route'})}
+\DoxyCodeLine{42     inputs = \{\textcolor{stringliteral}{"vrf-\/name"}:vrfname, \textcolor{stringliteral}{"family"}:af\}}
+\DoxyCodeLine{43     \textcolor{keywordflow}{if} prefix:}
+\DoxyCodeLine{44         inputs[\textcolor{stringliteral}{'prefix'}] = prefix}
+\DoxyCodeLine{45     \textcolor{keywordflow}{elif} address:}
+\DoxyCodeLine{46         inputs[\textcolor{stringliteral}{'address'}] = address}
+\DoxyCodeLine{47     \textcolor{keywordflow}{elif} options:}
+\DoxyCodeLine{48         inputs[options] = \textcolor{keyword}{True}}
+\DoxyCodeLine{49     body = \{\textcolor{stringliteral}{"sonic-\/ip-\/show:input"}: inputs\}}
+\DoxyCodeLine{50     response = api.post(keypath, body)}
+\DoxyCodeLine{51     \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{52 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{d1/dfc/namespacesonic-cli-ip-route-rpc_a9801bbcc1fa51de0bc8d75f39ff2d54e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic-cli-ip-route-rpc_a334019879f26941c3de679ee9b445c02}\label{namespacesonic-cli-ip-route-rpc_a334019879f26941c3de679ee9b445c02}} 
+\index{sonic-\/cli-\/ip-\/route-\/rpc@{sonic-\/cli-\/ip-\/route-\/rpc}!run@{run}}
+\index{run@{run}!sonic-\/cli-\/ip-\/route-\/rpc@{sonic-\/cli-\/ip-\/route-\/rpc}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic-\/cli-\/ip-\/route-\/rpc.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic-\/cli-\/ip-\/route-\/rpc.\+py 파일의 53 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{53 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic-cli-ip-route-rpc_a334019879f26941c3de679ee9b445c02}{run}}(func, args):}
+\DoxyCodeLine{54     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{55         response = \mbox{\hyperlink{namespacesonic-cli-ip-route-rpc_a9801bbcc1fa51de0bc8d75f39ff2d54e}{invoke\_api}}(func, args)}
+\DoxyCodeLine{56         \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response.ok():}
+\DoxyCodeLine{57             \textcolor{comment}{\#error response}}
+\DoxyCodeLine{58             \textcolor{keywordflow}{print} response.error\_message()}
+\DoxyCodeLine{59             exit(1)}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61         d = response.content[\textcolor{stringliteral}{'sonic-\/ip-\/show:output'}][\textcolor{stringliteral}{'response'}]}
+\DoxyCodeLine{62         \textcolor{keywordflow}{if} len(d) != 0 \textcolor{keywordflow}{and} \textcolor{stringliteral}{"warning"} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} d:}
+\DoxyCodeLine{63            d = json.loads(d)}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65            \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'show\_ip\_route\_summary'}:}
+\DoxyCodeLine{66                \textcolor{keywordflow}{if} len(args) >= 6 \textcolor{keywordflow}{and} args[4] == \textcolor{stringliteral}{'vrf'} \textcolor{keywordflow}{and} args[5] != \textcolor{stringliteral}{'default'}:}
+\DoxyCodeLine{67                    \textcolor{keywordflow}{if} args[5] != \textcolor{stringliteral}{'all'}:}
+\DoxyCodeLine{68                        d = \{ args[5] : d \}}
+\DoxyCodeLine{69                \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{70                    d = \{ \textcolor{stringliteral}{'default'} : d \}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72                \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], d)}
+\DoxyCodeLine{73                \textcolor{keywordflow}{return}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75            routes = d}
+\DoxyCodeLine{76            keys = sorted(routes,key=getPrefixAndLen)}
+\DoxyCodeLine{77            temp = OrderedDict()}
+\DoxyCodeLine{78            \textcolor{keywordflow}{for} key \textcolor{keywordflow}{in} keys:}
+\DoxyCodeLine{79                temp[key] = routes[key]}
+\DoxyCodeLine{80            d = temp}
+\DoxyCodeLine{81            \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], d)}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83     \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{84         \textcolor{comment}{\# system/network error}}
+\DoxyCodeLine{85         \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\%Error: Transaction Failure"}}
+\DoxyCodeLine{86 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/dfc/namespacesonic-cli-ip-route-rpc_a334019879f26941c3de679ee9b445c02_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacesonic-cli-ip-route-rpc_a82c1ca9cc68894b17e973f4d9902bf5b}\label{namespacesonic-cli-ip-route-rpc_a82c1ca9cc68894b17e973f4d9902bf5b}} 
+\index{sonic-\/cli-\/ip-\/route-\/rpc@{sonic-\/cli-\/ip-\/route-\/rpc}!func@{func}}
+\index{func@{func}!sonic-\/cli-\/ip-\/route-\/rpc@{sonic-\/cli-\/ip-\/route-\/rpc}}
+\doxysubsubsection{\texorpdfstring{func}{func}}
+{\footnotesize\ttfamily sonic-\/cli-\/ip-\/route-\/rpc.\+func = sys.\+argv\mbox{[}1\mbox{]}}
+
+
+
+sonic-\/cli-\/ip-\/route-\/rpc.\+py 파일의 90 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic-cli-ip-route-rpc_af3fa1b14ca26d1ad90bf9b0227974cf3}\label{namespacesonic-cli-ip-route-rpc_af3fa1b14ca26d1ad90bf9b0227974cf3}} 
+\index{sonic-\/cli-\/ip-\/route-\/rpc@{sonic-\/cli-\/ip-\/route-\/rpc}!ShowOpts@{ShowOpts}}
+\index{ShowOpts@{ShowOpts}!sonic-\/cli-\/ip-\/route-\/rpc@{sonic-\/cli-\/ip-\/route-\/rpc}}
+\doxysubsubsection{\texorpdfstring{ShowOpts}{ShowOpts}}
+{\footnotesize\ttfamily list sonic-\/cli-\/ip-\/route-\/rpc.\+Show\+Opts = \mbox{[} \char`\"{}summary\char`\"{}, \char`\"{}bgp\char`\"{}, \char`\"{}connected\char`\"{}, \char`\"{}static\char`\"{}, \char`\"{}ospf\char`\"{} \mbox{]}}
+
+
+
+sonic-\/cli-\/ip-\/route-\/rpc.\+py 파일의 13 번째 라인에서 정의되었습니다.
+

@@ -1,0 +1,1292 @@
+\hypertarget{namespacesonic__cli__telemetry}{}\doxysection{sonic\+\_\+cli\+\_\+telemetry 네임스페이스 참조}
+\label{namespacesonic__cli__telemetry}\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__telemetry_a3b20dd71bfb8fb0c8bcc3804237ea6de}{get\+\_\+intf\+\_\+alias}} ()
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__telemetry_a7399ab866cf92deed99277af4201aa8a}{do\+\_\+get}} (url)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__telemetry_ab05ea20978c0d3e49e765f61ee583108}{get\+Feature\+Description}} (feature)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__telemetry_a4a9aef95b52ba8eb9aed2bdf50fab5a2}{get\+Feature\+Identification}} (feature)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__telemetry_a48a6e11ca5ecef43b6b3cd702b73c258}{get\+Status\+Description}} (status)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__telemetry_a2cc083646c1bcdcb394cd98640f2e5a9}{get\+Collectors\+Count}} (data)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__telemetry_a4c22a178aea2356434e71bb367ec4aab}{print\+Feature\+Details}} (data)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__telemetry_adba5e2d0766035d296e8cb70cb644a42}{get\+Ethertype}} (ethertype)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__telemetry_acd8b1d9b2823e5b3a0cf8886161b6ce7}{get\+Protocol}} (\mbox{\hyperlink{DB-PARSED_8txt_afef64a1507fa3de6430868d3065c1d4c}{protocol}})
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__telemetry_aa6f4ca45a5fcaff3dc0c26f74781c34c}{get\+Flow\+Groups}} (\mbox{\hyperlink{DB-PARSED_8txt_aad5ade52cd4e02771db279ed6a9c791a}{flowgroups}})
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__telemetry_a84ab99660ee245e60165057030f322ac}{get\+Nat\+Sort\+Data}} (data)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__telemetry_afef00d8d1a125c9fb44ac38ba12890dc}{get\+Body}} (fn)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__telemetry_a0227aab1dbb795fc24882cff7d4a7fb1}{get\+Flow\+Group\+Date}} (data, currentid, priority)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__telemetry_a68b1d5f93ebd429a2b4e0f76c70dc8ca}{get\+Details}} (fn, args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__telemetry_a20d03d11108eca3622eb5a74d61b6a0a}{get\+Response}} (details)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__telemetry_a8d3ec40572a382ef0f2acf91146e2590}{invoke\+\_\+api}} (fn, args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__telemetry_af9971af21f66ee93b10e7acac2f7bef7}{run}} (fn, args)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacesonic__cli__telemetry_a0364a0c2ac651122d5a7823937226b0f}{api}} = cc.\+Api\+Client()
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__telemetry_a73f604f0fa20a66b5ac8d92ff3a1e464}{tam\+\_\+rest}} = \textquotesingle{}/restconf/data/openconfig-\/tam\+:tam\textquotesingle{}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__telemetry_a4e04b81e1bf36cf71e37c25f591b5bcc}{collectors\+\_\+url}} = \mbox{\hyperlink{namespacesonic__cli__telemetry_a73f604f0fa20a66b5ac8d92ff3a1e464}{tam\+\_\+rest}}+\textquotesingle{}/collectors\textquotesingle{}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__telemetry_a6b71678afad02c52db3fd2b891e52dc1}{samplers\+\_\+url}} = \mbox{\hyperlink{namespacesonic__cli__telemetry_a73f604f0fa20a66b5ac8d92ff3a1e464}{tam\+\_\+rest}}+\textquotesingle{}/\mbox{\hyperlink{DB-PARSED_8txt_a6cd3134091f4c7f20eabd471ef8c88cb}{samplers}}\textquotesingle{}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__telemetry_a78a80cc6722c5f9daab6386f482c89f9}{switch\+\_\+url}} = \mbox{\hyperlink{namespacesonic__cli__telemetry_a73f604f0fa20a66b5ac8d92ff3a1e464}{tam\+\_\+rest}}+\textquotesingle{}/\mbox{\hyperlink{DB-PARSED_8txt_a23d833fb6196c465519013618e17425d}{switch}}\textquotesingle{}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__telemetry_a56479dc229820aeaa67daa25ad35f6f6}{switch\+\_\+id\+\_\+config\+\_\+url}} = \mbox{\hyperlink{namespacesonic__cli__telemetry_a78a80cc6722c5f9daab6386f482c89f9}{switch\+\_\+url}}+\textquotesingle{}/config/\mbox{\hyperlink{DB-PARSED_8txt_a23d833fb6196c465519013618e17425d}{switch}}-\/\mbox{\hyperlink{DB-PARSED_8txt_a3c205a0462ac1e7e480b74ad4dc0bb96}{id}}\textquotesingle{}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__telemetry_a114945daf201b42c583169c1fa43fc05}{enterprise\+\_\+id\+\_\+config\+\_\+url}} = \mbox{\hyperlink{namespacesonic__cli__telemetry_a78a80cc6722c5f9daab6386f482c89f9}{switch\+\_\+url}}+\textquotesingle{}/config/enterprise-\/\mbox{\hyperlink{DB-PARSED_8txt_a3c205a0462ac1e7e480b74ad4dc0bb96}{id}}\textquotesingle{}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__telemetry_a52228a852bbf2581ba892e4080629d7a}{ifa\+\_\+sessions\+\_\+url}} = \mbox{\hyperlink{namespacesonic__cli__telemetry_a73f604f0fa20a66b5ac8d92ff3a1e464}{tam\+\_\+rest}}+\textquotesingle{}/\mbox{\hyperlink{DB-PARSED_8txt_ae51979531de351b747091afd60bdfff4}{ifa}}-\/sessions\textquotesingle{}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__telemetry_afada60f2e90df5fb1678ed5f4cf49989}{tailstamping\+\_\+sessions\+\_\+url}} = \mbox{\hyperlink{namespacesonic__cli__telemetry_a73f604f0fa20a66b5ac8d92ff3a1e464}{tam\+\_\+rest}}+\textquotesingle{}/\mbox{\hyperlink{DB-PARSED_8txt_a1a07f16e3436dbeeb45172eeae3e0e9d}{tailstamping}}-\/sessions\textquotesingle{}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__telemetry_a7a0051a6b3128a0da45571019a0a8c4f}{dropmonitor\+\_\+sessions\+\_\+url}} = \mbox{\hyperlink{namespacesonic__cli__telemetry_a73f604f0fa20a66b5ac8d92ff3a1e464}{tam\+\_\+rest}}+\textquotesingle{}/\mbox{\hyperlink{DB-PARSED_8txt_a27663acf28ba762d80c3156a993956a2}{dropmonitor}}/\mbox{\hyperlink{DB-PARSED_8txt_a27663acf28ba762d80c3156a993956a2}{dropmonitor}}-\/sessions\textquotesingle{}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__telemetry_a58d42090c7ba91e2c83c117a246de580}{dropmonitor\+\_\+aginginterval\+\_\+url}} = \mbox{\hyperlink{namespacesonic__cli__telemetry_a73f604f0fa20a66b5ac8d92ff3a1e464}{tam\+\_\+rest}}+\textquotesingle{}/\mbox{\hyperlink{DB-PARSED_8txt_a27663acf28ba762d80c3156a993956a2}{dropmonitor}}/\mbox{\hyperlink{DB-PARSED_8txt_abea38d543e1427d44ae7a7ed344332a8}{global}}\textquotesingle{}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__telemetry_a2ba0d80567b0d0b2405b57ccd970779e}{features\+\_\+status\+\_\+url}} = \mbox{\hyperlink{namespacesonic__cli__telemetry_a73f604f0fa20a66b5ac8d92ff3a1e464}{tam\+\_\+rest}}+\textquotesingle{}/\mbox{\hyperlink{DB-PARSED_8txt_abbd53fbb80fbe0ee7d4fb41ccbd815e8}{features}}-\/state\textquotesingle{}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__telemetry_aeb02a8f2d970915a239a3749e9333c6c}{feature\+\_\+config\+\_\+url}} = \mbox{\hyperlink{namespacesonic__cli__telemetry_a73f604f0fa20a66b5ac8d92ff3a1e464}{tam\+\_\+rest}}+\textquotesingle{}/\mbox{\hyperlink{DB-PARSED_8txt_abbd53fbb80fbe0ee7d4fb41ccbd815e8}{features}}\textquotesingle{}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__telemetry_a8fcbae02784f606dfffe70f9ff3677f4}{flowgroups\+\_\+url}} = \mbox{\hyperlink{namespacesonic__cli__telemetry_a73f604f0fa20a66b5ac8d92ff3a1e464}{tam\+\_\+rest}}+\textquotesingle{}/\mbox{\hyperlink{DB-PARSED_8txt_aad5ade52cd4e02771db279ed6a9c791a}{flowgroups}}\textquotesingle{}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__telemetry_a409458891079605df49c3a9fb82d0f19}{flowgroup\+\_\+ids\+\_\+url}} = \textquotesingle{}/restconf/data/sonic-\/tam-\/flowgroups\+:sonic-\/tam-\/\mbox{\hyperlink{DB-PARSED_8txt_aad5ade52cd4e02771db279ed6a9c791a}{flowgroups}}/T\+A\+M\+\_\+\+F\+L\+O\+W\+G\+R\+O\+U\+P\+\_\+\+T\+A\+B\+LE/T\+A\+M\+\_\+\+F\+L\+O\+W\+G\+R\+O\+U\+P\+\_\+\+T\+A\+B\+L\+E\+\_\+\+L\+I\+ST\textquotesingle{}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__telemetry_aa46dabc3765b03375f32efd7183fc3ca}{detach\+\_\+flowgroup\+\_\+url}} = \textquotesingle{}/restconf/data/openconfig-\/tam\+:tam/\mbox{\hyperlink{DB-PARSED_8txt_aad5ade52cd4e02771db279ed6a9c791a}{flowgroups}}/flowgroup=\{\mbox{\hyperlink{DB-PARSED_8txt_a2f28cce84dbafd26b75c646321392848}{name}}\}/config/interfaces=\{interfaces\}\textquotesingle{}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__telemetry_ad943c9fa59d287d10e2638b07d973652}{intf\+\_\+naming\+\_\+mode\+\_\+url}} = \textquotesingle{}/restconf/data/sonic-\/device-\/metadata\+:sonic-\/device-\/metadata/D\+E\+V\+I\+C\+E\+\_\+\+M\+E\+T\+A\+D\+A\+TA/D\+E\+V\+I\+C\+E\+\_\+\+M\+E\+T\+A\+D\+A\+T\+A\+\_\+\+L\+I\+ST=\{\mbox{\hyperlink{DB-PARSED_8txt_a2f28cce84dbafd26b75c646321392848}{name}}\}/intf\+\_\+naming\+\_\+mode\textquotesingle{}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__telemetry_a9cb155715e8b2acbe138589286cbb8e2}{intf\+\_\+alias\+\_\+url}} = \textquotesingle{}/restconf/data/sonic-\/port\+:sonic-\/\mbox{\hyperlink{DB-PARSED_8txt_a8e32b4349f67b91a9dbc9a6841e5ff6d}{port}}/P\+O\+R\+T\+\_\+\+T\+A\+B\+LE/P\+O\+R\+T\+\_\+\+T\+A\+B\+L\+E\+\_\+\+L\+I\+ST\textquotesingle{}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__telemetry_a8474bb0bc9962c6f9a81bfb6af8561a8}{clear\+\_\+flowgroup\+\_\+counters\+\_\+url}} = \textquotesingle{}/restconf/operations/openconfig-\/tam\+:clear-\/flowgroup-\/counters\textquotesingle{}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__telemetry_a761de1f9e177399a025b3b1c7f8709f5}{get\+\_\+acl\+\_\+rule\+\_\+url}} = \textquotesingle{}/restconf/data/sonic-\/acl\+:sonic-\/\mbox{\hyperlink{DB-PARSED_8txt_a1bbe0a3ff032493ea9c6c0bf6d406d40}{acl}}/A\+C\+L\+\_\+\+R\+U\+LE/A\+C\+L\+\_\+\+R\+U\+L\+E\+\_\+\+L\+I\+ST\textquotesingle{}
+\item 
+dictionary \mbox{\hyperlink{namespacesonic__cli__telemetry_ab0c24c7c5a5d29716f498c1f1dee3a0f}{helper\+\_\+functions}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_a7399ab866cf92deed99277af4201aa8a}\label{namespacesonic__cli__telemetry_a7399ab866cf92deed99277af4201aa8a}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!do\_get@{do\_get}}
+\index{do\_get@{do\_get}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{do\_get()}{do\_get()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+telemetry.\+do\+\_\+get (\begin{DoxyParamCaption}\item[{}]{url }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 73 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{73 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__telemetry_a7399ab866cf92deed99277af4201aa8a}{do\_get}}(url):}
+\DoxyCodeLine{74     result = \{\}}
+\DoxyCodeLine{75     response = api.get(url)}
+\DoxyCodeLine{76     result[\textcolor{stringliteral}{'ok'}] = response.ok()}
+\DoxyCodeLine{77     result[\textcolor{stringliteral}{'content'}] = response.content}
+\DoxyCodeLine{78     \textcolor{keywordflow}{return} result}
+\DoxyCodeLine{79 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d02/namespacesonic__cli__telemetry_a7399ab866cf92deed99277af4201aa8a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_a3b20dd71bfb8fb0c8bcc3804237ea6de}\label{namespacesonic__cli__telemetry_a3b20dd71bfb8fb0c8bcc3804237ea6de}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!get\_intf\_alias@{get\_intf\_alias}}
+\index{get\_intf\_alias@{get\_intf\_alias}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{get\_intf\_alias()}{get\_intf\_alias()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+telemetry.\+get\+\_\+intf\+\_\+alias (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 52 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{52 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__telemetry_a3b20dd71bfb8fb0c8bcc3804237ea6de}{get\_intf\_alias}}():}
+\DoxyCodeLine{53     intfList = \{\}}
+\DoxyCodeLine{54     path = cc.Path(intf\_naming\_mode\_url, name=\textcolor{stringliteral}{"localhost"})}
+\DoxyCodeLine{55     tmp\_response = api.get(path)}
+\DoxyCodeLine{56     \textcolor{keywordflow}{if} tmp\_response.ok():}
+\DoxyCodeLine{57         response = tmp\_response.content}
+\DoxyCodeLine{58         \textcolor{keywordflow}{if} response \textcolor{keywordflow}{and} \textcolor{stringliteral}{'sonic-\/device-\/metadata:intf\_naming\_mode'} \textcolor{keywordflow}{in} response \textcolor{keywordflow}{and} response[\textcolor{stringliteral}{'sonic-\/device-\/metadata:intf\_naming\_mode'}] == \textcolor{stringliteral}{'standard'}:}
+\DoxyCodeLine{59             path = cc.Path(intf\_alias\_url)}
+\DoxyCodeLine{60             tmp\_response = api.get(path)}
+\DoxyCodeLine{61             \textcolor{keywordflow}{if} tmp\_response.ok():}
+\DoxyCodeLine{62                 response = tmp\_response.content}
+\DoxyCodeLine{63                 \textcolor{keywordflow}{if} response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{64                     \textcolor{keywordflow}{return} intfList}
+\DoxyCodeLine{65                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/port:PORT\_TABLE\_LIST'} \textcolor{keywordflow}{in} response:}
+\DoxyCodeLine{66                     \textcolor{keywordflow}{for} entry \textcolor{keywordflow}{in} response[\textcolor{stringliteral}{'sonic-\/port:PORT\_TABLE\_LIST'}]:}
+\DoxyCodeLine{67                         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'alias'} \textcolor{keywordflow}{in} entry:}
+\DoxyCodeLine{68                             intfList[entry[\textcolor{stringliteral}{'alias'}]] = \{\}}
+\DoxyCodeLine{69                             intfList[entry[\textcolor{stringliteral}{'alias'}]] = entry[\textcolor{stringliteral}{'ifname'}]}
+\DoxyCodeLine{70     \textcolor{keywordflow}{return} intfList}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d02/namespacesonic__cli__telemetry_a3b20dd71bfb8fb0c8bcc3804237ea6de_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_afef00d8d1a125c9fb44ac38ba12890dc}\label{namespacesonic__cli__telemetry_afef00d8d1a125c9fb44ac38ba12890dc}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!getBody@{getBody}}
+\index{getBody@{getBody}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{getBody()}{getBody()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+telemetry.\+get\+Body (\begin{DoxyParamCaption}\item[{}]{fn }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 252 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{252 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__telemetry_afef00d8d1a125c9fb44ac38ba12890dc}{getBody}}(fn):}
+\DoxyCodeLine{253     body = \{}
+\DoxyCodeLine{254         \textcolor{stringliteral}{'patch\_collector'}: \textcolor{stringliteral}{"""\{"openconfig-\/tam:collectors":\{"collector":[\{"name":"\%s","config":\{"name":"\%s","ip":"\%s","port":\%d,"protocol":"\%s"\}\}]\}\}"""},}
+\DoxyCodeLine{255         \textcolor{stringliteral}{'patch\_sampler'}: \textcolor{stringliteral}{"""\{"openconfig-\/tam:samplers":\{"sampler":[\{"name":"\%s","config":\{"name":"\%s","sampling-\/rate":\%d\}\}]\}\}"""},}
+\DoxyCodeLine{256         \textcolor{stringliteral}{'patch\_switch\_id'}: \textcolor{stringliteral}{"""\{"openconfig-\/tam:switch-\/id":\%d\}"""},}
+\DoxyCodeLine{257         \textcolor{stringliteral}{'patch\_enterprise\_id'}: \textcolor{stringliteral}{"""\{"openconfig-\/tam:enterprise-\/id":\%d\}"""},}
+\DoxyCodeLine{258         \textcolor{stringliteral}{'patch\_ifa\_session'}: \textcolor{stringliteral}{"""\{"openconfig-\/tam:ifa-\/sessions":\{"ifa-\/session":[\{"name":"\%s","config":\{"name":"\%s","flowgroup":"\%s","collector":"\%s","sample-\/rate":"\%s","node-\/type":"\%s"\}\}]\}\}"""},}
+\DoxyCodeLine{259         \textcolor{stringliteral}{'patch\_ts\_session'}: \textcolor{stringliteral}{"""\{"openconfig-\/tam:tailstamping-\/sessions":\{"tailstamping-\/session":[\{"name":"\%s","config":\{"name":"\%s","flowgroup":"\%s","node-\/type":"\%s"\}\}]\}\}"""},}
+\DoxyCodeLine{260         \textcolor{stringliteral}{'patch\_dm\_session'}: \textcolor{stringliteral}{"""\{"openconfig-\/tam:dropmonitor-\/sessions":\{"dropmonitor-\/session":[\{"name":"\%s","config":\{"name":"\%s","flowgroup":"\%s","collector":"\%s","sample-\/rate":"\%s"\}\}]\}\}"""},}
+\DoxyCodeLine{261         \textcolor{stringliteral}{'patch\_aginginterval'}: \textcolor{stringliteral}{"""\{"openconfig-\/tam:global":\{"config":\{"aging-\/interval":\%d\}\}\}"""},}
+\DoxyCodeLine{262         \textcolor{stringliteral}{'patch\_feature'}: \textcolor{stringliteral}{"""\{"openconfig-\/tam:features":\{"feature":[\{"feature-\/ref":"\%s","config":\{"feature-\/ref":"\%s","status":"\%s"\}\}]\}\}"""},}
+\DoxyCodeLine{263         \textcolor{stringliteral}{'associate\_flowgroup'}: \textcolor{stringliteral}{"""\{"openconfig-\/tam:flowgroups":\{"flowgroup":[\{"name":"\%s","config":\{"name":"\%s","id":\%d,"interfaces":["\%s"]\}\}]\}\}"""},}
+\DoxyCodeLine{264         \textcolor{stringliteral}{'clear\_flowgroup\_counters'}: \textcolor{stringliteral}{"""\{"openconfig-\/tam:input":\{\}\}"""}}
+\DoxyCodeLine{265     \}}
+\DoxyCodeLine{266     \textcolor{keywordflow}{return} body[fn]}
+\DoxyCodeLine{267 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d02/namespacesonic__cli__telemetry_afef00d8d1a125c9fb44ac38ba12890dc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_a2cc083646c1bcdcb394cd98640f2e5a9}\label{namespacesonic__cli__telemetry_a2cc083646c1bcdcb394cd98640f2e5a9}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!getCollectorsCount@{getCollectorsCount}}
+\index{getCollectorsCount@{getCollectorsCount}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{getCollectorsCount()}{getCollectorsCount()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+telemetry.\+get\+Collectors\+Count (\begin{DoxyParamCaption}\item[{}]{data }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 110 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{110 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__telemetry_a2cc083646c1bcdcb394cd98640f2e5a9}{getCollectorsCount}}(data):}
+\DoxyCodeLine{111     counter = set()}
+\DoxyCodeLine{112     \textcolor{keywordflow}{for} x \textcolor{keywordflow}{in} data:}
+\DoxyCodeLine{113         state\_data = x[\textcolor{stringliteral}{'state'}]}
+\DoxyCodeLine{114         \textcolor{keywordflow}{if} (state\_data[\textcolor{stringliteral}{'collector'}] != \textcolor{stringliteral}{""}):}
+\DoxyCodeLine{115             counter.add(state\_data[\textcolor{stringliteral}{'collector'}])}
+\DoxyCodeLine{116     \textcolor{keywordflow}{return} len(counter)}
+\DoxyCodeLine{117 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d02/namespacesonic__cli__telemetry_a2cc083646c1bcdcb394cd98640f2e5a9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_a68b1d5f93ebd429a2b4e0f76c70dc8ca}\label{namespacesonic__cli__telemetry_a68b1d5f93ebd429a2b4e0f76c70dc8ca}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!getDetails@{getDetails}}
+\index{getDetails@{getDetails}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{getDetails()}{getDetails()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+telemetry.\+get\+Details (\begin{DoxyParamCaption}\item[{}]{fn,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 307 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{307 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__telemetry_a68b1d5f93ebd429a2b4e0f76c70dc8ca}{getDetails}}(fn, args):}
+\DoxyCodeLine{308     data = json.loads(args[0])}
+\DoxyCodeLine{309     details = \{\}}
+\DoxyCodeLine{310     details[\textcolor{stringliteral}{'method'}] = data[\textcolor{stringliteral}{'method'}]}
+\DoxyCodeLine{311     details[\textcolor{stringliteral}{'feature'}] = data[\textcolor{stringliteral}{'feature'}]}
+\DoxyCodeLine{312     details[\textcolor{stringliteral}{'do\_request'}] = \textcolor{keyword}{True}}
+\DoxyCodeLine{313     \textcolor{keywordflow}{if} fn == \textcolor{stringliteral}{"show\_collectors"}:}
+\DoxyCodeLine{314         \textcolor{keywordflow}{if} (data[\textcolor{stringliteral}{'name'}] == \textcolor{stringliteral}{'all'}):}
+\DoxyCodeLine{315             details[\textcolor{stringliteral}{'url'}] = collectors\_url}
+\DoxyCodeLine{316             details[\textcolor{stringliteral}{'template'}] = data[\textcolor{stringliteral}{'template'}]+\textcolor{stringliteral}{"\_all.j2"}}
+\DoxyCodeLine{317         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{318             details[\textcolor{stringliteral}{'url'}] = collectors\_url+\textcolor{stringliteral}{'/collector=\{\}'}.format(data[\textcolor{stringliteral}{'name'}])}
+\DoxyCodeLine{319             details[\textcolor{stringliteral}{'template'}] = data[\textcolor{stringliteral}{'template'}]+\textcolor{stringliteral}{".j2"}}
+\DoxyCodeLine{320             details[\textcolor{stringliteral}{'description'}] = \textcolor{stringliteral}{"Collector"}}
+\DoxyCodeLine{321             details[\textcolor{stringliteral}{'name'}] = data[\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{322     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{"patch\_collector"}:}
+\DoxyCodeLine{323         details[\textcolor{stringliteral}{'url'}] = collectors\_url}
+\DoxyCodeLine{324         body = \mbox{\hyperlink{namespacesonic__cli__telemetry_afef00d8d1a125c9fb44ac38ba12890dc}{getBody}}(fn)\%(data[\textcolor{stringliteral}{'name'}],data[\textcolor{stringliteral}{'name'}],data[\textcolor{stringliteral}{'ip'}],data[\textcolor{stringliteral}{'port'}],data[\textcolor{stringliteral}{'protocol'}])}
+\DoxyCodeLine{325         details[\textcolor{stringliteral}{'body'}] = json.loads(body)}
+\DoxyCodeLine{326     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{"delete\_collector"}:}
+\DoxyCodeLine{327         details[\textcolor{stringliteral}{'url'}] = collectors\_url+\textcolor{stringliteral}{'/collector=\{\}'}.format(data[\textcolor{stringliteral}{'name'}])}
+\DoxyCodeLine{328         details[\textcolor{stringliteral}{'description'}] = \textcolor{stringliteral}{"Collector"}}
+\DoxyCodeLine{329         details[\textcolor{stringliteral}{'name'}] = data[\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{330     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{"show\_samplers"}:}
+\DoxyCodeLine{331         \textcolor{keywordflow}{if} (data[\textcolor{stringliteral}{'name'}] == \textcolor{stringliteral}{'all'}):}
+\DoxyCodeLine{332             details[\textcolor{stringliteral}{'url'}] = samplers\_url}
+\DoxyCodeLine{333             details[\textcolor{stringliteral}{'template'}] = data[\textcolor{stringliteral}{'template'}]+\textcolor{stringliteral}{"\_all.j2"}}
+\DoxyCodeLine{334         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{335             details[\textcolor{stringliteral}{'url'}] = samplers\_url+\textcolor{stringliteral}{'/sampler=\{\}'}.format(data[\textcolor{stringliteral}{'name'}])}
+\DoxyCodeLine{336             details[\textcolor{stringliteral}{'template'}] = data[\textcolor{stringliteral}{'template'}]+\textcolor{stringliteral}{".j2"}}
+\DoxyCodeLine{337             details[\textcolor{stringliteral}{'description'}] = \textcolor{stringliteral}{"Sampler"}}
+\DoxyCodeLine{338             details[\textcolor{stringliteral}{'name'}] = data[\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{339     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{"patch\_sampler"}:}
+\DoxyCodeLine{340         details[\textcolor{stringliteral}{'url'}] = samplers\_url}
+\DoxyCodeLine{341         body = \mbox{\hyperlink{namespacesonic__cli__telemetry_afef00d8d1a125c9fb44ac38ba12890dc}{getBody}}(fn)\%(data[\textcolor{stringliteral}{'name'}],data[\textcolor{stringliteral}{'name'}],data[\textcolor{stringliteral}{'rate'}])}
+\DoxyCodeLine{342         details[\textcolor{stringliteral}{'body'}] = json.loads(body)}
+\DoxyCodeLine{343     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{"delete\_sampler"}:}
+\DoxyCodeLine{344         details[\textcolor{stringliteral}{'url'}] = samplers\_url+\textcolor{stringliteral}{'/sampler=\{\}'}.format(data[\textcolor{stringliteral}{'name'}])}
+\DoxyCodeLine{345         details[\textcolor{stringliteral}{'description'}] = \textcolor{stringliteral}{"Sampler"}}
+\DoxyCodeLine{346         details[\textcolor{stringliteral}{'name'}] = data[\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{347     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{"show\_switch"}:}
+\DoxyCodeLine{348         details[\textcolor{stringliteral}{'url'}] = switch\_url}
+\DoxyCodeLine{349         details[\textcolor{stringliteral}{'template'}] = data[\textcolor{stringliteral}{'template'}]}
+\DoxyCodeLine{350     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{"patch\_switch\_id"}:}
+\DoxyCodeLine{351         details[\textcolor{stringliteral}{'url'}] = switch\_id\_config\_url}
+\DoxyCodeLine{352         body = \mbox{\hyperlink{namespacesonic__cli__telemetry_afef00d8d1a125c9fb44ac38ba12890dc}{getBody}}(fn)\%(data[\textcolor{stringliteral}{'id'}])}
+\DoxyCodeLine{353         details[\textcolor{stringliteral}{'body'}] = json.loads(body)}
+\DoxyCodeLine{354         details[\textcolor{stringliteral}{'description'}] = \textcolor{stringliteral}{"\%Info: Any changes to the switch-\/wide global attributes are not immediately effective, if any of the TAM features are currently active."}}
+\DoxyCodeLine{355         details[\textcolor{stringliteral}{'name'}] = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{356     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{"delete\_switch\_id"}:}
+\DoxyCodeLine{357         details[\textcolor{stringliteral}{'url'}] = switch\_id\_config\_url}
+\DoxyCodeLine{358         \textcolor{comment}{\#details['description'] = "Switch Id"}}
+\DoxyCodeLine{359         \textcolor{comment}{\#details['name'] = 'switch\_id'}}
+\DoxyCodeLine{360     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{"patch\_enterprise\_id"}:}
+\DoxyCodeLine{361         details[\textcolor{stringliteral}{'url'}] = enterprise\_id\_config\_url}
+\DoxyCodeLine{362         body = \mbox{\hyperlink{namespacesonic__cli__telemetry_afef00d8d1a125c9fb44ac38ba12890dc}{getBody}}(fn)\%(data[\textcolor{stringliteral}{'id'}])}
+\DoxyCodeLine{363         details[\textcolor{stringliteral}{'body'}] = json.loads(body)}
+\DoxyCodeLine{364         details[\textcolor{stringliteral}{'description'}] = \textcolor{stringliteral}{"\%Info: Any changes to the switch-\/wide global attributes are not immediately effective, if any of the TAM features are currently active."}}
+\DoxyCodeLine{365         details[\textcolor{stringliteral}{'name'}] = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{366     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{"delete\_enterprise\_id"}:}
+\DoxyCodeLine{367         details[\textcolor{stringliteral}{'url'}] = enterprise\_id\_config\_url}
+\DoxyCodeLine{368         \textcolor{comment}{\#details['description'] = "Enterprise Id"}}
+\DoxyCodeLine{369         \textcolor{comment}{\#details['name'] = 'enterprise\_id'}}
+\DoxyCodeLine{370     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{"show\_ifa"}:}
+\DoxyCodeLine{371         details[\textcolor{stringliteral}{'template'}] = data[\textcolor{stringliteral}{'template'}]}
+\DoxyCodeLine{372         url = features\_status\_url+\textcolor{stringliteral}{'/feature=\{\}/state/op-\/status'}.format(\textcolor{stringliteral}{"IFA"})}
+\DoxyCodeLine{373         feature\_status = \mbox{\hyperlink{namespacesonic__cli__telemetry_a7399ab866cf92deed99277af4201aa8a}{do\_get}}(url)}
+\DoxyCodeLine{374         url = switch\_url}
+\DoxyCodeLine{375         switch\_status = \mbox{\hyperlink{namespacesonic__cli__telemetry_a7399ab866cf92deed99277af4201aa8a}{do\_get}}(url)}
+\DoxyCodeLine{376         url = ifa\_sessions\_url}
+\DoxyCodeLine{377         sessions = \mbox{\hyperlink{namespacesonic__cli__telemetry_a7399ab866cf92deed99277af4201aa8a}{do\_get}}(url)}
+\DoxyCodeLine{378         \textcolor{keywordflow}{if} (feature\_status[\textcolor{stringliteral}{'ok'}] \textcolor{keywordflow}{and} switch\_status[\textcolor{stringliteral}{'ok'}] \textcolor{keywordflow}{and} sessions[\textcolor{stringliteral}{'ok'}]):}
+\DoxyCodeLine{379             \textcolor{keywordflow}{if} ((feature\_status[\textcolor{stringliteral}{'content'}] \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}) \textcolor{keywordflow}{and} (switch\_status[\textcolor{stringliteral}{'content'}] \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None})}
+\DoxyCodeLine{380                  \textcolor{keywordflow}{and} (sessions[\textcolor{stringliteral}{'content'}] \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None})):}
+\DoxyCodeLine{381                 details[\textcolor{stringliteral}{'response'}] = \{\textcolor{stringliteral}{'feature'}: \textcolor{stringliteral}{'ifa'}, \textcolor{stringliteral}{'feature\_status'}: feature\_status[\textcolor{stringliteral}{'content'}],}
+\DoxyCodeLine{382                         \textcolor{stringliteral}{'switch\_status'}: switch\_status[\textcolor{stringliteral}{'content'}], \textcolor{stringliteral}{'sessions'}: sessions[\textcolor{stringliteral}{'content'}]\}}
+\DoxyCodeLine{383         details[\textcolor{stringliteral}{'do\_request'}] = \textcolor{keyword}{False}}
+\DoxyCodeLine{384         details[\textcolor{stringliteral}{'ok'}] = \textcolor{keyword}{True}}
+\DoxyCodeLine{385     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{"show\_ifa\_sessions"}:}
+\DoxyCodeLine{386         \textcolor{keywordflow}{if} (data[\textcolor{stringliteral}{'name'}] == \textcolor{stringliteral}{'all'}):}
+\DoxyCodeLine{387             details[\textcolor{stringliteral}{'url'}] = ifa\_sessions\_url}
+\DoxyCodeLine{388             details[\textcolor{stringliteral}{'template'}] = data[\textcolor{stringliteral}{'template'}]+\textcolor{stringliteral}{"\_all.j2"}}
+\DoxyCodeLine{389         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{390             details[\textcolor{stringliteral}{'url'}] = ifa\_sessions\_url+\textcolor{stringliteral}{'/ifa-\/session=\{\}'}.format(data[\textcolor{stringliteral}{'name'}])}
+\DoxyCodeLine{391             details[\textcolor{stringliteral}{'template'}] = data[\textcolor{stringliteral}{'template'}]+\textcolor{stringliteral}{".j2"}}
+\DoxyCodeLine{392             details[\textcolor{stringliteral}{'description'}] = \textcolor{stringliteral}{"Session"}}
+\DoxyCodeLine{393             details[\textcolor{stringliteral}{'name'}] = data[\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{394     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{"patch\_ifa\_session"}:}
+\DoxyCodeLine{395         details[\textcolor{stringliteral}{'url'}] = ifa\_sessions\_url}
+\DoxyCodeLine{396         body = \mbox{\hyperlink{namespacesonic__cli__telemetry_afef00d8d1a125c9fb44ac38ba12890dc}{getBody}}(fn)\%(data[\textcolor{stringliteral}{'session'}],data[\textcolor{stringliteral}{'session'}],data[\textcolor{stringliteral}{'flowgroup'}],data[\textcolor{stringliteral}{'collector'}],data[\textcolor{stringliteral}{'sampler'}],data[\textcolor{stringliteral}{'node\_type'}])}
+\DoxyCodeLine{397         details[\textcolor{stringliteral}{'body'}] = json.loads(body)}
+\DoxyCodeLine{398         \textcolor{keywordflow}{if} data[\textcolor{stringliteral}{'collector'}] == \textcolor{stringliteral}{""}:}
+\DoxyCodeLine{399             del details[\textcolor{stringliteral}{'body'}][\textcolor{stringliteral}{"openconfig-\/tam:ifa-\/sessions"}][\textcolor{stringliteral}{"ifa-\/session"}][0][\textcolor{stringliteral}{"config"}][\textcolor{stringliteral}{"collector"}]}
+\DoxyCodeLine{400         \textcolor{keywordflow}{if} data[\textcolor{stringliteral}{'sampler'}] == \textcolor{stringliteral}{""}:}
+\DoxyCodeLine{401             del details[\textcolor{stringliteral}{'body'}][\textcolor{stringliteral}{"openconfig-\/tam:ifa-\/sessions"}][\textcolor{stringliteral}{"ifa-\/session"}][0][\textcolor{stringliteral}{"config"}][\textcolor{stringliteral}{"sample-\/rate"}]}
+\DoxyCodeLine{402     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{"delete\_ifa\_session"}:}
+\DoxyCodeLine{403         details[\textcolor{stringliteral}{'url'}] = ifa\_sessions\_url+\textcolor{stringliteral}{'/ifa-\/session=\{\}'}.format(data[\textcolor{stringliteral}{'session'}])}
+\DoxyCodeLine{404         details[\textcolor{stringliteral}{'description'}] = \textcolor{stringliteral}{"Session"}}
+\DoxyCodeLine{405         details[\textcolor{stringliteral}{'name'}] = data[\textcolor{stringliteral}{'session'}]}
+\DoxyCodeLine{406     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{"show\_tailstamping"}:}
+\DoxyCodeLine{407         details[\textcolor{stringliteral}{'template'}] = data[\textcolor{stringliteral}{'template'}]}
+\DoxyCodeLine{408         url = features\_status\_url+\textcolor{stringliteral}{'/feature=\{\}/state/op-\/status'}.format(\textcolor{stringliteral}{"TAILSTAMPING"})}
+\DoxyCodeLine{409         feature\_status = \mbox{\hyperlink{namespacesonic__cli__telemetry_a7399ab866cf92deed99277af4201aa8a}{do\_get}}(url)}
+\DoxyCodeLine{410         url = switch\_url}
+\DoxyCodeLine{411         switch\_status = \mbox{\hyperlink{namespacesonic__cli__telemetry_a7399ab866cf92deed99277af4201aa8a}{do\_get}}(url)}
+\DoxyCodeLine{412         url = tailstamping\_sessions\_url}
+\DoxyCodeLine{413         sessions = \mbox{\hyperlink{namespacesonic__cli__telemetry_a7399ab866cf92deed99277af4201aa8a}{do\_get}}(url)}
+\DoxyCodeLine{414         \textcolor{keywordflow}{if} (feature\_status[\textcolor{stringliteral}{'ok'}] \textcolor{keywordflow}{and} switch\_status[\textcolor{stringliteral}{'ok'}] \textcolor{keywordflow}{and} sessions[\textcolor{stringliteral}{'ok'}]):}
+\DoxyCodeLine{415             \textcolor{keywordflow}{if} ((feature\_status[\textcolor{stringliteral}{'content'}] \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}) \textcolor{keywordflow}{and} (switch\_status[\textcolor{stringliteral}{'content'}] \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None})}
+\DoxyCodeLine{416                 \textcolor{keywordflow}{and} (sessions[\textcolor{stringliteral}{'content'}] \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None})):}
+\DoxyCodeLine{417                 details[\textcolor{stringliteral}{'response'}] = \{\textcolor{stringliteral}{'feature'}: \textcolor{stringliteral}{'tailstamping'}, \textcolor{stringliteral}{'feature\_status'}: feature\_status[\textcolor{stringliteral}{'content'}],}
+\DoxyCodeLine{418                         \textcolor{stringliteral}{'switch\_status'}: switch\_status[\textcolor{stringliteral}{'content'}], \textcolor{stringliteral}{'sessions'}: sessions[\textcolor{stringliteral}{'content'}]\}}
+\DoxyCodeLine{419         details[\textcolor{stringliteral}{'do\_request'}] = \textcolor{keyword}{False}}
+\DoxyCodeLine{420         details[\textcolor{stringliteral}{'ok'}] = \textcolor{keyword}{True}}
+\DoxyCodeLine{421     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{"show\_tailstamping\_sessions"}:}
+\DoxyCodeLine{422         \textcolor{keywordflow}{if} (data[\textcolor{stringliteral}{'name'}] == \textcolor{stringliteral}{'all'}):}
+\DoxyCodeLine{423             details[\textcolor{stringliteral}{'url'}] = tailstamping\_sessions\_url}
+\DoxyCodeLine{424             details[\textcolor{stringliteral}{'template'}] = data[\textcolor{stringliteral}{'template'}]+\textcolor{stringliteral}{"\_all.j2"}}
+\DoxyCodeLine{425         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{426             details[\textcolor{stringliteral}{'url'}] = tailstamping\_sessions\_url+\textcolor{stringliteral}{'/tailstamping-\/session=\{\}'}.format(data[\textcolor{stringliteral}{'name'}])}
+\DoxyCodeLine{427             details[\textcolor{stringliteral}{'template'}] = data[\textcolor{stringliteral}{'template'}]+\textcolor{stringliteral}{".j2"}}
+\DoxyCodeLine{428             details[\textcolor{stringliteral}{'description'}] = \textcolor{stringliteral}{"Session"}}
+\DoxyCodeLine{429             details[\textcolor{stringliteral}{'name'}] = data[\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{430     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{"patch\_ts\_session"}:}
+\DoxyCodeLine{431         details[\textcolor{stringliteral}{'url'}] = tailstamping\_sessions\_url}
+\DoxyCodeLine{432         body = \mbox{\hyperlink{namespacesonic__cli__telemetry_afef00d8d1a125c9fb44ac38ba12890dc}{getBody}}(fn)\%(data[\textcolor{stringliteral}{'session'}],data[\textcolor{stringliteral}{'session'}],data[\textcolor{stringliteral}{'flowgroup'}],data[\textcolor{stringliteral}{'node\_type'}])}
+\DoxyCodeLine{433         details[\textcolor{stringliteral}{'body'}] = json.loads(body)}
+\DoxyCodeLine{434     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{"delete\_ts\_session"}:}
+\DoxyCodeLine{435         details[\textcolor{stringliteral}{'url'}] = tailstamping\_sessions\_url+\textcolor{stringliteral}{'/tailstamping-\/session=\{\}'}.format(data[\textcolor{stringliteral}{'session'}])}
+\DoxyCodeLine{436         details[\textcolor{stringliteral}{'description'}] = \textcolor{stringliteral}{"Session"}}
+\DoxyCodeLine{437         details[\textcolor{stringliteral}{'name'}] = data[\textcolor{stringliteral}{'session'}]}
+\DoxyCodeLine{438     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{"show\_dropmonitor"}:}
+\DoxyCodeLine{439         details[\textcolor{stringliteral}{'template'}] = data[\textcolor{stringliteral}{'template'}]}
+\DoxyCodeLine{440         url = features\_status\_url+\textcolor{stringliteral}{'/feature=\{\}/state/op-\/status'}.format(\textcolor{stringliteral}{"DROPMONITOR"})}
+\DoxyCodeLine{441         feature\_status = \mbox{\hyperlink{namespacesonic__cli__telemetry_a7399ab866cf92deed99277af4201aa8a}{do\_get}}(url)}
+\DoxyCodeLine{442         url = switch\_url}
+\DoxyCodeLine{443         switch\_status = \mbox{\hyperlink{namespacesonic__cli__telemetry_a7399ab866cf92deed99277af4201aa8a}{do\_get}}(url)}
+\DoxyCodeLine{444         url = dropmonitor\_sessions\_url}
+\DoxyCodeLine{445         sessions = \mbox{\hyperlink{namespacesonic__cli__telemetry_a7399ab866cf92deed99277af4201aa8a}{do\_get}}(url)}
+\DoxyCodeLine{446         url = dropmonitor\_aginginterval\_url+\textcolor{stringliteral}{'/state/aging-\/interval'}}
+\DoxyCodeLine{447         aginginterval = \mbox{\hyperlink{namespacesonic__cli__telemetry_a7399ab866cf92deed99277af4201aa8a}{do\_get}}(url)}
+\DoxyCodeLine{448         \textcolor{keywordflow}{if} (feature\_status[\textcolor{stringliteral}{'ok'}] \textcolor{keywordflow}{and} switch\_status[\textcolor{stringliteral}{'ok'}] \textcolor{keywordflow}{and} sessions[\textcolor{stringliteral}{'ok'}] \textcolor{keywordflow}{and} aginginterval[\textcolor{stringliteral}{'ok'}]):}
+\DoxyCodeLine{449             \textcolor{keywordflow}{if} ((feature\_status[\textcolor{stringliteral}{'content'}] \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}) \textcolor{keywordflow}{and} (switch\_status[\textcolor{stringliteral}{'content'}] \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None})}
+\DoxyCodeLine{450                 \textcolor{keywordflow}{and} (sessions[\textcolor{stringliteral}{'content'}] \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None})):}
+\DoxyCodeLine{451                 interval = \{\}}
+\DoxyCodeLine{452                 \textcolor{keywordflow}{if} aginginterval[\textcolor{stringliteral}{'content'}] \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{453                     interval = aginginterval[\textcolor{stringliteral}{'content'}]}
+\DoxyCodeLine{454                 details[\textcolor{stringliteral}{'response'}] = \{\textcolor{stringliteral}{'feature'}: \textcolor{stringliteral}{'dropmonitoring'}, \textcolor{stringliteral}{'feature\_status'}: feature\_status[\textcolor{stringliteral}{'content'}],}
+\DoxyCodeLine{455                         \textcolor{stringliteral}{'switch\_status'}: switch\_status[\textcolor{stringliteral}{'content'}], \textcolor{stringliteral}{'sessions'}: sessions[\textcolor{stringliteral}{'content'}], \textcolor{stringliteral}{'aginginterval'}: interval\}}
+\DoxyCodeLine{456         details[\textcolor{stringliteral}{'do\_request'}] = \textcolor{keyword}{False}}
+\DoxyCodeLine{457         details[\textcolor{stringliteral}{'ok'}] = \textcolor{keyword}{True}}
+\DoxyCodeLine{458     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{"show\_dropmonitor\_sessions"}:}
+\DoxyCodeLine{459         \textcolor{keywordflow}{if} (data[\textcolor{stringliteral}{'name'}] == \textcolor{stringliteral}{'all'}):}
+\DoxyCodeLine{460             details[\textcolor{stringliteral}{'url'}] = dropmonitor\_sessions\_url}
+\DoxyCodeLine{461             details[\textcolor{stringliteral}{'template'}] = data[\textcolor{stringliteral}{'template'}]+\textcolor{stringliteral}{"\_all.j2"}}
+\DoxyCodeLine{462         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{463             details[\textcolor{stringliteral}{'url'}] = dropmonitor\_sessions\_url+\textcolor{stringliteral}{'/dropmonitor-\/session=\{\}'}.format(data[\textcolor{stringliteral}{'name'}])}
+\DoxyCodeLine{464             details[\textcolor{stringliteral}{'template'}] = data[\textcolor{stringliteral}{'template'}]+\textcolor{stringliteral}{".j2"}}
+\DoxyCodeLine{465             details[\textcolor{stringliteral}{'description'}] = \textcolor{stringliteral}{"Session"}}
+\DoxyCodeLine{466             details[\textcolor{stringliteral}{'name'}] = data[\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{467     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{"patch\_dm\_session"}:}
+\DoxyCodeLine{468         details[\textcolor{stringliteral}{'url'}] = dropmonitor\_sessions\_url}
+\DoxyCodeLine{469         body = \mbox{\hyperlink{namespacesonic__cli__telemetry_afef00d8d1a125c9fb44ac38ba12890dc}{getBody}}(fn)\%(data[\textcolor{stringliteral}{'session'}],data[\textcolor{stringliteral}{'session'}],data[\textcolor{stringliteral}{'flowgroup'}],data[\textcolor{stringliteral}{'collector'}],data[\textcolor{stringliteral}{'sampler'}])}
+\DoxyCodeLine{470         details[\textcolor{stringliteral}{'body'}] = json.loads(body)}
+\DoxyCodeLine{471     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{"delete\_dm\_session"}:}
+\DoxyCodeLine{472         details[\textcolor{stringliteral}{'url'}] = dropmonitor\_sessions\_url+\textcolor{stringliteral}{'/dropmonitor-\/session=\{\}'}.format(data[\textcolor{stringliteral}{'session'}])}
+\DoxyCodeLine{473         details[\textcolor{stringliteral}{'description'}] = \textcolor{stringliteral}{"Session"}}
+\DoxyCodeLine{474         details[\textcolor{stringliteral}{'name'}] = data[\textcolor{stringliteral}{'session'}]}
+\DoxyCodeLine{475     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{"patch\_aginginterval"}:}
+\DoxyCodeLine{476         details[\textcolor{stringliteral}{'url'}] = dropmonitor\_aginginterval\_url}
+\DoxyCodeLine{477         body = \mbox{\hyperlink{namespacesonic__cli__telemetry_afef00d8d1a125c9fb44ac38ba12890dc}{getBody}}(fn)\%(data[\textcolor{stringliteral}{'aging-\/interval'}])}
+\DoxyCodeLine{478         details[\textcolor{stringliteral}{'body'}] = json.loads(body)}
+\DoxyCodeLine{479         details[\textcolor{stringliteral}{'description'}] = \textcolor{stringliteral}{"\%Info: Any changes to aging-\/interval are effective for newly created sessions only."}}
+\DoxyCodeLine{480         details[\textcolor{stringliteral}{'name'}] = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{481     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{"delete\_aginginterval"}:}
+\DoxyCodeLine{482         details[\textcolor{stringliteral}{'url'}] = dropmonitor\_aginginterval\_url+\textcolor{stringliteral}{'/config/aging-\/interval'}}
+\DoxyCodeLine{483         details[\textcolor{stringliteral}{'description'}] = \textcolor{stringliteral}{"Aging Interval"}}
+\DoxyCodeLine{484         details[\textcolor{stringliteral}{'name'}] = \textcolor{stringliteral}{'aging\_interval'}}
+\DoxyCodeLine{485     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{"show\_features"}:}
+\DoxyCodeLine{486         \textcolor{keywordflow}{if} (data[\textcolor{stringliteral}{'name'}] == \textcolor{stringliteral}{'all'}):}
+\DoxyCodeLine{487             details[\textcolor{stringliteral}{'url'}] = features\_status\_url}
+\DoxyCodeLine{488             details[\textcolor{stringliteral}{'template'}] = data[\textcolor{stringliteral}{'template'}]+\textcolor{stringliteral}{"\_all.j2"}}
+\DoxyCodeLine{489         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{490             details[\textcolor{stringliteral}{'url'}] = features\_status\_url+\textcolor{stringliteral}{'/feature=\{\}'}.format(\mbox{\hyperlink{namespacesonic__cli__telemetry_a4a9aef95b52ba8eb9aed2bdf50fab5a2}{getFeatureIdentification}}(data[\textcolor{stringliteral}{'name'}]))}
+\DoxyCodeLine{491             details[\textcolor{stringliteral}{'template'}] = data[\textcolor{stringliteral}{'template'}]+\textcolor{stringliteral}{".j2"}}
+\DoxyCodeLine{492             details[\textcolor{stringliteral}{'description'}] = \textcolor{stringliteral}{"Feature"}}
+\DoxyCodeLine{493             details[\textcolor{stringliteral}{'name'}] = data[\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{494     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{"patch\_feature"}:}
+\DoxyCodeLine{495         details[\textcolor{stringliteral}{'url'}] = feature\_config\_url}
+\DoxyCodeLine{496         body = \mbox{\hyperlink{namespacesonic__cli__telemetry_afef00d8d1a125c9fb44ac38ba12890dc}{getBody}}(fn)\%(data[\textcolor{stringliteral}{'feature'}],data[\textcolor{stringliteral}{'feature'}],(data[\textcolor{stringliteral}{'status'}]).upper())}
+\DoxyCodeLine{497         details[\textcolor{stringliteral}{'body'}] = json.loads(body)}
+\DoxyCodeLine{498     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{"show\_flowgroups"}:}
+\DoxyCodeLine{499         \textcolor{keywordflow}{if} (data[\textcolor{stringliteral}{'name'}] == \textcolor{stringliteral}{'all'}):}
+\DoxyCodeLine{500             details[\textcolor{stringliteral}{'url'}] = flowgroups\_url}
+\DoxyCodeLine{501             details[\textcolor{stringliteral}{'template'}] = data[\textcolor{stringliteral}{'template'}]+\textcolor{stringliteral}{"\_all.j2"}}
+\DoxyCodeLine{502         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{503             details[\textcolor{stringliteral}{'url'}] = flowgroups\_url+\textcolor{stringliteral}{'/flowgroup=\{\}'}.format(data[\textcolor{stringliteral}{'name'}])}
+\DoxyCodeLine{504             details[\textcolor{stringliteral}{'template'}] = data[\textcolor{stringliteral}{'template'}]+\textcolor{stringliteral}{".j2"}}
+\DoxyCodeLine{505             details[\textcolor{stringliteral}{'description'}] = \textcolor{stringliteral}{"Flowgroup"}}
+\DoxyCodeLine{506             details[\textcolor{stringliteral}{'name'}] = data[\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{507     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{"patch\_flowgroup"}:}
+\DoxyCodeLine{508         details[\textcolor{stringliteral}{'url'}] = flowgroups\_url}
+\DoxyCodeLine{509         flowGroupsIds = \mbox{\hyperlink{namespacesonic__cli__telemetry_a7399ab866cf92deed99277af4201aa8a}{do\_get}}(flowgroup\_ids\_url)}
+\DoxyCodeLine{510         idsSet = set()}
+\DoxyCodeLine{511         maxSet = set(range(2, 255, 1))}
+\DoxyCodeLine{512         flowGroupsMap = \{\}}
+\DoxyCodeLine{513         thisPriority = data[\textcolor{stringliteral}{'priority'}]}
+\DoxyCodeLine{514         configuredPriority = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{515         currentid = 2}
+\DoxyCodeLine{516         \textcolor{keywordflow}{if} (flowGroupsIds[\textcolor{stringliteral}{'ok'}]):}
+\DoxyCodeLine{517             \textcolor{keywordflow}{if} (flowGroupsIds[\textcolor{stringliteral}{'content'}] \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}):}
+\DoxyCodeLine{518                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/tam-\/flowgroups:TAM\_FLOWGROUP\_TABLE\_LIST'} \textcolor{keywordflow}{in} flowGroupsIds[\textcolor{stringliteral}{'content'}]:}
+\DoxyCodeLine{519                     ids = flowGroupsIds[\textcolor{stringliteral}{'content'}][\textcolor{stringliteral}{'sonic-\/tam-\/flowgroups:TAM\_FLOWGROUP\_TABLE\_LIST'}]}
+\DoxyCodeLine{520                     \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} ids:}
+\DoxyCodeLine{521                         idsSet.add(i[\textcolor{stringliteral}{'id'}])}
+\DoxyCodeLine{522                         flowGroupsMap[i[\textcolor{stringliteral}{'name'}]] = i[\textcolor{stringliteral}{'id'}]}
+\DoxyCodeLine{523         \textcolor{keywordflow}{if} data[\textcolor{stringliteral}{'name'}] \textcolor{keywordflow}{in} flowGroupsMap:}
+\DoxyCodeLine{524             currentid = flowGroupsMap[data[\textcolor{stringliteral}{'name'}]]}
+\DoxyCodeLine{525             rule\_url = get\_acl\_rule\_url+\textcolor{stringliteral}{'=TAM,'}+data[\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{526             currentRule = \mbox{\hyperlink{namespacesonic__cli__telemetry_a7399ab866cf92deed99277af4201aa8a}{do\_get}}(rule\_url)}
+\DoxyCodeLine{527             \textcolor{keywordflow}{if} currentRule[\textcolor{stringliteral}{'ok'}]:}
+\DoxyCodeLine{528                 \textcolor{keywordflow}{if} (currentRule[\textcolor{stringliteral}{'content'}] \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}):}
+\DoxyCodeLine{529                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/acl:ACL\_RULE\_LIST'} \textcolor{keywordflow}{in} currentRule[\textcolor{stringliteral}{'content'}]:}
+\DoxyCodeLine{530                         thisRule = currentRule[\textcolor{stringliteral}{'content'}][\textcolor{stringliteral}{'sonic-\/acl:ACL\_RULE\_LIST'}][0]}
+\DoxyCodeLine{531                         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'PRIORITY'} \textcolor{keywordflow}{in} thisRule:}
+\DoxyCodeLine{532                             configuredPriority = str(thisRule[\textcolor{stringliteral}{'PRIORITY'}])}
+\DoxyCodeLine{533         \textcolor{keywordflow}{elif} (len(idsSet) != 0):}
+\DoxyCodeLine{534             diff = maxSet.difference(idsSet)}
+\DoxyCodeLine{535             \textcolor{keywordflow}{if} (len(diff) != 0):}
+\DoxyCodeLine{536                 currentid = list(random.sample(diff, 1))[0]}
+\DoxyCodeLine{537             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{538                 details[\textcolor{stringliteral}{'do\_request'}] = \textcolor{keyword}{False}}
+\DoxyCodeLine{539                 details[\textcolor{stringliteral}{'ok'}] = \textcolor{keyword}{True}}
+\DoxyCodeLine{540                 details[\textcolor{stringliteral}{'description'}] = \textcolor{stringliteral}{"\%Error: Maximum number (253) of flowgroups are already created."}}
+\DoxyCodeLine{541                 details[\textcolor{stringliteral}{'name'}] = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{542                 details[\textcolor{stringliteral}{'status\_code'}] = 400}
+\DoxyCodeLine{543         currentPriority = \textcolor{stringliteral}{"100"}}
+\DoxyCodeLine{544         \textcolor{keywordflow}{if} (configuredPriority != \textcolor{stringliteral}{""}):}
+\DoxyCodeLine{545             currentPriority = configuredPriority}
+\DoxyCodeLine{546         \textcolor{keywordflow}{if} (thisPriority != \textcolor{stringliteral}{""}):}
+\DoxyCodeLine{547             currentPriority = thisPriority}
+\DoxyCodeLine{548         details[\textcolor{stringliteral}{'body'}] = \mbox{\hyperlink{namespacesonic__cli__telemetry_a0227aab1dbb795fc24882cff7d4a7fb1}{getFlowGroupDate}}(data, currentid, currentPriority)}
+\DoxyCodeLine{549     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{"delete\_flowgroup"}:}
+\DoxyCodeLine{550         details[\textcolor{stringliteral}{'url'}] = flowgroups\_url+\textcolor{stringliteral}{'/flowgroup=\{\}'}.format(data[\textcolor{stringliteral}{'name'}])}
+\DoxyCodeLine{551         details[\textcolor{stringliteral}{'description'}] = \textcolor{stringliteral}{"Flowgroup"}}
+\DoxyCodeLine{552         details[\textcolor{stringliteral}{'name'}] = data[\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{553     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{"associate\_flowgroup"}:}
+\DoxyCodeLine{554         flowGroupsIds = \mbox{\hyperlink{namespacesonic__cli__telemetry_a7399ab866cf92deed99277af4201aa8a}{do\_get}}(flowgroup\_ids\_url)}
+\DoxyCodeLine{555         flowGroupsMap = \{\}}
+\DoxyCodeLine{556         \textcolor{keywordflow}{if} (flowGroupsIds[\textcolor{stringliteral}{'ok'}]):}
+\DoxyCodeLine{557             \textcolor{keywordflow}{if} (flowGroupsIds[\textcolor{stringliteral}{'content'}] \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}):}
+\DoxyCodeLine{558                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/tam-\/flowgroups:TAM\_FLOWGROUP\_TABLE\_LIST'} \textcolor{keywordflow}{in} flowGroupsIds[\textcolor{stringliteral}{'content'}]:}
+\DoxyCodeLine{559                     ids = flowGroupsIds[\textcolor{stringliteral}{'content'}][\textcolor{stringliteral}{'sonic-\/tam-\/flowgroups:TAM\_FLOWGROUP\_TABLE\_LIST'}]}
+\DoxyCodeLine{560                     \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} ids:}
+\DoxyCodeLine{561                         flowGroupsMap[i[\textcolor{stringliteral}{'name'}]] = i[\textcolor{stringliteral}{'id'}]}
+\DoxyCodeLine{562         \textcolor{keywordflow}{if} data[\textcolor{stringliteral}{'name'}] \textcolor{keywordflow}{in} flowGroupsMap:}
+\DoxyCodeLine{563             currentid = flowGroupsMap[data[\textcolor{stringliteral}{'name'}]]}
+\DoxyCodeLine{564             details[\textcolor{stringliteral}{'url'}] = flowgroups\_url}
+\DoxyCodeLine{565             body = \mbox{\hyperlink{namespacesonic__cli__telemetry_afef00d8d1a125c9fb44ac38ba12890dc}{getBody}}(fn)\%(data[\textcolor{stringliteral}{'name'}],data[\textcolor{stringliteral}{'name'}],currentid,data[\textcolor{stringliteral}{'interface'}])}
+\DoxyCodeLine{566             details[\textcolor{stringliteral}{'body'}] = json.loads(body)}
+\DoxyCodeLine{567         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{568             details[\textcolor{stringliteral}{'do\_request'}] = \textcolor{keyword}{False}}
+\DoxyCodeLine{569             details[\textcolor{stringliteral}{'ok'}] = \textcolor{keyword}{True}}
+\DoxyCodeLine{570             details[\textcolor{stringliteral}{'description'}] = \textcolor{stringliteral}{"Flowgroup"}}
+\DoxyCodeLine{571             details[\textcolor{stringliteral}{'name'}] = data[\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{572             details[\textcolor{stringliteral}{'status\_code'}] = 404}
+\DoxyCodeLine{573     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{"disassociate\_flowgroup"}:}
+\DoxyCodeLine{574         flowGroupsIds = \mbox{\hyperlink{namespacesonic__cli__telemetry_a7399ab866cf92deed99277af4201aa8a}{do\_get}}(flowgroup\_ids\_url)}
+\DoxyCodeLine{575         flowGroupsMap = \{\}}
+\DoxyCodeLine{576         \textcolor{keywordflow}{if} (flowGroupsIds[\textcolor{stringliteral}{'ok'}]):}
+\DoxyCodeLine{577             \textcolor{keywordflow}{if} (flowGroupsIds[\textcolor{stringliteral}{'content'}] \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}):}
+\DoxyCodeLine{578                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/tam-\/flowgroups:TAM\_FLOWGROUP\_TABLE\_LIST'} \textcolor{keywordflow}{in} flowGroupsIds[\textcolor{stringliteral}{'content'}]:}
+\DoxyCodeLine{579                     ids = flowGroupsIds[\textcolor{stringliteral}{'content'}][\textcolor{stringliteral}{'sonic-\/tam-\/flowgroups:TAM\_FLOWGROUP\_TABLE\_LIST'}]}
+\DoxyCodeLine{580                     \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} ids:}
+\DoxyCodeLine{581                         flowGroupsMap[i[\textcolor{stringliteral}{'name'}]] = i[\textcolor{stringliteral}{'id'}]}
+\DoxyCodeLine{582         \textcolor{keywordflow}{if} data[\textcolor{stringliteral}{'name'}] \textcolor{keywordflow}{in} flowGroupsMap:}
+\DoxyCodeLine{583             intf = data[\textcolor{stringliteral}{'interface'}]}
+\DoxyCodeLine{584             getIntfList = \mbox{\hyperlink{namespacesonic__cli__telemetry_a3b20dd71bfb8fb0c8bcc3804237ea6de}{get\_intf\_alias}}()}
+\DoxyCodeLine{585             \textcolor{keywordflow}{if} len(getIntfList) > 0:}
+\DoxyCodeLine{586                intf = list(getIntfList.keys())[list(getIntfList.values()).index(data[\textcolor{stringliteral}{'interface'}])]}
+\DoxyCodeLine{587             details[\textcolor{stringliteral}{'url'}] = detach\_flowgroup\_url.format(name=data[\textcolor{stringliteral}{'name'}], interfaces=intf)}
+\DoxyCodeLine{588         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{589             details[\textcolor{stringliteral}{'do\_request'}] = \textcolor{keyword}{False}}
+\DoxyCodeLine{590             details[\textcolor{stringliteral}{'ok'}] = \textcolor{keyword}{True}}
+\DoxyCodeLine{591             details[\textcolor{stringliteral}{'description'}] = \textcolor{stringliteral}{"Flowgroup"}}
+\DoxyCodeLine{592             details[\textcolor{stringliteral}{'name'}] = data[\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{593             details[\textcolor{stringliteral}{'status\_code'}] = 404}
+\DoxyCodeLine{594     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{"clear\_flowgroup\_counters"}:}
+\DoxyCodeLine{595         details[\textcolor{stringliteral}{'url'}] = clear\_flowgroup\_counters\_url}
+\DoxyCodeLine{596         body = \mbox{\hyperlink{namespacesonic__cli__telemetry_afef00d8d1a125c9fb44ac38ba12890dc}{getBody}}(fn)}
+\DoxyCodeLine{597         \textcolor{keywordflow}{if} (data[\textcolor{stringliteral}{'name'}] == \textcolor{stringliteral}{""}):}
+\DoxyCodeLine{598             details[\textcolor{stringliteral}{'body'}] = json.loads(body)}
+\DoxyCodeLine{599         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{600             details[\textcolor{stringliteral}{'body'}] = json.loads(body)}
+\DoxyCodeLine{601             details[\textcolor{stringliteral}{'body'}][\textcolor{stringliteral}{'openconfig-\/tam:input'}][\textcolor{stringliteral}{'name'}] = \{\}}
+\DoxyCodeLine{602             details[\textcolor{stringliteral}{'body'}][\textcolor{stringliteral}{'openconfig-\/tam:input'}][\textcolor{stringliteral}{'name'}] = data[\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{603     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{604         details = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{605     \textcolor{keywordflow}{return} details}
+\DoxyCodeLine{606 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d02/namespacesonic__cli__telemetry_a68b1d5f93ebd429a2b4e0f76c70dc8ca_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d02/namespacesonic__cli__telemetry_a68b1d5f93ebd429a2b4e0f76c70dc8ca_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_adba5e2d0766035d296e8cb70cb644a42}\label{namespacesonic__cli__telemetry_adba5e2d0766035d296e8cb70cb644a42}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!getEthertype@{getEthertype}}
+\index{getEthertype@{getEthertype}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{getEthertype()}{getEthertype()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+telemetry.\+get\+Ethertype (\begin{DoxyParamCaption}\item[{}]{ethertype }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 173 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{173 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__telemetry_adba5e2d0766035d296e8cb70cb644a42}{getEthertype}}(ethertype):}
+\DoxyCodeLine{174     ethertypes = \{}
+\DoxyCodeLine{175         \textcolor{stringliteral}{'openconfig-\/packet-\/match-\/types:ETHERTYPE\_IPV4'}: \textcolor{stringliteral}{"0x0800"},}
+\DoxyCodeLine{176         \textcolor{stringliteral}{'openconfig-\/packet-\/match-\/types:ETHERTYPE\_IPV6'}: \textcolor{stringliteral}{"0x86DD"},}
+\DoxyCodeLine{177         \textcolor{stringliteral}{'openconfig-\/packet-\/match-\/types:ETHERTYPE\_LLDP'}: \textcolor{stringliteral}{"0x88CC"},}
+\DoxyCodeLine{178         \textcolor{stringliteral}{'openconfig-\/packet-\/match-\/types:ETHERTYPE\_VLAN'}: \textcolor{stringliteral}{"0x8100"},}
+\DoxyCodeLine{179         \textcolor{stringliteral}{'openconfig-\/packet-\/match-\/types:ETHERTYPE\_ROCE'}: \textcolor{stringliteral}{"0x8915"},}
+\DoxyCodeLine{180         \textcolor{stringliteral}{'openconfig-\/packet-\/match-\/types:ETHERTYPE\_ARP'}:  \textcolor{stringliteral}{"0x0806"},}
+\DoxyCodeLine{181         \textcolor{stringliteral}{'openconfig-\/packet-\/match-\/types:ETHERTYPE\_MPLS'}: \textcolor{stringliteral}{"0x8847"}}
+\DoxyCodeLine{182     \}}
+\DoxyCodeLine{183     \textcolor{keywordflow}{if} ethertype \textcolor{keywordflow}{in} ethertypes:}
+\DoxyCodeLine{184         \textcolor{keywordflow}{return} ethertypes[ethertype]}
+\DoxyCodeLine{185     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{186         \textcolor{keywordflow}{return} str(hex(ethertype))}
+\DoxyCodeLine{187 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d02/namespacesonic__cli__telemetry_adba5e2d0766035d296e8cb70cb644a42_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_ab05ea20978c0d3e49e765f61ee583108}\label{namespacesonic__cli__telemetry_ab05ea20978c0d3e49e765f61ee583108}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!getFeatureDescription@{getFeatureDescription}}
+\index{getFeatureDescription@{getFeatureDescription}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{getFeatureDescription()}{getFeatureDescription()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+telemetry.\+get\+Feature\+Description (\begin{DoxyParamCaption}\item[{}]{feature }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 80 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{80 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__telemetry_ab05ea20978c0d3e49e765f61ee583108}{getFeatureDescription}}(feature):}
+\DoxyCodeLine{81     features = \{}
+\DoxyCodeLine{82         \textcolor{stringliteral}{'openconfig-\/tam:DROPMONITOR'}: \textcolor{stringliteral}{'drop-\/monitor'},}
+\DoxyCodeLine{83         \textcolor{stringliteral}{'openconfig-\/tam:IFA'}: \textcolor{stringliteral}{'ifa'},}
+\DoxyCodeLine{84         \textcolor{stringliteral}{'openconfig-\/tam:TAILSTAMPING'}: \textcolor{stringliteral}{'tail-\/stamping'},}
+\DoxyCodeLine{85         \textcolor{stringliteral}{'openconfig-\/tam:THRESHOLDS'}: \textcolor{stringliteral}{'thresholds'}}
+\DoxyCodeLine{86     \}}
+\DoxyCodeLine{87     \textcolor{keywordflow}{return} features[feature]}
+\DoxyCodeLine{88 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_a4a9aef95b52ba8eb9aed2bdf50fab5a2}\label{namespacesonic__cli__telemetry_a4a9aef95b52ba8eb9aed2bdf50fab5a2}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!getFeatureIdentification@{getFeatureIdentification}}
+\index{getFeatureIdentification@{getFeatureIdentification}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{getFeatureIdentification()}{getFeatureIdentification()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+telemetry.\+get\+Feature\+Identification (\begin{DoxyParamCaption}\item[{}]{feature }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 89 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{89 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__telemetry_a4a9aef95b52ba8eb9aed2bdf50fab5a2}{getFeatureIdentification}}(feature):}
+\DoxyCodeLine{90     feature\_id = \textcolor{stringliteral}{'ANY'}}
+\DoxyCodeLine{91     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'ifa'} \textcolor{keywordflow}{in} feature:}
+\DoxyCodeLine{92         feature\_id = \textcolor{stringliteral}{'IFA'}}
+\DoxyCodeLine{93     \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'tail-\/stamping'} \textcolor{keywordflow}{in} feature:}
+\DoxyCodeLine{94         feature\_id = \textcolor{stringliteral}{'TAILSTAMPING'}}
+\DoxyCodeLine{95     \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'drop-\/monitor'} \textcolor{keywordflow}{in} feature:}
+\DoxyCodeLine{96         feature\_id = \textcolor{stringliteral}{'DROPMONITOR'}}
+\DoxyCodeLine{97     \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'thresholds'} \textcolor{keywordflow}{in} feature:}
+\DoxyCodeLine{98         feature\_id = \textcolor{stringliteral}{'THRESHOLDS'}}
+\DoxyCodeLine{99     \textcolor{keywordflow}{return} feature\_id}
+\DoxyCodeLine{100 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d02/namespacesonic__cli__telemetry_a4a9aef95b52ba8eb9aed2bdf50fab5a2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_a0227aab1dbb795fc24882cff7d4a7fb1}\label{namespacesonic__cli__telemetry_a0227aab1dbb795fc24882cff7d4a7fb1}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!getFlowGroupDate@{getFlowGroupDate}}
+\index{getFlowGroupDate@{getFlowGroupDate}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{getFlowGroupDate()}{getFlowGroupDate()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+telemetry.\+get\+Flow\+Group\+Date (\begin{DoxyParamCaption}\item[{}]{data,  }\item[{}]{currentid,  }\item[{}]{priority }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 268 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{268 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__telemetry_a0227aab1dbb795fc24882cff7d4a7fb1}{getFlowGroupDate}}(data, currentid, priority):}
+\DoxyCodeLine{269     flowGroupData = \{\}}
+\DoxyCodeLine{270     flowGroupData[\textcolor{stringliteral}{"openconfig-\/tam:flowgroups"}] = \{\}}
+\DoxyCodeLine{271     flowGroupData[\textcolor{stringliteral}{"openconfig-\/tam:flowgroups"}][\textcolor{stringliteral}{"flowgroup"}] = []}
+\DoxyCodeLine{272     flowData = \{\}}
+\DoxyCodeLine{273     flowData[\textcolor{stringliteral}{"name"}] = data[\textcolor{stringliteral}{"name"}]}
+\DoxyCodeLine{274     flowData[\textcolor{stringliteral}{"config"}] = \{\}}
+\DoxyCodeLine{275     flowData[\textcolor{stringliteral}{"config"}][\textcolor{stringliteral}{"name"}] = data[\textcolor{stringliteral}{"name"}]}
+\DoxyCodeLine{276     flowData[\textcolor{stringliteral}{"config"}][\textcolor{stringliteral}{"id"}] = int(currentid)}
+\DoxyCodeLine{277     flowData[\textcolor{stringliteral}{"config"}][\textcolor{stringliteral}{"priority"}] = int(priority)}
+\DoxyCodeLine{278     \textcolor{keywordflow}{if} ((data[\textcolor{stringliteral}{'sip'}] != \textcolor{stringliteral}{""}) \textcolor{keywordflow}{or} (data[\textcolor{stringliteral}{'dip'}] != \textcolor{stringliteral}{""}) \textcolor{keywordflow}{or} (data[\textcolor{stringliteral}{'protocol'}] != \textcolor{stringliteral}{""})):}
+\DoxyCodeLine{279         \textcolor{keywordflow}{if} ((\textcolor{stringliteral}{"."} \textcolor{keywordflow}{in} data[\textcolor{stringliteral}{'sip'}]) \textcolor{keywordflow}{or} (\textcolor{stringliteral}{"."} \textcolor{keywordflow}{in} data[\textcolor{stringliteral}{'dip'}]) \textcolor{keywordflow}{or} (data[\textcolor{stringliteral}{'protocol'}] != \textcolor{stringliteral}{""})):}
+\DoxyCodeLine{280             flowData[\textcolor{stringliteral}{"ipv4"}] = \{\}}
+\DoxyCodeLine{281             flowData[\textcolor{stringliteral}{"ipv4"}][\textcolor{stringliteral}{"config"}] = \{\}}
+\DoxyCodeLine{282             \textcolor{keywordflow}{if} (\textcolor{stringliteral}{"."} \textcolor{keywordflow}{in} data[\textcolor{stringliteral}{'sip'}]):}
+\DoxyCodeLine{283                 flowData[\textcolor{stringliteral}{"ipv4"}][\textcolor{stringliteral}{"config"}][\textcolor{stringliteral}{"source-\/address"}] = data[\textcolor{stringliteral}{'sip'}]}
+\DoxyCodeLine{284             \textcolor{keywordflow}{if} (\textcolor{stringliteral}{"."} \textcolor{keywordflow}{in} data[\textcolor{stringliteral}{'dip'}]):}
+\DoxyCodeLine{285                 flowData[\textcolor{stringliteral}{"ipv4"}][\textcolor{stringliteral}{"config"}][\textcolor{stringliteral}{"destination-\/address"}] = data[\textcolor{stringliteral}{'dip'}]}
+\DoxyCodeLine{286             \textcolor{keywordflow}{if} (data[\textcolor{stringliteral}{'protocol'}] != \textcolor{stringliteral}{""}):}
+\DoxyCodeLine{287                 flowData[\textcolor{stringliteral}{"ipv4"}][\textcolor{stringliteral}{"config"}][\textcolor{stringliteral}{"protocol"}] = data[\textcolor{stringliteral}{'protocol'}]}
+\DoxyCodeLine{288         \textcolor{keywordflow}{if} ((\textcolor{stringliteral}{":"} \textcolor{keywordflow}{in} data[\textcolor{stringliteral}{'sip'}]) \textcolor{keywordflow}{or} (\textcolor{stringliteral}{":"} \textcolor{keywordflow}{in} data[\textcolor{stringliteral}{'dip'}])):}
+\DoxyCodeLine{289             flowData[\textcolor{stringliteral}{"ipv6"}] = \{\}}
+\DoxyCodeLine{290             flowData[\textcolor{stringliteral}{"ipv6"}][\textcolor{stringliteral}{"config"}] = \{\}}
+\DoxyCodeLine{291             \textcolor{keywordflow}{if} (\textcolor{stringliteral}{":"} \textcolor{keywordflow}{in} data[\textcolor{stringliteral}{'sip'}]):}
+\DoxyCodeLine{292                 flowData[\textcolor{stringliteral}{"ipv6"}][\textcolor{stringliteral}{"config"}][\textcolor{stringliteral}{"source-\/address"}] = data[\textcolor{stringliteral}{'sip'}]}
+\DoxyCodeLine{293             \textcolor{keywordflow}{if} (\textcolor{stringliteral}{":"} \textcolor{keywordflow}{in} data[\textcolor{stringliteral}{'dip'}]):}
+\DoxyCodeLine{294                 flowData[\textcolor{stringliteral}{"ipv6"}][\textcolor{stringliteral}{"config"}][\textcolor{stringliteral}{"destination-\/address"}] = data[\textcolor{stringliteral}{'dip'}]}
+\DoxyCodeLine{295             \textcolor{keywordflow}{if} (data[\textcolor{stringliteral}{'protocol'}] != \textcolor{stringliteral}{""}):}
+\DoxyCodeLine{296                 flowData[\textcolor{stringliteral}{"ipv6"}][\textcolor{stringliteral}{"config"}][\textcolor{stringliteral}{"protocol"}] = data[\textcolor{stringliteral}{'protocol'}]}
+\DoxyCodeLine{297     \textcolor{keywordflow}{if} ((data[\textcolor{stringliteral}{'sport'}] != \textcolor{stringliteral}{""}) \textcolor{keywordflow}{or} (data[\textcolor{stringliteral}{'dport'}] != \textcolor{stringliteral}{""})):}
+\DoxyCodeLine{298         flowData[\textcolor{stringliteral}{"transport"}] = \{\}}
+\DoxyCodeLine{299         flowData[\textcolor{stringliteral}{"transport"}][\textcolor{stringliteral}{"config"}] = \{\}}
+\DoxyCodeLine{300         \textcolor{keywordflow}{if} (data[\textcolor{stringliteral}{'sport'}] != \textcolor{stringliteral}{""}):}
+\DoxyCodeLine{301             flowData[\textcolor{stringliteral}{"transport"}][\textcolor{stringliteral}{"config"}][\textcolor{stringliteral}{"source-\/port"}] = int(data[\textcolor{stringliteral}{'sport'}])}
+\DoxyCodeLine{302         \textcolor{keywordflow}{if} (data[\textcolor{stringliteral}{'dport'}] != \textcolor{stringliteral}{""}):}
+\DoxyCodeLine{303             flowData[\textcolor{stringliteral}{"transport"}][\textcolor{stringliteral}{"config"}][\textcolor{stringliteral}{"destination-\/port"}] = int(data[\textcolor{stringliteral}{'dport'}])}
+\DoxyCodeLine{304     flowGroupData[\textcolor{stringliteral}{"openconfig-\/tam:flowgroups"}][\textcolor{stringliteral}{"flowgroup"}].append(flowData)}
+\DoxyCodeLine{305     \textcolor{keywordflow}{return} flowGroupData}
+\DoxyCodeLine{306 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d02/namespacesonic__cli__telemetry_a0227aab1dbb795fc24882cff7d4a7fb1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_aa6f4ca45a5fcaff3dc0c26f74781c34c}\label{namespacesonic__cli__telemetry_aa6f4ca45a5fcaff3dc0c26f74781c34c}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!getFlowGroups@{getFlowGroups}}
+\index{getFlowGroups@{getFlowGroups}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{getFlowGroups()}{getFlowGroups()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+telemetry.\+get\+Flow\+Groups (\begin{DoxyParamCaption}\item[{}]{flowgroups }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 195 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{195 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__telemetry_aa6f4ca45a5fcaff3dc0c26f74781c34c}{getFlowGroups}}(flowgroups):}
+\DoxyCodeLine{196     response = \{\}}
+\DoxyCodeLine{197     \textcolor{keywordflow}{for} flowgroup \textcolor{keywordflow}{in} flowgroups:}
+\DoxyCodeLine{198         data = flowgroup[\textcolor{stringliteral}{'state'}]}
+\DoxyCodeLine{199         name = data[\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{200         response[name] = \{\}}
+\DoxyCodeLine{201         response[name][\textcolor{stringliteral}{'id'}] = data[\textcolor{stringliteral}{'id'}]}
+\DoxyCodeLine{202         response[name][\textcolor{stringliteral}{'priority'}] = data[\textcolor{stringliteral}{'priority'}]}
+\DoxyCodeLine{203         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'l2'} \textcolor{keywordflow}{in} flowgroup:}
+\DoxyCodeLine{204             l2 = flowgroup[\textcolor{stringliteral}{'l2'}][\textcolor{stringliteral}{'state'}]}
+\DoxyCodeLine{205             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'source-\/mac'} \textcolor{keywordflow}{in} l2: response[name][\textcolor{stringliteral}{'src\_mac'}] = l2[\textcolor{stringliteral}{'source-\/mac'}]}
+\DoxyCodeLine{206             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'destination-\/mac'} \textcolor{keywordflow}{in} l2: response[name][\textcolor{stringliteral}{'dst\_mac'}] = l2[\textcolor{stringliteral}{'destination-\/mac'}]}
+\DoxyCodeLine{207             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'ethertype'} \textcolor{keywordflow}{in} l2: response[name][\textcolor{stringliteral}{'ethertype'}] = \mbox{\hyperlink{namespacesonic__cli__telemetry_adba5e2d0766035d296e8cb70cb644a42}{getEthertype}}(l2[\textcolor{stringliteral}{'ethertype'}])}
+\DoxyCodeLine{208         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'ipv4'} \textcolor{keywordflow}{in} flowgroup:}
+\DoxyCodeLine{209             ipv4 = flowgroup[\textcolor{stringliteral}{'ipv4'}][\textcolor{stringliteral}{'state'}]}
+\DoxyCodeLine{210             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'source-\/address'} \textcolor{keywordflow}{in} ipv4: response[name][\textcolor{stringliteral}{'src\_ip'}] = ipv4[\textcolor{stringliteral}{'source-\/address'}]}
+\DoxyCodeLine{211             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'destination-\/address'} \textcolor{keywordflow}{in} ipv4: response[name][\textcolor{stringliteral}{'dst\_ip'}] = ipv4[\textcolor{stringliteral}{'destination-\/address'}]}
+\DoxyCodeLine{212             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'protocol'} \textcolor{keywordflow}{in} ipv4: response[name][\textcolor{stringliteral}{'protocol'}] = \mbox{\hyperlink{namespacesonic__cli__telemetry_acd8b1d9b2823e5b3a0cf8886161b6ce7}{getProtocol}}(ipv4[\textcolor{stringliteral}{'protocol'}])}
+\DoxyCodeLine{213         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'ipv6'} \textcolor{keywordflow}{in} flowgroup:}
+\DoxyCodeLine{214             ipv6 = flowgroup[\textcolor{stringliteral}{'ipv6'}][\textcolor{stringliteral}{'state'}]}
+\DoxyCodeLine{215             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'source-\/address'} \textcolor{keywordflow}{in} ipv6: response[name][\textcolor{stringliteral}{'src\_ip'}] = ipv6[\textcolor{stringliteral}{'source-\/address'}]}
+\DoxyCodeLine{216             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'destination-\/address'} \textcolor{keywordflow}{in} ipv6: response[name][\textcolor{stringliteral}{'dst\_ip'}] = ipv6[\textcolor{stringliteral}{'destination-\/address'}]}
+\DoxyCodeLine{217             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'protocol'} \textcolor{keywordflow}{in} ipv6: response[name][\textcolor{stringliteral}{'protocol'}] = \mbox{\hyperlink{namespacesonic__cli__telemetry_acd8b1d9b2823e5b3a0cf8886161b6ce7}{getProtocol}}(ipv6[\textcolor{stringliteral}{'protocol'}])}
+\DoxyCodeLine{218         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'transport'} \textcolor{keywordflow}{in} flowgroup:}
+\DoxyCodeLine{219             transport = flowgroup[\textcolor{stringliteral}{'transport'}][\textcolor{stringliteral}{'state'}]}
+\DoxyCodeLine{220             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'source-\/port'} \textcolor{keywordflow}{in} transport: response[name][\textcolor{stringliteral}{'src\_port'}] = transport[\textcolor{stringliteral}{'source-\/port'}]}
+\DoxyCodeLine{221             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'destination-\/port'} \textcolor{keywordflow}{in} transport: response[name][\textcolor{stringliteral}{'dst\_port'}] = transport[\textcolor{stringliteral}{'destination-\/port'}]}
+\DoxyCodeLine{222         \textcolor{comment}{\# inports}}
+\DoxyCodeLine{223         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'interfaces'} \textcolor{keywordflow}{in} data:}
+\DoxyCodeLine{224             interfaces = data[\textcolor{stringliteral}{'interfaces'}]}
+\DoxyCodeLine{225             t = \{\}}
+\DoxyCodeLine{226             getIntfList = \mbox{\hyperlink{namespacesonic__cli__telemetry_a3b20dd71bfb8fb0c8bcc3804237ea6de}{get\_intf\_alias}}()}
+\DoxyCodeLine{227             \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} interfaces:}
+\DoxyCodeLine{228                 n = i.split(\textcolor{stringliteral}{'Ethernet'})[1]}
+\DoxyCodeLine{229                 \textcolor{keywordflow}{if} (len(getIntfList) > 0):}
+\DoxyCodeLine{230                     t[int(n)] = getIntfList[i]}
+\DoxyCodeLine{231                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{232                     t[int(n)] = i}
+\DoxyCodeLine{233             response[name][\textcolor{stringliteral}{'ports'}] = \textcolor{stringliteral}{','}.join(str(t[x]) \textcolor{keywordflow}{for} x \textcolor{keywordflow}{in} sorted(t))}
+\DoxyCodeLine{234         response[name][\textcolor{stringliteral}{'packets'}] = data[\textcolor{stringliteral}{'statistics'}][\textcolor{stringliteral}{'packets'}]}
+\DoxyCodeLine{235     \textcolor{keywordflow}{return} OrderedDict(natsorted(response.items()))}
+\DoxyCodeLine{236 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d02/namespacesonic__cli__telemetry_aa6f4ca45a5fcaff3dc0c26f74781c34c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_a84ab99660ee245e60165057030f322ac}\label{namespacesonic__cli__telemetry_a84ab99660ee245e60165057030f322ac}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!getNatSortData@{getNatSortData}}
+\index{getNatSortData@{getNatSortData}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{getNatSortData()}{getNatSortData()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+telemetry.\+get\+Nat\+Sort\+Data (\begin{DoxyParamCaption}\item[{}]{data }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 237 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{237 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__telemetry_a84ab99660ee245e60165057030f322ac}{getNatSortData}}(data):}
+\DoxyCodeLine{238     natSorted = \{\}}
+\DoxyCodeLine{239     \textcolor{keywordflow}{for} r \textcolor{keywordflow}{in} data:}
+\DoxyCodeLine{240         k = r[\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{241         natSorted[k] = r[\textcolor{stringliteral}{'state'}]}
+\DoxyCodeLine{242     \textcolor{keywordflow}{return} OrderedDict(natsorted(natSorted.items()))}
+\DoxyCodeLine{243 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_acd8b1d9b2823e5b3a0cf8886161b6ce7}\label{namespacesonic__cli__telemetry_acd8b1d9b2823e5b3a0cf8886161b6ce7}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!getProtocol@{getProtocol}}
+\index{getProtocol@{getProtocol}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{getProtocol()}{getProtocol()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+telemetry.\+get\+Protocol (\begin{DoxyParamCaption}\item[{}]{protocol }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 188 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{188 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__telemetry_acd8b1d9b2823e5b3a0cf8886161b6ce7}{getProtocol}}(protocol):}
+\DoxyCodeLine{189     protocols = \{}
+\DoxyCodeLine{190         \textcolor{stringliteral}{'openconfig-\/packet-\/match-\/types:IP\_UDP'}: \textcolor{stringliteral}{"UDP"},}
+\DoxyCodeLine{191         \textcolor{stringliteral}{'openconfig-\/packet-\/match-\/types:IP\_TCP'}: \textcolor{stringliteral}{"TCP"},}
+\DoxyCodeLine{192     \}}
+\DoxyCodeLine{193     \textcolor{keywordflow}{return} protocols[protocol]}
+\DoxyCodeLine{194 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d02/namespacesonic__cli__telemetry_acd8b1d9b2823e5b3a0cf8886161b6ce7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_a20d03d11108eca3622eb5a74d61b6a0a}\label{namespacesonic__cli__telemetry_a20d03d11108eca3622eb5a74d61b6a0a}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!getResponse@{getResponse}}
+\index{getResponse@{getResponse}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{getResponse()}{getResponse()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+telemetry.\+get\+Response (\begin{DoxyParamCaption}\item[{}]{details }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 607 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{607 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__telemetry_a20d03d11108eca3622eb5a74d61b6a0a}{getResponse}}(details):}
+\DoxyCodeLine{608     \textcolor{keywordflow}{if} details[\textcolor{stringliteral}{'method'}] == \textcolor{stringliteral}{'GET'}:}
+\DoxyCodeLine{609         \textcolor{keywordflow}{return} api.get(details[\textcolor{stringliteral}{'url'}])}
+\DoxyCodeLine{610     \textcolor{keywordflow}{elif} details[\textcolor{stringliteral}{'method'}] == \textcolor{stringliteral}{'PATCH'}:}
+\DoxyCodeLine{611         \textcolor{keywordflow}{return} api.patch(details[\textcolor{stringliteral}{'url'}], details[\textcolor{stringliteral}{'body'}])}
+\DoxyCodeLine{612     \textcolor{keywordflow}{elif} details[\textcolor{stringliteral}{'method'}] == \textcolor{stringliteral}{'PUT'}:}
+\DoxyCodeLine{613         \textcolor{keywordflow}{return} api.put(details[\textcolor{stringliteral}{'url'}], details[\textcolor{stringliteral}{'body'}])}
+\DoxyCodeLine{614     \textcolor{keywordflow}{elif} details[\textcolor{stringliteral}{'method'}] == \textcolor{stringliteral}{'POST'}:}
+\DoxyCodeLine{615         \textcolor{keywordflow}{return} api.post(details[\textcolor{stringliteral}{'url'}], details[\textcolor{stringliteral}{'body'}])}
+\DoxyCodeLine{616     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{617         \textcolor{keywordflow}{return} api.delete(details[\textcolor{stringliteral}{'url'}])}
+\DoxyCodeLine{618 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d02/namespacesonic__cli__telemetry_a20d03d11108eca3622eb5a74d61b6a0a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_a48a6e11ca5ecef43b6b3cd702b73c258}\label{namespacesonic__cli__telemetry_a48a6e11ca5ecef43b6b3cd702b73c258}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!getStatusDescription@{getStatusDescription}}
+\index{getStatusDescription@{getStatusDescription}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{getStatusDescription()}{getStatusDescription()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+telemetry.\+get\+Status\+Description (\begin{DoxyParamCaption}\item[{}]{status }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 101 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{101 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__telemetry_a48a6e11ca5ecef43b6b3cd702b73c258}{getStatusDescription}}(status):}
+\DoxyCodeLine{102     descriptions = \{}
+\DoxyCodeLine{103         \textcolor{stringliteral}{'ACTIVE'}: \textcolor{stringliteral}{'Active'},}
+\DoxyCodeLine{104         \textcolor{stringliteral}{'INACTIVE'}: \textcolor{stringliteral}{'Inactive'},}
+\DoxyCodeLine{105         \textcolor{stringliteral}{'UNSUPPORTED'}: \textcolor{stringliteral}{'Unsupported'},}
+\DoxyCodeLine{106         \textcolor{stringliteral}{'INSUFFICIENT\_RESOURCES'}: \textcolor{stringliteral}{'Insufficient Resources'}}
+\DoxyCodeLine{107     \}}
+\DoxyCodeLine{108     \textcolor{keywordflow}{return} descriptions[status]}
+\DoxyCodeLine{109 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d02/namespacesonic__cli__telemetry_a48a6e11ca5ecef43b6b3cd702b73c258_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_a8d3ec40572a382ef0f2acf91146e2590}\label{namespacesonic__cli__telemetry_a8d3ec40572a382ef0f2acf91146e2590}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!invoke\_api@{invoke\_api}}
+\index{invoke\_api@{invoke\_api}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{invoke\_api()}{invoke\_api()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+telemetry.\+invoke\+\_\+api (\begin{DoxyParamCaption}\item[{}]{fn,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 619 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{619 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__telemetry_a8d3ec40572a382ef0f2acf91146e2590}{invoke\_api}}(fn, args):}
+\DoxyCodeLine{620     details = \mbox{\hyperlink{namespacesonic__cli__telemetry_a68b1d5f93ebd429a2b4e0f76c70dc8ca}{getDetails}}(fn, args)}
+\DoxyCodeLine{621     \textcolor{keywordflow}{if} details \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{622         \textcolor{keywordflow}{return} api.cli\_not\_implemented(fn)}
+\DoxyCodeLine{623     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{624         \textcolor{keywordflow}{if} details[\textcolor{stringliteral}{'do\_request'}]:}
+\DoxyCodeLine{625             response = \mbox{\hyperlink{namespacesonic__cli__telemetry_a20d03d11108eca3622eb5a74d61b6a0a}{getResponse}}(details)}
+\DoxyCodeLine{626             details[\textcolor{stringliteral}{'status\_code'}] = response.response.status\_code}
+\DoxyCodeLine{627             details[\textcolor{stringliteral}{'ok'}] = response.ok()}
+\DoxyCodeLine{628             details[\textcolor{stringliteral}{'response'}] = response.content}
+\DoxyCodeLine{629             details[\textcolor{stringliteral}{'error\_message'}] = response.error\_message()}
+\DoxyCodeLine{630     \textcolor{keywordflow}{return} details}
+\DoxyCodeLine{631 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d02/namespacesonic__cli__telemetry_a8d3ec40572a382ef0f2acf91146e2590_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d02/namespacesonic__cli__telemetry_a8d3ec40572a382ef0f2acf91146e2590_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_a4c22a178aea2356434e71bb367ec4aab}\label{namespacesonic__cli__telemetry_a4c22a178aea2356434e71bb367ec4aab}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!printFeatureDetails@{printFeatureDetails}}
+\index{printFeatureDetails@{printFeatureDetails}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{printFeatureDetails()}{printFeatureDetails()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+telemetry.\+print\+Feature\+Details (\begin{DoxyParamCaption}\item[{}]{data }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 118 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{118 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__telemetry_a4c22a178aea2356434e71bb367ec4aab}{printFeatureDetails}}(data):}
+\DoxyCodeLine{119     feature = data[\textcolor{stringliteral}{'feature'}]}
+\DoxyCodeLine{120     feature\_status = data[\textcolor{stringliteral}{'feature\_status'}]}
+\DoxyCodeLine{121     sessions = data[\textcolor{stringliteral}{'sessions'}]}
+\DoxyCodeLine{122     switch\_status = data[\textcolor{stringliteral}{'switch\_status'}]}
+\DoxyCodeLine{123     response = []}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125     status = \textcolor{stringliteral}{"-\/"}}
+\DoxyCodeLine{126     switch\_id = \textcolor{stringliteral}{"-\/"}}
+\DoxyCodeLine{127     enterprise\_id = \textcolor{stringliteral}{"-\/"}}
+\DoxyCodeLine{128     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{129         status = \mbox{\hyperlink{namespacesonic__cli__telemetry_a48a6e11ca5ecef43b6b3cd702b73c258}{getStatusDescription}}(feature\_status[\textcolor{stringliteral}{'openconfig-\/tam:op-\/status'}])}
+\DoxyCodeLine{130         switch\_id = switch\_status[\textcolor{stringliteral}{'openconfig-\/tam:switch'}][\textcolor{stringliteral}{'state'}][\textcolor{stringliteral}{'op-\/switch-\/id'}]}
+\DoxyCodeLine{131         enterprise\_id = switch\_status[\textcolor{stringliteral}{'openconfig-\/tam:switch'}][\textcolor{stringliteral}{'state'}][\textcolor{stringliteral}{'op-\/enterprise-\/id'}]}
+\DoxyCodeLine{132     \textcolor{keywordflow}{except} KeyError:}
+\DoxyCodeLine{133         \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{134     response.append(\{\textcolor{stringliteral}{'title'}: \textcolor{stringliteral}{'Status               : '}, \textcolor{stringliteral}{'value'}: status\})}
+\DoxyCodeLine{135     response.append(\{\textcolor{stringliteral}{'title'}: \textcolor{stringliteral}{'Switch ID            : '}, \textcolor{stringliteral}{'value'}: switch\_id\})}
+\DoxyCodeLine{136     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'ifa'} \textcolor{keywordflow}{in} feature:}
+\DoxyCodeLine{137         response.append(\{\textcolor{stringliteral}{'title'}: \textcolor{stringliteral}{'Enterprise ID        : '}, \textcolor{stringliteral}{'value'}: enterprise\_id\})}
+\DoxyCodeLine{138         response.append(\{\textcolor{stringliteral}{'title'}: \textcolor{stringliteral}{'Version              : '}, \textcolor{stringliteral}{'value'}: \textcolor{stringliteral}{"2.0"}\})}
+\DoxyCodeLine{139         sessions\_count = 0}
+\DoxyCodeLine{140         collectors\_count = 0}
+\DoxyCodeLine{141         \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{142             sessions\_count = len(sessions[\textcolor{stringliteral}{'openconfig-\/tam:ifa-\/sessions'}][\textcolor{stringliteral}{'ifa-\/session'}])}
+\DoxyCodeLine{143             collectors\_count = \mbox{\hyperlink{namespacesonic__cli__telemetry_a2cc083646c1bcdcb394cd98640f2e5a9}{getCollectorsCount}}(sessions[\textcolor{stringliteral}{'openconfig-\/tam:ifa-\/sessions'}][\textcolor{stringliteral}{'ifa-\/session'}])}
+\DoxyCodeLine{144         \textcolor{keywordflow}{except} KeyError:}
+\DoxyCodeLine{145             \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{146         response.append(\{\textcolor{stringliteral}{'title'}: \textcolor{stringliteral}{'Number of sessions   : '}, \textcolor{stringliteral}{'value'}: sessions\_count\})}
+\DoxyCodeLine{147         response.append(\{\textcolor{stringliteral}{'title'}: \textcolor{stringliteral}{'Number of collectors : '}, \textcolor{stringliteral}{'value'}: collectors\_count\})}
+\DoxyCodeLine{148     \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'tailstamping'} \textcolor{keywordflow}{in} feature:}
+\DoxyCodeLine{149         sessions\_count = 0}
+\DoxyCodeLine{150         \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{151             sessions\_count = len(sessions[\textcolor{stringliteral}{'openconfig-\/tam:tailstamping-\/sessions'}][\textcolor{stringliteral}{'tailstamping-\/session'}])}
+\DoxyCodeLine{152         \textcolor{keywordflow}{except} KeyError:}
+\DoxyCodeLine{153             \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{154         response.append(\{\textcolor{stringliteral}{'title'}: \textcolor{stringliteral}{'Number of sessions   : '}, \textcolor{stringliteral}{'value'}: sessions\_count\})}
+\DoxyCodeLine{155     \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'dropmonitoring'} \textcolor{keywordflow}{in} feature:}
+\DoxyCodeLine{156         sessions\_count = 0}
+\DoxyCodeLine{157         collectors\_count = 0}
+\DoxyCodeLine{158         \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{159             sessions\_count = len(sessions[\textcolor{stringliteral}{'openconfig-\/tam:dropmonitor-\/sessions'}][\textcolor{stringliteral}{'dropmonitor-\/session'}])}
+\DoxyCodeLine{160             collectors\_count = \mbox{\hyperlink{namespacesonic__cli__telemetry_a2cc083646c1bcdcb394cd98640f2e5a9}{getCollectorsCount}}(sessions[\textcolor{stringliteral}{'openconfig-\/tam:dropmonitor-\/sessions'}][\textcolor{stringliteral}{'dropmonitor-\/session'}])}
+\DoxyCodeLine{161         \textcolor{keywordflow}{except} KeyError:}
+\DoxyCodeLine{162             \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{163         response.append(\{\textcolor{stringliteral}{'title'}: \textcolor{stringliteral}{'Number of sessions   : '}, \textcolor{stringliteral}{'value'}: sessions\_count\})}
+\DoxyCodeLine{164         response.append(\{\textcolor{stringliteral}{'title'}: \textcolor{stringliteral}{'Number of collectors : '}, \textcolor{stringliteral}{'value'}: collectors\_count\})}
+\DoxyCodeLine{165         aging\_interval = \textcolor{stringliteral}{"Not Configured"}}
+\DoxyCodeLine{166         \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{167             aging\_interval = data[\textcolor{stringliteral}{'aginginterval'}][\textcolor{stringliteral}{'openconfig-\/tam:aging-\/interval'}]}
+\DoxyCodeLine{168         \textcolor{keywordflow}{except} KeyError:}
+\DoxyCodeLine{169             \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{170         response.append(\{\textcolor{stringliteral}{'title'}: \textcolor{stringliteral}{'Aging Interval       : '}, \textcolor{stringliteral}{'value'}: aging\_interval\})}
+\DoxyCodeLine{171     \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{172 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d02/namespacesonic__cli__telemetry_a4c22a178aea2356434e71bb367ec4aab_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_af9971af21f66ee93b10e7acac2f7bef7}\label{namespacesonic__cli__telemetry_af9971af21f66ee93b10e7acac2f7bef7}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!run@{run}}
+\index{run@{run}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+telemetry.\+run (\begin{DoxyParamCaption}\item[{}]{fn,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 632 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{632 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__telemetry_af9971af21f66ee93b10e7acac2f7bef7}{run}}(fn, args):}
+\DoxyCodeLine{633     result = \mbox{\hyperlink{namespacesonic__cli__telemetry_a8d3ec40572a382ef0f2acf91146e2590}{invoke\_api}}(fn, args)}
+\DoxyCodeLine{634     \textcolor{keywordflow}{if} (not(result \textcolor{keywordflow}{is} \textcolor{keywordtype}{None})) \textcolor{keywordflow}{and} result[\textcolor{stringliteral}{'ok'}]:}
+\DoxyCodeLine{635         \textcolor{keywordflow}{if} (\textcolor{stringliteral}{'response'} \textcolor{keywordflow}{in} result) \textcolor{keywordflow}{and} (result[\textcolor{stringliteral}{'response'}] \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}):}
+\DoxyCodeLine{636             \textcolor{keywordflow}{if} result[\textcolor{stringliteral}{'method'}] == \textcolor{stringliteral}{'GET'}:}
+\DoxyCodeLine{637                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(result[\textcolor{stringliteral}{'template'}], result[\textcolor{stringliteral}{'response'}], **(helper\_functions))}
+\DoxyCodeLine{638         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{639             \textcolor{keywordflow}{if} (result[\textcolor{stringliteral}{'status\_code'}] == 404):}
+\DoxyCodeLine{640                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'description'} \textcolor{keywordflow}{in} result:}
+\DoxyCodeLine{641                     description = result[\textcolor{stringliteral}{'description'}]}
+\DoxyCodeLine{642                     \textcolor{keywordflow}{if} (\textcolor{stringliteral}{"\%Error:"} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} description):}
+\DoxyCodeLine{643                         description = \textcolor{stringliteral}{"\%Error: "} + description}
+\DoxyCodeLine{644                     message = \textcolor{stringliteral}{"\{\} '\{\}' not found."}.format(description, result[\textcolor{stringliteral}{'name'}])}
+\DoxyCodeLine{645                     \textcolor{keywordflow}{print} message}
+\DoxyCodeLine{646             \textcolor{keywordflow}{elif} (result[\textcolor{stringliteral}{'status\_code'}] == 400):}
+\DoxyCodeLine{647                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'description'} \textcolor{keywordflow}{in} result:}
+\DoxyCodeLine{648                     description = result[\textcolor{stringliteral}{'description'}]}
+\DoxyCodeLine{649                     \textcolor{keywordflow}{if} (\textcolor{stringliteral}{"\%Error:"} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} description):}
+\DoxyCodeLine{650                         description = \textcolor{stringliteral}{"\%Error: "} + description}
+\DoxyCodeLine{651                     \textcolor{keywordflow}{print} description}
+\DoxyCodeLine{652             \textcolor{keywordflow}{elif} (result[\textcolor{stringliteral}{'status\_code'}] == 204):}
+\DoxyCodeLine{653                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'description'} \textcolor{keywordflow}{in} result:}
+\DoxyCodeLine{654                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'\%Info'} \textcolor{keywordflow}{in} result[\textcolor{stringliteral}{'description'}]:}
+\DoxyCodeLine{655                         \textcolor{keywordflow}{print} result[\textcolor{stringliteral}{'description'}]}
+\DoxyCodeLine{656     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{657         \textcolor{keywordflow}{if} not(result \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}):}
+\DoxyCodeLine{658             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'error\_message'} \textcolor{keywordflow}{in} result:}
+\DoxyCodeLine{659                 message = result[\textcolor{stringliteral}{'error\_message'}]}
+\DoxyCodeLine{660                 \textcolor{keywordflow}{if} (\textcolor{stringliteral}{"\%Error:"} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} message):}
+\DoxyCodeLine{661                     message = \textcolor{stringliteral}{"\%Error: "} + message}
+\DoxyCodeLine{662                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{"does not match"} \textcolor{keywordflow}{in} message:}
+\DoxyCodeLine{663                     message = \textcolor{stringliteral}{"\%Error: Invalid input in the command."}}
+\DoxyCodeLine{664                 \textcolor{keywordflow}{print} message}
+\DoxyCodeLine{665     \textcolor{keywordflow}{return} 0}
+\DoxyCodeLine{666 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d02/namespacesonic__cli__telemetry_af9971af21f66ee93b10e7acac2f7bef7_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_a0364a0c2ac651122d5a7823937226b0f}\label{namespacesonic__cli__telemetry_a0364a0c2ac651122d5a7823937226b0f}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!api@{api}}
+\index{api@{api}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{api}{api}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+telemetry.\+api = cc.\+Api\+Client()}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 30 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_a8474bb0bc9962c6f9a81bfb6af8561a8}\label{namespacesonic__cli__telemetry_a8474bb0bc9962c6f9a81bfb6af8561a8}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!clear\_flowgroup\_counters\_url@{clear\_flowgroup\_counters\_url}}
+\index{clear\_flowgroup\_counters\_url@{clear\_flowgroup\_counters\_url}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{clear\_flowgroup\_counters\_url}{clear\_flowgroup\_counters\_url}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+telemetry.\+clear\+\_\+flowgroup\+\_\+counters\+\_\+url = \textquotesingle{}/restconf/operations/openconfig-\/tam\+:clear-\/flowgroup-\/counters\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 49 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_a4e04b81e1bf36cf71e37c25f591b5bcc}\label{namespacesonic__cli__telemetry_a4e04b81e1bf36cf71e37c25f591b5bcc}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!collectors\_url@{collectors\_url}}
+\index{collectors\_url@{collectors\_url}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{collectors\_url}{collectors\_url}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+telemetry.\+collectors\+\_\+url = \mbox{\hyperlink{namespacesonic__cli__telemetry_a73f604f0fa20a66b5ac8d92ff3a1e464}{tam\+\_\+rest}}+\textquotesingle{}/collectors\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 33 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_aa46dabc3765b03375f32efd7183fc3ca}\label{namespacesonic__cli__telemetry_aa46dabc3765b03375f32efd7183fc3ca}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!detach\_flowgroup\_url@{detach\_flowgroup\_url}}
+\index{detach\_flowgroup\_url@{detach\_flowgroup\_url}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{detach\_flowgroup\_url}{detach\_flowgroup\_url}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+telemetry.\+detach\+\_\+flowgroup\+\_\+url = \textquotesingle{}/restconf/data/openconfig-\/tam\+:tam/\mbox{\hyperlink{DB-PARSED_8txt_aad5ade52cd4e02771db279ed6a9c791a}{flowgroups}}/flowgroup=\{\mbox{\hyperlink{DB-PARSED_8txt_a2f28cce84dbafd26b75c646321392848}{name}}\}/config/interfaces=\{interfaces\}\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 46 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_a58d42090c7ba91e2c83c117a246de580}\label{namespacesonic__cli__telemetry_a58d42090c7ba91e2c83c117a246de580}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!dropmonitor\_aginginterval\_url@{dropmonitor\_aginginterval\_url}}
+\index{dropmonitor\_aginginterval\_url@{dropmonitor\_aginginterval\_url}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{dropmonitor\_aginginterval\_url}{dropmonitor\_aginginterval\_url}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+telemetry.\+dropmonitor\+\_\+aginginterval\+\_\+url = \mbox{\hyperlink{namespacesonic__cli__telemetry_a73f604f0fa20a66b5ac8d92ff3a1e464}{tam\+\_\+rest}}+\textquotesingle{}/\mbox{\hyperlink{DB-PARSED_8txt_a27663acf28ba762d80c3156a993956a2}{dropmonitor}}/\mbox{\hyperlink{DB-PARSED_8txt_abea38d543e1427d44ae7a7ed344332a8}{global}}\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 41 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_a7a0051a6b3128a0da45571019a0a8c4f}\label{namespacesonic__cli__telemetry_a7a0051a6b3128a0da45571019a0a8c4f}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!dropmonitor\_sessions\_url@{dropmonitor\_sessions\_url}}
+\index{dropmonitor\_sessions\_url@{dropmonitor\_sessions\_url}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{dropmonitor\_sessions\_url}{dropmonitor\_sessions\_url}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+telemetry.\+dropmonitor\+\_\+sessions\+\_\+url = \mbox{\hyperlink{namespacesonic__cli__telemetry_a73f604f0fa20a66b5ac8d92ff3a1e464}{tam\+\_\+rest}}+\textquotesingle{}/\mbox{\hyperlink{DB-PARSED_8txt_a27663acf28ba762d80c3156a993956a2}{dropmonitor}}/\mbox{\hyperlink{DB-PARSED_8txt_a27663acf28ba762d80c3156a993956a2}{dropmonitor}}-\/sessions\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 40 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_a114945daf201b42c583169c1fa43fc05}\label{namespacesonic__cli__telemetry_a114945daf201b42c583169c1fa43fc05}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!enterprise\_id\_config\_url@{enterprise\_id\_config\_url}}
+\index{enterprise\_id\_config\_url@{enterprise\_id\_config\_url}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{enterprise\_id\_config\_url}{enterprise\_id\_config\_url}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+telemetry.\+enterprise\+\_\+id\+\_\+config\+\_\+url = \mbox{\hyperlink{namespacesonic__cli__telemetry_a78a80cc6722c5f9daab6386f482c89f9}{switch\+\_\+url}}+\textquotesingle{}/config/enterprise-\/\mbox{\hyperlink{DB-PARSED_8txt_a3c205a0462ac1e7e480b74ad4dc0bb96}{id}}\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 37 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_aeb02a8f2d970915a239a3749e9333c6c}\label{namespacesonic__cli__telemetry_aeb02a8f2d970915a239a3749e9333c6c}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!feature\_config\_url@{feature\_config\_url}}
+\index{feature\_config\_url@{feature\_config\_url}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{feature\_config\_url}{feature\_config\_url}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+telemetry.\+feature\+\_\+config\+\_\+url = \mbox{\hyperlink{namespacesonic__cli__telemetry_a73f604f0fa20a66b5ac8d92ff3a1e464}{tam\+\_\+rest}}+\textquotesingle{}/\mbox{\hyperlink{DB-PARSED_8txt_abbd53fbb80fbe0ee7d4fb41ccbd815e8}{features}}\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 43 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_a2ba0d80567b0d0b2405b57ccd970779e}\label{namespacesonic__cli__telemetry_a2ba0d80567b0d0b2405b57ccd970779e}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!features\_status\_url@{features\_status\_url}}
+\index{features\_status\_url@{features\_status\_url}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{features\_status\_url}{features\_status\_url}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+telemetry.\+features\+\_\+status\+\_\+url = \mbox{\hyperlink{namespacesonic__cli__telemetry_a73f604f0fa20a66b5ac8d92ff3a1e464}{tam\+\_\+rest}}+\textquotesingle{}/\mbox{\hyperlink{DB-PARSED_8txt_abbd53fbb80fbe0ee7d4fb41ccbd815e8}{features}}-\/state\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 42 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_a409458891079605df49c3a9fb82d0f19}\label{namespacesonic__cli__telemetry_a409458891079605df49c3a9fb82d0f19}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!flowgroup\_ids\_url@{flowgroup\_ids\_url}}
+\index{flowgroup\_ids\_url@{flowgroup\_ids\_url}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{flowgroup\_ids\_url}{flowgroup\_ids\_url}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+telemetry.\+flowgroup\+\_\+ids\+\_\+url = \textquotesingle{}/restconf/data/sonic-\/tam-\/flowgroups\+:sonic-\/tam-\/\mbox{\hyperlink{DB-PARSED_8txt_aad5ade52cd4e02771db279ed6a9c791a}{flowgroups}}/T\+A\+M\+\_\+\+F\+L\+O\+W\+G\+R\+O\+U\+P\+\_\+\+T\+A\+B\+LE/T\+A\+M\+\_\+\+F\+L\+O\+W\+G\+R\+O\+U\+P\+\_\+\+T\+A\+B\+L\+E\+\_\+\+L\+I\+ST\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 45 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_a8fcbae02784f606dfffe70f9ff3677f4}\label{namespacesonic__cli__telemetry_a8fcbae02784f606dfffe70f9ff3677f4}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!flowgroups\_url@{flowgroups\_url}}
+\index{flowgroups\_url@{flowgroups\_url}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{flowgroups\_url}{flowgroups\_url}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+telemetry.\+flowgroups\+\_\+url = \mbox{\hyperlink{namespacesonic__cli__telemetry_a73f604f0fa20a66b5ac8d92ff3a1e464}{tam\+\_\+rest}}+\textquotesingle{}/\mbox{\hyperlink{DB-PARSED_8txt_aad5ade52cd4e02771db279ed6a9c791a}{flowgroups}}\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 44 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_a761de1f9e177399a025b3b1c7f8709f5}\label{namespacesonic__cli__telemetry_a761de1f9e177399a025b3b1c7f8709f5}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!get\_acl\_rule\_url@{get\_acl\_rule\_url}}
+\index{get\_acl\_rule\_url@{get\_acl\_rule\_url}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{get\_acl\_rule\_url}{get\_acl\_rule\_url}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+telemetry.\+get\+\_\+acl\+\_\+rule\+\_\+url = \textquotesingle{}/restconf/data/sonic-\/acl\+:sonic-\/\mbox{\hyperlink{DB-PARSED_8txt_a1bbe0a3ff032493ea9c6c0bf6d406d40}{acl}}/A\+C\+L\+\_\+\+R\+U\+LE/A\+C\+L\+\_\+\+R\+U\+L\+E\+\_\+\+L\+I\+ST\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 50 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_ab0c24c7c5a5d29716f498c1f1dee3a0f}\label{namespacesonic__cli__telemetry_ab0c24c7c5a5d29716f498c1f1dee3a0f}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!helper\_functions@{helper\_functions}}
+\index{helper\_functions@{helper\_functions}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{helper\_functions}{helper\_functions}}
+{\footnotesize\ttfamily dictionary sonic\+\_\+cli\+\_\+telemetry.\+helper\+\_\+functions}
+
+{\bfseries 초기값\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  \{}
+\DoxyCodeLine{2     \textcolor{stringliteral}{'getFeatureDescription'}: getFeatureDescription,}
+\DoxyCodeLine{3     \textcolor{stringliteral}{'getStatusDescription'}: getStatusDescription,}
+\DoxyCodeLine{4     \textcolor{stringliteral}{'printFeatureDetails'}: printFeatureDetails,}
+\DoxyCodeLine{5     \textcolor{stringliteral}{'getFlowGroups'}: getFlowGroups,}
+\DoxyCodeLine{6     \textcolor{stringliteral}{'getNatSortData'}: getNatSortData,}
+\DoxyCodeLine{7 \}}
+
+\end{DoxyCode}
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 244 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_a52228a852bbf2581ba892e4080629d7a}\label{namespacesonic__cli__telemetry_a52228a852bbf2581ba892e4080629d7a}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!ifa\_sessions\_url@{ifa\_sessions\_url}}
+\index{ifa\_sessions\_url@{ifa\_sessions\_url}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{ifa\_sessions\_url}{ifa\_sessions\_url}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+telemetry.\+ifa\+\_\+sessions\+\_\+url = \mbox{\hyperlink{namespacesonic__cli__telemetry_a73f604f0fa20a66b5ac8d92ff3a1e464}{tam\+\_\+rest}}+\textquotesingle{}/\mbox{\hyperlink{DB-PARSED_8txt_ae51979531de351b747091afd60bdfff4}{ifa}}-\/sessions\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 38 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_a9cb155715e8b2acbe138589286cbb8e2}\label{namespacesonic__cli__telemetry_a9cb155715e8b2acbe138589286cbb8e2}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!intf\_alias\_url@{intf\_alias\_url}}
+\index{intf\_alias\_url@{intf\_alias\_url}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{intf\_alias\_url}{intf\_alias\_url}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+telemetry.\+intf\+\_\+alias\+\_\+url = \textquotesingle{}/restconf/data/sonic-\/port\+:sonic-\/\mbox{\hyperlink{DB-PARSED_8txt_a8e32b4349f67b91a9dbc9a6841e5ff6d}{port}}/P\+O\+R\+T\+\_\+\+T\+A\+B\+LE/P\+O\+R\+T\+\_\+\+T\+A\+B\+L\+E\+\_\+\+L\+I\+ST\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 48 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_ad943c9fa59d287d10e2638b07d973652}\label{namespacesonic__cli__telemetry_ad943c9fa59d287d10e2638b07d973652}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!intf\_naming\_mode\_url@{intf\_naming\_mode\_url}}
+\index{intf\_naming\_mode\_url@{intf\_naming\_mode\_url}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{intf\_naming\_mode\_url}{intf\_naming\_mode\_url}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+telemetry.\+intf\+\_\+naming\+\_\+mode\+\_\+url = \textquotesingle{}/restconf/data/sonic-\/device-\/metadata\+:sonic-\/device-\/metadata/D\+E\+V\+I\+C\+E\+\_\+\+M\+E\+T\+A\+D\+A\+TA/D\+E\+V\+I\+C\+E\+\_\+\+M\+E\+T\+A\+D\+A\+T\+A\+\_\+\+L\+I\+ST=\{\mbox{\hyperlink{DB-PARSED_8txt_a2f28cce84dbafd26b75c646321392848}{name}}\}/intf\+\_\+naming\+\_\+mode\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 47 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_a6b71678afad02c52db3fd2b891e52dc1}\label{namespacesonic__cli__telemetry_a6b71678afad02c52db3fd2b891e52dc1}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!samplers\_url@{samplers\_url}}
+\index{samplers\_url@{samplers\_url}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{samplers\_url}{samplers\_url}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+telemetry.\+samplers\+\_\+url = \mbox{\hyperlink{namespacesonic__cli__telemetry_a73f604f0fa20a66b5ac8d92ff3a1e464}{tam\+\_\+rest}}+\textquotesingle{}/\mbox{\hyperlink{DB-PARSED_8txt_a6cd3134091f4c7f20eabd471ef8c88cb}{samplers}}\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 34 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_a56479dc229820aeaa67daa25ad35f6f6}\label{namespacesonic__cli__telemetry_a56479dc229820aeaa67daa25ad35f6f6}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!switch\_id\_config\_url@{switch\_id\_config\_url}}
+\index{switch\_id\_config\_url@{switch\_id\_config\_url}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{switch\_id\_config\_url}{switch\_id\_config\_url}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+telemetry.\+switch\+\_\+id\+\_\+config\+\_\+url = \mbox{\hyperlink{namespacesonic__cli__telemetry_a78a80cc6722c5f9daab6386f482c89f9}{switch\+\_\+url}}+\textquotesingle{}/config/\mbox{\hyperlink{DB-PARSED_8txt_a23d833fb6196c465519013618e17425d}{switch}}-\/\mbox{\hyperlink{DB-PARSED_8txt_a3c205a0462ac1e7e480b74ad4dc0bb96}{id}}\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 36 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_a78a80cc6722c5f9daab6386f482c89f9}\label{namespacesonic__cli__telemetry_a78a80cc6722c5f9daab6386f482c89f9}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!switch\_url@{switch\_url}}
+\index{switch\_url@{switch\_url}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{switch\_url}{switch\_url}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+telemetry.\+switch\+\_\+url = \mbox{\hyperlink{namespacesonic__cli__telemetry_a73f604f0fa20a66b5ac8d92ff3a1e464}{tam\+\_\+rest}}+\textquotesingle{}/\mbox{\hyperlink{DB-PARSED_8txt_a23d833fb6196c465519013618e17425d}{switch}}\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 35 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_afada60f2e90df5fb1678ed5f4cf49989}\label{namespacesonic__cli__telemetry_afada60f2e90df5fb1678ed5f4cf49989}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!tailstamping\_sessions\_url@{tailstamping\_sessions\_url}}
+\index{tailstamping\_sessions\_url@{tailstamping\_sessions\_url}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{tailstamping\_sessions\_url}{tailstamping\_sessions\_url}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+telemetry.\+tailstamping\+\_\+sessions\+\_\+url = \mbox{\hyperlink{namespacesonic__cli__telemetry_a73f604f0fa20a66b5ac8d92ff3a1e464}{tam\+\_\+rest}}+\textquotesingle{}/\mbox{\hyperlink{DB-PARSED_8txt_a1a07f16e3436dbeeb45172eeae3e0e9d}{tailstamping}}-\/sessions\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 39 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__telemetry_a73f604f0fa20a66b5ac8d92ff3a1e464}\label{namespacesonic__cli__telemetry_a73f604f0fa20a66b5ac8d92ff3a1e464}} 
+\index{sonic\_cli\_telemetry@{sonic\_cli\_telemetry}!tam\_rest@{tam\_rest}}
+\index{tam\_rest@{tam\_rest}!sonic\_cli\_telemetry@{sonic\_cli\_telemetry}}
+\doxysubsubsection{\texorpdfstring{tam\_rest}{tam\_rest}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+telemetry.\+tam\+\_\+rest = \textquotesingle{}/restconf/data/openconfig-\/tam\+:tam\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+telemetry.\+py 파일의 32 번째 라인에서 정의되었습니다.
+

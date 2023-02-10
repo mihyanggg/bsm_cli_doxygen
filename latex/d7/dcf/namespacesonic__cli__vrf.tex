@@ -1,0 +1,457 @@
+\hypertarget{namespacesonic__cli__vrf}{}\doxysection{sonic\+\_\+cli\+\_\+vrf 네임스페이스 참조}
+\label{namespacesonic__cli__vrf}\index{sonic\_cli\_vrf@{sonic\_cli\_vrf}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__vrf_a2f67c6deabc7a62c6a5796501fa3d337}{get\+\_\+vrf\+\_\+data}} (\mbox{\hyperlink{DB-PARSED_8txt_a7c83ca21cfc623b456b849309c45564b}{vrf\+\_\+name}}, vrf\+\_\+intf\+\_\+info)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__vrf_a747e68cead0cdff0a0f65569311c4d38}{build\+\_\+intf\+\_\+vrf\+\_\+binding}} (intf\+\_\+vrf\+\_\+binding)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__vrf_ac13a6912bb905a55aa42d71676a4df8d}{generate\+\_\+body}} (\mbox{\hyperlink{namespacesonic__cli__vrf_affb26134a461020ba3d468a02fd792be}{func}}, args=\mbox{[}$\,$\mbox{]})
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__vrf_a6d83c1de122d0b97da1d86d07af02580}{invoke\+\_\+api}} (\mbox{\hyperlink{namespacesonic__cli__vrf_affb26134a461020ba3d468a02fd792be}{func}}, args=\mbox{[}$\,$\mbox{]})
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__vrf_ad55a09e91e2625cd1e9c926458e45f29}{run}} (\mbox{\hyperlink{namespacesonic__cli__vrf_affb26134a461020ba3d468a02fd792be}{func}}, args)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__vrf_ad7d2468ddcc0c056aa2a9221462a68f1}{I\+D\+E\+N\+T\+I\+F\+I\+ER}} = \textquotesingle{}V\+RF\textquotesingle{}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__vrf_ad73bd96ab825cbb51da72b9797470003}{N\+A\+M\+E1}} = \textquotesingle{}\mbox{\hyperlink{DB-PARSED_8txt_a1104b60f76e088dc6bcfbbb0c8a8e37c}{vrf}}\textquotesingle{}
+\item 
+\mbox{\hyperlink{namespacesonic__cli__vrf_affb26134a461020ba3d468a02fd792be}{func}} = sys.\+argv\mbox{[}1\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__vrf_a747e68cead0cdff0a0f65569311c4d38}\label{namespacesonic__cli__vrf_a747e68cead0cdff0a0f65569311c4d38}} 
+\index{sonic\_cli\_vrf@{sonic\_cli\_vrf}!build\_intf\_vrf\_binding@{build\_intf\_vrf\_binding}}
+\index{build\_intf\_vrf\_binding@{build\_intf\_vrf\_binding}!sonic\_cli\_vrf@{sonic\_cli\_vrf}}
+\doxysubsubsection{\texorpdfstring{build\_intf\_vrf\_binding()}{build\_intf\_vrf\_binding()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+vrf.\+build\+\_\+intf\+\_\+vrf\+\_\+binding (\begin{DoxyParamCaption}\item[{}]{intf\+\_\+vrf\+\_\+binding }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+vrf.\+py 파일의 76 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{76 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__vrf_a747e68cead0cdff0a0f65569311c4d38}{build\_intf\_vrf\_binding}} (intf\_vrf\_binding):}
+\DoxyCodeLine{77     api = cc.ApiClient()}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79     \textcolor{comment}{\# get mgmt vrf first}}
+\DoxyCodeLine{80     \textcolor{keywordflow}{if} ifutils.isMgmtVrfEnabled(cc) == \textcolor{keyword}{True}:}
+\DoxyCodeLine{81         intf\_vrf\_binding.setdefault(\textcolor{stringliteral}{"mgmt"}, []).append(\textcolor{stringliteral}{"eth0"})}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83     tIntf = (\textcolor{stringliteral}{"/restconf/data/sonic-\/interface:sonic-\/interface/INTERFACE/"},}
+\DoxyCodeLine{84              \textcolor{stringliteral}{"sonic-\/interface:INTERFACE"},}
+\DoxyCodeLine{85              \textcolor{stringliteral}{"INTERFACE\_LIST"},}
+\DoxyCodeLine{86              \textcolor{stringliteral}{"portname"})}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88     tVlanIntf = (\textcolor{stringliteral}{"/restconf/data/sonic-\/vlan-\/interface:sonic-\/vlan-\/interface/VLAN\_INTERFACE/"},}
+\DoxyCodeLine{89                  \textcolor{stringliteral}{"sonic-\/vlan-\/interface:VLAN\_INTERFACE"},}
+\DoxyCodeLine{90                  \textcolor{stringliteral}{"VLAN\_INTERFACE\_LIST"},}
+\DoxyCodeLine{91                  \textcolor{stringliteral}{"vlanName"})}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93     tPortChannelIntf = (\textcolor{stringliteral}{"/restconf/data/sonic-\/portchannel-\/interface:sonic-\/portchannel-\/interface/PORTCHANNEL\_INTERFACE/"},}
+\DoxyCodeLine{94                         \textcolor{stringliteral}{"sonic-\/portchannel-\/interface:PORTCHANNEL\_INTERFACE"},}
+\DoxyCodeLine{95                         \textcolor{stringliteral}{"PORTCHANNEL\_INTERFACE\_LIST"},}
+\DoxyCodeLine{96                         \textcolor{stringliteral}{"pch\_name"})}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98     tLoopbackIntf = (\textcolor{stringliteral}{"/restconf/data/sonic-\/loopback-\/interface:sonic-\/loopback-\/interface/LOOPBACK\_INTERFACE/"},}
+\DoxyCodeLine{99                      \textcolor{stringliteral}{"sonic-\/loopback-\/interface:LOOPBACK\_INTERFACE"},}
+\DoxyCodeLine{100                      \textcolor{stringliteral}{"LOOPBACK\_INTERFACE\_LIST"},}
+\DoxyCodeLine{101                      \textcolor{stringliteral}{"loIfName"})}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103     tVlanSubIntf = (\textcolor{stringliteral}{"/restconf/data/sonic-\/interface:sonic-\/interface/VLAN\_SUB\_INTERFACE/"},}
+\DoxyCodeLine{104                  \textcolor{stringliteral}{"sonic-\/interface:VLAN\_SUB\_INTERFACE"},}
+\DoxyCodeLine{105                  \textcolor{stringliteral}{"VLAN\_SUB\_INTERFACE\_LIST"},}
+\DoxyCodeLine{106                  \textcolor{stringliteral}{"id"})}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108     requests = [tIntf, tLoopbackIntf, tPortChannelIntf, tVlanIntf, tVlanSubIntf]}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110     \textcolor{keywordflow}{for} request \textcolor{keywordflow}{in} requests:}
+\DoxyCodeLine{111         keypath = cc.Path(request[0])}
+\DoxyCodeLine{112         \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{113             response = api.get(keypath)}
+\DoxyCodeLine{114             response = response.content}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116             \textcolor{keywordflow}{if} response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{117                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119             intfsContainer = response.get(request[1])}
+\DoxyCodeLine{120             \textcolor{keywordflow}{if} intfsContainer \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{121                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123             intfsList = intfsContainer.get(request[2])}
+\DoxyCodeLine{124             \textcolor{keywordflow}{if} intfsList \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{125                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127             \textcolor{keywordflow}{for} intf \textcolor{keywordflow}{in} intfsList:}
+\DoxyCodeLine{128                 intfName = intf.get(request[3])}
+\DoxyCodeLine{129                 \textcolor{keywordflow}{if} intfName \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{130                     \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132                 vrfName = intf.get(\textcolor{stringliteral}{'vrf\_name'})}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134                 \textcolor{keywordflow}{if} vrfName \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{135                     intf\_vrf\_binding.setdefault(\textcolor{stringliteral}{"default"}, []).append(intfName)}
+\DoxyCodeLine{136                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{137                     intf\_vrf\_binding.setdefault(vrfName, []).append(intfName)}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139             \textcolor{keywordflow}{for} vrf \textcolor{keywordflow}{in} intf\_vrf\_binding:}
+\DoxyCodeLine{140                 intf\_vrf\_binding[vrf] = natsorted(intf\_vrf\_binding[vrf], alg=ns.IGNORECASE)}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142         \textcolor{keywordflow}{except}  Exception \textcolor{keyword}{as} e:}
+\DoxyCodeLine{143             log.syslog(log.LOG\_ERR, str(e))}
+\DoxyCodeLine{144             \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\%Error: Internal error"}}
+\DoxyCodeLine{145 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/dcf/namespacesonic__cli__vrf_a747e68cead0cdff0a0f65569311c4d38_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__vrf_ac13a6912bb905a55aa42d71676a4df8d}\label{namespacesonic__cli__vrf_ac13a6912bb905a55aa42d71676a4df8d}} 
+\index{sonic\_cli\_vrf@{sonic\_cli\_vrf}!generate\_body@{generate\_body}}
+\index{generate\_body@{generate\_body}!sonic\_cli\_vrf@{sonic\_cli\_vrf}}
+\doxysubsubsection{\texorpdfstring{generate\_body()}{generate\_body()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+vrf.\+generate\+\_\+body (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args = {\ttfamily \mbox{[}\mbox{]}} }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+vrf.\+py 파일의 146 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{146 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__vrf_ac13a6912bb905a55aa42d71676a4df8d}{generate\_body}}(func, args=[]):}
+\DoxyCodeLine{147     body = \{\}}
+\DoxyCodeLine{148     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_network\_instance\_interface'}:}
+\DoxyCodeLine{149         body = \{\textcolor{stringliteral}{"id"}: args[0], \textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"id"}: args[0]\}\}}
+\DoxyCodeLine{150     \textcolor{keywordflow}{return} body}
+\DoxyCodeLine{151 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/dcf/namespacesonic__cli__vrf_ac13a6912bb905a55aa42d71676a4df8d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__vrf_a2f67c6deabc7a62c6a5796501fa3d337}\label{namespacesonic__cli__vrf_a2f67c6deabc7a62c6a5796501fa3d337}} 
+\index{sonic\_cli\_vrf@{sonic\_cli\_vrf}!get\_vrf\_data@{get\_vrf\_data}}
+\index{get\_vrf\_data@{get\_vrf\_data}!sonic\_cli\_vrf@{sonic\_cli\_vrf}}
+\doxysubsubsection{\texorpdfstring{get\_vrf\_data()}{get\_vrf\_data()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+vrf.\+get\+\_\+vrf\+\_\+data (\begin{DoxyParamCaption}\item[{}]{vrf\+\_\+name,  }\item[{}]{vrf\+\_\+intf\+\_\+info }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+vrf.\+py 파일의 37 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{37 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__vrf_a2f67c6deabc7a62c6a5796501fa3d337}{get\_vrf\_data}}(vrf\_name, vrf\_intf\_info):}
+\DoxyCodeLine{38     api = cc.ApiClient()}
+\DoxyCodeLine{39     vrf = \{\}}
+\DoxyCodeLine{40     vrf\_data = \{\}}
+\DoxyCodeLine{41     get\_intfaces = \textcolor{keyword}{True}}
+\DoxyCodeLine{42     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{name\}/config'}, name=vrf\_name)}
+\DoxyCodeLine{43     vrf\_config = api.get(keypath)}
+\DoxyCodeLine{44     \textcolor{keywordflow}{if} vrf\_config.ok():}
+\DoxyCodeLine{45         \textcolor{keywordflow}{if} vrf\_config.content == \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{46             \textcolor{keywordflow}{return} vrf\_config}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48         vrf\_intf\_info.setdefault(vrf\_name, [])}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50         vrf\_data[\textcolor{stringliteral}{'openconfig-\/network-\/instance:config'}] = vrf\_config.content[\textcolor{stringliteral}{'openconfig-\/network-\/instance:config'}]}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52         \textcolor{keywordflow}{if} vrf\_name == \textcolor{stringliteral}{'mgmt'}:}
+\DoxyCodeLine{53             \textcolor{keywordflow}{if} vrf\_data[\textcolor{stringliteral}{'openconfig-\/network-\/instance:config'}][\textcolor{stringliteral}{'enabled'}] == \textcolor{keyword}{True}:}
+\DoxyCodeLine{54                 vrf\_intf\_info.setdefault(\textcolor{stringliteral}{"mgmt"}, []).append(\textcolor{stringliteral}{"eth0"})}
+\DoxyCodeLine{55             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{56                 get\_intfaces = \textcolor{keyword}{False}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58         \textcolor{keywordflow}{if} get\_intfaces:}
+\DoxyCodeLine{59             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{name\}/interfaces/interface'}, name=vrf\_name)}
+\DoxyCodeLine{60             vrf\_intfs = api.get(keypath)}
+\DoxyCodeLine{61             vrf\_data[\textcolor{stringliteral}{'openconfig-\/network-\/instance:interface'}] = []}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63             \textcolor{keywordflow}{if} vrf\_intfs.ok() \textcolor{keywordflow}{and} vrf\_intfs.content==\textcolor{keywordtype}{None}:}
+\DoxyCodeLine{64                 \textcolor{keywordflow}{return} vrf\_config}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66             \textcolor{keywordflow}{if} vrf\_intfs.ok() \textcolor{keywordflow}{and} \textcolor{stringliteral}{'openconfig-\/network-\/instance:interface'} \textcolor{keywordflow}{in} vrf\_intfs.content:}
+\DoxyCodeLine{67                 vrf\_data[\textcolor{stringliteral}{'openconfig-\/network-\/instance:interface'}] = vrf\_intfs.content[\textcolor{stringliteral}{'openconfig-\/network-\/instance:interface'}]}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69             intfs = vrf\_data[\textcolor{stringliteral}{'openconfig-\/network-\/instance:interface'}]}
+\DoxyCodeLine{70             \textcolor{keywordflow}{for} intf \textcolor{keywordflow}{in} intfs:}
+\DoxyCodeLine{71                 intf\_name = intf.get(\textcolor{stringliteral}{'id'})}
+\DoxyCodeLine{72                 vrf\_intf\_info.setdefault(vrf\_name, []).append(intf\_name)}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74     \textcolor{keywordflow}{return} vrf\_config}
+\DoxyCodeLine{75 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/dcf/namespacesonic__cli__vrf_a2f67c6deabc7a62c6a5796501fa3d337_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__vrf_a6d83c1de122d0b97da1d86d07af02580}\label{namespacesonic__cli__vrf_a6d83c1de122d0b97da1d86d07af02580}} 
+\index{sonic\_cli\_vrf@{sonic\_cli\_vrf}!invoke\_api@{invoke\_api}}
+\index{invoke\_api@{invoke\_api}!sonic\_cli\_vrf@{sonic\_cli\_vrf}}
+\doxysubsubsection{\texorpdfstring{invoke\_api()}{invoke\_api()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+vrf.\+invoke\+\_\+api (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args = {\ttfamily \mbox{[}\mbox{]}} }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+vrf.\+py 파일의 152 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{152 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__vrf_a6d83c1de122d0b97da1d86d07af02580}{invoke\_api}}(func, args=[]):}
+\DoxyCodeLine{153     api = cc.ApiClient()}
+\DoxyCodeLine{154     keypath = []}
+\DoxyCodeLine{155     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'get\_openconfig\_network\_instance\_network\_instances\_network\_instances'}:}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159         \textcolor{comment}{\# for show all vrf, get the intf/vrf bindings from all the sonic interface yangs}}
+\DoxyCodeLine{160         \textcolor{comment}{\# for show a specific vrf, get the intf/vrf binding from the openconfig yang}}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162         intf\_vrf\_binding = \{\}}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164         \textcolor{keywordflow}{if} args[1] == \textcolor{stringliteral}{'all'}:}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166             \textcolor{comment}{\# Use SONIC model to get all configued VRF names and set the keys in the dictionary}}
+\DoxyCodeLine{167             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/vrf:sonic-\/vrf/VRF/VRF\_LIST'})}
+\DoxyCodeLine{168             sonic\_vrfs = api.get(keypath)}
+\DoxyCodeLine{169             \textcolor{keywordflow}{if} sonic\_vrfs.ok():}
+\DoxyCodeLine{170                 \textcolor{keywordflow}{if} sonic\_vrfs.content == \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{171                     \textcolor{keywordflow}{return} sonic\_vrfs}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{173                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/vrf:VRF\_LIST'} \textcolor{keywordflow}{in} sonic\_vrfs.content:}
+\DoxyCodeLine{174                     vrf\_list = sonic\_vrfs.content[\textcolor{stringliteral}{'sonic-\/vrf:VRF\_LIST'}]}
+\DoxyCodeLine{175                     \textcolor{keywordflow}{for} vrf \textcolor{keywordflow}{in} vrf\_list:}
+\DoxyCodeLine{176                        vrf\_name = vrf[\textcolor{stringliteral}{'vrf\_name'}]}
+\DoxyCodeLine{177                        intf\_vrf\_binding.setdefault(vrf\_name, [])}
+\DoxyCodeLine{178 }
+\DoxyCodeLine{179             \textcolor{comment}{\# build the dictionary with vrf name as key and list of interfaces as value}}
+\DoxyCodeLine{180             \mbox{\hyperlink{namespacesonic__cli__vrf_a747e68cead0cdff0a0f65569311c4d38}{build\_intf\_vrf\_binding}}(intf\_vrf\_binding)}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{182             intf\_vrf\_binding = collections.OrderedDict(sorted(intf\_vrf\_binding.items()))}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184             \textcolor{keywordflow}{if} len(intf\_vrf\_binding) != 0:}
+\DoxyCodeLine{185                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], intf\_vrf\_binding)}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187             \textcolor{keywordflow}{return} sonic\_vrfs}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{190             vrf\_data = \mbox{\hyperlink{namespacesonic__cli__vrf_a2f67c6deabc7a62c6a5796501fa3d337}{get\_vrf\_data}}(args[1], intf\_vrf\_binding)}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{192             \textcolor{keywordflow}{if} vrf\_data.content == \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{193                 \textcolor{keywordflow}{return} vrf\_data}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{195             \textcolor{keywordflow}{if} vrf\_data.ok() \textcolor{keywordflow}{and} (len(vrf\_data.content) != 0):}
+\DoxyCodeLine{196                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], intf\_vrf\_binding)}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{198             \textcolor{comment}{\# for specific GET VRF and 'Resource not found', }}
+\DoxyCodeLine{199             \textcolor{keywordflow}{if} vrf\_data.status\_code == 404:}
+\DoxyCodeLine{200                 vrf\_data.status\_code = 200}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{202             \textcolor{keywordflow}{return} vrf\_data}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{204     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'config\_if\_range'}:}
+\DoxyCodeLine{205         \textcolor{stringliteral}{"""}}
+\DoxyCodeLine{206 \textcolor{stringliteral}{            -\/ Configure number, range, or comma-\/delimited list of numbers and range of Vlan or Ethernet or PortChannel interfaces}}
+\DoxyCodeLine{207 \textcolor{stringliteral}{            param:}}
+\DoxyCodeLine{208 \textcolor{stringliteral}{                -\/ List of available interfaces to be configured}}
+\DoxyCodeLine{209 \textcolor{stringliteral}{                -\/ API name to generate payload}}
+\DoxyCodeLine{210 \textcolor{stringliteral}{        """}}
+\DoxyCodeLine{211         iflistStr = args[0].split(\textcolor{stringliteral}{"="})[1]}
+\DoxyCodeLine{212         iflist = iflistStr.rstrip().split(\textcolor{stringliteral}{','})}
+\DoxyCodeLine{213         subfunc = args[1]}
+\DoxyCodeLine{214     vrf\_name = args[2]}
+\DoxyCodeLine{215     body = \{}
+\DoxyCodeLine{216           \textcolor{stringliteral}{"openconfig-\/network-\/instance:interfaces"}: \{}
+\DoxyCodeLine{217             \textcolor{stringliteral}{"interface"}: []}
+\DoxyCodeLine{218           \}}
+\DoxyCodeLine{219         \}}
+\DoxyCodeLine{220         \textcolor{keywordflow}{for} intf \textcolor{keywordflow}{in} iflist:}
+\DoxyCodeLine{221             intfargs = [intf]}
+\DoxyCodeLine{222             body[\textcolor{stringliteral}{"openconfig-\/network-\/instance:interfaces"}][\textcolor{stringliteral}{"interface"}].append(\mbox{\hyperlink{namespacesonic__cli__vrf_ac13a6912bb905a55aa42d71676a4df8d}{generate\_body}}(subfunc, intfargs))}
+\DoxyCodeLine{223         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{name\}/interfaces'}, name=vrf\_name)}
+\DoxyCodeLine{224         \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{225 }
+\DoxyCodeLine{226     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_network\_instance\_interface'}:}
+\DoxyCodeLine{227         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{name\}/interfaces/interface=\{intf\}'}, name=args[1],intf=args[0])}
+\DoxyCodeLine{228         \textcolor{keywordflow}{return} api.delete(keypath)}
+\DoxyCodeLine{229 }
+\DoxyCodeLine{230     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'set\_openconfig\_vrf'}:}
+\DoxyCodeLine{231         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances'})}
+\DoxyCodeLine{232         body = \{\textcolor{stringliteral}{"openconfig-\/network-\/instance:network-\/instances"}:\{\textcolor{stringliteral}{"network-\/instance"}:[\{\textcolor{stringliteral}{"config"}:\{\textcolor{stringliteral}{"name"}:args[0], \textcolor{stringliteral}{"type"}:\textcolor{stringliteral}{"L3VRF"}, \textcolor{stringliteral}{"enabled"}:\textcolor{keyword}{True}\}, \textcolor{stringliteral}{"name"}:args[0]\}]\}\}}
+\DoxyCodeLine{233         \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{234 }
+\DoxyCodeLine{235     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_openconfig\_vrf'}:}
+\DoxyCodeLine{236         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{name\}'}, name=args[0])}
+\DoxyCodeLine{237         \textcolor{keywordflow}{return} api.delete(keypath)}
+\DoxyCodeLine{238 }
+\DoxyCodeLine{239     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{240         body = \{\}}
+\DoxyCodeLine{241 }
+\DoxyCodeLine{242     \textcolor{keywordflow}{return} api.cli\_not\_implemented(func)}
+\DoxyCodeLine{243 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/dcf/namespacesonic__cli__vrf_a6d83c1de122d0b97da1d86d07af02580_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=343pt]{d7/dcf/namespacesonic__cli__vrf_a6d83c1de122d0b97da1d86d07af02580_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__vrf_ad55a09e91e2625cd1e9c926458e45f29}\label{namespacesonic__cli__vrf_ad55a09e91e2625cd1e9c926458e45f29}} 
+\index{sonic\_cli\_vrf@{sonic\_cli\_vrf}!run@{run}}
+\index{run@{run}!sonic\_cli\_vrf@{sonic\_cli\_vrf}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+vrf.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+vrf.\+py 파일의 244 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{244 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__vrf_ad55a09e91e2625cd1e9c926458e45f29}{run}}(func, args):}
+\DoxyCodeLine{245     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{246         \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'delete\_if\_range'}:}
+\DoxyCodeLine{247             \textcolor{stringliteral}{"""}}
+\DoxyCodeLine{248 \textcolor{stringliteral}{                -\/ Remove config for given number, range, or comma-\/delimited list of numbers and range of interfaces.}}
+\DoxyCodeLine{249 \textcolor{stringliteral}{                -\/ Transaction is per interface.}}
+\DoxyCodeLine{250 \textcolor{stringliteral}{                param:}}
+\DoxyCodeLine{251 \textcolor{stringliteral}{                    -\/List of interfaces from which config has to be removed}}
+\DoxyCodeLine{252 \textcolor{stringliteral}{                    -\/API name to be invoked}}
+\DoxyCodeLine{253 \textcolor{stringliteral}{            """}}
+\DoxyCodeLine{254             iflistStr = args[0].split(\textcolor{stringliteral}{"="})[1]}
+\DoxyCodeLine{255             \textcolor{keywordflow}{if} iflistStr == \textcolor{stringliteral}{""}:}
+\DoxyCodeLine{256                 \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{257             iflist = iflistStr.rstrip().split(\textcolor{stringliteral}{','})}
+\DoxyCodeLine{258             subfunc = args[1] \textcolor{comment}{\#ex:delete\_network\_instance\_interface}}
+\DoxyCodeLine{259             \textcolor{keywordflow}{for} intf \textcolor{keywordflow}{in} iflist:}
+\DoxyCodeLine{260                 intfargs = [intf]+args[2:]}
+\DoxyCodeLine{261                 response = \mbox{\hyperlink{namespacesonic__cli__vrf_a6d83c1de122d0b97da1d86d07af02580}{invoke\_api}}(subfunc, intfargs)}
+\DoxyCodeLine{262                 \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response.ok():}
+\DoxyCodeLine{263                     \textcolor{keywordflow}{print} (response.error\_message(), \textcolor{stringliteral}{" Interface:"}, intf)}
+\DoxyCodeLine{264 }
+\DoxyCodeLine{265         \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'showrun'}:}
+\DoxyCodeLine{266             api = cc.ApiClient()}
+\DoxyCodeLine{267             keypath = []}
+\DoxyCodeLine{268             \textcolor{keywordflow}{if} args[0] == \textcolor{stringliteral}{'mgmt'}:}
+\DoxyCodeLine{269                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/mgmt-\/vrf:sonic-\/mgmt-\/vrf/MGMT\_VRF\_CONFIG/MGMT\_VRF\_CONFIG\_LIST'})}
+\DoxyCodeLine{270                 showrun\_list = [ (\textcolor{stringliteral}{'show\_multi\_views'}, \textcolor{stringliteral}{"views=renderCfg\_ipvrfmgmt,configure"}), (\textcolor{stringliteral}{'show\_multi\_views'}, \textcolor{stringliteral}{"views=configure-\/vlan,configure-\/lo,configure-\/lag,configure-\/if-\/mgmt,configure-\/if,configure-\/subif,renderCfg\_iprtemgmt,renderCfg\_ntp,renderCfg\_ipdns,renderCfg\_tacacs,renderCfg\_radius"}) ]}
+\DoxyCodeLine{271             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{272                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/vrf:sonic-\/vrf/VRF/VRF\_LIST=\{\}'}.format(args[0]))}
+\DoxyCodeLine{273                 \textcolor{keywordflow}{if} args[0] == \textcolor{stringliteral}{'default'}:}
+\DoxyCodeLine{274                     showrun\_list = [ (\textcolor{stringliteral}{'show\_view'}, \textcolor{stringliteral}{"views=renderCfg\_ipvrf"}, \textcolor{stringliteral}{'view\_keys="name=default"'}), (\textcolor{stringliteral}{'show\_view'}, \textcolor{stringliteral}{"views=renderCfg\_ippim"}, \textcolor{stringliteral}{'view\_keys="vrfname=default"'}), (\textcolor{stringliteral}{'show\_multi\_views'}, \textcolor{stringliteral}{"views=configure-\/vlan,configure-\/lo,configure-\/lag,configure-\/if,configure-\/subif,renderCfg\_iprte"}), (\textcolor{stringliteral}{'show\_view'}, \textcolor{stringliteral}{"views=configure-\/router-\/bgp"}, \textcolor{stringliteral}{'view\_keys="vrf-\/name=default"'}) ]}
+\DoxyCodeLine{275                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{276                     showrun\_list = [ (\textcolor{stringliteral}{'show\_view'}, \textcolor{stringliteral}{"views=renderCfg\_ipvrf"}, \textcolor{stringliteral}{'view\_keys="name=\{\}"'}.format(args[0])), (\textcolor{stringliteral}{'show\_view'}, \textcolor{stringliteral}{"views=configure"}), (\textcolor{stringliteral}{'show\_view'}, \textcolor{stringliteral}{"views=renderCfg\_ippim"}, \textcolor{stringliteral}{'view\_keys="vrfname=\{\}"'}.format(args[0])), (\textcolor{stringliteral}{'show\_multi\_views'}, \textcolor{stringliteral}{"views=configure-\/vlan,configure-\/lo,configure-\/lag,configure-\/if,configure-\/subif,renderCfg\_iprte"}), (\textcolor{stringliteral}{'show\_view'}, \textcolor{stringliteral}{"views=configure-\/router-\/bgp"}, \textcolor{stringliteral}{'view\_keys="vrf-\/name=\{\}"'}.format(args[0])) ]}
+\DoxyCodeLine{277             response = api.get(keypath)}
+\DoxyCodeLine{278             \textcolor{keywordflow}{if} response.content == \textcolor{keywordtype}{None} \textcolor{keywordflow}{or} \textcolor{keywordflow}{not} response.content:}
+\DoxyCodeLine{279                  \textcolor{comment}{\# vrf not found}}
+\DoxyCodeLine{280                  \textcolor{keywordflow}{return} 0}
+\DoxyCodeLine{281             rcfgall = \mbox{\hyperlink{namespacesonic__cli__show__config_a7096bed32dc960265e91ffa083e65cff}{showconfig\_views\_to\_buffer}}(showrun\_list)}
+\DoxyCodeLine{282             vrfcfgs = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{283             gotSep = \textcolor{keyword}{False}}
+\DoxyCodeLine{284             \textcolor{keywordflow}{for} cfgl \textcolor{keywordflow}{in} rcfgall.replace(\textcolor{stringliteral}{'\(\backslash\)n '}, \textcolor{stringliteral}{'\(\backslash\)t '}).splitlines():}
+\DoxyCodeLine{285                 \textcolor{keywordflow}{if} cfgl == \textcolor{stringliteral}{'!'}:}
+\DoxyCodeLine{286                    gotSep = \textcolor{keyword}{True}}
+\DoxyCodeLine{287                    \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{288                 \textcolor{keywordflow}{if} args[0] != \textcolor{stringliteral}{'default'}:}
+\DoxyCodeLine{289                    \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} re.search(\textcolor{stringliteral}{'\(\backslash\)\(\backslash\)bvrf (forwarding )?\{\}\(\backslash\)\(\backslash\)b'}.format(args[0]), cfgl):}
+\DoxyCodeLine{290                       \textcolor{keywordflow}{if} args[0] != \textcolor{stringliteral}{'mgmt'} \textcolor{keywordflow}{or} \textcolor{keywordflow}{not} cfgl.startswith(\textcolor{stringliteral}{'interface Management 0'}):}
+\DoxyCodeLine{291                          \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{292                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{293                    \textcolor{keywordflow}{if} re.search(\textcolor{stringliteral}{'\(\backslash\)\(\backslash\)bvrf\(\backslash\)\(\backslash\)b'}, cfgl) \textcolor{keywordflow}{and} \textcolor{keywordflow}{not} re.search(\textcolor{stringliteral}{'\(\backslash\)\(\backslash\)bvrf (forwarding )?default\(\backslash\)\(\backslash\)b'}, cfgl):}
+\DoxyCodeLine{294                       \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{295                 \textcolor{keywordflow}{if} gotSep:}
+\DoxyCodeLine{296                    vrfcfgs += \textcolor{stringliteral}{'\(\backslash\)n!\(\backslash\)n'} + cfgl}
+\DoxyCodeLine{297                    gotSep = \textcolor{keyword}{False}}
+\DoxyCodeLine{298                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{299                    vrfcfgs += \textcolor{stringliteral}{'\(\backslash\)n'} + cfgl}
+\DoxyCodeLine{300             full\_cmd = os.getenv(\textcolor{stringliteral}{'USER\_COMMAND'}, \textcolor{keywordtype}{None})}
+\DoxyCodeLine{301             \textcolor{keywordflow}{if} full\_cmd \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{302                 pipestr().\mbox{\hyperlink{namespacescripts_1_1render__cli_ae395c999bb2be70d73ce51b6d352167b}{write}}(full\_cmd.split())}
+\DoxyCodeLine{303             \mbox{\hyperlink{namespacescripts_1_1render__cli_ae395c999bb2be70d73ce51b6d352167b}{write}}(vrfcfgs.replace(\textcolor{stringliteral}{'\(\backslash\)t'}, \textcolor{stringliteral}{'\(\backslash\)n'}))}
+\DoxyCodeLine{304 }
+\DoxyCodeLine{305         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{306             api\_response = \mbox{\hyperlink{namespacesonic__cli__vrf_a6d83c1de122d0b97da1d86d07af02580}{invoke\_api}}(func, args)}
+\DoxyCodeLine{307 }
+\DoxyCodeLine{308             \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} api\_response.ok():}
+\DoxyCodeLine{309                 \textcolor{comment}{\# error response}}
+\DoxyCodeLine{310                 \textcolor{keywordflow}{print} api\_response.error\_message()}
+\DoxyCodeLine{311 }
+\DoxyCodeLine{312     \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{313         \textcolor{comment}{\# system/network error}}
+\DoxyCodeLine{314         \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\%Error: Transaction Failure"}}
+\DoxyCodeLine{315 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/dcf/namespacesonic__cli__vrf_ad55a09e91e2625cd1e9c926458e45f29_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__vrf_affb26134a461020ba3d468a02fd792be}\label{namespacesonic__cli__vrf_affb26134a461020ba3d468a02fd792be}} 
+\index{sonic\_cli\_vrf@{sonic\_cli\_vrf}!func@{func}}
+\index{func@{func}!sonic\_cli\_vrf@{sonic\_cli\_vrf}}
+\doxysubsubsection{\texorpdfstring{func}{func}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+vrf.\+func = sys.\+argv\mbox{[}1\mbox{]}}
+
+
+
+sonic\+\_\+cli\+\_\+vrf.\+py 파일의 319 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__vrf_ad7d2468ddcc0c056aa2a9221462a68f1}\label{namespacesonic__cli__vrf_ad7d2468ddcc0c056aa2a9221462a68f1}} 
+\index{sonic\_cli\_vrf@{sonic\_cli\_vrf}!IDENTIFIER@{IDENTIFIER}}
+\index{IDENTIFIER@{IDENTIFIER}!sonic\_cli\_vrf@{sonic\_cli\_vrf}}
+\doxysubsubsection{\texorpdfstring{IDENTIFIER}{IDENTIFIER}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+vrf.\+I\+D\+E\+N\+T\+I\+F\+I\+ER = \textquotesingle{}V\+RF\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+vrf.\+py 파일의 34 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__vrf_ad73bd96ab825cbb51da72b9797470003}\label{namespacesonic__cli__vrf_ad73bd96ab825cbb51da72b9797470003}} 
+\index{sonic\_cli\_vrf@{sonic\_cli\_vrf}!NAME1@{NAME1}}
+\index{NAME1@{NAME1}!sonic\_cli\_vrf@{sonic\_cli\_vrf}}
+\doxysubsubsection{\texorpdfstring{NAME1}{NAME1}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+vrf.\+N\+A\+M\+E1 = \textquotesingle{}\mbox{\hyperlink{DB-PARSED_8txt_a1104b60f76e088dc6bcfbbb0c8a8e37c}{vrf}}\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+vrf.\+py 파일의 35 번째 라인에서 정의되었습니다.
+

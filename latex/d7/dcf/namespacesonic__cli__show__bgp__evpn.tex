@@ -1,0 +1,327 @@
+\hypertarget{namespacesonic__cli__show__bgp__evpn}{}\doxysection{sonic\+\_\+cli\+\_\+show\+\_\+bgp\+\_\+evpn 네임스페이스 참조}
+\label{namespacesonic__cli__show__bgp__evpn}\index{sonic\_cli\_show\_bgp\_evpn@{sonic\_cli\_show\_bgp\_evpn}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__show__bgp__evpn_af02f04ab2e376e45d3f871e919521acb}{evpn\+\_\+args2dict}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__show__bgp__evpn_a1d93ccc319d9e93d290de48c9f080175}{apply\+\_\+type\+\_\+filter}} (response, rt\+\_\+type)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__show__bgp__evpn_ac40619955ee6071cf1c38e64eba24774}{apply\+\_\+macip\+\_\+filter}} (response, mac, ip)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__show__bgp__evpn_a6c12b177d9d38003f3b19301729474f8}{apply\+\_\+rd\+\_\+filter}} (response, rd)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__show__bgp__evpn_aaf2bc3df180be7752b688cf94b3e6040}{invoke\+\_\+api}} (\mbox{\hyperlink{namespacesonic__cli__show__bgp__evpn_abac6059cf8b55ecb43ccd50f40eeb5d0}{func}}, args=\mbox{[}$\,$\mbox{]})
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__show__bgp__evpn_a625737d2719ca1be920015588222ab53}{run}} (\mbox{\hyperlink{namespacesonic__cli__show__bgp__evpn_abac6059cf8b55ecb43ccd50f40eeb5d0}{func}}, args)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+dictionary \mbox{\hyperlink{namespacesonic__cli__show__bgp__evpn_a8e31203e0254d54fadb65c0be0400c00}{rttype\+\_\+dict}}
+\item 
+dictionary \mbox{\hyperlink{namespacesonic__cli__show__bgp__evpn_aec9117c77cefed10ed28cec6fa671c15}{vni\+Dict}} = \{\}
+\item 
+\mbox{\hyperlink{namespacesonic__cli__show__bgp__evpn_abac6059cf8b55ecb43ccd50f40eeb5d0}{func}} = sys.\+argv\mbox{[}1\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__show__bgp__evpn_ac40619955ee6071cf1c38e64eba24774}\label{namespacesonic__cli__show__bgp__evpn_ac40619955ee6071cf1c38e64eba24774}} 
+\index{sonic\_cli\_show\_bgp\_evpn@{sonic\_cli\_show\_bgp\_evpn}!apply\_macip\_filter@{apply\_macip\_filter}}
+\index{apply\_macip\_filter@{apply\_macip\_filter}!sonic\_cli\_show\_bgp\_evpn@{sonic\_cli\_show\_bgp\_evpn}}
+\doxysubsubsection{\texorpdfstring{apply\_macip\_filter()}{apply\_macip\_filter()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+show\+\_\+bgp\+\_\+evpn.\+apply\+\_\+macip\+\_\+filter (\begin{DoxyParamCaption}\item[{}]{response,  }\item[{}]{mac,  }\item[{}]{ip }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+bgp\+\_\+evpn.\+py 파일의 57 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{57 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__show__bgp__evpn_ac40619955ee6071cf1c38e64eba24774}{apply\_macip\_filter}}(response, mac, ip):}
+\DoxyCodeLine{58     new\_list = []}
+\DoxyCodeLine{59     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/bgp-\/evpn-\/ext:routes'} \textcolor{keywordflow}{in} response:}
+\DoxyCodeLine{60         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'route'} \textcolor{keywordflow}{in} response[\textcolor{stringliteral}{'openconfig-\/bgp-\/evpn-\/ext:routes'}]:}
+\DoxyCodeLine{61             \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(len(response[\textcolor{stringliteral}{'openconfig-\/bgp-\/evpn-\/ext:routes'}][\textcolor{stringliteral}{'route'}])):}
+\DoxyCodeLine{62                 route = response[\textcolor{stringliteral}{'openconfig-\/bgp-\/evpn-\/ext:routes'}][\textcolor{stringliteral}{'route'}][i]}
+\DoxyCodeLine{63                 t = route[\textcolor{stringliteral}{'prefix'}].split(\textcolor{stringliteral}{':'})[0].rstrip(\textcolor{stringliteral}{']'}).lstrip(\textcolor{stringliteral}{'['})}
+\DoxyCodeLine{64                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'2'} == t \textcolor{keywordflow}{and} mac \textcolor{keywordflow}{in} route[\textcolor{stringliteral}{'prefix'}] \textcolor{keywordflow}{and} ip \textcolor{keywordflow}{in} route[\textcolor{stringliteral}{'prefix'}]:}
+\DoxyCodeLine{65                     new\_list.append(route)}
+\DoxyCodeLine{66         response[\textcolor{stringliteral}{'openconfig-\/bgp-\/evpn-\/ext:routes'}][\textcolor{stringliteral}{'route'}] = new\_list}
+\DoxyCodeLine{67     \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{68 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/dcf/namespacesonic__cli__show__bgp__evpn_ac40619955ee6071cf1c38e64eba24774_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__show__bgp__evpn_a6c12b177d9d38003f3b19301729474f8}\label{namespacesonic__cli__show__bgp__evpn_a6c12b177d9d38003f3b19301729474f8}} 
+\index{sonic\_cli\_show\_bgp\_evpn@{sonic\_cli\_show\_bgp\_evpn}!apply\_rd\_filter@{apply\_rd\_filter}}
+\index{apply\_rd\_filter@{apply\_rd\_filter}!sonic\_cli\_show\_bgp\_evpn@{sonic\_cli\_show\_bgp\_evpn}}
+\doxysubsubsection{\texorpdfstring{apply\_rd\_filter()}{apply\_rd\_filter()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+show\+\_\+bgp\+\_\+evpn.\+apply\+\_\+rd\+\_\+filter (\begin{DoxyParamCaption}\item[{}]{response,  }\item[{}]{rd }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+bgp\+\_\+evpn.\+py 파일의 69 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{69 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__show__bgp__evpn_a6c12b177d9d38003f3b19301729474f8}{apply\_rd\_filter}}(response, rd):}
+\DoxyCodeLine{70     new\_list = []}
+\DoxyCodeLine{71     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/bgp-\/evpn-\/ext:routes'} \textcolor{keywordflow}{in} response:}
+\DoxyCodeLine{72         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'route'} \textcolor{keywordflow}{in} response[\textcolor{stringliteral}{'openconfig-\/bgp-\/evpn-\/ext:routes'}]:}
+\DoxyCodeLine{73             \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(len(response[\textcolor{stringliteral}{'openconfig-\/bgp-\/evpn-\/ext:routes'}][\textcolor{stringliteral}{'route'}])):}
+\DoxyCodeLine{74                 route = response[\textcolor{stringliteral}{'openconfig-\/bgp-\/evpn-\/ext:routes'}][\textcolor{stringliteral}{'route'}][i]}
+\DoxyCodeLine{75                 \textcolor{keywordflow}{if} rd == route[\textcolor{stringliteral}{'route-\/distinguisher'}]:}
+\DoxyCodeLine{76                     new\_list.append(route)}
+\DoxyCodeLine{77         response[\textcolor{stringliteral}{'openconfig-\/bgp-\/evpn-\/ext:routes'}][\textcolor{stringliteral}{'route'}] = new\_list}
+\DoxyCodeLine{78     \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{79 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/dcf/namespacesonic__cli__show__bgp__evpn_a6c12b177d9d38003f3b19301729474f8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__show__bgp__evpn_a1d93ccc319d9e93d290de48c9f080175}\label{namespacesonic__cli__show__bgp__evpn_a1d93ccc319d9e93d290de48c9f080175}} 
+\index{sonic\_cli\_show\_bgp\_evpn@{sonic\_cli\_show\_bgp\_evpn}!apply\_type\_filter@{apply\_type\_filter}}
+\index{apply\_type\_filter@{apply\_type\_filter}!sonic\_cli\_show\_bgp\_evpn@{sonic\_cli\_show\_bgp\_evpn}}
+\doxysubsubsection{\texorpdfstring{apply\_type\_filter()}{apply\_type\_filter()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+show\+\_\+bgp\+\_\+evpn.\+apply\+\_\+type\+\_\+filter (\begin{DoxyParamCaption}\item[{}]{response,  }\item[{}]{rt\+\_\+type }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+bgp\+\_\+evpn.\+py 파일의 45 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{45 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__show__bgp__evpn_a1d93ccc319d9e93d290de48c9f080175}{apply\_type\_filter}}(response, rt\_type):}
+\DoxyCodeLine{46     new\_list = []}
+\DoxyCodeLine{47     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/bgp-\/evpn-\/ext:routes'} \textcolor{keywordflow}{in} response:}
+\DoxyCodeLine{48         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'route'} \textcolor{keywordflow}{in} response[\textcolor{stringliteral}{'openconfig-\/bgp-\/evpn-\/ext:routes'}]:}
+\DoxyCodeLine{49             \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(len(response[\textcolor{stringliteral}{'openconfig-\/bgp-\/evpn-\/ext:routes'}][\textcolor{stringliteral}{'route'}])):}
+\DoxyCodeLine{50                 route = response[\textcolor{stringliteral}{'openconfig-\/bgp-\/evpn-\/ext:routes'}][\textcolor{stringliteral}{'route'}][i]}
+\DoxyCodeLine{51                 t = route[\textcolor{stringliteral}{'prefix'}].split(\textcolor{stringliteral}{':'})[0].rstrip(\textcolor{stringliteral}{']'}).lstrip(\textcolor{stringliteral}{'['})}
+\DoxyCodeLine{52                 \textcolor{keywordflow}{if} rttype\_dict[rt\_type] == t:}
+\DoxyCodeLine{53                     new\_list.append(route)}
+\DoxyCodeLine{54         response[\textcolor{stringliteral}{'openconfig-\/bgp-\/evpn-\/ext:routes'}][\textcolor{stringliteral}{'route'}] = new\_list}
+\DoxyCodeLine{55     \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{56 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/dcf/namespacesonic__cli__show__bgp__evpn_a1d93ccc319d9e93d290de48c9f080175_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__show__bgp__evpn_af02f04ab2e376e45d3f871e919521acb}\label{namespacesonic__cli__show__bgp__evpn_af02f04ab2e376e45d3f871e919521acb}} 
+\index{sonic\_cli\_show\_bgp\_evpn@{sonic\_cli\_show\_bgp\_evpn}!evpn\_args2dict@{evpn\_args2dict}}
+\index{evpn\_args2dict@{evpn\_args2dict}!sonic\_cli\_show\_bgp\_evpn@{sonic\_cli\_show\_bgp\_evpn}}
+\doxysubsubsection{\texorpdfstring{evpn\_args2dict()}{evpn\_args2dict()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+show\+\_\+bgp\+\_\+evpn.\+evpn\+\_\+args2dict (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+bgp\+\_\+evpn.\+py 파일의 38 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{38 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__show__bgp__evpn_af02f04ab2e376e45d3f871e919521acb}{evpn\_args2dict}}(args):}
+\DoxyCodeLine{39     dct = \{\}}
+\DoxyCodeLine{40     \textcolor{keywordflow}{for} e \textcolor{keywordflow}{in} args:}
+\DoxyCodeLine{41         k, v = e.split(\textcolor{stringliteral}{'='}, 1)}
+\DoxyCodeLine{42         \textcolor{keywordflow}{if} v: dct[k] = v}
+\DoxyCodeLine{43     \textcolor{keywordflow}{return} dct}
+\DoxyCodeLine{44 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/dcf/namespacesonic__cli__show__bgp__evpn_af02f04ab2e376e45d3f871e919521acb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__show__bgp__evpn_aaf2bc3df180be7752b688cf94b3e6040}\label{namespacesonic__cli__show__bgp__evpn_aaf2bc3df180be7752b688cf94b3e6040}} 
+\index{sonic\_cli\_show\_bgp\_evpn@{sonic\_cli\_show\_bgp\_evpn}!invoke\_api@{invoke\_api}}
+\index{invoke\_api@{invoke\_api}!sonic\_cli\_show\_bgp\_evpn@{sonic\_cli\_show\_bgp\_evpn}}
+\doxysubsubsection{\texorpdfstring{invoke\_api()}{invoke\_api()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+show\+\_\+bgp\+\_\+evpn.\+invoke\+\_\+api (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args = {\ttfamily \mbox{[}\mbox{]}} }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+bgp\+\_\+evpn.\+py 파일의 80 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{80 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__show__bgp__evpn_aaf2bc3df180be7752b688cf94b3e6040}{invoke\_api}}(func, args=[]):}
+\DoxyCodeLine{81     api = cc.ApiClient()}
+\DoxyCodeLine{82     keypath = []}
+\DoxyCodeLine{83     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{84     }
+\DoxyCodeLine{85     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'get\_bgp\_evpn\_summary'}:}
+\DoxyCodeLine{86         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{87             +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global'},}
+\DoxyCodeLine{88                 vrf=args[0])}
+\DoxyCodeLine{89         response = api.get(keypath)}
+\DoxyCodeLine{90         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{91             +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/neighbors'},}
+\DoxyCodeLine{92                 vrf=args[0])}
+\DoxyCodeLine{93         response.content.update(api.get(keypath).content)}
+\DoxyCodeLine{94         \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{95     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_bgp\_evpn\_vni'}:}
+\DoxyCodeLine{96         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{97             +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn'}}
+\DoxyCodeLine{98             +\textcolor{stringliteral}{'/openconfig-\/bgp-\/evpn-\/ext:vnis/vni=\{vni\_number\}/state'},}
+\DoxyCodeLine{99                 vrf=args[0], af\_name=args[1], vni\_number=args[2])}
+\DoxyCodeLine{100         \textcolor{keywordflow}{return} api.get(keypath)}
+\DoxyCodeLine{101     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_bgp\_evpn\_routes'}:}
+\DoxyCodeLine{102         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{103             +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/rib/afi-\/safis/afi-\/safi=\{af\_name\}/openconfig-\/bgp-\/evpn-\/ext:l2vpn-\/evpn'}}
+\DoxyCodeLine{104             +\textcolor{stringliteral}{'/loc-\/rib/routes'},}
+\DoxyCodeLine{105                 vrf=args[0], af\_name=args[1])}
+\DoxyCodeLine{106         \textcolor{keywordflow}{return} api.get(keypath)}
+\DoxyCodeLine{107     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_bgp\_evpn\_routes\_filter'}:}
+\DoxyCodeLine{108         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{109             +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/rib/afi-\/safis/afi-\/safi=\{af\_name\}/openconfig-\/bgp-\/evpn-\/ext:l2vpn-\/evpn'}}
+\DoxyCodeLine{110             +\textcolor{stringliteral}{'/loc-\/rib/routes'},}
+\DoxyCodeLine{111                 vrf=args[0], af\_name=args[1])}
+\DoxyCodeLine{112         response = api.get(keypath)}
+\DoxyCodeLine{113         \textcolor{keywordflow}{if} response.ok() \textcolor{keywordflow}{and} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{114             \textcolor{keywordflow}{if} len(args) < 3:}
+\DoxyCodeLine{115                 filterdict = \{\}}
+\DoxyCodeLine{116             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{117                 filterdict = \mbox{\hyperlink{namespacesonic__cli__show__bgp__evpn_af02f04ab2e376e45d3f871e919521acb}{evpn\_args2dict}}(args[2:])}
+\DoxyCodeLine{118             \textcolor{keywordflow}{if} \textcolor{stringliteral}{"rd"} \textcolor{keywordflow}{in} filterdict:}
+\DoxyCodeLine{119                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{"type"} \textcolor{keywordflow}{in} filterdict:}
+\DoxyCodeLine{120                     \textcolor{comment}{\#apply rd,type filter}}
+\DoxyCodeLine{121                     \mbox{\hyperlink{namespacesonic__cli__show__bgp__evpn_a6c12b177d9d38003f3b19301729474f8}{apply\_rd\_filter}}(response.content, filterdict[\textcolor{stringliteral}{"rd"}])}
+\DoxyCodeLine{122                     \mbox{\hyperlink{namespacesonic__cli__show__bgp__evpn_a1d93ccc319d9e93d290de48c9f080175}{apply\_type\_filter}}(response.content, filterdict[\textcolor{stringliteral}{"type"}])}
+\DoxyCodeLine{123                 \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"mac"} \textcolor{keywordflow}{in} filterdict:}
+\DoxyCodeLine{124                     \textcolor{comment}{\#apply rd,macip filter}}
+\DoxyCodeLine{125                     \mbox{\hyperlink{namespacesonic__cli__show__bgp__evpn_a6c12b177d9d38003f3b19301729474f8}{apply\_rd\_filter}}(response.content, filterdict[\textcolor{stringliteral}{"rd"}])}
+\DoxyCodeLine{126                     \mbox{\hyperlink{namespacesonic__cli__show__bgp__evpn_ac40619955ee6071cf1c38e64eba24774}{apply\_macip\_filter}}(response.content, filterdict[\textcolor{stringliteral}{"mac"}], filterdict[\textcolor{stringliteral}{"ip"}])}
+\DoxyCodeLine{127                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{128                     \textcolor{comment}{\#apply rd only filter}}
+\DoxyCodeLine{129                     \mbox{\hyperlink{namespacesonic__cli__show__bgp__evpn_a6c12b177d9d38003f3b19301729474f8}{apply\_rd\_filter}}(response.content, filterdict[\textcolor{stringliteral}{"rd"}])}
+\DoxyCodeLine{130             \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"type"} \textcolor{keywordflow}{in} filterdict:}
+\DoxyCodeLine{131                 \textcolor{comment}{\#apply type only filter}}
+\DoxyCodeLine{132                 \mbox{\hyperlink{namespacesonic__cli__show__bgp__evpn_a1d93ccc319d9e93d290de48c9f080175}{apply\_type\_filter}}(response.content, filterdict[\textcolor{stringliteral}{"type"}])}
+\DoxyCodeLine{133         \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{136         body = \{\}}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138     \textcolor{keywordflow}{return} api.cli\_not\_implemented(func)}
+\DoxyCodeLine{139 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/dcf/namespacesonic__cli__show__bgp__evpn_aaf2bc3df180be7752b688cf94b3e6040_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{d7/dcf/namespacesonic__cli__show__bgp__evpn_aaf2bc3df180be7752b688cf94b3e6040_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__show__bgp__evpn_a625737d2719ca1be920015588222ab53}\label{namespacesonic__cli__show__bgp__evpn_a625737d2719ca1be920015588222ab53}} 
+\index{sonic\_cli\_show\_bgp\_evpn@{sonic\_cli\_show\_bgp\_evpn}!run@{run}}
+\index{run@{run}!sonic\_cli\_show\_bgp\_evpn@{sonic\_cli\_show\_bgp\_evpn}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+show\+\_\+bgp\+\_\+evpn.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+bgp\+\_\+evpn.\+py 파일의 140 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{140 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__show__bgp__evpn_a625737d2719ca1be920015588222ab53}{run}}(func, args):}
+\DoxyCodeLine{141     response = \mbox{\hyperlink{namespacesonic__cli__show__bgp__evpn_aaf2bc3df180be7752b688cf94b3e6040}{invoke\_api}}(func, args[1:])}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143     \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{144         \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{145             api\_response = response.content}
+\DoxyCodeLine{146             \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], api\_response)}
+\DoxyCodeLine{147         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{148             print(\textcolor{stringliteral}{"Empty response"})}
+\DoxyCodeLine{149     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{150         print(response.error\_message())}
+\DoxyCodeLine{151 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/dcf/namespacesonic__cli__show__bgp__evpn_a625737d2719ca1be920015588222ab53_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__show__bgp__evpn_abac6059cf8b55ecb43ccd50f40eeb5d0}\label{namespacesonic__cli__show__bgp__evpn_abac6059cf8b55ecb43ccd50f40eeb5d0}} 
+\index{sonic\_cli\_show\_bgp\_evpn@{sonic\_cli\_show\_bgp\_evpn}!func@{func}}
+\index{func@{func}!sonic\_cli\_show\_bgp\_evpn@{sonic\_cli\_show\_bgp\_evpn}}
+\doxysubsubsection{\texorpdfstring{func}{func}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+show\+\_\+bgp\+\_\+evpn.\+func = sys.\+argv\mbox{[}1\mbox{]}}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+bgp\+\_\+evpn.\+py 파일의 155 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__show__bgp__evpn_a8e31203e0254d54fadb65c0be0400c00}\label{namespacesonic__cli__show__bgp__evpn_a8e31203e0254d54fadb65c0be0400c00}} 
+\index{sonic\_cli\_show\_bgp\_evpn@{sonic\_cli\_show\_bgp\_evpn}!rttype\_dict@{rttype\_dict}}
+\index{rttype\_dict@{rttype\_dict}!sonic\_cli\_show\_bgp\_evpn@{sonic\_cli\_show\_bgp\_evpn}}
+\doxysubsubsection{\texorpdfstring{rttype\_dict}{rttype\_dict}}
+{\footnotesize\ttfamily dictionary sonic\+\_\+cli\+\_\+show\+\_\+bgp\+\_\+evpn.\+rttype\+\_\+dict}
+
+{\bfseries 초기값\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  \{}
+\DoxyCodeLine{2     \textcolor{stringliteral}{"ead"}:\textcolor{stringliteral}{"1"},}
+\DoxyCodeLine{3     \textcolor{stringliteral}{"es"}:\textcolor{stringliteral}{"4"},}
+\DoxyCodeLine{4     \textcolor{stringliteral}{"macip"}:\textcolor{stringliteral}{"2"},}
+\DoxyCodeLine{5     \textcolor{stringliteral}{"multicast"}:\textcolor{stringliteral}{"3"},}
+\DoxyCodeLine{6     \textcolor{stringliteral}{"prefix"}:\textcolor{stringliteral}{"5"}}
+\DoxyCodeLine{7 \}}
+
+\end{DoxyCode}
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+bgp\+\_\+evpn.\+py 파일의 28 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__show__bgp__evpn_aec9117c77cefed10ed28cec6fa671c15}\label{namespacesonic__cli__show__bgp__evpn_aec9117c77cefed10ed28cec6fa671c15}} 
+\index{sonic\_cli\_show\_bgp\_evpn@{sonic\_cli\_show\_bgp\_evpn}!vniDict@{vniDict}}
+\index{vniDict@{vniDict}!sonic\_cli\_show\_bgp\_evpn@{sonic\_cli\_show\_bgp\_evpn}}
+\doxysubsubsection{\texorpdfstring{vniDict}{vniDict}}
+{\footnotesize\ttfamily dictionary sonic\+\_\+cli\+\_\+show\+\_\+bgp\+\_\+evpn.\+vni\+Dict = \{\}}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+bgp\+\_\+evpn.\+py 파일의 36 번째 라인에서 정의되었습니다.
+

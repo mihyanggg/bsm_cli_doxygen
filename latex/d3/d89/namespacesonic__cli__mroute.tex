@@ -1,0 +1,714 @@
+\hypertarget{namespacesonic__cli__mroute}{}\doxysection{sonic\+\_\+cli\+\_\+mroute 네임스페이스 참조}
+\label{namespacesonic__cli__mroute}\index{sonic\_cli\_mroute@{sonic\_cli\_mroute}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__mroute_a393061e5739c2a0e22c17dcbcc447977}{get\+\_\+keypath}} (func, args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__mroute_aaa5117d344adac00f3e2baa014d2badd}{process\+\_\+args}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__mroute_a4dbd7871e13abfd76d1e4389e4c8a20c}{show\+\_\+response}} (response)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__mroute_a8bec0ee244e37e484c8d2f2b2c90dc19}{show\+\_\+mroute\+\_\+src\+\_\+info}} (response)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__mroute_a22336d18ed00bb0a660e91d49b7dd326}{show\+\_\+mroute\+\_\+info}} (response)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__mroute_a62049dbca42f33fbf5dcda159c1359c8}{show\+\_\+mroute\+\_\+summary}} (response)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__mroute_ad793b43ea9e2cd8cf7cf47dd5f52b09d}{handle\+\_\+show\+\_\+all}} (func, args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__mroute_a9d46ec51a13e5147588cb8502ca36a35}{handle\+\_\+show}} (func, args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__mroute_a166abf6da603b1fd1276a86f31a5ca53}{handle\+\_\+clear}} (func, args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__mroute_add2fd9b7308e8ab8b81d57e4d32722f5}{run}} (func, args)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+dictionary \mbox{\hyperlink{namespacesonic__cli__mroute_a08c2798c5e6160a91c549d69f011abe8}{input\+Dict}} = \{\}
+\item 
+\mbox{\hyperlink{namespacesonic__cli__mroute_ad3b1ccf5e06b37b732bd22ea9fd9cc8a}{api\+Client}} = cc.\+Api\+Client()
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__mroute_a9a62d4cc7065bfca7909b2cdb70854e3}{status}} = \mbox{\hyperlink{namespacesonic__cli__mroute_add2fd9b7308e8ab8b81d57e4d32722f5}{run}}(sys.\+argv\mbox{[}1\mbox{]}, sys.\+argv\mbox{[}2\+:\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__mroute_a393061e5739c2a0e22c17dcbcc447977}\label{namespacesonic__cli__mroute_a393061e5739c2a0e22c17dcbcc447977}} 
+\index{sonic\_cli\_mroute@{sonic\_cli\_mroute}!get\_keypath@{get\_keypath}}
+\index{get\_keypath@{get\_keypath}!sonic\_cli\_mroute@{sonic\_cli\_mroute}}
+\doxysubsubsection{\texorpdfstring{get\_keypath()}{get\_keypath()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+mroute.\+get\+\_\+keypath (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+mroute.\+py 파일의 36 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{36 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__mroute_a393061e5739c2a0e22c17dcbcc447977}{get\_keypath}}(func,args):}
+\DoxyCodeLine{37     keypath = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{38     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{39     path\_prefix = \textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance='}}
+\DoxyCodeLine{40     intf = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{41     vrf = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{42     path = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{comment}{\#get vrf, needed for keypath}}
+\DoxyCodeLine{45     vrf = inputDict.get(\textcolor{stringliteral}{'vrf'})}
+\DoxyCodeLine{46     \textcolor{keywordflow}{if} vrf == \textcolor{keywordtype}{None} \textcolor{keywordflow}{or} vrf == \textcolor{stringliteral}{""}:}
+\DoxyCodeLine{47         vrf = \textcolor{stringliteral}{"default"}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     }
+\DoxyCodeLine{52     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'show\_mroute'} \textcolor{keywordflow}{in} func:}
+\DoxyCodeLine{53         \textcolor{keywordflow}{if} (inputDict.get(\textcolor{stringliteral}{'summary'})):}
+\DoxyCodeLine{54             path = \textcolor{stringliteral}{"/restconf/operations/sonic-\/ipmroute-\/show:show-\/ipmroute"}}
+\DoxyCodeLine{55             body = \{\textcolor{stringliteral}{"sonic-\/ipmroute-\/show:input"}: \{\textcolor{stringliteral}{"vrf-\/name"}:vrf, \textcolor{stringliteral}{"address-\/family"}:\textcolor{stringliteral}{"IPV4\_UNICAST"}, \textcolor{stringliteral}{"query-\/type"}:\textcolor{stringliteral}{"SUMMARY"}, \textcolor{stringliteral}{"summary"}:\textcolor{keyword}{True}\}\}}
+\DoxyCodeLine{56         \textcolor{keywordflow}{elif} (inputDict.get(\textcolor{stringliteral}{'srcAddr'}) \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}):}
+\DoxyCodeLine{57             path = path\_prefix + vrf + \textcolor{stringliteral}{"/afts/openconfig-\/aft-\/ipv4-\/ext:ipv4-\/multicast/ipv4-\/entries/ipv4-\/entry="} + inputDict.get(\textcolor{stringliteral}{'grpAddr'}) + \textcolor{stringliteral}{"/state/src-\/entries/src-\/entry="} + inputDict.get(\textcolor{stringliteral}{'srcAddr'})}
+\DoxyCodeLine{58         \textcolor{keywordflow}{elif} (inputDict.get(\textcolor{stringliteral}{'grpAddr'}) \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}):}
+\DoxyCodeLine{59             path = path\_prefix + vrf + \textcolor{stringliteral}{"/afts/openconfig-\/aft-\/ipv4-\/ext:ipv4-\/multicast/ipv4-\/entries/ipv4-\/entry="} + inputDict.get(\textcolor{stringliteral}{'grpAddr'})}
+\DoxyCodeLine{60         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{61             path = path\_prefix + vrf + \textcolor{stringliteral}{"/afts/openconfig-\/aft-\/ipv4-\/ext:ipv4-\/multicast/ipv4-\/entries"}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63     }
+\DoxyCodeLine{66     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'clear\_mroute'} \textcolor{keywordflow}{in} func:}
+\DoxyCodeLine{67         path = \textcolor{stringliteral}{"/restconf/operations/sonic-\/ipmroute-\/clear:clear-\/ipmroute"}}
+\DoxyCodeLine{68         body = \{\textcolor{stringliteral}{"sonic-\/ipmroute-\/clear:input"}: \{\textcolor{stringliteral}{"vrf-\/name"}: vrf, \textcolor{stringliteral}{"address-\/family"}:\textcolor{stringliteral}{"IPV4\_UNICAST"}, \textcolor{stringliteral}{"config-\/type"}:\textcolor{stringliteral}{"ALL-\/MROUTES"}, \textcolor{stringliteral}{"all-\/mroutes"}: \textcolor{keyword}{True}\}\}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     keypath = cc.Path(path)}
+\DoxyCodeLine{71     \textcolor{keywordflow}{return} keypath, body}
+\DoxyCodeLine{72 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d89/namespacesonic__cli__mroute_a393061e5739c2a0e22c17dcbcc447977_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__mroute_a166abf6da603b1fd1276a86f31a5ca53}\label{namespacesonic__cli__mroute_a166abf6da603b1fd1276a86f31a5ca53}} 
+\index{sonic\_cli\_mroute@{sonic\_cli\_mroute}!handle\_clear@{handle\_clear}}
+\index{handle\_clear@{handle\_clear}!sonic\_cli\_mroute@{sonic\_cli\_mroute}}
+\doxysubsubsection{\texorpdfstring{handle\_clear()}{handle\_clear()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+mroute.\+handle\+\_\+clear (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+mroute.\+py 파일의 384 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{384 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__mroute_a166abf6da603b1fd1276a86f31a5ca53}{handle\_clear}}(func, args):}
+\DoxyCodeLine{385     keypath, body = \mbox{\hyperlink{namespacesonic__cli__mroute_a393061e5739c2a0e22c17dcbcc447977}{get\_keypath}}(func, args)}
+\DoxyCodeLine{386     \textcolor{keywordflow}{if} keypath \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{387         print(\textcolor{stringliteral}{"\% Error: Internal error"})}
+\DoxyCodeLine{388         \textcolor{keywordflow}{return} -\/1}
+\DoxyCodeLine{389     response = apiClient.post(keypath, body)}
+\DoxyCodeLine{390     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response.ok():}
+\DoxyCodeLine{391         print(response.error\_message())}
+\DoxyCodeLine{392         \textcolor{keywordflow}{return} -\/1}
+\DoxyCodeLine{393     \textcolor{keywordflow}{return} 0}
+\DoxyCodeLine{394 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d89/namespacesonic__cli__mroute_a166abf6da603b1fd1276a86f31a5ca53_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d89/namespacesonic__cli__mroute_a166abf6da603b1fd1276a86f31a5ca53_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__mroute_a9d46ec51a13e5147588cb8502ca36a35}\label{namespacesonic__cli__mroute_a9d46ec51a13e5147588cb8502ca36a35}} 
+\index{sonic\_cli\_mroute@{sonic\_cli\_mroute}!handle\_show@{handle\_show}}
+\index{handle\_show@{handle\_show}!sonic\_cli\_mroute@{sonic\_cli\_mroute}}
+\doxysubsubsection{\texorpdfstring{handle\_show()}{handle\_show()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+mroute.\+handle\+\_\+show (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+mroute.\+py 파일의 358 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{358 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__mroute_a9d46ec51a13e5147588cb8502ca36a35}{handle\_show}}(func, args):}
+\DoxyCodeLine{359     vrfList = []}
+\DoxyCodeLine{360     \textcolor{keywordflow}{if} inputDict.get(\textcolor{stringliteral}{'vrf'}) == \textcolor{stringliteral}{"all"}:}
+\DoxyCodeLine{361         \mbox{\hyperlink{namespacesonic__cli__mroute_ad793b43ea9e2cd8cf7cf47dd5f52b09d}{handle\_show\_all}}(func, args)}
+\DoxyCodeLine{362         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{363 }
+\DoxyCodeLine{364     keypath, body = \mbox{\hyperlink{namespacesonic__cli__mroute_a393061e5739c2a0e22c17dcbcc447977}{get\_keypath}}(func, args)}
+\DoxyCodeLine{365     \textcolor{keywordflow}{if} keypath \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{366         print(\textcolor{stringliteral}{"\% Error: Internal error"})}
+\DoxyCodeLine{367         \textcolor{keywordflow}{return} -\/1}
+\DoxyCodeLine{368     \textcolor{keywordflow}{if} \textcolor{stringliteral}{"/operations/"} \textcolor{keywordflow}{in} keypath.path:}
+\DoxyCodeLine{369         response = apiClient.post(keypath, body)}
+\DoxyCodeLine{370     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{371         response = apiClient.get(keypath)}
+\DoxyCodeLine{372 }
+\DoxyCodeLine{373     \textcolor{keywordflow}{if} response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{374         \textcolor{keywordflow}{return} -\/1}
+\DoxyCodeLine{375 }
+\DoxyCodeLine{376     \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{377         response = response.content}
+\DoxyCodeLine{378         \mbox{\hyperlink{namespacesonic__cli__mroute_a4dbd7871e13abfd76d1e4389e4c8a20c}{show\_response}}(response)}
+\DoxyCodeLine{379     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{380         print(response.error\_message())}
+\DoxyCodeLine{381         \textcolor{keywordflow}{return} -\/1}
+\DoxyCodeLine{382     \textcolor{keywordflow}{return} 0}
+\DoxyCodeLine{383 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d89/namespacesonic__cli__mroute_a9d46ec51a13e5147588cb8502ca36a35_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d89/namespacesonic__cli__mroute_a9d46ec51a13e5147588cb8502ca36a35_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__mroute_ad793b43ea9e2cd8cf7cf47dd5f52b09d}\label{namespacesonic__cli__mroute_ad793b43ea9e2cd8cf7cf47dd5f52b09d}} 
+\index{sonic\_cli\_mroute@{sonic\_cli\_mroute}!handle\_show\_all@{handle\_show\_all}}
+\index{handle\_show\_all@{handle\_show\_all}!sonic\_cli\_mroute@{sonic\_cli\_mroute}}
+\doxysubsubsection{\texorpdfstring{handle\_show\_all()}{handle\_show\_all()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+mroute.\+handle\+\_\+show\+\_\+all (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+mroute.\+py 파일의 324 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{324 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__mroute_ad793b43ea9e2cd8cf7cf47dd5f52b09d}{handle\_show\_all}}(func, args):}
+\DoxyCodeLine{325     \textcolor{keyword}{global} inputDict}
+\DoxyCodeLine{326     response = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{327     vrfList = \mbox{\hyperlink{namespacesonic__cli__pim_ac82e595c72737b8fa564e492076c771a}{get\_vrf\_list}}()}
+\DoxyCodeLine{328     \textcolor{keywordflow}{if} vrfList \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{329         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{330 }
+\DoxyCodeLine{331     vrfList.sort(key=string.lower)}
+\DoxyCodeLine{332     \textcolor{keywordflow}{for} vrf \textcolor{keywordflow}{in} vrfList:}
+\DoxyCodeLine{333         \textcolor{keywordflow}{if} vrf == \textcolor{stringliteral}{"mgmt"}:}
+\DoxyCodeLine{334             \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{335 }
+\DoxyCodeLine{336         inputDict[\textcolor{stringliteral}{'vrf'}] = vrf}
+\DoxyCodeLine{337         keypath, body = \mbox{\hyperlink{namespacesonic__cli__mroute_a393061e5739c2a0e22c17dcbcc447977}{get\_keypath}}(func, args)}
+\DoxyCodeLine{338         \textcolor{keywordflow}{if} keypath \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{339             print(\textcolor{stringliteral}{"\% Error: Internal error"})}
+\DoxyCodeLine{340             \textcolor{keywordflow}{return} -\/1}
+\DoxyCodeLine{341 }
+\DoxyCodeLine{342         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"/operations/"} \textcolor{keywordflow}{in} keypath.path:}
+\DoxyCodeLine{343             response = apiClient.post(keypath, body)}
+\DoxyCodeLine{344         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{345             response = apiClient.get(keypath)}
+\DoxyCodeLine{346 }
+\DoxyCodeLine{347         \textcolor{keywordflow}{if} response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{348             \textcolor{keywordflow}{return} -\/1}
+\DoxyCodeLine{349 }
+\DoxyCodeLine{350         \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{351             response = response.content}
+\DoxyCodeLine{352             \mbox{\hyperlink{namespacesonic__cli__mroute_a4dbd7871e13abfd76d1e4389e4c8a20c}{show\_response}}(response)}
+\DoxyCodeLine{353         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{354             print(response.error\_message())}
+\DoxyCodeLine{355             \textcolor{keywordflow}{return} -\/1}
+\DoxyCodeLine{356     \textcolor{keywordflow}{return} 0}
+\DoxyCodeLine{357 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d89/namespacesonic__cli__mroute_ad793b43ea9e2cd8cf7cf47dd5f52b09d_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d89/namespacesonic__cli__mroute_ad793b43ea9e2cd8cf7cf47dd5f52b09d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__mroute_aaa5117d344adac00f3e2baa014d2badd}\label{namespacesonic__cli__mroute_aaa5117d344adac00f3e2baa014d2badd}} 
+\index{sonic\_cli\_mroute@{sonic\_cli\_mroute}!process\_args@{process\_args}}
+\index{process\_args@{process\_args}!sonic\_cli\_mroute@{sonic\_cli\_mroute}}
+\doxysubsubsection{\texorpdfstring{process\_args()}{process\_args()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+mroute.\+process\+\_\+args (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+mroute.\+py 파일의 73 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{73 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__mroute_aaa5117d344adac00f3e2baa014d2badd}{process\_args}}(args):}
+\DoxyCodeLine{74     \textcolor{keyword}{global} inputDict}
+\DoxyCodeLine{75     count = 0}
+\DoxyCodeLine{76     \textcolor{keywordflow}{for} arg \textcolor{keywordflow}{in} args:}
+\DoxyCodeLine{77         tmp = arg.split(\textcolor{stringliteral}{":"}, 1)}
+\DoxyCodeLine{78         \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} len(tmp) == 2:}
+\DoxyCodeLine{79             \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{80         \textcolor{keywordflow}{if} tmp[1] == \textcolor{stringliteral}{""}:}
+\DoxyCodeLine{81             tmp[1] = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{82         inputDict[tmp[0]] = tmp[1]}
+\DoxyCodeLine{83         \textcolor{keywordflow}{if} (tmp[1] != \textcolor{keywordtype}{None}) \textcolor{keywordflow}{and} (tmp[0] != \textcolor{stringliteral}{'vrf'}):}
+\DoxyCodeLine{84             count = count + 1}
+\DoxyCodeLine{85     \textcolor{keywordflow}{return} count}
+\DoxyCodeLine{86 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d89/namespacesonic__cli__mroute_aaa5117d344adac00f3e2baa014d2badd_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__mroute_add2fd9b7308e8ab8b81d57e4d32722f5}\label{namespacesonic__cli__mroute_add2fd9b7308e8ab8b81d57e4d32722f5}} 
+\index{sonic\_cli\_mroute@{sonic\_cli\_mroute}!run@{run}}
+\index{run@{run}!sonic\_cli\_mroute@{sonic\_cli\_mroute}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+mroute.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+mroute.\+py 파일의 395 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{395 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__mroute_add2fd9b7308e8ab8b81d57e4d32722f5}{run}}(func, args):}
+\DoxyCodeLine{396     \textcolor{keyword}{global} inputDict}
+\DoxyCodeLine{397     response = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{398     status = 0}
+\DoxyCodeLine{399     \mbox{\hyperlink{namespacesonic__cli__mroute_aaa5117d344adac00f3e2baa014d2badd}{process\_args}}(args)}
+\DoxyCodeLine{400 }
+\DoxyCodeLine{401     \textcolor{keywordflow}{if} func.startswith(\textcolor{stringliteral}{"show"}):}
+\DoxyCodeLine{402       status = \mbox{\hyperlink{namespacesonic__cli__mroute_a9d46ec51a13e5147588cb8502ca36a35}{handle\_show}}(func, args)}
+\DoxyCodeLine{403     \textcolor{keywordflow}{elif} func.startswith(\textcolor{stringliteral}{"clear"}):}
+\DoxyCodeLine{404       status = \mbox{\hyperlink{namespacesonic__cli__mroute_a166abf6da603b1fd1276a86f31a5ca53}{handle\_clear}}(func, args)}
+\DoxyCodeLine{405     inputDict = \{\}}
+\DoxyCodeLine{406     \textcolor{keywordflow}{return} status}
+\DoxyCodeLine{407 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d89/namespacesonic__cli__mroute_add2fd9b7308e8ab8b81d57e4d32722f5_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__mroute_a22336d18ed00bb0a660e91d49b7dd326}\label{namespacesonic__cli__mroute_a22336d18ed00bb0a660e91d49b7dd326}} 
+\index{sonic\_cli\_mroute@{sonic\_cli\_mroute}!show\_mroute\_info@{show\_mroute\_info}}
+\index{show\_mroute\_info@{show\_mroute\_info}!sonic\_cli\_mroute@{sonic\_cli\_mroute}}
+\doxysubsubsection{\texorpdfstring{show\_mroute\_info()}{show\_mroute\_info()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+mroute.\+show\+\_\+mroute\+\_\+info (\begin{DoxyParamCaption}\item[{}]{response }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+mroute.\+py 파일의 180 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{180 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__mroute_a22336d18ed00bb0a660e91d49b7dd326}{show\_mroute\_info}}(response):}
+\DoxyCodeLine{181     outputList = []}
+\DoxyCodeLine{182     outputList2 = []}
+\DoxyCodeLine{183     oilList2 = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{184     srcList2 = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{185     ipList = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{188         \textcolor{keywordflow}{if} inputDict.get(\textcolor{stringliteral}{'grpAddr'}) \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{189             ipList = response.get(\textcolor{stringliteral}{'openconfig-\/aft-\/ipv4-\/ext:ipv4-\/entry'})}
+\DoxyCodeLine{190         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{191             tmpContainer = response.get(\textcolor{stringliteral}{'openconfig-\/aft-\/ipv4-\/ext:ipv4-\/entries'})}
+\DoxyCodeLine{192             \textcolor{keywordflow}{if} tmpContainer \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{193                 \textcolor{keywordflow}{return}}
+\DoxyCodeLine{194             ipList = tmpContainer.get(\textcolor{stringliteral}{'ipv4-\/entry'})}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{196         \textcolor{keywordflow}{if} ipList \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{197             \textcolor{keywordflow}{return}}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{199         \textcolor{keywordflow}{for} ip \textcolor{keywordflow}{in} ipList:}
+\DoxyCodeLine{200             srcList2 = []}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{202             grpAddr = ip.get(\textcolor{stringliteral}{'group-\/address'})}
+\DoxyCodeLine{203             \textcolor{keywordflow}{if} grpAddr \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{204                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{206             state = ip.get(\textcolor{stringliteral}{'state'})}
+\DoxyCodeLine{207             \textcolor{keywordflow}{if} state \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{208                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{209 }
+\DoxyCodeLine{210             srcEntries = state.get(\textcolor{stringliteral}{'src-\/entries'})}
+\DoxyCodeLine{211             \textcolor{keywordflow}{if} srcEntries \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{212                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{214             srcList = srcEntries.get(\textcolor{stringliteral}{'src-\/entry'})}
+\DoxyCodeLine{215             \textcolor{keywordflow}{if} srcList \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{216                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{217 }
+\DoxyCodeLine{218             \textcolor{keywordflow}{for} src \textcolor{keywordflow}{in} srcList:}
+\DoxyCodeLine{219                 oilList2 = []}
+\DoxyCodeLine{220                 srcAddr = src.get(\textcolor{stringliteral}{'source-\/address'})}
+\DoxyCodeLine{221                 \textcolor{keywordflow}{if} srcAddr \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{222                     srcAddr = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224                 srcState = src.get(\textcolor{stringliteral}{'state'})}
+\DoxyCodeLine{225                 \textcolor{keywordflow}{if} srcState \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{226                     \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{227 }
+\DoxyCodeLine{228                 inIntf = srcState.get(\textcolor{stringliteral}{'incoming-\/interface'})}
+\DoxyCodeLine{229                 \textcolor{keywordflow}{if} inIntf \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{230                     inIntf = \textcolor{stringliteral}{"-\/"}}
+\DoxyCodeLine{231 }
+\DoxyCodeLine{232                 installed = srcState.get(\textcolor{stringliteral}{'installed'})}
+\DoxyCodeLine{233                 \textcolor{keywordflow}{if} installed \textcolor{keywordflow}{is} \textcolor{keywordtype}{None} \textcolor{keywordflow}{or} installed == \textcolor{keyword}{False}:}
+\DoxyCodeLine{234                     installed = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{235                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{236                     installed = \textcolor{stringliteral}{"*"}}
+\DoxyCodeLine{237 }
+\DoxyCodeLine{238                 oilContainer = srcState.get(\textcolor{stringliteral}{'oil-\/info-\/entries'})}
+\DoxyCodeLine{239                 \textcolor{keywordflow}{if} oilContainer \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{240                     oilEntry = \{\textcolor{stringliteral}{'outIntf'}: \textcolor{stringliteral}{"-\/"}, \textcolor{stringliteral}{'oilUpTime'}: \textcolor{stringliteral}{"-\/-\/:-\/-\/:-\/-\/"}\}}
+\DoxyCodeLine{241                     oilList2.append(oilEntry)}
+\DoxyCodeLine{242                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{243                     oilList = oilContainer.get(\textcolor{stringliteral}{'oif-\/info'})}
+\DoxyCodeLine{244                     \textcolor{keywordflow}{if} oilList \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{245                         oilEntry = \{\textcolor{stringliteral}{'outIntf'}: \textcolor{stringliteral}{"-\/"}, \textcolor{stringliteral}{'oilUpTime'}: \textcolor{stringliteral}{"-\/-\/:-\/-\/:-\/-\/"}\}}
+\DoxyCodeLine{246                         oilList2.append(oilEntry)}
+\DoxyCodeLine{247                     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{248                         \textcolor{keywordflow}{for} oil \textcolor{keywordflow}{in} oilList:}
+\DoxyCodeLine{249                             outIntf = oil.get(\textcolor{stringliteral}{'outgoing-\/interface'})}
+\DoxyCodeLine{250                             \textcolor{keywordflow}{if}  outIntf \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{251                                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{252 }
+\DoxyCodeLine{253                             oilState = oil.get(\textcolor{stringliteral}{'state'})}
+\DoxyCodeLine{254                             \textcolor{keywordflow}{if}  oilState \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{255                                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{256 }
+\DoxyCodeLine{257                             oilUpTime = oilState.get(\textcolor{stringliteral}{'uptime'})}
+\DoxyCodeLine{258                             \textcolor{keywordflow}{if} oilUpTime \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{259                                 oilUpTime = \textcolor{stringliteral}{"-\/-\/:-\/-\/:-\/-\/"}}
+\DoxyCodeLine{260                             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{261                                 oilUpTime = \mbox{\hyperlink{namespacesonic__cli__bgp_a5e159defc7bea70b69923d0df12e0708}{seconds\_to\_wdhm\_str}}(oilUpTime, \textcolor{keyword}{True})}
+\DoxyCodeLine{262 }
+\DoxyCodeLine{263                             oilEntry = \{\textcolor{stringliteral}{'outIntf'}: outIntf,}
+\DoxyCodeLine{264                                         \textcolor{stringliteral}{'oilUpTime'}: oilUpTime}
+\DoxyCodeLine{265                                        \}}
+\DoxyCodeLine{266                             oilList2.append(oilEntry)}
+\DoxyCodeLine{267 }
+\DoxyCodeLine{268                 srcEntry = \{\textcolor{stringliteral}{'grpAddr'}: grpAddr,}
+\DoxyCodeLine{269                             \textcolor{stringliteral}{'srcAddr'}: srcAddr,}
+\DoxyCodeLine{270                             \textcolor{stringliteral}{'installed'}: installed ,}
+\DoxyCodeLine{271                             \textcolor{stringliteral}{'inIntf'}: inIntf,}
+\DoxyCodeLine{272                             \textcolor{stringliteral}{'oilList'}: oilList2}
+\DoxyCodeLine{273                             \}}
+\DoxyCodeLine{274                 outputList.append(srcEntry)}
+\DoxyCodeLine{275 }
+\DoxyCodeLine{276         \textcolor{keywordflow}{if} len(outputList) > 0:}
+\DoxyCodeLine{277             vrfName = inputDict.get(\textcolor{stringliteral}{'vrf'})}
+\DoxyCodeLine{278             \textcolor{keywordflow}{if} vrfName \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{279                 vrfName = \textcolor{stringliteral}{'default'}}
+\DoxyCodeLine{280 }
+\DoxyCodeLine{281             outputList2.append(\textcolor{stringliteral}{'show\_mroute'})}
+\DoxyCodeLine{282             outputList2.append(vrfName)}
+\DoxyCodeLine{283             outputList2.append(outputList)}
+\DoxyCodeLine{284             \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{"show\_mroute.j2"}, outputList2)}
+\DoxyCodeLine{285     \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} e:}
+\DoxyCodeLine{286         log.syslog(log.LOG\_ERR, str(e))}
+\DoxyCodeLine{287         \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\% Error: Internal error"}}
+\DoxyCodeLine{288 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d89/namespacesonic__cli__mroute_a22336d18ed00bb0a660e91d49b7dd326_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d89/namespacesonic__cli__mroute_a22336d18ed00bb0a660e91d49b7dd326_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__mroute_a8bec0ee244e37e484c8d2f2b2c90dc19}\label{namespacesonic__cli__mroute_a8bec0ee244e37e484c8d2f2b2c90dc19}} 
+\index{sonic\_cli\_mroute@{sonic\_cli\_mroute}!show\_mroute\_src\_info@{show\_mroute\_src\_info}}
+\index{show\_mroute\_src\_info@{show\_mroute\_src\_info}!sonic\_cli\_mroute@{sonic\_cli\_mroute}}
+\doxysubsubsection{\texorpdfstring{show\_mroute\_src\_info()}{show\_mroute\_src\_info()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+mroute.\+show\+\_\+mroute\+\_\+src\+\_\+info (\begin{DoxyParamCaption}\item[{}]{response }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+mroute.\+py 파일의 96 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{96 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__mroute_a8bec0ee244e37e484c8d2f2b2c90dc19}{show\_mroute\_src\_info}}(response):}
+\DoxyCodeLine{97     outputList = []}
+\DoxyCodeLine{98     outputList2 = []}
+\DoxyCodeLine{99     oilList2 = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{100     srcList2 = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{101     ipList = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103     grpAddr = inputDict.get(\textcolor{stringliteral}{'grpAddr'})}
+\DoxyCodeLine{104     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{105         srcList = response.get(\textcolor{stringliteral}{'openconfig-\/aft-\/ipv4-\/ext:src-\/entry'})}
+\DoxyCodeLine{106         \textcolor{keywordflow}{if} srcList \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{107             \textcolor{keywordflow}{return}}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109         oilList2 = []}
+\DoxyCodeLine{110         srcAddr = srcList[0].\mbox{\hyperlink{namespacescripts_1_1json__tools_afd87b9a49f4372aebe9a000a029a76fe}{get}}(\textcolor{stringliteral}{'source-\/address'})}
+\DoxyCodeLine{111         \textcolor{keywordflow}{if} srcAddr \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{112             srcAddr = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114         srcState = srcList[0].\mbox{\hyperlink{namespacescripts_1_1json__tools_afd87b9a49f4372aebe9a000a029a76fe}{get}}(\textcolor{stringliteral}{'state'})}
+\DoxyCodeLine{115         \textcolor{keywordflow}{if} srcState \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{116             \textcolor{keywordflow}{return}}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118         inIntf = srcState.get(\textcolor{stringliteral}{'incoming-\/interface'})}
+\DoxyCodeLine{119         \textcolor{keywordflow}{if} inIntf \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{120             inIntf = \textcolor{stringliteral}{"-\/"}}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122         installed = srcState.get(\textcolor{stringliteral}{'installed'})}
+\DoxyCodeLine{123         \textcolor{keywordflow}{if} installed \textcolor{keywordflow}{is} \textcolor{keywordtype}{None} \textcolor{keywordflow}{or} installed == \textcolor{keyword}{False}:}
+\DoxyCodeLine{124             installed = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{125         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{126             installed = \textcolor{stringliteral}{"*"}}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128         oilContainer = srcState.get(\textcolor{stringliteral}{'oil-\/info-\/entries'})}
+\DoxyCodeLine{129         \textcolor{keywordflow}{if} oilContainer \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{130             oilEntry = \{\textcolor{stringliteral}{'outIntf'}: \textcolor{stringliteral}{"-\/"}, \textcolor{stringliteral}{'oilUpTime'}: \textcolor{stringliteral}{"-\/-\/:-\/-\/:-\/-\/"}\}}
+\DoxyCodeLine{131             oilList2.append(oilEntry)}
+\DoxyCodeLine{132         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{133             oilList = oilContainer.get(\textcolor{stringliteral}{'oif-\/info'})}
+\DoxyCodeLine{134             \textcolor{keywordflow}{if} oilList \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{135                 oilEntry = \{\textcolor{stringliteral}{'outIntf'}: \textcolor{stringliteral}{"-\/"}, \textcolor{stringliteral}{'oilUpTime'}: \textcolor{stringliteral}{"-\/-\/:-\/-\/:-\/-\/"}\}}
+\DoxyCodeLine{136                 oilList2.append(oilEntry)}
+\DoxyCodeLine{137             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{138                 \textcolor{keywordflow}{for} oil \textcolor{keywordflow}{in} oilList:}
+\DoxyCodeLine{139                     outIntf = oil.get(\textcolor{stringliteral}{'outgoing-\/interface'})}
+\DoxyCodeLine{140                     \textcolor{keywordflow}{if}  outIntf \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{141                         \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143                     oilState = oil.get(\textcolor{stringliteral}{'state'})}
+\DoxyCodeLine{144                     \textcolor{keywordflow}{if}  oilState \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{145                         \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147                     oilUpTime = oilState.get(\textcolor{stringliteral}{'uptime'})}
+\DoxyCodeLine{148                     \textcolor{keywordflow}{if} oilUpTime \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{149                         oilUpTime = \textcolor{stringliteral}{"-\/-\/:-\/-\/:-\/-\/"}}
+\DoxyCodeLine{150                     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{151                         oilUpTime = \mbox{\hyperlink{namespacesonic__cli__bgp_a5e159defc7bea70b69923d0df12e0708}{seconds\_to\_wdhm\_str}}(oilUpTime, \textcolor{keyword}{True})}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153                     oilEntry = \{\textcolor{stringliteral}{'outIntf'}: outIntf,}
+\DoxyCodeLine{154                                 \textcolor{stringliteral}{'oilUpTime'}: oilUpTime}
+\DoxyCodeLine{155                                \}}
+\DoxyCodeLine{156                     oilList2.append(oilEntry)}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158         srcEntry = \{\textcolor{stringliteral}{'grpAddr'}: grpAddr,}
+\DoxyCodeLine{159                     \textcolor{stringliteral}{'srcAddr'}: srcAddr,}
+\DoxyCodeLine{160                     \textcolor{stringliteral}{'installed'}: installed ,}
+\DoxyCodeLine{161                     \textcolor{stringliteral}{'inIntf'}: inIntf,}
+\DoxyCodeLine{162                     \textcolor{stringliteral}{'oilList'}: oilList2}
+\DoxyCodeLine{163                     \}}
+\DoxyCodeLine{164         outputList.append(srcEntry)}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166         \textcolor{keywordflow}{if} len(outputList) > 0:}
+\DoxyCodeLine{167             vrfName = inputDict.get(\textcolor{stringliteral}{'vrf'})}
+\DoxyCodeLine{168             \textcolor{keywordflow}{if} vrfName \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{169                 vrfName = \textcolor{stringliteral}{'default'}}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{171             outputList2.append(\textcolor{stringliteral}{'show\_mroute'})}
+\DoxyCodeLine{172             outputList2.append(vrfName)}
+\DoxyCodeLine{173             outputList2.append(outputList)}
+\DoxyCodeLine{174             \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{"show\_mroute.j2"}, outputList2)}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{176     \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} e:}
+\DoxyCodeLine{177         log.syslog(log.LOG\_ERR, str(e))}
+\DoxyCodeLine{178         \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\% Error: Internal error"}}
+\DoxyCodeLine{179 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d89/namespacesonic__cli__mroute_a8bec0ee244e37e484c8d2f2b2c90dc19_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d89/namespacesonic__cli__mroute_a8bec0ee244e37e484c8d2f2b2c90dc19_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__mroute_a62049dbca42f33fbf5dcda159c1359c8}\label{namespacesonic__cli__mroute_a62049dbca42f33fbf5dcda159c1359c8}} 
+\index{sonic\_cli\_mroute@{sonic\_cli\_mroute}!show\_mroute\_summary@{show\_mroute\_summary}}
+\index{show\_mroute\_summary@{show\_mroute\_summary}!sonic\_cli\_mroute@{sonic\_cli\_mroute}}
+\doxysubsubsection{\texorpdfstring{show\_mroute\_summary()}{show\_mroute\_summary()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+mroute.\+show\+\_\+mroute\+\_\+summary (\begin{DoxyParamCaption}\item[{}]{response }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+mroute.\+py 파일의 289 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{289 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__mroute_a62049dbca42f33fbf5dcda159c1359c8}{show\_mroute\_summary}}(response):}
+\DoxyCodeLine{290     outputList = []}
+\DoxyCodeLine{291 }
+\DoxyCodeLine{292     outputContainer = response.get(\textcolor{stringliteral}{'sonic-\/ipmroute-\/show:output'})}
+\DoxyCodeLine{293     \textcolor{keywordflow}{if} outputContainer \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{294         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{295 }
+\DoxyCodeLine{296     tmp = outputContainer.get(\textcolor{stringliteral}{'response'})}
+\DoxyCodeLine{297     \textcolor{keywordflow}{if} tmp \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{298         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{299 }
+\DoxyCodeLine{300     resContainer = json.loads(tmp)}
+\DoxyCodeLine{301     srcGrp =  resContainer.get(\textcolor{stringliteral}{'sourceGroup'})}
+\DoxyCodeLine{302     \textcolor{keywordflow}{if} srcGrp \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{303         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{304 }
+\DoxyCodeLine{305     installed = srcGrp.get(\textcolor{stringliteral}{'installed'})}
+\DoxyCodeLine{306     \textcolor{keywordflow}{if} installed \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{307         installed = 0}
+\DoxyCodeLine{308 }
+\DoxyCodeLine{309     total = srcGrp.get(\textcolor{stringliteral}{'total'})}
+\DoxyCodeLine{310     \textcolor{keywordflow}{if} total \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{311         total = 0}
+\DoxyCodeLine{312 }
+\DoxyCodeLine{313     summaryEntry = \{\textcolor{stringliteral}{'installed'}: installed, \textcolor{stringliteral}{'total'}: total\}}
+\DoxyCodeLine{314 }
+\DoxyCodeLine{315     vrfName = inputDict.get(\textcolor{stringliteral}{'vrf'})}
+\DoxyCodeLine{316     \textcolor{keywordflow}{if} vrfName \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{317         vrfName = \textcolor{stringliteral}{'default'}}
+\DoxyCodeLine{318 }
+\DoxyCodeLine{319     outputList.append(\textcolor{stringliteral}{'mroute\_summary'})}
+\DoxyCodeLine{320     outputList.append(vrfName)}
+\DoxyCodeLine{321     outputList.append(summaryEntry)}
+\DoxyCodeLine{322     \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{"show\_mroute.j2"}, outputList)}
+\DoxyCodeLine{323 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d89/namespacesonic__cli__mroute_a62049dbca42f33fbf5dcda159c1359c8_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d89/namespacesonic__cli__mroute_a62049dbca42f33fbf5dcda159c1359c8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__mroute_a4dbd7871e13abfd76d1e4389e4c8a20c}\label{namespacesonic__cli__mroute_a4dbd7871e13abfd76d1e4389e4c8a20c}} 
+\index{sonic\_cli\_mroute@{sonic\_cli\_mroute}!show\_response@{show\_response}}
+\index{show\_response@{show\_response}!sonic\_cli\_mroute@{sonic\_cli\_mroute}}
+\doxysubsubsection{\texorpdfstring{show\_response()}{show\_response()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+mroute.\+show\+\_\+response (\begin{DoxyParamCaption}\item[{}]{response }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+mroute.\+py 파일의 87 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{87 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__mroute_a4dbd7871e13abfd76d1e4389e4c8a20c}{show\_response}}(response):}
+\DoxyCodeLine{88     \textcolor{keywordflow}{if} (inputDict.get(\textcolor{stringliteral}{'summary'}) \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}):}
+\DoxyCodeLine{89         \mbox{\hyperlink{namespacesonic__cli__mroute_a62049dbca42f33fbf5dcda159c1359c8}{show\_mroute\_summary}}(response)}
+\DoxyCodeLine{90     \textcolor{keywordflow}{elif} (inputDict.get(\textcolor{stringliteral}{'srcAddr'}) \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}):}
+\DoxyCodeLine{91         \mbox{\hyperlink{namespacesonic__cli__mroute_a8bec0ee244e37e484c8d2f2b2c90dc19}{show\_mroute\_src\_info}}(response)}
+\DoxyCodeLine{92     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{93         \mbox{\hyperlink{namespacesonic__cli__mroute_a22336d18ed00bb0a660e91d49b7dd326}{show\_mroute\_info}}(response)}
+\DoxyCodeLine{94     \textcolor{keywordflow}{return}}
+\DoxyCodeLine{95 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d89/namespacesonic__cli__mroute_a4dbd7871e13abfd76d1e4389e4c8a20c_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d89/namespacesonic__cli__mroute_a4dbd7871e13abfd76d1e4389e4c8a20c_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__mroute_ad3b1ccf5e06b37b732bd22ea9fd9cc8a}\label{namespacesonic__cli__mroute_ad3b1ccf5e06b37b732bd22ea9fd9cc8a}} 
+\index{sonic\_cli\_mroute@{sonic\_cli\_mroute}!apiClient@{apiClient}}
+\index{apiClient@{apiClient}!sonic\_cli\_mroute@{sonic\_cli\_mroute}}
+\doxysubsubsection{\texorpdfstring{apiClient}{apiClient}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+mroute.\+api\+Client = cc.\+Api\+Client()}
+
+
+
+sonic\+\_\+cli\+\_\+mroute.\+py 파일의 34 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__mroute_a08c2798c5e6160a91c549d69f011abe8}\label{namespacesonic__cli__mroute_a08c2798c5e6160a91c549d69f011abe8}} 
+\index{sonic\_cli\_mroute@{sonic\_cli\_mroute}!inputDict@{inputDict}}
+\index{inputDict@{inputDict}!sonic\_cli\_mroute@{sonic\_cli\_mroute}}
+\doxysubsubsection{\texorpdfstring{inputDict}{inputDict}}
+{\footnotesize\ttfamily dictionary sonic\+\_\+cli\+\_\+mroute.\+input\+Dict = \{\}}
+
+
+
+sonic\+\_\+cli\+\_\+mroute.\+py 파일의 33 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__mroute_a9a62d4cc7065bfca7909b2cdb70854e3}\label{namespacesonic__cli__mroute_a9a62d4cc7065bfca7909b2cdb70854e3}} 
+\index{sonic\_cli\_mroute@{sonic\_cli\_mroute}!status@{status}}
+\index{status@{status}!sonic\_cli\_mroute@{sonic\_cli\_mroute}}
+\doxysubsubsection{\texorpdfstring{status}{status}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+mroute.\+status = \mbox{\hyperlink{namespacesonic__cli__mroute_add2fd9b7308e8ab8b81d57e4d32722f5}{run}}(sys.\+argv\mbox{[}1\mbox{]}, sys.\+argv\mbox{[}2\+:\mbox{]})}
+
+
+
+sonic\+\_\+cli\+\_\+mroute.\+py 파일의 410 번째 라인에서 정의되었습니다.
+

@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: cli/sonic_cli_show_ldap.py 소스 파일</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'검색');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','검색');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_2990d7c532eb7441b74916b8f5365141.html">cli</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">sonic_cli_show_ldap.py</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d9/db5/sonic__cli__show__ldap_8py.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="../../db/dc2/namespacesonic__cli__show__ldap.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/python</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="stringliteral">LDAP KLISH Actioner script</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">import</span> sys</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">from</span> rpipe_utils <span class="keyword">import</span> pipestr</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">import</span> cli_client <span class="keyword">as</span> cc</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">from</span> <a class="code" href="../../d1/d3d/namespacescripts_1_1render__cli.html">scripts.render_cli</a> <span class="keyword">import</span> show_cli_output</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../db/dc2/namespacesonic__cli__show__ldap.html#ae3fbb291e62b5bb692b4181d181d7c40">   29</a></span>&#160;SYSTEM = <span class="stringliteral">&#39;/restconf/data/openconfig-system:system/&#39;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../db/dc2/namespacesonic__cli__show__ldap.html#a9fab388d35bc30eee8350e345f717ea1">   30</a></span>&#160;AAA = SYSTEM + <span class="stringliteral">&#39;aaa/&#39;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../db/dc2/namespacesonic__cli__show__ldap.html#aeabecbad09ad7c7e68dc2b5d8a757c3c">   31</a></span>&#160;SERVER_GROUPS = AAA + <span class="stringliteral">&#39;server-groups/&#39;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../db/dc2/namespacesonic__cli__show__ldap.html#a1aaccfe023b7aaf892e6dbdb0e7dfb76">   32</a></span>&#160;MODNAME = <span class="stringliteral">&#39;openconfig-aaa-ldap-ext:&#39;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../db/dc2/namespacesonic__cli__show__ldap.html#a14db5e8b01f4a7fe6b78cdb927459208">   33</a></span>&#160;MODNAME_LDAP = MODNAME + <span class="stringliteral">&#39;ldap&#39;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../db/dc2/namespacesonic__cli__show__ldap.html#ad1a75bd475752889c6b87338a7b5fdb4">   34</a></span>&#160;MODNAME_MAPS = MODNAME + <span class="stringliteral">&#39;maps&#39;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../db/dc2/namespacesonic__cli__show__ldap.html#acd7985724c0abd035de921d41d9004f0">   35</a></span>&#160;MODNAME_CONFIG = MODNAME + <span class="stringliteral">&#39;config&#39;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../db/dc2/namespacesonic__cli__show__ldap.html#adff24a665808f1a7bbee0439fc634328">   36</a></span>&#160;LDAP_SERVER_GROUP = SERVER_GROUPS + <span class="stringliteral">&#39;server-group={}/&#39;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../db/dc2/namespacesonic__cli__show__ldap.html#a0558b5296427820d59b6e0eec02b0e2c">   37</a></span>&#160;LDAP = <span class="stringliteral">&#39;LDAP&#39;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../db/dc2/namespacesonic__cli__show__ldap.html#aac906de883d183f83cee67394ec55339">   38</a></span>&#160;LDAP_NSS = <span class="stringliteral">&#39;LDAP_NSS&#39;</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../db/dc2/namespacesonic__cli__show__ldap.html#aa7abe0d415d2ab03d274b74b2f3d79cb">   39</a></span>&#160;LDAP_PAM = <span class="stringliteral">&#39;LDAP_PAM&#39;</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../db/dc2/namespacesonic__cli__show__ldap.html#aaf8b552fd1466a0ba14f3a29c9fe1591">   40</a></span>&#160;LDAP_SUDO = <span class="stringliteral">&#39;LDAP_SUDO&#39;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../db/dc2/namespacesonic__cli__show__ldap.html#ad54b9b5c86763b2bc52f45f517256105">   41</a></span>&#160;LDAP_CONFIG = LDAP_SERVER_GROUP + MODNAME_LDAP + <span class="stringliteral">&#39;/config/&#39;</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../db/dc2/namespacesonic__cli__show__ldap.html#aede7cec6986f903b139ecaa11aa6744f">   42</a></span>&#160;LDAP_SERVER_CONFIG = LDAP_SERVER_GROUP.format(LDAP) + \</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="stringliteral">&#39;servers/server={}/&#39;</span> + MODNAME + <span class="stringliteral">&#39;ldap/config/&#39;</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../db/dc2/namespacesonic__cli__show__ldap.html#af0d65ec824b9abd7c44dba6a29059786">   44</a></span>&#160;LDAP_MAPS = LDAP_SERVER_GROUP.format(LDAP) + MODNAME_LDAP + <span class="stringliteral">&#39;/maps/&#39;</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../db/dc2/namespacesonic__cli__show__ldap.html#abbc9cf2af4b554ca89e7e4acdc4dc1b0">   48</a></span>&#160;<span class="keyword">def </span><a class="code" href="../../db/dc2/namespacesonic__cli__show__ldap.html#abbc9cf2af4b554ca89e7e4acdc4dc1b0">get_sonic_ldap_global</a>():</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="stringliteral">    LDAP KLISH globals show</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="stringliteral">    &quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    api_response = {}</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    api = cc.ApiClient()</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">for</span> sg <span class="keywordflow">in</span> [ LDAP, LDAP_NSS, LDAP_PAM, LDAP_SUDO ]:</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        path = cc.Path(LDAP_CONFIG.format(sg))</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        response = api.get(path)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">if</span> response.ok():</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">if</span> response.content <span class="keywordflow">and</span> MODNAME_CONFIG <span class="keywordflow">in</span> response.content:</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                api_response = (response.content)[MODNAME_CONFIG]</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                <a class="code" href="../../d1/d3d/namespacescripts_1_1render__cli.html#a21c728cd1db8b5bd209adc5f3325305d">show_cli_output</a>(<span class="stringliteral">&quot;show_ldap_global.j2&quot;</span>, api_response, sg=sg)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="../../db/dc2/namespacesonic__cli__show__ldap.html#a7123a782cb27c035759901aa14bbda23">   63</a></span>&#160;<span class="keyword">def </span><a class="code" href="../../db/dc2/namespacesonic__cli__show__ldap.html#a7123a782cb27c035759901aa14bbda23">get_sonic_ldap_servers</a>():</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="stringliteral">    LDAP KLISH server show</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="stringliteral">    &quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    api_response = {}</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    api = cc.ApiClient()</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    path = cc.Path(LDAP_SERVER_GROUP.format(LDAP) + <span class="stringliteral">&#39;servers&#39;</span>)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    response = api.get(path)</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">if</span> <span class="keywordflow">not</span> response.ok():</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        print(<span class="stringliteral">&quot;%Error: Get Failure&quot;</span>)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">if</span>     (<span class="keywordflow">not</span> response.content)\</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">or</span> (<span class="keywordflow">not</span> <span class="stringliteral">&#39;openconfig-system:servers&#39;</span> <span class="keywordflow">in</span> response.content)\</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordflow">or</span> (<span class="keywordflow">not</span> <span class="stringliteral">&#39;server&#39;</span> <span class="keywordflow">in</span> response.content[<span class="stringliteral">&#39;openconfig-system:servers&#39;</span>]):</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    api_response[<span class="stringliteral">&#39;header&#39;</span>] = <span class="stringliteral">&#39;True&#39;</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <a class="code" href="../../d1/d3d/namespacescripts_1_1render__cli.html#a21c728cd1db8b5bd209adc5f3325305d">show_cli_output</a>(<span class="stringliteral">&quot;show_ldap_server.j2&quot;</span>, api_response)</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">for</span> server <span class="keywordflow">in</span> response.content[<span class="stringliteral">&#39;openconfig-system:servers&#39;</span>][<span class="stringliteral">&#39;server&#39;</span>]:</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        api_response.clear()</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        api_response[<span class="stringliteral">&#39;header&#39;</span>] = <span class="stringliteral">&#39;False&#39;</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">if</span> <span class="stringliteral">&#39;address&#39;</span> <span class="keywordflow">in</span> server:</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            api_response[<span class="stringliteral">&#39;address&#39;</span>] = server[<span class="stringliteral">&#39;address&#39;</span>]</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        api_response[<span class="stringliteral">&#39;use_type&#39;</span>] = <span class="stringliteral">&quot;-&quot;</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        api_response[<span class="stringliteral">&#39;retry&#39;</span>] = <span class="stringliteral">&quot;-&quot;</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        api_response[<span class="stringliteral">&#39;priority&#39;</span>] = <span class="stringliteral">&quot;-&quot;</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        api_response[<span class="stringliteral">&#39;ssl&#39;</span>] = <span class="stringliteral">&quot;-&quot;</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        api_response[<span class="stringliteral">&#39;port&#39;</span>] = <span class="stringliteral">&quot;-&quot;</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keywordflow">if</span> (MODNAME_LDAP <span class="keywordflow">in</span> server) \</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                <span class="keywordflow">and</span> (<span class="stringliteral">&#39;config&#39;</span> <span class="keywordflow">in</span> server[MODNAME_LDAP]):</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            config = server[MODNAME_LDAP][<span class="stringliteral">&#39;config&#39;</span>]</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <span class="keywordflow">if</span> <span class="stringliteral">&#39;use-type&#39;</span> <span class="keywordflow">in</span> config:</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                api_response[<span class="stringliteral">&#39;use_type&#39;</span>] = config[<span class="stringliteral">&#39;use-type&#39;</span>]</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            <span class="keywordflow">if</span> <span class="stringliteral">&#39;retransmit-attempts&#39;</span> <span class="keywordflow">in</span> config:</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                api_response[<span class="stringliteral">&#39;retry&#39;</span>] = config[<span class="stringliteral">&#39;retransmit-attempts&#39;</span>]</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            <span class="keywordflow">if</span> <span class="stringliteral">&#39;priority&#39;</span> <span class="keywordflow">in</span> config:</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                api_response[<span class="stringliteral">&#39;priority&#39;</span>] = config[<span class="stringliteral">&#39;priority&#39;</span>]</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <span class="keywordflow">if</span> <span class="stringliteral">&#39;ssl&#39;</span> <span class="keywordflow">in</span> config:</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                api_response[<span class="stringliteral">&#39;ssl&#39;</span>] = config[<span class="stringliteral">&#39;ssl&#39;</span>]</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            <span class="keywordflow">if</span> <span class="stringliteral">&#39;port&#39;</span> <span class="keywordflow">in</span> config:</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                api_response[<span class="stringliteral">&#39;port&#39;</span>] = config[<span class="stringliteral">&#39;port&#39;</span>]</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <a class="code" href="../../d1/d3d/namespacescripts_1_1render__cli.html#a21c728cd1db8b5bd209adc5f3325305d">show_cli_output</a>(<span class="stringliteral">&quot;show_ldap_server.j2&quot;</span>, api_response)</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="../../db/dc2/namespacesonic__cli__show__ldap.html#ae03ce8d683deb6eb1ee0bc4ff8d3f18f">  113</a></span>&#160;<span class="keyword">def </span><a class="code" href="../../db/dc2/namespacesonic__cli__show__ldap.html#ae03ce8d683deb6eb1ee0bc4ff8d3f18f">get_sonic_ldap_maps</a>():</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="stringliteral">    LDAP KLISH maps show</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="stringliteral">    &quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    api_response = {}</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    api = cc.ApiClient()</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    path = cc.Path(LDAP_MAPS)</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    response = api.get(path)</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordflow">if</span> <span class="keywordflow">not</span> response.ok():</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        print(<span class="stringliteral">&quot;%Error: Get Failure&quot;</span>)</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordflow">if</span>         (<span class="keywordflow">not</span> response.content) \</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            <span class="keywordflow">or</span> (<span class="keywordflow">not</span> (MODNAME_MAPS) <span class="keywordflow">in</span> response.content) \</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            <span class="keywordflow">or</span> (<span class="keywordflow">not</span> <span class="stringliteral">&#39;map&#39;</span> <span class="keywordflow">in</span> response.content[MODNAME_MAPS]) \</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            <span class="keywordflow">or</span> (len(response.content[MODNAME_MAPS][<span class="stringliteral">&#39;map&#39;</span>]) == 0):</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    api_response[<span class="stringliteral">&#39;header&#39;</span>] = <span class="stringliteral">&#39;True&#39;</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <a class="code" href="../../d1/d3d/namespacescripts_1_1render__cli.html#a21c728cd1db8b5bd209adc5f3325305d">show_cli_output</a>(<span class="stringliteral">&quot;show_ldap_maps.j2&quot;</span>, api_response)</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="comment"># show the maps</span></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    maps = { <span class="stringliteral">&#39;ATTRIBUTE&#39;</span> : {},</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;             <span class="stringliteral">&#39;OBJECTCLASS&#39;</span> : {},</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;             <span class="stringliteral">&#39;DEFAULT_ATTRIBUTE_VALUE&#39;</span> : {},</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;             <span class="stringliteral">&#39;OVERRIDE_ATTRIBUTE_VALUE&#39;</span> : {}</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;           }</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keywordflow">for</span> entry <span class="keywordflow">in</span> response.content[MODNAME_MAPS][<span class="stringliteral">&#39;map&#39;</span>]:</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        maps[entry[<span class="stringliteral">&#39;name&#39;</span>]][entry[<span class="stringliteral">&#39;from&#39;</span>]] = entry[<span class="stringliteral">&#39;config&#39;</span>][<span class="stringliteral">&#39;to&#39;</span>]</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="comment"># print maps</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keywordflow">for</span> mapname, map <span class="keywordflow">in</span> maps.iteritems():</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keywordflow">if</span> len(map) != 0:</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            <a class="code" href="../../d1/d3d/namespacescripts_1_1render__cli.html#a21c728cd1db8b5bd209adc5f3325305d">show_cli_output</a>(<span class="stringliteral">&quot;show_ldap_maps.j2&quot;</span>, map, name=mapname)</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="../../db/dc2/namespacesonic__cli__show__ldap.html#a2c7459ee99fca0cf58af4fb9ffb9c57c">  151</a></span>&#160;<span class="keyword">def </span><a class="code" href="../../db/dc2/namespacesonic__cli__show__ldap.html#a2c7459ee99fca0cf58af4fb9ffb9c57c">run</a>(func, args):</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="stringliteral">    Main routine for RADIUS KLISH Actioner script</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="stringliteral">    &quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordflow">if</span> func == <span class="stringliteral">&#39;get_sonic_ldap&#39;</span>:</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        <a class="code" href="../../db/dc2/namespacesonic__cli__show__ldap.html#abbc9cf2af4b554ca89e7e4acdc4dc1b0">get_sonic_ldap_global</a>()</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        <a class="code" href="../../db/dc2/namespacesonic__cli__show__ldap.html#a7123a782cb27c035759901aa14bbda23">get_sonic_ldap_servers</a>()</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <a class="code" href="../../db/dc2/namespacesonic__cli__show__ldap.html#ae03ce8d683deb6eb1ee0bc4ff8d3f18f">get_sonic_ldap_maps</a>()</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="keywordflow">if</span> __name__ == <span class="stringliteral">&#39;__main__&#39;</span>:</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    pipestr().<a class="code" href="../../d1/d3d/namespacescripts_1_1render__cli.html#ae395c999bb2be70d73ce51b6d352167b">write</a>(sys.argv)</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <a class="code" href="../../db/dc2/namespacesonic__cli__show__ldap.html#a2c7459ee99fca0cf58af4fb9ffb9c57c">run</a>(sys.argv[1], sys.argv[2:])</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="anamespacesonic__cli__show__ldap_html_abbc9cf2af4b554ca89e7e4acdc4dc1b0"><div class="ttname"><a href="../../db/dc2/namespacesonic__cli__show__ldap.html#abbc9cf2af4b554ca89e7e4acdc4dc1b0">sonic_cli_show_ldap.get_sonic_ldap_global</a></div><div class="ttdeci">def get_sonic_ldap_global()</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db5/sonic__cli__show__ldap_8py_source.html#l00048">sonic_cli_show_ldap.py:48</a></div></div>
+<div class="ttc" id="anamespacesonic__cli__show__ldap_html_ae03ce8d683deb6eb1ee0bc4ff8d3f18f"><div class="ttname"><a href="../../db/dc2/namespacesonic__cli__show__ldap.html#ae03ce8d683deb6eb1ee0bc4ff8d3f18f">sonic_cli_show_ldap.get_sonic_ldap_maps</a></div><div class="ttdeci">def get_sonic_ldap_maps()</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db5/sonic__cli__show__ldap_8py_source.html#l00113">sonic_cli_show_ldap.py:113</a></div></div>
+<div class="ttc" id="anamespacescripts_1_1render__cli_html"><div class="ttname"><a href="../../d1/d3d/namespacescripts_1_1render__cli.html">scripts.render_cli</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d21/render__cli_8py_source.html#l00001">render_cli.py:1</a></div></div>
+<div class="ttc" id="anamespacescripts_1_1render__cli_html_ae395c999bb2be70d73ce51b6d352167b"><div class="ttname"><a href="../../d1/d3d/namespacescripts_1_1render__cli.html#ae395c999bb2be70d73ce51b6d352167b">scripts.render_cli.write</a></div><div class="ttdeci">def write(t_str, continuation=False)</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d21/render__cli_8py_source.html#l00125">render_cli.py:125</a></div></div>
+<div class="ttc" id="anamespacesonic__cli__show__ldap_html_a7123a782cb27c035759901aa14bbda23"><div class="ttname"><a href="../../db/dc2/namespacesonic__cli__show__ldap.html#a7123a782cb27c035759901aa14bbda23">sonic_cli_show_ldap.get_sonic_ldap_servers</a></div><div class="ttdeci">def get_sonic_ldap_servers()</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db5/sonic__cli__show__ldap_8py_source.html#l00063">sonic_cli_show_ldap.py:63</a></div></div>
+<div class="ttc" id="anamespacesonic__cli__show__ldap_html_a2c7459ee99fca0cf58af4fb9ffb9c57c"><div class="ttname"><a href="../../db/dc2/namespacesonic__cli__show__ldap.html#a2c7459ee99fca0cf58af4fb9ffb9c57c">sonic_cli_show_ldap.run</a></div><div class="ttdeci">def run(func, args)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db5/sonic__cli__show__ldap_8py_source.html#l00151">sonic_cli_show_ldap.py:151</a></div></div>
+<div class="ttc" id="anamespacescripts_1_1render__cli_html_a21c728cd1db8b5bd209adc5f3325305d"><div class="ttname"><a href="../../d1/d3d/namespacescripts_1_1render__cli.html#a21c728cd1db8b5bd209adc5f3325305d">scripts.render_cli.show_cli_output</a></div><div class="ttdeci">def show_cli_output(template_file, response, continuation=False, **kwargs)</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d21/render__cli_8py_source.html#l00144">render_cli.py:144</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+다음에 의해 생성됨 :  &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

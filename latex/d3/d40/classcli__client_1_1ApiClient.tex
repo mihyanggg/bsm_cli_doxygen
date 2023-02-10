@@ -1,0 +1,658 @@
+\hypertarget{classcli__client_1_1ApiClient}{}\doxysection{cli\+\_\+client.\+Api\+Client 클래스 참조}
+\label{classcli__client_1_1ApiClient}\index{cli\_client.ApiClient@{cli\_client.ApiClient}}
+
+
+cli\+\_\+client.\+Api\+Client에 대한 상속 다이어그램 \+: 
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=221pt]{d4/d77/classcli__client_1_1ApiClient__inherit__graph}
+\end{center}
+\end{figure}
+
+
+cli\+\_\+client.\+Api\+Client에 대한 협력 다이어그램\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=221pt]{db/db2/classcli__client_1_1ApiClient__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classcli__client_1_1ApiClient_a4e2a9198980f60d756ccbad2266b1e09}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\item 
+def \mbox{\hyperlink{classcli__client_1_1ApiClient_a2b37cd8bb402824104de6331d0a1adc2}{init\+\_\+timer}} (self)
+\item 
+def \mbox{\hyperlink{classcli__client_1_1ApiClient_aa6f8315456702f66b2bc44144aaa48fc}{start\+\_\+timer}} (self)
+\item 
+def \mbox{\hyperlink{classcli__client_1_1ApiClient_af3dcedb0fa662cae6e35f7327b98db0f}{stop\+\_\+timer}} (self, method, url)
+\item 
+def \mbox{\hyperlink{classcli__client_1_1ApiClient_a8e266aaf439d6927749e3e6674aeb338}{set\+\_\+headers}} (self)
+\item 
+def \mbox{\hyperlink{classcli__client_1_1ApiClient_a58bed13a6a35094e3a7b3a9a1cb90d2c}{sig\+\_\+handler}} (self, signum, frame)
+\item 
+def \mbox{\hyperlink{classcli__client_1_1ApiClient_a30bf8f578eeb64dec3a0b52c0d571fe3}{request}} (self, method, path, data=None, headers=\{\}, query=None, response\+\_\+type=None)
+\item 
+def \mbox{\hyperlink{classcli__client_1_1ApiClient_a82cd68ee133c52ff503952f8e3740c5b}{post}} (self, path, data=\{\}, response\+\_\+type=None)
+\item 
+def \mbox{\hyperlink{classcli__client_1_1ApiClient_a6691434e97df82f311ca119460f4c5d4}{get}} (self, path, depth=None, ignore404=True, response\+\_\+type=None)
+\item 
+def \mbox{\hyperlink{classcli__client_1_1ApiClient_a1d191208e182ade8c77205a70adc0c10}{head}} (self, path, depth=None)
+\item 
+def \mbox{\hyperlink{classcli__client_1_1ApiClient_a7931483283f69d94affb2d8633b84a67}{put}} (self, path, data=\{\})
+\item 
+def \mbox{\hyperlink{classcli__client_1_1ApiClient_a4e6409cc11f9696f69a53a79e821ed2c}{patch}} (self, path, data=\{\})
+\item 
+def \mbox{\hyperlink{classcli__client_1_1ApiClient_af0ee9392f307429d906c1fd479c5d120}{delete}} (self, path, ignore404=True, delete\+Empty\+Entry=False)
+\item 
+def \mbox{\hyperlink{classcli__client_1_1ApiClient_a6dbd3107f2423bf54b05d395c13f2612}{cli\+\_\+not\+\_\+implemented}} (self, hint)
+\end{DoxyCompactItemize}
+\doxysubsection*{정적 Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classcli__client_1_1ApiClient_a5e6c0ab3e9f1b42f193eb4768e6cc1c8}{prepare\+\_\+query}} (depth=None, delete\+Empty\+Entry=None)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public 속성}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcli__client_1_1ApiClient_abb0fe502f8c1c628f05193e1f15990a6}{check\+Certificate}}
+\item 
+\mbox{\hyperlink{classcli__client_1_1ApiClient_a899da8fe0918f1fdd0146d7be9f380cc}{request\+\_\+time}}
+\item 
+\mbox{\hyperlink{classcli__client_1_1ApiClient_a7b5e1fe3f0cffbef475ef4b48a6f3bd1}{request\+\_\+timer\+\_\+running}}
+\item 
+\mbox{\hyperlink{classcli__client_1_1ApiClient_ac5db1e5f15a51527736561137aaef4e3}{request\+\_\+start}}
+\item 
+\mbox{\hyperlink{classcli__client_1_1ApiClient_ae31d5128c3cbcfa64d60a8ad167742e4}{request\+\_\+end}}
+\end{DoxyCompactItemize}
+\doxysubsection*{정적 Private 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classcli__client_1_1ApiClient_ad28724ecf23ad131b40e2906c5227179}{\+\_\+make\+\_\+error\+\_\+response}} (err\+Message, err\+Type=\textquotesingle{}client\textquotesingle{}, err\+Tag=\textquotesingle{}operation-\/failed\textquotesingle{})
+\end{DoxyCompactItemize}
+\doxysubsection*{정적 Private 속성}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcli__client_1_1ApiClient_aebc92ea3b5bc4d6ea45dc5639485c74c}{\+\_\+api\+\_\+root}} = os.\+getenv(\textquotesingle{}R\+E\+S\+T\+\_\+\+A\+P\+I\+\_\+\+R\+O\+OT\textquotesingle{}, \textquotesingle{}http+unix\+://\%2Fvar\%2Frun\%2Frest-\/local.\+sock\textquotesingle{})
+\item 
+\mbox{\hyperlink{classcli__client_1_1ApiClient_a6592922e7165ef0b40df7cbb83de7a5c}{\+\_\+session}} = None
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{상세한 설명}
+\begin{DoxyVerb}A client for accessing a RESTful API
+\end{DoxyVerb}
+ 
+
+cli\+\_\+client.\+py 파일의 38 번째 라인에서 정의되었습니다.
+
+
+
+\doxysubsection{생성자 \& 소멸자 문서화}
+\mbox{\Hypertarget{classcli__client_1_1ApiClient_a4e2a9198980f60d756ccbad2266b1e09}\label{classcli__client_1_1ApiClient_a4e2a9198980f60d756ccbad2266b1e09}} 
+\index{cli\_client.ApiClient@{cli\_client.ApiClient}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!cli\_client.ApiClient@{cli\_client.ApiClient}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def cli\+\_\+client.\+Api\+Client.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Create a RESTful API client.
+\end{DoxyVerb}
+ 
+
+cli\+\_\+client.\+py 파일의 52 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{52     \textcolor{keyword}{def }\_\_init\_\_(self):}
+\DoxyCodeLine{53         \textcolor{stringliteral}{"""}}
+\DoxyCodeLine{54 \textcolor{stringliteral}{        Create a RESTful API client.}}
+\DoxyCodeLine{55 \textcolor{stringliteral}{        """}}
+\DoxyCodeLine{56         signal.signal(signal.SIGINT, self.sig\_handler)}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58         self.checkCertificate = \textcolor{keyword}{False}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60         self.init\_timer()}
+\DoxyCodeLine{61 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d40/classcli__client_1_1ApiClient_a4e2a9198980f60d756ccbad2266b1e09_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{멤버 함수 문서화}
+\mbox{\Hypertarget{classcli__client_1_1ApiClient_ad28724ecf23ad131b40e2906c5227179}\label{classcli__client_1_1ApiClient_ad28724ecf23ad131b40e2906c5227179}} 
+\index{cli\_client.ApiClient@{cli\_client.ApiClient}!\_make\_error\_response@{\_make\_error\_response}}
+\index{\_make\_error\_response@{\_make\_error\_response}!cli\_client.ApiClient@{cli\_client.ApiClient}}
+\doxysubsubsection{\texorpdfstring{\_make\_error\_response()}{\_make\_error\_response()}}
+{\footnotesize\ttfamily def cli\+\_\+client.\+Api\+Client.\+\_\+make\+\_\+error\+\_\+response (\begin{DoxyParamCaption}\item[{}]{err\+Message,  }\item[{}]{err\+Type = {\ttfamily \textquotesingle{}client\textquotesingle{}},  }\item[{}]{err\+Tag = {\ttfamily \textquotesingle{}operation-\/failed\textquotesingle{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+cli\+\_\+client.\+py 파일의 172 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{172     \textcolor{keyword}{def }\_make\_error\_response(errMessage, errType='client', errTag='operation-\/failed'):}
+\DoxyCodeLine{173         r = Response(requests.Response())}
+\DoxyCodeLine{174         r.content = \{\textcolor{stringliteral}{'ietf-\/restconf:errors'}:\{ \textcolor{stringliteral}{'error'}:[ \{}
+\DoxyCodeLine{175             \textcolor{stringliteral}{'error-\/type'}:errType, \textcolor{stringliteral}{'error-\/tag'}:errTag, \textcolor{stringliteral}{'error-\/message'}:errMessage \}]\}\}}
+\DoxyCodeLine{176         \textcolor{keywordflow}{return} r}
+\DoxyCodeLine{177 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d40/classcli__client_1_1ApiClient_ad28724ecf23ad131b40e2906c5227179_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcli__client_1_1ApiClient_a6dbd3107f2423bf54b05d395c13f2612}\label{classcli__client_1_1ApiClient_a6dbd3107f2423bf54b05d395c13f2612}} 
+\index{cli\_client.ApiClient@{cli\_client.ApiClient}!cli\_not\_implemented@{cli\_not\_implemented}}
+\index{cli\_not\_implemented@{cli\_not\_implemented}!cli\_client.ApiClient@{cli\_client.ApiClient}}
+\doxysubsubsection{\texorpdfstring{cli\_not\_implemented()}{cli\_not\_implemented()}}
+{\footnotesize\ttfamily def cli\+\_\+client.\+Api\+Client.\+cli\+\_\+not\+\_\+implemented (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{hint }\end{DoxyParamCaption})}
+
+
+
+cli\+\_\+client.\+py 파일의 178 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{178     \textcolor{keyword}{def }cli\_not\_implemented(self, hint):}
+\DoxyCodeLine{179         \textcolor{keywordflow}{return} self.\_make\_error\_response(\textcolor{stringliteral}{'\%Error: not implemented \{0\}'}.format(hint))}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d40/classcli__client_1_1ApiClient_a6dbd3107f2423bf54b05d395c13f2612_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcli__client_1_1ApiClient_af0ee9392f307429d906c1fd479c5d120}\label{classcli__client_1_1ApiClient_af0ee9392f307429d906c1fd479c5d120}} 
+\index{cli\_client.ApiClient@{cli\_client.ApiClient}!delete@{delete}}
+\index{delete@{delete}!cli\_client.ApiClient@{cli\_client.ApiClient}}
+\doxysubsubsection{\texorpdfstring{delete()}{delete()}}
+{\footnotesize\ttfamily def cli\+\_\+client.\+Api\+Client.\+delete (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{path,  }\item[{}]{ignore404 = {\ttfamily True},  }\item[{}]{delete\+Empty\+Entry = {\ttfamily False} }\end{DoxyParamCaption})}
+
+
+
+cli\+\_\+client.\+py 파일의 154 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{154     \textcolor{keyword}{def }delete(self, path, ignore404=True, deleteEmptyEntry=False):}
+\DoxyCodeLine{155         q = self.prepare\_query(deleteEmptyEntry=deleteEmptyEntry)}
+\DoxyCodeLine{156         resp = self.request(\textcolor{stringliteral}{"DELETE"}, path, data=\textcolor{keywordtype}{None}, query=q)}
+\DoxyCodeLine{157         \textcolor{keywordflow}{if} ignore404 \textcolor{keywordflow}{and} resp.status\_code == 404:}
+\DoxyCodeLine{158             resp.status\_code = 204}
+\DoxyCodeLine{159             resp.content = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{160         \textcolor{keywordflow}{return} resp}
+\DoxyCodeLine{161 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d40/classcli__client_1_1ApiClient_af0ee9392f307429d906c1fd479c5d120_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcli__client_1_1ApiClient_a6691434e97df82f311ca119460f4c5d4}\label{classcli__client_1_1ApiClient_a6691434e97df82f311ca119460f4c5d4}} 
+\index{cli\_client.ApiClient@{cli\_client.ApiClient}!get@{get}}
+\index{get@{get}!cli\_client.ApiClient@{cli\_client.ApiClient}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily def cli\+\_\+client.\+Api\+Client.\+get (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{path,  }\item[{}]{depth = {\ttfamily None},  }\item[{}]{ignore404 = {\ttfamily True},  }\item[{}]{response\+\_\+type = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+
+cli\+\_\+client.\+py 파일의 136 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{136     \textcolor{keyword}{def }\mbox{\hyperlink{namespacescripts_1_1json__tools_afd87b9a49f4372aebe9a000a029a76fe}{get}}(self, path, depth=None, ignore404=True, response\_type=None):}
+\DoxyCodeLine{137         q = self.prepare\_query(depth=depth)}
+\DoxyCodeLine{138         resp = self.request(\textcolor{stringliteral}{"GET"}, path, \textcolor{keywordtype}{None}, \{\}, q, response\_type)}
+\DoxyCodeLine{139         \textcolor{keywordflow}{if} ignore404 \textcolor{keywordflow}{and} resp.status\_code == 404:}
+\DoxyCodeLine{140             resp.status\_code = 200}
+\DoxyCodeLine{141             resp.content = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{142         \textcolor{keywordflow}{return} resp}
+\DoxyCodeLine{143 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d40/classcli__client_1_1ApiClient_a6691434e97df82f311ca119460f4c5d4_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcli__client_1_1ApiClient_a1d191208e182ade8c77205a70adc0c10}\label{classcli__client_1_1ApiClient_a1d191208e182ade8c77205a70adc0c10}} 
+\index{cli\_client.ApiClient@{cli\_client.ApiClient}!head@{head}}
+\index{head@{head}!cli\_client.ApiClient@{cli\_client.ApiClient}}
+\doxysubsubsection{\texorpdfstring{head()}{head()}}
+{\footnotesize\ttfamily def cli\+\_\+client.\+Api\+Client.\+head (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{path,  }\item[{}]{depth = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+
+cli\+\_\+client.\+py 파일의 144 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{144     \textcolor{keyword}{def }head(self, path, depth=None):}
+\DoxyCodeLine{145         q = self.prepare\_query(depth=depth)}
+\DoxyCodeLine{146         \textcolor{keywordflow}{return} self.request(\textcolor{stringliteral}{"HEAD"}, path, query=q)}
+\DoxyCodeLine{147 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d40/classcli__client_1_1ApiClient_a1d191208e182ade8c77205a70adc0c10_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcli__client_1_1ApiClient_a2b37cd8bb402824104de6331d0a1adc2}\label{classcli__client_1_1ApiClient_a2b37cd8bb402824104de6331d0a1adc2}} 
+\index{cli\_client.ApiClient@{cli\_client.ApiClient}!init\_timer@{init\_timer}}
+\index{init\_timer@{init\_timer}!cli\_client.ApiClient@{cli\_client.ApiClient}}
+\doxysubsubsection{\texorpdfstring{init\_timer()}{init\_timer()}}
+{\footnotesize\ttfamily def cli\+\_\+client.\+Api\+Client.\+init\+\_\+timer (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+cli\+\_\+client.\+py 파일의 62 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{62     \textcolor{keyword}{def }init\_timer(self):}
+\DoxyCodeLine{63         self.request\_time = \textcolor{keyword}{False}}
+\DoxyCodeLine{64         self.request\_timer\_running = 0}
+\DoxyCodeLine{65         \textcolor{keywordflow}{if} os.getenv(\textcolor{stringliteral}{'APICLIENT\_TIME'}) != \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{66             self.request\_time = \textcolor{keyword}{True}}
+\DoxyCodeLine{67 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcli__client_1_1ApiClient_a4e6409cc11f9696f69a53a79e821ed2c}\label{classcli__client_1_1ApiClient_a4e6409cc11f9696f69a53a79e821ed2c}} 
+\index{cli\_client.ApiClient@{cli\_client.ApiClient}!patch@{patch}}
+\index{patch@{patch}!cli\_client.ApiClient@{cli\_client.ApiClient}}
+\doxysubsubsection{\texorpdfstring{patch()}{patch()}}
+{\footnotesize\ttfamily def cli\+\_\+client.\+Api\+Client.\+patch (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{path,  }\item[{}]{data = {\ttfamily \{\}} }\end{DoxyParamCaption})}
+
+
+
+cli\+\_\+client.\+py 파일의 151 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{151     \textcolor{keyword}{def }patch(self, path, data=\{\}):}
+\DoxyCodeLine{152         \textcolor{keywordflow}{return} self.request(\textcolor{stringliteral}{"PATCH"}, path, data)}
+\DoxyCodeLine{153 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d40/classcli__client_1_1ApiClient_a4e6409cc11f9696f69a53a79e821ed2c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcli__client_1_1ApiClient_a82cd68ee133c52ff503952f8e3740c5b}\label{classcli__client_1_1ApiClient_a82cd68ee133c52ff503952f8e3740c5b}} 
+\index{cli\_client.ApiClient@{cli\_client.ApiClient}!post@{post}}
+\index{post@{post}!cli\_client.ApiClient@{cli\_client.ApiClient}}
+\doxysubsubsection{\texorpdfstring{post()}{post()}}
+{\footnotesize\ttfamily def cli\+\_\+client.\+Api\+Client.\+post (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{path,  }\item[{}]{data = {\ttfamily \{\}},  }\item[{}]{response\+\_\+type = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+
+cli\+\_\+client.\+py 파일의 133 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{133     \textcolor{keyword}{def }post(self, path, data=\{\}, response\_type=None):}
+\DoxyCodeLine{134         \textcolor{keywordflow}{return} self.request(\textcolor{stringliteral}{"POST"}, path, data, \{\}, \textcolor{keywordtype}{None}, response\_type)}
+\DoxyCodeLine{135 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d40/classcli__client_1_1ApiClient_a82cd68ee133c52ff503952f8e3740c5b_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcli__client_1_1ApiClient_a5e6c0ab3e9f1b42f193eb4768e6cc1c8}\label{classcli__client_1_1ApiClient_a5e6c0ab3e9f1b42f193eb4768e6cc1c8}} 
+\index{cli\_client.ApiClient@{cli\_client.ApiClient}!prepare\_query@{prepare\_query}}
+\index{prepare\_query@{prepare\_query}!cli\_client.ApiClient@{cli\_client.ApiClient}}
+\doxysubsubsection{\texorpdfstring{prepare\_query()}{prepare\_query()}}
+{\footnotesize\ttfamily def cli\+\_\+client.\+Api\+Client.\+prepare\+\_\+query (\begin{DoxyParamCaption}\item[{}]{depth = {\ttfamily None},  }\item[{}]{delete\+Empty\+Entry = {\ttfamily None} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+cli\+\_\+client.\+py 파일의 163 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{163     \textcolor{keyword}{def }prepare\_query(depth=None, deleteEmptyEntry=None):}
+\DoxyCodeLine{164         query = \{\}}
+\DoxyCodeLine{165         \textcolor{keywordflow}{if} depth != \textcolor{keywordtype}{None} \textcolor{keywordflow}{and} depth != \textcolor{stringliteral}{"unbounded"}:}
+\DoxyCodeLine{166             query[\textcolor{stringliteral}{"depth"}] = depth}
+\DoxyCodeLine{167         \textcolor{keywordflow}{if} deleteEmptyEntry \textcolor{keywordflow}{is} \textcolor{keyword}{True}:}
+\DoxyCodeLine{168             query[\textcolor{stringliteral}{"deleteEmptyEntry"}] = \textcolor{stringliteral}{"true"}}
+\DoxyCodeLine{169         \textcolor{keywordflow}{return} query}
+\DoxyCodeLine{170 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d40/classcli__client_1_1ApiClient_a5e6c0ab3e9f1b42f193eb4768e6cc1c8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcli__client_1_1ApiClient_a7931483283f69d94affb2d8633b84a67}\label{classcli__client_1_1ApiClient_a7931483283f69d94affb2d8633b84a67}} 
+\index{cli\_client.ApiClient@{cli\_client.ApiClient}!put@{put}}
+\index{put@{put}!cli\_client.ApiClient@{cli\_client.ApiClient}}
+\doxysubsubsection{\texorpdfstring{put()}{put()}}
+{\footnotesize\ttfamily def cli\+\_\+client.\+Api\+Client.\+put (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{path,  }\item[{}]{data = {\ttfamily \{\}} }\end{DoxyParamCaption})}
+
+
+
+cli\+\_\+client.\+py 파일의 148 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{148     \textcolor{keyword}{def }put(self, path, data=\{\}):}
+\DoxyCodeLine{149         \textcolor{keywordflow}{return} self.request(\textcolor{stringliteral}{"PUT"}, path, data)}
+\DoxyCodeLine{150 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d40/classcli__client_1_1ApiClient_a7931483283f69d94affb2d8633b84a67_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcli__client_1_1ApiClient_a30bf8f578eeb64dec3a0b52c0d571fe3}\label{classcli__client_1_1ApiClient_a30bf8f578eeb64dec3a0b52c0d571fe3}} 
+\index{cli\_client.ApiClient@{cli\_client.ApiClient}!request@{request}}
+\index{request@{request}!cli\_client.ApiClient@{cli\_client.ApiClient}}
+\doxysubsubsection{\texorpdfstring{request()}{request()}}
+{\footnotesize\ttfamily def cli\+\_\+client.\+Api\+Client.\+request (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{method,  }\item[{}]{path,  }\item[{}]{data = {\ttfamily None},  }\item[{}]{headers = {\ttfamily \{\}},  }\item[{}]{query = {\ttfamily None},  }\item[{}]{response\+\_\+type = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+
+cli\+\_\+client.\+py 파일의 96 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{96     \textcolor{keyword}{def }request(self, method, path, data=None, headers=\{\}, query=None, response\_type=None):}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98         url = \textcolor{stringliteral}{'\{0\}\{1\}'}.format(ApiClient.\_api\_root, path)}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100         req\_headers = self.set\_headers()}
+\DoxyCodeLine{101         req\_headers.update(headers)}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103         client\_token = os.getenv(\textcolor{stringliteral}{'REST\_API\_TOKEN'}, \textcolor{keywordtype}{None})}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105         \textcolor{keywordflow}{if} client\_token:}
+\DoxyCodeLine{106             req\_headers[\textcolor{stringliteral}{'Authorization'}] = \textcolor{stringliteral}{"Bearer "} + client\_token}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108         body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{109         \textcolor{keywordflow}{if} data \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{110             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'Content-\/Type'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} req\_headers:}
+\DoxyCodeLine{111                 req\_headers[\textcolor{stringliteral}{'Content-\/Type'}] = \textcolor{stringliteral}{'application/yang-\/data+json'}}
+\DoxyCodeLine{112             body = json.dumps(data)}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114         \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{115             \textcolor{keywordflow}{if} self.request\_time:}
+\DoxyCodeLine{116                 self.start\_timer()}
+\DoxyCodeLine{117             r = ApiClient.\_session.request(}
+\DoxyCodeLine{118                 method,}
+\DoxyCodeLine{119                 url,}
+\DoxyCodeLine{120                 headers=req\_headers,}
+\DoxyCodeLine{121                 data=body,}
+\DoxyCodeLine{122                 params=query,}
+\DoxyCodeLine{123                 verify=self.checkCertificate)}
+\DoxyCodeLine{124             \textcolor{keywordflow}{return} Response(r,response\_type)}
+\DoxyCodeLine{125         \textcolor{keywordflow}{except} RequestException \textcolor{keyword}{as} e:}
+\DoxyCodeLine{126             syslog.syslog(syslog.LOG\_WARNING, \textcolor{stringliteral}{"cli\_client request exception \%s"} \% str(e))}
+\DoxyCodeLine{127             \textcolor{comment}{\#TODO have more specific error message based}}
+\DoxyCodeLine{128             \textcolor{keywordflow}{return} self.\_make\_error\_response(\textcolor{stringliteral}{'\%Error: Could not connect to Management REST Server'})}
+\DoxyCodeLine{129         \textcolor{keywordflow}{finally}:}
+\DoxyCodeLine{130             \textcolor{keywordflow}{if} self.request\_time:}
+\DoxyCodeLine{131                 self.stop\_timer(method, url)}
+\DoxyCodeLine{132 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d40/classcli__client_1_1ApiClient_a30bf8f578eeb64dec3a0b52c0d571fe3_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d40/classcli__client_1_1ApiClient_a30bf8f578eeb64dec3a0b52c0d571fe3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcli__client_1_1ApiClient_a8e266aaf439d6927749e3e6674aeb338}\label{classcli__client_1_1ApiClient_a8e266aaf439d6927749e3e6674aeb338}} 
+\index{cli\_client.ApiClient@{cli\_client.ApiClient}!set\_headers@{set\_headers}}
+\index{set\_headers@{set\_headers}!cli\_client.ApiClient@{cli\_client.ApiClient}}
+\doxysubsubsection{\texorpdfstring{set\_headers()}{set\_headers()}}
+{\footnotesize\ttfamily def cli\+\_\+client.\+Api\+Client.\+set\+\_\+headers (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+cli\+\_\+client.\+py 파일의 87 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{87     \textcolor{keyword}{def }set\_headers(self):}
+\DoxyCodeLine{88         \textcolor{keywordflow}{return} CaseInsensitiveDict(\{}
+\DoxyCodeLine{89             \textcolor{stringliteral}{'User-\/Agent'}: \textcolor{stringliteral}{"CLI"}}
+\DoxyCodeLine{90         \})}
+\DoxyCodeLine{91 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d40/classcli__client_1_1ApiClient_a8e266aaf439d6927749e3e6674aeb338_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcli__client_1_1ApiClient_a58bed13a6a35094e3a7b3a9a1cb90d2c}\label{classcli__client_1_1ApiClient_a58bed13a6a35094e3a7b3a9a1cb90d2c}} 
+\index{cli\_client.ApiClient@{cli\_client.ApiClient}!sig\_handler@{sig\_handler}}
+\index{sig\_handler@{sig\_handler}!cli\_client.ApiClient@{cli\_client.ApiClient}}
+\doxysubsubsection{\texorpdfstring{sig\_handler()}{sig\_handler()}}
+{\footnotesize\ttfamily def cli\+\_\+client.\+Api\+Client.\+sig\+\_\+handler (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{signum,  }\item[{}]{frame }\end{DoxyParamCaption})}
+
+
+
+cli\+\_\+client.\+py 파일의 92 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{92     \textcolor{keyword}{def }sig\_handler(self, signum, frame):}
+\DoxyCodeLine{93         \textcolor{comment}{\# got interrupt, perform graceful termination}}
+\DoxyCodeLine{94         sys.exit(0)}
+\DoxyCodeLine{95 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d40/classcli__client_1_1ApiClient_a58bed13a6a35094e3a7b3a9a1cb90d2c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcli__client_1_1ApiClient_aa6f8315456702f66b2bc44144aaa48fc}\label{classcli__client_1_1ApiClient_aa6f8315456702f66b2bc44144aaa48fc}} 
+\index{cli\_client.ApiClient@{cli\_client.ApiClient}!start\_timer@{start\_timer}}
+\index{start\_timer@{start\_timer}!cli\_client.ApiClient@{cli\_client.ApiClient}}
+\doxysubsubsection{\texorpdfstring{start\_timer()}{start\_timer()}}
+{\footnotesize\ttfamily def cli\+\_\+client.\+Api\+Client.\+start\+\_\+timer (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+cli\+\_\+client.\+py 파일의 68 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{68     \textcolor{keyword}{def }start\_timer(self):}
+\DoxyCodeLine{69         \textcolor{keywordflow}{if} self.request\_timer\_running == 0:}
+\DoxyCodeLine{70             self.request\_start = timeit.default\_timer()}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72         self.request\_timer\_running += 1}
+\DoxyCodeLine{73 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d40/classcli__client_1_1ApiClient_aa6f8315456702f66b2bc44144aaa48fc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcli__client_1_1ApiClient_af3dcedb0fa662cae6e35f7327b98db0f}\label{classcli__client_1_1ApiClient_af3dcedb0fa662cae6e35f7327b98db0f}} 
+\index{cli\_client.ApiClient@{cli\_client.ApiClient}!stop\_timer@{stop\_timer}}
+\index{stop\_timer@{stop\_timer}!cli\_client.ApiClient@{cli\_client.ApiClient}}
+\doxysubsubsection{\texorpdfstring{stop\_timer()}{stop\_timer()}}
+{\footnotesize\ttfamily def cli\+\_\+client.\+Api\+Client.\+stop\+\_\+timer (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{method,  }\item[{}]{url }\end{DoxyParamCaption})}
+
+
+
+cli\+\_\+client.\+py 파일의 74 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{74     \textcolor{keyword}{def }stop\_timer(self, method, url):}
+\DoxyCodeLine{75         \textcolor{keywordflow}{if} self.request\_timer\_running <= 0:}
+\DoxyCodeLine{76             sys.stderr.write(\textcolor{stringliteral}{"ApiClient.stop\_timer: Bad Recursion\(\backslash\)n"})}
+\DoxyCodeLine{77             traceback.print\_stack()}
+\DoxyCodeLine{78             \textcolor{keywordflow}{return}}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80         \textcolor{keywordflow}{if} self.request\_timer\_running == 1:}
+\DoxyCodeLine{81             self.request\_end = timeit.default\_timer()}
+\DoxyCodeLine{82             sys.stderr.write(\textcolor{stringliteral}{"ApiClient Method \{\} Url \{\} Time \{\}\(\backslash\)n"}.format(\(\backslash\)}
+\DoxyCodeLine{83                 method, url, self.request\_end -\/ self.request\_start))}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85         self.request\_timer\_running -\/= 1}
+\DoxyCodeLine{86 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d40/classcli__client_1_1ApiClient_af3dcedb0fa662cae6e35f7327b98db0f_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{멤버 데이터 문서화}
+\mbox{\Hypertarget{classcli__client_1_1ApiClient_aebc92ea3b5bc4d6ea45dc5639485c74c}\label{classcli__client_1_1ApiClient_aebc92ea3b5bc4d6ea45dc5639485c74c}} 
+\index{cli\_client.ApiClient@{cli\_client.ApiClient}!\_api\_root@{\_api\_root}}
+\index{\_api\_root@{\_api\_root}!cli\_client.ApiClient@{cli\_client.ApiClient}}
+\doxysubsubsection{\texorpdfstring{\_api\_root}{\_api\_root}}
+{\footnotesize\ttfamily cli\+\_\+client.\+Api\+Client.\+\_\+api\+\_\+root = os.\+getenv(\textquotesingle{}R\+E\+S\+T\+\_\+\+A\+P\+I\+\_\+\+R\+O\+OT\textquotesingle{}, \textquotesingle{}http+unix\+://\%2Fvar\%2Frun\%2Frest-\/local.\+sock\textquotesingle{})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+cli\+\_\+client.\+py 파일의 44 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{classcli__client_1_1ApiClient_a6592922e7165ef0b40df7cbb83de7a5c}\label{classcli__client_1_1ApiClient_a6592922e7165ef0b40df7cbb83de7a5c}} 
+\index{cli\_client.ApiClient@{cli\_client.ApiClient}!\_session@{\_session}}
+\index{\_session@{\_session}!cli\_client.ApiClient@{cli\_client.ApiClient}}
+\doxysubsubsection{\texorpdfstring{\_session}{\_session}}
+{\footnotesize\ttfamily cli\+\_\+client.\+Api\+Client.\+\_\+session = None\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+cli\+\_\+client.\+py 파일의 45 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{classcli__client_1_1ApiClient_abb0fe502f8c1c628f05193e1f15990a6}\label{classcli__client_1_1ApiClient_abb0fe502f8c1c628f05193e1f15990a6}} 
+\index{cli\_client.ApiClient@{cli\_client.ApiClient}!checkCertificate@{checkCertificate}}
+\index{checkCertificate@{checkCertificate}!cli\_client.ApiClient@{cli\_client.ApiClient}}
+\doxysubsubsection{\texorpdfstring{checkCertificate}{checkCertificate}}
+{\footnotesize\ttfamily cli\+\_\+client.\+Api\+Client.\+check\+Certificate}
+
+
+
+cli\+\_\+client.\+py 파일의 58 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{classcli__client_1_1ApiClient_ae31d5128c3cbcfa64d60a8ad167742e4}\label{classcli__client_1_1ApiClient_ae31d5128c3cbcfa64d60a8ad167742e4}} 
+\index{cli\_client.ApiClient@{cli\_client.ApiClient}!request\_end@{request\_end}}
+\index{request\_end@{request\_end}!cli\_client.ApiClient@{cli\_client.ApiClient}}
+\doxysubsubsection{\texorpdfstring{request\_end}{request\_end}}
+{\footnotesize\ttfamily cli\+\_\+client.\+Api\+Client.\+request\+\_\+end}
+
+
+
+cli\+\_\+client.\+py 파일의 81 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{classcli__client_1_1ApiClient_ac5db1e5f15a51527736561137aaef4e3}\label{classcli__client_1_1ApiClient_ac5db1e5f15a51527736561137aaef4e3}} 
+\index{cli\_client.ApiClient@{cli\_client.ApiClient}!request\_start@{request\_start}}
+\index{request\_start@{request\_start}!cli\_client.ApiClient@{cli\_client.ApiClient}}
+\doxysubsubsection{\texorpdfstring{request\_start}{request\_start}}
+{\footnotesize\ttfamily cli\+\_\+client.\+Api\+Client.\+request\+\_\+start}
+
+
+
+cli\+\_\+client.\+py 파일의 70 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{classcli__client_1_1ApiClient_a899da8fe0918f1fdd0146d7be9f380cc}\label{classcli__client_1_1ApiClient_a899da8fe0918f1fdd0146d7be9f380cc}} 
+\index{cli\_client.ApiClient@{cli\_client.ApiClient}!request\_time@{request\_time}}
+\index{request\_time@{request\_time}!cli\_client.ApiClient@{cli\_client.ApiClient}}
+\doxysubsubsection{\texorpdfstring{request\_time}{request\_time}}
+{\footnotesize\ttfamily cli\+\_\+client.\+Api\+Client.\+request\+\_\+time}
+
+
+
+cli\+\_\+client.\+py 파일의 63 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{classcli__client_1_1ApiClient_a7b5e1fe3f0cffbef475ef4b48a6f3bd1}\label{classcli__client_1_1ApiClient_a7b5e1fe3f0cffbef475ef4b48a6f3bd1}} 
+\index{cli\_client.ApiClient@{cli\_client.ApiClient}!request\_timer\_running@{request\_timer\_running}}
+\index{request\_timer\_running@{request\_timer\_running}!cli\_client.ApiClient@{cli\_client.ApiClient}}
+\doxysubsubsection{\texorpdfstring{request\_timer\_running}{request\_timer\_running}}
+{\footnotesize\ttfamily cli\+\_\+client.\+Api\+Client.\+request\+\_\+timer\+\_\+running}
+
+
+
+cli\+\_\+client.\+py 파일의 64 번째 라인에서 정의되었습니다.
+
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+cli/\mbox{\hyperlink{cli__client_8py}{cli\+\_\+client.\+py}}\end{DoxyCompactItemize}

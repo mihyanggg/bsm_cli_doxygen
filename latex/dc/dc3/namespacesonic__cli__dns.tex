@@ -1,0 +1,201 @@
+\hypertarget{namespacesonic__cli__dns}{}\doxysection{sonic\+\_\+cli\+\_\+dns 네임스페이스 참조}
+\label{namespacesonic__cli__dns}\index{sonic\_cli\_dns@{sonic\_cli\_dns}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__dns_a52fca01b6eb23eb4b02301f5cbfe4f80}{invoke\+\_\+api}} (\mbox{\hyperlink{namespacesonic__cli__dns_a05ebcde703c0a2916fb293bca5d4b2d3}{func}}, args=\mbox{[}$\,$\mbox{]})
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__dns_a90e0f7bc20d87e5ec54aa5143b96f193}{get\+\_\+sonic\+\_\+dns\+\_\+all}} ()
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__dns_a61e2c69bce6fde5635383e7060610b74}{run}} (\mbox{\hyperlink{namespacesonic__cli__dns_a05ebcde703c0a2916fb293bca5d4b2d3}{func}}, args)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__dns_a780093da5be8b7f4de9a5ae99302975e}{S\+Y\+S\+T\+EM}} = \textquotesingle{}/restconf/data/openconfig-\/system\+:system/\textquotesingle{}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__dns_a428666ddb487dbaa4641faede116a136}{D\+NS}} = \mbox{\hyperlink{namespacesonic__cli__dns_a780093da5be8b7f4de9a5ae99302975e}{S\+Y\+S\+T\+EM}}+\textquotesingle{}\mbox{\hyperlink{DB-PARSED_8txt_a64ce0429c701c17b53fbce63eff42ac0}{dns}}/\textquotesingle{}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__dns_a7b993890ff125be66807eb53a633d339}{D\+N\+S\+\_\+\+S\+E\+R\+V\+E\+RS}} = \mbox{\hyperlink{namespacesonic__cli__dns_a428666ddb487dbaa4641faede116a136}{D\+NS}}+\textquotesingle{}servers/\textquotesingle{}
+\item 
+\mbox{\hyperlink{namespacesonic__cli__dns_a05ebcde703c0a2916fb293bca5d4b2d3}{func}} = sys.\+argv\mbox{[}1\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__dns_a90e0f7bc20d87e5ec54aa5143b96f193}\label{namespacesonic__cli__dns_a90e0f7bc20d87e5ec54aa5143b96f193}} 
+\index{sonic\_cli\_dns@{sonic\_cli\_dns}!get\_sonic\_dns\_all@{get\_sonic\_dns\_all}}
+\index{get\_sonic\_dns\_all@{get\_sonic\_dns\_all}!sonic\_cli\_dns@{sonic\_cli\_dns}}
+\doxysubsubsection{\texorpdfstring{get\_sonic\_dns\_all()}{get\_sonic\_dns\_all()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+dns.\+get\+\_\+sonic\+\_\+dns\+\_\+all (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+dns.\+py 파일의 63 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{63 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__dns_a90e0f7bc20d87e5ec54aa5143b96f193}{get\_sonic\_dns\_all}}():}
+\DoxyCodeLine{64     api\_response = \{\} }
+\DoxyCodeLine{65     api = cc.ApiClient()}
+\DoxyCodeLine{66     }
+\DoxyCodeLine{67     path = cc.Path(DNS)}
+\DoxyCodeLine{68     response = api.get(path)}
+\DoxyCodeLine{69     \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{70         \textcolor{keywordflow}{if} response.content:}
+\DoxyCodeLine{71             api\_response = response.content}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{"show\_hosts.j2"}, api\_response)}
+\DoxyCodeLine{74 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/dc3/namespacesonic__cli__dns_a90e0f7bc20d87e5ec54aa5143b96f193_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=347pt]{dc/dc3/namespacesonic__cli__dns_a90e0f7bc20d87e5ec54aa5143b96f193_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__dns_a52fca01b6eb23eb4b02301f5cbfe4f80}\label{namespacesonic__cli__dns_a52fca01b6eb23eb4b02301f5cbfe4f80}} 
+\index{sonic\_cli\_dns@{sonic\_cli\_dns}!invoke\_api@{invoke\_api}}
+\index{invoke\_api@{invoke\_api}!sonic\_cli\_dns@{sonic\_cli\_dns}}
+\doxysubsubsection{\texorpdfstring{invoke\_api()}{invoke\_api()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+dns.\+invoke\+\_\+api (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args = {\ttfamily \mbox{[}\mbox{]}} }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+dns.\+py 파일의 33 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{33 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__dns_a52fca01b6eb23eb4b02301f5cbfe4f80}{invoke\_api}}(func, args=[]):}
+\DoxyCodeLine{34     api = cc.ApiClient()}
+\DoxyCodeLine{35     keypath = []}
+\DoxyCodeLine{36     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_openconfig\_dns\_global\_config\_source\_address'}:}
+\DoxyCodeLine{39         keypath = cc.Path(DNS +}
+\DoxyCodeLine{40             \textcolor{stringliteral}{'config/openconfig-\/system-\/ext:source-\/interface'})}
+\DoxyCodeLine{41         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/ext:source-\/interface"}: args[0] \textcolor{keywordflow}{if} args[0] != \textcolor{stringliteral}{'Management0'} \textcolor{keywordflow}{else} \textcolor{stringliteral}{'eth0'}\}}
+\DoxyCodeLine{42         \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{43     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_dns\_server\_address'}:}
+\DoxyCodeLine{44         keypath = cc.Path(DNS+\textcolor{stringliteral}{'servers'})}
+\DoxyCodeLine{45         \textcolor{keywordflow}{if} len(args) == 2:}
+\DoxyCodeLine{46             body = \{ \textcolor{stringliteral}{"openconfig-\/system:servers"}: \{ \textcolor{stringliteral}{"server"} : [\{ \textcolor{stringliteral}{"config"} : \{\textcolor{stringliteral}{"address"}: args[0], \textcolor{stringliteral}{"openconfig-\/system-\/ext:vrf-\/name"} : args[1]\}, \textcolor{stringliteral}{"address"} : args[0]\}]\}\}}
+\DoxyCodeLine{47         \textcolor{keywordflow}{else}:    }
+\DoxyCodeLine{48             body = \{ \textcolor{stringliteral}{"openconfig-\/system:servers"}: \{ \textcolor{stringliteral}{"server"} : [\{ \textcolor{stringliteral}{"config"} : \{\textcolor{stringliteral}{"address"}: args[0]\}, \textcolor{stringliteral}{"address"} : args[0]\}]\}\}}
+\DoxyCodeLine{49         \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{50     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_openconfig\_dns\_global\_config\_source\_address'}:}
+\DoxyCodeLine{51         keypath = cc.Path(DNS +}
+\DoxyCodeLine{52             \textcolor{stringliteral}{'config/openconfig-\/system-\/ext:source-\/interface'})}
+\DoxyCodeLine{53         \textcolor{keywordflow}{return} api.delete(keypath)}
+\DoxyCodeLine{54     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_openconfig\_dns\_server\_address'}:}
+\DoxyCodeLine{55         keypath = cc.Path(DNS\_SERVERS+}
+\DoxyCodeLine{56             \textcolor{stringliteral}{'server=\{nameserver\}'}, nameserver=args[0])}
+\DoxyCodeLine{57         \textcolor{keywordflow}{return} api.delete(keypath)}
+\DoxyCodeLine{58     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{59         body = \{\}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keywordflow}{return} api.cli\_not\_implemented(func)}
+\DoxyCodeLine{62 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/dc3/namespacesonic__cli__dns_a52fca01b6eb23eb4b02301f5cbfe4f80_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__dns_a61e2c69bce6fde5635383e7060610b74}\label{namespacesonic__cli__dns_a61e2c69bce6fde5635383e7060610b74}} 
+\index{sonic\_cli\_dns@{sonic\_cli\_dns}!run@{run}}
+\index{run@{run}!sonic\_cli\_dns@{sonic\_cli\_dns}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+dns.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+dns.\+py 파일의 75 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{75 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__dns_a61e2c69bce6fde5635383e7060610b74}{run}}(func, args):}
+\DoxyCodeLine{76     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'get\_sonic\_dns\_hosts'}:}
+\DoxyCodeLine{77         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__dns_a90e0f7bc20d87e5ec54aa5143b96f193}{get\_sonic\_dns\_all}}()}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79     response = \mbox{\hyperlink{namespacesonic__cli__dns_a52fca01b6eb23eb4b02301f5cbfe4f80}{invoke\_api}}(func, args)}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81     \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{82         \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{83             \textcolor{comment}{\# Get Command Output}}
+\DoxyCodeLine{84             api\_response = response.content}
+\DoxyCodeLine{85             \textcolor{keywordflow}{if} api\_response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{86                 print(\textcolor{stringliteral}{"\%Error: Transaction Failure"})}
+\DoxyCodeLine{87                 \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{88     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{89         print(response.error\_message())}
+\DoxyCodeLine{90         \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{91 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/dc3/namespacesonic__cli__dns_a61e2c69bce6fde5635383e7060610b74_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__dns_a428666ddb487dbaa4641faede116a136}\label{namespacesonic__cli__dns_a428666ddb487dbaa4641faede116a136}} 
+\index{sonic\_cli\_dns@{sonic\_cli\_dns}!DNS@{DNS}}
+\index{DNS@{DNS}!sonic\_cli\_dns@{sonic\_cli\_dns}}
+\doxysubsubsection{\texorpdfstring{DNS}{DNS}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+dns.\+D\+NS = \mbox{\hyperlink{namespacesonic__cli__dns_a780093da5be8b7f4de9a5ae99302975e}{S\+Y\+S\+T\+EM}}+\textquotesingle{}\mbox{\hyperlink{DB-PARSED_8txt_a64ce0429c701c17b53fbce63eff42ac0}{dns}}/\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+dns.\+py 파일의 30 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__dns_a7b993890ff125be66807eb53a633d339}\label{namespacesonic__cli__dns_a7b993890ff125be66807eb53a633d339}} 
+\index{sonic\_cli\_dns@{sonic\_cli\_dns}!DNS\_SERVERS@{DNS\_SERVERS}}
+\index{DNS\_SERVERS@{DNS\_SERVERS}!sonic\_cli\_dns@{sonic\_cli\_dns}}
+\doxysubsubsection{\texorpdfstring{DNS\_SERVERS}{DNS\_SERVERS}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+dns.\+D\+N\+S\+\_\+\+S\+E\+R\+V\+E\+RS = \mbox{\hyperlink{namespacesonic__cli__dns_a428666ddb487dbaa4641faede116a136}{D\+NS}}+\textquotesingle{}servers/\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+dns.\+py 파일의 31 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__dns_a05ebcde703c0a2916fb293bca5d4b2d3}\label{namespacesonic__cli__dns_a05ebcde703c0a2916fb293bca5d4b2d3}} 
+\index{sonic\_cli\_dns@{sonic\_cli\_dns}!func@{func}}
+\index{func@{func}!sonic\_cli\_dns@{sonic\_cli\_dns}}
+\doxysubsubsection{\texorpdfstring{func}{func}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+dns.\+func = sys.\+argv\mbox{[}1\mbox{]}}
+
+
+
+sonic\+\_\+cli\+\_\+dns.\+py 파일의 95 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__dns_a780093da5be8b7f4de9a5ae99302975e}\label{namespacesonic__cli__dns_a780093da5be8b7f4de9a5ae99302975e}} 
+\index{sonic\_cli\_dns@{sonic\_cli\_dns}!SYSTEM@{SYSTEM}}
+\index{SYSTEM@{SYSTEM}!sonic\_cli\_dns@{sonic\_cli\_dns}}
+\doxysubsubsection{\texorpdfstring{SYSTEM}{SYSTEM}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+dns.\+S\+Y\+S\+T\+EM = \textquotesingle{}/restconf/data/openconfig-\/system\+:system/\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+dns.\+py 파일의 29 번째 라인에서 정의되었습니다.
+

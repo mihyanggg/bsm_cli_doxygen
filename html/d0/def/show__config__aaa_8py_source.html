@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: cli/show_config_aaa.py 소스 파일</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'검색');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','검색');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_2990d7c532eb7441b74916b8f5365141.html">cli</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">show_config_aaa.py</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d0/def/show__config__aaa_8py.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="../../d1/d53/namespaceshow__config__aaa.html">    1</a></span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">import</span> cli_client <span class="keyword">as</span> cc</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">from</span> show_config_if_cmd <span class="keyword">import</span> show_render_if_cmd</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"># show_aaa_config renders running config for &#39;aaa&#39;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="../../d1/d53/namespaceshow__config__aaa.html#aca6d40a0eca31a9f6233e2022016bf1e">   24</a></span>&#160;<span class="keyword">def </span><a class="code" href="../../d1/d53/namespaceshow__config__aaa.html#aca6d40a0eca31a9f6233e2022016bf1e">show_aaa_config</a>(render_tables):</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    cmd = <span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    api = cc.ApiClient()</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    path = cc.Path(<span class="stringliteral">&#39;/restconf/data/openconfig-system:system/aaa&#39;</span>)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    response = api.get(path)</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">if</span> response.ok() <span class="keywordflow">is</span> <span class="keyword">False</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&#39;CB_SUCCESS&#39;</span>, cmd, <span class="keyword">False</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    content = response.content</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">if</span> ( content <span class="keywordflow">is</span> <span class="keywordtype">None</span> ) <span class="keywordflow">or</span> <span class="keywordflow">not</span> ( <span class="stringliteral">&#39;openconfig-system:aaa&#39;</span> <span class="keywordflow">in</span> content ):</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&#39;CB_SUCCESS&#39;</span>, cmd, <span class="keyword">False</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    aaa = content[<span class="stringliteral">&#39;openconfig-system:aaa&#39;</span>]</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment"># aaa authentication</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">if</span> <span class="stringliteral">&#39;authentication&#39;</span> <span class="keywordflow">in</span> aaa:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        authentication = aaa[<span class="stringliteral">&#39;authentication&#39;</span>]</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">if</span> <span class="stringliteral">&#39;config&#39;</span> <span class="keywordflow">in</span> authentication:</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            config = authentication[<span class="stringliteral">&#39;config&#39;</span>]</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keywordflow">if</span> <span class="stringliteral">&#39;authentication-method&#39;</span> <span class="keywordflow">in</span> config:</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                login = config[<span class="stringliteral">&#39;authentication-method&#39;</span>]</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                cmd += <span class="stringliteral">&quot;aaa authentication login default&quot;</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <span class="keywordflow">for</span> method <span class="keywordflow">in</span> login:</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                    <span class="keywordflow">if</span> method != <span class="stringliteral">&#39;local&#39;</span>:</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                        cmd += <span class="stringliteral">&quot; group&quot;</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                    cmd += <span class="stringliteral">&#39; &#39;</span> + method</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                cmd += <span class="stringliteral">&quot;;&quot;</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keywordflow">if</span> <span class="stringliteral">&#39;openconfig-system-ext:failthrough&#39;</span> <span class="keywordflow">in</span> config:</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                failthrough = config[<span class="stringliteral">&#39;openconfig-system-ext:failthrough&#39;</span>]</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <span class="keywordflow">if</span> failthrough == <span class="stringliteral">&quot;True&quot;</span>:</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                    cmd += <span class="stringliteral">&quot;aaa authentication failthrough enable;&quot;</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment"># aaa authorization</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">if</span> <span class="stringliteral">&#39;authorization&#39;</span> <span class="keywordflow">in</span> aaa:</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        authorization = aaa[<span class="stringliteral">&#39;authorization&#39;</span>]</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">if</span> <span class="stringliteral">&#39;openconfig-aaa-ext:login&#39;</span> <span class="keywordflow">in</span> authorization:</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            login = authorization[<span class="stringliteral">&#39;openconfig-aaa-ext:login&#39;</span>]</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keywordflow">if</span> <span class="stringliteral">&#39;config&#39;</span> <span class="keywordflow">in</span> login:</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                config = login[<span class="stringliteral">&#39;config&#39;</span>]</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <span class="keywordflow">if</span> <span class="stringliteral">&#39;authorization-method&#39;</span> <span class="keywordflow">in</span> config:</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                    authorization_method = config[<span class="stringliteral">&#39;authorization-method&#39;</span>]</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                    cmd += <span class="stringliteral">&quot;aaa authorization login default&quot;</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                    <span class="keywordflow">for</span> method <span class="keywordflow">in</span> authorization_method:</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                        <span class="keywordflow">if</span> method != <span class="stringliteral">&#39;local&#39;</span>:</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                            cmd += <span class="stringliteral">&quot; group&quot;</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                        cmd += <span class="stringliteral">&#39; &#39;</span> + method</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                    cmd += <span class="stringliteral">&quot;;&quot;</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="comment"># aaa name-service</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">if</span> <span class="stringliteral">&#39;openconfig-aaa-ext:name-service&#39;</span> <span class="keywordflow">in</span> aaa:</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        name_service = aaa[<span class="stringliteral">&#39;openconfig-aaa-ext:name-service&#39;</span>]</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">if</span> <span class="stringliteral">&#39;config&#39;</span> <span class="keywordflow">in</span> name_service:</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            config = name_service[<span class="stringliteral">&#39;config&#39;</span>]</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordflow">for</span> (db,methodlist) <span class="keywordflow">in</span> config.items():</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                cmd += <span class="stringliteral">&quot;aaa name-service &quot;</span> + db.replace(<span class="stringliteral">&quot;-method&quot;</span>, <span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                <span class="keywordflow">for</span> method <span class="keywordflow">in</span> methodlist:</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                    <span class="keywordflow">if</span> method != <span class="stringliteral">&#39;local&#39;</span> <span class="keywordflow">and</span> method != <span class="stringliteral">&#39;login&#39;</span>:</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                        cmd += <span class="stringliteral">&quot; group&quot;</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                    cmd += <span class="stringliteral">&#39; &#39;</span> + method</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                cmd += <span class="stringliteral">&quot;;&quot;</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">return</span> <span class="stringliteral">&#39;CB_SUCCESS&#39;</span>, cmd, <span class="keyword">False</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="../../d1/d53/namespaceshow__config__aaa.html#ad83e385e5b80669bcc079d43ab1bc5cd">   90</a></span>&#160;<span class="keyword">def </span><a class="code" href="../../d1/d53/namespaceshow__config__aaa.html#ad83e385e5b80669bcc079d43ab1bc5cd">show_username_config</a>(render_tables):</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    cmd_prfx = <span class="stringliteral">&#39;username &#39;</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    table_name = <span class="stringliteral">&#39;sonic-system-aaa:sonic-system-aaa/USER/USER_LIST&#39;</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    cmd_str = <span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">if</span> table_name <span class="keywordflow">in</span> render_tables:</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordflow">for</span> inst <span class="keywordflow">in</span> render_tables[table_name]:</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            temp_cmd_prfx = cmd_prfx + inst[<span class="stringliteral">&#39;username&#39;</span>] + <span class="stringliteral">&#39; password &#39;</span> + inst[<span class="stringliteral">&#39;password&#39;</span>] + <span class="stringliteral">&#39; role &#39;</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            role_str = <span class="stringliteral">&#39; &#39;</span>.join(<a class="code" href="../../d2/d95/DB-PARSED_8txt.html#a2f17a95f95f14e0f847ea893e98f909a">map</a>(str, (elem <span class="keywordflow">for</span> elem <span class="keywordflow">in</span> inst[<span class="stringliteral">&#39;role&#39;</span>])))</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            temp_cmd_prfx = temp_cmd_prfx + role_str</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            cmd_str = cmd_str+<span class="stringliteral">&#39;;&#39;</span>+temp_cmd_prfx</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">return</span> <span class="stringliteral">&#39;CB_SUCCESS&#39;</span>, cmd_str</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aDB-PARSED_8txt_html_a2f17a95f95f14e0f847ea893e98f909a"><div class="ttname"><a href="../../d2/d95/DB-PARSED_8txt.html#a2f17a95f95f14e0f847ea893e98f909a">map</a></div><div class="ttdeci">sonic port qos map</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d95/DB-PARSED_8txt_source.html#l02159">DB-PARSED.txt:2159</a></div></div>
+<div class="ttc" id="anamespaceshow__config__aaa_html_aca6d40a0eca31a9f6233e2022016bf1e"><div class="ttname"><a href="../../d1/d53/namespaceshow__config__aaa.html#aca6d40a0eca31a9f6233e2022016bf1e">show_config_aaa.show_aaa_config</a></div><div class="ttdeci">def show_aaa_config(render_tables)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/def/show__config__aaa_8py_source.html#l00024">show_config_aaa.py:24</a></div></div>
+<div class="ttc" id="anamespaceshow__config__aaa_html_ad83e385e5b80669bcc079d43ab1bc5cd"><div class="ttname"><a href="../../d1/d53/namespaceshow__config__aaa.html#ad83e385e5b80669bcc079d43ab1bc5cd">show_config_aaa.show_username_config</a></div><div class="ttdeci">def show_username_config(render_tables)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/def/show__config__aaa_8py_source.html#l00090">show_config_aaa.py:90</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+다음에 의해 생성됨 :  &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

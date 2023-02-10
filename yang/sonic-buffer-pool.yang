@@ -1,0 +1,116 @@
+module sonic-buffer-pool {
+	namespace "http://github.com/Azure/sonic-buffer-pool";
+	prefix bpl;
+
+	organization
+		"SONiC";
+
+	contact
+		"SONiC";
+
+	description
+		"SONIC BUFFER POOL";
+
+	revision 2019-05-15 {
+		description
+			"Initial revision.";
+	}
+
+	container sonic-buffer-pool {
+
+		container BUFFER_POOL {
+
+			list BUFFER_POOL_LIST {
+				key "name";
+
+				leaf name {
+					type string;
+				}
+
+				leaf type {
+					type enumeration {
+						enum ingress;
+						enum egress;
+					}
+				}
+
+				leaf mode {
+					type enumeration {
+						enum static;
+						enum dynamic;
+					}
+				}
+
+				leaf size {
+					type uint64;
+				}
+
+			}
+		}
+	}
+
+	rpc get-buffer-pool-wm-stats {
+        input {
+            leaf watermark-stats-type {
+                type enumeration {
+                       enum bytes;
+                       enum percentage;
+                }
+                description
+                   "Input parameter request type bytes or percentage";
+            }
+
+	    leaf watermark-type {
+                 type enumeration {
+                       enum watermark;
+                       enum persistent-watermark;
+                 }
+                description
+                   "Input parameter watermark type - user watermark or persistent-watermark";
+            }
+
+        }
+	output {
+                        list Buffer_pool_list {
+                                key "Poolname StatsValue";
+
+                                leaf Poolname {
+                                        type string;
+                                        description
+                                                "Buffer pool name";
+                                }
+
+                                leaf StatsValue {
+                                        type uint64;
+                                        description
+                                                "Buffer pool stats value";
+                                }
+			}
+			leaf status {
+				type string;
+				description
+					"The details status of the operation execution request..";
+			}
+		}
+	}
+
+	rpc clear-buffer-pool-wm-stats {
+          input {
+	    leaf watermark-type {
+                type enumeration {
+                     enum watermark;
+                     enum persistent-watermark;
+                }
+                description
+                   "Watermark clear request input watermark or persistent-watermark";
+            }
+         }
+          output {
+            leaf status {
+                type string;
+                description
+		   "Success / failure in clearing buffer pool watermark counters operation execution request.";
+            }
+	  }
+	}
+}

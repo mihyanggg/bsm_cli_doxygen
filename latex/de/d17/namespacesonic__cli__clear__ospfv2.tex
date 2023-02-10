@@ -1,0 +1,121 @@
+\hypertarget{namespacesonic__cli__clear__ospfv2}{}\doxysection{sonic\+\_\+cli\+\_\+clear\+\_\+ospfv2 네임스페이스 참조}
+\label{namespacesonic__cli__clear__ospfv2}\index{sonic\_cli\_clear\_ospfv2@{sonic\_cli\_clear\_ospfv2}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__clear__ospfv2_a6ce163768afc9dbd79d4279ce69a60f2}{clear\+\_\+ospf\+\_\+api}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__clear__ospfv2_a80eeb87cbb06da26d27db4917fddb14a}{run}} (\mbox{\hyperlink{namespacesonic__cli__clear__ospfv2_a3ec84dea2e5a6c80fa307ecb83f8559a}{func}}, args)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacesonic__cli__clear__ospfv2_a3ec84dea2e5a6c80fa307ecb83f8559a}{func}} = sys.\+argv\mbox{[}1\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__clear__ospfv2_a6ce163768afc9dbd79d4279ce69a60f2}\label{namespacesonic__cli__clear__ospfv2_a6ce163768afc9dbd79d4279ce69a60f2}} 
+\index{sonic\_cli\_clear\_ospfv2@{sonic\_cli\_clear\_ospfv2}!clear\_ospf\_api@{clear\_ospf\_api}}
+\index{clear\_ospf\_api@{clear\_ospf\_api}!sonic\_cli\_clear\_ospfv2@{sonic\_cli\_clear\_ospfv2}}
+\doxysubsubsection{\texorpdfstring{clear\_ospf\_api()}{clear\_ospf\_api()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+clear\+\_\+ospfv2.\+clear\+\_\+ospf\+\_\+api (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+clear\+\_\+ospfv2.\+py 파일의 23 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__clear__ospfv2_a6ce163768afc9dbd79d4279ce69a60f2}{clear\_ospf\_api}}(args):}
+\DoxyCodeLine{24    api = cc.ApiClient()}
+\DoxyCodeLine{25    keypath = []}
+\DoxyCodeLine{26    body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{27    vrfname = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{28    ifname = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30    \textcolor{comment}{\#print("clear\_ospf\_api: args \{\}".format(args))}}
+\DoxyCodeLine{31    \textcolor{keywordflow}{if} len(args) >= 1 :}
+\DoxyCodeLine{32       \_, ifname = args[0].split(\textcolor{stringliteral}{"="})}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34    \textcolor{keywordflow}{if} len(args) >= 2 :}
+\DoxyCodeLine{35       \_, vrfname = args[1].split(\textcolor{stringliteral}{"="})}
+\DoxyCodeLine{36    }
+\DoxyCodeLine{37    keypath = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/ospfv2-\/clear:clear-\/ospfv2'})}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39    \textcolor{keywordflow}{if} vrfname != \textcolor{stringliteral}{""} :}
+\DoxyCodeLine{40        \textcolor{keywordflow}{if} ifname != \textcolor{stringliteral}{""} :}
+\DoxyCodeLine{41            body = \{\textcolor{stringliteral}{"sonic-\/ospfv2-\/clear:input"}: \{ \textcolor{stringliteral}{"vrf-\/name"} : vrfname, \textcolor{stringliteral}{"interface"} : ifname \} \}}
+\DoxyCodeLine{42        \textcolor{keywordflow}{else} :}
+\DoxyCodeLine{43            body = \{\textcolor{stringliteral}{"sonic-\/ospfv2-\/clear:input"}: \{ \textcolor{stringliteral}{"vrf-\/name"} : vrfname, \textcolor{stringliteral}{"interface-\/all"} : \textcolor{keyword}{True} \} \}}
+\DoxyCodeLine{44    \textcolor{keywordflow}{else} :}
+\DoxyCodeLine{45        \textcolor{keywordflow}{if} ifname != \textcolor{stringliteral}{""} :}
+\DoxyCodeLine{46            body = \{\textcolor{stringliteral}{"sonic-\/ospfv2-\/clear:input"}: \{ \textcolor{stringliteral}{"interface"} : ifname \} \}}
+\DoxyCodeLine{47        \textcolor{keywordflow}{else} :}
+\DoxyCodeLine{48            body = \{\textcolor{stringliteral}{"sonic-\/ospfv2-\/clear:input"}: \{ \textcolor{stringliteral}{"interface-\/all"} : \textcolor{keyword}{True} \} \}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50    \textcolor{keywordflow}{return} api.post(keypath, body)}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d17/namespacesonic__cli__clear__ospfv2_a6ce163768afc9dbd79d4279ce69a60f2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__clear__ospfv2_a80eeb87cbb06da26d27db4917fddb14a}\label{namespacesonic__cli__clear__ospfv2_a80eeb87cbb06da26d27db4917fddb14a}} 
+\index{sonic\_cli\_clear\_ospfv2@{sonic\_cli\_clear\_ospfv2}!run@{run}}
+\index{run@{run}!sonic\_cli\_clear\_ospfv2@{sonic\_cli\_clear\_ospfv2}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+clear\+\_\+ospfv2.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+clear\+\_\+ospfv2.\+py 파일의 53 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{53 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__clear__ospfv2_a80eeb87cbb06da26d27db4917fddb14a}{run}}(func, args):}
+\DoxyCodeLine{54     \textcolor{comment}{\#print("Run clear\_ospf\_api args \{\}".format(args))}}
+\DoxyCodeLine{55     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'clear\_ospfv2'}:}
+\DoxyCodeLine{56         response = \mbox{\hyperlink{namespacesonic__cli__clear__ospfv2_a6ce163768afc9dbd79d4279ce69a60f2}{clear\_ospf\_api}}(args)}
+\DoxyCodeLine{57         \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{58             \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{59                 \textcolor{comment}{\# Get Command Output}}
+\DoxyCodeLine{60                 api\_response = response.content}
+\DoxyCodeLine{61                 \textcolor{keywordflow}{if} api\_response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{62                     print(\textcolor{stringliteral}{"Failed"})}
+\DoxyCodeLine{63                     sys.exit(1)}
+\DoxyCodeLine{64         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{65             \textcolor{keywordflow}{print} response.error\_message()}
+\DoxyCodeLine{66             sys.exit(1)}
+\DoxyCodeLine{67     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{68        \textcolor{keywordflow}{return}}
+\DoxyCodeLine{69 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d17/namespacesonic__cli__clear__ospfv2_a80eeb87cbb06da26d27db4917fddb14a_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__clear__ospfv2_a3ec84dea2e5a6c80fa307ecb83f8559a}\label{namespacesonic__cli__clear__ospfv2_a3ec84dea2e5a6c80fa307ecb83f8559a}} 
+\index{sonic\_cli\_clear\_ospfv2@{sonic\_cli\_clear\_ospfv2}!func@{func}}
+\index{func@{func}!sonic\_cli\_clear\_ospfv2@{sonic\_cli\_clear\_ospfv2}}
+\doxysubsubsection{\texorpdfstring{func}{func}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+clear\+\_\+ospfv2.\+func = sys.\+argv\mbox{[}1\mbox{]}}
+
+
+
+sonic\+\_\+cli\+\_\+clear\+\_\+ospfv2.\+py 파일의 73 번째 라인에서 정의되었습니다.
+

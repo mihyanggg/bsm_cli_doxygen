@@ -1,0 +1,1481 @@
+\hypertarget{namespacesonic__cli__pim}{}\doxysection{sonic\+\_\+cli\+\_\+pim 네임스페이스 참조}
+\label{namespacesonic__cli__pim}\index{sonic\_cli\_pim@{sonic\_cli\_pim}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__pim_a7dc3ed1629386ab528c241b51df4710d}{seconds\+\_\+to\+\_\+wdhm\+\_\+str}} (seconds, up\+Time)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__pim_ac44ad53a252aafabb8245ef7da7169a8}{get\+\_\+keypath}} (func, args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__pim_a6c22bf84ba0e7b3a464abb067bc59a34}{get\+\_\+vrf}} (\mbox{\hyperlink{DB-PARSED_8txt_a5a2822eef6a328ee35c9360627065e44}{intf}})
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__pim_a70634dbd3298172460d881136ef590b0}{show\+\_\+response}} (response)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__pim_a4e642de0ebbd1c6b88739dcbca9b0930}{show\+\_\+intf\+\_\+info}} (response)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__pim_a201503ca30f645c8c41d84a2665a46ec}{show\+\_\+topology\+\_\+src\+\_\+info}} (response)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__pim_aa9e77de37fbdb9d6c32a8e0820c1fd34}{show\+\_\+topology\+\_\+info}} (response)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__pim_a58c19e6046f709c4195fb0875d3ca5fa}{get\+\_\+ssm\+\_\+ranges}} (response)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__pim_a10c62ed0c53922b19fd85eb9ef6ddcfc}{show\+\_\+ssm\+\_\+info}} (response)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__pim_a129fccc196cb9e61671cd4fe3caf5e23}{show\+\_\+rpf\+\_\+info}} (response)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__pim_a1a902d3d4257a104549fd51c9f58c8e4}{show\+\_\+nbr\+\_\+info}} (response)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__pim_ac82e595c72737b8fa564e492076c771a}{get\+\_\+vrf\+\_\+list}} ()
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__pim_ab287cb282e59082f3eb153cc1284cecc}{process\+\_\+args}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__pim_a34de9f55f27c7e878eb30ee9a9fa9b24}{handle\+\_\+patch}} (func, args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__pim_a25c6345276ff59f462af77e9124a7e4c}{handle\+\_\+del}} (func, args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__pim_a70088c2c1aa235fad2da370319677dd6}{handle\+\_\+clear}} (func, args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__pim_a58cef2b215b4892cf09d7f8b6faae102}{handle\+\_\+show\+\_\+all}} (func, args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__pim_a11700e5c4af9a7180913ec4dadfed26b}{handle\+\_\+show}} (func, args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__pim_aacfed3e51a9b78d64c2dac1ef888f7cc}{run}} (func, args)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+dictionary \mbox{\hyperlink{namespacesonic__cli__pim_add8f9a5434d9c748a724bde59031ec31}{input\+Dict}} = \{\}
+\item 
+\mbox{\hyperlink{namespacesonic__cli__pim_a2fe5575be29570b46495c0f8b2f11217}{api\+Client}} = cc.\+Api\+Client()
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__pim_a69f6e049985f18cd89615133be1265e6}{status}} = \mbox{\hyperlink{namespacesonic__cli__pim_aacfed3e51a9b78d64c2dac1ef888f7cc}{run}}(sys.\+argv\mbox{[}1\mbox{]}, sys.\+argv\mbox{[}2\+:\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__pim_ac44ad53a252aafabb8245ef7da7169a8}\label{namespacesonic__cli__pim_ac44ad53a252aafabb8245ef7da7169a8}} 
+\index{sonic\_cli\_pim@{sonic\_cli\_pim}!get\_keypath@{get\_keypath}}
+\index{get\_keypath@{get\_keypath}!sonic\_cli\_pim@{sonic\_cli\_pim}}
+\doxysubsubsection{\texorpdfstring{get\_keypath()}{get\_keypath()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+pim.\+get\+\_\+keypath (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+pim.\+py 파일의 62 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{62 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__pim_ac44ad53a252aafabb8245ef7da7169a8}{get\_keypath}}(func,args):}
+\DoxyCodeLine{63     keypath = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{64     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{65     path\_prefix = \textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance='}}
+\DoxyCodeLine{66     intf = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{67     intf\_uri = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{68     vrf = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{69     path = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71     \textcolor{comment}{\#patch and show config}}
+\DoxyCodeLine{72     \textcolor{keywordflow}{if} ((func == \textcolor{stringliteral}{'patch\_pim\_global\_config'}) \textcolor{keywordflow}{or}}
+\DoxyCodeLine{73         (func == \textcolor{stringliteral}{'show\_pim\_config'}) \textcolor{keywordflow}{or}}
+\DoxyCodeLine{74         (func.startswith(\textcolor{stringliteral}{'clear'}))):}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76         \textcolor{comment}{\#get vrf, needed for keypath}}
+\DoxyCodeLine{77         vrf = inputDict.get(\textcolor{stringliteral}{'vrf'})}
+\DoxyCodeLine{78         \textcolor{keywordflow}{if} vrf == \textcolor{keywordtype}{None} \textcolor{keywordflow}{or} vrf == \textcolor{stringliteral}{""}:}
+\DoxyCodeLine{79             vrf = \textcolor{stringliteral}{"default"}}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81     }
+\DoxyCodeLine{84     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_pim\_global\_config'}:}
+\DoxyCodeLine{85         \textcolor{comment}{\#generate keypath}}
+\DoxyCodeLine{86         path = path\_prefix + vrf + \textcolor{stringliteral}{'/protocols/protocol=PIM,pim/pim/global'}}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88         \textcolor{keywordflow}{if} inputDict.get(\textcolor{stringliteral}{'jpi'}):}
+\DoxyCodeLine{89             body = \{\textcolor{stringliteral}{"openconfig-\/network-\/instance:global"}: \{\textcolor{stringliteral}{"openconfig-\/pim-\/ext:config"}: \{\textcolor{stringliteral}{"join-\/prune-\/interval"}: float(inputDict.get(\textcolor{stringliteral}{'jpi'}))\}\}\}}
+\DoxyCodeLine{90         \textcolor{keywordflow}{elif} inputDict.get(\textcolor{stringliteral}{'kat'}):}
+\DoxyCodeLine{91             body = \{\textcolor{stringliteral}{"openconfig-\/network-\/instance:global"}: \{\textcolor{stringliteral}{"openconfig-\/pim-\/ext:config"}: \{\textcolor{stringliteral}{"keep-\/alive-\/timer"}: float(inputDict.get(\textcolor{stringliteral}{'kat'}))\}\}\}}
+\DoxyCodeLine{92         \textcolor{keywordflow}{elif} inputDict.get(\textcolor{stringliteral}{'pln'}):}
+\DoxyCodeLine{93             body = \{\textcolor{stringliteral}{"openconfig-\/network-\/instance:global"}: \{\textcolor{stringliteral}{"ssm"}: \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"ssm-\/ranges"}: inputDict.get(\textcolor{stringliteral}{'pln'})\}\}\}\}}
+\DoxyCodeLine{94         \textcolor{comment}{\#as rebalance is a child of ecmp, check it first}}
+\DoxyCodeLine{95         \textcolor{keywordflow}{elif} inputDict.get(\textcolor{stringliteral}{'rebalance'}):}
+\DoxyCodeLine{96             body = \{\textcolor{stringliteral}{"openconfig-\/network-\/instance:global"}: \{\textcolor{stringliteral}{"openconfig-\/pim-\/ext:config"}: \{\textcolor{stringliteral}{"ecmp-\/rebalance-\/enabled"}: \textcolor{keyword}{True}\}\}\}}
+\DoxyCodeLine{97         \textcolor{keywordflow}{elif} inputDict.get(\textcolor{stringliteral}{'ecmp'}):}
+\DoxyCodeLine{98             body = \{\textcolor{stringliteral}{"openconfig-\/network-\/instance:global"}: \{\textcolor{stringliteral}{"openconfig-\/pim-\/ext:config"}: \{\textcolor{stringliteral}{"ecmp-\/enabled"}: \textcolor{keyword}{True}\}\}\}}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100     }
+\DoxyCodeLine{103     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'del\_pim\_global\_config'}:}
+\DoxyCodeLine{104         \textcolor{comment}{\#get vrf, needed for keypath}}
+\DoxyCodeLine{105         vrf = inputDict.get(\textcolor{stringliteral}{'vrf'})}
+\DoxyCodeLine{106         \textcolor{keywordflow}{if} vrf == \textcolor{keywordtype}{None} \textcolor{keywordflow}{or} vrf == \textcolor{stringliteral}{""}:}
+\DoxyCodeLine{107             vrf = \textcolor{stringliteral}{"default"}}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109         \textcolor{comment}{\#generate keypath}}
+\DoxyCodeLine{110         path = path\_prefix + vrf + \textcolor{stringliteral}{'/protocols/protocol=PIM,pim/pim/global'}}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112         \textcolor{comment}{\#generate del request based on the input}}
+\DoxyCodeLine{113         \textcolor{keywordflow}{if} inputDict.get(\textcolor{stringliteral}{'jpi'}):}
+\DoxyCodeLine{114             path = path + \textcolor{stringliteral}{"/openconfig-\/pim-\/ext:config/join-\/prune-\/interval"}}
+\DoxyCodeLine{115         \textcolor{keywordflow}{elif} inputDict.get(\textcolor{stringliteral}{'kat'}):}
+\DoxyCodeLine{116             path = path + \textcolor{stringliteral}{"/openconfig-\/pim-\/ext:config/keep-\/alive-\/timer"}}
+\DoxyCodeLine{117         \textcolor{keywordflow}{elif} inputDict.get(\textcolor{stringliteral}{'pln'}):}
+\DoxyCodeLine{118             path = path + \textcolor{stringliteral}{"/ssm/config/ssm-\/ranges"}}
+\DoxyCodeLine{119         \textcolor{comment}{\#as rebalance is a child of ecmp, check it first}}
+\DoxyCodeLine{120         \textcolor{keywordflow}{elif} inputDict.get(\textcolor{stringliteral}{'rebalance'}):}
+\DoxyCodeLine{121             path = path + \textcolor{stringliteral}{"/openconfig-\/pim-\/ext:config/ecmp-\/rebalance-\/enabled"}}
+\DoxyCodeLine{122         \textcolor{keywordflow}{elif} inputDict.get(\textcolor{stringliteral}{'ecmp'}):}
+\DoxyCodeLine{123             path = path + \textcolor{stringliteral}{"/openconfig-\/pim-\/ext:config/ecmp-\/enabled"}}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125     }
+\DoxyCodeLine{128     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'pim\_interface\_config'} \textcolor{keywordflow}{in} func:}
+\DoxyCodeLine{129         \textcolor{comment}{\#get interface, needed for VRF lookup and keypath}}
+\DoxyCodeLine{130         intf = inputDict.get(\textcolor{stringliteral}{'intf'})}
+\DoxyCodeLine{131         \textcolor{keywordflow}{if} intf \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{132             \textcolor{keywordflow}{return} \textcolor{keywordtype}{None}, \textcolor{keywordtype}{None}}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134         intf\_uri = inputDict.get(\textcolor{stringliteral}{'intf\_uri'})}
+\DoxyCodeLine{135         \textcolor{keywordflow}{if} intf\_uri \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{136             \textcolor{keywordflow}{return} \textcolor{keywordtype}{None}, \textcolor{keywordtype}{None}}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138         \textcolor{comment}{\#get vrf, needed for keypath}}
+\DoxyCodeLine{139         vrf=\mbox{\hyperlink{namespacesonic__cli__pim_a6c22bf84ba0e7b3a464abb067bc59a34}{get\_vrf}}(intf\_uri)}
+\DoxyCodeLine{140         \textcolor{keywordflow}{if} vrf \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{141             \textcolor{keywordflow}{return} \textcolor{keywordtype}{None}, \textcolor{keywordtype}{None}}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143     }
+\DoxyCodeLine{146     \textcolor{keywordflow}{if} func.endswith(\textcolor{stringliteral}{'config\_mode'}):}
+\DoxyCodeLine{147         \textcolor{keywordflow}{if} func.startswith(\textcolor{stringliteral}{'patch'}):}
+\DoxyCodeLine{148             path = path\_prefix + vrf + \textcolor{stringliteral}{'/protocols/protocol=PIM,pim/pim/interfaces'}}
+\DoxyCodeLine{149             body = \{\textcolor{stringliteral}{"openconfig-\/network-\/instance:interfaces"}: \{\textcolor{stringliteral}{"interface"}: [\{\textcolor{stringliteral}{"interface-\/id"}: intf, \textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"interface-\/id"}: intf, \textcolor{stringliteral}{"mode"}: \textcolor{stringliteral}{"PIM\_MODE\_SPARSE"}\}\}]\}\}}
+\DoxyCodeLine{150         \textcolor{keywordflow}{elif} func.startswith(\textcolor{stringliteral}{'del'}):}
+\DoxyCodeLine{151             path = path\_prefix + vrf + \textcolor{stringliteral}{'/protocols/protocol=PIM,pim/pim/interfaces/interface='} + intf\_uri + \textcolor{stringliteral}{'/config/mode'}}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153     \textcolor{keywordflow}{if} func.endswith(\textcolor{stringliteral}{'config\_drprio'}):}
+\DoxyCodeLine{154         \textcolor{keywordflow}{if} func.startswith(\textcolor{stringliteral}{'patch'}):}
+\DoxyCodeLine{155             path = path\_prefix + vrf + \textcolor{stringliteral}{'/protocols/protocol=PIM,pim/pim/interfaces'}}
+\DoxyCodeLine{156             body = \{\textcolor{stringliteral}{"openconfig-\/network-\/instance:interfaces"}: \{\textcolor{stringliteral}{"interface"}: [\{\textcolor{stringliteral}{"interface-\/id"}: intf, \textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"interface-\/id"}: intf, \textcolor{stringliteral}{"dr-\/priority"}: float(inputDict.get(\textcolor{stringliteral}{'drprio'}))\}\}]\}\}}
+\DoxyCodeLine{157         \textcolor{keywordflow}{elif} func.startswith(\textcolor{stringliteral}{'del'}):}
+\DoxyCodeLine{158             path = path\_prefix + vrf + \textcolor{stringliteral}{'/protocols/protocol=PIM,pim/pim/interfaces/interface='} + intf\_uri + \textcolor{stringliteral}{'/config/dr-\/priority'}}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160     \textcolor{keywordflow}{if} func.endswith(\textcolor{stringliteral}{'config\_hello'}):}
+\DoxyCodeLine{161         \textcolor{keywordflow}{if} func.startswith(\textcolor{stringliteral}{'patch'}):}
+\DoxyCodeLine{162             path = path\_prefix + vrf + \textcolor{stringliteral}{'/protocols/protocol=PIM,pim/pim/interfaces'}}
+\DoxyCodeLine{163             body = \{\textcolor{stringliteral}{"openconfig-\/network-\/instance:interfaces"}: \{\textcolor{stringliteral}{"interface"}: [\{\textcolor{stringliteral}{"interface-\/id"}: intf, \textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"interface-\/id"}: intf, \textcolor{stringliteral}{"hello-\/interval"}: float(inputDict.get(\textcolor{stringliteral}{'hello'}))\}\}]\}\}}
+\DoxyCodeLine{164         \textcolor{keywordflow}{elif} func.startswith(\textcolor{stringliteral}{'del'}):}
+\DoxyCodeLine{165             path = path\_prefix + vrf + \textcolor{stringliteral}{'/protocols/protocol=PIM,pim/pim/interfaces/interface='} + intf\_uri + \textcolor{stringliteral}{'/config/hello-\/interval'}}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167     \textcolor{keywordflow}{if} func.endswith(\textcolor{stringliteral}{'config\_bfd'}):}
+\DoxyCodeLine{168         \textcolor{keywordflow}{if} func.startswith(\textcolor{stringliteral}{'patch'}):}
+\DoxyCodeLine{169             path = path\_prefix + vrf + \textcolor{stringliteral}{'/protocols/protocol=PIM,pim/pim/interfaces'}}
+\DoxyCodeLine{170             body = \{\textcolor{stringliteral}{"openconfig-\/network-\/instance:interfaces"}: \{\textcolor{stringliteral}{"interface"}: [\{\textcolor{stringliteral}{"interface-\/id"}: intf, \textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"interface-\/id"}: intf, \textcolor{stringliteral}{"bfd-\/enabled"}: \textcolor{keyword}{True}\}\}]\}\}}
+\DoxyCodeLine{171         \textcolor{keywordflow}{elif} func.startswith(\textcolor{stringliteral}{'del'}):}
+\DoxyCodeLine{172             path = path\_prefix + vrf + \textcolor{stringliteral}{'/protocols/protocol=PIM,pim/pim/interfaces/interface='} + intf\_uri + \textcolor{stringliteral}{'/config/openconfig-\/pim-\/ext:bfd-\/enabled'}}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174     }
+\DoxyCodeLine{177     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'show\_pim\_config'} \textcolor{keywordflow}{in} func:}
+\DoxyCodeLine{178         \textcolor{comment}{\#generate keypath}}
+\DoxyCodeLine{179         path = path\_prefix + vrf + \textcolor{stringliteral}{'/protocols/protocol=PIM,pim/pim'}}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181         \textcolor{keywordflow}{if} ((inputDict.get(\textcolor{stringliteral}{'interface'})) \textcolor{keywordflow}{or}}
+\DoxyCodeLine{182             (inputDict.get(\textcolor{stringliteral}{'nbr'}))):}
+\DoxyCodeLine{183             path = path + \textcolor{stringliteral}{"/interfaces"}}
+\DoxyCodeLine{184             ifName = inputDict.get(\textcolor{stringliteral}{'ifName'})}
+\DoxyCodeLine{185             \textcolor{keywordflow}{if} ifName:}
+\DoxyCodeLine{186         ifName =  quote(ifName, safe=\textcolor{stringliteral}{''})}
+\DoxyCodeLine{187                 path = path + \textcolor{stringliteral}{"/interface="} + ifName}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189         \textcolor{keywordflow}{if} (inputDict.get(\textcolor{stringliteral}{'ssm'})):}
+\DoxyCodeLine{190             path = path + \textcolor{stringliteral}{"/global/ssm"}}
+\DoxyCodeLine{191         \textcolor{keywordflow}{if} (inputDict.get(\textcolor{stringliteral}{'srcAddr'})):}
+\DoxyCodeLine{192             path = path + \textcolor{stringliteral}{"/global/openconfig-\/pim-\/ext:tib/ipv4-\/entries/ipv4-\/entry="} + inputDict.get(\textcolor{stringliteral}{'grpAddr'}) + \textcolor{stringliteral}{"/state/src-\/entries/src-\/entry="} + inputDict.get(\textcolor{stringliteral}{'srcAddr'}) + \textcolor{stringliteral}{",SG"}}
+\DoxyCodeLine{193         \textcolor{keywordflow}{elif} (inputDict.get(\textcolor{stringliteral}{'grpAddr'})):}
+\DoxyCodeLine{194             path = path + \textcolor{stringliteral}{"/global/openconfig-\/pim-\/ext:tib/ipv4-\/entries/ipv4-\/entry="} + inputDict.get(\textcolor{stringliteral}{'grpAddr'})}
+\DoxyCodeLine{195         \textcolor{keywordflow}{elif} (inputDict.get(\textcolor{stringliteral}{'topology'})):}
+\DoxyCodeLine{196             path = path + \textcolor{stringliteral}{"/global/openconfig-\/pim-\/ext:tib"}}
+\DoxyCodeLine{197         \textcolor{keywordflow}{elif} (inputDict.get(\textcolor{stringliteral}{'rpf'})):}
+\DoxyCodeLine{198             path = \textcolor{stringliteral}{"/restconf/operations/sonic-\/pim-\/show:show-\/pim"}}
+\DoxyCodeLine{199             body = \{\textcolor{stringliteral}{"sonic-\/pim-\/show:input"}:\{\textcolor{stringliteral}{"vrf-\/name"}: vrf, \textcolor{stringliteral}{"address-\/family"}: \textcolor{stringliteral}{"IPV4\_UNICAST"}, \textcolor{stringliteral}{"query-\/type"}: \textcolor{stringliteral}{"RPF"}, \textcolor{stringliteral}{"rpf"}: \textcolor{keyword}{True}\}\}}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{201     }
+\DoxyCodeLine{204     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'clear\_pim'} \textcolor{keywordflow}{in} func:}
+\DoxyCodeLine{205         path = \textcolor{stringliteral}{"/restconf/operations/sonic-\/pim-\/clear:clear-\/pim"}}
+\DoxyCodeLine{206         \textcolor{keywordflow}{if} (inputDict.get(\textcolor{stringliteral}{'interfaces'})):}
+\DoxyCodeLine{207             body = \{\textcolor{stringliteral}{"sonic-\/pim-\/clear:input"}: \{\textcolor{stringliteral}{"vrf-\/name"}: vrf, \textcolor{stringliteral}{"address-\/family"}:\textcolor{stringliteral}{"IPV4\_UNICAST"}, \textcolor{stringliteral}{"config-\/type"}:\textcolor{stringliteral}{"ALL-\/INTERFACES"}, \textcolor{stringliteral}{"all-\/interfaces"}: \textcolor{keyword}{True}\}\}}
+\DoxyCodeLine{208         \textcolor{keywordflow}{elif} (inputDict.get(\textcolor{stringliteral}{'oil'})):}
+\DoxyCodeLine{209             body = \{\textcolor{stringliteral}{"sonic-\/pim-\/clear:input"}: \{\textcolor{stringliteral}{"vrf-\/name"}: vrf, \textcolor{stringliteral}{"address-\/family"}:\textcolor{stringliteral}{"IPV4\_UNICAST"}, \textcolor{stringliteral}{"config-\/type"}:\textcolor{stringliteral}{"ALL-\/OIL"}, \textcolor{stringliteral}{"all-\/oil"}: \textcolor{keyword}{True}\}\}}
+\DoxyCodeLine{210 }
+\DoxyCodeLine{211     keypath = cc.Path(path)}
+\DoxyCodeLine{212     \textcolor{keywordflow}{return} keypath, body}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{214 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d63/namespacesonic__cli__pim_ac44ad53a252aafabb8245ef7da7169a8_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d63/namespacesonic__cli__pim_ac44ad53a252aafabb8245ef7da7169a8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__pim_a58c19e6046f709c4195fb0875d3ca5fa}\label{namespacesonic__cli__pim_a58c19e6046f709c4195fb0875d3ca5fa}} 
+\index{sonic\_cli\_pim@{sonic\_cli\_pim}!get\_ssm\_ranges@{get\_ssm\_ranges}}
+\index{get\_ssm\_ranges@{get\_ssm\_ranges}!sonic\_cli\_pim@{sonic\_cli\_pim}}
+\doxysubsubsection{\texorpdfstring{get\_ssm\_ranges()}{get\_ssm\_ranges()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+pim.\+get\+\_\+ssm\+\_\+ranges (\begin{DoxyParamCaption}\item[{}]{response }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+pim.\+py 파일의 601 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{601 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__pim_a58c19e6046f709c4195fb0875d3ca5fa}{get\_ssm\_ranges}}(response):}
+\DoxyCodeLine{602     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response:}
+\DoxyCodeLine{603         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'232.0.0.0/8'}}
+\DoxyCodeLine{604 }
+\DoxyCodeLine{605     ssmContainer = response.get(\textcolor{stringliteral}{'openconfig-\/network-\/instance:ssm'})}
+\DoxyCodeLine{606     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} ssmContainer:}
+\DoxyCodeLine{607         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'232.0.0.0/8'}}
+\DoxyCodeLine{608 }
+\DoxyCodeLine{609     ssmState = ssmContainer.get(\textcolor{stringliteral}{'state'})}
+\DoxyCodeLine{610     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} ssmState:}
+\DoxyCodeLine{611         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'232.0.0.0/8'}}
+\DoxyCodeLine{612 }
+\DoxyCodeLine{613     ssmRanges = ssmState.get(\textcolor{stringliteral}{'ssm-\/ranges'})}
+\DoxyCodeLine{614     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} ssmRanges:}
+\DoxyCodeLine{615         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'232.0.0.0/8'}}
+\DoxyCodeLine{616     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{617         \textcolor{keywordflow}{return} ssmRanges}
+\DoxyCodeLine{618 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d63/namespacesonic__cli__pim_a58c19e6046f709c4195fb0875d3ca5fa_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__pim_a6c22bf84ba0e7b3a464abb067bc59a34}\label{namespacesonic__cli__pim_a6c22bf84ba0e7b3a464abb067bc59a34}} 
+\index{sonic\_cli\_pim@{sonic\_cli\_pim}!get\_vrf@{get\_vrf}}
+\index{get\_vrf@{get\_vrf}!sonic\_cli\_pim@{sonic\_cli\_pim}}
+\doxysubsubsection{\texorpdfstring{get\_vrf()}{get\_vrf()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+pim.\+get\+\_\+vrf (\begin{DoxyParamCaption}\item[{}]{intf }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+pim.\+py 파일의 215 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{215 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__pim_a6c22bf84ba0e7b3a464abb067bc59a34}{get\_vrf}}(intf):}
+\DoxyCodeLine{216     request = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{217 }
+\DoxyCodeLine{218     \textcolor{keywordflow}{if} \textcolor{stringliteral}{"."} \textcolor{keywordflow}{in} intf:}
+\DoxyCodeLine{219         request = \textcolor{stringliteral}{'/restconf/data/sonic-\/interface:sonic-\/interface/VLAN\_SUB\_INTERFACE/VLAN\_SUB\_INTERFACE\_LIST='} + intf + \textcolor{stringliteral}{'/vrf\_name'}}
+\DoxyCodeLine{220     \textcolor{keywordflow}{elif} intf.lower().startswith(\textcolor{stringliteral}{'e'}):}
+\DoxyCodeLine{221         request = \textcolor{stringliteral}{'/restconf/data/sonic-\/interface:sonic-\/interface/INTERFACE/INTERFACE\_LIST='} + intf + \textcolor{stringliteral}{'/vrf\_name'}}
+\DoxyCodeLine{222     \textcolor{keywordflow}{elif} intf.lower().startswith(\textcolor{stringliteral}{'vlan'}):}
+\DoxyCodeLine{223         request = \textcolor{stringliteral}{'/restconf/data/sonic-\/vlan-\/interface:sonic-\/vlan-\/interface/VLAN\_INTERFACE/VLAN\_INTERFACE\_LIST='} + intf + \textcolor{stringliteral}{'/vrf\_name'}}
+\DoxyCodeLine{224     \textcolor{keywordflow}{elif} intf.lower().startswith(\textcolor{stringliteral}{'p'}):}
+\DoxyCodeLine{225         request =  \textcolor{stringliteral}{'/restconf/data/sonic-\/portchannel-\/interface:sonic-\/portchannel-\/interface/PORTCHANNEL\_INTERFACE/PORTCHANNEL\_INTERFACE\_LIST='} + intf + \textcolor{stringliteral}{'/vrf\_name'}}
+\DoxyCodeLine{226     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{227         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'default'}}
+\DoxyCodeLine{228 }
+\DoxyCodeLine{229     keypath = cc.Path(request)}
+\DoxyCodeLine{230 }
+\DoxyCodeLine{231     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{232         response = apiClient.get(keypath)}
+\DoxyCodeLine{233         \textcolor{keywordflow}{if} response \textcolor{keywordflow}{is}  \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{234             \textcolor{keywordflow}{return} \textcolor{stringliteral}{'default'}}
+\DoxyCodeLine{235 }
+\DoxyCodeLine{236         response = response.content}
+\DoxyCodeLine{237         \textcolor{keywordflow}{if} response \textcolor{keywordflow}{is}  \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{238             \textcolor{keywordflow}{return} \textcolor{stringliteral}{'default'}}
+\DoxyCodeLine{239 }
+\DoxyCodeLine{240         \textcolor{keywordflow}{if} intf.lower().startswith(\textcolor{stringliteral}{'e'}) \textcolor{keywordflow}{or} \textcolor{stringliteral}{"."} \textcolor{keywordflow}{in} intf:}
+\DoxyCodeLine{241             vrf = response.get(\textcolor{stringliteral}{'sonic-\/interface:vrf\_name'})}
+\DoxyCodeLine{242         \textcolor{keywordflow}{elif} intf.lower().startswith(\textcolor{stringliteral}{'vlan'}):}
+\DoxyCodeLine{243             vrf = response.get(\textcolor{stringliteral}{'sonic-\/vlan-\/interface:vrf\_name'})}
+\DoxyCodeLine{244         \textcolor{keywordflow}{elif} intf.lower().startswith(\textcolor{stringliteral}{'p'}):}
+\DoxyCodeLine{245             vrf = response.get(\textcolor{stringliteral}{'sonic-\/portchannel-\/interface:vrf\_name'})}
+\DoxyCodeLine{246 }
+\DoxyCodeLine{247         \textcolor{keywordflow}{if} vrf \textcolor{keywordflow}{is} \textcolor{keywordtype}{None} \textcolor{keywordflow}{or} vrf == \textcolor{stringliteral}{''}:}
+\DoxyCodeLine{248             \textcolor{keywordflow}{return} \textcolor{stringliteral}{'default'}}
+\DoxyCodeLine{249         \textcolor{keywordflow}{return} vrf}
+\DoxyCodeLine{250 }
+\DoxyCodeLine{251     \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} e:}
+\DoxyCodeLine{252         log.syslog(log.LOG\_ERR, str(e))}
+\DoxyCodeLine{253         \textcolor{keywordflow}{return} \textcolor{keywordtype}{None}}
+\DoxyCodeLine{254 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d63/namespacesonic__cli__pim_a6c22bf84ba0e7b3a464abb067bc59a34_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__pim_ac82e595c72737b8fa564e492076c771a}\label{namespacesonic__cli__pim_ac82e595c72737b8fa564e492076c771a}} 
+\index{sonic\_cli\_pim@{sonic\_cli\_pim}!get\_vrf\_list@{get\_vrf\_list}}
+\index{get\_vrf\_list@{get\_vrf\_list}!sonic\_cli\_pim@{sonic\_cli\_pim}}
+\doxysubsubsection{\texorpdfstring{get\_vrf\_list()}{get\_vrf\_list()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+pim.\+get\+\_\+vrf\+\_\+list (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+pim.\+py 파일의 767 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{767 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__pim_ac82e595c72737b8fa564e492076c771a}{get\_vrf\_list}}():}
+\DoxyCodeLine{768     \textcolor{comment}{\# Use SONIC model to get all configued VRF names and set the keys in the dictionary}}
+\DoxyCodeLine{769     vrfList =  []}
+\DoxyCodeLine{770     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/vrf:sonic-\/vrf/VRF/VRF\_LIST'})}
+\DoxyCodeLine{771     response = apiClient.get(keypath)}
+\DoxyCodeLine{772 }
+\DoxyCodeLine{773     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response:}
+\DoxyCodeLine{774         \textcolor{keywordflow}{return} \textcolor{keywordtype}{None}}
+\DoxyCodeLine{775 }
+\DoxyCodeLine{776     \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{777         response = response.content}
+\DoxyCodeLine{778     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{779         \textcolor{keywordflow}{return} \textcolor{keywordtype}{None}}
+\DoxyCodeLine{780 }
+\DoxyCodeLine{781     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response:}
+\DoxyCodeLine{782         \textcolor{keywordflow}{return} \textcolor{keywordtype}{None}}
+\DoxyCodeLine{783 }
+\DoxyCodeLine{784     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/vrf:VRF\_LIST'} \textcolor{keywordflow}{in} response:}
+\DoxyCodeLine{785         vrf\_list = response[\textcolor{stringliteral}{'sonic-\/vrf:VRF\_LIST'}]}
+\DoxyCodeLine{786         \textcolor{keywordflow}{for} vrf \textcolor{keywordflow}{in} vrf\_list:}
+\DoxyCodeLine{787             vrf\_name = vrf[\textcolor{stringliteral}{'vrf\_name'}]}
+\DoxyCodeLine{788             vrfList.append(vrf\_name)}
+\DoxyCodeLine{789     \textcolor{keywordflow}{return} vrfList}
+\DoxyCodeLine{790 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d63/namespacesonic__cli__pim_ac82e595c72737b8fa564e492076c771a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__pim_a70088c2c1aa235fad2da370319677dd6}\label{namespacesonic__cli__pim_a70088c2c1aa235fad2da370319677dd6}} 
+\index{sonic\_cli\_pim@{sonic\_cli\_pim}!handle\_clear@{handle\_clear}}
+\index{handle\_clear@{handle\_clear}!sonic\_cli\_pim@{sonic\_cli\_pim}}
+\doxysubsubsection{\texorpdfstring{handle\_clear()}{handle\_clear()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+pim.\+handle\+\_\+clear (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+pim.\+py 파일의 827 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{827 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__pim_a70088c2c1aa235fad2da370319677dd6}{handle\_clear}}(func, args):}
+\DoxyCodeLine{828     keypath, body = \mbox{\hyperlink{namespacesonic__cli__pim_ac44ad53a252aafabb8245ef7da7169a8}{get\_keypath}}(func, args)}
+\DoxyCodeLine{829     \textcolor{keywordflow}{if} keypath \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{830         print(\textcolor{stringliteral}{"\% Error: Internal error"})}
+\DoxyCodeLine{831         \textcolor{keywordflow}{return} -\/1}
+\DoxyCodeLine{832     response = apiClient.post(keypath, body)}
+\DoxyCodeLine{833     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response.ok():}
+\DoxyCodeLine{834         print(response.error\_message())}
+\DoxyCodeLine{835         \textcolor{keywordflow}{return} -\/1}
+\DoxyCodeLine{836     \textcolor{keywordflow}{return} 0}
+\DoxyCodeLine{837 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d63/namespacesonic__cli__pim_a70088c2c1aa235fad2da370319677dd6_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{d9/d63/namespacesonic__cli__pim_a70088c2c1aa235fad2da370319677dd6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__pim_a25c6345276ff59f462af77e9124a7e4c}\label{namespacesonic__cli__pim_a25c6345276ff59f462af77e9124a7e4c}} 
+\index{sonic\_cli\_pim@{sonic\_cli\_pim}!handle\_del@{handle\_del}}
+\index{handle\_del@{handle\_del}!sonic\_cli\_pim@{sonic\_cli\_pim}}
+\doxysubsubsection{\texorpdfstring{handle\_del()}{handle\_del()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+pim.\+handle\+\_\+del (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+pim.\+py 파일의 816 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{816 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__pim_a25c6345276ff59f462af77e9124a7e4c}{handle\_del}}(func, args):}
+\DoxyCodeLine{817     keypath, body = \mbox{\hyperlink{namespacesonic__cli__pim_ac44ad53a252aafabb8245ef7da7169a8}{get\_keypath}}(func, args)}
+\DoxyCodeLine{818     \textcolor{keywordflow}{if} keypath \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{819         print(\textcolor{stringliteral}{"\% Error: Internal error"})}
+\DoxyCodeLine{820         \textcolor{keywordflow}{return} -\/1}
+\DoxyCodeLine{821     response = apiClient.delete(keypath, deleteEmptyEntry=\textcolor{keyword}{True})}
+\DoxyCodeLine{822     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response.ok():}
+\DoxyCodeLine{823         print(response.error\_message())}
+\DoxyCodeLine{824         \textcolor{keywordflow}{return} -\/1}
+\DoxyCodeLine{825     \textcolor{keywordflow}{return} 0}
+\DoxyCodeLine{826 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d63/namespacesonic__cli__pim_a25c6345276ff59f462af77e9124a7e4c_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d63/namespacesonic__cli__pim_a25c6345276ff59f462af77e9124a7e4c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__pim_a34de9f55f27c7e878eb30ee9a9fa9b24}\label{namespacesonic__cli__pim_a34de9f55f27c7e878eb30ee9a9fa9b24}} 
+\index{sonic\_cli\_pim@{sonic\_cli\_pim}!handle\_patch@{handle\_patch}}
+\index{handle\_patch@{handle\_patch}!sonic\_cli\_pim@{sonic\_cli\_pim}}
+\doxysubsubsection{\texorpdfstring{handle\_patch()}{handle\_patch()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+pim.\+handle\+\_\+patch (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+pim.\+py 파일의 805 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{805 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__pim_a34de9f55f27c7e878eb30ee9a9fa9b24}{handle\_patch}}(func, args):}
+\DoxyCodeLine{806     keypath, body = \mbox{\hyperlink{namespacesonic__cli__pim_ac44ad53a252aafabb8245ef7da7169a8}{get\_keypath}}(func, args)}
+\DoxyCodeLine{807     \textcolor{keywordflow}{if} keypath \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{808         print(\textcolor{stringliteral}{"\% Error: Internal error"})}
+\DoxyCodeLine{809         \textcolor{keywordflow}{return} -\/1}
+\DoxyCodeLine{810     response = apiClient.patch(keypath, body)}
+\DoxyCodeLine{811     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response.ok():}
+\DoxyCodeLine{812         print(response.error\_message())}
+\DoxyCodeLine{813         \textcolor{keywordflow}{return} -\/1}
+\DoxyCodeLine{814     \textcolor{keywordflow}{return} 0}
+\DoxyCodeLine{815 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d63/namespacesonic__cli__pim_a34de9f55f27c7e878eb30ee9a9fa9b24_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{d9/d63/namespacesonic__cli__pim_a34de9f55f27c7e878eb30ee9a9fa9b24_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__pim_a11700e5c4af9a7180913ec4dadfed26b}\label{namespacesonic__cli__pim_a11700e5c4af9a7180913ec4dadfed26b}} 
+\index{sonic\_cli\_pim@{sonic\_cli\_pim}!handle\_show@{handle\_show}}
+\index{handle\_show@{handle\_show}!sonic\_cli\_pim@{sonic\_cli\_pim}}
+\doxysubsubsection{\texorpdfstring{handle\_show()}{handle\_show()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+pim.\+handle\+\_\+show (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+pim.\+py 파일의 873 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{873 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__pim_a11700e5c4af9a7180913ec4dadfed26b}{handle\_show}}(func, args):}
+\DoxyCodeLine{874     vrfList = []}
+\DoxyCodeLine{875     \textcolor{keywordflow}{if} inputDict.get(\textcolor{stringliteral}{'vrf'}) == \textcolor{stringliteral}{"all"}:}
+\DoxyCodeLine{876         \mbox{\hyperlink{namespacesonic__cli__pim_a58cef2b215b4892cf09d7f8b6faae102}{handle\_show\_all}}(func, args)}
+\DoxyCodeLine{877         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{878 }
+\DoxyCodeLine{879     keypath, body = \mbox{\hyperlink{namespacesonic__cli__pim_ac44ad53a252aafabb8245ef7da7169a8}{get\_keypath}}(func, args)}
+\DoxyCodeLine{880     \textcolor{keywordflow}{if} keypath \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{881         print(\textcolor{stringliteral}{"\% Error: Internal error"})}
+\DoxyCodeLine{882         \textcolor{keywordflow}{return} -\/1}
+\DoxyCodeLine{883     \textcolor{keywordflow}{if} \textcolor{stringliteral}{"/operations/"} \textcolor{keywordflow}{in} keypath.path:}
+\DoxyCodeLine{884         response = apiClient.post(keypath, body)}
+\DoxyCodeLine{885     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{886         response = apiClient.get(keypath)}
+\DoxyCodeLine{887 }
+\DoxyCodeLine{888     \textcolor{keywordflow}{if} response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{889         \textcolor{keywordflow}{return} -\/1}
+\DoxyCodeLine{890 }
+\DoxyCodeLine{891     \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{892         response = response.content}
+\DoxyCodeLine{893         \mbox{\hyperlink{namespacesonic__cli__pim_a70634dbd3298172460d881136ef590b0}{show\_response}}(response)}
+\DoxyCodeLine{894     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{895         print(response.error\_message())}
+\DoxyCodeLine{896         \textcolor{keywordflow}{return} -\/1}
+\DoxyCodeLine{897     \textcolor{keywordflow}{return} 0}
+\DoxyCodeLine{898 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d63/namespacesonic__cli__pim_a11700e5c4af9a7180913ec4dadfed26b_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d63/namespacesonic__cli__pim_a11700e5c4af9a7180913ec4dadfed26b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__pim_a58cef2b215b4892cf09d7f8b6faae102}\label{namespacesonic__cli__pim_a58cef2b215b4892cf09d7f8b6faae102}} 
+\index{sonic\_cli\_pim@{sonic\_cli\_pim}!handle\_show\_all@{handle\_show\_all}}
+\index{handle\_show\_all@{handle\_show\_all}!sonic\_cli\_pim@{sonic\_cli\_pim}}
+\doxysubsubsection{\texorpdfstring{handle\_show\_all()}{handle\_show\_all()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+pim.\+handle\+\_\+show\+\_\+all (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+pim.\+py 파일의 838 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{838 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__pim_a58cef2b215b4892cf09d7f8b6faae102}{handle\_show\_all}}(func, args):}
+\DoxyCodeLine{839     \textcolor{keyword}{global} inputDict}
+\DoxyCodeLine{840     response = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{841     vrfList = \mbox{\hyperlink{namespacesonic__cli__pim_ac82e595c72737b8fa564e492076c771a}{get\_vrf\_list}}()}
+\DoxyCodeLine{842     \textcolor{keywordflow}{if} vrfList \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{843         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{844 }
+\DoxyCodeLine{845     vrfCount = len(vrfList)}
+\DoxyCodeLine{846     vrfList.sort(key=string.lower)}
+\DoxyCodeLine{847     \textcolor{keywordflow}{for} vrf \textcolor{keywordflow}{in} vrfList:}
+\DoxyCodeLine{848         \textcolor{keywordflow}{if} vrf == \textcolor{stringliteral}{"mgmt"}:}
+\DoxyCodeLine{849             \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{850 }
+\DoxyCodeLine{851         inputDict[\textcolor{stringliteral}{'vrf'}] = vrf}
+\DoxyCodeLine{852         keypath, body = \mbox{\hyperlink{namespacesonic__cli__pim_ac44ad53a252aafabb8245ef7da7169a8}{get\_keypath}}(func, args)}
+\DoxyCodeLine{853         \textcolor{keywordflow}{if} keypath \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{854             print(\textcolor{stringliteral}{"\% Error: Internal error"})}
+\DoxyCodeLine{855             \textcolor{keywordflow}{return} -\/1}
+\DoxyCodeLine{856 }
+\DoxyCodeLine{857         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"/operations/"} \textcolor{keywordflow}{in} keypath.path:}
+\DoxyCodeLine{858             response = apiClient.post(keypath, body)}
+\DoxyCodeLine{859         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{860             response = apiClient.get(keypath)}
+\DoxyCodeLine{861 }
+\DoxyCodeLine{862         \textcolor{keywordflow}{if} response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{863             \textcolor{keywordflow}{return} -\/1}
+\DoxyCodeLine{864 }
+\DoxyCodeLine{865         \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{866             response = response.content}
+\DoxyCodeLine{867             \mbox{\hyperlink{namespacesonic__cli__pim_a70634dbd3298172460d881136ef590b0}{show\_response}}(response)}
+\DoxyCodeLine{868         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{869             print(response.error\_message())}
+\DoxyCodeLine{870             \textcolor{keywordflow}{return} -\/1}
+\DoxyCodeLine{871     \textcolor{keywordflow}{return} 0}
+\DoxyCodeLine{872 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d63/namespacesonic__cli__pim_a58cef2b215b4892cf09d7f8b6faae102_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d63/namespacesonic__cli__pim_a58cef2b215b4892cf09d7f8b6faae102_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__pim_ab287cb282e59082f3eb153cc1284cecc}\label{namespacesonic__cli__pim_ab287cb282e59082f3eb153cc1284cecc}} 
+\index{sonic\_cli\_pim@{sonic\_cli\_pim}!process\_args@{process\_args}}
+\index{process\_args@{process\_args}!sonic\_cli\_pim@{sonic\_cli\_pim}}
+\doxysubsubsection{\texorpdfstring{process\_args()}{process\_args()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+pim.\+process\+\_\+args (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+pim.\+py 파일의 791 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{791 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__pim_ab287cb282e59082f3eb153cc1284cecc}{process\_args}}(args):}
+\DoxyCodeLine{792     \textcolor{keyword}{global} inputDict}
+\DoxyCodeLine{793     count = 0}
+\DoxyCodeLine{794     \textcolor{keywordflow}{for} arg \textcolor{keywordflow}{in} args:}
+\DoxyCodeLine{795         tmp = arg.split(\textcolor{stringliteral}{":"}, 1)}
+\DoxyCodeLine{796         \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} len(tmp) == 2:}
+\DoxyCodeLine{797             \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{798         \textcolor{keywordflow}{if} tmp[1] == \textcolor{stringliteral}{""}:}
+\DoxyCodeLine{799             tmp[1] = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{800         inputDict[tmp[0]] = tmp[1]}
+\DoxyCodeLine{801         \textcolor{keywordflow}{if} (tmp[1] != \textcolor{keywordtype}{None}) \textcolor{keywordflow}{and} (tmp[0] != \textcolor{stringliteral}{'vrf'}):}
+\DoxyCodeLine{802             count = count + 1}
+\DoxyCodeLine{803     \textcolor{keywordflow}{return} count}
+\DoxyCodeLine{804 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d63/namespacesonic__cli__pim_ab287cb282e59082f3eb153cc1284cecc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__pim_aacfed3e51a9b78d64c2dac1ef888f7cc}\label{namespacesonic__cli__pim_aacfed3e51a9b78d64c2dac1ef888f7cc}} 
+\index{sonic\_cli\_pim@{sonic\_cli\_pim}!run@{run}}
+\index{run@{run}!sonic\_cli\_pim@{sonic\_cli\_pim}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+pim.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+pim.\+py 파일의 899 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{899 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__pim_aacfed3e51a9b78d64c2dac1ef888f7cc}{run}}(func, args):}
+\DoxyCodeLine{900     \textcolor{keyword}{global} inputDict}
+\DoxyCodeLine{901     response = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{902     status = 0}
+\DoxyCodeLine{903     count = \mbox{\hyperlink{namespacesonic__cli__pim_ab287cb282e59082f3eb153cc1284cecc}{process\_args}}(args)}
+\DoxyCodeLine{904     \textcolor{keywordflow}{if} (count == 0):}
+\DoxyCodeLine{905         \textcolor{keywordflow}{return} -\/1}
+\DoxyCodeLine{906 }
+\DoxyCodeLine{907     \textcolor{keywordflow}{if} func.startswith(\textcolor{stringliteral}{"patch"}):}
+\DoxyCodeLine{908         status =  \mbox{\hyperlink{namespacesonic__cli__pim_a34de9f55f27c7e878eb30ee9a9fa9b24}{handle\_patch}}(func, args)}
+\DoxyCodeLine{909     \textcolor{keywordflow}{elif} func.startswith(\textcolor{stringliteral}{"del"}):}
+\DoxyCodeLine{910         status = \mbox{\hyperlink{namespacesonic__cli__pim_a25c6345276ff59f462af77e9124a7e4c}{handle\_del}}(func, args)}
+\DoxyCodeLine{911     \textcolor{keywordflow}{elif} func.startswith(\textcolor{stringliteral}{"show"}):}
+\DoxyCodeLine{912         status = \mbox{\hyperlink{namespacesonic__cli__pim_a11700e5c4af9a7180913ec4dadfed26b}{handle\_show}}(func, args)}
+\DoxyCodeLine{913     \textcolor{keywordflow}{elif} func.startswith(\textcolor{stringliteral}{"clear"}):}
+\DoxyCodeLine{914         status = \mbox{\hyperlink{namespacesonic__cli__pim_a70088c2c1aa235fad2da370319677dd6}{handle\_clear}}(func, args)}
+\DoxyCodeLine{915 }
+\DoxyCodeLine{916     inputDict = \{\}}
+\DoxyCodeLine{917     \textcolor{keywordflow}{return} status}
+\DoxyCodeLine{918 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d63/namespacesonic__cli__pim_aacfed3e51a9b78d64c2dac1ef888f7cc_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__pim_a7dc3ed1629386ab528c241b51df4710d}\label{namespacesonic__cli__pim_a7dc3ed1629386ab528c241b51df4710d}} 
+\index{sonic\_cli\_pim@{sonic\_cli\_pim}!seconds\_to\_wdhm\_str@{seconds\_to\_wdhm\_str}}
+\index{seconds\_to\_wdhm\_str@{seconds\_to\_wdhm\_str}!sonic\_cli\_pim@{sonic\_cli\_pim}}
+\doxysubsubsection{\texorpdfstring{seconds\_to\_wdhm\_str()}{seconds\_to\_wdhm\_str()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+pim.\+seconds\+\_\+to\+\_\+wdhm\+\_\+str (\begin{DoxyParamCaption}\item[{}]{seconds,  }\item[{}]{up\+Time }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+pim.\+py 파일의 36 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{36 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__pim_a7dc3ed1629386ab528c241b51df4710d}{seconds\_to\_wdhm\_str}}(seconds, upTime):}
+\DoxyCodeLine{37     d = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{38     \textcolor{keywordflow}{if} upTime:}
+\DoxyCodeLine{39         d = datetime.now()}
+\DoxyCodeLine{40         d = d -\/ timedelta(seconds=int(seconds))}
+\DoxyCodeLine{41     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{42         seconds = float(seconds) -\/ time.time()}
+\DoxyCodeLine{43         \textcolor{keywordflow}{if} seconds < 0:}
+\DoxyCodeLine{44             seconds = 0}
+\DoxyCodeLine{45         d = datetime.fromtimestamp(seconds)}
+\DoxyCodeLine{46     weeks = 0}
+\DoxyCodeLine{47     days = d.day}
+\DoxyCodeLine{48     \textcolor{keywordflow}{if} days != 0:}
+\DoxyCodeLine{49        days = days -\/ 1}
+\DoxyCodeLine{50        \textcolor{keywordflow}{if} days != 0:}
+\DoxyCodeLine{51           weeks = days // 7}
+\DoxyCodeLine{52           days = days \% 7}
+\DoxyCodeLine{53     \textcolor{keywordflow}{if} weeks != 0:}
+\DoxyCodeLine{54         wdhm = \textcolor{stringliteral}{'\{\}w\{\}d\{:02\}h'}.format(int(weeks), int(days), int(d.hour))}
+\DoxyCodeLine{55     \textcolor{keywordflow}{elif} days != 0:}
+\DoxyCodeLine{56         wdhm = \textcolor{stringliteral}{'\{\}d\{:02\}h\{:02\}m'}.format(int(days), int(d.hour), int(d.minute))}
+\DoxyCodeLine{57     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{58         wdhm = \textcolor{stringliteral}{'\{:02\}:\{:02\}:\{:02\}'}.format(int(d.hour), int(d.minute), int(d.second))}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60     \textcolor{keywordflow}{return} wdhm}
+\DoxyCodeLine{61 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d63/namespacesonic__cli__pim_a7dc3ed1629386ab528c241b51df4710d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__pim_a4e642de0ebbd1c6b88739dcbca9b0930}\label{namespacesonic__cli__pim_a4e642de0ebbd1c6b88739dcbca9b0930}} 
+\index{sonic\_cli\_pim@{sonic\_cli\_pim}!show\_intf\_info@{show\_intf\_info}}
+\index{show\_intf\_info@{show\_intf\_info}!sonic\_cli\_pim@{sonic\_cli\_pim}}
+\doxysubsubsection{\texorpdfstring{show\_intf\_info()}{show\_intf\_info()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+pim.\+show\+\_\+intf\+\_\+info (\begin{DoxyParamCaption}\item[{}]{response }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+pim.\+py 파일의 270 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{270 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__pim_a4e642de0ebbd1c6b88739dcbca9b0930}{show\_intf\_info}}(response):}
+\DoxyCodeLine{271     outputList = []}
+\DoxyCodeLine{272     outputList2 = []}
+\DoxyCodeLine{273     intfState = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{274     intfsContainer = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{275     intfList = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{276 }
+\DoxyCodeLine{277     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response:}
+\DoxyCodeLine{278         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{279 }
+\DoxyCodeLine{280     \textcolor{keywordflow}{if} inputDict.get(\textcolor{stringliteral}{'ifName'}):}
+\DoxyCodeLine{281         intfList = response.get(\textcolor{stringliteral}{'openconfig-\/network-\/instance:interface'})}
+\DoxyCodeLine{282     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{283         intfsContainer = response.get(\textcolor{stringliteral}{'openconfig-\/network-\/instance:interfaces'})}
+\DoxyCodeLine{284         \textcolor{keywordflow}{if} intfsContainer \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{285             \textcolor{keywordflow}{return}}
+\DoxyCodeLine{286 }
+\DoxyCodeLine{287         intfList = intfsContainer.get(\textcolor{stringliteral}{'interface'})}
+\DoxyCodeLine{288 }
+\DoxyCodeLine{289     \textcolor{keywordflow}{if} intfList \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{290         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{291 }
+\DoxyCodeLine{292     \textcolor{keywordflow}{for} intf \textcolor{keywordflow}{in} intfList:}
+\DoxyCodeLine{293         intfState = \textcolor{stringliteral}{"down"}}
+\DoxyCodeLine{294 }
+\DoxyCodeLine{295         intfId = intf.get(\textcolor{stringliteral}{'interface-\/id'})}
+\DoxyCodeLine{296         \textcolor{keywordflow}{if} intfId \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{297             \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{298 }
+\DoxyCodeLine{299         state = intf.get(\textcolor{stringliteral}{'state'})}
+\DoxyCodeLine{300         \textcolor{keywordflow}{if} state \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{301            \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{302 }
+\DoxyCodeLine{303         enabled = state.get(\textcolor{stringliteral}{'enabled'})}
+\DoxyCodeLine{304         \textcolor{keywordflow}{if} enabled \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{305             intfState = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{306         \textcolor{keywordflow}{elif} enabled == \textcolor{keyword}{True}:}
+\DoxyCodeLine{307             intfState = \textcolor{stringliteral}{"up"}}
+\DoxyCodeLine{308 }
+\DoxyCodeLine{309         localAddr = state.get(\textcolor{stringliteral}{'openconfig-\/pim-\/ext:local-\/address'})}
+\DoxyCodeLine{310         \textcolor{keywordflow}{if} localAddr \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{311             localAddr = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{312 }
+\DoxyCodeLine{313         nbrCount = state.get(\textcolor{stringliteral}{'openconfig-\/pim-\/ext:nbrs-\/count'})}
+\DoxyCodeLine{314         \textcolor{keywordflow}{if} nbrCount \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{315             nbrCount = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{316 }
+\DoxyCodeLine{317         pimDrAddr = state.get(\textcolor{stringliteral}{'openconfig-\/pim-\/ext:dr-\/address'})}
+\DoxyCodeLine{318         \textcolor{keywordflow}{if} pimDrAddr \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{319             pimDrAddr = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{320 }
+\DoxyCodeLine{321         helloInterval = state.get(\textcolor{stringliteral}{'hello-\/interval'})}
+\DoxyCodeLine{322         \textcolor{keywordflow}{if} helloInterval \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{323             helloInterval = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{324 }
+\DoxyCodeLine{325         pimDrPrio = state.get(\textcolor{stringliteral}{'dr-\/priority'})}
+\DoxyCodeLine{326         \textcolor{keywordflow}{if} pimDrPrio \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{327             pimDrPrio = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{328 }
+\DoxyCodeLine{329         intfEntry = \{\textcolor{stringliteral}{'intfId'}:intfId,}
+\DoxyCodeLine{330                     \textcolor{stringliteral}{'intfState'}:intfState,}
+\DoxyCodeLine{331                     \textcolor{stringliteral}{'localAddr'}:localAddr,}
+\DoxyCodeLine{332                     \textcolor{stringliteral}{'nbrCount'}:nbrCount,}
+\DoxyCodeLine{333                     \textcolor{stringliteral}{'pimDrAddr'}:pimDrAddr,}
+\DoxyCodeLine{334                     \textcolor{stringliteral}{'helloInterval'}:helloInterval,}
+\DoxyCodeLine{335                     \textcolor{stringliteral}{'pimDrPrio'}:pimDrPrio,}
+\DoxyCodeLine{336                     \}}
+\DoxyCodeLine{337         outputList.append(intfEntry)}
+\DoxyCodeLine{338 }
+\DoxyCodeLine{339     \textcolor{keywordflow}{if} len(outputList) > 0:}
+\DoxyCodeLine{340         vrfName = inputDict.get(\textcolor{stringliteral}{'vrf'})}
+\DoxyCodeLine{341         \textcolor{keywordflow}{if} vrfName \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{342             vrfName = \textcolor{stringliteral}{'default'}}
+\DoxyCodeLine{343 }
+\DoxyCodeLine{344         outputList2.append(\textcolor{stringliteral}{'show\_interface'})}
+\DoxyCodeLine{345         outputList2.append(vrfName)}
+\DoxyCodeLine{346         outputList2.append(outputList)}
+\DoxyCodeLine{347 }
+\DoxyCodeLine{348         \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{"show\_pim.j2"}, outputList2)}
+\DoxyCodeLine{349 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d63/namespacesonic__cli__pim_a4e642de0ebbd1c6b88739dcbca9b0930_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d63/namespacesonic__cli__pim_a4e642de0ebbd1c6b88739dcbca9b0930_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__pim_a1a902d3d4257a104549fd51c9f58c8e4}\label{namespacesonic__cli__pim_a1a902d3d4257a104549fd51c9f58c8e4}} 
+\index{sonic\_cli\_pim@{sonic\_cli\_pim}!show\_nbr\_info@{show\_nbr\_info}}
+\index{show\_nbr\_info@{show\_nbr\_info}!sonic\_cli\_pim@{sonic\_cli\_pim}}
+\doxysubsubsection{\texorpdfstring{show\_nbr\_info()}{show\_nbr\_info()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+pim.\+show\+\_\+nbr\+\_\+info (\begin{DoxyParamCaption}\item[{}]{response }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+pim.\+py 파일의 674 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{674 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__pim_a1a902d3d4257a104549fd51c9f58c8e4}{show\_nbr\_info}}(response):}
+\DoxyCodeLine{675     outputList = []}
+\DoxyCodeLine{676     outputList2 = []}
+\DoxyCodeLine{677     intfsContainer = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{678     intfList = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{679 }
+\DoxyCodeLine{680     givenNbr = inputDict.get(\textcolor{stringliteral}{'nbrAddr'})}
+\DoxyCodeLine{681 }
+\DoxyCodeLine{682     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response:}
+\DoxyCodeLine{683         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{684 }
+\DoxyCodeLine{685     intfsContainer = response.get(\textcolor{stringliteral}{'openconfig-\/network-\/instance:interfaces'})}
+\DoxyCodeLine{686     \textcolor{keywordflow}{if} intfsContainer \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{687         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{688 }
+\DoxyCodeLine{689     intfList = intfsContainer.get(\textcolor{stringliteral}{'interface'})}
+\DoxyCodeLine{690 }
+\DoxyCodeLine{691     \textcolor{keywordflow}{if} intfList \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{692         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{693 }
+\DoxyCodeLine{694     \textcolor{keywordflow}{for} intf \textcolor{keywordflow}{in} intfList:}
+\DoxyCodeLine{695 }
+\DoxyCodeLine{696         intfId = intf.get(\textcolor{stringliteral}{'interface-\/id'})}
+\DoxyCodeLine{697         \textcolor{keywordflow}{if} intfId \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{698             \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{699 }
+\DoxyCodeLine{700         nbrContainer = intf.get(\textcolor{stringliteral}{'neighbors'})}
+\DoxyCodeLine{701         \textcolor{keywordflow}{if} nbrContainer \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{702            \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{703 }
+\DoxyCodeLine{704         nbrList = nbrContainer.get(\textcolor{stringliteral}{'neighbor'})}
+\DoxyCodeLine{705         \textcolor{keywordflow}{if} nbrList \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{706            \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{707 }
+\DoxyCodeLine{708         \textcolor{keywordflow}{for} nbr \textcolor{keywordflow}{in} nbrList:}
+\DoxyCodeLine{709             rcvdNbr = nbr.get(\textcolor{stringliteral}{'neighbor-\/address'})}
+\DoxyCodeLine{710             \textcolor{keywordflow}{if} rcvdNbr \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{711                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{712 }
+\DoxyCodeLine{713             \textcolor{keywordflow}{if} givenNbr:}
+\DoxyCodeLine{714                 \textcolor{keywordflow}{if} givenNbr != rcvdNbr:}
+\DoxyCodeLine{715                     \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{716 }
+\DoxyCodeLine{717             nbrState = nbr.get(\textcolor{stringliteral}{'state'})}
+\DoxyCodeLine{718             \textcolor{keywordflow}{if} nbrState \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{719                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{720 }
+\DoxyCodeLine{721             upTime  = nbrState.get(\textcolor{stringliteral}{'neighbor-\/established'})}
+\DoxyCodeLine{722             \textcolor{keywordflow}{if} upTime \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{723                 upTime = \textcolor{stringliteral}{"-\/-\/:-\/-\/:-\/-\/"}}
+\DoxyCodeLine{724             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{725                 upTime = \mbox{\hyperlink{namespacesonic__cli__pim_a7dc3ed1629386ab528c241b51df4710d}{seconds\_to\_wdhm\_str}}(upTime, \textcolor{keyword}{True})}
+\DoxyCodeLine{726 }
+\DoxyCodeLine{727             expiryTime = nbrState.get(\textcolor{stringliteral}{'neighbor-\/expires'})}
+\DoxyCodeLine{728             \textcolor{keywordflow}{if} expiryTime \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{729                 expiryTime = \textcolor{stringliteral}{"Never"}}
+\DoxyCodeLine{730             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{731                 expiryTime = \mbox{\hyperlink{namespacesonic__cli__pim_a7dc3ed1629386ab528c241b51df4710d}{seconds\_to\_wdhm\_str}}(expiryTime, \textcolor{keyword}{False})}
+\DoxyCodeLine{732 }
+\DoxyCodeLine{733             pimDrPrio = nbrState.get(\textcolor{stringliteral}{'openconfig-\/pim-\/ext:dr-\/priority'})}
+\DoxyCodeLine{734             \textcolor{keywordflow}{if} pimDrPrio \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{735                 pimDrPrio = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{736 }
+\DoxyCodeLine{737             pimNbrBfdState = nbrState.get(\textcolor{stringliteral}{'openconfig-\/pim-\/ext:bfd-\/session-\/status'})}
+\DoxyCodeLine{738             \textcolor{keywordflow}{if} pimNbrBfdState \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{739                 pimNbrBfdState = \textcolor{stringliteral}{"-\/"}}
+\DoxyCodeLine{740             \textcolor{keywordflow}{elif} pimNbrBfdState == \textcolor{stringliteral}{"UP"}:}
+\DoxyCodeLine{741                 pimNbrBfdState = \textcolor{stringliteral}{"Up"}}
+\DoxyCodeLine{742             \textcolor{keywordflow}{elif} pimNbrBfdState == \textcolor{stringliteral}{"DOWN"}:}
+\DoxyCodeLine{743                 pimNbrBfdState = \textcolor{stringliteral}{"Down"}}
+\DoxyCodeLine{744             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{745                 pimNbrBfdState = \textcolor{stringliteral}{"-\/"}}
+\DoxyCodeLine{746 }
+\DoxyCodeLine{747             nbrEntry = \{\textcolor{stringliteral}{'intfId'}:intfId,}
+\DoxyCodeLine{748                         \textcolor{stringliteral}{'rcvdNbr'}:rcvdNbr,}
+\DoxyCodeLine{749                         \textcolor{stringliteral}{'upTime'}:upTime,}
+\DoxyCodeLine{750                         \textcolor{stringliteral}{'expiryTime'}:expiryTime,}
+\DoxyCodeLine{751                         \textcolor{stringliteral}{'pimDrPrio'}:pimDrPrio,}
+\DoxyCodeLine{752                         \textcolor{stringliteral}{'pimNbrBfdState'}:pimNbrBfdState,}
+\DoxyCodeLine{753                         \}}
+\DoxyCodeLine{754             outputList.append(nbrEntry)}
+\DoxyCodeLine{755 }
+\DoxyCodeLine{756     \textcolor{keywordflow}{if} len(outputList) > 0:}
+\DoxyCodeLine{757         vrfName = inputDict.get(\textcolor{stringliteral}{'vrf'})}
+\DoxyCodeLine{758         \textcolor{keywordflow}{if} vrfName \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{759             vrfName = \textcolor{stringliteral}{'default'}}
+\DoxyCodeLine{760 }
+\DoxyCodeLine{761         outputList2.append(\textcolor{stringliteral}{'show\_neighbor'})}
+\DoxyCodeLine{762         outputList2.append(vrfName)}
+\DoxyCodeLine{763         outputList2.append(outputList)}
+\DoxyCodeLine{764 }
+\DoxyCodeLine{765         \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{"show\_pim.j2"}, outputList2)}
+\DoxyCodeLine{766 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d63/namespacesonic__cli__pim_a1a902d3d4257a104549fd51c9f58c8e4_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d63/namespacesonic__cli__pim_a1a902d3d4257a104549fd51c9f58c8e4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__pim_a70634dbd3298172460d881136ef590b0}\label{namespacesonic__cli__pim_a70634dbd3298172460d881136ef590b0}} 
+\index{sonic\_cli\_pim@{sonic\_cli\_pim}!show\_response@{show\_response}}
+\index{show\_response@{show\_response}!sonic\_cli\_pim@{sonic\_cli\_pim}}
+\doxysubsubsection{\texorpdfstring{show\_response()}{show\_response()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+pim.\+show\+\_\+response (\begin{DoxyParamCaption}\item[{}]{response }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+pim.\+py 파일의 255 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{255 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__pim_a70634dbd3298172460d881136ef590b0}{show\_response}}(response):}
+\DoxyCodeLine{256     \textcolor{keywordflow}{if} (inputDict.get(\textcolor{stringliteral}{'interface'})):}
+\DoxyCodeLine{257         \mbox{\hyperlink{namespacesonic__cli__pim_a4e642de0ebbd1c6b88739dcbca9b0930}{show\_intf\_info}}(response)}
+\DoxyCodeLine{258     \textcolor{keywordflow}{elif} (inputDict.get(\textcolor{stringliteral}{'nbr'})):}
+\DoxyCodeLine{259         \mbox{\hyperlink{namespacesonic__cli__pim_a1a902d3d4257a104549fd51c9f58c8e4}{show\_nbr\_info}}(response)}
+\DoxyCodeLine{260     \textcolor{keywordflow}{elif} (inputDict.get(\textcolor{stringliteral}{'ssm'})):}
+\DoxyCodeLine{261         \mbox{\hyperlink{namespacesonic__cli__pim_a10c62ed0c53922b19fd85eb9ef6ddcfc}{show\_ssm\_info}}(response)}
+\DoxyCodeLine{262     \textcolor{keywordflow}{elif} (inputDict.get(\textcolor{stringliteral}{'srcAddr'})):}
+\DoxyCodeLine{263         \mbox{\hyperlink{namespacesonic__cli__pim_a201503ca30f645c8c41d84a2665a46ec}{show\_topology\_src\_info}}(response)}
+\DoxyCodeLine{264     \textcolor{keywordflow}{elif} (inputDict.get(\textcolor{stringliteral}{'topology'})):}
+\DoxyCodeLine{265         \mbox{\hyperlink{namespacesonic__cli__pim_aa9e77de37fbdb9d6c32a8e0820c1fd34}{show\_topology\_info}}(response)}
+\DoxyCodeLine{266     \textcolor{keywordflow}{elif} (inputDict.get(\textcolor{stringliteral}{'rpf'})):}
+\DoxyCodeLine{267         \mbox{\hyperlink{namespacesonic__cli__pim_a129fccc196cb9e61671cd4fe3caf5e23}{show\_rpf\_info}}(response)}
+\DoxyCodeLine{268     \textcolor{keywordflow}{return}}
+\DoxyCodeLine{269 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d63/namespacesonic__cli__pim_a70634dbd3298172460d881136ef590b0_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d63/namespacesonic__cli__pim_a70634dbd3298172460d881136ef590b0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__pim_a129fccc196cb9e61671cd4fe3caf5e23}\label{namespacesonic__cli__pim_a129fccc196cb9e61671cd4fe3caf5e23}} 
+\index{sonic\_cli\_pim@{sonic\_cli\_pim}!show\_rpf\_info@{show\_rpf\_info}}
+\index{show\_rpf\_info@{show\_rpf\_info}!sonic\_cli\_pim@{sonic\_cli\_pim}}
+\doxysubsubsection{\texorpdfstring{show\_rpf\_info()}{show\_rpf\_info()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+pim.\+show\+\_\+rpf\+\_\+info (\begin{DoxyParamCaption}\item[{}]{response }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+pim.\+py 파일의 633 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{633 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__pim_a129fccc196cb9e61671cd4fe3caf5e23}{show\_rpf\_info}}(response):}
+\DoxyCodeLine{634     outputList = []}
+\DoxyCodeLine{635     outputList2 = []}
+\DoxyCodeLine{636     rpfList = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{637 }
+\DoxyCodeLine{638     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response:}
+\DoxyCodeLine{639         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{640 }
+\DoxyCodeLine{641     outputContainer = response.get(\textcolor{stringliteral}{'sonic-\/pim-\/show:output'})}
+\DoxyCodeLine{642     \textcolor{keywordflow}{if} outputContainer \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{643         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{644 }
+\DoxyCodeLine{645     tmp = outputContainer.get(\textcolor{stringliteral}{'response'})}
+\DoxyCodeLine{646     \textcolor{keywordflow}{if} tmp \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{647         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{648 }
+\DoxyCodeLine{649     responseContainer = json.loads(tmp)}
+\DoxyCodeLine{650     \textcolor{keywordflow}{for} key \textcolor{keywordflow}{in} responseContainer.keys():}
+\DoxyCodeLine{651         \textcolor{keywordflow}{if} key.startswith(\textcolor{stringliteral}{"rpf"}) \textcolor{keywordflow}{or} key.startswith(\textcolor{stringliteral}{"next"}):}
+\DoxyCodeLine{652             \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{653 }
+\DoxyCodeLine{654         rpfEntry = responseContainer.get(key)}
+\DoxyCodeLine{655         \textcolor{keywordflow}{if} rpfEntry \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{656             \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{657 }
+\DoxyCodeLine{658         \textcolor{keywordflow}{for} subkey \textcolor{keywordflow}{in} rpfEntry.keys():}
+\DoxyCodeLine{659             rpfSubEntry = rpfEntry.get(subkey)}
+\DoxyCodeLine{660             \textcolor{keywordflow}{if} rpfSubEntry:}
+\DoxyCodeLine{661                 outputList.append(rpfSubEntry)}
+\DoxyCodeLine{662 }
+\DoxyCodeLine{663     \textcolor{keywordflow}{if} len(outputList) > 0:}
+\DoxyCodeLine{664         vrfName = inputDict.get(\textcolor{stringliteral}{'vrf'})}
+\DoxyCodeLine{665         \textcolor{keywordflow}{if} vrfName \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{666             vrfName = \textcolor{stringliteral}{'default'}}
+\DoxyCodeLine{667 }
+\DoxyCodeLine{668         outputList2.append(\textcolor{stringliteral}{'show\_rpf'})}
+\DoxyCodeLine{669         outputList2.append(vrfName)}
+\DoxyCodeLine{670         outputList2.append(outputList)}
+\DoxyCodeLine{671 }
+\DoxyCodeLine{672         \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{"show\_pim.j2"}, outputList2)}
+\DoxyCodeLine{673 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d63/namespacesonic__cli__pim_a129fccc196cb9e61671cd4fe3caf5e23_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d63/namespacesonic__cli__pim_a129fccc196cb9e61671cd4fe3caf5e23_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__pim_a10c62ed0c53922b19fd85eb9ef6ddcfc}\label{namespacesonic__cli__pim_a10c62ed0c53922b19fd85eb9ef6ddcfc}} 
+\index{sonic\_cli\_pim@{sonic\_cli\_pim}!show\_ssm\_info@{show\_ssm\_info}}
+\index{show\_ssm\_info@{show\_ssm\_info}!sonic\_cli\_pim@{sonic\_cli\_pim}}
+\doxysubsubsection{\texorpdfstring{show\_ssm\_info()}{show\_ssm\_info()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+pim.\+show\+\_\+ssm\+\_\+info (\begin{DoxyParamCaption}\item[{}]{response }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+pim.\+py 파일의 619 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{619 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__pim_a10c62ed0c53922b19fd85eb9ef6ddcfc}{show\_ssm\_info}}(response):}
+\DoxyCodeLine{620     outputList = []}
+\DoxyCodeLine{621     ssmRanges = \mbox{\hyperlink{namespacesonic__cli__pim_a58c19e6046f709c4195fb0875d3ca5fa}{get\_ssm\_ranges}}(response)}
+\DoxyCodeLine{622 }
+\DoxyCodeLine{623     vrfName = inputDict.get(\textcolor{stringliteral}{'vrf'})}
+\DoxyCodeLine{624     \textcolor{keywordflow}{if} vrfName \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{625         vrfName = \textcolor{stringliteral}{'default'}}
+\DoxyCodeLine{626 }
+\DoxyCodeLine{627     outputList.append(\textcolor{stringliteral}{'show\_ssm'})}
+\DoxyCodeLine{628     outputList.append(vrfName)}
+\DoxyCodeLine{629     outputList.append(ssmRanges)}
+\DoxyCodeLine{630 }
+\DoxyCodeLine{631     \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{"show\_pim.j2"}, outputList)}
+\DoxyCodeLine{632 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d63/namespacesonic__cli__pim_a10c62ed0c53922b19fd85eb9ef6ddcfc_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d63/namespacesonic__cli__pim_a10c62ed0c53922b19fd85eb9ef6ddcfc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__pim_aa9e77de37fbdb9d6c32a8e0820c1fd34}\label{namespacesonic__cli__pim_aa9e77de37fbdb9d6c32a8e0820c1fd34}} 
+\index{sonic\_cli\_pim@{sonic\_cli\_pim}!show\_topology\_info@{show\_topology\_info}}
+\index{show\_topology\_info@{show\_topology\_info}!sonic\_cli\_pim@{sonic\_cli\_pim}}
+\doxysubsubsection{\texorpdfstring{show\_topology\_info()}{show\_topology\_info()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+pim.\+show\+\_\+topology\+\_\+info (\begin{DoxyParamCaption}\item[{}]{response }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+pim.\+py 파일의 461 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{461 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__pim_aa9e77de37fbdb9d6c32a8e0820c1fd34}{show\_topology\_info}}(response):}
+\DoxyCodeLine{462     outputList = []}
+\DoxyCodeLine{463     outputList2 = []}
+\DoxyCodeLine{464     oilList2 = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{465     srcList2 = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{466     ipList = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{467 }
+\DoxyCodeLine{468     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response:}
+\DoxyCodeLine{469         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{470 }
+\DoxyCodeLine{471     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{472         \textcolor{keywordflow}{if} inputDict.get(\textcolor{stringliteral}{'grpAddr'}):}
+\DoxyCodeLine{473             ipList = response.get(\textcolor{stringliteral}{'openconfig-\/pim-\/ext:ipv4-\/entry'})}
+\DoxyCodeLine{474         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{475             tmpContainer = response.get(\textcolor{stringliteral}{'openconfig-\/pim-\/ext:tib'})}
+\DoxyCodeLine{476             \textcolor{keywordflow}{if} tmpContainer \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{477                 \textcolor{keywordflow}{return}}
+\DoxyCodeLine{478             tmpContainer = tmpContainer.get(\textcolor{stringliteral}{'ipv4-\/entries'})}
+\DoxyCodeLine{479             \textcolor{keywordflow}{if} tmpContainer \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{480                 \textcolor{keywordflow}{return}}
+\DoxyCodeLine{481             ipList = tmpContainer.get(\textcolor{stringliteral}{'ipv4-\/entry'})}
+\DoxyCodeLine{482 }
+\DoxyCodeLine{483         \textcolor{keywordflow}{if} ipList \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{484             \textcolor{keywordflow}{return}}
+\DoxyCodeLine{485 }
+\DoxyCodeLine{486         \textcolor{keywordflow}{for} ip \textcolor{keywordflow}{in} ipList:}
+\DoxyCodeLine{487             srcList2 = []}
+\DoxyCodeLine{488 }
+\DoxyCodeLine{489             state = ip.get(\textcolor{stringliteral}{'state'})}
+\DoxyCodeLine{490             \textcolor{keywordflow}{if} state \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{491                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{492 }
+\DoxyCodeLine{493             grpAddr = state.get(\textcolor{stringliteral}{'group-\/address'})}
+\DoxyCodeLine{494             \textcolor{keywordflow}{if} grpAddr \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{495                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{496 }
+\DoxyCodeLine{497             srcEntries = state.get(\textcolor{stringliteral}{'src-\/entries'})}
+\DoxyCodeLine{498             \textcolor{keywordflow}{if} srcEntries \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{499                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{500 }
+\DoxyCodeLine{501             srcList = srcEntries.get(\textcolor{stringliteral}{'src-\/entry'})}
+\DoxyCodeLine{502             \textcolor{keywordflow}{if} srcList \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{503                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{504 }
+\DoxyCodeLine{505             \textcolor{keywordflow}{for} src \textcolor{keywordflow}{in} srcList:}
+\DoxyCodeLine{506                 oilList2 = []}
+\DoxyCodeLine{507                 srcAddr = src.get(\textcolor{stringliteral}{'source-\/address'})}
+\DoxyCodeLine{508                 \textcolor{keywordflow}{if} srcAddr \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{509                     srcAddr = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{510 }
+\DoxyCodeLine{511                 srcState = src.get(\textcolor{stringliteral}{'state'})}
+\DoxyCodeLine{512                 \textcolor{keywordflow}{if} srcState \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{513                     \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{514 }
+\DoxyCodeLine{515                 srcFlags = srcState.get(\textcolor{stringliteral}{'flags'})}
+\DoxyCodeLine{516                 \textcolor{keywordflow}{if} srcFlags \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{517                     srcFlags = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{518 }
+\DoxyCodeLine{519                 srcExpiry = srcState.get(\textcolor{stringliteral}{'expiry'})}
+\DoxyCodeLine{520                 \textcolor{keywordflow}{if} srcExpiry \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{521                     srcExpiry = \textcolor{stringliteral}{"Never"}}
+\DoxyCodeLine{522                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{523                     srcExpiry = \mbox{\hyperlink{namespacesonic__cli__pim_a7dc3ed1629386ab528c241b51df4710d}{seconds\_to\_wdhm\_str}}(srcExpiry, \textcolor{keyword}{False})}
+\DoxyCodeLine{524 }
+\DoxyCodeLine{525                 srcUpTime = srcState.get(\textcolor{stringliteral}{'uptime'})}
+\DoxyCodeLine{526                 \textcolor{keywordflow}{if} srcUpTime \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{527                     srcUpTime = \textcolor{stringliteral}{"-\/-\/:-\/-\/:-\/-\/"}}
+\DoxyCodeLine{528                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{529                     srcUpTime = \mbox{\hyperlink{namespacesonic__cli__pim_a7dc3ed1629386ab528c241b51df4710d}{seconds\_to\_wdhm\_str}}(srcUpTime, \textcolor{keyword}{True})}
+\DoxyCodeLine{530 }
+\DoxyCodeLine{531                 inIntf = srcState.get(\textcolor{stringliteral}{'incoming-\/interface'})}
+\DoxyCodeLine{532                 \textcolor{keywordflow}{if} inIntf \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{533                     inIntf = \textcolor{stringliteral}{"-\/"}}
+\DoxyCodeLine{534 }
+\DoxyCodeLine{535                 rpfNbr = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{536                 rpfInfo = srcState.get(\textcolor{stringliteral}{'rpf-\/info'})}
+\DoxyCodeLine{537                 \textcolor{keywordflow}{if} rpfInfo:}
+\DoxyCodeLine{538                     rpfState = rpfInfo.get(\textcolor{stringliteral}{'state'})}
+\DoxyCodeLine{539                     \textcolor{keywordflow}{if} rpfState:}
+\DoxyCodeLine{540                         rpfNbr = rpfState.get(\textcolor{stringliteral}{'rpf-\/neighbor-\/address'})}
+\DoxyCodeLine{541                         \textcolor{keywordflow}{if} rpfNbr \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{542                             rpfNbr = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{543 }
+\DoxyCodeLine{544                 oilContainer = srcState.get(\textcolor{stringliteral}{'oil-\/info-\/entries'})}
+\DoxyCodeLine{545                 \textcolor{keywordflow}{if} oilContainer \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{546                     oilList = oilContainer.get(\textcolor{stringliteral}{'oil-\/info-\/entry'})}
+\DoxyCodeLine{547                     \textcolor{keywordflow}{if} oilList \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{548                         \textcolor{keywordflow}{for} oil \textcolor{keywordflow}{in} oilList:}
+\DoxyCodeLine{549                             outIntf = oil.get(\textcolor{stringliteral}{'outgoing-\/interface'})}
+\DoxyCodeLine{550                             \textcolor{keywordflow}{if}  outIntf \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{551                                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{552 }
+\DoxyCodeLine{553                             oilState = oil.get(\textcolor{stringliteral}{'state'})}
+\DoxyCodeLine{554                             \textcolor{keywordflow}{if}  oilState \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{555                                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{556 }
+\DoxyCodeLine{557                             oilExpiry = oilState.get(\textcolor{stringliteral}{'expiry'})}
+\DoxyCodeLine{558                             \textcolor{keywordflow}{if} oilExpiry \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{559                                 oilExpiry = \textcolor{stringliteral}{"Never"}}
+\DoxyCodeLine{560                             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{561                                 oilExpiry = \mbox{\hyperlink{namespacesonic__cli__pim_a7dc3ed1629386ab528c241b51df4710d}{seconds\_to\_wdhm\_str}}(oilExpiry, \textcolor{keyword}{False})}
+\DoxyCodeLine{562 }
+\DoxyCodeLine{563                             oilUpTime = oilState.get(\textcolor{stringliteral}{'uptime'})}
+\DoxyCodeLine{564                             \textcolor{keywordflow}{if} oilUpTime \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{565                                 oilUpTime = \textcolor{stringliteral}{"-\/-\/:-\/-\/:-\/-\/"}}
+\DoxyCodeLine{566                             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{567                                 oilUpTime = \mbox{\hyperlink{namespacesonic__cli__pim_a7dc3ed1629386ab528c241b51df4710d}{seconds\_to\_wdhm\_str}}(oilUpTime, \textcolor{keyword}{True})}
+\DoxyCodeLine{568 }
+\DoxyCodeLine{569                             oilEntry = \{\textcolor{stringliteral}{'outIntf'}: outIntf,}
+\DoxyCodeLine{570                                         \textcolor{stringliteral}{'oilExpiry'}: oilExpiry,}
+\DoxyCodeLine{571                                         \textcolor{stringliteral}{'oilUpTime'}: oilUpTime}
+\DoxyCodeLine{572                                        \}}
+\DoxyCodeLine{573                             oilList2.append(oilEntry)}
+\DoxyCodeLine{574 }
+\DoxyCodeLine{575                 srcEntry = \{\textcolor{stringliteral}{'grpAddr'}: grpAddr,}
+\DoxyCodeLine{576                             \textcolor{stringliteral}{'srcAddr'}: srcAddr,}
+\DoxyCodeLine{577                             \textcolor{stringliteral}{'srcFlags'}: srcFlags ,}
+\DoxyCodeLine{578                             \textcolor{stringliteral}{'srcExpiry'}: srcExpiry,}
+\DoxyCodeLine{579                             \textcolor{stringliteral}{'srcUpTime'}: srcUpTime,}
+\DoxyCodeLine{580                             \textcolor{stringliteral}{'inIntf'}: inIntf,}
+\DoxyCodeLine{581                             \textcolor{stringliteral}{'rpfNbr'}: rpfNbr,}
+\DoxyCodeLine{582                             \textcolor{stringliteral}{'oilList'}: oilList2}
+\DoxyCodeLine{583                             \}}
+\DoxyCodeLine{584                 outputList.append(srcEntry)}
+\DoxyCodeLine{585 }
+\DoxyCodeLine{586         \textcolor{keywordflow}{if} len(outputList) > 0:}
+\DoxyCodeLine{587             vrfName = inputDict.get(\textcolor{stringliteral}{'vrf'})}
+\DoxyCodeLine{588             \textcolor{keywordflow}{if} vrfName \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{589                 vrfName = \textcolor{stringliteral}{'default'}}
+\DoxyCodeLine{590 }
+\DoxyCodeLine{591             outputList2.append(\textcolor{stringliteral}{'show\_topo'})}
+\DoxyCodeLine{592             outputList2.append(vrfName)}
+\DoxyCodeLine{593             outputList2.append(outputList)}
+\DoxyCodeLine{594 }
+\DoxyCodeLine{595             \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{"show\_pim.j2"}, outputList2)}
+\DoxyCodeLine{596 }
+\DoxyCodeLine{597     \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} e:}
+\DoxyCodeLine{598         log.syslog(log.LOG\_ERR, str(e))}
+\DoxyCodeLine{599         \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\% Error: Internal error"}}
+\DoxyCodeLine{600 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d63/namespacesonic__cli__pim_aa9e77de37fbdb9d6c32a8e0820c1fd34_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d63/namespacesonic__cli__pim_aa9e77de37fbdb9d6c32a8e0820c1fd34_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__pim_a201503ca30f645c8c41d84a2665a46ec}\label{namespacesonic__cli__pim_a201503ca30f645c8c41d84a2665a46ec}} 
+\index{sonic\_cli\_pim@{sonic\_cli\_pim}!show\_topology\_src\_info@{show\_topology\_src\_info}}
+\index{show\_topology\_src\_info@{show\_topology\_src\_info}!sonic\_cli\_pim@{sonic\_cli\_pim}}
+\doxysubsubsection{\texorpdfstring{show\_topology\_src\_info()}{show\_topology\_src\_info()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+pim.\+show\+\_\+topology\+\_\+src\+\_\+info (\begin{DoxyParamCaption}\item[{}]{response }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+pim.\+py 파일의 350 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{350 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__pim_a201503ca30f645c8c41d84a2665a46ec}{show\_topology\_src\_info}}(response):}
+\DoxyCodeLine{351     outputList = []}
+\DoxyCodeLine{352     outputList2 = []}
+\DoxyCodeLine{353     oilList2 = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{354     srcList2 = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{355     ipList = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{356 }
+\DoxyCodeLine{357     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response:}
+\DoxyCodeLine{358         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{359 }
+\DoxyCodeLine{360     grpAddr = inputDict.get(\textcolor{stringliteral}{'grpAddr'})}
+\DoxyCodeLine{361     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{362         srcList = response.get(\textcolor{stringliteral}{'openconfig-\/pim-\/ext:src-\/entry'})}
+\DoxyCodeLine{363         \textcolor{keywordflow}{if} srcList \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{364             \textcolor{keywordflow}{return}}
+\DoxyCodeLine{365 }
+\DoxyCodeLine{366         oilList2 = []}
+\DoxyCodeLine{367         srcAddr = srcList[0].\mbox{\hyperlink{namespacescripts_1_1json__tools_afd87b9a49f4372aebe9a000a029a76fe}{get}}(\textcolor{stringliteral}{'source-\/address'})}
+\DoxyCodeLine{368         \textcolor{keywordflow}{if} srcAddr \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{369             \textcolor{keywordflow}{return}}
+\DoxyCodeLine{370 }
+\DoxyCodeLine{371         srcState = srcList[0].\mbox{\hyperlink{namespacescripts_1_1json__tools_afd87b9a49f4372aebe9a000a029a76fe}{get}}(\textcolor{stringliteral}{'state'})}
+\DoxyCodeLine{372         \textcolor{keywordflow}{if} srcState \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{373             \textcolor{keywordflow}{return}}
+\DoxyCodeLine{374 }
+\DoxyCodeLine{375         srcFlags = srcState.get(\textcolor{stringliteral}{'flags'})}
+\DoxyCodeLine{376         \textcolor{keywordflow}{if} srcFlags \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{377             srcFlags = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{378 }
+\DoxyCodeLine{379         tmp = srcExpiry = srcState.get(\textcolor{stringliteral}{'expiry'})}
+\DoxyCodeLine{380         \textcolor{keywordflow}{if} srcExpiry \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{381             srcExpiry = \textcolor{stringliteral}{"Never"}}
+\DoxyCodeLine{382         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{383             srcExpiry = \mbox{\hyperlink{namespacesonic__cli__pim_a7dc3ed1629386ab528c241b51df4710d}{seconds\_to\_wdhm\_str}}(srcExpiry, \textcolor{keyword}{False})}
+\DoxyCodeLine{384 }
+\DoxyCodeLine{385         srcUpTime = srcState.get(\textcolor{stringliteral}{'uptime'})}
+\DoxyCodeLine{386         \textcolor{keywordflow}{if} srcUpTime \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{387             srcUpTime = \textcolor{stringliteral}{"-\/-\/:-\/-\/:-\/-\/"}}
+\DoxyCodeLine{388         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{389             srcUpTime = \mbox{\hyperlink{namespacesonic__cli__pim_a7dc3ed1629386ab528c241b51df4710d}{seconds\_to\_wdhm\_str}}(srcUpTime, \textcolor{keyword}{True})}
+\DoxyCodeLine{390 }
+\DoxyCodeLine{391         inIntf = srcState.get(\textcolor{stringliteral}{'incoming-\/interface'})}
+\DoxyCodeLine{392         \textcolor{keywordflow}{if} inIntf \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{393             inIntf = \textcolor{stringliteral}{"-\/"}}
+\DoxyCodeLine{394 }
+\DoxyCodeLine{395         rpfNbr = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{396         rpfInfo = srcState.get(\textcolor{stringliteral}{'rpf-\/info'})}
+\DoxyCodeLine{397         \textcolor{keywordflow}{if} rpfInfo:}
+\DoxyCodeLine{398             rpfState = rpfInfo.get(\textcolor{stringliteral}{'state'})}
+\DoxyCodeLine{399             \textcolor{keywordflow}{if} rpfState:}
+\DoxyCodeLine{400                 rpfNbr = rpfState.get(\textcolor{stringliteral}{'rpf-\/neighbor-\/address'})}
+\DoxyCodeLine{401                 \textcolor{keywordflow}{if} rpfNbr \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{402                     rpfNbr = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{403 }
+\DoxyCodeLine{404         oilContainer = srcState.get(\textcolor{stringliteral}{'oil-\/info-\/entries'})}
+\DoxyCodeLine{405         \textcolor{keywordflow}{if} oilContainer:}
+\DoxyCodeLine{406             oilList = oilContainer.get(\textcolor{stringliteral}{'oil-\/info-\/entry'})}
+\DoxyCodeLine{407             \textcolor{keywordflow}{if} oilList:}
+\DoxyCodeLine{408                 \textcolor{keywordflow}{for} oil \textcolor{keywordflow}{in} oilList:}
+\DoxyCodeLine{409                     outIntf = oil.get(\textcolor{stringliteral}{'outgoing-\/interface'})}
+\DoxyCodeLine{410                     \textcolor{keywordflow}{if}  outIntf \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{411                         \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{412 }
+\DoxyCodeLine{413                     oilState = oil.get(\textcolor{stringliteral}{'state'})}
+\DoxyCodeLine{414                     \textcolor{keywordflow}{if}  oilState \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{415                         \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{416 }
+\DoxyCodeLine{417                     oilExpiry = oilState.get(\textcolor{stringliteral}{'expiry'})}
+\DoxyCodeLine{418                     \textcolor{keywordflow}{if} oilExpiry \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{419                         oilExpiry = \textcolor{stringliteral}{"Never"}}
+\DoxyCodeLine{420                     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{421                         oilExpiry = \mbox{\hyperlink{namespacesonic__cli__pim_a7dc3ed1629386ab528c241b51df4710d}{seconds\_to\_wdhm\_str}}(oilExpiry, \textcolor{keyword}{False})}
+\DoxyCodeLine{422 }
+\DoxyCodeLine{423                     oilUpTime = oilState.get(\textcolor{stringliteral}{'uptime'})}
+\DoxyCodeLine{424                     \textcolor{keywordflow}{if} oilUpTime \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{425                         oilUpTime = \textcolor{stringliteral}{"-\/-\/:-\/-\/:-\/-\/"}}
+\DoxyCodeLine{426                     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{427                         oilUpTime = \mbox{\hyperlink{namespacesonic__cli__pim_a7dc3ed1629386ab528c241b51df4710d}{seconds\_to\_wdhm\_str}}(oilUpTime, \textcolor{keyword}{True})}
+\DoxyCodeLine{428 }
+\DoxyCodeLine{429                     oilEntry = \{\textcolor{stringliteral}{'outIntf'}: outIntf,}
+\DoxyCodeLine{430                                 \textcolor{stringliteral}{'oilExpiry'}: oilExpiry,}
+\DoxyCodeLine{431                                 \textcolor{stringliteral}{'oilUpTime'}: oilUpTime}
+\DoxyCodeLine{432                                \}}
+\DoxyCodeLine{433                     oilList2.append(oilEntry)}
+\DoxyCodeLine{434 }
+\DoxyCodeLine{435         srcEntry = \{\textcolor{stringliteral}{'grpAddr'}: grpAddr,}
+\DoxyCodeLine{436                     \textcolor{stringliteral}{'srcAddr'}: srcAddr,}
+\DoxyCodeLine{437                     \textcolor{stringliteral}{'srcFlags'}: srcFlags ,}
+\DoxyCodeLine{438                     \textcolor{stringliteral}{'srcExpiry'}: srcExpiry,}
+\DoxyCodeLine{439                     \textcolor{stringliteral}{'srcUpTime'}: srcUpTime,}
+\DoxyCodeLine{440                     \textcolor{stringliteral}{'inIntf'}: inIntf,}
+\DoxyCodeLine{441                     \textcolor{stringliteral}{'rpfNbr'}: rpfNbr,}
+\DoxyCodeLine{442                     \textcolor{stringliteral}{'oilList'}: oilList2}
+\DoxyCodeLine{443                     \}}
+\DoxyCodeLine{444         outputList.append(srcEntry)}
+\DoxyCodeLine{445 }
+\DoxyCodeLine{446         \textcolor{keywordflow}{if} len(outputList) > 0:}
+\DoxyCodeLine{447             vrfName = inputDict.get(\textcolor{stringliteral}{'vrf'})}
+\DoxyCodeLine{448             \textcolor{keywordflow}{if} vrfName \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{449                 vrfName = \textcolor{stringliteral}{'default'}}
+\DoxyCodeLine{450 }
+\DoxyCodeLine{451             outputList2.append(\textcolor{stringliteral}{'show\_topo'})}
+\DoxyCodeLine{452             outputList2.append(vrfName)}
+\DoxyCodeLine{453             outputList2.append(outputList)}
+\DoxyCodeLine{454 }
+\DoxyCodeLine{455             \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{"show\_pim.j2"}, outputList2)}
+\DoxyCodeLine{456 }
+\DoxyCodeLine{457     \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} e:}
+\DoxyCodeLine{458         log.syslog(log.LOG\_ERR, str(e))}
+\DoxyCodeLine{459         \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\% Error: Internal error"}}
+\DoxyCodeLine{460 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d63/namespacesonic__cli__pim_a201503ca30f645c8c41d84a2665a46ec_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d63/namespacesonic__cli__pim_a201503ca30f645c8c41d84a2665a46ec_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__pim_a2fe5575be29570b46495c0f8b2f11217}\label{namespacesonic__cli__pim_a2fe5575be29570b46495c0f8b2f11217}} 
+\index{sonic\_cli\_pim@{sonic\_cli\_pim}!apiClient@{apiClient}}
+\index{apiClient@{apiClient}!sonic\_cli\_pim@{sonic\_cli\_pim}}
+\doxysubsubsection{\texorpdfstring{apiClient}{apiClient}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+pim.\+api\+Client = cc.\+Api\+Client()}
+
+
+
+sonic\+\_\+cli\+\_\+pim.\+py 파일의 34 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__pim_add8f9a5434d9c748a724bde59031ec31}\label{namespacesonic__cli__pim_add8f9a5434d9c748a724bde59031ec31}} 
+\index{sonic\_cli\_pim@{sonic\_cli\_pim}!inputDict@{inputDict}}
+\index{inputDict@{inputDict}!sonic\_cli\_pim@{sonic\_cli\_pim}}
+\doxysubsubsection{\texorpdfstring{inputDict}{inputDict}}
+{\footnotesize\ttfamily dictionary sonic\+\_\+cli\+\_\+pim.\+input\+Dict = \{\}}
+
+
+
+sonic\+\_\+cli\+\_\+pim.\+py 파일의 33 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__pim_a69f6e049985f18cd89615133be1265e6}\label{namespacesonic__cli__pim_a69f6e049985f18cd89615133be1265e6}} 
+\index{sonic\_cli\_pim@{sonic\_cli\_pim}!status@{status}}
+\index{status@{status}!sonic\_cli\_pim@{sonic\_cli\_pim}}
+\doxysubsubsection{\texorpdfstring{status}{status}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+pim.\+status = \mbox{\hyperlink{namespacesonic__cli__pim_aacfed3e51a9b78d64c2dac1ef888f7cc}{run}}(sys.\+argv\mbox{[}1\mbox{]}, sys.\+argv\mbox{[}2\+:\mbox{]})}
+
+
+
+sonic\+\_\+cli\+\_\+pim.\+py 파일의 921 번째 라인에서 정의되었습니다.
+

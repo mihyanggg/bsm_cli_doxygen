@@ -1,0 +1,54 @@
+\hypertarget{namespaceshow__config__pim}{}\doxysection{show\+\_\+config\+\_\+pim 네임스페이스 참조}
+\label{namespaceshow__config__pim}\index{show\_config\_pim@{show\_config\_pim}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceshow__config__pim_ad81ad6681070ce118e7667f14fd12080}{show\+\_\+pim\+\_\+ipv4\+\_\+gbl}} (render\+\_\+tables)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespaceshow__config__pim_ad81ad6681070ce118e7667f14fd12080}\label{namespaceshow__config__pim_ad81ad6681070ce118e7667f14fd12080}} 
+\index{show\_config\_pim@{show\_config\_pim}!show\_pim\_ipv4\_gbl@{show\_pim\_ipv4\_gbl}}
+\index{show\_pim\_ipv4\_gbl@{show\_pim\_ipv4\_gbl}!show\_config\_pim@{show\_config\_pim}}
+\doxysubsubsection{\texorpdfstring{show\_pim\_ipv4\_gbl()}{show\_pim\_ipv4\_gbl()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+pim.\+show\+\_\+pim\+\_\+ipv4\+\_\+gbl (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+pim.\+py 파일의 1 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__pim_ad81ad6681070ce118e7667f14fd12080}{show\_pim\_ipv4\_gbl}}(render\_tables):}
+\DoxyCodeLine{2     cmd\_list = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4     get\_vrf\_name = render\_tables[\textcolor{stringliteral}{'vrfname'}] \textcolor{keywordflow}{if} \textcolor{stringliteral}{'vrf\_name'} \textcolor{keywordflow}{in} render\_tables \textcolor{keywordflow}{else} \textcolor{keywordtype}{None}}
+\DoxyCodeLine{5     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/pim:sonic-\/pim/PIM\_GLOBALS/PIM\_GLOBALS\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{6         \textcolor{keywordflow}{for} vrf\_inst \textcolor{keywordflow}{in} render\_tables[\textcolor{stringliteral}{'sonic-\/pim:sonic-\/pim/PIM\_GLOBALS/PIM\_GLOBALS\_LIST'}]:}
+\DoxyCodeLine{7             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'vrf-\/name'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} vrf\_inst: \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{8             \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} ((vrf\_inst[\textcolor{stringliteral}{'vrf-\/name'}] == \textcolor{stringliteral}{'default'}) \textcolor{keywordflow}{or} (vrf\_inst[\textcolor{stringliteral}{'vrf-\/name'}].find(\textcolor{stringliteral}{'Vrf'}) == 0)): \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{9             \textcolor{keywordflow}{if} get\_vrf\_name \textcolor{keywordflow}{and} vrf\_inst[\textcolor{stringliteral}{'vrf-\/name'}] != get\_vrf\_name: \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{10             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'address-\/family'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} vrf\_inst: \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{11             \textcolor{keywordflow}{if} (vrf\_inst[\textcolor{stringliteral}{'address-\/family'}] != \textcolor{stringliteral}{'ipv4'}): \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{12             vrf\_inst\_cmd\_prfx = \textcolor{stringliteral}{'ip pim vrf '} + vrf\_inst[\textcolor{stringliteral}{'vrf-\/name'}]}
+\DoxyCodeLine{13             cmd\_delimiter = \textcolor{stringliteral}{';'}}
+\DoxyCodeLine{14             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'ecmp-\/enabled'} \textcolor{keywordflow}{in} vrf\_inst \textcolor{keywordflow}{and} vrf\_inst[\textcolor{stringliteral}{'ecmp-\/enabled'}] == \textcolor{keyword}{True}:}
+\DoxyCodeLine{15                 cmd\_str = vrf\_inst\_cmd\_prfx + \textcolor{stringliteral}{' ecmp'}}
+\DoxyCodeLine{16                 cmd\_list += cmd\_str + cmd\_delimiter}
+\DoxyCodeLine{17             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'ecmp-\/rebalance-\/enabled'} \textcolor{keywordflow}{in} vrf\_inst \textcolor{keywordflow}{and} vrf\_inst[\textcolor{stringliteral}{'ecmp-\/rebalance-\/enabled'}] == \textcolor{keyword}{True}:}
+\DoxyCodeLine{18                 cmd\_str = vrf\_inst\_cmd\_prfx + \textcolor{stringliteral}{' ecmp rebalance'}}
+\DoxyCodeLine{19                 cmd\_list += cmd\_str + cmd\_delimiter}
+\DoxyCodeLine{20             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'join-\/prune-\/interval'} \textcolor{keywordflow}{in} vrf\_inst:}
+\DoxyCodeLine{21                 cmd\_str = vrf\_inst\_cmd\_prfx + \textcolor{stringliteral}{' join-\/prune-\/interval '} + str(vrf\_inst[\textcolor{stringliteral}{'join-\/prune-\/interval'}])}
+\DoxyCodeLine{22                 cmd\_list += cmd\_str + cmd\_delimiter}
+\DoxyCodeLine{23             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'keep-\/alive-\/timer'} \textcolor{keywordflow}{in} vrf\_inst:}
+\DoxyCodeLine{24                 cmd\_str = vrf\_inst\_cmd\_prfx + \textcolor{stringliteral}{' keep-\/alive-\/timer '} + str(vrf\_inst[\textcolor{stringliteral}{'keep-\/alive-\/timer'}])}
+\DoxyCodeLine{25                 cmd\_list += cmd\_str + cmd\_delimiter}
+\DoxyCodeLine{26             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'ssm-\/ranges'} \textcolor{keywordflow}{in} vrf\_inst:}
+\DoxyCodeLine{27                 cmd\_str = vrf\_inst\_cmd\_prfx + \textcolor{stringliteral}{' ssm prefix-\/list '} + vrf\_inst[\textcolor{stringliteral}{'ssm-\/ranges'}]}
+\DoxyCodeLine{28                 cmd\_list += cmd\_str + cmd\_delimiter}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_list}
+
+\end{DoxyCode}

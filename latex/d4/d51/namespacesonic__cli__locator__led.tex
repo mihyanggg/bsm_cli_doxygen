@@ -1,0 +1,103 @@
+\hypertarget{namespacesonic__cli__locator__led}{}\doxysection{sonic\+\_\+cli\+\_\+locator\+\_\+led 네임스페이스 참조}
+\label{namespacesonic__cli__locator__led}\index{sonic\_cli\_locator\_led@{sonic\_cli\_locator\_led}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__locator__led_a0f24ffb7fc1e6cf7d8621d57c830263f}{invoke}} (func, argv)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__locator__led_a81567d96721bd6866cae3a36ba84311d}{run}} (func, args)
+\begin{DoxyCompactList}\small\item\em Main function \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__locator__led_a0f24ffb7fc1e6cf7d8621d57c830263f}\label{namespacesonic__cli__locator__led_a0f24ffb7fc1e6cf7d8621d57c830263f}} 
+\index{sonic\_cli\_locator\_led@{sonic\_cli\_locator\_led}!invoke@{invoke}}
+\index{invoke@{invoke}!sonic\_cli\_locator\_led@{sonic\_cli\_locator\_led}}
+\doxysubsubsection{\texorpdfstring{invoke()}{invoke()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+locator\+\_\+led.\+invoke (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{argv }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+locator\+\_\+led.\+py 파일의 13 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{13 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__locator__led_a0f24ffb7fc1e6cf7d8621d57c830263f}{invoke}}(func, argv):}
+\DoxyCodeLine{14     aa = cc.ApiClient()}
+\DoxyCodeLine{15     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{"show\_locator\_led\_chassis"}:}
+\DoxyCodeLine{16          keypath = cc.Path(\textcolor{stringliteral}{'/restconf/operations/openconfig-\/system-\/ext:show-\/locator-\/led-\/chassis'})}
+\DoxyCodeLine{17     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"locator\_led\_chassis\_on"}:}
+\DoxyCodeLine{18          keypath = cc.Path(\textcolor{stringliteral}{'/restconf/operations/openconfig-\/system-\/ext:locator-\/led-\/chassis-\/on'})}
+\DoxyCodeLine{19     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"locator\_led\_chassis\_off"}:}
+\DoxyCodeLine{20          keypath = cc.Path(\textcolor{stringliteral}{'/restconf/operations/openconfig-\/system-\/ext:locator-\/led-\/chassis-\/off'})}
+\DoxyCodeLine{21     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{22          \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\%Error: invalid command"}}
+\DoxyCodeLine{23     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{24     templ=argv[0]}
+\DoxyCodeLine{25     api\_response = aa.post(keypath, body)}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{28         \textcolor{keywordflow}{if} api\_response.ok():}
+\DoxyCodeLine{29            response = api\_response.content}
+\DoxyCodeLine{30            \textcolor{keywordflow}{if} response \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{31               \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(templ, response)}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} e:}
+\DoxyCodeLine{34         \textcolor{keywordflow}{raise} e}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d4/d51/namespacesonic__cli__locator__led_a0f24ffb7fc1e6cf7d8621d57c830263f_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d4/d51/namespacesonic__cli__locator__led_a0f24ffb7fc1e6cf7d8621d57c830263f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__locator__led_a81567d96721bd6866cae3a36ba84311d}\label{namespacesonic__cli__locator__led_a81567d96721bd6866cae3a36ba84311d}} 
+\index{sonic\_cli\_locator\_led@{sonic\_cli\_locator\_led}!run@{run}}
+\index{run@{run}!sonic\_cli\_locator\_led@{sonic\_cli\_locator\_led}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+locator\+\_\+led.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+Main function 
+
+
+
+sonic\+\_\+cli\+\_\+locator\+\_\+led.\+py 파일의 39 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{39 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__locator__led_a81567d96721bd6866cae3a36ba84311d}{run}}(func, args):}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     argv = []}
+\DoxyCodeLine{42     \textcolor{keywordflow}{for} x \textcolor{keywordflow}{in} args:}
+\DoxyCodeLine{43         \textcolor{keywordflow}{if} x == \textcolor{stringliteral}{"\(\backslash\)|"}:}
+\DoxyCodeLine{44             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{45         argv.append(x.rstrip(\textcolor{stringliteral}{"\(\backslash\)n"}))}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \mbox{\hyperlink{namespacesonic__cli__locator__led_a0f24ffb7fc1e6cf7d8621d57c830263f}{invoke}}(func.rstrip(\textcolor{stringliteral}{"\(\backslash\)n"}), argv)}
+\DoxyCodeLine{48 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d4/d51/namespacesonic__cli__locator__led_a81567d96721bd6866cae3a36ba84311d_cgraph}
+\end{center}
+\end{figure}

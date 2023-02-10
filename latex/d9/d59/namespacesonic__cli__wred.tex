@@ -1,0 +1,218 @@
+\hypertarget{namespacesonic__cli__wred}{}\doxysection{sonic\+\_\+cli\+\_\+wred 네임스페이스 참조}
+\label{namespacesonic__cli__wred}\index{sonic\_cli\_wred@{sonic\_cli\_wred}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__wred_af63ab53e0b973bb53269b8e9b04944e4}{invoke}} (\mbox{\hyperlink{namespacesonic__cli__wred_a1c1455c474faab0f679d5a3a870f1cf0}{func}}, args=\mbox{[}$\,$\mbox{]})
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__wred_a3a25632b40d88f5596e834f8a288852c}{run}} (\mbox{\hyperlink{namespacesonic__cli__wred_a1c1455c474faab0f679d5a3a870f1cf0}{func}}, args)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__wred_a7c7f0008d905ef739e19564a05565b70}{P\+A\+R\+A\+M\+\_\+\+P\+A\+T\+C\+H\+\_\+\+P\+R\+E\+F\+IX}} = \textquotesingle{}patch\+\_\+openconfig\+\_\+qos\+\_\+ext\+\_\+qos\+\_\+wred\+\_\+profiles\+\_\+wred\+\_\+profile\+\_\+config\+\_\+\textquotesingle{}
+\item 
+\mbox{\hyperlink{namespacesonic__cli__wred_aa8b7355f33d6faf2c2b5f576d3329a9b}{P\+A\+R\+A\+M\+\_\+\+P\+A\+T\+C\+H\+\_\+\+P\+R\+E\+F\+I\+X\+\_\+\+L\+EN}} = len(\mbox{\hyperlink{namespacesonic__cli__wred_a7c7f0008d905ef739e19564a05565b70}{P\+A\+R\+A\+M\+\_\+\+P\+A\+T\+C\+H\+\_\+\+P\+R\+E\+F\+IX}})
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__wred_ac080ddbc2c940e089afd4400f272ab32}{P\+A\+R\+A\+M\+\_\+\+D\+E\+L\+E\+T\+E\+\_\+\+P\+R\+E\+F\+IX}} = \textquotesingle{}delete\+\_\+openconfig\+\_\+qos\+\_\+ext\+\_\+qos\+\_\+wred\+\_\+profiles\+\_\+wred\+\_\+profile\+\_\+config\+\_\+\textquotesingle{}
+\item 
+\mbox{\hyperlink{namespacesonic__cli__wred_a71edfed645debf698244c5024f109187}{P\+A\+R\+A\+M\+\_\+\+D\+E\+L\+E\+T\+E\+\_\+\+P\+R\+E\+F\+I\+X\+\_\+\+L\+EN}} = len(\mbox{\hyperlink{namespacesonic__cli__wred_ac080ddbc2c940e089afd4400f272ab32}{P\+A\+R\+A\+M\+\_\+\+D\+E\+L\+E\+T\+E\+\_\+\+P\+R\+E\+F\+IX}})
+\item 
+int \mbox{\hyperlink{namespacesonic__cli__wred_aaf6aabe2bd2f6bd2870448cdd549a890}{kb\+\_\+to\+\_\+bytes}} = 1000
+\item 
+\mbox{\hyperlink{namespacesonic__cli__wred_a1c1455c474faab0f679d5a3a870f1cf0}{func}} = sys.\+argv\mbox{[}1\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__wred_af63ab53e0b973bb53269b8e9b04944e4}\label{namespacesonic__cli__wred_af63ab53e0b973bb53269b8e9b04944e4}} 
+\index{sonic\_cli\_wred@{sonic\_cli\_wred}!invoke@{invoke}}
+\index{invoke@{invoke}!sonic\_cli\_wred@{sonic\_cli\_wred}}
+\doxysubsubsection{\texorpdfstring{invoke()}{invoke()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+wred.\+invoke (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args = {\ttfamily \mbox{[}\mbox{]}} }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+wred.\+py 파일의 14 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{14 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__wred_af63ab53e0b973bb53269b8e9b04944e4}{invoke}}(func, args=[]):}
+\DoxyCodeLine{15     api = cc.ApiClient()}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \textcolor{comment}{\# Get the rules of all ECN table entries.}}
+\DoxyCodeLine{18     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'get\_openconfig\_qos\_ext\_qos\_wred\_profiles'}:}
+\DoxyCodeLine{19         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/openconfig-\/qos-\/ext:wred-\/profiles'})}
+\DoxyCodeLine{20         \textcolor{keywordflow}{return} api.get(path)}
+\DoxyCodeLine{21     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_openconfig\_qos\_ext\_qos\_wred\_profiles\_wred\_profile'}:}
+\DoxyCodeLine{22         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/openconfig-\/qos-\/ext:wred-\/profiles/wred-\/profile=\{name\}'}, name=args[0])}
+\DoxyCodeLine{23         \textcolor{keywordflow}{return} api.get(path)}
+\DoxyCodeLine{24     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_list\_openconfig\_qos\_ext\_qos\_wred\_profiles'}:}
+\DoxyCodeLine{25         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/openconfig-\/qos-\/ext:wred-\/profiles/'})}
+\DoxyCodeLine{26         body = \{\textcolor{stringliteral}{"openconfig-\/qos-\/ext:wred-\/profiles"} : \{\textcolor{stringliteral}{"wred-\/profile"}: [\{ \textcolor{stringliteral}{"name"}: args[0], \textcolor{stringliteral}{"config"}: \{ \textcolor{stringliteral}{"name"}: args[0]\}\}]\}\}}
+\DoxyCodeLine{27         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{28     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_qos\_ext\_qos\_wred\_profiles\_wred\_profile\_config\_green'}:}
+\DoxyCodeLine{29         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/openconfig-\/qos-\/ext:wred-\/profiles/wred-\/profile=\{name\}/config'}, name=args[0])}
+\DoxyCodeLine{30         g\_min\_val = int(args[1]) * kb\_to\_bytes}
+\DoxyCodeLine{31         g\_min\_val\_str = str(g\_min\_val)}
+\DoxyCodeLine{32         g\_max\_val = int(args[2]) * kb\_to\_bytes}
+\DoxyCodeLine{33         g\_max\_val\_str = str(g\_max\_val)}
+\DoxyCodeLine{34         body = \{\textcolor{stringliteral}{"openconfig-\/qos-\/ext:config"} : \{\textcolor{stringliteral}{"green-\/min-\/threshold"} : g\_min\_val\_str,}
+\DoxyCodeLine{35                                                \textcolor{stringliteral}{"green-\/max-\/threshold"} : g\_max\_val\_str,}
+\DoxyCodeLine{36                                                \textcolor{stringliteral}{"green-\/drop-\/probability"} : args[3],}
+\DoxyCodeLine{37                                                \textcolor{stringliteral}{"wred-\/green-\/enable"} : \textcolor{keyword}{True}\} \}}
+\DoxyCodeLine{38         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{39     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_qos\_ext\_qos\_wred\_profiles\_wred\_profile\_config\_yellow'}:}
+\DoxyCodeLine{40         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/openconfig-\/qos-\/ext:wred-\/profiles/wred-\/profile=\{name\}/config'}, name=args[0])}
+\DoxyCodeLine{41         y\_min\_val = int(args[1]) * kb\_to\_bytes}
+\DoxyCodeLine{42         y\_min\_val\_str = str(y\_min\_val)}
+\DoxyCodeLine{43         y\_max\_val = int(args[2]) * kb\_to\_bytes}
+\DoxyCodeLine{44         y\_max\_val\_str = str(y\_max\_val)}
+\DoxyCodeLine{45         body = \{\textcolor{stringliteral}{"openconfig-\/qos-\/ext:config"} : \{\textcolor{stringliteral}{"yellow-\/min-\/threshold"} : y\_min\_val\_str,}
+\DoxyCodeLine{46                                                \textcolor{stringliteral}{"yellow-\/max-\/threshold"} : y\_max\_val\_str,}
+\DoxyCodeLine{47                                                \textcolor{stringliteral}{"yellow-\/drop-\/probability"} : args[3],}
+\DoxyCodeLine{48                                                \textcolor{stringliteral}{"wred-\/yellow-\/enable"} : \textcolor{keyword}{True}\} \}}
+\DoxyCodeLine{49         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{50     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_qos\_ext\_qos\_wred\_profiles\_wred\_profile\_config\_red'}:}
+\DoxyCodeLine{51         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/openconfig-\/qos-\/ext:wred-\/profiles/wred-\/profile=\{name\}/config'}, name=args[0])}
+\DoxyCodeLine{52         r\_min\_val = int(args[1]) * kb\_to\_bytes}
+\DoxyCodeLine{53         r\_min\_val\_str = str(r\_min\_val)}
+\DoxyCodeLine{54         r\_max\_val = int(args[2]) * kb\_to\_bytes}
+\DoxyCodeLine{55         r\_max\_val\_str = str(r\_max\_val)}
+\DoxyCodeLine{56         body = \{\textcolor{stringliteral}{"openconfig-\/qos-\/ext:config"} : \{\textcolor{stringliteral}{"red-\/min-\/threshold"} : r\_min\_val\_str,}
+\DoxyCodeLine{57                                                \textcolor{stringliteral}{"red-\/max-\/threshold"} : r\_max\_val\_str,}
+\DoxyCodeLine{58                                                \textcolor{stringliteral}{"red-\/drop-\/probability"} : args[3],}
+\DoxyCodeLine{59                                                \textcolor{stringliteral}{"wred-\/red-\/enable"} : \textcolor{keyword}{True}\} \}}
+\DoxyCodeLine{60         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{61     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_qos\_ext\_qos\_wred\_profiles\_wred\_profile\_config\_ecn'}:}
+\DoxyCodeLine{62         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/openconfig-\/qos-\/ext:wred-\/profiles/wred-\/profile=\{name\}/config/ecn'}, name=args[0])}
+\DoxyCodeLine{63         ecn = args[1].upper()}
+\DoxyCodeLine{64         body = \{ \textcolor{stringliteral}{"openconfig-\/qos-\/ext:"}+func[PARAM\_PATCH\_PREFIX\_LEN:] :  ecn \}}
+\DoxyCodeLine{65         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{66     \textcolor{keywordflow}{elif} func[0:PARAM\_PATCH\_PREFIX\_LEN] == PARAM\_PATCH\_PREFIX:}
+\DoxyCodeLine{67         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/openconfig-\/qos-\/ext:wred-\/profiles/wred-\/profile=\{name\}/config/'}+func[PARAM\_PATCH\_PREFIX\_LEN:], name=args[0])}
+\DoxyCodeLine{68         body = \{ \textcolor{stringliteral}{"openconfig-\/qos-\/ext:"}+func[PARAM\_PATCH\_PREFIX\_LEN:] :  (args[1]) \}}
+\DoxyCodeLine{69         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{70     \textcolor{keywordflow}{elif} func[0:PARAM\_DELETE\_PREFIX\_LEN] == PARAM\_DELETE\_PREFIX:}
+\DoxyCodeLine{71         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/openconfig-\/qos-\/ext:wred-\/profiles/wred-\/profile=\{name\}/config/'}+func[PARAM\_DELETE\_PREFIX\_LEN:], name=args[0])}
+\DoxyCodeLine{72         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{73     \textcolor{keywordflow}{return} api.cli\_not\_implemented(func)}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{d9/d59/namespacesonic__cli__wred_af63ab53e0b973bb53269b8e9b04944e4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__wred_a3a25632b40d88f5596e834f8a288852c}\label{namespacesonic__cli__wred_a3a25632b40d88f5596e834f8a288852c}} 
+\index{sonic\_cli\_wred@{sonic\_cli\_wred}!run@{run}}
+\index{run@{run}!sonic\_cli\_wred@{sonic\_cli\_wred}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+wred.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+wred.\+py 파일의 76 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{76 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__wred_a3a25632b40d88f5596e834f8a288852c}{run}}(func, args):}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{79        response = \mbox{\hyperlink{namespacesonic__cli__wred_af63ab53e0b973bb53269b8e9b04944e4}{invoke}}(func, args)}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81        \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{82           \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{83              api\_response = response.content}
+\DoxyCodeLine{84              \textcolor{keywordflow}{if} api\_response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{85                 print(\textcolor{stringliteral}{"\%Error: Internal error"})}
+\DoxyCodeLine{86              \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{87                 \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'get\_openconfig\_qos\_ext\_qos\_wred\_profiles\_wred\_profile'}:}
+\DoxyCodeLine{88                      \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[1], api\_response)}
+\DoxyCodeLine{89                 \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_openconfig\_qos\_ext\_qos\_wred\_profiles'}:}
+\DoxyCodeLine{90                      \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], api\_response)}
+\DoxyCodeLine{91                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{92                      \textcolor{keywordflow}{return}}
+\DoxyCodeLine{93        \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{94           \textcolor{keywordflow}{print} response.error\_message()}
+\DoxyCodeLine{95     \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} e:}
+\DoxyCodeLine{96         print(\textcolor{stringliteral}{"\% Error: Internal error: "} + str(e))}
+\DoxyCodeLine{97 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d59/namespacesonic__cli__wred_a3a25632b40d88f5596e834f8a288852c_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__wred_a1c1455c474faab0f679d5a3a870f1cf0}\label{namespacesonic__cli__wred_a1c1455c474faab0f679d5a3a870f1cf0}} 
+\index{sonic\_cli\_wred@{sonic\_cli\_wred}!func@{func}}
+\index{func@{func}!sonic\_cli\_wred@{sonic\_cli\_wred}}
+\doxysubsubsection{\texorpdfstring{func}{func}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+wred.\+func = sys.\+argv\mbox{[}1\mbox{]}}
+
+
+
+sonic\+\_\+cli\+\_\+wred.\+py 파일의 100 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__wred_aaf6aabe2bd2f6bd2870448cdd549a890}\label{namespacesonic__cli__wred_aaf6aabe2bd2f6bd2870448cdd549a890}} 
+\index{sonic\_cli\_wred@{sonic\_cli\_wred}!kb\_to\_bytes@{kb\_to\_bytes}}
+\index{kb\_to\_bytes@{kb\_to\_bytes}!sonic\_cli\_wred@{sonic\_cli\_wred}}
+\doxysubsubsection{\texorpdfstring{kb\_to\_bytes}{kb\_to\_bytes}}
+{\footnotesize\ttfamily int sonic\+\_\+cli\+\_\+wred.\+kb\+\_\+to\+\_\+bytes = 1000}
+
+
+
+sonic\+\_\+cli\+\_\+wred.\+py 파일의 13 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__wred_ac080ddbc2c940e089afd4400f272ab32}\label{namespacesonic__cli__wred_ac080ddbc2c940e089afd4400f272ab32}} 
+\index{sonic\_cli\_wred@{sonic\_cli\_wred}!PARAM\_DELETE\_PREFIX@{PARAM\_DELETE\_PREFIX}}
+\index{PARAM\_DELETE\_PREFIX@{PARAM\_DELETE\_PREFIX}!sonic\_cli\_wred@{sonic\_cli\_wred}}
+\doxysubsubsection{\texorpdfstring{PARAM\_DELETE\_PREFIX}{PARAM\_DELETE\_PREFIX}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+wred.\+P\+A\+R\+A\+M\+\_\+\+D\+E\+L\+E\+T\+E\+\_\+\+P\+R\+E\+F\+IX = \textquotesingle{}delete\+\_\+openconfig\+\_\+qos\+\_\+ext\+\_\+qos\+\_\+wred\+\_\+profiles\+\_\+wred\+\_\+profile\+\_\+config\+\_\+\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+wred.\+py 파일의 11 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__wred_a71edfed645debf698244c5024f109187}\label{namespacesonic__cli__wred_a71edfed645debf698244c5024f109187}} 
+\index{sonic\_cli\_wred@{sonic\_cli\_wred}!PARAM\_DELETE\_PREFIX\_LEN@{PARAM\_DELETE\_PREFIX\_LEN}}
+\index{PARAM\_DELETE\_PREFIX\_LEN@{PARAM\_DELETE\_PREFIX\_LEN}!sonic\_cli\_wred@{sonic\_cli\_wred}}
+\doxysubsubsection{\texorpdfstring{PARAM\_DELETE\_PREFIX\_LEN}{PARAM\_DELETE\_PREFIX\_LEN}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+wred.\+P\+A\+R\+A\+M\+\_\+\+D\+E\+L\+E\+T\+E\+\_\+\+P\+R\+E\+F\+I\+X\+\_\+\+L\+EN = len(\mbox{\hyperlink{namespacesonic__cli__wred_ac080ddbc2c940e089afd4400f272ab32}{P\+A\+R\+A\+M\+\_\+\+D\+E\+L\+E\+T\+E\+\_\+\+P\+R\+E\+F\+IX}})}
+
+
+
+sonic\+\_\+cli\+\_\+wred.\+py 파일의 12 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__wred_a7c7f0008d905ef739e19564a05565b70}\label{namespacesonic__cli__wred_a7c7f0008d905ef739e19564a05565b70}} 
+\index{sonic\_cli\_wred@{sonic\_cli\_wred}!PARAM\_PATCH\_PREFIX@{PARAM\_PATCH\_PREFIX}}
+\index{PARAM\_PATCH\_PREFIX@{PARAM\_PATCH\_PREFIX}!sonic\_cli\_wred@{sonic\_cli\_wred}}
+\doxysubsubsection{\texorpdfstring{PARAM\_PATCH\_PREFIX}{PARAM\_PATCH\_PREFIX}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+wred.\+P\+A\+R\+A\+M\+\_\+\+P\+A\+T\+C\+H\+\_\+\+P\+R\+E\+F\+IX = \textquotesingle{}patch\+\_\+openconfig\+\_\+qos\+\_\+ext\+\_\+qos\+\_\+wred\+\_\+profiles\+\_\+wred\+\_\+profile\+\_\+config\+\_\+\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+wred.\+py 파일의 9 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__wred_aa8b7355f33d6faf2c2b5f576d3329a9b}\label{namespacesonic__cli__wred_aa8b7355f33d6faf2c2b5f576d3329a9b}} 
+\index{sonic\_cli\_wred@{sonic\_cli\_wred}!PARAM\_PATCH\_PREFIX\_LEN@{PARAM\_PATCH\_PREFIX\_LEN}}
+\index{PARAM\_PATCH\_PREFIX\_LEN@{PARAM\_PATCH\_PREFIX\_LEN}!sonic\_cli\_wred@{sonic\_cli\_wred}}
+\doxysubsubsection{\texorpdfstring{PARAM\_PATCH\_PREFIX\_LEN}{PARAM\_PATCH\_PREFIX\_LEN}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+wred.\+P\+A\+R\+A\+M\+\_\+\+P\+A\+T\+C\+H\+\_\+\+P\+R\+E\+F\+I\+X\+\_\+\+L\+EN = len(\mbox{\hyperlink{namespacesonic__cli__wred_a7c7f0008d905ef739e19564a05565b70}{P\+A\+R\+A\+M\+\_\+\+P\+A\+T\+C\+H\+\_\+\+P\+R\+E\+F\+IX}})}
+
+
+
+sonic\+\_\+cli\+\_\+wred.\+py 파일의 10 번째 라인에서 정의되었습니다.
+

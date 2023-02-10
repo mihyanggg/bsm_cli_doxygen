@@ -1,0 +1,105 @@
+\hypertarget{namespaceshow__config__ldap}{}\doxysection{show\+\_\+config\+\_\+ldap 네임스페이스 참조}
+\label{namespaceshow__config__ldap}\index{show\_config\_ldap@{show\_config\_ldap}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceshow__config__ldap_ac74a3015814225afb4e3852bb5b30f68}{show\+\_\+ldap\+\_\+server\+\_\+src\+\_\+intf}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__ldap_a6894a880e3df11355c9eeea94cf1f06e}{get\+\_\+ldap\+\_\+entry}} (data, \mbox{\hyperlink{DB-PARSED_8txt_ac3458e0a6b52091dd0e4c96f30fb0766}{ldap\+\_\+type}})
+\item 
+def \mbox{\hyperlink{namespaceshow__config__ldap_ad82df1d4b7e677f3fae1c4002bccbf73}{show\+\_\+ldap\+\_\+map\+\_\+config}} (render\+\_\+tables)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespaceshow__config__ldap_a6894a880e3df11355c9eeea94cf1f06e}\label{namespaceshow__config__ldap_a6894a880e3df11355c9eeea94cf1f06e}} 
+\index{show\_config\_ldap@{show\_config\_ldap}!get\_ldap\_entry@{get\_ldap\_entry}}
+\index{get\_ldap\_entry@{get\_ldap\_entry}!show\_config\_ldap@{show\_config\_ldap}}
+\doxysubsubsection{\texorpdfstring{get\_ldap\_entry()}{get\_ldap\_entry()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+ldap.\+get\+\_\+ldap\+\_\+entry (\begin{DoxyParamCaption}\item[{}]{data,  }\item[{}]{ldap\+\_\+type }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+ldap.\+py 파일의 30 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{30 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__ldap_a6894a880e3df11355c9eeea94cf1f06e}{get\_ldap\_entry}}(data, ldap\_type):}
+\DoxyCodeLine{31     \textcolor{keywordflow}{for} entry \textcolor{keywordflow}{in} data.get(\textcolor{stringliteral}{'sonic-\/system-\/ldap:sonic-\/system-\/ldap/LDAP/LDAP\_LIST'}, []):}
+\DoxyCodeLine{32         \textcolor{keywordflow}{if} entry.get(\textcolor{stringliteral}{'ldap\_type'}) == ldap\_type:}
+\DoxyCodeLine{33             \textcolor{keywordflow}{return} entry }
+\DoxyCodeLine{34     \textcolor{keywordflow}{return} \{\}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{comment}{\# To show the running configuration of the ldap-\/server map}}
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d81/namespaceshow__config__ldap_a6894a880e3df11355c9eeea94cf1f06e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__ldap_ad82df1d4b7e677f3fae1c4002bccbf73}\label{namespaceshow__config__ldap_ad82df1d4b7e677f3fae1c4002bccbf73}} 
+\index{show\_config\_ldap@{show\_config\_ldap}!show\_ldap\_map\_config@{show\_ldap\_map\_config}}
+\index{show\_ldap\_map\_config@{show\_ldap\_map\_config}!show\_config\_ldap@{show\_config\_ldap}}
+\doxysubsubsection{\texorpdfstring{show\_ldap\_map\_config()}{show\_ldap\_map\_config()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+ldap.\+show\+\_\+ldap\+\_\+map\+\_\+config (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+ldap.\+py 파일의 37 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{37 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__ldap_ad82df1d4b7e677f3fae1c4002bccbf73}{show\_ldap\_map\_config}}(render\_tables):}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{40     cmd\_prfx = \textcolor{stringliteral}{'ldap-\/server map '}}
+\DoxyCodeLine{41     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/system-\/ldap:sonic-\/system-\/ldap/LDAP\_MAP/LDAP\_MAP\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{42         \textcolor{keywordflow}{for} ldap\_map\_inst \textcolor{keywordflow}{in} render\_tables[\textcolor{stringliteral}{'sonic-\/system-\/ldap:sonic-\/system-\/ldap/LDAP\_MAP/LDAP\_MAP\_LIST'}]:}
+\DoxyCodeLine{43             mapName = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{44             \textcolor{keywordflow}{if} ldap\_map\_inst[\textcolor{stringliteral}{'name'}] == \textcolor{stringliteral}{'ATTRIBUTE'}:}
+\DoxyCodeLine{45                 mapName = \textcolor{stringliteral}{'attribute '}}
+\DoxyCodeLine{46             \textcolor{keywordflow}{elif} ldap\_map\_inst[\textcolor{stringliteral}{'name'}] == \textcolor{stringliteral}{'OBJECTCLASS'}:}
+\DoxyCodeLine{47                 mapName = \textcolor{stringliteral}{'objectclass '}}
+\DoxyCodeLine{48             \textcolor{keywordflow}{elif} ldap\_map\_inst[\textcolor{stringliteral}{'name'}] == \textcolor{stringliteral}{'DEFAULT\_ATTRIBUTE\_VALUE'}:}
+\DoxyCodeLine{49                 mapName = \textcolor{stringliteral}{'default-\/attribute-\/value '} }
+\DoxyCodeLine{50             \textcolor{keywordflow}{elif} ldap\_map\_inst[\textcolor{stringliteral}{'name'}] == \textcolor{stringliteral}{'OVERRIDE\_ATTRIBUTE\_VALUE'}:}
+\DoxyCodeLine{51                 mapName = \textcolor{stringliteral}{'override-\/attribute-\/value '}}
+\DoxyCodeLine{52             \textcolor{keywordflow}{if} \textcolor{stringliteral}{"to"} \textcolor{keywordflow}{in} ldap\_map\_inst:}
+\DoxyCodeLine{53                 cmd\_str += cmd\_prfx + mapName + ldap\_map\_inst[\textcolor{stringliteral}{'from'}] + \textcolor{stringliteral}{' to '} + ldap\_map\_inst[\textcolor{stringliteral}{'to'}] + \textcolor{stringliteral}{';'}}
+\DoxyCodeLine{54                 }
+\DoxyCodeLine{55     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceshow__config__ldap_ac74a3015814225afb4e3852bb5b30f68}\label{namespaceshow__config__ldap_ac74a3015814225afb4e3852bb5b30f68}} 
+\index{show\_config\_ldap@{show\_config\_ldap}!show\_ldap\_server\_src\_intf@{show\_ldap\_server\_src\_intf}}
+\index{show\_ldap\_server\_src\_intf@{show\_ldap\_server\_src\_intf}!show\_config\_ldap@{show\_config\_ldap}}
+\doxysubsubsection{\texorpdfstring{show\_ldap\_server\_src\_intf()}{show\_ldap\_server\_src\_intf()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+ldap.\+show\+\_\+ldap\+\_\+server\+\_\+src\+\_\+intf (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+ldap.\+py 파일의 23 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__ldap_ac74a3015814225afb4e3852bb5b30f68}{show\_ldap\_server\_src\_intf}}(render\_tables):}
+\DoxyCodeLine{24     entry = \mbox{\hyperlink{namespaceshow__config__ldap_a6894a880e3df11355c9eeea94cf1f06e}{get\_ldap\_entry}}(render\_tables, \textcolor{stringliteral}{'global'})}
+\DoxyCodeLine{25     cmd = \mbox{\hyperlink{namespaceshow__config__if__cmd_a8b1e27fd62439957aa7bb5fb16c078e7}{show\_render\_if\_cmd}}(entry, \textcolor{stringliteral}{'src\_intf'}, \textcolor{stringliteral}{'ldap-\/server source-\/interface '}, \textcolor{stringliteral}{''})}
+\DoxyCodeLine{26     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{comment}{\# get\_ldap\_entry returns LDAP\_LIST entry with given ldap\_type.}}
+\DoxyCodeLine{29 \textcolor{comment}{\# Returns an empty dict if no matching entry found.}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d81/namespaceshow__config__ldap_ac74a3015814225afb4e3852bb5b30f68_cgraph}
+\end{center}
+\end{figure}

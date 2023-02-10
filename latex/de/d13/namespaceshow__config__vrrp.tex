@@ -1,0 +1,174 @@
+\hypertarget{namespaceshow__config__vrrp}{}\doxysection{show\+\_\+config\+\_\+vrrp 네임스페이스 참조}
+\label{namespaceshow__config__vrrp}\index{show\_config\_vrrp@{show\_config\_vrrp}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceshow__config__vrrp_a63279fcee0b72869b72e5f8eab6b3c6b}{show\+\_\+vrrp\+\_\+track\+\_\+config}} (render\+\_\+tables, table\+\_\+inst, afi)
+\begin{DoxyCompactList}\small\item\em Copyright 2020 Broadcom. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceshow__config__vrrp_ad6c03ec5ea1a33654cc67bdb1aed7142}{show\+\_\+vrrp\+\_\+common}} (render\+\_\+table, table\+\_\+inst, afi)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__vrrp_ac8bc205e3ecd709715cd417c76ccd574}{show\+\_\+vrrp\+\_\+config}} (render\+\_\+tables)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespaceshow__config__vrrp_ad6c03ec5ea1a33654cc67bdb1aed7142}\label{namespaceshow__config__vrrp_ad6c03ec5ea1a33654cc67bdb1aed7142}} 
+\index{show\_config\_vrrp@{show\_config\_vrrp}!show\_vrrp\_common@{show\_vrrp\_common}}
+\index{show\_vrrp\_common@{show\_vrrp\_common}!show\_config\_vrrp@{show\_config\_vrrp}}
+\doxysubsubsection{\texorpdfstring{show\_vrrp\_common()}{show\_vrrp\_common()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+vrrp.\+show\+\_\+vrrp\+\_\+common (\begin{DoxyParamCaption}\item[{}]{render\+\_\+table,  }\item[{}]{table\+\_\+inst,  }\item[{}]{afi }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+vrrp.\+py 파일의 31 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{31 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__vrrp_ad6c03ec5ea1a33654cc67bdb1aed7142}{show\_vrrp\_common}}(render\_table, table\_inst, afi):}
+\DoxyCodeLine{32     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{33     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'priority'} \textcolor{keywordflow}{in} table\_inst:}
+\DoxyCodeLine{34         cmd\_str += \textcolor{stringliteral}{' priority '} + str(table\_inst[\textcolor{stringliteral}{'priority'}]) + \textcolor{stringliteral}{';'}}
+\DoxyCodeLine{35     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'pre\_empt'} \textcolor{keywordflow}{in} table\_inst:}
+\DoxyCodeLine{36         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'True'} == table\_inst[\textcolor{stringliteral}{'pre\_empt'}]:}
+\DoxyCodeLine{37             cmd\_str += \textcolor{stringliteral}{' preempt '} + \textcolor{stringliteral}{';'}}
+\DoxyCodeLine{38         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{39             cmd\_str += \textcolor{stringliteral}{' no preempt '} + \textcolor{stringliteral}{';'}}
+\DoxyCodeLine{40     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'version'} \textcolor{keywordflow}{in} table\_inst:}
+\DoxyCodeLine{41         cmd\_str += \textcolor{stringliteral}{' version '} + str(table\_inst[\textcolor{stringliteral}{'version'}]) + \textcolor{stringliteral}{';'}}
+\DoxyCodeLine{42     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'adv\_interval'} \textcolor{keywordflow}{in} table\_inst:}
+\DoxyCodeLine{43         cmd\_str += \textcolor{stringliteral}{' advertisement-\/interval '} + str(table\_inst[\textcolor{stringliteral}{'adv\_interval'}]) + \textcolor{stringliteral}{';'}}
+\DoxyCodeLine{44     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'use\_v2\_checksum'} \textcolor{keywordflow}{in} table\_inst:}
+\DoxyCodeLine{45         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'True'} == table\_inst[\textcolor{stringliteral}{'use\_v2\_checksum'}]:}
+\DoxyCodeLine{46             cmd\_str += \textcolor{stringliteral}{' use-\/v2-\/checksum '} + \textcolor{stringliteral}{';'}}
+\DoxyCodeLine{47     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'vip'} \textcolor{keywordflow}{in} table\_inst:}
+\DoxyCodeLine{48         vips = table\_inst[\textcolor{stringliteral}{'vip'}]}
+\DoxyCodeLine{49         \textcolor{keywordflow}{for} vip \textcolor{keywordflow}{in} vips:}
+\DoxyCodeLine{50             cmd\_str += \textcolor{stringliteral}{' vip '} + str(vip) + \textcolor{stringliteral}{';'}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     cmd\_str += \mbox{\hyperlink{namespaceshow__config__vrrp_a63279fcee0b72869b72e5f8eab6b3c6b}{show\_vrrp\_track\_config}}(render\_table, table\_inst, afi)}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     \textcolor{keywordflow}{return} cmd\_str}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d13/namespaceshow__config__vrrp_ad6c03ec5ea1a33654cc67bdb1aed7142_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d13/namespaceshow__config__vrrp_ad6c03ec5ea1a33654cc67bdb1aed7142_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__vrrp_ac8bc205e3ecd709715cd417c76ccd574}\label{namespaceshow__config__vrrp_ac8bc205e3ecd709715cd417c76ccd574}} 
+\index{show\_config\_vrrp@{show\_config\_vrrp}!show\_vrrp\_config@{show\_vrrp\_config}}
+\index{show\_vrrp\_config@{show\_vrrp\_config}!show\_config\_vrrp@{show\_config\_vrrp}}
+\doxysubsubsection{\texorpdfstring{show\_vrrp\_config()}{show\_vrrp\_config()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+vrrp.\+show\+\_\+vrrp\+\_\+config (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+vrrp.\+py 파일의 57 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{57 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__vrrp_ac8bc205e3ecd709715cd417c76ccd574}{show\_vrrp\_config}}(render\_tables):}
+\DoxyCodeLine{58     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60     ifname = render\_tables[\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{61     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/vrrp:sonic-\/vrrp/VRRP/VRRP\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63         table\_all\_inst = render\_tables[\textcolor{stringliteral}{'sonic-\/vrrp:sonic-\/vrrp/VRRP/VRRP\_LIST'}]}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65         \textcolor{keywordflow}{for} table\_inst \textcolor{keywordflow}{in} table\_all\_inst:}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67             \textcolor{keywordflow}{if} ifname != table\_inst[\textcolor{stringliteral}{'ifname'}]:}
+\DoxyCodeLine{68                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70             cmd\_prefix = \textcolor{stringliteral}{'vrrp'}}
+\DoxyCodeLine{71             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'vrid'} \textcolor{keywordflow}{in} table\_inst:}
+\DoxyCodeLine{72                 cmd\_str += cmd\_prefix + \textcolor{stringliteral}{' '} + str(table\_inst[\textcolor{stringliteral}{'vrid'}]) + \textcolor{stringliteral}{' address-\/family ipv4'} + \textcolor{stringliteral}{';'}}
+\DoxyCodeLine{73                 cmd\_str += \mbox{\hyperlink{namespaceshow__config__vrrp_ad6c03ec5ea1a33654cc67bdb1aed7142}{show\_vrrp\_common}}(render\_tables, table\_inst, \textcolor{stringliteral}{'ipv4'})}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/vrrp:sonic-\/vrrp/VRRP6/VRRP6\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77         table\_all\_inst = render\_tables[\textcolor{stringliteral}{'sonic-\/vrrp:sonic-\/vrrp/VRRP6/VRRP6\_LIST'}]}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79         \textcolor{keywordflow}{for} table\_inst \textcolor{keywordflow}{in} table\_all\_inst:}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81             \textcolor{keywordflow}{if} ifname != table\_inst[\textcolor{stringliteral}{'ifname'}]:}
+\DoxyCodeLine{82                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84             cmd\_prefix = \textcolor{stringliteral}{'vrrp'}}
+\DoxyCodeLine{85             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'vrid'} \textcolor{keywordflow}{in} table\_inst:}
+\DoxyCodeLine{86                 cmd\_str += cmd\_prefix + \textcolor{stringliteral}{' '} + str(table\_inst[\textcolor{stringliteral}{'vrid'}]) + \textcolor{stringliteral}{' address-\/family ipv6'} + \textcolor{stringliteral}{';'}}
+\DoxyCodeLine{87                 cmd\_str += \mbox{\hyperlink{namespaceshow__config__vrrp_ad6c03ec5ea1a33654cc67bdb1aed7142}{show\_vrrp\_common}}(render\_tables, table\_inst, \textcolor{stringliteral}{'ipv6'})}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d13/namespaceshow__config__vrrp_ac8bc205e3ecd709715cd417c76ccd574_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__vrrp_a63279fcee0b72869b72e5f8eab6b3c6b}\label{namespaceshow__config__vrrp_a63279fcee0b72869b72e5f8eab6b3c6b}} 
+\index{show\_config\_vrrp@{show\_config\_vrrp}!show\_vrrp\_track\_config@{show\_vrrp\_track\_config}}
+\index{show\_vrrp\_track\_config@{show\_vrrp\_track\_config}!show\_config\_vrrp@{show\_config\_vrrp}}
+\doxysubsubsection{\texorpdfstring{show\_vrrp\_track\_config()}{show\_vrrp\_track\_config()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+vrrp.\+show\+\_\+vrrp\+\_\+track\+\_\+config (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables,  }\item[{}]{table\+\_\+inst,  }\item[{}]{afi }\end{DoxyParamCaption})}
+
+
+
+Copyright 2020 Broadcom. 
+
+The term Broadcom refers to Broadcom Inc. and/or its subsidiaries. 
+
+show\+\_\+config\+\_\+vrrp.\+py 파일의 8 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{8 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__vrrp_a63279fcee0b72869b72e5f8eab6b3c6b}{show\_vrrp\_track\_config}}(render\_tables, table\_inst, afi):}
+\DoxyCodeLine{9     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/vrrp:sonic-\/vrrp'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{12         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'VRRP\_TRACK'} \textcolor{keywordflow}{in} render\_tables[\textcolor{stringliteral}{'sonic-\/vrrp:sonic-\/vrrp'}] \textcolor{keywordflow}{and} afi == \textcolor{stringliteral}{'ipv4'}:}
+\DoxyCodeLine{13             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'VRRP\_TRACK\_LIST'} \textcolor{keywordflow}{in} render\_tables[\textcolor{stringliteral}{'sonic-\/vrrp:sonic-\/vrrp'}][\textcolor{stringliteral}{'VRRP\_TRACK'}]:}
+\DoxyCodeLine{14                 track\_all\_inst = render\_tables[\textcolor{stringliteral}{'sonic-\/vrrp:sonic-\/vrrp'}][\textcolor{stringliteral}{'VRRP\_TRACK'}][\textcolor{stringliteral}{'VRRP\_TRACK\_LIST'}]}
+\DoxyCodeLine{15         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'VRRP6\_TRACK'} \textcolor{keywordflow}{in} render\_tables[\textcolor{stringliteral}{'sonic-\/vrrp:sonic-\/vrrp'}] \textcolor{keywordflow}{and} afi == \textcolor{stringliteral}{'ipv6'}:}
+\DoxyCodeLine{16             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'VRRP6\_TRACK\_LIST'} \textcolor{keywordflow}{in} render\_tables[\textcolor{stringliteral}{'sonic-\/vrrp:sonic-\/vrrp'}][\textcolor{stringliteral}{'VRRP6\_TRACK'}]:}
+\DoxyCodeLine{17                 track\_all\_inst = render\_tables[\textcolor{stringliteral}{'sonic-\/vrrp:sonic-\/vrrp'}][\textcolor{stringliteral}{'VRRP6\_TRACK'}][\textcolor{stringliteral}{'VRRP6\_TRACK\_LIST'}]}
+\DoxyCodeLine{18         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{19             \textcolor{keywordflow}{return} cmd\_str}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \textcolor{keywordflow}{for} track\_inst \textcolor{keywordflow}{in} track\_all\_inst:}
+\DoxyCodeLine{22         \textcolor{keywordflow}{if} table\_inst[\textcolor{stringliteral}{'ifname'}] != track\_inst[\textcolor{stringliteral}{'baseifname'}]:}
+\DoxyCodeLine{23             \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{24         \textcolor{keywordflow}{if} table\_inst[\textcolor{stringliteral}{'vrid'}] != track\_inst[\textcolor{stringliteral}{'idkey'}]:}
+\DoxyCodeLine{25             \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27         cmd\_str += \textcolor{stringliteral}{' track-\/interface '} + track\_inst[\textcolor{stringliteral}{'trackifname'}] + \textcolor{stringliteral}{' weight '} +  str(track\_inst[\textcolor{stringliteral}{'priority\_increment'}]) + \textcolor{stringliteral}{';'}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keywordflow}{return} cmd\_str}
+\DoxyCodeLine{30 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d13/namespaceshow__config__vrrp_a63279fcee0b72869b72e5f8eab6b3c6b_icgraph}
+\end{center}
+\end{figure}

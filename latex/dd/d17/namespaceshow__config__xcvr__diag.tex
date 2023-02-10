@@ -1,0 +1,105 @@
+\hypertarget{namespaceshow__config__xcvr__diag}{}\doxysection{show\+\_\+config\+\_\+xcvr\+\_\+diag 네임스페이스 참조}
+\label{namespaceshow__config__xcvr__diag}\index{show\_config\_xcvr\_diag@{show\_config\_xcvr\_diag}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceshow__config__xcvr__diag_af16e470e01ce66cf42f97771b6195040}{fixup\+\_\+ifname}} (\mbox{\hyperlink{DB-PARSED_8txt_a2f28cce84dbafd26b75c646321392848}{name}})
+\item 
+def \mbox{\hyperlink{namespaceshow__config__xcvr__diag_aca1e8297dcfe332665dbaf9b121f228d}{show\+\_\+xcvr\+\_\+diag\+\_\+ctrl}} (render\+\_\+tables)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespaceshow__config__xcvr__diag_af16e470e01ce66cf42f97771b6195040}\label{namespaceshow__config__xcvr__diag_af16e470e01ce66cf42f97771b6195040}} 
+\index{show\_config\_xcvr\_diag@{show\_config\_xcvr\_diag}!fixup\_ifname@{fixup\_ifname}}
+\index{fixup\_ifname@{fixup\_ifname}!show\_config\_xcvr\_diag@{show\_config\_xcvr\_diag}}
+\doxysubsubsection{\texorpdfstring{fixup\_ifname()}{fixup\_ifname()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+xcvr\+\_\+diag.\+fixup\+\_\+ifname (\begin{DoxyParamCaption}\item[{}]{name }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+xcvr\+\_\+diag.\+py 파일의 22 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__xcvr__diag_af16e470e01ce66cf42f97771b6195040}{fixup\_ifname}}(name):}
+\DoxyCodeLine{23     ret = name}
+\DoxyCodeLine{24     \textcolor{keywordflow}{if} name.startswith(\textcolor{stringliteral}{"Ethernet"}):}
+\DoxyCodeLine{25         ret = \textcolor{stringliteral}{"Ethernet \{0\}"}.format(name[8:])}
+\DoxyCodeLine{26     \textcolor{keywordflow}{elif} name.startswith(\textcolor{stringliteral}{"Eth"}):}
+\DoxyCodeLine{27         ret = \textcolor{stringliteral}{"Eth \{0\}"}.format(name[3:])}
+\DoxyCodeLine{28     \textcolor{keywordflow}{return} ret}
+\DoxyCodeLine{29 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d17/namespaceshow__config__xcvr__diag_af16e470e01ce66cf42f97771b6195040_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__xcvr__diag_aca1e8297dcfe332665dbaf9b121f228d}\label{namespaceshow__config__xcvr__diag_aca1e8297dcfe332665dbaf9b121f228d}} 
+\index{show\_config\_xcvr\_diag@{show\_config\_xcvr\_diag}!show\_xcvr\_diag\_ctrl@{show\_xcvr\_diag\_ctrl}}
+\index{show\_xcvr\_diag\_ctrl@{show\_xcvr\_diag\_ctrl}!show\_config\_xcvr\_diag@{show\_config\_xcvr\_diag}}
+\doxysubsubsection{\texorpdfstring{show\_xcvr\_diag\_ctrl()}{show\_xcvr\_diag\_ctrl()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+xcvr\+\_\+diag.\+show\+\_\+xcvr\+\_\+diag\+\_\+ctrl (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+xcvr\+\_\+diag.\+py 파일의 30 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{30 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__xcvr__diag_aca1e8297dcfe332665dbaf9b121f228d}{show\_xcvr\_diag\_ctrl}}(render\_tables):}
+\DoxyCodeLine{31     data = []}
+\DoxyCodeLine{32     cmds = []}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{comment}{\# skip if render\_tables is None}}
+\DoxyCodeLine{35     \textcolor{keywordflow}{if} render\_tables \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{36         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, \textcolor{stringliteral}{''}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     key = \textcolor{stringliteral}{'sonic-\/transceiver:sonic-\/transceiver/TRANSCEIVER\_DIAG/TRANSCEIVER\_DIAG\_LIST'}}
+\DoxyCodeLine{39     \textcolor{keywordflow}{if} key \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{40         data = render\_tables[key]}
+\DoxyCodeLine{41     \textcolor{keywordflow}{if} len(data) < 1:}
+\DoxyCodeLine{42         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, \textcolor{stringliteral}{''}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{comment}{\# sort dictionary by value (i.e. config command)}}
+\DoxyCodeLine{45     \textcolor{keywordflow}{for} row \textcolor{keywordflow}{in} natsorted(data, key=\textcolor{keyword}{lambda} x: x[\textcolor{stringliteral}{'ifname'}]):}
+\DoxyCodeLine{46         ifn = \mbox{\hyperlink{namespaceshow__config__xcvr__diag_af16e470e01ce66cf42f97771b6195040}{fixup\_ifname}}(row[\textcolor{stringliteral}{'ifname'}])}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48         \textcolor{comment}{\# interface transceiver diagnostics loopback}}
+\DoxyCodeLine{49         pre = \textcolor{stringliteral}{'interface transceiver diagnostics loopback'}}
+\DoxyCodeLine{50         \textcolor{keywordflow}{if} row.get(\textcolor{stringliteral}{'lb\_host\_input\_enabled'}) == \textcolor{stringliteral}{'true'}:}
+\DoxyCodeLine{51             cmds.append(\textcolor{stringliteral}{"\{0\} host-\/side-\/input \{1\}"}.format(pre, ifn))}
+\DoxyCodeLine{52         \textcolor{keywordflow}{if} row.get(\textcolor{stringliteral}{'lb\_host\_output\_enabled'}) == \textcolor{stringliteral}{'true'}:}
+\DoxyCodeLine{53             cmds.append(\textcolor{stringliteral}{"\{0\} host-\/side-\/output \{1\}"}.format(pre, ifn))}
+\DoxyCodeLine{54         \textcolor{keywordflow}{if} row.get(\textcolor{stringliteral}{'lb\_media\_input\_enabled'}) == \textcolor{stringliteral}{'true'}:}
+\DoxyCodeLine{55             cmds.append(\textcolor{stringliteral}{"\{0\} media-\/side-\/input \{1\}"}.format(pre, ifn))}
+\DoxyCodeLine{56         \textcolor{keywordflow}{if} row.get(\textcolor{stringliteral}{'lb\_media\_output\_enabled'}) == \textcolor{stringliteral}{'true'}:}
+\DoxyCodeLine{57             cmds.append(\textcolor{stringliteral}{"\{0\} media-\/side-\/output \{1\}"}.format(pre, ifn))}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59         \textcolor{comment}{\# interface transceiver diagnostics pattern}}
+\DoxyCodeLine{60         pre = \textcolor{stringliteral}{'interface transceiver diagnostics pattern'}}
+\DoxyCodeLine{61         \textcolor{keywordflow}{if} row.get(\textcolor{stringliteral}{'prbs\_chk\_host\_enabled'}) == \textcolor{stringliteral}{'true'}:}
+\DoxyCodeLine{62             cmds.append(\textcolor{stringliteral}{"\{0\} checker-\/host \{1\}"}.format(pre, ifn))}
+\DoxyCodeLine{63         \textcolor{keywordflow}{if} row.get(\textcolor{stringliteral}{'prbs\_chk\_media\_enabled'}) == \textcolor{stringliteral}{'true'}:}
+\DoxyCodeLine{64             cmds.append(\textcolor{stringliteral}{"\{0\} checker-\/media \{1\}"}.format(pre, ifn))}
+\DoxyCodeLine{65         \textcolor{keywordflow}{if} row.get(\textcolor{stringliteral}{'prbs\_gen\_host\_enabled'}) == \textcolor{stringliteral}{'true'}:}
+\DoxyCodeLine{66             cmds.append(\textcolor{stringliteral}{"\{0\} generator-\/host \{1\}"}.format(pre, ifn))}
+\DoxyCodeLine{67         \textcolor{keywordflow}{if} row.get(\textcolor{stringliteral}{'prbs\_gen\_media\_enabled'}) == \textcolor{stringliteral}{'true'}:}
+\DoxyCodeLine{68             cmds.append(\textcolor{stringliteral}{"\{0\} generator-\/media \{1\}"}.format(pre, ifn))}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, \textcolor{stringliteral}{"\(\backslash\)n"}.join(cmds)}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d17/namespaceshow__config__xcvr__diag_aca1e8297dcfe332665dbaf9b121f228d_cgraph}
+\end{center}
+\end{figure}

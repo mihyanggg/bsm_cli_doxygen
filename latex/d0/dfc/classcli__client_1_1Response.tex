@@ -1,0 +1,292 @@
+\hypertarget{classcli__client_1_1Response}{}\doxysection{cli\+\_\+client.\+Response 클래스 참조}
+\label{classcli__client_1_1Response}\index{cli\_client.Response@{cli\_client.Response}}
+
+
+cli\+\_\+client.\+Response에 대한 상속 다이어그램 \+: 
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{d7/dbc/classcli__client_1_1Response__inherit__graph}
+\end{center}
+\end{figure}
+
+
+cli\+\_\+client.\+Response에 대한 협력 다이어그램\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{d9/d1b/classcli__client_1_1Response__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classcli__client_1_1Response_a26fa33e66e4df301e757186b5589b503}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classcli__client_1_1Response_a8f8de3855fb99dc6f5f3d9a6e260b6b4}{response}}, \mbox{\hyperlink{classcli__client_1_1Response_a2afa64b31bf45a80690227f82a6c576c}{response\+\_\+type}}=None)
+\item 
+def \mbox{\hyperlink{classcli__client_1_1Response_a42128c22a0f58229fb7b113a64eca38b}{ok}} (self)
+\item 
+def \mbox{\hyperlink{classcli__client_1_1Response_a0b23b7f9f0afdf1efe1c58ec502b15b4}{errors}} (self)
+\item 
+def \mbox{\hyperlink{classcli__client_1_1Response_ac6a5414b491c88ceabd175d6660ffc3f}{error\+\_\+message}} (self, formatter\+\_\+func=None)
+\item 
+def \mbox{\hyperlink{classcli__client_1_1Response_a6cd950667b0142d8e3937e849e111f39}{set\+\_\+error\+\_\+message}} (self, message)
+\item 
+def \mbox{\hyperlink{classcli__client_1_1Response_abd0b89d8a2416fc27872267dcb172da8}{\+\_\+\+\_\+getitem\+\_\+\+\_\+}} (self, key)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public 속성}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcli__client_1_1Response_a8f8de3855fb99dc6f5f3d9a6e260b6b4}{response}}
+\item 
+\mbox{\hyperlink{classcli__client_1_1Response_a2afa64b31bf45a80690227f82a6c576c}{response\+\_\+type}}
+\item 
+\mbox{\hyperlink{classcli__client_1_1Response_a8eed8da22ca82b9d04cfe58451b1e10f}{status\+\_\+code}}
+\item 
+\mbox{\hyperlink{classcli__client_1_1Response_a26126d32eac35dd022149cf901da9193}{content}}
+\item 
+\mbox{\hyperlink{classcli__client_1_1Response_a4ee97f36a1208c58a1803e1e13f69f1b}{err\+\_\+message\+\_\+override}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{상세한 설명}
+
+
+cli\+\_\+client.\+py 파일의 194 번째 라인에서 정의되었습니다.
+
+
+
+\doxysubsection{생성자 \& 소멸자 문서화}
+\mbox{\Hypertarget{classcli__client_1_1Response_a26fa33e66e4df301e757186b5589b503}\label{classcli__client_1_1Response_a26fa33e66e4df301e757186b5589b503}} 
+\index{cli\_client.Response@{cli\_client.Response}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!cli\_client.Response@{cli\_client.Response}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def cli\+\_\+client.\+Response.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{response,  }\item[{}]{response\+\_\+type = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+
+cli\+\_\+client.\+py 파일의 195 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{195     \textcolor{keyword}{def }\_\_init\_\_(self, response, response\_type=None):}
+\DoxyCodeLine{196         self.response = response}
+\DoxyCodeLine{197         self.response\_type = response\_type}
+\DoxyCodeLine{198         self.status\_code = response.status\_code}
+\DoxyCodeLine{199         self.content = response.content}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{201         \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{202             \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordtype}{None} \textcolor{keywordflow}{or} len(response.content) == 0:}
+\DoxyCodeLine{203                 self.content = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{204             \textcolor{keywordflow}{elif} self.response\_type \textcolor{keywordflow}{and} self.response\_type.lower() == \textcolor{stringliteral}{'string'}:}
+\DoxyCodeLine{205                 self.content = str(response.content).decode(\textcolor{stringliteral}{'string\_escape'})}
+\DoxyCodeLine{206             \textcolor{keywordflow}{elif} \mbox{\hyperlink{namespacecli__client_a0983532ee8e1b0c7914dba8a6da195c2}{\_has\_json\_content}}(response):}
+\DoxyCodeLine{207                 self.content = json.loads(response.content, object\_pairs\_hook=OrderedDict)}
+\DoxyCodeLine{208         \textcolor{keywordflow}{except} ValueError:}
+\DoxyCodeLine{209             \textcolor{comment}{\# TODO Can we set status\_code to 5XX in this case???}}
+\DoxyCodeLine{210             \textcolor{comment}{\# Json parsing can fail only if server returned bad json}}
+\DoxyCodeLine{211             self.content = response.content}
+\DoxyCodeLine{212 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{멤버 함수 문서화}
+\mbox{\Hypertarget{classcli__client_1_1Response_abd0b89d8a2416fc27872267dcb172da8}\label{classcli__client_1_1Response_abd0b89d8a2416fc27872267dcb172da8}} 
+\index{cli\_client.Response@{cli\_client.Response}!\_\_getitem\_\_@{\_\_getitem\_\_}}
+\index{\_\_getitem\_\_@{\_\_getitem\_\_}!cli\_client.Response@{cli\_client.Response}}
+\doxysubsubsection{\texorpdfstring{\_\_getitem\_\_()}{\_\_getitem\_\_()}}
+{\footnotesize\ttfamily def cli\+\_\+client.\+Response.\+\_\+\+\_\+getitem\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{key }\end{DoxyParamCaption})}
+
+
+
+cli\+\_\+client.\+py 파일의 247 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{247     \textcolor{keyword}{def }\_\_getitem\_\_(self, key):}
+\DoxyCodeLine{248         \textcolor{keywordflow}{return} self.content[key]}
+\DoxyCodeLine{249 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcli__client_1_1Response_ac6a5414b491c88ceabd175d6660ffc3f}\label{classcli__client_1_1Response_ac6a5414b491c88ceabd175d6660ffc3f}} 
+\index{cli\_client.Response@{cli\_client.Response}!error\_message@{error\_message}}
+\index{error\_message@{error\_message}!cli\_client.Response@{cli\_client.Response}}
+\doxysubsubsection{\texorpdfstring{error\_message()}{error\_message()}}
+{\footnotesize\ttfamily def cli\+\_\+client.\+Response.\+error\+\_\+message (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{formatter\+\_\+func = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+
+cli\+\_\+client.\+py 파일의 229 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{229     \textcolor{keyword}{def }error\_message(self, formatter\_func=None):}
+\DoxyCodeLine{230         \textcolor{keywordflow}{if} hasattr(self, \textcolor{stringliteral}{'err\_message\_override'}):}
+\DoxyCodeLine{231             \textcolor{keywordflow}{return} self.err\_message\_override}
+\DoxyCodeLine{232 }
+\DoxyCodeLine{233         err = self.errors().\mbox{\hyperlink{namespacescripts_1_1json__tools_afd87b9a49f4372aebe9a000a029a76fe}{get}}(\textcolor{stringliteral}{'error'})}
+\DoxyCodeLine{234         \textcolor{keywordflow}{if} err == \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{235             \textcolor{keywordflow}{return} \textcolor{keywordtype}{None}}
+\DoxyCodeLine{236         \textcolor{keywordflow}{if} isinstance(err, list):}
+\DoxyCodeLine{237             err = err[0]}
+\DoxyCodeLine{238         \textcolor{keywordflow}{if} isinstance(err, dict):}
+\DoxyCodeLine{239             \textcolor{keywordflow}{if} formatter\_func \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{240                 \textcolor{keywordflow}{return} formatter\_func(self.status\_code, err)}
+\DoxyCodeLine{241             \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacecli__client_afa510436e423388d08c190175e3b4bed}{default\_error\_message\_formatter}}(self.status\_code, err)}
+\DoxyCodeLine{242         \textcolor{keywordflow}{return} str(err)}
+\DoxyCodeLine{243 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/dfc/classcli__client_1_1Response_ac6a5414b491c88ceabd175d6660ffc3f_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcli__client_1_1Response_a0b23b7f9f0afdf1efe1c58ec502b15b4}\label{classcli__client_1_1Response_a0b23b7f9f0afdf1efe1c58ec502b15b4}} 
+\index{cli\_client.Response@{cli\_client.Response}!errors@{errors}}
+\index{errors@{errors}!cli\_client.Response@{cli\_client.Response}}
+\doxysubsubsection{\texorpdfstring{errors()}{errors()}}
+{\footnotesize\ttfamily def cli\+\_\+client.\+Response.\+errors (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+cli\+\_\+client.\+py 파일의 216 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{216     \textcolor{keyword}{def }errors(self):}
+\DoxyCodeLine{217         \textcolor{keywordflow}{if} self.ok():}
+\DoxyCodeLine{218             \textcolor{keywordflow}{return} \{\}}
+\DoxyCodeLine{219 }
+\DoxyCodeLine{220         errors = self.content}
+\DoxyCodeLine{221 }
+\DoxyCodeLine{222         if(\textcolor{keywordflow}{not} isinstance(errors, dict)):}
+\DoxyCodeLine{223             errors = \{\textcolor{stringliteral}{"error"}: errors\}  \textcolor{comment}{\# convert to dict for consistency}}
+\DoxyCodeLine{224         elif(\textcolor{stringliteral}{'ietf-\/restconf:errors'} \textcolor{keywordflow}{in} errors):}
+\DoxyCodeLine{225             errors = errors[\textcolor{stringliteral}{'ietf-\/restconf:errors'}]}
+\DoxyCodeLine{226 }
+\DoxyCodeLine{227         \textcolor{keywordflow}{return} errors}
+\DoxyCodeLine{228 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/dfc/classcli__client_1_1Response_a0b23b7f9f0afdf1efe1c58ec502b15b4_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/dfc/classcli__client_1_1Response_a0b23b7f9f0afdf1efe1c58ec502b15b4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcli__client_1_1Response_a42128c22a0f58229fb7b113a64eca38b}\label{classcli__client_1_1Response_a42128c22a0f58229fb7b113a64eca38b}} 
+\index{cli\_client.Response@{cli\_client.Response}!ok@{ok}}
+\index{ok@{ok}!cli\_client.Response@{cli\_client.Response}}
+\doxysubsubsection{\texorpdfstring{ok()}{ok()}}
+{\footnotesize\ttfamily def cli\+\_\+client.\+Response.\+ok (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+cli\+\_\+client.\+py 파일의 213 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{213     \textcolor{keyword}{def }ok(self):}
+\DoxyCodeLine{214         \textcolor{keywordflow}{return} self.status\_code >= 200 \textcolor{keywordflow}{and} self.status\_code <= 299}
+\DoxyCodeLine{215 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/dfc/classcli__client_1_1Response_a42128c22a0f58229fb7b113a64eca38b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classcli__client_1_1Response_a6cd950667b0142d8e3937e849e111f39}\label{classcli__client_1_1Response_a6cd950667b0142d8e3937e849e111f39}} 
+\index{cli\_client.Response@{cli\_client.Response}!set\_error\_message@{set\_error\_message}}
+\index{set\_error\_message@{set\_error\_message}!cli\_client.Response@{cli\_client.Response}}
+\doxysubsubsection{\texorpdfstring{set\_error\_message()}{set\_error\_message()}}
+{\footnotesize\ttfamily def cli\+\_\+client.\+Response.\+set\+\_\+error\+\_\+message (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{message }\end{DoxyParamCaption})}
+
+
+
+cli\+\_\+client.\+py 파일의 244 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{244     \textcolor{keyword}{def }set\_error\_message(self, message):}
+\DoxyCodeLine{245         self.err\_message\_override = \mbox{\hyperlink{namespacecli__client_af9ddbc1e8c45be621a29ed7764488be5}{add\_error\_prefix}}(message)}
+\DoxyCodeLine{246 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{멤버 데이터 문서화}
+\mbox{\Hypertarget{classcli__client_1_1Response_a26126d32eac35dd022149cf901da9193}\label{classcli__client_1_1Response_a26126d32eac35dd022149cf901da9193}} 
+\index{cli\_client.Response@{cli\_client.Response}!content@{content}}
+\index{content@{content}!cli\_client.Response@{cli\_client.Response}}
+\doxysubsubsection{\texorpdfstring{content}{content}}
+{\footnotesize\ttfamily cli\+\_\+client.\+Response.\+content}
+
+
+
+cli\+\_\+client.\+py 파일의 199 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{classcli__client_1_1Response_a4ee97f36a1208c58a1803e1e13f69f1b}\label{classcli__client_1_1Response_a4ee97f36a1208c58a1803e1e13f69f1b}} 
+\index{cli\_client.Response@{cli\_client.Response}!err\_message\_override@{err\_message\_override}}
+\index{err\_message\_override@{err\_message\_override}!cli\_client.Response@{cli\_client.Response}}
+\doxysubsubsection{\texorpdfstring{err\_message\_override}{err\_message\_override}}
+{\footnotesize\ttfamily cli\+\_\+client.\+Response.\+err\+\_\+message\+\_\+override}
+
+
+
+cli\+\_\+client.\+py 파일의 245 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{classcli__client_1_1Response_a8f8de3855fb99dc6f5f3d9a6e260b6b4}\label{classcli__client_1_1Response_a8f8de3855fb99dc6f5f3d9a6e260b6b4}} 
+\index{cli\_client.Response@{cli\_client.Response}!response@{response}}
+\index{response@{response}!cli\_client.Response@{cli\_client.Response}}
+\doxysubsubsection{\texorpdfstring{response}{response}}
+{\footnotesize\ttfamily cli\+\_\+client.\+Response.\+response}
+
+
+
+cli\+\_\+client.\+py 파일의 196 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{classcli__client_1_1Response_a2afa64b31bf45a80690227f82a6c576c}\label{classcli__client_1_1Response_a2afa64b31bf45a80690227f82a6c576c}} 
+\index{cli\_client.Response@{cli\_client.Response}!response\_type@{response\_type}}
+\index{response\_type@{response\_type}!cli\_client.Response@{cli\_client.Response}}
+\doxysubsubsection{\texorpdfstring{response\_type}{response\_type}}
+{\footnotesize\ttfamily cli\+\_\+client.\+Response.\+response\+\_\+type}
+
+
+
+cli\+\_\+client.\+py 파일의 197 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{classcli__client_1_1Response_a8eed8da22ca82b9d04cfe58451b1e10f}\label{classcli__client_1_1Response_a8eed8da22ca82b9d04cfe58451b1e10f}} 
+\index{cli\_client.Response@{cli\_client.Response}!status\_code@{status\_code}}
+\index{status\_code@{status\_code}!cli\_client.Response@{cli\_client.Response}}
+\doxysubsubsection{\texorpdfstring{status\_code}{status\_code}}
+{\footnotesize\ttfamily cli\+\_\+client.\+Response.\+status\+\_\+code}
+
+
+
+cli\+\_\+client.\+py 파일의 198 번째 라인에서 정의되었습니다.
+
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+cli/\mbox{\hyperlink{cli__client_8py}{cli\+\_\+client.\+py}}\end{DoxyCompactItemize}

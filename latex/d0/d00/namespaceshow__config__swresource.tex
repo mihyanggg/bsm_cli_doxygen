@@ -1,0 +1,50 @@
+\hypertarget{namespaceshow__config__swresource}{}\doxysection{show\+\_\+config\+\_\+swresource 네임스페이스 참조}
+\label{namespaceshow__config__swresource}\index{show\_config\_swresource@{show\_config\_swresource}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceshow__config__swresource_a742352938d93b3492b86087fba7bdb91}{show\+\_\+switch\+\_\+resource\+\_\+flow\+\_\+scale\+\_\+entry}} (render\+\_\+tables)
+\begin{DoxyCompactList}\small\item\em Copyright 2019 Broadcom, Inc. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespaceshow__config__swresource_a742352938d93b3492b86087fba7bdb91}\label{namespaceshow__config__swresource_a742352938d93b3492b86087fba7bdb91}} 
+\index{show\_config\_swresource@{show\_config\_swresource}!show\_switch\_resource\_flow\_scale\_entry@{show\_switch\_resource\_flow\_scale\_entry}}
+\index{show\_switch\_resource\_flow\_scale\_entry@{show\_switch\_resource\_flow\_scale\_entry}!show\_config\_swresource@{show\_config\_swresource}}
+\doxysubsubsection{\texorpdfstring{show\_switch\_resource\_flow\_scale\_entry()}{show\_switch\_resource\_flow\_scale\_entry()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+swresource.\+show\+\_\+switch\+\_\+resource\+\_\+flow\+\_\+scale\+\_\+entry (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+Copyright 2019 Broadcom, Inc. 
+
+Licensed under the Apache License, Version 2.\+0 (the \char`\"{}\+License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at \begin{DoxyVerb}http://www.apache.org/licenses/LICENSE-2.0
+\end{DoxyVerb}
+
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\+A\+S I\+S\char`\"{} B\+A\+S\+IS, W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+T\+I\+ES OR C\+O\+N\+D\+I\+T\+I\+O\+NS OF A\+NY K\+I\+ND, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+show\+\_\+config\+\_\+swresource.\+py 파일의 18 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{18 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__swresource_a742352938d93b3492b86087fba7bdb91}{show\_switch\_resource\_flow\_scale\_entry}}(render\_tables):}
+\DoxyCodeLine{19     cmd = \textcolor{stringliteral}{"drop-\/monitor flows "}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     entries =  render\_tables.get(\textcolor{stringliteral}{'sonic-\/switch-\/resource:sonic-\/switch-\/resource/SWITCH\_RESOURCE\_TABLE/SWITCH\_RESOURCE\_TABLE\_LIST'})}
+\DoxyCodeLine{22         \textcolor{keywordflow}{if} entries \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{23         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, \textcolor{stringliteral}{''}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keywordflow}{if} entries[\textcolor{stringliteral}{'flows'}] == \textcolor{stringliteral}{'NONE'}:}
+\DoxyCodeLine{26             cmd = cmd + \textcolor{stringliteral}{"none"}}
+\DoxyCodeLine{27         \textcolor{keywordflow}{elif} entries[\textcolor{stringliteral}{'flows'}] == \textcolor{stringliteral}{'MIN'} :}
+\DoxyCodeLine{28             cmd = cmd + \textcolor{stringliteral}{"min"}}
+\DoxyCodeLine{29         \textcolor{keywordflow}{elif} entries[\textcolor{stringliteral}{'flows'}] == \textcolor{stringliteral}{'UNSUPPORTED'} :}
+\DoxyCodeLine{30             cmd = cmd + \textcolor{stringliteral}{"unsupported"}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keywordflow}{if} entries[\textcolor{stringliteral}{'routes'}] == \textcolor{stringliteral}{'MAX'}:}
+\DoxyCodeLine{33             cmd = cmd + \textcolor{stringliteral}{"max"}   }
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd}
+
+\end{DoxyCode}

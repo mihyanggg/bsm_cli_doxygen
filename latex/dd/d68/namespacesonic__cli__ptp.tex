@@ -1,0 +1,465 @@
+\hypertarget{namespacesonic__cli__ptp}{}\doxysection{sonic\+\_\+cli\+\_\+ptp 네임스페이스 참조}
+\label{namespacesonic__cli__ptp}\index{sonic\_cli\_ptp@{sonic\_cli\_ptp}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__ptp_a24dd85db56f3350bc1320dc872aca4ec}{node\+\_\+addr\+\_\+type}} (\mbox{\hyperlink{DB-PARSED_8txt_a4396924c199eeb6ea5038f719bb22ca2}{address}})
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__ptp_ae02d5d57fbb9d5fa673915e6e97566e5}{decode\+\_\+base64}} (string)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__ptp_a4f669b36f4dc8ae267c1b5da9e8759a4}{get\+\_\+unicast\+\_\+table}} (aa, instance\+\_\+num, port\+\_\+num)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__ptp_a2645789d9ca7e1a5bf34af6ae1f015e9}{get\+\_\+port\+\_\+num}} (aa, \mbox{\hyperlink{DB-PARSED_8txt_ad180c042b961290b2dad087aa2d53301}{interface}})
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__ptp_ae61c701ef455124cd0dc864af1cf79ec}{invoke}} (func, args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__ptp_ae33776edea176bf2e05a46818b4a8256}{run}} (func, args)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__ptp_ae02d5d57fbb9d5fa673915e6e97566e5}\label{namespacesonic__cli__ptp_ae02d5d57fbb9d5fa673915e6e97566e5}} 
+\index{sonic\_cli\_ptp@{sonic\_cli\_ptp}!decode\_base64@{decode\_base64}}
+\index{decode\_base64@{decode\_base64}!sonic\_cli\_ptp@{sonic\_cli\_ptp}}
+\doxysubsubsection{\texorpdfstring{decode\_base64()}{decode\_base64()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+ptp.\+decode\+\_\+base64 (\begin{DoxyParamCaption}\item[{}]{string }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+ptp.\+py 파일의 24 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__ptp_ae02d5d57fbb9d5fa673915e6e97566e5}{decode\_base64}}(string):}
+\DoxyCodeLine{25     my\_bin = base64.b64decode(string)}
+\DoxyCodeLine{26     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"\%02x\%02x\%02x.\%02x\%02x.\%02x\%02x\%02x"} \% struct.unpack(\textcolor{stringliteral}{"BBBBBBBB"}, my\_bin)}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{dd/d68/namespacesonic__cli__ptp_ae02d5d57fbb9d5fa673915e6e97566e5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__ptp_a2645789d9ca7e1a5bf34af6ae1f015e9}\label{namespacesonic__cli__ptp_a2645789d9ca7e1a5bf34af6ae1f015e9}} 
+\index{sonic\_cli\_ptp@{sonic\_cli\_ptp}!get\_port\_num@{get\_port\_num}}
+\index{get\_port\_num@{get\_port\_num}!sonic\_cli\_ptp@{sonic\_cli\_ptp}}
+\doxysubsubsection{\texorpdfstring{get\_port\_num()}{get\_port\_num()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+ptp.\+get\+\_\+port\+\_\+num (\begin{DoxyParamCaption}\item[{}]{aa,  }\item[{}]{interface }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+ptp.\+py 파일의 54 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{54 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__ptp_a2645789d9ca7e1a5bf34af6ae1f015e9}{get\_port\_num}}(aa, interface):}
+\DoxyCodeLine{55     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'Vlan'} \textcolor{keywordflow}{in} interface:}
+\DoxyCodeLine{56         port\_num = str(int(interface.replace(\textcolor{stringliteral}{"Vlan"}, \textcolor{stringliteral}{""})) + 1000)}
+\DoxyCodeLine{57     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{58         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/device-\/metadata:sonic-\/device-\/metadata/DEVICE\_METADATA/DEVICE\_METADATA\_LIST=\{name\}/intf\_naming\_mode'}, name=\textcolor{stringliteral}{"localhost"})}
+\DoxyCodeLine{59         tmp\_response = aa.get(path)}
+\DoxyCodeLine{60         \textcolor{keywordflow}{if} tmp\_response.ok():}
+\DoxyCodeLine{61             response = tmp\_response.content}
+\DoxyCodeLine{62             \textcolor{keywordflow}{if} response \textcolor{keywordflow}{and} \textcolor{stringliteral}{'sonic-\/device-\/metadata:intf\_naming\_mode'} \textcolor{keywordflow}{in} response \textcolor{keywordflow}{and} response[\textcolor{stringliteral}{'sonic-\/device-\/metadata:intf\_naming\_mode'}] == \textcolor{stringliteral}{'standard'}:}
+\DoxyCodeLine{63                 path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/port:sonic-\/port/PORT\_TABLE/PORT\_TABLE\_LIST=\{name\}/alias'}, name=interface)}
+\DoxyCodeLine{64                 tmp\_response = aa.get(path)}
+\DoxyCodeLine{65                 \textcolor{keywordflow}{if} tmp\_response.ok():}
+\DoxyCodeLine{66                     response = tmp\_response.content}
+\DoxyCodeLine{67                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/port:alias'} \textcolor{keywordflow}{in} response:}
+\DoxyCodeLine{68                         interface = response[\textcolor{stringliteral}{'sonic-\/port:alias'}]}
+\DoxyCodeLine{69     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'Ethernet'} \textcolor{keywordflow}{in} interface:}
+\DoxyCodeLine{70         port\_num = interface.replace(\textcolor{stringliteral}{"Ethernet"}, \textcolor{stringliteral}{""})}
+\DoxyCodeLine{71     \textcolor{keywordflow}{return} port\_num}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d68/namespacesonic__cli__ptp_a2645789d9ca7e1a5bf34af6ae1f015e9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__ptp_a4f669b36f4dc8ae267c1b5da9e8759a4}\label{namespacesonic__cli__ptp_a4f669b36f4dc8ae267c1b5da9e8759a4}} 
+\index{sonic\_cli\_ptp@{sonic\_cli\_ptp}!get\_unicast\_table@{get\_unicast\_table}}
+\index{get\_unicast\_table@{get\_unicast\_table}!sonic\_cli\_ptp@{sonic\_cli\_ptp}}
+\doxysubsubsection{\texorpdfstring{get\_unicast\_table()}{get\_unicast\_table()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+ptp.\+get\+\_\+unicast\+\_\+table (\begin{DoxyParamCaption}\item[{}]{aa,  }\item[{}]{instance\+\_\+num,  }\item[{}]{port\+\_\+num }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+ptp.\+py 파일의 29 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__ptp_a4f669b36f4dc8ae267c1b5da9e8759a4}{get\_unicast\_table}}(aa, instance\_num, port\_num):}
+\DoxyCodeLine{30     tmp\_keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/ietf-\/ptp:ptp/instance-\/list=\{instance\_number\}/port-\/ds-\/list'},}
+\DoxyCodeLine{31                           instance\_number=instance\_num)}
+\DoxyCodeLine{32     tmp\_response = aa.get(tmp\_keypath)}
+\DoxyCodeLine{33     \textcolor{keywordflow}{if} tmp\_response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{34         \textcolor{keywordflow}{return} 0, \textcolor{stringliteral}{"None"}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     found = 0}
+\DoxyCodeLine{37     \textcolor{keywordflow}{if} tmp\_response.ok():}
+\DoxyCodeLine{38         response = tmp\_response.content}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40         \textcolor{keywordflow}{if} response \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None} \textcolor{keywordflow}{and} response != \{\}:}
+\DoxyCodeLine{41             \textcolor{keywordflow}{for} j \textcolor{keywordflow}{in} response[\textcolor{stringliteral}{'ietf-\/ptp:port-\/ds-\/list'}]:}
+\DoxyCodeLine{42                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'port-\/number'} \textcolor{keywordflow}{in} j:}
+\DoxyCodeLine{43                     \textcolor{keywordflow}{if} j[\textcolor{stringliteral}{'port-\/number'}] == int(port\_num):}
+\DoxyCodeLine{44                         found = 1}
+\DoxyCodeLine{45                         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'ietf-\/ptp-\/ext:unicast-\/table'} \textcolor{keywordflow}{in} j:}
+\DoxyCodeLine{46                             \textcolor{keywordflow}{if} j[\textcolor{stringliteral}{'ietf-\/ptp-\/ext:unicast-\/table'}] == \textcolor{stringliteral}{''}:}
+\DoxyCodeLine{47                                 \textcolor{keywordflow}{return} found, \textcolor{stringliteral}{"None"}}
+\DoxyCodeLine{48                             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{49                                 \textcolor{keywordflow}{return} found, j[\textcolor{stringliteral}{'ietf-\/ptp-\/ext:unicast-\/table'}]}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     \textcolor{keywordflow}{return} found, \textcolor{stringliteral}{"None"}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d68/namespacesonic__cli__ptp_a4f669b36f4dc8ae267c1b5da9e8759a4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__ptp_ae61c701ef455124cd0dc864af1cf79ec}\label{namespacesonic__cli__ptp_ae61c701ef455124cd0dc864af1cf79ec}} 
+\index{sonic\_cli\_ptp@{sonic\_cli\_ptp}!invoke@{invoke}}
+\index{invoke@{invoke}!sonic\_cli\_ptp@{sonic\_cli\_ptp}}
+\doxysubsubsection{\texorpdfstring{invoke()}{invoke()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+ptp.\+invoke (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+ptp.\+py 파일의 74 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{74 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__ptp_ae61c701ef455124cd0dc864af1cf79ec}{invoke}}(func, args):}
+\DoxyCodeLine{75     rc = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{76     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{77     aa = cc.ApiClient()}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_ietf\_ptp\_ptp\_instance\_list\_default\_ds\_domain\_number'}:}
+\DoxyCodeLine{80         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/ietf-\/ptp:ptp/instance-\/list=\{instance\_number\}/default-\/ds/domain-\/number'},}
+\DoxyCodeLine{81                           instance\_number=args[0])}
+\DoxyCodeLine{82         body = \{\textcolor{stringliteral}{"ietf-\/ptp:domain-\/number"}: int(args[1])\}}
+\DoxyCodeLine{83         rc = aa.patch(keypath, body)}
+\DoxyCodeLine{84     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_ietf\_ptp\_ptp\_instance\_list\_default\_ds\_two\_step\_flag'}:}
+\DoxyCodeLine{85         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/ietf-\/ptp:ptp/instance-\/list=\{instance\_number\}/default-\/ds/two-\/step-\/flag'},}
+\DoxyCodeLine{86                           instance\_number=args[0])}
+\DoxyCodeLine{87         \textcolor{keywordflow}{if} args[1] == \textcolor{stringliteral}{"enable"}:}
+\DoxyCodeLine{88             body = \{\textcolor{stringliteral}{"ietf-\/ptp:two-\/step-\/flag"}: \textcolor{keyword}{True}\}}
+\DoxyCodeLine{89         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{90             body = \{\textcolor{stringliteral}{"ietf-\/ptp:two-\/step-\/flag"}: \textcolor{keyword}{False}\}}
+\DoxyCodeLine{91         rc = aa.patch(keypath, body)}
+\DoxyCodeLine{92     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_ietf\_ptp\_ptp\_instance\_list\_default\_ds\_priority1'}:}
+\DoxyCodeLine{93         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/ietf-\/ptp:ptp/instance-\/list=\{instance\_number\}/default-\/ds/priority1'},}
+\DoxyCodeLine{94                           instance\_number=args[0])}
+\DoxyCodeLine{95         body = \{\textcolor{stringliteral}{"ietf-\/ptp:priority1"}: int(args[1])\}}
+\DoxyCodeLine{96         rc = aa.patch(keypath, body)}
+\DoxyCodeLine{97     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_ietf\_ptp\_ptp\_instance\_list\_default\_ds\_priority2'}:}
+\DoxyCodeLine{98         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/ietf-\/ptp:ptp/instance-\/list=\{instance\_number\}/default-\/ds/priority2'},}
+\DoxyCodeLine{99                           instance\_number=args[0])}
+\DoxyCodeLine{100         body = \{\textcolor{stringliteral}{"ietf-\/ptp:priority2"}: int(args[1])\}}
+\DoxyCodeLine{101         rc = aa.patch(keypath, body)}
+\DoxyCodeLine{102     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_ietf\_ptp\_ptp\_instance\_list\_port\_ds\_list\_log\_announce\_interval'}:}
+\DoxyCodeLine{103         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/ietf-\/ptp:ptp/instance-\/list=\{instance\_number\}/default-\/ds/ietf-\/ptp-\/ext:log-\/announce-\/interval'},}
+\DoxyCodeLine{104                           instance\_number=args[0])}
+\DoxyCodeLine{105         body = \{\textcolor{stringliteral}{"ietf-\/ptp-\/ext:log-\/announce-\/interval"}: int(args[1])\}}
+\DoxyCodeLine{106         rc = aa.patch(keypath, body)}
+\DoxyCodeLine{107     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_ietf\_ptp\_ptp\_instance\_list\_port\_ds\_list\_announce\_receipt\_timeout'}:}
+\DoxyCodeLine{108         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/ietf-\/ptp:ptp/instance-\/list=\{instance\_number\}/default-\/ds/ietf-\/ptp-\/ext:announce-\/receipt-\/timeout'},}
+\DoxyCodeLine{109                           instance\_number=args[0])}
+\DoxyCodeLine{110         body = \{\textcolor{stringliteral}{"ietf-\/ptp-\/ext:announce-\/receipt-\/timeout"}: int(args[1])\}}
+\DoxyCodeLine{111         rc = aa.patch(keypath, body)}
+\DoxyCodeLine{112     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_ietf\_ptp\_ptp\_instance\_list\_port\_ds\_list\_log\_sync\_interval'}:}
+\DoxyCodeLine{113         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/ietf-\/ptp:ptp/instance-\/list=\{instance\_number\}/default-\/ds/ietf-\/ptp-\/ext:log-\/sync-\/interval'},}
+\DoxyCodeLine{114                           instance\_number=args[0])}
+\DoxyCodeLine{115         body = \{\textcolor{stringliteral}{"ietf-\/ptp-\/ext:log-\/sync-\/interval"}: int(args[1])\}}
+\DoxyCodeLine{116         rc = aa.patch(keypath, body)}
+\DoxyCodeLine{117     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_ietf\_ptp\_ptp\_instance\_list\_port\_ds\_list\_log\_min\_delay\_req\_interval'}:}
+\DoxyCodeLine{118         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/ietf-\/ptp:ptp/instance-\/list=\{instance\_number\}/default-\/ds/ietf-\/ptp-\/ext:log-\/min-\/delay-\/req-\/interval'},}
+\DoxyCodeLine{119                           instance\_number=args[0])}
+\DoxyCodeLine{120         body = \{\textcolor{stringliteral}{"ietf-\/ptp-\/ext:log-\/min-\/delay-\/req-\/interval"}: int(args[1])\}}
+\DoxyCodeLine{121         rc = aa.patch(keypath, body)}
+\DoxyCodeLine{122     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'clock-\/type'}:}
+\DoxyCodeLine{123         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/ietf-\/ptp:ptp/instance-\/list=\{instance\_number\}/default-\/ds/ietf-\/ptp-\/ext:clock-\/type'},}
+\DoxyCodeLine{124                           instance\_number=args[0])}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126         body = \{\textcolor{stringliteral}{"ietf-\/ptp-\/ext:clock-\/type"}: args[1]\}}
+\DoxyCodeLine{127         rc = aa.patch(keypath, body)}
+\DoxyCodeLine{128     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'network-\/transport'}:}
+\DoxyCodeLine{129         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/ietf-\/ptp:ptp/instance-\/list=\{instance\_number\}/default-\/ds/ietf-\/ptp-\/ext:network-\/transport'},}
+\DoxyCodeLine{130                           instance\_number=args[0])}
+\DoxyCodeLine{131         body = \{\textcolor{stringliteral}{"ietf-\/ptp-\/ext:network-\/transport"}: args[1]\}}
+\DoxyCodeLine{132         rc = aa.patch(keypath, body)}
+\DoxyCodeLine{133     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'unicast-\/multicast'}:}
+\DoxyCodeLine{134         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/ietf-\/ptp:ptp/instance-\/list=\{instance\_number\}/default-\/ds/ietf-\/ptp-\/ext:unicast-\/multicast'},}
+\DoxyCodeLine{135                           instance\_number=args[0])}
+\DoxyCodeLine{136         body = \{\textcolor{stringliteral}{"ietf-\/ptp-\/ext:unicast-\/multicast"}: args[1]\}}
+\DoxyCodeLine{137         rc = aa.patch(keypath, body)}
+\DoxyCodeLine{138     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'domain-\/profile'}:}
+\DoxyCodeLine{139         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/ietf-\/ptp:ptp/instance-\/list=\{instance\_number\}/default-\/ds/ietf-\/ptp-\/ext:domain-\/profile'},}
+\DoxyCodeLine{140                           instance\_number=args[0])}
+\DoxyCodeLine{141         body = \{\textcolor{stringliteral}{"ietf-\/ptp-\/ext:domain-\/profile"}: args[1]\}}
+\DoxyCodeLine{142         rc = aa.patch(keypath, body)}
+\DoxyCodeLine{143     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'udp6-\/scope'}:}
+\DoxyCodeLine{144         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/ietf-\/ptp:ptp/instance-\/list=\{instance\_number\}/default-\/ds/ietf-\/ptp-\/ext:udp6-\/scope'},}
+\DoxyCodeLine{145                           instance\_number=args[0])}
+\DoxyCodeLine{146         body = \{\textcolor{stringliteral}{"ietf-\/ptp-\/ext:udp6-\/scope"}: int(args[1], 0)\}}
+\DoxyCodeLine{147         rc = aa.patch(keypath, body)}
+\DoxyCodeLine{148     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'add\_master\_table'}:}
+\DoxyCodeLine{149         port\_num = \mbox{\hyperlink{namespacesonic__cli__ptp_a2645789d9ca7e1a5bf34af6ae1f015e9}{get\_port\_num}}(aa, args[1])}
+\DoxyCodeLine{150         found, uc\_tbl = \mbox{\hyperlink{namespacesonic__cli__ptp_a4f669b36f4dc8ae267c1b5da9e8759a4}{get\_unicast\_table}}(aa, args[0], port\_num)}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{152         \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} found:}
+\DoxyCodeLine{153             print(\textcolor{stringliteral}{"\%Error: "} + args[1] + \textcolor{stringliteral}{" has not been added"})}
+\DoxyCodeLine{154             sys.exit()}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{156         nd\_list = []}
+\DoxyCodeLine{157         \textcolor{keywordflow}{if} uc\_tbl != \textcolor{stringliteral}{'None'}:}
+\DoxyCodeLine{158             nd\_list = uc\_tbl.split(\textcolor{stringliteral}{','})}
+\DoxyCodeLine{159         \textcolor{keywordflow}{if} args[2] \textcolor{keywordflow}{in} nd\_list:}
+\DoxyCodeLine{160             \textcolor{comment}{\# entry already exists}}
+\DoxyCodeLine{161             sys.exit()}
+\DoxyCodeLine{162         \textcolor{keywordflow}{if} len(nd\_list) == 1 \textcolor{keywordflow}{and} nd\_list[0] == \textcolor{stringliteral}{''}:}
+\DoxyCodeLine{163             nd\_list = []}
+\DoxyCodeLine{164         \textcolor{keywordflow}{if} len(nd\_list) > 0 \textcolor{keywordflow}{and} \mbox{\hyperlink{namespacesonic__cli__ptp_a24dd85db56f3350bc1320dc872aca4ec}{node\_addr\_type}}(nd\_list[0]) != \mbox{\hyperlink{namespacesonic__cli__ptp_a24dd85db56f3350bc1320dc872aca4ec}{node\_addr\_type}}(args[2]):}
+\DoxyCodeLine{165             print(\textcolor{stringliteral}{"\%Error: Mixed address types not allowed"})}
+\DoxyCodeLine{166             sys.exit()}
+\DoxyCodeLine{167         \textcolor{keywordflow}{if} len(nd\_list) >= 8:}
+\DoxyCodeLine{168             print(\textcolor{stringliteral}{"\%Error: maximum 8 nodes"})}
+\DoxyCodeLine{169             sys.exit()}
+\DoxyCodeLine{170         nd\_list.append(args[2])}
+\DoxyCodeLine{171         value = \textcolor{stringliteral}{','}.join(nd\_list)}
+\DoxyCodeLine{172         args[2] = value}
+\DoxyCodeLine{173         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/ietf-\/ptp:ptp/instance-\/list=\{instance\_number\}/port-\/ds-\/list=\{port\_number\}/ietf-\/ptp-\/ext:unicast-\/table'},}
+\DoxyCodeLine{174                           instance\_number=args[0], port\_number=port\_num)}
+\DoxyCodeLine{175         body = \{\textcolor{stringliteral}{"ietf-\/ptp-\/ext:unicast-\/table"}: args[2]\}}
+\DoxyCodeLine{176         rc = aa.patch(keypath, body)}
+\DoxyCodeLine{177     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'del\_master\_table'}:}
+\DoxyCodeLine{178         port\_num = \mbox{\hyperlink{namespacesonic__cli__ptp_a2645789d9ca7e1a5bf34af6ae1f015e9}{get\_port\_num}}(aa, args[1])}
+\DoxyCodeLine{179         found, uc\_tbl = \mbox{\hyperlink{namespacesonic__cli__ptp_a4f669b36f4dc8ae267c1b5da9e8759a4}{get\_unicast\_table}}(aa, args[0], port\_num)}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181         nd\_list = []}
+\DoxyCodeLine{182         \textcolor{keywordflow}{if} uc\_tbl != \textcolor{stringliteral}{'None'}:}
+\DoxyCodeLine{183             nd\_list = uc\_tbl.split(\textcolor{stringliteral}{','})}
+\DoxyCodeLine{184         \textcolor{keywordflow}{if} args[2] \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} nd\_list:}
+\DoxyCodeLine{185             \textcolor{comment}{\# entry doesn't exists}}
+\DoxyCodeLine{186             sys.exit()}
+\DoxyCodeLine{187 }
+\DoxyCodeLine{188         nd\_list.remove(args[2])}
+\DoxyCodeLine{189         value = \textcolor{stringliteral}{','}.join(nd\_list)}
+\DoxyCodeLine{190         args[2] = value}
+\DoxyCodeLine{191         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/ietf-\/ptp:ptp/instance-\/list=\{instance\_number\}/port-\/ds-\/list=\{port\_number\}/ietf-\/ptp-\/ext:unicast-\/table'},}
+\DoxyCodeLine{192                           instance\_number=args[0], port\_number=port\_num)}
+\DoxyCodeLine{193         body = \{\textcolor{stringliteral}{"ietf-\/ptp-\/ext:unicast-\/table"}: args[2]\}}
+\DoxyCodeLine{194         rc = aa.patch(keypath, body)}
+\DoxyCodeLine{195     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'post\_ietf\_ptp\_ptp\_instance\_list\_port\_ds\_list\_port\_state'}:}
+\DoxyCodeLine{196         port\_num = \mbox{\hyperlink{namespacesonic__cli__ptp_a2645789d9ca7e1a5bf34af6ae1f015e9}{get\_port\_num}}(aa, args[1])}
+\DoxyCodeLine{197         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/ietf-\/ptp:ptp/instance-\/list=\{instance\_number\}'}, instance\_number=args[0])}
+\DoxyCodeLine{198         body = \{\textcolor{stringliteral}{"ietf-\/ptp:instance-\/list"}: [}
+\DoxyCodeLine{199             \{\textcolor{stringliteral}{"instance-\/number"}: int(args[0]),}
+\DoxyCodeLine{200              \textcolor{stringliteral}{"port-\/ds-\/list"}: [}
+\DoxyCodeLine{201                 \{\textcolor{stringliteral}{"port-\/number"}: int(port\_num), \textcolor{stringliteral}{"underlying-\/interface"}: args[1]\}}
+\DoxyCodeLine{202              ]}
+\DoxyCodeLine{203             \}}
+\DoxyCodeLine{204         ]\}}
+\DoxyCodeLine{205         rc = aa.patch(keypath, body)}
+\DoxyCodeLine{206     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_ietf\_ptp\_ptp\_instance\_list\_port\_ds\_list'}:}
+\DoxyCodeLine{207         port\_num = \mbox{\hyperlink{namespacesonic__cli__ptp_a2645789d9ca7e1a5bf34af6ae1f015e9}{get\_port\_num}}(aa, args[1])}
+\DoxyCodeLine{208         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/ietf-\/ptp:ptp/instance-\/list=\{instance\_number\}/port-\/ds-\/list=\{port\_number\}'},}
+\DoxyCodeLine{209                           instance\_number=args[0], port\_number=port\_num)}
+\DoxyCodeLine{210         rc = aa.delete(keypath)}
+\DoxyCodeLine{211     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_ietf\_ptp\_ptp\_instance\_list\_time\_properties\_ds'}:}
+\DoxyCodeLine{212         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/ietf-\/ptp:ptp/instance-\/list=\{instance\_number\}/time-\/properties-\/ds'},}
+\DoxyCodeLine{213                           instance\_number=args[0])}
+\DoxyCodeLine{214         rc = aa.get(keypath)}
+\DoxyCodeLine{215     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_ietf\_ptp\_ptp\_instance\_list\_parent\_ds'}:}
+\DoxyCodeLine{216         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/ietf-\/ptp:ptp/instance-\/list=\{instance\_number\}/parent-\/ds'},}
+\DoxyCodeLine{217                           instance\_number=args[0])}
+\DoxyCodeLine{218         rc = aa.get(keypath)}
+\DoxyCodeLine{219     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_ietf\_ptp\_ptp\_instance\_list\_port\_ds\_list'}:}
+\DoxyCodeLine{220         port\_num = \mbox{\hyperlink{namespacesonic__cli__ptp_a2645789d9ca7e1a5bf34af6ae1f015e9}{get\_port\_num}}(aa, args[1])}
+\DoxyCodeLine{221         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/ietf-\/ptp:ptp/instance-\/list=\{instance\_number\}/port-\/ds-\/list=\{port\_number\}'},}
+\DoxyCodeLine{222                           instance\_number=args[0], port\_number=port\_num)}
+\DoxyCodeLine{223         rc = aa.get(keypath)}
+\DoxyCodeLine{224     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_ietf\_ptp\_ptp\_instance\_list\_default\_ds'}:}
+\DoxyCodeLine{225         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/ietf-\/ptp:ptp/instance-\/list=\{instance\_number\}/default-\/ds'},}
+\DoxyCodeLine{226                           instance\_number=args[0])}
+\DoxyCodeLine{227         rc = aa.get(keypath)}
+\DoxyCodeLine{228     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_ietf\_ptp\_ptp\_instance\_list'}:}
+\DoxyCodeLine{229         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/ietf-\/ptp:ptp/instance-\/list=\{instance\_number\}/port-\/ds-\/list'},}
+\DoxyCodeLine{230                           instance\_number=args[0])}
+\DoxyCodeLine{231         rc = aa.get(keypath)}
+\DoxyCodeLine{232     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_ietf\_ptp\_ptp\_instance\_list\_current\_ds'}:}
+\DoxyCodeLine{233         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/ietf-\/ptp:ptp/instance-\/list=\{instance\_number\}/current-\/ds'},}
+\DoxyCodeLine{234                           instance\_number=args[0])}
+\DoxyCodeLine{235         rc = aa.get(keypath)}
+\DoxyCodeLine{236     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{237         print(\textcolor{stringliteral}{"\%Error: not implemented"})}
+\DoxyCodeLine{238         exit(1)}
+\DoxyCodeLine{239 }
+\DoxyCodeLine{240     \textcolor{keywordflow}{return} rc}
+\DoxyCodeLine{241 }
+\DoxyCodeLine{242 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d68/namespacesonic__cli__ptp_ae61c701ef455124cd0dc864af1cf79ec_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=329pt]{dd/d68/namespacesonic__cli__ptp_ae61c701ef455124cd0dc864af1cf79ec_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__ptp_a24dd85db56f3350bc1320dc872aca4ec}\label{namespacesonic__cli__ptp_a24dd85db56f3350bc1320dc872aca4ec}} 
+\index{sonic\_cli\_ptp@{sonic\_cli\_ptp}!node\_addr\_type@{node\_addr\_type}}
+\index{node\_addr\_type@{node\_addr\_type}!sonic\_cli\_ptp@{sonic\_cli\_ptp}}
+\doxysubsubsection{\texorpdfstring{node\_addr\_type()}{node\_addr\_type()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+ptp.\+node\+\_\+addr\+\_\+type (\begin{DoxyParamCaption}\item[{}]{address }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+ptp.\+py 파일의 10 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{10 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__ptp_a24dd85db56f3350bc1320dc872aca4ec}{node\_addr\_type}}(address):}
+\DoxyCodeLine{11     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{12         socket.inet\_pton(socket.AF\_INET, address)}
+\DoxyCodeLine{13     \textcolor{keywordflow}{except} socket.error:}
+\DoxyCodeLine{14         \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{15             socket.inet\_pton(socket.AF\_INET6, address)}
+\DoxyCodeLine{16         \textcolor{keywordflow}{except} socket.error:}
+\DoxyCodeLine{17             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"mac"}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"ipv6"}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"ipv4"}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d68/namespacesonic__cli__ptp_a24dd85db56f3350bc1320dc872aca4ec_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__ptp_ae33776edea176bf2e05a46818b4a8256}\label{namespacesonic__cli__ptp_ae33776edea176bf2e05a46818b4a8256}} 
+\index{sonic\_cli\_ptp@{sonic\_cli\_ptp}!run@{run}}
+\index{run@{run}!sonic\_cli\_ptp@{sonic\_cli\_ptp}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+ptp.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+ptp.\+py 파일의 243 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{243 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__ptp_ae33776edea176bf2e05a46818b4a8256}{run}}(func, args):}
+\DoxyCodeLine{244 }
+\DoxyCodeLine{245     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{"show\_ptp\_clock"}:}
+\DoxyCodeLine{246         \mbox{\hyperlink{namespacesonic__cli__ptp_ae33776edea176bf2e05a46818b4a8256}{run}}(\textcolor{stringliteral}{"get\_ietf\_ptp\_ptp\_instance\_list\_default\_ds"}, args)}
+\DoxyCodeLine{247         \mbox{\hyperlink{namespacesonic__cli__ptp_ae33776edea176bf2e05a46818b4a8256}{run}}(\textcolor{stringliteral}{"get\_ietf\_ptp\_ptp\_instance\_list\_current\_ds"}, args[2:])}
+\DoxyCodeLine{248         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{249     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"network\_transport\_uc\_mc"}:}
+\DoxyCodeLine{250         \mbox{\hyperlink{namespacesonic__cli__ptp_ae33776edea176bf2e05a46818b4a8256}{run}}(\textcolor{stringliteral}{"network-\/transport"}, args)}
+\DoxyCodeLine{251         \mbox{\hyperlink{namespacesonic__cli__ptp_ae33776edea176bf2e05a46818b4a8256}{run}}(\textcolor{stringliteral}{"unicast-\/multicast"}, args[2:])}
+\DoxyCodeLine{252         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{253 }
+\DoxyCodeLine{254     api\_response = \mbox{\hyperlink{namespacesonic__cli__ptp_ae61c701ef455124cd0dc864af1cf79ec}{invoke}}(func, args)}
+\DoxyCodeLine{255     \textcolor{keywordflow}{if} api\_response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{256         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{257 }
+\DoxyCodeLine{258     \textcolor{keywordflow}{if} api\_response.ok():}
+\DoxyCodeLine{259         response = api\_response.content}
+\DoxyCodeLine{260         \textcolor{keywordflow}{if} response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{261             \textcolor{keywordflow}{if} func != \textcolor{stringliteral}{'network-\/transport'}:}
+\DoxyCodeLine{262                 print(\textcolor{stringliteral}{"Success"})}
+\DoxyCodeLine{263         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{264             \textcolor{comment}{\# Get Command Output}}
+\DoxyCodeLine{265             \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'get\_ietf\_ptp\_ptp\_instance\_list\_default\_ds'}:}
+\DoxyCodeLine{266                 \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response == \{\}:}
+\DoxyCodeLine{267                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'clock-\/identity'} \textcolor{keywordflow}{in} response[\textcolor{stringliteral}{'ietf-\/ptp:default-\/ds'}]:}
+\DoxyCodeLine{268                         response[\textcolor{stringliteral}{'ietf-\/ptp:default-\/ds'}][\textcolor{stringliteral}{'clock-\/identity'}] = \mbox{\hyperlink{namespacesonic__cli__ptp_ae02d5d57fbb9d5fa673915e6e97566e5}{decode\_base64}}(response[\textcolor{stringliteral}{'ietf-\/ptp:default-\/ds'}][\textcolor{stringliteral}{'clock-\/identity'}])}
+\DoxyCodeLine{269                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[1], response)}
+\DoxyCodeLine{270             \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_ietf\_ptp\_ptp\_instance\_list\_port\_ds\_list'}:}
+\DoxyCodeLine{271                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[2], response)}
+\DoxyCodeLine{272             \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_ietf\_ptp\_ptp\_instance\_list\_parent\_ds'}:}
+\DoxyCodeLine{273                 \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response == \{\}:}
+\DoxyCodeLine{274                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'parent-\/port-\/identity'} \textcolor{keywordflow}{in} response[\textcolor{stringliteral}{'ietf-\/ptp:parent-\/ds'}]:}
+\DoxyCodeLine{275                         response[\textcolor{stringliteral}{'ietf-\/ptp:parent-\/ds'}][\textcolor{stringliteral}{'parent-\/port-\/identity'}][\textcolor{stringliteral}{'clock-\/identity'}] = \mbox{\hyperlink{namespacesonic__cli__ptp_ae02d5d57fbb9d5fa673915e6e97566e5}{decode\_base64}}(response[\textcolor{stringliteral}{'ietf-\/ptp:parent-\/ds'}][\textcolor{stringliteral}{'parent-\/port-\/identity'}][\textcolor{stringliteral}{'clock-\/identity'}])}
+\DoxyCodeLine{276                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'grandmaster-\/identity'} \textcolor{keywordflow}{in} response[\textcolor{stringliteral}{'ietf-\/ptp:parent-\/ds'}]:}
+\DoxyCodeLine{277                         response[\textcolor{stringliteral}{'ietf-\/ptp:parent-\/ds'}][\textcolor{stringliteral}{'grandmaster-\/identity'}] = \mbox{\hyperlink{namespacesonic__cli__ptp_ae02d5d57fbb9d5fa673915e6e97566e5}{decode\_base64}}(response[\textcolor{stringliteral}{'ietf-\/ptp:parent-\/ds'}][\textcolor{stringliteral}{'grandmaster-\/identity'}])}
+\DoxyCodeLine{278                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[1], response)}
+\DoxyCodeLine{279             \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_ietf\_ptp\_ptp\_instance\_list\_time\_properties\_ds'}:}
+\DoxyCodeLine{280                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[1], response)}
+\DoxyCodeLine{281             \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_ietf\_ptp\_ptp\_instance\_list'}:}
+\DoxyCodeLine{282                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[1], response)}
+\DoxyCodeLine{283             \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_ietf\_ptp\_ptp\_instance\_list\_current\_ds'}:}
+\DoxyCodeLine{284                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[1], response)}
+\DoxyCodeLine{285             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{286                 \textcolor{keywordflow}{return}}
+\DoxyCodeLine{287     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{288         response = api\_response.content}
+\DoxyCodeLine{289         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"ietf-\/restconf:errors"} \textcolor{keywordflow}{in} response:}
+\DoxyCodeLine{290             err = response[\textcolor{stringliteral}{"ietf-\/restconf:errors"}]}
+\DoxyCodeLine{291             \textcolor{keywordflow}{if} \textcolor{stringliteral}{"error"} \textcolor{keywordflow}{in} err:}
+\DoxyCodeLine{292                 errList = err[\textcolor{stringliteral}{"error"}]}
+\DoxyCodeLine{293 }
+\DoxyCodeLine{294                 errDict = \{\}}
+\DoxyCodeLine{295                 \textcolor{keywordflow}{for} err\_list\_dict \textcolor{keywordflow}{in} errList:}
+\DoxyCodeLine{296                     \textcolor{keywordflow}{for} k, v \textcolor{keywordflow}{in} err\_list\_dict.iteritems():}
+\DoxyCodeLine{297                         errDict[k] = v}
+\DoxyCodeLine{298 }
+\DoxyCodeLine{299                         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"error-\/message"} \textcolor{keywordflow}{in} errDict:}
+\DoxyCodeLine{300                             \textcolor{comment}{\# intercept error message and return more user friendly error message to user}}
+\DoxyCodeLine{301                             \textcolor{keywordflow}{if} (errDict[\textcolor{stringliteral}{"error-\/message"}] == \textcolor{stringliteral}{"Resource not found"} \textcolor{keywordflow}{or}}
+\DoxyCodeLine{302                                errDict[\textcolor{stringliteral}{"error-\/message"}] == \textcolor{stringliteral}{"This object is not supported in this build"} \textcolor{keywordflow}{or}}
+\DoxyCodeLine{303                                errDict[\textcolor{stringliteral}{"error-\/message"}] == \textcolor{stringliteral}{"This object is not supported in this platform"}):}
+\DoxyCodeLine{304                                 print(\textcolor{stringliteral}{"PTP feature not supported"})}
+\DoxyCodeLine{305                                 \textcolor{keywordflow}{return}}
+\DoxyCodeLine{306                             print(\textcolor{stringliteral}{"\%Error: "} + errDict[\textcolor{stringliteral}{"error-\/message"}])}
+\DoxyCodeLine{307                             sys.exit(-\/1)}
+\DoxyCodeLine{308                 print(\textcolor{stringliteral}{"\%Error: Transaction Failure"})}
+\DoxyCodeLine{309                 sys.exit(-\/1)}
+\DoxyCodeLine{310         print(api\_response.error\_message())}
+\DoxyCodeLine{311         print(\textcolor{stringliteral}{"\%Error: Transaction Failure"})}
+\DoxyCodeLine{312         sys.exit(-\/1)}
+\DoxyCodeLine{313 }
+\DoxyCodeLine{314 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d68/namespacesonic__cli__ptp_ae33776edea176bf2e05a46818b4a8256_cgraph}
+\end{center}
+\end{figure}

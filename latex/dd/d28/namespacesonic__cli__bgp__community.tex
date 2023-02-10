@@ -1,0 +1,606 @@
+\hypertarget{namespacesonic__cli__bgp__community}{}\doxysection{sonic\+\_\+cli\+\_\+bgp\+\_\+community 네임스페이스 참조}
+\label{namespacesonic__cli__bgp__community}\index{sonic\_cli\_bgp\_community@{sonic\_cli\_bgp\_community}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__bgp__community_a3ebd493dafda80e94dfeeb6de0fc468f}{generate\+\_\+community\+\_\+standard\+\_\+body}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__bgp__community_afd57e8d9c1f5e45efebaa6fdaa4e25c3}{generate\+\_\+community\+\_\+expanded\+\_\+body}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__bgp__community_a1b7bd9c335363edc3d8a1eac2f562a1c}{generate\+\_\+extcommunity\+\_\+standard\+\_\+body}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__bgp__community_a4edd9dbf2b65f46a3c89bdc392ee8b34}{generate\+\_\+extcommunity\+\_\+expanded\+\_\+body}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__bgp__community_a07c8f81d3d090765ade2abcce694ba10}{generate\+\_\+community\+\_\+standard\+\_\+delete\+\_\+keypath}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__bgp__community_a2b35d5285d8d2cbfae9e0f0428b6f341}{generate\+\_\+community\+\_\+expanded\+\_\+delete\+\_\+keypath}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__bgp__community_ac617d50bd08b04999af1987c8c010e83}{generate\+\_\+extcommunity\+\_\+standard\+\_\+delete\+\_\+keypath}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__bgp__community_aef636c5d51ac83c40507df0a3c1e37d9}{generate\+\_\+extcommunity\+\_\+expanded\+\_\+delete\+\_\+keypath}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__bgp__community_a59b33a2315e2e18dfe98efee8644a8bf}{generate\+\_\+aspath\+\_\+delete\+\_\+keypath}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__bgp__community_a381b590dc7f0239b756593ea2609837f}{invoke}} (func, args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__bgp__community_a269e4252e42ccee13ec82bd981f1023b}{run}} (func, args)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__bgp__community_a59b33a2315e2e18dfe98efee8644a8bf}\label{namespacesonic__cli__bgp__community_a59b33a2315e2e18dfe98efee8644a8bf}} 
+\index{sonic\_cli\_bgp\_community@{sonic\_cli\_bgp\_community}!generate\_aspath\_delete\_keypath@{generate\_aspath\_delete\_keypath}}
+\index{generate\_aspath\_delete\_keypath@{generate\_aspath\_delete\_keypath}!sonic\_cli\_bgp\_community@{sonic\_cli\_bgp\_community}}
+\doxysubsubsection{\texorpdfstring{generate\_aspath\_delete\_keypath()}{generate\_aspath\_delete\_keypath()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+bgp\+\_\+community.\+generate\+\_\+aspath\+\_\+delete\+\_\+keypath (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+bgp\+\_\+community.\+py 파일의 219 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{219 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__bgp__community_a59b33a2315e2e18dfe98efee8644a8bf}{generate\_aspath\_delete\_keypath}}(args):}
+\DoxyCodeLine{220     paths\_exits = 0}
+\DoxyCodeLine{221     paths = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{222     \textcolor{keywordflow}{for} arg \textcolor{keywordflow}{in} args[2:]:}
+\DoxyCodeLine{223         paths\_exits = 1}
+\DoxyCodeLine{224         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"permit"} == arg:}
+\DoxyCodeLine{225            as\_action = \textcolor{stringliteral}{"PERMIT"}}
+\DoxyCodeLine{226         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"deny"} == arg:}
+\DoxyCodeLine{227            as\_action = \textcolor{stringliteral}{"DENY"}}
+\DoxyCodeLine{228         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{229            paths += arg}
+\DoxyCodeLine{230            paths += \textcolor{stringliteral}{","}}
+\DoxyCodeLine{231 }
+\DoxyCodeLine{232     \textcolor{keywordflow}{if} paths\_exits:}
+\DoxyCodeLine{233        paths = paths[:-\/1]}
+\DoxyCodeLine{234        keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/defined-\/sets/openconfig-\/bgp-\/policy:bgp-\/defined-\/sets/as-\/path-\/sets/as-\/path-\/set=\{as\_path\_set\_name\}/config/as-\/path-\/set-\/member=\{path\}'},as\_path\_set\_name=args[0], path=paths)}
+\DoxyCodeLine{235     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{236        keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/defined-\/sets/openconfig-\/bgp-\/policy:bgp-\/defined-\/sets/as-\/path-\/sets/as-\/path-\/set=\{as\_path\_set\_name\}'},as\_path\_set\_name=args[0])}
+\DoxyCodeLine{237     \textcolor{keywordflow}{return} keypath}
+\DoxyCodeLine{238 }
+\DoxyCodeLine{239 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d28/namespacesonic__cli__bgp__community_a59b33a2315e2e18dfe98efee8644a8bf_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__bgp__community_afd57e8d9c1f5e45efebaa6fdaa4e25c3}\label{namespacesonic__cli__bgp__community_afd57e8d9c1f5e45efebaa6fdaa4e25c3}} 
+\index{sonic\_cli\_bgp\_community@{sonic\_cli\_bgp\_community}!generate\_community\_expanded\_body@{generate\_community\_expanded\_body}}
+\index{generate\_community\_expanded\_body@{generate\_community\_expanded\_body}!sonic\_cli\_bgp\_community@{sonic\_cli\_bgp\_community}}
+\doxysubsubsection{\texorpdfstring{generate\_community\_expanded\_body()}{generate\_community\_expanded\_body()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+bgp\+\_\+community.\+generate\+\_\+community\+\_\+expanded\+\_\+body (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+bgp\+\_\+community.\+py 파일의 60 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{60 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__bgp__community_afd57e8d9c1f5e45efebaa6fdaa4e25c3}{generate\_community\_expanded\_body}}(args):}
+\DoxyCodeLine{61     community\_member = []}
+\DoxyCodeLine{62     match\_options = \textcolor{stringliteral}{"ANY"}}
+\DoxyCodeLine{63     \textcolor{keywordflow}{for} arg \textcolor{keywordflow}{in} args[5:]:}
+\DoxyCodeLine{64         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"all"} == arg:}
+\DoxyCodeLine{65            match\_options = \textcolor{stringliteral}{"ALL"}}
+\DoxyCodeLine{66         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"any"} == arg:}
+\DoxyCodeLine{67            match\_options = \textcolor{stringliteral}{"ANY"}}
+\DoxyCodeLine{68         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"permit"} == arg:}
+\DoxyCodeLine{69            community\_action = \textcolor{stringliteral}{"PERMIT"}}
+\DoxyCodeLine{70         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"deny"} == arg:}
+\DoxyCodeLine{71            community\_action = \textcolor{stringliteral}{"DENY"}}
+\DoxyCodeLine{72         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{73            member = \textcolor{stringliteral}{"REGEX:"}+arg}
+\DoxyCodeLine{74            community\_member.append(member)}
+\DoxyCodeLine{75     body = \{\textcolor{stringliteral}{"openconfig-\/bgp-\/policy:community-\/sets"}:\{\textcolor{stringliteral}{"community-\/set"}:[\{\textcolor{stringliteral}{"community-\/set-\/name"}: args[4],}
+\DoxyCodeLine{76             \textcolor{stringliteral}{"config"}:\{\textcolor{stringliteral}{"community-\/set-\/name"}:args[4],\textcolor{stringliteral}{"community-\/member"}:community\_member,}
+\DoxyCodeLine{77             \textcolor{stringliteral}{"match-\/set-\/options"}:match\_options,\textcolor{stringliteral}{"openconfig-\/bgp-\/policy-\/ext:action"}:community\_action\}\}]\}\}}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79     \textcolor{keywordflow}{return} body}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d28/namespacesonic__cli__bgp__community_afd57e8d9c1f5e45efebaa6fdaa4e25c3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__bgp__community_a2b35d5285d8d2cbfae9e0f0428b6f341}\label{namespacesonic__cli__bgp__community_a2b35d5285d8d2cbfae9e0f0428b6f341}} 
+\index{sonic\_cli\_bgp\_community@{sonic\_cli\_bgp\_community}!generate\_community\_expanded\_delete\_keypath@{generate\_community\_expanded\_delete\_keypath}}
+\index{generate\_community\_expanded\_delete\_keypath@{generate\_community\_expanded\_delete\_keypath}!sonic\_cli\_bgp\_community@{sonic\_cli\_bgp\_community}}
+\doxysubsubsection{\texorpdfstring{generate\_community\_expanded\_delete\_keypath()}{generate\_community\_expanded\_delete\_keypath()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+bgp\+\_\+community.\+generate\+\_\+community\+\_\+expanded\+\_\+delete\+\_\+keypath (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+bgp\+\_\+community.\+py 파일의 155 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{155 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__bgp__community_a2b35d5285d8d2cbfae9e0f0428b6f341}{generate\_community\_expanded\_delete\_keypath}}(args):}
+\DoxyCodeLine{156     member\_exits = 0}
+\DoxyCodeLine{157     community\_member = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{158     \textcolor{keywordflow}{for} arg \textcolor{keywordflow}{in} args[7:]:}
+\DoxyCodeLine{159         member\_exits = 1}
+\DoxyCodeLine{160         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"permit"} == arg:}
+\DoxyCodeLine{161            community\_action = \textcolor{stringliteral}{"PERMIT"}}
+\DoxyCodeLine{162         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"deny"} == arg:}
+\DoxyCodeLine{163            community\_action = \textcolor{stringliteral}{"DENY"}}
+\DoxyCodeLine{164         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{165            community\_member += \textcolor{stringliteral}{"REGEX:"}+arg}
+\DoxyCodeLine{166            community\_member += \textcolor{stringliteral}{","}}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168     \textcolor{keywordflow}{if} member\_exits:}
+\DoxyCodeLine{169        community\_member = community\_member[:-\/1]}
+\DoxyCodeLine{170        keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/defined-\/sets/openconfig-\/bgp-\/policy:bgp-\/defined-\/sets/community-\/sets/community-\/set=\{community\_list\_name\}/config/community-\/member=\{members\}'},community\_list\_name=args[5], members=community\_member)}
+\DoxyCodeLine{171     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{172        keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/defined-\/sets/openconfig-\/bgp-\/policy:bgp-\/defined-\/sets/community-\/sets/community-\/set=\{community\_list\_name\}'},community\_list\_name=args[5])}
+\DoxyCodeLine{173     \textcolor{keywordflow}{return} keypath}
+\DoxyCodeLine{174 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d28/namespacesonic__cli__bgp__community_a2b35d5285d8d2cbfae9e0f0428b6f341_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__bgp__community_a3ebd493dafda80e94dfeeb6de0fc468f}\label{namespacesonic__cli__bgp__community_a3ebd493dafda80e94dfeeb6de0fc468f}} 
+\index{sonic\_cli\_bgp\_community@{sonic\_cli\_bgp\_community}!generate\_community\_standard\_body@{generate\_community\_standard\_body}}
+\index{generate\_community\_standard\_body@{generate\_community\_standard\_body}!sonic\_cli\_bgp\_community@{sonic\_cli\_bgp\_community}}
+\doxysubsubsection{\texorpdfstring{generate\_community\_standard\_body()}{generate\_community\_standard\_body()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+bgp\+\_\+community.\+generate\+\_\+community\+\_\+standard\+\_\+body (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+bgp\+\_\+community.\+py 파일의 31 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{31 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__bgp__community_a3ebd493dafda80e94dfeeb6de0fc468f}{generate\_community\_standard\_body}}(args):}
+\DoxyCodeLine{32     community\_member = []}
+\DoxyCodeLine{33     match\_options = \textcolor{stringliteral}{"ANY"}}
+\DoxyCodeLine{34     \textcolor{keywordflow}{for} arg \textcolor{keywordflow}{in} args[5:]:}
+\DoxyCodeLine{35         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"local-\/as"} == arg:}
+\DoxyCodeLine{36            community\_member.append(\textcolor{stringliteral}{"NO\_EXPORT\_SUBCONFED"})}
+\DoxyCodeLine{37         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"no-\/peer"} == arg:}
+\DoxyCodeLine{38            community\_member.append(\textcolor{stringliteral}{"NOPEER"})}
+\DoxyCodeLine{39         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"no-\/export"} == arg:}
+\DoxyCodeLine{40            community\_member.append(\textcolor{stringliteral}{"NO\_EXPORT"})}
+\DoxyCodeLine{41         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"no-\/advertise"} == arg:}
+\DoxyCodeLine{42            community\_member.append(\textcolor{stringliteral}{"NO\_ADVERTISE"})}
+\DoxyCodeLine{43         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"all"} == arg:}
+\DoxyCodeLine{44            match\_options = \textcolor{stringliteral}{"ALL"}}
+\DoxyCodeLine{45         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"any"} == arg:}
+\DoxyCodeLine{46            match\_options = \textcolor{stringliteral}{"ANY"}}
+\DoxyCodeLine{47         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"permit"} == arg:}
+\DoxyCodeLine{48            community\_action = \textcolor{stringliteral}{"PERMIT"}}
+\DoxyCodeLine{49         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"deny"} == arg:}
+\DoxyCodeLine{50            community\_action = \textcolor{stringliteral}{"DENY"}}
+\DoxyCodeLine{51         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{52            community\_member.append(arg)}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     body = \{\textcolor{stringliteral}{"openconfig-\/bgp-\/policy:community-\/sets"}:\{\textcolor{stringliteral}{"community-\/set"}:[\{\textcolor{stringliteral}{"community-\/set-\/name"}: args[4],}
+\DoxyCodeLine{55             \textcolor{stringliteral}{"config"}:\{\textcolor{stringliteral}{"community-\/set-\/name"}:args[4],\textcolor{stringliteral}{"community-\/member"}:community\_member,}
+\DoxyCodeLine{56             \textcolor{stringliteral}{"match-\/set-\/options"}:match\_options,\textcolor{stringliteral}{"openconfig-\/bgp-\/policy-\/ext:action"}:community\_action\}\}]\}\}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{keywordflow}{return} body}
+\DoxyCodeLine{59 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d28/namespacesonic__cli__bgp__community_a3ebd493dafda80e94dfeeb6de0fc468f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__bgp__community_a07c8f81d3d090765ade2abcce694ba10}\label{namespacesonic__cli__bgp__community_a07c8f81d3d090765ade2abcce694ba10}} 
+\index{sonic\_cli\_bgp\_community@{sonic\_cli\_bgp\_community}!generate\_community\_standard\_delete\_keypath@{generate\_community\_standard\_delete\_keypath}}
+\index{generate\_community\_standard\_delete\_keypath@{generate\_community\_standard\_delete\_keypath}!sonic\_cli\_bgp\_community@{sonic\_cli\_bgp\_community}}
+\doxysubsubsection{\texorpdfstring{generate\_community\_standard\_delete\_keypath()}{generate\_community\_standard\_delete\_keypath()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+bgp\+\_\+community.\+generate\+\_\+community\+\_\+standard\+\_\+delete\+\_\+keypath (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+bgp\+\_\+community.\+py 파일의 124 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{124 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__bgp__community_a07c8f81d3d090765ade2abcce694ba10}{generate\_community\_standard\_delete\_keypath}}(args):}
+\DoxyCodeLine{125     member\_exits = 0}
+\DoxyCodeLine{126     community\_member = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{127     \textcolor{keywordflow}{for} arg \textcolor{keywordflow}{in} args[6:]:}
+\DoxyCodeLine{128         member\_exits = 1}
+\DoxyCodeLine{129         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"local-\/as"} == arg:}
+\DoxyCodeLine{130            community\_member += \textcolor{stringliteral}{"NO\_EXPORT\_SUBCONFED"}}
+\DoxyCodeLine{131            community\_member += \textcolor{stringliteral}{","}}
+\DoxyCodeLine{132         \textcolor{keywordflow}{elif}  \textcolor{stringliteral}{"no-\/peer"} == arg:}
+\DoxyCodeLine{133            community\_member += \textcolor{stringliteral}{"NOPEER"}}
+\DoxyCodeLine{134            community\_member += \textcolor{stringliteral}{","}}
+\DoxyCodeLine{135         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"no-\/export"} == arg:}
+\DoxyCodeLine{136            community\_member += \textcolor{stringliteral}{"NO\_EXPORT"}}
+\DoxyCodeLine{137            community\_member += \textcolor{stringliteral}{","}}
+\DoxyCodeLine{138         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"no-\/advertise"} == arg:}
+\DoxyCodeLine{139            community\_member += \textcolor{stringliteral}{"NO\_ADVERTISE"}}
+\DoxyCodeLine{140            community\_member += \textcolor{stringliteral}{","}}
+\DoxyCodeLine{141         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"permit"} == arg:}
+\DoxyCodeLine{142            community\_action = \textcolor{stringliteral}{"PERMIT"}}
+\DoxyCodeLine{143         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"deny"} == arg:}
+\DoxyCodeLine{144            community\_action = \textcolor{stringliteral}{"DENY"}}
+\DoxyCodeLine{145         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{146            community\_member += arg}
+\DoxyCodeLine{147            community\_member += \textcolor{stringliteral}{","}}
+\DoxyCodeLine{148     \textcolor{keywordflow}{if} member\_exits:}
+\DoxyCodeLine{149        community\_member = community\_member[:-\/1]}
+\DoxyCodeLine{150        keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/defined-\/sets/openconfig-\/bgp-\/policy:bgp-\/defined-\/sets/community-\/sets/community-\/set=\{community\_list\_name\}/config/community-\/member=\{members\}'},community\_list\_name=args[5], members=community\_member)}
+\DoxyCodeLine{151     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{152        keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/defined-\/sets/openconfig-\/bgp-\/policy:bgp-\/defined-\/sets/community-\/sets/community-\/set=\{community\_list\_name\}'},community\_list\_name=args[5])}
+\DoxyCodeLine{153     \textcolor{keywordflow}{return} keypath}
+\DoxyCodeLine{154 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d28/namespacesonic__cli__bgp__community_a07c8f81d3d090765ade2abcce694ba10_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__bgp__community_a4edd9dbf2b65f46a3c89bdc392ee8b34}\label{namespacesonic__cli__bgp__community_a4edd9dbf2b65f46a3c89bdc392ee8b34}} 
+\index{sonic\_cli\_bgp\_community@{sonic\_cli\_bgp\_community}!generate\_extcommunity\_expanded\_body@{generate\_extcommunity\_expanded\_body}}
+\index{generate\_extcommunity\_expanded\_body@{generate\_extcommunity\_expanded\_body}!sonic\_cli\_bgp\_community@{sonic\_cli\_bgp\_community}}
+\doxysubsubsection{\texorpdfstring{generate\_extcommunity\_expanded\_body()}{generate\_extcommunity\_expanded\_body()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+bgp\+\_\+community.\+generate\+\_\+extcommunity\+\_\+expanded\+\_\+body (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+bgp\+\_\+community.\+py 파일의 105 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{105 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__bgp__community_a4edd9dbf2b65f46a3c89bdc392ee8b34}{generate\_extcommunity\_expanded\_body}}(args):}
+\DoxyCodeLine{106     extcommunity\_member = []}
+\DoxyCodeLine{107     match\_options = \textcolor{stringliteral}{"ANY"}}
+\DoxyCodeLine{108     \textcolor{keywordflow}{for} arg \textcolor{keywordflow}{in} args[5:]:}
+\DoxyCodeLine{109         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"all"} == arg:}
+\DoxyCodeLine{110            match\_options = \textcolor{stringliteral}{"ALL"}}
+\DoxyCodeLine{111         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"any"} == arg:}
+\DoxyCodeLine{112            match\_options = \textcolor{stringliteral}{"ANY"}}
+\DoxyCodeLine{113         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"permit"} == arg:}
+\DoxyCodeLine{114            extcommunity\_action = \textcolor{stringliteral}{"PERMIT"}}
+\DoxyCodeLine{115         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"deny"} == arg:}
+\DoxyCodeLine{116            extcommunity\_action = \textcolor{stringliteral}{"DENY"}}
+\DoxyCodeLine{117         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{118            extcommunity\_member.append(\textcolor{stringliteral}{"REGEX:"}+arg)}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120     body = \{\textcolor{stringliteral}{"openconfig-\/bgp-\/policy:ext-\/community-\/sets"}:\{\textcolor{stringliteral}{"ext-\/community-\/set"}:[\{\textcolor{stringliteral}{"ext-\/community-\/set-\/name"}: args[4],}
+\DoxyCodeLine{121             \textcolor{stringliteral}{"config"}:\{\textcolor{stringliteral}{"ext-\/community-\/set-\/name"}:args[4],\textcolor{stringliteral}{"ext-\/community-\/member"}:extcommunity\_member,\textcolor{stringliteral}{"match-\/set-\/options"}: match\_options,\textcolor{stringliteral}{"openconfig-\/bgp-\/policy-\/ext:action"}:extcommunity\_action\}\}]\}\}}
+\DoxyCodeLine{122     \textcolor{keywordflow}{return} body}
+\DoxyCodeLine{123 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d28/namespacesonic__cli__bgp__community_a4edd9dbf2b65f46a3c89bdc392ee8b34_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__bgp__community_aef636c5d51ac83c40507df0a3c1e37d9}\label{namespacesonic__cli__bgp__community_aef636c5d51ac83c40507df0a3c1e37d9}} 
+\index{sonic\_cli\_bgp\_community@{sonic\_cli\_bgp\_community}!generate\_extcommunity\_expanded\_delete\_keypath@{generate\_extcommunity\_expanded\_delete\_keypath}}
+\index{generate\_extcommunity\_expanded\_delete\_keypath@{generate\_extcommunity\_expanded\_delete\_keypath}!sonic\_cli\_bgp\_community@{sonic\_cli\_bgp\_community}}
+\doxysubsubsection{\texorpdfstring{generate\_extcommunity\_expanded\_delete\_keypath()}{generate\_extcommunity\_expanded\_delete\_keypath()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+bgp\+\_\+community.\+generate\+\_\+extcommunity\+\_\+expanded\+\_\+delete\+\_\+keypath (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+bgp\+\_\+community.\+py 파일의 199 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{199 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__bgp__community_aef636c5d51ac83c40507df0a3c1e37d9}{generate\_extcommunity\_expanded\_delete\_keypath}}(args):}
+\DoxyCodeLine{200     member\_exits = 0}
+\DoxyCodeLine{201     community\_member = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{202     \textcolor{keywordflow}{for} arg \textcolor{keywordflow}{in} args[6:]:}
+\DoxyCodeLine{203         member\_exits = 1}
+\DoxyCodeLine{204         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"permit"} == arg:}
+\DoxyCodeLine{205            extcommunity\_action = \textcolor{stringliteral}{"PERMIT"}}
+\DoxyCodeLine{206         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"deny"} == arg:}
+\DoxyCodeLine{207            extcommunity\_action = \textcolor{stringliteral}{"DENY"}}
+\DoxyCodeLine{208         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{209            community\_member += \textcolor{stringliteral}{"REGEX:"}+arg}
+\DoxyCodeLine{210            community\_member += \textcolor{stringliteral}{","}}
+\DoxyCodeLine{211 }
+\DoxyCodeLine{212     \textcolor{keywordflow}{if} member\_exits:}
+\DoxyCodeLine{213        community\_member = community\_member[:-\/1]}
+\DoxyCodeLine{214        keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/defined-\/sets/openconfig-\/bgp-\/policy:bgp-\/defined-\/sets/ext-\/community-\/sets/ext-\/community-\/set=\{community\_list\_name\}/config/ext-\/community-\/member=\{members\}'},community\_list\_name=args[5], members=community\_member)}
+\DoxyCodeLine{215     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{216        keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/defined-\/sets/openconfig-\/bgp-\/policy:bgp-\/defined-\/sets/ext-\/community-\/sets/ext-\/community-\/set=\{community\_list\_name\}'},community\_list\_name=args[5])}
+\DoxyCodeLine{217     \textcolor{keywordflow}{return} keypath}
+\DoxyCodeLine{218 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d28/namespacesonic__cli__bgp__community_aef636c5d51ac83c40507df0a3c1e37d9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__bgp__community_a1b7bd9c335363edc3d8a1eac2f562a1c}\label{namespacesonic__cli__bgp__community_a1b7bd9c335363edc3d8a1eac2f562a1c}} 
+\index{sonic\_cli\_bgp\_community@{sonic\_cli\_bgp\_community}!generate\_extcommunity\_standard\_body@{generate\_extcommunity\_standard\_body}}
+\index{generate\_extcommunity\_standard\_body@{generate\_extcommunity\_standard\_body}!sonic\_cli\_bgp\_community@{sonic\_cli\_bgp\_community}}
+\doxysubsubsection{\texorpdfstring{generate\_extcommunity\_standard\_body()}{generate\_extcommunity\_standard\_body()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+bgp\+\_\+community.\+generate\+\_\+extcommunity\+\_\+standard\+\_\+body (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+bgp\+\_\+community.\+py 파일의 82 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{82 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__bgp__community_a1b7bd9c335363edc3d8a1eac2f562a1c}{generate\_extcommunity\_standard\_body}}(args):}
+\DoxyCodeLine{83     extcommunity\_member = []}
+\DoxyCodeLine{84     match\_options = \textcolor{stringliteral}{"ANY"}}
+\DoxyCodeLine{85     i = 5}
+\DoxyCodeLine{86     \textcolor{keywordflow}{for} arg \textcolor{keywordflow}{in} args[5:]:}
+\DoxyCodeLine{87         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"all"} == arg:}
+\DoxyCodeLine{88            match\_options = \textcolor{stringliteral}{"ALL"}}
+\DoxyCodeLine{89         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"any"} == arg:}
+\DoxyCodeLine{90            match\_options = \textcolor{stringliteral}{"ANY"}}
+\DoxyCodeLine{91         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"soo"} == arg:}
+\DoxyCodeLine{92            extcommunity\_member.append(\textcolor{stringliteral}{"route-\/origin:"}+args[i+1])}
+\DoxyCodeLine{93         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"rt"} == arg:}
+\DoxyCodeLine{94            extcommunity\_member.append(\textcolor{stringliteral}{"route-\/target:"}+args[i+1])}
+\DoxyCodeLine{95         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"permit"} == arg:}
+\DoxyCodeLine{96            extcommunity\_action = \textcolor{stringliteral}{"PERMIT"}}
+\DoxyCodeLine{97         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"deny"} == arg:}
+\DoxyCodeLine{98            extcommunity\_action = \textcolor{stringliteral}{"DENY"}}
+\DoxyCodeLine{99         i = i + 1}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101     body = \{\textcolor{stringliteral}{"openconfig-\/bgp-\/policy:ext-\/community-\/sets"}:\{\textcolor{stringliteral}{"ext-\/community-\/set"}:[\{\textcolor{stringliteral}{"ext-\/community-\/set-\/name"}: args[4],}
+\DoxyCodeLine{102             \textcolor{stringliteral}{"config"}:\{\textcolor{stringliteral}{"ext-\/community-\/set-\/name"}:args[4],\textcolor{stringliteral}{"ext-\/community-\/member"}:extcommunity\_member,\textcolor{stringliteral}{"match-\/set-\/options"}: match\_options,\textcolor{stringliteral}{"openconfig-\/bgp-\/policy-\/ext:action"}:extcommunity\_action\}\}]\}\}}
+\DoxyCodeLine{103     \textcolor{keywordflow}{return} body}
+\DoxyCodeLine{104 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d28/namespacesonic__cli__bgp__community_a1b7bd9c335363edc3d8a1eac2f562a1c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__bgp__community_ac617d50bd08b04999af1987c8c010e83}\label{namespacesonic__cli__bgp__community_ac617d50bd08b04999af1987c8c010e83}} 
+\index{sonic\_cli\_bgp\_community@{sonic\_cli\_bgp\_community}!generate\_extcommunity\_standard\_delete\_keypath@{generate\_extcommunity\_standard\_delete\_keypath}}
+\index{generate\_extcommunity\_standard\_delete\_keypath@{generate\_extcommunity\_standard\_delete\_keypath}!sonic\_cli\_bgp\_community@{sonic\_cli\_bgp\_community}}
+\doxysubsubsection{\texorpdfstring{generate\_extcommunity\_standard\_delete\_keypath()}{generate\_extcommunity\_standard\_delete\_keypath()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+bgp\+\_\+community.\+generate\+\_\+extcommunity\+\_\+standard\+\_\+delete\+\_\+keypath (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+bgp\+\_\+community.\+py 파일의 175 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{175 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__bgp__community_ac617d50bd08b04999af1987c8c010e83}{generate\_extcommunity\_standard\_delete\_keypath}}(args):}
+\DoxyCodeLine{176     member\_exits = 0}
+\DoxyCodeLine{177     community\_member = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{178     i = 6}
+\DoxyCodeLine{179     \textcolor{keywordflow}{for} arg \textcolor{keywordflow}{in} args[6:]:}
+\DoxyCodeLine{180         member\_exits = 1}
+\DoxyCodeLine{181         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"soo"} == arg:}
+\DoxyCodeLine{182            community\_member += \textcolor{stringliteral}{"route-\/origin:"}+args[i+1]}
+\DoxyCodeLine{183            community\_member += \textcolor{stringliteral}{","}}
+\DoxyCodeLine{184         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"rt"} == arg:}
+\DoxyCodeLine{185            community\_member += \textcolor{stringliteral}{"route-\/target:"}+args[i+1]}
+\DoxyCodeLine{186            community\_member += \textcolor{stringliteral}{","}}
+\DoxyCodeLine{187         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"permit"} == arg:}
+\DoxyCodeLine{188            extcommunity\_action = \textcolor{stringliteral}{"PERMIT"}}
+\DoxyCodeLine{189         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"deny"} == arg:}
+\DoxyCodeLine{190            extcommunity\_action = \textcolor{stringliteral}{"DENY"}}
+\DoxyCodeLine{191         i = i + 1}
+\DoxyCodeLine{192     \textcolor{keywordflow}{if} member\_exits:}
+\DoxyCodeLine{193        community\_member = community\_member[:-\/1]}
+\DoxyCodeLine{194        keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/defined-\/sets/openconfig-\/bgp-\/policy:bgp-\/defined-\/sets/ext-\/community-\/sets/ext-\/community-\/set=\{community\_list\_name\}/config/ext-\/community-\/member=\{members\}'},community\_list\_name=args[5], members=community\_member)}
+\DoxyCodeLine{195     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{196        keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/defined-\/sets/openconfig-\/bgp-\/policy:bgp-\/defined-\/sets/ext-\/community-\/sets/ext-\/community-\/set=\{community\_list\_name\}'},community\_list\_name=args[5])}
+\DoxyCodeLine{197     \textcolor{keywordflow}{return} keypath}
+\DoxyCodeLine{198 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d28/namespacesonic__cli__bgp__community_ac617d50bd08b04999af1987c8c010e83_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__bgp__community_a381b590dc7f0239b756593ea2609837f}\label{namespacesonic__cli__bgp__community_a381b590dc7f0239b756593ea2609837f}} 
+\index{sonic\_cli\_bgp\_community@{sonic\_cli\_bgp\_community}!invoke@{invoke}}
+\index{invoke@{invoke}!sonic\_cli\_bgp\_community@{sonic\_cli\_bgp\_community}}
+\doxysubsubsection{\texorpdfstring{invoke()}{invoke()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+bgp\+\_\+community.\+invoke (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+bgp\+\_\+community.\+py 파일의 240 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{240 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__bgp__community_a381b590dc7f0239b756593ea2609837f}{invoke}}(func, args):}
+\DoxyCodeLine{241     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{242     keypath = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{243     aa = cc.ApiClient()}
+\DoxyCodeLine{244 }
+\DoxyCodeLine{245     \textcolor{comment}{\#bgp-\/community-\/standard commands}}
+\DoxyCodeLine{246     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'bgp\_community\_standard'}:}
+\DoxyCodeLine{247         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/defined-\/sets/openconfig-\/bgp-\/policy:bgp-\/defined-\/sets/community-\/sets'})}
+\DoxyCodeLine{248         body = \mbox{\hyperlink{namespacesonic__cli__bgp__community_a3ebd493dafda80e94dfeeb6de0fc468f}{generate\_community\_standard\_body}}(args)}
+\DoxyCodeLine{249         \textcolor{keywordflow}{return} aa.patch(keypath,body)}
+\DoxyCodeLine{250 }
+\DoxyCodeLine{251     \textcolor{comment}{\#bgp-\/community-\/expanded commands}}
+\DoxyCodeLine{252     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'bgp\_community\_expanded'}:}
+\DoxyCodeLine{253         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/defined-\/sets/openconfig-\/bgp-\/policy:bgp-\/defined-\/sets/community-\/sets'})}
+\DoxyCodeLine{254         body = \mbox{\hyperlink{namespacesonic__cli__bgp__community_afd57e8d9c1f5e45efebaa6fdaa4e25c3}{generate\_community\_expanded\_body}}(args)}
+\DoxyCodeLine{255         \textcolor{keywordflow}{return} aa.patch(keypath,body)}
+\DoxyCodeLine{256 }
+\DoxyCodeLine{257     \textcolor{comment}{\# Remove the bgp-\/community-\/standard set.}}
+\DoxyCodeLine{258     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'bgp\_community\_standard\_delete'}:}
+\DoxyCodeLine{259         keypath = \mbox{\hyperlink{namespacesonic__cli__bgp__community_a07c8f81d3d090765ade2abcce694ba10}{generate\_community\_standard\_delete\_keypath}}(args)}
+\DoxyCodeLine{260         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{261 }
+\DoxyCodeLine{262     \textcolor{comment}{\# Remove the bgp-\/community-\/expanded set.}}
+\DoxyCodeLine{263     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'bgp\_community\_expanded\_delete'}:}
+\DoxyCodeLine{264         keypath = \mbox{\hyperlink{namespacesonic__cli__bgp__community_a2b35d5285d8d2cbfae9e0f0428b6f341}{generate\_community\_expanded\_delete\_keypath}}(args)}
+\DoxyCodeLine{265         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{266 }
+\DoxyCodeLine{267     \textcolor{comment}{\#bgp-\/extcommunity-\/standard commands}}
+\DoxyCodeLine{268     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'bgp\_extcommunity\_standard'}:}
+\DoxyCodeLine{269         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/defined-\/sets/openconfig-\/bgp-\/policy:bgp-\/defined-\/sets/ext-\/community-\/sets'})}
+\DoxyCodeLine{270         body = \mbox{\hyperlink{namespacesonic__cli__bgp__community_a1b7bd9c335363edc3d8a1eac2f562a1c}{generate\_extcommunity\_standard\_body}}(args)}
+\DoxyCodeLine{271         \textcolor{keywordflow}{return} aa.patch(keypath,body)}
+\DoxyCodeLine{272 }
+\DoxyCodeLine{273     \textcolor{comment}{\#bgp-\/extcommunity-\/expanded commands}}
+\DoxyCodeLine{274     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'bgp\_extcommunity\_expanded'}:}
+\DoxyCodeLine{275         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/defined-\/sets/openconfig-\/bgp-\/policy:bgp-\/defined-\/sets/ext-\/community-\/sets'})}
+\DoxyCodeLine{276         body = \mbox{\hyperlink{namespacesonic__cli__bgp__community_a4edd9dbf2b65f46a3c89bdc392ee8b34}{generate\_extcommunity\_expanded\_body}}(args)}
+\DoxyCodeLine{277         \textcolor{keywordflow}{return} aa.patch(keypath,body)}
+\DoxyCodeLine{278 }
+\DoxyCodeLine{279     \textcolor{comment}{\# Remove the bgp-\/extcommunity-\/standard set.}}
+\DoxyCodeLine{280     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'bgp\_extcommunity\_standard\_delete'}:}
+\DoxyCodeLine{281         keypath = \mbox{\hyperlink{namespacesonic__cli__bgp__community_ac617d50bd08b04999af1987c8c010e83}{generate\_extcommunity\_standard\_delete\_keypath}}(args)}
+\DoxyCodeLine{282         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{283 }
+\DoxyCodeLine{284     \textcolor{comment}{\# Remove the bgp-\/extcommunity-\/expanded set.}}
+\DoxyCodeLine{285     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'bgp\_extcommunity\_expanded\_delete'}:}
+\DoxyCodeLine{286         keypath = \mbox{\hyperlink{namespacesonic__cli__bgp__community_aef636c5d51ac83c40507df0a3c1e37d9}{generate\_extcommunity\_expanded\_delete\_keypath}}(args)}
+\DoxyCodeLine{287         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{288 }
+\DoxyCodeLine{289     \textcolor{comment}{\# bgp-\/as-\/path-\/list command}}
+\DoxyCodeLine{290     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'bgp\_as\_path\_list'}:}
+\DoxyCodeLine{291         \textcolor{keywordflow}{if} args[1] == \textcolor{stringliteral}{'permit'}:}
+\DoxyCodeLine{292              action = \textcolor{stringliteral}{"PERMIT"}}
+\DoxyCodeLine{293         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{294              action = \textcolor{stringliteral}{"DENY"}}
+\DoxyCodeLine{295 }
+\DoxyCodeLine{296         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/defined-\/sets/openconfig-\/bgp-\/policy:bgp-\/defined-\/sets/as-\/path-\/sets'})}
+\DoxyCodeLine{297         body = \{\textcolor{stringliteral}{"openconfig-\/bgp-\/policy:as-\/path-\/sets"}:\{\textcolor{stringliteral}{"as-\/path-\/set"}:[\{\textcolor{stringliteral}{"as-\/path-\/set-\/name"}: args[0],\textcolor{stringliteral}{"config"}:\{\textcolor{stringliteral}{"as-\/path-\/set-\/name"}:args[0],}
+\DoxyCodeLine{298                 \textcolor{stringliteral}{"as-\/path-\/set-\/member"}:[args[2]],\textcolor{stringliteral}{"openconfig-\/bgp-\/policy-\/ext:action"}:action\}\}]\}\}}
+\DoxyCodeLine{299         \textcolor{keywordflow}{return} aa.patch(keypath,body)}
+\DoxyCodeLine{300 }
+\DoxyCodeLine{301     \textcolor{comment}{\# Remove the bgp-\/as-\/path-\/list set.}}
+\DoxyCodeLine{302     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'bgp\_as\_path\_list\_delete'}:}
+\DoxyCodeLine{303         keypath = \mbox{\hyperlink{namespacesonic__cli__bgp__community_a59b33a2315e2e18dfe98efee8644a8bf}{generate\_aspath\_delete\_keypath}}(args)}
+\DoxyCodeLine{304         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{305 }
+\DoxyCodeLine{306     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'bgp\_community\_show\_specific'}:}
+\DoxyCodeLine{307         \textcolor{keywordflow}{if} len(args) > 1:}
+\DoxyCodeLine{308             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/defined-\/sets/openconfig-\/bgp-\/policy:bgp-\/defined-\/sets/community-\/sets/community-\/set=\{name\}'}, name=args[1])}
+\DoxyCodeLine{309         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{310             \textcolor{comment}{\# show all}}
+\DoxyCodeLine{311             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/defined-\/sets/openconfig-\/bgp-\/policy:bgp-\/defined-\/sets/community-\/sets'})}
+\DoxyCodeLine{312         \textcolor{keywordflow}{return} aa.get(keypath)}
+\DoxyCodeLine{313 }
+\DoxyCodeLine{314     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'bgp\_ext\_community\_show\_specific'}:}
+\DoxyCodeLine{315         \textcolor{keywordflow}{if} len(args) > 1:}
+\DoxyCodeLine{316             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/defined-\/sets/openconfig-\/bgp-\/policy:bgp-\/defined-\/sets/ext-\/community-\/sets/ext-\/community-\/set=\{name\}'}, name=args[1])}
+\DoxyCodeLine{317         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{318             \textcolor{comment}{\# show all}}
+\DoxyCodeLine{319             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/defined-\/sets/openconfig-\/bgp-\/policy:bgp-\/defined-\/sets/ext-\/community-\/sets'})}
+\DoxyCodeLine{320         \textcolor{keywordflow}{return} aa.get(keypath)}
+\DoxyCodeLine{321 }
+\DoxyCodeLine{322     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'bgp\_aspath\_show\_specific'}:}
+\DoxyCodeLine{323         \textcolor{keywordflow}{if} len(args) > 1:}
+\DoxyCodeLine{324             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/defined-\/sets/openconfig-\/bgp-\/policy:bgp-\/defined-\/sets/as-\/path-\/sets/as-\/path-\/set=\{name\}'}, name=args[1])}
+\DoxyCodeLine{325         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{326             \textcolor{comment}{\# show all}}
+\DoxyCodeLine{327             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/defined-\/sets/openconfig-\/bgp-\/policy:bgp-\/defined-\/sets/as-\/path-\/sets'})}
+\DoxyCodeLine{328         \textcolor{keywordflow}{return} aa.get(keypath)}
+\DoxyCodeLine{329 }
+\DoxyCodeLine{330     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{331         \textcolor{keywordflow}{return} aa.cli\_not\_implemented(func)}
+\DoxyCodeLine{332 }
+\DoxyCodeLine{333 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d28/namespacesonic__cli__bgp__community_a381b590dc7f0239b756593ea2609837f_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d28/namespacesonic__cli__bgp__community_a381b590dc7f0239b756593ea2609837f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__bgp__community_a269e4252e42ccee13ec82bd981f1023b}\label{namespacesonic__cli__bgp__community_a269e4252e42ccee13ec82bd981f1023b}} 
+\index{sonic\_cli\_bgp\_community@{sonic\_cli\_bgp\_community}!run@{run}}
+\index{run@{run}!sonic\_cli\_bgp\_community@{sonic\_cli\_bgp\_community}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+bgp\+\_\+community.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+bgp\+\_\+community.\+py 파일의 334 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{334 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__bgp__community_a269e4252e42ccee13ec82bd981f1023b}{run}}(func, args):}
+\DoxyCodeLine{335 }
+\DoxyCodeLine{336   \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{337     response = \mbox{\hyperlink{namespacesonic__cli__bgp__community_a381b590dc7f0239b756593ea2609837f}{invoke}}(func,args)}
+\DoxyCodeLine{338 }
+\DoxyCodeLine{339     \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{340         \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{341             \textcolor{comment}{\# Get Command Output}}
+\DoxyCodeLine{342             api\_response = response.content}
+\DoxyCodeLine{343             \textcolor{keywordflow}{if} api\_response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{344                 \textcolor{keywordflow}{print} (\textcolor{stringliteral}{"\%Error: Internal error."})}
+\DoxyCodeLine{345                 \textcolor{keywordflow}{return}}
+\DoxyCodeLine{346             \textcolor{comment}{\#print api\_response}}
+\DoxyCodeLine{347             \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], api\_response)}
+\DoxyCodeLine{348     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{349         \textcolor{keywordflow}{print} response.error\_message()}
+\DoxyCodeLine{350         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{351   \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} e:}
+\DoxyCodeLine{352     \textcolor{keywordflow}{print} (\textcolor{stringliteral}{"\%Error: Internal error."})}
+\DoxyCodeLine{353 }
+\DoxyCodeLine{354   \textcolor{keywordflow}{return}}
+\DoxyCodeLine{355 }
+\DoxyCodeLine{356 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d28/namespacesonic__cli__bgp__community_a269e4252e42ccee13ec82bd981f1023b_cgraph}
+\end{center}
+\end{figure}

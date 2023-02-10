@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: cli/show_config_copp.py 소스 파일</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'검색');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','검색');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_2990d7c532eb7441b74916b8f5365141.html">cli</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">show_config_copp.py</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d4/d69/show__config__copp_8py.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="../../df/dbd/namespaceshow__config__copp.html#a41c4eaa47fcab681158ee1b8a9025da0">    1</a></span>&#160;<span class="keyword">def </span><a class="code" href="../../df/dbd/namespaceshow__config__copp.html#a41c4eaa47fcab681158ee1b8a9025da0">show_copp_police</a>(render_tables):</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;    cmd_str = <span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;    cmd_prfx = <span class="stringliteral">&#39;police&#39;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    <span class="keywordflow">if</span> <span class="stringliteral">&#39;sonic-copp:sonic-copp/COPP_GROUP/COPP_GROUP_LIST&#39;</span> <span class="keywordflow">in</span> render_tables:</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;        police_inst = render_tables[<span class="stringliteral">&#39;sonic-copp:sonic-copp/COPP_GROUP/COPP_GROUP_LIST&#39;</span>]</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;        <span class="keywordflow">if</span> <span class="stringliteral">&#39;cir&#39;</span> <span class="keywordflow">in</span> police_inst:</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;            cmd_prfx += <span class="stringliteral">&#39; cir &#39;</span> + police_inst[<span class="stringliteral">&#39;cir&#39;</span>]</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;            <span class="keywordflow">if</span> <span class="stringliteral">&#39;cbs&#39;</span> <span class="keywordflow">in</span> police_inst:</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;                cmd_prfx += <span class="stringliteral">&#39; cbs &#39;</span> + police_inst[<span class="stringliteral">&#39;cbs&#39;</span>]</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;                <span class="keywordflow">if</span> <span class="stringliteral">&#39;pir&#39;</span> <span class="keywordflow">in</span> police_inst:</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;                    cmd_prfx += <span class="stringliteral">&#39; pir &#39;</span> + police_inst[<span class="stringliteral">&#39;pir&#39;</span>]</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;                    <span class="keywordflow">if</span> <span class="stringliteral">&#39;pbs&#39;</span> <span class="keywordflow">in</span> police_inst:</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;                        cmd_prfx += <span class="stringliteral">&#39; pbs &#39;</span> + police_inst[<span class="stringliteral">&#39;pbs&#39;</span>]</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordflow">if</span> <span class="stringliteral">&#39;meter_type&#39;</span> <span class="keywordflow">in</span> police_inst:</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;            meter_type = police_inst[<span class="stringliteral">&#39;meter_type&#39;</span>]</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            <span class="keywordflow">if</span> meter_type == <span class="stringliteral">&#39;packets&#39;</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                meter_type = <span class="stringliteral">&#39;pps&#39;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            <span class="keywordflow">if</span> meter_type == <span class="stringliteral">&#39;bytes&#39;</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                meter_type = <span class="stringliteral">&#39;bps&#39;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            cmd_prfx += <span class="stringliteral">&#39;;police meter-type &#39;</span> + meter_type</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordflow">if</span> <span class="stringliteral">&#39;mode&#39;</span> <span class="keywordflow">in</span> police_inst:</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            cmd_prfx += <span class="stringliteral">&#39;;police mode &#39;</span> + police_inst[<span class="stringliteral">&#39;mode&#39;</span>]</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            <span class="keywordflow">if</span> <span class="stringliteral">&#39;green_action&#39;</span> <span class="keywordflow">in</span> police_inst:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                cmd_prfx += <span class="stringliteral">&#39; green &#39;</span> + police_inst[<span class="stringliteral">&#39;green_action&#39;</span>]</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <span class="keywordflow">if</span> <span class="stringliteral">&#39;yellow_action&#39;</span> <span class="keywordflow">in</span> police_inst:</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                cmd_prfx += <span class="stringliteral">&#39; yellow &#39;</span> + police_inst[<span class="stringliteral">&#39;yellow_action&#39;</span>]</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <span class="keywordflow">if</span> <span class="stringliteral">&#39;red_action&#39;</span> <span class="keywordflow">in</span> police_inst:</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                cmd_prfx += <span class="stringliteral">&#39; red &#39;</span> + police_inst[<span class="stringliteral">&#39;red_action&#39;</span>]</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        cmd_str = cmd_prfx</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">return</span> <span class="stringliteral">&#39;CB_SUCCESS&#39;</span>, cmd_str</div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="anamespaceshow__config__copp_html_a41c4eaa47fcab681158ee1b8a9025da0"><div class="ttname"><a href="../../df/dbd/namespaceshow__config__copp.html#a41c4eaa47fcab681158ee1b8a9025da0">show_config_copp.show_copp_police</a></div><div class="ttdeci">def show_copp_police(render_tables)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d69/show__config__copp_8py_source.html#l00001">show_config_copp.py:1</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+다음에 의해 생성됨 :  &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

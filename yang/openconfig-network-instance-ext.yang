@@ -1,0 +1,218 @@
+module openconfig-network-instance-ext {
+
+  yang-version "1";
+
+  // namespace
+  namespace "http://openconfig.net/yang/network-instance/extension";
+
+  prefix "oc-netinst-ext";
+  
+  import ietf-yang-types { prefix ietf; }
+  import sonic-codegen { prefix sonic-codegen; }
+  // import some basic types
+  import openconfig-network-instance { prefix "oc-netinst"; }
+  import openconfig-extensions { prefix oc-ext; }
+  import openconfig-interfaces { prefix "oc-if"; }
+
+  organization
+      "SONiC";
+
+  contact
+      "SONiC";
+
+  description
+        "This module describes a YANG model for network instance
+        configuration extensions.";
+
+  oc-ext:openconfig-version "0.1.0";
+
+  revision "2020-10-05" {
+    description
+      "Deviating range and default value for mac-aging-time.";
+    reference "0.1.1";
+  }
+
+  revision "2020-05-26" {
+    description
+      "Add static and dynamic attributes in FDB state container.";
+    reference "0.1.1";
+  }
+  
+  revision "2019-10-29" {
+    description
+      "Add OpenConfig unsupported attributes.";
+    reference "0.1.0";
+  }
+
+  grouping network-instance-ext-table-connection-config {
+      description
+          "Configuration data for table connections";
+      leaf metric {
+          type uint32;
+          description
+              "Metric for redistributed routes";
+      }
+  }
+
+  grouping network-instance-ext-global-sag-config {
+
+    description
+      "Global static anycast gateway config";
+
+	  leaf anycast-mac {
+		  type ietf:mac-address;
+
+		  description
+			  "static anycast gateway MAC addresses";
+
+	  }
+
+    leaf ipv4-enable {
+      type boolean;
+		  default true;
+
+      description
+        "static anycast gateway IPv4 enable";
+    }
+
+    leaf ipv6-enable {
+      type boolean;
+		  default true;
+
+      description
+        "static anycast gateway IPv6 enable";
+    }
+  }
+
+  grouping network-instance-ext-global-sag-top {
+    description
+      "Global static anycast gateway";
+	  container global-sag {
+		  container config {
+			  uses network-instance-ext-global-sag-config;
+
+        description
+          "Global static anycast gateway config";
+		  }
+		  container state {
+			  config false;
+			  uses network-instance-ext-global-sag-config;
+
+        description
+          "Global static anycast gateway state";
+		  }
+
+      description
+        "Static anycast gateway";
+	  }
+  }
+
+  augment "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:fdb/oc-netinst:state" {
+    description
+        "Adding static and dynamic count in state container for MAC count";
+      leaf static-count {
+          type uint32;
+          description "Static MAC count";
+      }
+      leaf dynamic-count {
+          type uint32;
+          description "Dynamic MAC count";
+      }
+  }
+
+  augment "/oc-netinst:network-instances/oc-netinst:network-instance" {
+      description
+          "Global Anycast Gateway";
+      uses network-instance-ext-global-sag-top;
+  }
+
+  augment /oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:table-connections/oc-netinst:table-connection/oc-netinst:config {
+      description
+          "Extension for table connection";
+      uses network-instance-ext-table-connection-config;
+  }
+
+  augment /oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:table-connections/oc-netinst:table-connection/oc-netinst:state {
+      description
+          "Extension for table connection";
+      uses network-instance-ext-table-connection-config;
+  }
+
+  deviation /oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:inter-instance-policies {
+      deviate not-supported;
+  }
+
+  deviation /oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:route-limits {
+      deviate not-supported;
+  }
+  
+  deviation /oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:connection-points {
+      deviate not-supported;
+  }
+  
+  deviation /oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:mpls {
+      deviate not-supported;
+  }
+  
+  deviation /oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:segment-routing {
+      deviate not-supported;
+  }
+
+  deviation /oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:policy-forwarding {
+	  deviate not-supported;
+  }
+
+  deviation /oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:afts/oc-netinst:ipv4-unicast/oc-netinst:ipv4-entry/oc-netinst:state/oc-netinst:next-hop-group {
+      deviate not-supported;
+  }
+
+  deviation /oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:afts/oc-netinst:ipv6-unicast/oc-netinst:ipv6-entry/oc-netinst:state/oc-netinst:next-hop-group {
+      deviate not-supported;
+  }
+
+  deviation /oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:afts/oc-netinst:policy-forwarding {
+      deviate not-supported;
+  }
+
+  deviation /oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:afts/oc-netinst:mpls {
+      deviate not-supported;
+  }
+
+  deviation /oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:afts/oc-netinst:ethernet {
+      deviate not-supported;
+  }
+
+  deviation /oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:afts/oc-netinst:next-hop-groups {
+      deviate not-supported;
+  }
+
+  deviation /oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:afts/oc-netinst:next-hops {
+      deviate not-supported;
+  }
+
+  deviation /oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:protocols/oc-netinst:protocol/oc-netinst:isis {
+      deviate not-supported;
+  }
+
+  deviation /oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:protocols/oc-netinst:protocol/oc-netinst:local-aggregates {
+      deviate not-supported;
+  }
+
+  deviation /oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:encapsulation {
+      deviate not-supported;
+  }
+
+  deviation /oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:fdb/oc-netinst:config/oc-netinst:mac-aging-time {
+      sonic-codegen:lint-ignore "Deviated to be aligned with other vendors.";
+      deviate replace {
+          type uint32 {
+              range 0..1000000{
+                  error-message "Invalid MAC-aging value 0-1000000";
+              }
+          }
+      }
+      deviate add {
+          default 600;
+      }
+  }
+}

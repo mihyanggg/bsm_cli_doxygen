@@ -1,0 +1,698 @@
+\hypertarget{namespacesonic__cli__crm}{}\doxysection{sonic\+\_\+cli\+\_\+crm 네임스페이스 참조}
+\label{namespacesonic__cli__crm}\index{sonic\_cli\_crm@{sonic\_cli\_crm}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__crm_aec74ac73ff5228fdd82a211761904d33}{run}} (func, args)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__crm_aec74ac73ff5228fdd82a211761904d33}\label{namespacesonic__cli__crm_aec74ac73ff5228fdd82a211761904d33}} 
+\index{sonic\_cli\_crm@{sonic\_cli\_crm}!run@{run}}
+\index{run@{run}!sonic\_cli\_crm@{sonic\_cli\_crm}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+crm.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+crm.\+py 파일의 26 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{26 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__crm_aec74ac73ff5228fdd82a211761904d33}{run}}(func, args):}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{comment}{\# omit pipe arguments}}
+\DoxyCodeLine{29     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'\(\backslash\)\(\backslash\)|'} \textcolor{keywordflow}{in} args:}
+\DoxyCodeLine{30         args = args[:args.index(\textcolor{stringliteral}{'\(\backslash\)\(\backslash\)|'})]}
+\DoxyCodeLine{31     \textcolor{comment}{\# a workaround for 'do' command}}
+\DoxyCodeLine{32     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{"do"}:}
+\DoxyCodeLine{33         func = args[0]}
+\DoxyCodeLine{34         args = args[1:]}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     last = len(args)}
+\DoxyCodeLine{37     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{"patch"}:}
+\DoxyCodeLine{38         \textcolor{keywordflow}{if} last > 0:}
+\DoxyCodeLine{39             last -\/= 1}
+\DoxyCodeLine{40         data = args[last]}
+\DoxyCodeLine{41     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{42         data = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{keywordflow}{for} idx \textcolor{keywordflow}{in} range(0, last):}
+\DoxyCodeLine{45         func += \textcolor{stringliteral}{"-\/"}}
+\DoxyCodeLine{46         func += args[idx]}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     uri\_conf = \textcolor{stringliteral}{'/restconf/data/openconfig-\/system:system/openconfig-\/system-\/crm:crm'}}
+\DoxyCodeLine{49     uri\_stat = \textcolor{stringliteral}{'/restconf/data/openconfig-\/system:system/openconfig-\/system-\/crm:crm/statistics'}}
+\DoxyCodeLine{50     uri\_stat\_acl = \textcolor{stringliteral}{'/restconf/data/openconfig-\/system:system/openconfig-\/system-\/crm:crm/acl-\/statistics'}}
+\DoxyCodeLine{51     uri\_stat\_acl\_tbl = \textcolor{stringliteral}{'/restconf/data/openconfig-\/system:system/openconfig-\/system-\/crm:crm/acl-\/table-\/statistics'}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     tmpl = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{54     path = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{55     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     aa = cc.ApiClient()}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \textcolor{comment}{\# GET/SHOW CONFIG}}
+\DoxyCodeLine{60     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{"show-\/crm-\/summary"}:}
+\DoxyCodeLine{61         tmpl = \textcolor{stringliteral}{"show\_crm\_summary.j2"}}
+\DoxyCodeLine{62         path = cc.Path(uri\_conf + \textcolor{stringliteral}{"/config"})}
+\DoxyCodeLine{63     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"show-\/crm-\/thresholds-\/acl-\/group"}:}
+\DoxyCodeLine{64         tmpl = \textcolor{stringliteral}{"show\_crm\_thresholds\_acl\_group.j2"}}
+\DoxyCodeLine{65         path = cc.Path(uri\_conf + \textcolor{stringliteral}{"/threshold/acl/group"})}
+\DoxyCodeLine{66     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"show-\/crm-\/thresholds-\/acl-\/table"}:}
+\DoxyCodeLine{67         tmpl = \textcolor{stringliteral}{"show\_crm\_thresholds\_acl\_table.j2"}}
+\DoxyCodeLine{68         path = cc.Path(uri\_conf + \textcolor{stringliteral}{"/threshold/acl/table/config"})}
+\DoxyCodeLine{69     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"show-\/crm-\/thresholds-\/dnat"}:}
+\DoxyCodeLine{70         tmpl = \textcolor{stringliteral}{"show\_crm\_thresholds\_dnat.j2"}}
+\DoxyCodeLine{71         path = cc.Path(uri\_conf + \textcolor{stringliteral}{"/threshold/dnat/config"})}
+\DoxyCodeLine{72     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"show-\/crm-\/thresholds-\/fdb"}:}
+\DoxyCodeLine{73         tmpl = \textcolor{stringliteral}{"show\_crm\_thresholds\_fdb.j2"}}
+\DoxyCodeLine{74         path = cc.Path(uri\_conf + \textcolor{stringliteral}{"/threshold/fdb/config"})}
+\DoxyCodeLine{75     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"show-\/crm-\/thresholds-\/ipmc"}:}
+\DoxyCodeLine{76         tmpl = \textcolor{stringliteral}{"show\_crm\_thresholds\_ipmc.j2"}}
+\DoxyCodeLine{77         path = cc.Path(uri\_conf + \textcolor{stringliteral}{"/threshold/ipmc/config"})}
+\DoxyCodeLine{78     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"show-\/crm-\/thresholds-\/ipv4-\/neighbor"}:}
+\DoxyCodeLine{79         tmpl = \textcolor{stringliteral}{"show\_crm\_thresholds\_ipv4\_neighbor.j2"}}
+\DoxyCodeLine{80         path = cc.Path(uri\_conf + \textcolor{stringliteral}{"/threshold/ipv4/neighbor/config"})}
+\DoxyCodeLine{81     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"show-\/crm-\/thresholds-\/ipv4-\/nexthop"}:}
+\DoxyCodeLine{82         tmpl = \textcolor{stringliteral}{"show\_crm\_thresholds\_ipv4\_nexthop.j2"}}
+\DoxyCodeLine{83         path = cc.Path(uri\_conf + \textcolor{stringliteral}{"/threshold/ipv4/nexthop/config"})}
+\DoxyCodeLine{84     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"show-\/crm-\/thresholds-\/ipv4-\/route"}:}
+\DoxyCodeLine{85         tmpl = \textcolor{stringliteral}{"show\_crm\_thresholds\_ipv4\_route.j2"}}
+\DoxyCodeLine{86         path = cc.Path(uri\_conf + \textcolor{stringliteral}{"/threshold/ipv4/route/config"})}
+\DoxyCodeLine{87     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"show-\/crm-\/thresholds-\/ipv6-\/neighbor"}:}
+\DoxyCodeLine{88         tmpl = \textcolor{stringliteral}{"show\_crm\_thresholds\_ipv6\_neighbor.j2"}}
+\DoxyCodeLine{89         path = cc.Path(uri\_conf + \textcolor{stringliteral}{"/threshold/ipv6/neighbor/config"})}
+\DoxyCodeLine{90     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"show-\/crm-\/thresholds-\/ipv6-\/nexthop"}:}
+\DoxyCodeLine{91         tmpl = \textcolor{stringliteral}{"show\_crm\_thresholds\_ipv6\_nexthop.j2"}}
+\DoxyCodeLine{92         path = cc.Path(uri\_conf + \textcolor{stringliteral}{"/threshold/ipv6/nexthop/config"})}
+\DoxyCodeLine{93     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"show-\/crm-\/thresholds-\/ipv6-\/route"}:}
+\DoxyCodeLine{94         tmpl = \textcolor{stringliteral}{"show\_crm\_thresholds\_ipv6\_route.j2"}}
+\DoxyCodeLine{95         path = cc.Path(uri\_conf + \textcolor{stringliteral}{"/threshold/ipv6/route/config"})}
+\DoxyCodeLine{96     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"show-\/crm-\/thresholds-\/nexthop-\/group-\/member"}:}
+\DoxyCodeLine{97         tmpl = \textcolor{stringliteral}{"show\_crm\_thresholds\_nexthop\_group\_member.j2"}}
+\DoxyCodeLine{98         path = cc.Path(uri\_conf + \textcolor{stringliteral}{"/threshold/nexthop/group-\/member/config"})}
+\DoxyCodeLine{99     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"show-\/crm-\/thresholds-\/nexthop-\/group-\/object"}:}
+\DoxyCodeLine{100         tmpl = \textcolor{stringliteral}{"show\_crm\_thresholds\_nexthop\_group\_object.j2"}}
+\DoxyCodeLine{101         path = cc.Path(uri\_conf + \textcolor{stringliteral}{"/threshold/nexthop/group-\/object/config"})}
+\DoxyCodeLine{102     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"show-\/crm-\/thresholds-\/snat"}:}
+\DoxyCodeLine{103         tmpl = \textcolor{stringliteral}{"show\_crm\_thresholds\_snat.j2"}}
+\DoxyCodeLine{104         path = cc.Path(uri\_conf + \textcolor{stringliteral}{"/threshold/snat/config"})}
+\DoxyCodeLine{105     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"show-\/crm-\/thresholds-\/all"}:}
+\DoxyCodeLine{106         tmpl = \textcolor{stringliteral}{"show\_crm\_thresholds\_all.j2"}}
+\DoxyCodeLine{107         path = cc.Path(uri\_conf + \textcolor{stringliteral}{"/threshold"})}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109     \textcolor{comment}{\# SET/PATCH CONFIG}}
+\DoxyCodeLine{110     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/polling-\/interval"}:}
+\DoxyCodeLine{111         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:polling-\/interval"}: int(data) \}}
+\DoxyCodeLine{112         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/config/polling-\/interval'})}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/acl-\/group-\/counter-\/type"}:}
+\DoxyCodeLine{115         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:type"}: data.upper() \}}
+\DoxyCodeLine{116         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/group/counter/config/type'})}
+\DoxyCodeLine{117     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/acl-\/group-\/counter-\/high"}:}
+\DoxyCodeLine{118         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:high"}: int(data) \}}
+\DoxyCodeLine{119         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/group/counter/config/high'})}
+\DoxyCodeLine{120     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/acl-\/group-\/counter-\/low"}:}
+\DoxyCodeLine{121         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:low"}: int(data) \}}
+\DoxyCodeLine{122         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/group/counter/config/low'})}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/acl-\/group-\/entry-\/type"}:}
+\DoxyCodeLine{125         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:type"}: data.upper() \}}
+\DoxyCodeLine{126         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/group/entry/config/type'})}
+\DoxyCodeLine{127     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/acl-\/group-\/entry-\/high"}:}
+\DoxyCodeLine{128         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:high"}: int(data) \}}
+\DoxyCodeLine{129         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/group/entry/config/high'})}
+\DoxyCodeLine{130     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/acl-\/group-\/entry-\/low"}:}
+\DoxyCodeLine{131         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:low"}: int(data) \}}
+\DoxyCodeLine{132         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/group/entry/config/low'})}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/acl-\/group-\/type"}:}
+\DoxyCodeLine{135         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:type"}: data.upper() \}}
+\DoxyCodeLine{136         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/group/config/type'})}
+\DoxyCodeLine{137     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/acl-\/group-\/high"}:}
+\DoxyCodeLine{138         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:high"}: int(data) \}}
+\DoxyCodeLine{139         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/group/config/high'})}
+\DoxyCodeLine{140     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/acl-\/group-\/low"}:}
+\DoxyCodeLine{141         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:low"}: int(data) \}}
+\DoxyCodeLine{142         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/group/config/low'})}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/acl-\/table-\/type"}:}
+\DoxyCodeLine{145         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:type"}: data.upper() \}}
+\DoxyCodeLine{146         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/table/config/type'})}
+\DoxyCodeLine{147     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/acl-\/table-\/high"}:}
+\DoxyCodeLine{148         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:high"}: int(data) \}}
+\DoxyCodeLine{149         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/table/config/high'})}
+\DoxyCodeLine{150     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/acl-\/table-\/low"}:}
+\DoxyCodeLine{151         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:low"}: int(data) \}}
+\DoxyCodeLine{152         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/table/config/low'})}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/dnat-\/type"}:}
+\DoxyCodeLine{155         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:type"}: data.upper() \}}
+\DoxyCodeLine{156         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/dnat/config/type'})}
+\DoxyCodeLine{157     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/dnat-\/high"}:}
+\DoxyCodeLine{158         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:high"}: int(data) \}}
+\DoxyCodeLine{159         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/dnat/config/high'})}
+\DoxyCodeLine{160     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/dnat-\/low"}:}
+\DoxyCodeLine{161         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:low"}: int(data) \}}
+\DoxyCodeLine{162         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/dnat/config/low'})}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/snat-\/type"}:}
+\DoxyCodeLine{165         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:type"}: data.upper() \}}
+\DoxyCodeLine{166         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/snat/config/type'})}
+\DoxyCodeLine{167     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/snat-\/high"}:}
+\DoxyCodeLine{168         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:high"}: int(data) \}}
+\DoxyCodeLine{169         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/snat/config/high'})}
+\DoxyCodeLine{170     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/snat-\/low"}:}
+\DoxyCodeLine{171         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:low"}: int(data) \}}
+\DoxyCodeLine{172         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/snat/config/low'})}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/fdb-\/type"}:}
+\DoxyCodeLine{175         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:type"}: data.upper() \}}
+\DoxyCodeLine{176         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/fdb/config/type'})}
+\DoxyCodeLine{177     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/fdb-\/high"}:}
+\DoxyCodeLine{178         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:high"}: int(data) \}}
+\DoxyCodeLine{179         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/fdb/config/high'})}
+\DoxyCodeLine{180     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/fdb-\/low"}:}
+\DoxyCodeLine{181         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:low"}: int(data) \}}
+\DoxyCodeLine{182         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/fdb/config/low'})}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/ipmc-\/type"}:}
+\DoxyCodeLine{185         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:type"}: data.upper() \}}
+\DoxyCodeLine{186         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipmc/config/type'})}
+\DoxyCodeLine{187     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/ipmc-\/high"}:}
+\DoxyCodeLine{188         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:high"}: int(data) \}}
+\DoxyCodeLine{189         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipmc/config/high'})}
+\DoxyCodeLine{190     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/ipmc-\/low"}:}
+\DoxyCodeLine{191         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:low"}: int(data) \}}
+\DoxyCodeLine{192         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipmc/config/low'})}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{194     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/ipv4-\/neighbor-\/type"}:}
+\DoxyCodeLine{195         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:type"}: data.upper() \}}
+\DoxyCodeLine{196         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv4/neighbor/config/type'})}
+\DoxyCodeLine{197     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/ipv4-\/neighbor-\/high"}:}
+\DoxyCodeLine{198         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:high"}: int(data) \}}
+\DoxyCodeLine{199         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv4/neighbor/config/high'})}
+\DoxyCodeLine{200     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/ipv4-\/neighbor-\/low"}:}
+\DoxyCodeLine{201         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:low"}: int(data) \}}
+\DoxyCodeLine{202         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv4/neighbor/config/low'})}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{204     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/ipv4-\/nexthop-\/type"}:}
+\DoxyCodeLine{205         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:type"}: data.upper() \}}
+\DoxyCodeLine{206         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv4/nexthop/config/type'})}
+\DoxyCodeLine{207     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/ipv4-\/nexthop-\/high"}:}
+\DoxyCodeLine{208         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:high"}: int(data) \}}
+\DoxyCodeLine{209         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv4/nexthop/config/high'})}
+\DoxyCodeLine{210     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/ipv4-\/nexthop-\/low"}:}
+\DoxyCodeLine{211         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:low"}: int(data) \}}
+\DoxyCodeLine{212         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv4/nexthop/config/low'})}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{214     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/ipv4-\/route-\/type"}:}
+\DoxyCodeLine{215         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:type"}: data.upper() \}}
+\DoxyCodeLine{216         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv4/route/config/type'})}
+\DoxyCodeLine{217     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/ipv4-\/route-\/high"}:}
+\DoxyCodeLine{218         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:high"}: int(data) \}}
+\DoxyCodeLine{219         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv4/route/config/high'})}
+\DoxyCodeLine{220     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/ipv4-\/route-\/low"}:}
+\DoxyCodeLine{221         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:low"}: int(data) \}}
+\DoxyCodeLine{222         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv4/route/config/low'})}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/ipv6-\/neighbor-\/type"}:}
+\DoxyCodeLine{225         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:type"}: data.upper() \}}
+\DoxyCodeLine{226         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv6/neighbor/config/type'})}
+\DoxyCodeLine{227     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/ipv6-\/neighbor-\/high"}:}
+\DoxyCodeLine{228         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:high"}: int(data) \}}
+\DoxyCodeLine{229         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv6/neighbor/config/high'})}
+\DoxyCodeLine{230     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/ipv6-\/neighbor-\/low"}:}
+\DoxyCodeLine{231         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:low"}: int(data) \}}
+\DoxyCodeLine{232         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv6/neighbor/config/low'})}
+\DoxyCodeLine{233 }
+\DoxyCodeLine{234     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/ipv6-\/nexthop-\/type"}:}
+\DoxyCodeLine{235         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:type"}: data.upper() \}}
+\DoxyCodeLine{236         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv6/nexthop/config/type'})}
+\DoxyCodeLine{237     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/ipv6-\/nexthop-\/high"}:}
+\DoxyCodeLine{238         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:high"}: int(data) \}}
+\DoxyCodeLine{239         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv6/nexthop/config/high'})}
+\DoxyCodeLine{240     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/ipv6-\/nexthop-\/low"}:}
+\DoxyCodeLine{241         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:low"}: int(data) \}}
+\DoxyCodeLine{242         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv6/nexthop/config/low'})}
+\DoxyCodeLine{243 }
+\DoxyCodeLine{244     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/ipv6-\/route-\/type"}:}
+\DoxyCodeLine{245         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:type"}: data.upper() \}}
+\DoxyCodeLine{246         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv6/route/config/type'})}
+\DoxyCodeLine{247     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/ipv6-\/route-\/high"}:}
+\DoxyCodeLine{248         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:high"}: int(data) \}}
+\DoxyCodeLine{249         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv6/route/config/high'})}
+\DoxyCodeLine{250     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/ipv6-\/route-\/low"}:}
+\DoxyCodeLine{251         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:low"}: int(data) \}}
+\DoxyCodeLine{252         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv6/route/config/low'})}
+\DoxyCodeLine{253 }
+\DoxyCodeLine{254     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/nexthop-\/group-\/member-\/type"}:}
+\DoxyCodeLine{255         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:type"}: data.upper() \}}
+\DoxyCodeLine{256         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/nexthop/group-\/member/config/type'})}
+\DoxyCodeLine{257     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/nexthop-\/group-\/member-\/high"}:}
+\DoxyCodeLine{258         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:high"}: int(data) \}}
+\DoxyCodeLine{259         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/nexthop/group-\/member/config/high'})}
+\DoxyCodeLine{260     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/nexthop-\/group-\/member-\/low"}:}
+\DoxyCodeLine{261         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:low"}: int(data) \}}
+\DoxyCodeLine{262         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/nexthop/group-\/member/config/low'})}
+\DoxyCodeLine{263 }
+\DoxyCodeLine{264     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/nexthop-\/group-\/object-\/type"}:}
+\DoxyCodeLine{265         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:type"}: data.upper() \}}
+\DoxyCodeLine{266         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/nexthop/group-\/object/config/type'})}
+\DoxyCodeLine{267     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/nexthop-\/group-\/object-\/high"}:}
+\DoxyCodeLine{268         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:high"}: int(data) \}}
+\DoxyCodeLine{269         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/nexthop/group-\/object/config/high'})}
+\DoxyCodeLine{270     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/nexthop-\/group-\/object-\/low"}:}
+\DoxyCodeLine{271         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:low"}: int(data) \}}
+\DoxyCodeLine{272         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/nexthop/group-\/object/config/low'})}
+\DoxyCodeLine{273 }
+\DoxyCodeLine{274     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/all-\/type"}:}
+\DoxyCodeLine{275         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:type"}: data.upper() \}}
+\DoxyCodeLine{276         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/group/counter/config/type'})}
+\DoxyCodeLine{277         aa.patch(path, body)}
+\DoxyCodeLine{278         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:type"}: data.upper() \}}
+\DoxyCodeLine{279         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/group/entry/config/type'})}
+\DoxyCodeLine{280         aa.patch(path, body)}
+\DoxyCodeLine{281         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:type"}: data.upper() \}}
+\DoxyCodeLine{282         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/group/config/type'})}
+\DoxyCodeLine{283         aa.patch(path, body)}
+\DoxyCodeLine{284         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:type"}: data.upper() \}}
+\DoxyCodeLine{285         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/table/config/type'})}
+\DoxyCodeLine{286         aa.patch(path, body)}
+\DoxyCodeLine{287         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:type"}: data.upper() \}}
+\DoxyCodeLine{288         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/dnat/config/type'})}
+\DoxyCodeLine{289         aa.patch(path, body)}
+\DoxyCodeLine{290         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:type"}: data.upper() \}}
+\DoxyCodeLine{291         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/snat/config/type'})}
+\DoxyCodeLine{292         aa.patch(path, body)}
+\DoxyCodeLine{293         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:type"}: data.upper() \}}
+\DoxyCodeLine{294         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/fdb/config/type'})}
+\DoxyCodeLine{295         aa.patch(path, body)}
+\DoxyCodeLine{296         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:type"}: data.upper() \}}
+\DoxyCodeLine{297         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipmc/config/type'})}
+\DoxyCodeLine{298         aa.patch(path, body)}
+\DoxyCodeLine{299         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:type"}: data.upper() \}}
+\DoxyCodeLine{300         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv4/neighbor/config/type'})}
+\DoxyCodeLine{301         aa.patch(path, body)}
+\DoxyCodeLine{302         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:type"}: data.upper() \}}
+\DoxyCodeLine{303         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv4/nexthop/config/type'})}
+\DoxyCodeLine{304         aa.patch(path, body)}
+\DoxyCodeLine{305         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:type"}: data.upper() \}}
+\DoxyCodeLine{306         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv4/route/config/type'})}
+\DoxyCodeLine{307         aa.patch(path, body)}
+\DoxyCodeLine{308         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:type"}: data.upper() \}}
+\DoxyCodeLine{309         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv6/neighbor/config/type'})}
+\DoxyCodeLine{310         aa.patch(path, body)}
+\DoxyCodeLine{311         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:type"}: data.upper() \}}
+\DoxyCodeLine{312         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv6/nexthop/config/type'})}
+\DoxyCodeLine{313         aa.patch(path, body)}
+\DoxyCodeLine{314         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:type"}: data.upper() \}}
+\DoxyCodeLine{315         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv6/route/config/type'})}
+\DoxyCodeLine{316         aa.patch(path, body)}
+\DoxyCodeLine{317         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:type"}: data.upper() \}}
+\DoxyCodeLine{318         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/nexthop/group-\/member/config/type'})}
+\DoxyCodeLine{319         aa.patch(path, body)}
+\DoxyCodeLine{320         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:type"}: data.upper() \}}
+\DoxyCodeLine{321         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/nexthop/group-\/object/config/type'})}
+\DoxyCodeLine{322         aa.patch(path, body)}
+\DoxyCodeLine{323         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{324 }
+\DoxyCodeLine{325     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/all-\/high"}:}
+\DoxyCodeLine{326         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:high"}: int(data) \}}
+\DoxyCodeLine{327         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/group/counter/config/high'})}
+\DoxyCodeLine{328         aa.patch(path, body)}
+\DoxyCodeLine{329         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:high"}: int(data) \}}
+\DoxyCodeLine{330         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/group/entry/config/high'})}
+\DoxyCodeLine{331         aa.patch(path, body)}
+\DoxyCodeLine{332         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:high"}: int(data) \}}
+\DoxyCodeLine{333         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/group/config/high'})}
+\DoxyCodeLine{334         aa.patch(path, body)}
+\DoxyCodeLine{335         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:high"}: int(data) \}}
+\DoxyCodeLine{336         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/table/config/high'})}
+\DoxyCodeLine{337         aa.patch(path, body)}
+\DoxyCodeLine{338         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:high"}: int(data) \}}
+\DoxyCodeLine{339         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/dnat/config/high'})}
+\DoxyCodeLine{340         aa.patch(path, body)}
+\DoxyCodeLine{341         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:high"}: int(data) \}}
+\DoxyCodeLine{342         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/snat/config/high'})}
+\DoxyCodeLine{343         aa.patch(path, body)}
+\DoxyCodeLine{344         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:high"}: int(data) \}}
+\DoxyCodeLine{345         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/fdb/config/high'})}
+\DoxyCodeLine{346         aa.patch(path, body)}
+\DoxyCodeLine{347         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:high"}: int(data) \}}
+\DoxyCodeLine{348         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipmc/config/high'})}
+\DoxyCodeLine{349         aa.patch(path, body)}
+\DoxyCodeLine{350         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:high"}: int(data) \}}
+\DoxyCodeLine{351         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv4/neighbor/config/high'})}
+\DoxyCodeLine{352         aa.patch(path, body)}
+\DoxyCodeLine{353         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:high"}: int(data) \}}
+\DoxyCodeLine{354         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv4/nexthop/config/high'})}
+\DoxyCodeLine{355         aa.patch(path, body)}
+\DoxyCodeLine{356         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:high"}: int(data) \}}
+\DoxyCodeLine{357         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv4/route/config/high'})}
+\DoxyCodeLine{358         aa.patch(path, body)}
+\DoxyCodeLine{359         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:high"}: int(data) \}}
+\DoxyCodeLine{360         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv6/neighbor/config/high'})}
+\DoxyCodeLine{361         aa.patch(path, body)}
+\DoxyCodeLine{362         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:high"}: int(data) \}}
+\DoxyCodeLine{363         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv6/nexthop/config/high'})}
+\DoxyCodeLine{364         aa.patch(path, body)}
+\DoxyCodeLine{365         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:high"}: int(data) \}}
+\DoxyCodeLine{366         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv6/route/config/high'})}
+\DoxyCodeLine{367         aa.patch(path, body)}
+\DoxyCodeLine{368         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:high"}: int(data) \}}
+\DoxyCodeLine{369         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/nexthop/group-\/member/config/high'})}
+\DoxyCodeLine{370         aa.patch(path, body)}
+\DoxyCodeLine{371         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:high"}: int(data) \}}
+\DoxyCodeLine{372         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/nexthop/group-\/object/config/high'})}
+\DoxyCodeLine{373         aa.patch(path, body)}
+\DoxyCodeLine{374         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{375 }
+\DoxyCodeLine{376     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"patch-\/crm-\/thresholds-\/all-\/low"}:}
+\DoxyCodeLine{377         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:low"}: int(data) \}}
+\DoxyCodeLine{378         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/group/counter/config/low'})}
+\DoxyCodeLine{379         aa.patch(path, body)}
+\DoxyCodeLine{380         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:low"}: int(data) \}}
+\DoxyCodeLine{381         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/group/entry/config/low'})}
+\DoxyCodeLine{382         aa.patch(path, body)}
+\DoxyCodeLine{383         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:low"}: int(data) \}}
+\DoxyCodeLine{384         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/group/config/low'})}
+\DoxyCodeLine{385         aa.patch(path, body)}
+\DoxyCodeLine{386         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:low"}: int(data) \}}
+\DoxyCodeLine{387         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/table/config/low'})}
+\DoxyCodeLine{388         aa.patch(path, body)}
+\DoxyCodeLine{389         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:low"}: int(data) \}}
+\DoxyCodeLine{390         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/dnat/config/low'})}
+\DoxyCodeLine{391         aa.patch(path, body)}
+\DoxyCodeLine{392         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:low"}: int(data) \}}
+\DoxyCodeLine{393         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/snat/config/low'})}
+\DoxyCodeLine{394         aa.patch(path, body)}
+\DoxyCodeLine{395         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:low"}: int(data) \}}
+\DoxyCodeLine{396         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/fdb/config/low'})}
+\DoxyCodeLine{397         aa.patch(path, body)}
+\DoxyCodeLine{398         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:low"}: int(data) \}}
+\DoxyCodeLine{399         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipmc/config/low'})}
+\DoxyCodeLine{400         aa.patch(path, body)}
+\DoxyCodeLine{401         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:low"}: int(data) \}}
+\DoxyCodeLine{402         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv4/neighbor/config/low'})}
+\DoxyCodeLine{403         aa.patch(path, body)}
+\DoxyCodeLine{404         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:low"}: int(data) \}}
+\DoxyCodeLine{405         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv4/nexthop/config/low'})}
+\DoxyCodeLine{406         aa.patch(path, body)}
+\DoxyCodeLine{407         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:low"}: int(data) \}}
+\DoxyCodeLine{408         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv4/route/config/low'})}
+\DoxyCodeLine{409         aa.patch(path, body)}
+\DoxyCodeLine{410         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:low"}: int(data) \}}
+\DoxyCodeLine{411         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv6/neighbor/config/low'})}
+\DoxyCodeLine{412         aa.patch(path, body)}
+\DoxyCodeLine{413         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:low"}: int(data) \}}
+\DoxyCodeLine{414         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv6/nexthop/config/low'})}
+\DoxyCodeLine{415         aa.patch(path, body)}
+\DoxyCodeLine{416         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:low"}: int(data) \}}
+\DoxyCodeLine{417         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv6/route/config/low'})}
+\DoxyCodeLine{418         aa.patch(path, body)}
+\DoxyCodeLine{419         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:low"}: int(data) \}}
+\DoxyCodeLine{420         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/nexthop/group-\/member/config/low'})}
+\DoxyCodeLine{421         aa.patch(path, body)}
+\DoxyCodeLine{422         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/crm:low"}: int(data) \}}
+\DoxyCodeLine{423         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/nexthop/group-\/object/config/low'})}
+\DoxyCodeLine{424         aa.patch(path, body)}
+\DoxyCodeLine{425         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{426 }
+\DoxyCodeLine{427     \textcolor{comment}{\# DELETE CONFIG}}
+\DoxyCodeLine{428     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/all"}:}
+\DoxyCodeLine{429         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/config'})}
+\DoxyCodeLine{430         aa.delete(path)}
+\DoxyCodeLine{431         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/group/counter/config'})}
+\DoxyCodeLine{432         aa.delete(path)}
+\DoxyCodeLine{433         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/group/entry/config'})}
+\DoxyCodeLine{434         aa.delete(path)}
+\DoxyCodeLine{435         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/group/config'})}
+\DoxyCodeLine{436         aa.delete(path)}
+\DoxyCodeLine{437         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/table/config'})}
+\DoxyCodeLine{438         aa.delete(path)}
+\DoxyCodeLine{439         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/dnat/config'})}
+\DoxyCodeLine{440         aa.delete(path)}
+\DoxyCodeLine{441         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/snat/config'})}
+\DoxyCodeLine{442         aa.delete(path)}
+\DoxyCodeLine{443         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipmc/config'})}
+\DoxyCodeLine{444         aa.delete(path)}
+\DoxyCodeLine{445         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/fdb/config'})}
+\DoxyCodeLine{446         aa.delete(path)}
+\DoxyCodeLine{447         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv4/neighbor/config'})}
+\DoxyCodeLine{448         aa.delete(path)}
+\DoxyCodeLine{449         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv4/nexthop/config'})}
+\DoxyCodeLine{450         aa.delete(path)}
+\DoxyCodeLine{451         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv4/route/config'})}
+\DoxyCodeLine{452         aa.delete(path)}
+\DoxyCodeLine{453         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv6/neighbor/config'})}
+\DoxyCodeLine{454         aa.delete(path)}
+\DoxyCodeLine{455         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv6/nexthop/config'})}
+\DoxyCodeLine{456         aa.delete(path)}
+\DoxyCodeLine{457         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv6/route/config'})}
+\DoxyCodeLine{458         aa.delete(path)}
+\DoxyCodeLine{459         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/nexthop/group-\/member/config'})}
+\DoxyCodeLine{460         aa.delete(path)}
+\DoxyCodeLine{461         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/nexthop/group-\/object/config'})}
+\DoxyCodeLine{462         aa.delete(path)}
+\DoxyCodeLine{463         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{464 }
+\DoxyCodeLine{465     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/all"}:}
+\DoxyCodeLine{466         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/group/counter/config'})}
+\DoxyCodeLine{467         aa.delete(path)}
+\DoxyCodeLine{468         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/group/entry/config'})}
+\DoxyCodeLine{469         aa.delete(path)}
+\DoxyCodeLine{470         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/group/config'})}
+\DoxyCodeLine{471         aa.delete(path)}
+\DoxyCodeLine{472         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/table/config'})}
+\DoxyCodeLine{473         aa.delete(path)}
+\DoxyCodeLine{474         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/dnat/config'})}
+\DoxyCodeLine{475         aa.delete(path)}
+\DoxyCodeLine{476         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/snat/config'})}
+\DoxyCodeLine{477         aa.delete(path)}
+\DoxyCodeLine{478         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipmc/config'})}
+\DoxyCodeLine{479         aa.delete(path)}
+\DoxyCodeLine{480         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/fdb/config'})}
+\DoxyCodeLine{481         aa.delete(path)}
+\DoxyCodeLine{482         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv4/neighbor/config'})}
+\DoxyCodeLine{483         aa.delete(path)}
+\DoxyCodeLine{484         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv4/nexthop/config'})}
+\DoxyCodeLine{485         aa.delete(path)}
+\DoxyCodeLine{486         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv4/route/config'})}
+\DoxyCodeLine{487         aa.delete(path)}
+\DoxyCodeLine{488         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv6/neighbor/config'})}
+\DoxyCodeLine{489         aa.delete(path)}
+\DoxyCodeLine{490         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv6/nexthop/config'})}
+\DoxyCodeLine{491         aa.delete(path)}
+\DoxyCodeLine{492         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv6/route/config'})}
+\DoxyCodeLine{493         aa.delete(path)}
+\DoxyCodeLine{494         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/nexthop/group-\/member/config'})}
+\DoxyCodeLine{495         aa.delete(path)}
+\DoxyCodeLine{496         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/nexthop/group-\/object/config'})}
+\DoxyCodeLine{497         aa.delete(path)}
+\DoxyCodeLine{498         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{499 }
+\DoxyCodeLine{500     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/polling-\/interval"}:}
+\DoxyCodeLine{501         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/config/polling-\/interval'})}
+\DoxyCodeLine{502 }
+\DoxyCodeLine{503     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/acl-\/group-\/counter-\/type"}:}
+\DoxyCodeLine{504         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/group/counter/config/type'})}
+\DoxyCodeLine{505     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/acl-\/group-\/counter-\/high"}:}
+\DoxyCodeLine{506         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/group/counter/config/high'})}
+\DoxyCodeLine{507     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/acl-\/group-\/counter-\/low"}:}
+\DoxyCodeLine{508         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/group/counter/config/low'})}
+\DoxyCodeLine{509 }
+\DoxyCodeLine{510     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/acl-\/group-\/entry-\/type"}:}
+\DoxyCodeLine{511         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/group/entry/config/type'})}
+\DoxyCodeLine{512     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/acl-\/group-\/entry-\/high"}:}
+\DoxyCodeLine{513         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/group/entry/config/high'})}
+\DoxyCodeLine{514     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/acl-\/group-\/entry-\/low"}:}
+\DoxyCodeLine{515         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/group/entry/config/low'})}
+\DoxyCodeLine{516 }
+\DoxyCodeLine{517     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/acl-\/group-\/type"}:}
+\DoxyCodeLine{518         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/group/config/type'})}
+\DoxyCodeLine{519     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/acl-\/group-\/high"}:}
+\DoxyCodeLine{520         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/group/config/high'})}
+\DoxyCodeLine{521     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/acl-\/group-\/low"}:}
+\DoxyCodeLine{522         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/group/config/low'})}
+\DoxyCodeLine{523 }
+\DoxyCodeLine{524     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/acl-\/table-\/type"}:}
+\DoxyCodeLine{525         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/table/config/type'})}
+\DoxyCodeLine{526     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/acl-\/table-\/high"}:}
+\DoxyCodeLine{527         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/table/config/high'})}
+\DoxyCodeLine{528     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/acl-\/table-\/low"}:}
+\DoxyCodeLine{529         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/acl/table/config/low'})}
+\DoxyCodeLine{530 }
+\DoxyCodeLine{531     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/dnat-\/type"}:}
+\DoxyCodeLine{532         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/dnat/config/type'})}
+\DoxyCodeLine{533     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/dnat-\/high"}:}
+\DoxyCodeLine{534         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/dnat/config/high'})}
+\DoxyCodeLine{535     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/dnat-\/low"}:}
+\DoxyCodeLine{536         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/dnat/config/low'})}
+\DoxyCodeLine{537 }
+\DoxyCodeLine{538     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/snat-\/type"}:}
+\DoxyCodeLine{539         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/snat/config/type'})}
+\DoxyCodeLine{540     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/snat-\/high"}:}
+\DoxyCodeLine{541         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/snat/config/high'})}
+\DoxyCodeLine{542     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/snat-\/low"}:}
+\DoxyCodeLine{543         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/snat/config/low'})}
+\DoxyCodeLine{544 }
+\DoxyCodeLine{545     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/fdb-\/type"}:}
+\DoxyCodeLine{546         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/fdb/config/type'})}
+\DoxyCodeLine{547     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/fdb-\/high"}:}
+\DoxyCodeLine{548         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/fdb/config/high'})}
+\DoxyCodeLine{549     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/fdb-\/low"}:}
+\DoxyCodeLine{550         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/fdb/config/low'})}
+\DoxyCodeLine{551 }
+\DoxyCodeLine{552     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/ipmc-\/type"}:}
+\DoxyCodeLine{553         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipmc/config/type'})}
+\DoxyCodeLine{554     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/ipmc-\/high"}:}
+\DoxyCodeLine{555         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipmc/config/high'})}
+\DoxyCodeLine{556     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/ipmc-\/low"}:}
+\DoxyCodeLine{557         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipmc/config/low'})}
+\DoxyCodeLine{558 }
+\DoxyCodeLine{559     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/ipv4-\/neighbor-\/type"}:}
+\DoxyCodeLine{560         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv4/neighbor/config/type'})}
+\DoxyCodeLine{561     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/ipv4-\/neighbor-\/high"}:}
+\DoxyCodeLine{562         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv4/neighbor/config/high'})}
+\DoxyCodeLine{563     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/ipv4-\/neighbor-\/low"}:}
+\DoxyCodeLine{564         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv4/neighbor/config/low'})}
+\DoxyCodeLine{565 }
+\DoxyCodeLine{566     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/ipv4-\/nexthop-\/type"}:}
+\DoxyCodeLine{567         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv4/nexthop/config/type'})}
+\DoxyCodeLine{568     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/ipv4-\/nexthop-\/high"}:}
+\DoxyCodeLine{569         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv4/nexthop/config/high'})}
+\DoxyCodeLine{570     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/ipv4-\/nexthop-\/low"}:}
+\DoxyCodeLine{571         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv4/nexthop/config/low'})}
+\DoxyCodeLine{572 }
+\DoxyCodeLine{573     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/ipv4-\/route-\/type"}:}
+\DoxyCodeLine{574         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv4/route/config/type'})}
+\DoxyCodeLine{575     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/ipv4-\/route-\/high"}:}
+\DoxyCodeLine{576         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv4/route/config/high'})}
+\DoxyCodeLine{577     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/ipv4-\/route-\/low"}:}
+\DoxyCodeLine{578         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv4/route/config/low'})}
+\DoxyCodeLine{579 }
+\DoxyCodeLine{580     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/ipv6-\/neighbor-\/type"}:}
+\DoxyCodeLine{581         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv6/neighbor/config/type'})}
+\DoxyCodeLine{582     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/ipv6-\/neighbor-\/high"}:}
+\DoxyCodeLine{583         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv6/neighbor/config/high'})}
+\DoxyCodeLine{584     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/ipv6-\/neighbor-\/low"}:}
+\DoxyCodeLine{585         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv6/neighbor/config/low'})}
+\DoxyCodeLine{586 }
+\DoxyCodeLine{587     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/ipv6-\/nexthop-\/type"}:}
+\DoxyCodeLine{588         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv6/nexthop/config/type'})}
+\DoxyCodeLine{589     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/ipv6-\/nexthop-\/high"}:}
+\DoxyCodeLine{590         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv6/nexthop/config/high'})}
+\DoxyCodeLine{591     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/ipv6-\/nexthop-\/low"}:}
+\DoxyCodeLine{592         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv6/nexthop/config/low'})}
+\DoxyCodeLine{593 }
+\DoxyCodeLine{594     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/ipv6-\/route-\/type"}:}
+\DoxyCodeLine{595         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv6/route/config/type'})}
+\DoxyCodeLine{596     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/ipv6-\/route-\/high"}:}
+\DoxyCodeLine{597         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv6/route/config/high'})}
+\DoxyCodeLine{598     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/ipv6-\/route-\/low"}:}
+\DoxyCodeLine{599         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/ipv6/route/config/low'})}
+\DoxyCodeLine{600 }
+\DoxyCodeLine{601     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/nexthop-\/group-\/member-\/type"}:}
+\DoxyCodeLine{602         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/nexthop/group-\/member/config/type'})}
+\DoxyCodeLine{603     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/nexthop-\/group-\/member-\/high"}:}
+\DoxyCodeLine{604         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/nexthop/group-\/member/config/high'})}
+\DoxyCodeLine{605     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/nexthop-\/group-\/member-\/low"}:}
+\DoxyCodeLine{606         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/nexthop/group-\/member/config/low'})}
+\DoxyCodeLine{607 }
+\DoxyCodeLine{608     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/nexthop-\/group-\/object-\/type"}:}
+\DoxyCodeLine{609         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/nexthop/group-\/object/config/type'})}
+\DoxyCodeLine{610     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/nexthop-\/group-\/object-\/high"}:}
+\DoxyCodeLine{611         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/nexthop/group-\/object/config/high'})}
+\DoxyCodeLine{612     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"no-\/crm-\/thresholds-\/nexthop-\/group-\/object-\/low"}:}
+\DoxyCodeLine{613         path = cc.Path(uri\_conf + \textcolor{stringliteral}{'/threshold/nexthop/group-\/object/config/low'})}
+\DoxyCodeLine{614 }
+\DoxyCodeLine{615     \textcolor{comment}{\# SHOW ACL\_GROUP\_STATS}}
+\DoxyCodeLine{616     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"show-\/crm-\/resources-\/acl-\/group"}:}
+\DoxyCodeLine{617         tmpl = \textcolor{stringliteral}{"show\_crm\_resources\_acl\_group.j2"}}
+\DoxyCodeLine{618         path = cc.Path(uri\_stat\_acl)}
+\DoxyCodeLine{619     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"show-\/crm-\/resources-\/acl-\/table"}:}
+\DoxyCodeLine{620         tmpl = \textcolor{stringliteral}{"show\_crm\_resources\_acl\_table.j2"}}
+\DoxyCodeLine{621         path = cc.Path(uri\_stat\_acl\_tbl)}
+\DoxyCodeLine{622 }
+\DoxyCodeLine{623     \textcolor{comment}{\# SHOW STATS}}
+\DoxyCodeLine{624     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"show-\/crm-\/resources-\/dnat"}:}
+\DoxyCodeLine{625         tmpl = \textcolor{stringliteral}{"show\_crm\_resources\_dnat.j2"}}
+\DoxyCodeLine{626         path = cc.Path(uri\_stat)}
+\DoxyCodeLine{627     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"show-\/crm-\/resources-\/fdb"}:}
+\DoxyCodeLine{628         tmpl = \textcolor{stringliteral}{"show\_crm\_resources\_fdb.j2"}}
+\DoxyCodeLine{629         path = cc.Path(uri\_stat)}
+\DoxyCodeLine{630     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"show-\/crm-\/resources-\/ipmc"}:}
+\DoxyCodeLine{631         tmpl = \textcolor{stringliteral}{"show\_crm\_resources\_ipmc.j2"}}
+\DoxyCodeLine{632         path = cc.Path(uri\_stat)}
+\DoxyCodeLine{633     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"show-\/crm-\/resources-\/ipv4-\/neighbor"}:}
+\DoxyCodeLine{634         tmpl = \textcolor{stringliteral}{"show\_crm\_resources\_ipv4\_neighbor.j2"}}
+\DoxyCodeLine{635         path = cc.Path(uri\_stat)}
+\DoxyCodeLine{636     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"show-\/crm-\/resources-\/ipv4-\/nexthop"}:}
+\DoxyCodeLine{637         tmpl = \textcolor{stringliteral}{"show\_crm\_resources\_ipv4\_nexthop.j2"}}
+\DoxyCodeLine{638         path = cc.Path(uri\_stat)}
+\DoxyCodeLine{639     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"show-\/crm-\/resources-\/ipv4-\/route"}:}
+\DoxyCodeLine{640         tmpl = \textcolor{stringliteral}{"show\_crm\_resources\_ipv4\_route.j2"}}
+\DoxyCodeLine{641         path = cc.Path(uri\_stat)}
+\DoxyCodeLine{642     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"show-\/crm-\/resources-\/ipv6-\/neighbor"}:}
+\DoxyCodeLine{643         tmpl = \textcolor{stringliteral}{"show\_crm\_resources\_ipv6\_neighbor.j2"}}
+\DoxyCodeLine{644         path = cc.Path(uri\_stat)}
+\DoxyCodeLine{645     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"show-\/crm-\/resources-\/ipv6-\/nexthop"}:}
+\DoxyCodeLine{646         tmpl = \textcolor{stringliteral}{"show\_crm\_resources\_ipv6\_nexthop.j2"}}
+\DoxyCodeLine{647         path = cc.Path(uri\_stat)}
+\DoxyCodeLine{648     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"show-\/crm-\/resources-\/ipv6-\/route"}:}
+\DoxyCodeLine{649         tmpl = \textcolor{stringliteral}{"show\_crm\_resources\_ipv6\_route.j2"}}
+\DoxyCodeLine{650         path = cc.Path(uri\_stat)}
+\DoxyCodeLine{651     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"show-\/crm-\/resources-\/nexthop-\/group-\/member"}:}
+\DoxyCodeLine{652         tmpl = \textcolor{stringliteral}{"show\_crm\_resources\_nexthop\_group\_member.j2"}}
+\DoxyCodeLine{653         path = cc.Path(uri\_stat)}
+\DoxyCodeLine{654     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"show-\/crm-\/resources-\/nexthop-\/group-\/object"}:}
+\DoxyCodeLine{655         tmpl = \textcolor{stringliteral}{"show\_crm\_resources\_nexthop\_group\_object.j2"}}
+\DoxyCodeLine{656         path = cc.Path(uri\_stat)}
+\DoxyCodeLine{657     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"show-\/crm-\/resources-\/snat"}:}
+\DoxyCodeLine{658         tmpl = \textcolor{stringliteral}{"show\_crm\_resources\_snat.j2"}}
+\DoxyCodeLine{659         path = cc.Path(uri\_stat)}
+\DoxyCodeLine{660     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"show-\/crm-\/resources-\/all"}:}
+\DoxyCodeLine{661         stat = \{\}}
+\DoxyCodeLine{662         tmpl = \textcolor{stringliteral}{"show\_crm\_resources\_all.j2"}}
+\DoxyCodeLine{663         path = cc.Path(uri\_stat)}
+\DoxyCodeLine{664         resp = aa.get(path, \textcolor{keywordtype}{None}, \textcolor{keyword}{False})}
+\DoxyCodeLine{665         \textcolor{keywordflow}{if} (resp \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}) \textcolor{keywordflow}{and} resp.ok() \textcolor{keywordflow}{and} (resp.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}) \textcolor{keywordflow}{and} (\textcolor{stringliteral}{'openconfig-\/system-\/crm:statistics'} \textcolor{keywordflow}{in} resp.content):}
+\DoxyCodeLine{666             stat.update(resp.content[\textcolor{stringliteral}{'openconfig-\/system-\/crm:statistics'}])}
+\DoxyCodeLine{667         path = cc.Path(uri\_stat\_acl)}
+\DoxyCodeLine{668         resp = aa.get(path, \textcolor{keywordtype}{None}, \textcolor{keyword}{False})}
+\DoxyCodeLine{669         \textcolor{keywordflow}{if} (resp \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}) \textcolor{keywordflow}{and} resp.ok() \textcolor{keywordflow}{and} (resp.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}) \textcolor{keywordflow}{and} (\textcolor{stringliteral}{'openconfig-\/system-\/crm:acl-\/statistics'} \textcolor{keywordflow}{in} resp.content):}
+\DoxyCodeLine{670             stat.update(resp.content[\textcolor{stringliteral}{'openconfig-\/system-\/crm:acl-\/statistics'}])}
+\DoxyCodeLine{671         \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(tmpl, stat)}
+\DoxyCodeLine{672         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{673 }
+\DoxyCodeLine{674     \textcolor{keywordflow}{if} path == \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{675         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{676 }
+\DoxyCodeLine{677     op = func.split(\textcolor{stringliteral}{'-\/'})[0]}
+\DoxyCodeLine{678     \textcolor{keywordflow}{if} (op == \textcolor{stringliteral}{'show'}):}
+\DoxyCodeLine{679         resp = aa.get(path, \textcolor{keywordtype}{None}, \textcolor{keyword}{False})}
+\DoxyCodeLine{680     \textcolor{keywordflow}{elif} (op == \textcolor{stringliteral}{'no'}):}
+\DoxyCodeLine{681         resp = aa.delete(path)}
+\DoxyCodeLine{682     \textcolor{keywordflow}{elif} (op == \textcolor{stringliteral}{'patch'}) \textcolor{keywordflow}{and} (body \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}):}
+\DoxyCodeLine{683         resp = aa.patch(path, body)}
+\DoxyCodeLine{684     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{685         resp = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{686     \textcolor{keywordflow}{if} (resp \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}) \textcolor{keywordflow}{and} resp.ok():}
+\DoxyCodeLine{687         \textcolor{keywordflow}{if} (tmpl \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}) \textcolor{keywordflow}{and} (resp.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}):}
+\DoxyCodeLine{688             \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(tmpl, resp.content)}
+\DoxyCodeLine{689     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{690         \textcolor{keywordflow}{print} resp.error\_message()}
+\DoxyCodeLine{691 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/da9/namespacesonic__cli__crm_aec74ac73ff5228fdd82a211761904d33_cgraph}
+\end{center}
+\end{figure}

@@ -1,0 +1,76 @@
+\hypertarget{namespacesonic-cli-mgmt-dhcp}{}\doxysection{sonic-\/cli-\/mgmt-\/dhcp 네임스페이스 참조}
+\label{namespacesonic-cli-mgmt-dhcp}\index{sonic-\/cli-\/mgmt-\/dhcp@{sonic-\/cli-\/mgmt-\/dhcp}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic-cli-mgmt-dhcp_a37c312a1a54203f774a6c678acc1c856}{invoke}} (func, args)
+\item 
+def \mbox{\hyperlink{namespacesonic-cli-mgmt-dhcp_ae03fbd359ce2a57479bfce31007ce610}{run}} (func, args)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic-cli-mgmt-dhcp_a37c312a1a54203f774a6c678acc1c856}\label{namespacesonic-cli-mgmt-dhcp_a37c312a1a54203f774a6c678acc1c856}} 
+\index{sonic-\/cli-\/mgmt-\/dhcp@{sonic-\/cli-\/mgmt-\/dhcp}!invoke@{invoke}}
+\index{invoke@{invoke}!sonic-\/cli-\/mgmt-\/dhcp@{sonic-\/cli-\/mgmt-\/dhcp}}
+\doxysubsubsection{\texorpdfstring{invoke()}{invoke()}}
+{\footnotesize\ttfamily def sonic-\/cli-\/mgmt-\/dhcp.\+invoke (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic-\/cli-\/mgmt-\/dhcp.\+py 파일의 28 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{28 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic-cli-mgmt-dhcp_a37c312a1a54203f774a6c678acc1c856}{invoke}}(func, args):}
+\DoxyCodeLine{29     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{30     aa = cc.ApiClient()}
+\DoxyCodeLine{31     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'rpc\_sonic\_mgmt\_interface\_renew\_dhcp\_lease'}:}
+\DoxyCodeLine{32         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/mgmt-\/interface:renew\_dhcp\_lease'})}
+\DoxyCodeLine{33         body = \{\textcolor{stringliteral}{"sonic-\/mgmt-\/interface:input"}:\{\textcolor{stringliteral}{"portname"}:args[0]\}\}}
+\DoxyCodeLine{34         \textcolor{keywordflow}{return} aa.post(keypath, body)}
+\DoxyCodeLine{35     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{36         \textcolor{keywordflow}{return} }
+\DoxyCodeLine{37 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/da4/namespacesonic-cli-mgmt-dhcp_a37c312a1a54203f774a6c678acc1c856_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic-cli-mgmt-dhcp_ae03fbd359ce2a57479bfce31007ce610}\label{namespacesonic-cli-mgmt-dhcp_ae03fbd359ce2a57479bfce31007ce610}} 
+\index{sonic-\/cli-\/mgmt-\/dhcp@{sonic-\/cli-\/mgmt-\/dhcp}!run@{run}}
+\index{run@{run}!sonic-\/cli-\/mgmt-\/dhcp@{sonic-\/cli-\/mgmt-\/dhcp}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic-\/cli-\/mgmt-\/dhcp.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic-\/cli-\/mgmt-\/dhcp.\+py 파일의 38 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{38 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic-cli-mgmt-dhcp_ae03fbd359ce2a57479bfce31007ce610}{run}}(func, args):}
+\DoxyCodeLine{39     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{40         api\_response = \mbox{\hyperlink{namespacesonic-cli-mgmt-dhcp_a37c312a1a54203f774a6c678acc1c856}{invoke}}(func,args)}
+\DoxyCodeLine{41         status = api\_response.content[\textcolor{stringliteral}{"sonic-\/mgmt-\/interface:output"}]}
+\DoxyCodeLine{42         \textcolor{keywordflow}{if} status[\textcolor{stringliteral}{"status"}] != 0:}
+\DoxyCodeLine{43             \textcolor{keywordflow}{print} status[\textcolor{stringliteral}{"status-\/detail"}]}
+\DoxyCodeLine{44     \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{45         \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\%Error: Transaction Failure"}}
+\DoxyCodeLine{46     \textcolor{keywordflow}{return}}
+\DoxyCodeLine{47 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/da4/namespacesonic-cli-mgmt-dhcp_ae03fbd359ce2a57479bfce31007ce610_cgraph}
+\end{center}
+\end{figure}

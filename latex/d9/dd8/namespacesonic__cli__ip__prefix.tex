@@ -1,0 +1,214 @@
+\hypertarget{namespacesonic__cli__ip__prefix}{}\doxysection{sonic\+\_\+cli\+\_\+ip\+\_\+prefix 네임스페이스 참조}
+\label{namespacesonic__cli__ip__prefix}\index{sonic\_cli\_ip\_prefix@{sonic\_cli\_ip\_prefix}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__ip__prefix_a1b1368270f125fac0ceaa9965b7d9713}{generate\+\_\+ipprefix\+\_\+uri}} (args, delete)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__ip__prefix_a553cfe574cc9a63b135cab8f22385a5b}{invoke}} (func, args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__ip__prefix_a064fcea1ec72a9f264384a1fa2caa03c}{run}} (func, args)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__ip__prefix_a1b1368270f125fac0ceaa9965b7d9713}\label{namespacesonic__cli__ip__prefix_a1b1368270f125fac0ceaa9965b7d9713}} 
+\index{sonic\_cli\_ip\_prefix@{sonic\_cli\_ip\_prefix}!generate\_ipprefix\_uri@{generate\_ipprefix\_uri}}
+\index{generate\_ipprefix\_uri@{generate\_ipprefix\_uri}!sonic\_cli\_ip\_prefix@{sonic\_cli\_ip\_prefix}}
+\doxysubsubsection{\texorpdfstring{generate\_ipprefix\_uri()}{generate\_ipprefix\_uri()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+ip\+\_\+prefix.\+generate\+\_\+ipprefix\+\_\+uri (\begin{DoxyParamCaption}\item[{}]{args,  }\item[{}]{delete }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+ip\+\_\+prefix.\+py 파일의 31 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{31 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__ip__prefix_a1b1368270f125fac0ceaa9965b7d9713}{generate\_ipprefix\_uri}}(args, delete):}
+\DoxyCodeLine{32     \_action = \textcolor{stringliteral}{"PERMIT"}}
+\DoxyCodeLine{33     \_mode = set\_name = ge = le = \_maskrange\_length = \_ip\_prefix = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{34     ge\_val = le\_val = seq\_no = seqno\_exists = prefix\_exists = le\_exists = ge\_exists = is\_error = i = 0}
+\DoxyCodeLine{35     \textcolor{keywordflow}{for} arg \textcolor{keywordflow}{in} args:}
+\DoxyCodeLine{36         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"permit"} == arg:}
+\DoxyCodeLine{37            \_action = \textcolor{stringliteral}{"PERMIT"}}
+\DoxyCodeLine{38         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"deny"} == arg:}
+\DoxyCodeLine{39            \_action = \textcolor{stringliteral}{"DENY"}}
+\DoxyCodeLine{40         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"seq"} == arg:}
+\DoxyCodeLine{41            seq\_no = int(args[i+1])}
+\DoxyCodeLine{42            seqno\_exists = 1}
+\DoxyCodeLine{43         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"prefix-\/list"} == arg:}
+\DoxyCodeLine{44            set\_name = args[i+1]}
+\DoxyCodeLine{45            \textcolor{keywordflow}{if} len(args) > 6:}
+\DoxyCodeLine{46               \_ip\_prefix = args[i+5]}
+\DoxyCodeLine{47               prefix\_exists = 1}
+\DoxyCodeLine{48         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"ge"} == arg:}
+\DoxyCodeLine{49            ge\_exists = 1}
+\DoxyCodeLine{50            ge\_val = int(args[i+1])}
+\DoxyCodeLine{51            ge = args[i+1]}
+\DoxyCodeLine{52         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"le"} == arg:}
+\DoxyCodeLine{53            le\_exists = 1}
+\DoxyCodeLine{54            le\_val = int(args[i+1])}
+\DoxyCodeLine{55            le = args[i+1]}
+\DoxyCodeLine{56         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"ip"} == arg:}
+\DoxyCodeLine{57            \_mode = \textcolor{stringliteral}{"IPV4"}}
+\DoxyCodeLine{58            max = \textcolor{stringliteral}{"32"}}
+\DoxyCodeLine{59         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"ipv6"} == arg:}
+\DoxyCodeLine{60            \_mode = \textcolor{stringliteral}{"IPV6"}}
+\DoxyCodeLine{61            max = \textcolor{stringliteral}{"128"}}
+\DoxyCodeLine{62         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{63            temp = 1}
+\DoxyCodeLine{64         i = i + 1}
+\DoxyCodeLine{65     \textcolor{keywordflow}{if} seqno\_exists \textcolor{keywordflow}{and} prefix\_exists:}
+\DoxyCodeLine{66        \_prefix, \_mask = \_ip\_prefix.split(\textcolor{stringliteral}{"/"})}
+\DoxyCodeLine{67        mask\_val = int(\_mask)}
+\DoxyCodeLine{68        \textcolor{keywordflow}{if} (ge\_exists == 0 \textcolor{keywordflow}{and} le\_exists == 0):}
+\DoxyCodeLine{69           \_maskrange\_length = \textcolor{stringliteral}{"exact"}}
+\DoxyCodeLine{70        \textcolor{keywordflow}{elif} (ge\_exists == 1 \textcolor{keywordflow}{and} le\_exists == 0):}
+\DoxyCodeLine{71           \textcolor{keywordflow}{if} (ge\_val < mask\_val):}
+\DoxyCodeLine{72              is\_error = 1}
+\DoxyCodeLine{73           \_maskrange\_length = ge + \textcolor{stringliteral}{".."} + max}
+\DoxyCodeLine{74        \textcolor{keywordflow}{elif} (ge\_exists == 0 \textcolor{keywordflow}{and} le\_exists == 1):}
+\DoxyCodeLine{75           \textcolor{keywordflow}{if} (mask\_val > le\_val):}
+\DoxyCodeLine{76              is\_error = 1}
+\DoxyCodeLine{77           \_maskrange\_length = \_mask+\textcolor{stringliteral}{".."}+le}
+\DoxyCodeLine{78        \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{79           \textcolor{keywordflow}{if} ((ge\_val < mask\_val) \textcolor{keywordflow}{or} (mask\_val > le\_val) \textcolor{keywordflow}{or} (ge\_val > le\_val)):}
+\DoxyCodeLine{80              is\_error = 1}
+\DoxyCodeLine{81           \_maskrange\_length = ge+\textcolor{stringliteral}{".."}+le}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83        \textcolor{keywordflow}{if} is\_error:}
+\DoxyCodeLine{84           \textcolor{keywordflow}{print} (\textcolor{stringliteral}{"\%Error: Invalid prefix range, make sure: len <= ge <= le"})}
+\DoxyCodeLine{85           exit(1)}
+\DoxyCodeLine{86        \textcolor{keywordflow}{if} delete:}
+\DoxyCodeLine{87           keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/defined-\/sets/prefix-\/sets/prefix-\/set=\{prefix\_list\_name\}/openconfig-\/routing-\/policy-\/ext:prefixes-\/ext/prefix=\{sequence\_no\},\{prefix\}\%2F\{mask\},\{masklength\_range\}'}, prefix\_list\_name=set\_name, sequence\_no=str(seq\_no), prefix=\_prefix, mask=\_mask, masklength\_range=\_maskrange\_length)}
+\DoxyCodeLine{88           body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{89        \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{90           keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/defined-\/sets/prefix-\/sets'})}
+\DoxyCodeLine{91           body = \{\textcolor{stringliteral}{"openconfig-\/routing-\/policy:prefix-\/sets"}:\{\textcolor{stringliteral}{"prefix-\/set"}:[\{\textcolor{stringliteral}{"name"}: set\_name,\textcolor{stringliteral}{"config"}:\{\textcolor{stringliteral}{"name"}: set\_name,}
+\DoxyCodeLine{92                   \textcolor{stringliteral}{"mode"}: \_mode\},\textcolor{stringliteral}{"openconfig-\/routing-\/policy-\/ext:prefixes-\/ext"}:\{\textcolor{stringliteral}{"prefix"}:[\{\textcolor{stringliteral}{"sequence-\/number"}: seq\_no,\textcolor{stringliteral}{"ip-\/prefix"}: \_ip\_prefix,\textcolor{stringliteral}{"masklength-\/range"}: \_maskrange\_length,\textcolor{stringliteral}{"config"}: \{}
+\DoxyCodeLine{93                   \textcolor{stringliteral}{"sequence-\/number"}: seq\_no,\textcolor{stringliteral}{"ip-\/prefix"}: \_ip\_prefix,\textcolor{stringliteral}{"masklength-\/range"}: \_maskrange\_length,\textcolor{stringliteral}{"openconfig-\/routing-\/policy-\/ext:action"}: \_action\}\}]\}\}]\}\}}
+\DoxyCodeLine{94     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{95        keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/defined-\/sets/prefix-\/sets/prefix-\/set=\{prefix\_list\_name\}'},}
+\DoxyCodeLine{96                 prefix\_list\_name=set\_name)}
+\DoxyCodeLine{97        body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99     \textcolor{keywordflow}{return} keypath, body}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/dd8/namespacesonic__cli__ip__prefix_a1b1368270f125fac0ceaa9965b7d9713_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__ip__prefix_a553cfe574cc9a63b135cab8f22385a5b}\label{namespacesonic__cli__ip__prefix_a553cfe574cc9a63b135cab8f22385a5b}} 
+\index{sonic\_cli\_ip\_prefix@{sonic\_cli\_ip\_prefix}!invoke@{invoke}}
+\index{invoke@{invoke}!sonic\_cli\_ip\_prefix@{sonic\_cli\_ip\_prefix}}
+\doxysubsubsection{\texorpdfstring{invoke()}{invoke()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+ip\+\_\+prefix.\+invoke (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+ip\+\_\+prefix.\+py 파일의 102 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{102 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__ip__prefix_a553cfe574cc9a63b135cab8f22385a5b}{invoke}}(func, args):}
+\DoxyCodeLine{103     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{104     aa = cc.ApiClient()}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'ip\_prefix\_create'}:}
+\DoxyCodeLine{107         keypath, body = \mbox{\hyperlink{namespacesonic__cli__ip__prefix_a1b1368270f125fac0ceaa9965b7d9713}{generate\_ipprefix\_uri}}(args, 0)}
+\DoxyCodeLine{108         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'ip\_prefix\_delete'}:}
+\DoxyCodeLine{111         keypath, body = \mbox{\hyperlink{namespacesonic__cli__ip__prefix_a1b1368270f125fac0ceaa9965b7d9713}{generate\_ipprefix\_uri}}(args, 1)}
+\DoxyCodeLine{112         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'ip\_prefix\_show\_specific'}:}
+\DoxyCodeLine{115         \textcolor{keywordflow}{if} len(args) > 1:}
+\DoxyCodeLine{116             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/defined-\/sets/prefix-\/sets/prefix-\/set=\{name\}'},name=args[1])}
+\DoxyCodeLine{117         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{118             \textcolor{comment}{\# show all}}
+\DoxyCodeLine{119             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/defined-\/sets/prefix-\/sets'})}
+\DoxyCodeLine{120         \textcolor{keywordflow}{return} aa.get(keypath)}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'ipv6\_prefix\_show\_specific'}:}
+\DoxyCodeLine{123         \textcolor{keywordflow}{if} len(args) > 1:}
+\DoxyCodeLine{124             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/defined-\/sets/prefix-\/sets/prefix-\/set=\{name\}'},name=args[1])}
+\DoxyCodeLine{125         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{126             \textcolor{comment}{\# show all}}
+\DoxyCodeLine{127             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/defined-\/sets/prefix-\/sets'})}
+\DoxyCodeLine{128         \textcolor{keywordflow}{return} aa.get(keypath)}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{131         \textcolor{keywordflow}{return} aa.cli\_not\_implemented(func)}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/dd8/namespacesonic__cli__ip__prefix_a553cfe574cc9a63b135cab8f22385a5b_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/dd8/namespacesonic__cli__ip__prefix_a553cfe574cc9a63b135cab8f22385a5b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__ip__prefix_a064fcea1ec72a9f264384a1fa2caa03c}\label{namespacesonic__cli__ip__prefix_a064fcea1ec72a9f264384a1fa2caa03c}} 
+\index{sonic\_cli\_ip\_prefix@{sonic\_cli\_ip\_prefix}!run@{run}}
+\index{run@{run}!sonic\_cli\_ip\_prefix@{sonic\_cli\_ip\_prefix}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+ip\+\_\+prefix.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+ip\+\_\+prefix.\+py 파일의 134 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{134 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__ip__prefix_a064fcea1ec72a9f264384a1fa2caa03c}{run}}(func, args):}
+\DoxyCodeLine{135   \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{136     response = \mbox{\hyperlink{namespacesonic__cli__ip__prefix_a553cfe574cc9a63b135cab8f22385a5b}{invoke}}(func,args)}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138     \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{139         \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{140             \textcolor{comment}{\# Get Command Output}}
+\DoxyCodeLine{141             api\_response = response.content}
+\DoxyCodeLine{142             \textcolor{keywordflow}{if} api\_response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{143                 \textcolor{keywordflow}{print} (\textcolor{stringliteral}{"\%Error: Internal error."})}
+\DoxyCodeLine{144                 \textcolor{keywordflow}{return}}
+\DoxyCodeLine{145             \textcolor{comment}{\#print api\_response}}
+\DoxyCodeLine{146             \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], api\_response)}
+\DoxyCodeLine{147     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{148         \textcolor{keywordflow}{print} response.error\_message()}
+\DoxyCodeLine{149         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{150   \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} e:}
+\DoxyCodeLine{151     \textcolor{keywordflow}{print} (\textcolor{stringliteral}{"\%Error: Internal error."})}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153   \textcolor{keywordflow}{return}}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155 }
+\DoxyCodeLine{156 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/dd8/namespacesonic__cli__ip__prefix_a064fcea1ec72a9f264384a1fa2caa03c_cgraph}
+\end{center}
+\end{figure}

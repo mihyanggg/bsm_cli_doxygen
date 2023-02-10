@@ -1,0 +1,107 @@
+\hypertarget{namespaceshow__config__lldp}{}\doxysection{show\+\_\+config\+\_\+lldp 네임스페이스 참조}
+\label{namespaceshow__config__lldp}\index{show\_config\_lldp@{show\_config\_lldp}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceshow__config__lldp_a443ca673420d86add32ce4d29f1cfa6a}{show\+\_\+lldp\+\_\+mode\+\_\+config}} (render\+\_\+tables)
+\begin{DoxyCompactList}\small\item\em Copyright 2020 Broadcom. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceshow__config__lldp_ad8564b06abe04ae1adc923221626e9ce}{show\+\_\+lldp\+\_\+intf\+\_\+mode\+\_\+config}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__lldp_aa9ba70510713f2f7af56de1bb622ec1e}{show\+\_\+lldp\+\_\+tlv\+\_\+select\+\_\+config}} (render\+\_\+tables)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespaceshow__config__lldp_ad8564b06abe04ae1adc923221626e9ce}\label{namespaceshow__config__lldp_ad8564b06abe04ae1adc923221626e9ce}} 
+\index{show\_config\_lldp@{show\_config\_lldp}!show\_lldp\_intf\_mode\_config@{show\_lldp\_intf\_mode\_config}}
+\index{show\_lldp\_intf\_mode\_config@{show\_lldp\_intf\_mode\_config}!show\_config\_lldp@{show\_config\_lldp}}
+\doxysubsubsection{\texorpdfstring{show\_lldp\_intf\_mode\_config()}{show\_lldp\_intf\_mode\_config()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+lldp.\+show\+\_\+lldp\+\_\+intf\+\_\+mode\+\_\+config (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+lldp.\+py 파일의 34 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{34 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__lldp_ad8564b06abe04ae1adc923221626e9ce}{show\_lldp\_intf\_mode\_config}}(render\_tables):}
+\DoxyCodeLine{35     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{36     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'name'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{37         ifname\_key = render\_tables[\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{38         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/lldp:sonic-\/lldp/LLDP\_PORT/LLDP\_PORT\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{39             \textcolor{keywordflow}{for} lldp\_port \textcolor{keywordflow}{in} render\_tables[\textcolor{stringliteral}{'sonic-\/lldp:sonic-\/lldp/LLDP\_PORT/LLDP\_PORT\_LIST'}]:}
+\DoxyCodeLine{40                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'ifname'} \textcolor{keywordflow}{in} lldp\_port:}
+\DoxyCodeLine{41                     \textcolor{keywordflow}{if} ifname\_key == lldp\_port[\textcolor{stringliteral}{'ifname'}]:}
+\DoxyCodeLine{42                         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'mode'} \textcolor{keywordflow}{in} lldp\_port:}
+\DoxyCodeLine{43                             \textcolor{keywordflow}{if} lldp\_port[\textcolor{stringliteral}{'mode'}] == \textcolor{stringliteral}{"RECEIVE"}:}
+\DoxyCodeLine{44                                 cmd\_str = \textcolor{stringliteral}{"lldp receive"}}
+\DoxyCodeLine{45                             \textcolor{keywordflow}{elif} lldp\_port[\textcolor{stringliteral}{'mode'}] == \textcolor{stringliteral}{"TRANSMIT"}:}
+\DoxyCodeLine{46                                 cmd\_str = \textcolor{stringliteral}{"lldp transmit"}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{49 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceshow__config__lldp_a443ca673420d86add32ce4d29f1cfa6a}\label{namespaceshow__config__lldp_a443ca673420d86add32ce4d29f1cfa6a}} 
+\index{show\_config\_lldp@{show\_config\_lldp}!show\_lldp\_mode\_config@{show\_lldp\_mode\_config}}
+\index{show\_lldp\_mode\_config@{show\_lldp\_mode\_config}!show\_config\_lldp@{show\_config\_lldp}}
+\doxysubsubsection{\texorpdfstring{show\_lldp\_mode\_config()}{show\_lldp\_mode\_config()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+lldp.\+show\+\_\+lldp\+\_\+mode\+\_\+config (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+Copyright 2020 Broadcom. 
+
+The term Broadcom refers to Broadcom Inc. and/or its subsidiaries.
+
+Licensed under the Apache License, Version 2.\+0 (the \char`\"{}\+License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at \begin{DoxyVerb}http://www.apache.org/licenses/LICENSE-2.0
+\end{DoxyVerb}
+
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\+A\+S I\+S\char`\"{} B\+A\+S\+IS, W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+T\+I\+ES OR C\+O\+N\+D\+I\+T\+I\+O\+NS OF A\+NY K\+I\+ND, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+show\+\_\+config\+\_\+lldp.\+py 파일의 22 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__lldp_a443ca673420d86add32ce4d29f1cfa6a}{show\_lldp\_mode\_config}}(render\_tables):}
+\DoxyCodeLine{23     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{24     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/lldp:sonic-\/lldp/LLDP/LLDP\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{25         lldp\_global = render\_tables[\textcolor{stringliteral}{'sonic-\/lldp:sonic-\/lldp/LLDP/LLDP\_LIST'}]}
+\DoxyCodeLine{26         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'mode'} \textcolor{keywordflow}{in} lldp\_global[0]:}
+\DoxyCodeLine{27             \textcolor{keywordflow}{if} lldp\_global[0][\textcolor{stringliteral}{'mode'}] == \textcolor{stringliteral}{"RECEIVE"}:}
+\DoxyCodeLine{28                 cmd\_str = \textcolor{stringliteral}{"lldp receive"}}
+\DoxyCodeLine{29             \textcolor{keywordflow}{elif} lldp\_global[0][\textcolor{stringliteral}{'mode'}] == \textcolor{stringliteral}{"TRANSMIT"}:}
+\DoxyCodeLine{30                 cmd\_str = \textcolor{stringliteral}{"lldp transmit"}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{33 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceshow__config__lldp_aa9ba70510713f2f7af56de1bb622ec1e}\label{namespaceshow__config__lldp_aa9ba70510713f2f7af56de1bb622ec1e}} 
+\index{show\_config\_lldp@{show\_config\_lldp}!show\_lldp\_tlv\_select\_config@{show\_lldp\_tlv\_select\_config}}
+\index{show\_lldp\_tlv\_select\_config@{show\_lldp\_tlv\_select\_config}!show\_config\_lldp@{show\_config\_lldp}}
+\doxysubsubsection{\texorpdfstring{show\_lldp\_tlv\_select\_config()}{show\_lldp\_tlv\_select\_config()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+lldp.\+show\+\_\+lldp\+\_\+tlv\+\_\+select\+\_\+config (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+lldp.\+py 파일의 50 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{50 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__lldp_aa9ba70510713f2f7af56de1bb622ec1e}{show\_lldp\_tlv\_select\_config}}(render\_tables):}
+\DoxyCodeLine{51     cmd\_str = [] }
+\DoxyCodeLine{52     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/lldp:sonic-\/lldp/LLDP/LLDP\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{53         lldp\_global = render\_tables[\textcolor{stringliteral}{'sonic-\/lldp:sonic-\/lldp/LLDP/LLDP\_LIST'}]}
+\DoxyCodeLine{54         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'supp\_mgmt\_address\_tlv'} \textcolor{keywordflow}{in} lldp\_global[0]:}
+\DoxyCodeLine{55             \textcolor{keywordflow}{if} lldp\_global[0][\textcolor{stringliteral}{'supp\_mgmt\_address\_tlv'}] == \textcolor{keyword}{True}:}
+\DoxyCodeLine{56                 cmd\_str.append(\textcolor{stringliteral}{'no lldp tlv-\/select management-\/address'})}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'supp\_system\_capabilities\_tlv'} \textcolor{keywordflow}{in} lldp\_global[0]:}
+\DoxyCodeLine{59             \textcolor{keywordflow}{if} lldp\_global[0][\textcolor{stringliteral}{'supp\_system\_capabilities\_tlv'}] == \textcolor{keyword}{True}:}
+\DoxyCodeLine{60                 cmd\_str.append(\textcolor{stringliteral}{'no lldp tlv-\/select system-\/capabilities'})}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, \textcolor{stringliteral}{';'}.join(cmd\_str)}
+
+\end{DoxyCode}

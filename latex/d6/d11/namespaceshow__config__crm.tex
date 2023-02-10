@@ -1,0 +1,113 @@
+\hypertarget{namespaceshow__config__crm}{}\doxysection{show\+\_\+config\+\_\+crm 네임스페이스 참조}
+\label{namespaceshow__config__crm}\index{show\_config\_crm@{show\_config\_crm}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceshow__config__crm_a5c76ea3214f0bd51c64e5a86163fb182}{get\+\_\+crm\+\_\+config}} (info, field, \mbox{\hyperlink{DB-PARSED_8txt_a1bdb52a70f2b944da1ac484fd1f99d09}{prefix}})
+\item 
+def \mbox{\hyperlink{namespaceshow__config__crm_a38eca998c1c4a1e644059c7c42b0109a}{show\+\_\+crm\+\_\+config}} (render\+\_\+tables)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+dictionary \mbox{\hyperlink{namespaceshow__config__crm_a3b445b3d0f64b2c9e6e8222995c2ae25}{cfgmap}}
+\begin{DoxyCompactList}\small\item\em Copyright 2020 Broadcom. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespaceshow__config__crm_a5c76ea3214f0bd51c64e5a86163fb182}\label{namespaceshow__config__crm_a5c76ea3214f0bd51c64e5a86163fb182}} 
+\index{show\_config\_crm@{show\_config\_crm}!get\_crm\_config@{get\_crm\_config}}
+\index{get\_crm\_config@{get\_crm\_config}!show\_config\_crm@{show\_config\_crm}}
+\doxysubsubsection{\texorpdfstring{get\_crm\_config()}{get\_crm\_config()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+crm.\+get\+\_\+crm\+\_\+config (\begin{DoxyParamCaption}\item[{}]{info,  }\item[{}]{field,  }\item[{}]{prefix }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+crm.\+py 파일의 72 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{72 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__crm_a5c76ea3214f0bd51c64e5a86163fb182}{get\_crm\_config}}(info, field, prefix):}
+\DoxyCodeLine{73     cfg\_str = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{74     \textcolor{keywordflow}{if} field \textcolor{keywordflow}{in} info:}
+\DoxyCodeLine{75         cfg\_str = \textcolor{stringliteral}{"\{0\} \{1\}"}.format(prefix, info[field])}
+\DoxyCodeLine{76     \textcolor{keywordflow}{return} cfg\_str}
+\DoxyCodeLine{77 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/d11/namespaceshow__config__crm_a5c76ea3214f0bd51c64e5a86163fb182_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__crm_a38eca998c1c4a1e644059c7c42b0109a}\label{namespaceshow__config__crm_a38eca998c1c4a1e644059c7c42b0109a}} 
+\index{show\_config\_crm@{show\_config\_crm}!show\_crm\_config@{show\_crm\_config}}
+\index{show\_crm\_config@{show\_crm\_config}!show\_config\_crm@{show\_config\_crm}}
+\doxysubsubsection{\texorpdfstring{show\_crm\_config()}{show\_crm\_config()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+crm.\+show\+\_\+crm\+\_\+config (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+crm.\+py 파일의 78 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{78 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__crm_a38eca998c1c4a1e644059c7c42b0109a}{show\_crm\_config}}(render\_tables):}
+\DoxyCodeLine{79     info = \{\}}
+\DoxyCodeLine{80     cmds = []}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82     \textcolor{comment}{\# skip if render\_tables is None}}
+\DoxyCodeLine{83     \textcolor{keywordflow}{if} render\_tables \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{84         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, \textcolor{stringliteral}{''}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     key = \textcolor{stringliteral}{'sonic-\/system-\/crm:sonic-\/system-\/crm/CRM/CRM\_LIST'}}
+\DoxyCodeLine{87     \textcolor{keywordflow}{if} (key \textcolor{keywordflow}{in} render\_tables) \textcolor{keywordflow}{and} (len(render\_tables[key]) > 0):}
+\DoxyCodeLine{88         info = render\_tables[key][0]}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90     \textcolor{comment}{\# skip if render\_tables['sonic-\/system-\/crm:sonic-\/system-\/crm/CRM']['CRM\_LIST'][0] is not available}}
+\DoxyCodeLine{91     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} info:}
+\DoxyCodeLine{92         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, \textcolor{stringliteral}{''}}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94     \textcolor{comment}{\# sort dictionary by value (i.e. config command)}}
+\DoxyCodeLine{95     \textcolor{keywordflow}{for} field, prefix \textcolor{keywordflow}{in} sorted(cfgmap.items(), key=\textcolor{keyword}{lambda} x: x[1]):}
+\DoxyCodeLine{96         cmd = \mbox{\hyperlink{namespaceshow__config__crm_a5c76ea3214f0bd51c64e5a86163fb182}{get\_crm\_config}}(info, field, prefix)}
+\DoxyCodeLine{97         \textcolor{keywordflow}{if} len(cmd) > 0:}
+\DoxyCodeLine{98             cmds.append(cmd)}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, \textcolor{stringliteral}{"\(\backslash\)n"}.join(cmds)}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/d11/namespaceshow__config__crm_a38eca998c1c4a1e644059c7c42b0109a_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespaceshow__config__crm_a3b445b3d0f64b2c9e6e8222995c2ae25}\label{namespaceshow__config__crm_a3b445b3d0f64b2c9e6e8222995c2ae25}} 
+\index{show\_config\_crm@{show\_config\_crm}!cfgmap@{cfgmap}}
+\index{cfgmap@{cfgmap}!show\_config\_crm@{show\_config\_crm}}
+\doxysubsubsection{\texorpdfstring{cfgmap}{cfgmap}}
+{\footnotesize\ttfamily dictionary show\+\_\+config\+\_\+crm.\+cfgmap}
+
+
+
+Copyright 2020 Broadcom. 
+
+The term Broadcom refers to Broadcom Inc. and/or its subsidiaries.
+
+Licensed under the Apache License, Version 2.\+0 (the \char`\"{}\+License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at \begin{DoxyVerb}http://www.apache.org/licenses/LICENSE-2.0
+\end{DoxyVerb}
+
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\+A\+S I\+S\char`\"{} B\+A\+S\+IS, W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+T\+I\+ES OR C\+O\+N\+D\+I\+T\+I\+O\+NS OF A\+NY K\+I\+ND, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+show\+\_\+config\+\_\+crm.\+py 파일의 20 번째 라인에서 정의되었습니다.
+

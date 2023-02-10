@@ -1,0 +1,197 @@
+\hypertarget{namespacesonic__cli__clear__qos}{}\doxysection{sonic\+\_\+cli\+\_\+clear\+\_\+qos 네임스페이스 참조}
+\label{namespacesonic__cli__clear__qos}\index{sonic\_cli\_clear\_qos@{sonic\_cli\_clear\_qos}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__clear__qos_abf556d8cdcf4d9eef1ef6c6ff07bb068}{clear\+\_\+qos\+\_\+api}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__clear__qos_afa73b851f61a0e605be1914ac2d5a045}{run}} (\mbox{\hyperlink{namespacesonic__cli__clear__qos_aab40589786d2411707e53ab04920972a}{func}}, args)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacesonic__cli__clear__qos_aab40589786d2411707e53ab04920972a}{func}} = sys.\+argv\mbox{[}1\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__clear__qos_abf556d8cdcf4d9eef1ef6c6ff07bb068}\label{namespacesonic__cli__clear__qos_abf556d8cdcf4d9eef1ef6c6ff07bb068}} 
+\index{sonic\_cli\_clear\_qos@{sonic\_cli\_clear\_qos}!clear\_qos\_api@{clear\_qos\_api}}
+\index{clear\_qos\_api@{clear\_qos\_api}!sonic\_cli\_clear\_qos@{sonic\_cli\_clear\_qos}}
+\doxysubsubsection{\texorpdfstring{clear\_qos\_api()}{clear\_qos\_api()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+clear\+\_\+qos.\+clear\+\_\+qos\+\_\+api (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+clear\+\_\+qos.\+py 파일의 23 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__clear__qos_abf556d8cdcf4d9eef1ef6c6ff07bb068}{clear\_qos\_api}}(args):}
+\DoxyCodeLine{24    api = cc.ApiClient()}
+\DoxyCodeLine{25    keypath = []}
+\DoxyCodeLine{26    body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{27    countertype = \textcolor{stringliteral}{"queue"}}
+\DoxyCodeLine{28    counteroptions = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{29    exact\_intf = \textcolor{keyword}{False}}
+\DoxyCodeLine{30    exact = \textcolor{keyword}{False}}
+\DoxyCodeLine{31    ifname = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{32    queue = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{33    pg = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{34    queuetype = \textcolor{stringliteral}{"both"}}
+\DoxyCodeLine{35    pgcountertype = \textcolor{stringliteral}{"both"}}
+\DoxyCodeLine{36    persistent = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{37    watermark = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{38    buffthresbreach = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{39    wred = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{40    i = 0}
+\DoxyCodeLine{41    \textcolor{keywordflow}{for} arg \textcolor{keywordflow}{in} args:}
+\DoxyCodeLine{42         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"priority-\/group"} == arg:}
+\DoxyCodeLine{43            countertype = \textcolor{stringliteral}{"priority-\/group"}}
+\DoxyCodeLine{44         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"counters"} == arg:}
+\DoxyCodeLine{45            counteroptions = \textcolor{stringliteral}{"counters"}}
+\DoxyCodeLine{46         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"watermark"} == arg:}
+\DoxyCodeLine{47            counteroptions = \textcolor{stringliteral}{"watermarks"}}
+\DoxyCodeLine{48         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"persistent-\/watermark"} == arg:}
+\DoxyCodeLine{49            counteroptions = \textcolor{stringliteral}{"watermarks"}}
+\DoxyCodeLine{50            persistent = \textcolor{keyword}{True}}
+\DoxyCodeLine{51         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"wred"} == arg:}
+\DoxyCodeLine{52            wred = \textcolor{keyword}{True}}
+\DoxyCodeLine{53         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"unicast"} == arg:}
+\DoxyCodeLine{54            queuetype = arg}
+\DoxyCodeLine{55         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"multicast"} == arg:}
+\DoxyCodeLine{56            queuetype = arg}
+\DoxyCodeLine{57         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"CPU"} == arg:}
+\DoxyCodeLine{58            ifname = arg}
+\DoxyCodeLine{59            exact\_intf = \textcolor{keyword}{True}}
+\DoxyCodeLine{60         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"headroom"} == arg:}
+\DoxyCodeLine{61            pgcountertype = arg}
+\DoxyCodeLine{62         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"shared"} == arg:}
+\DoxyCodeLine{63            pgcountertype = arg}
+\DoxyCodeLine{64         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"interface"} == arg:}
+\DoxyCodeLine{65            ifname = args[i+1]}
+\DoxyCodeLine{66            exact\_intf = \textcolor{keyword}{True}}
+\DoxyCodeLine{67         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"queue"} == arg:}
+\DoxyCodeLine{68            \textcolor{keywordflow}{if} i !=  1:}
+\DoxyCodeLine{69               queue = args[i+1]}
+\DoxyCodeLine{70               queue = ifname + \textcolor{stringliteral}{":"} + str(queue)}
+\DoxyCodeLine{71               exact = \textcolor{keyword}{True}}
+\DoxyCodeLine{72         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{"priority-\/group"} == arg:}
+\DoxyCodeLine{73            \textcolor{keywordflow}{if} i !=  1:}
+\DoxyCodeLine{74               pg = args[i+1]}
+\DoxyCodeLine{75               pg = ifname + \textcolor{stringliteral}{":"} + str(pg)}
+\DoxyCodeLine{76               exact = \textcolor{keyword}{True}}
+\DoxyCodeLine{77         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{78            \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{79         i = i + 1}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81    keypath = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/qos-\/clear:clear-\/qos'})}
+\DoxyCodeLine{82    \textcolor{keywordflow}{if} countertype == \textcolor{stringliteral}{"queue"}:}
+\DoxyCodeLine{83       \textcolor{keywordflow}{if} counteroptions == \textcolor{stringliteral}{"counters"}:}
+\DoxyCodeLine{84          \textcolor{keywordflow}{if} exact == \textcolor{keyword}{True}:}
+\DoxyCodeLine{85             body = \{\textcolor{stringliteral}{"sonic-\/qos-\/clear:input"}: \{ \textcolor{stringliteral}{"counter-\/type"}: countertype, \textcolor{stringliteral}{"counters"}: \{ \textcolor{stringliteral}{"queue"}: queue \}\}\}}
+\DoxyCodeLine{86          \textcolor{keywordflow}{elif} exact\_intf == \textcolor{keyword}{True}:}
+\DoxyCodeLine{87             body = \{\textcolor{stringliteral}{"sonic-\/qos-\/clear:input"}: \{ \textcolor{stringliteral}{"counter-\/type"}: countertype, \textcolor{stringliteral}{"counters"}: \{ \textcolor{stringliteral}{"interface"}: ifname\}\}\}}
+\DoxyCodeLine{88          \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{89             body = \{\textcolor{stringliteral}{"sonic-\/qos-\/clear:input"}: \{ \textcolor{stringliteral}{"counter-\/type"}: countertype, \textcolor{stringliteral}{"counters"}: \{ \textcolor{stringliteral}{"all"}: \textcolor{keyword}{True}\}\}\}}
+\DoxyCodeLine{90       \textcolor{keywordflow}{elif} counteroptions == \textcolor{stringliteral}{"watermarks"}:}
+\DoxyCodeLine{91          \textcolor{keywordflow}{if} exact == \textcolor{keyword}{True}:}
+\DoxyCodeLine{92             body = \{\textcolor{stringliteral}{"sonic-\/qos-\/clear:input"}: \{ \textcolor{stringliteral}{"counter-\/type"}: countertype, \textcolor{stringliteral}{"watermarks"}: \{ \textcolor{stringliteral}{"persistent"}: persistent, \textcolor{stringliteral}{"queue-\/type"}: queuetype, \textcolor{stringliteral}{"queue"}: queue\}\}\}}
+\DoxyCodeLine{93          \textcolor{keywordflow}{elif} exact\_intf == \textcolor{keyword}{True}:}
+\DoxyCodeLine{94             body = \{\textcolor{stringliteral}{"sonic-\/qos-\/clear:input"}: \{ \textcolor{stringliteral}{"counter-\/type"}: countertype, \textcolor{stringliteral}{"watermarks"}: \{ \textcolor{stringliteral}{"persistent"}: persistent, \textcolor{stringliteral}{"queue-\/type"}: queuetype, \textcolor{stringliteral}{"interface"}: ifname\}\}\}}
+\DoxyCodeLine{95          \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{96             body = \{\textcolor{stringliteral}{"sonic-\/qos-\/clear:input"}: \{ \textcolor{stringliteral}{"counter-\/type"}: countertype, \textcolor{stringliteral}{"watermarks"}: \{ \textcolor{stringliteral}{"persistent"}: persistent, \textcolor{stringliteral}{"queue-\/type"}: queuetype,  \textcolor{stringliteral}{"all"}: \textcolor{keyword}{True}\}\}\}}
+\DoxyCodeLine{97    \textcolor{keywordflow}{elif} countertype == \textcolor{stringliteral}{"priority-\/group"}:}
+\DoxyCodeLine{98       \textcolor{keywordflow}{if} counteroptions == \textcolor{stringliteral}{"counters"}:}
+\DoxyCodeLine{99          \textcolor{keywordflow}{if} exact == \textcolor{keyword}{True}:}
+\DoxyCodeLine{100             body = \{\textcolor{stringliteral}{"sonic-\/qos-\/clear:input"}: \{ \textcolor{stringliteral}{"counter-\/type"}: countertype, \textcolor{stringliteral}{"counters"}: \{ \textcolor{stringliteral}{"priority-\/group"}: pg \}\}\}}
+\DoxyCodeLine{101          \textcolor{keywordflow}{elif} exact\_intf == \textcolor{keyword}{True}:}
+\DoxyCodeLine{102             body = \{\textcolor{stringliteral}{"sonic-\/qos-\/clear:input"}: \{ \textcolor{stringliteral}{"counter-\/type"}: countertype, \textcolor{stringliteral}{"counters"}: \{ \textcolor{stringliteral}{"interface"}: ifname\}\}\}}
+\DoxyCodeLine{103          \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{104             body = \{\textcolor{stringliteral}{"sonic-\/qos-\/clear:input"}: \{ \textcolor{stringliteral}{"counter-\/type"}: countertype, \textcolor{stringliteral}{"counters"}: \{ \textcolor{stringliteral}{"all"}: \textcolor{keyword}{True}\}\}\}}
+\DoxyCodeLine{105       \textcolor{keywordflow}{elif} counteroptions == \textcolor{stringliteral}{"watermarks"}:}
+\DoxyCodeLine{106          \textcolor{keywordflow}{if} exact == \textcolor{keyword}{True}:}
+\DoxyCodeLine{107             body = \{\textcolor{stringliteral}{"sonic-\/qos-\/clear:input"}: \{ \textcolor{stringliteral}{"counter-\/type"}: countertype, \textcolor{stringliteral}{"watermarks"}: \{ \textcolor{stringliteral}{"persistent"}: persistent, \textcolor{stringliteral}{"pg-\/type"}: pgcountertype, \textcolor{stringliteral}{"priority-\/group"}: pg\}\}\}}
+\DoxyCodeLine{108          \textcolor{keywordflow}{elif} exact\_intf == \textcolor{keyword}{True}:}
+\DoxyCodeLine{109             body = \{\textcolor{stringliteral}{"sonic-\/qos-\/clear:input"}: \{ \textcolor{stringliteral}{"counter-\/type"}: countertype, \textcolor{stringliteral}{"watermarks"}: \{ \textcolor{stringliteral}{"persistent"}: persistent, \textcolor{stringliteral}{"pg-\/type"}: pgcountertype, \textcolor{stringliteral}{"interface"}: ifname\}\}\}}
+\DoxyCodeLine{110          \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{111             body = \{\textcolor{stringliteral}{"sonic-\/qos-\/clear:input"}: \{ \textcolor{stringliteral}{"counter-\/type"}: countertype, \textcolor{stringliteral}{"watermarks"}: \{ \textcolor{stringliteral}{"persistent"}: persistent, \textcolor{stringliteral}{"pg-\/type"}: pgcountertype, \textcolor{stringliteral}{"all"}: \textcolor{keyword}{True}\}\}\}}
+\DoxyCodeLine{112    \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{113        \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{114    \textcolor{keywordflow}{return} api.post(keypath, body)}
+\DoxyCodeLine{115 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/d9f/namespacesonic__cli__clear__qos_abf556d8cdcf4d9eef1ef6c6ff07bb068_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__clear__qos_afa73b851f61a0e605be1914ac2d5a045}\label{namespacesonic__cli__clear__qos_afa73b851f61a0e605be1914ac2d5a045}} 
+\index{sonic\_cli\_clear\_qos@{sonic\_cli\_clear\_qos}!run@{run}}
+\index{run@{run}!sonic\_cli\_clear\_qos@{sonic\_cli\_clear\_qos}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+clear\+\_\+qos.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+clear\+\_\+qos.\+py 파일의 116 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{116 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__clear__qos_afa73b851f61a0e605be1914ac2d5a045}{run}}(func, args):}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118     \textcolor{comment}{\# so clear counters may be run from config mode}}
+\DoxyCodeLine{119     \textcolor{keywordflow}{if} args[0] == \textcolor{stringliteral}{"do"}:}
+\DoxyCodeLine{120         args = args[1:]}
+\DoxyCodeLine{121     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{122        \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'clear\_qos'}:}
+\DoxyCodeLine{123           response = \mbox{\hyperlink{namespacesonic__cli__clear__qos_abf556d8cdcf4d9eef1ef6c6ff07bb068}{clear\_qos\_api}}(args)}
+\DoxyCodeLine{124           \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{125              \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{126                 \textcolor{comment}{\# Get Command Output}}
+\DoxyCodeLine{127                 api\_response = response.content}
+\DoxyCodeLine{128                 \textcolor{keywordflow}{if} api\_response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{129                     print(\textcolor{stringliteral}{"\%Error: Clear failed"})}
+\DoxyCodeLine{130                     sys.exit(1)}
+\DoxyCodeLine{131                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{132                     output = api\_response[\textcolor{stringliteral}{"sonic-\/qos-\/clear:output"}]}
+\DoxyCodeLine{133                     \textcolor{keywordflow}{if} output[\textcolor{stringliteral}{"response"}] != \textcolor{stringliteral}{"Success: Cleared Counters"}:}
+\DoxyCodeLine{134                        \textcolor{keywordflow}{print} output[\textcolor{stringliteral}{"response"}]}
+\DoxyCodeLine{135           \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{136              \textcolor{keywordflow}{print} response.error\_message()}
+\DoxyCodeLine{137              sys.exit(1)}
+\DoxyCodeLine{138        \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{139            \textcolor{keywordflow}{return}}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141     \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} e:}
+\DoxyCodeLine{142         syslog.syslog(syslog.LOG\_DEBUG, \textcolor{stringliteral}{"Exception: "} + traceback.format\_exc())}
+\DoxyCodeLine{143         print(\textcolor{stringliteral}{"\%Error: Transaction Failure"})}
+\DoxyCodeLine{144         \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{145 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/d9f/namespacesonic__cli__clear__qos_afa73b851f61a0e605be1914ac2d5a045_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__clear__qos_aab40589786d2411707e53ab04920972a}\label{namespacesonic__cli__clear__qos_aab40589786d2411707e53ab04920972a}} 
+\index{sonic\_cli\_clear\_qos@{sonic\_cli\_clear\_qos}!func@{func}}
+\index{func@{func}!sonic\_cli\_clear\_qos@{sonic\_cli\_clear\_qos}}
+\doxysubsubsection{\texorpdfstring{func}{func}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+clear\+\_\+qos.\+func = sys.\+argv\mbox{[}1\mbox{]}}
+
+
+
+sonic\+\_\+cli\+\_\+clear\+\_\+qos.\+py 파일의 149 번째 라인에서 정의되었습니다.
+

@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: cli/show_config_mirror.py 소스 파일</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'검색');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','검색');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_2990d7c532eb7441b74916b8f5365141.html">cli</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">show_config_mirror.py</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d3/da8/show__config__mirror_8py.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="../../d1/d03/namespaceshow__config__mirror.html#a21c82993207a88655c24efbd3eff2cd7">    1</a></span>&#160;<span class="keyword">def </span><a class="code" href="../../d1/d03/namespaceshow__config__mirror.html#a21c82993207a88655c24efbd3eff2cd7">show_mirror_session</a>(render_tables):</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;    cmd_str = <span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;    cmd_prfx = <span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    <span class="keywordflow">if</span> <span class="stringliteral">&#39;sonic-mirror-session:sonic-mirror-session/MIRROR_SESSION/MIRROR_SESSION_LIST&#39;</span> <span class="keywordflow">in</span> render_tables:</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;        session = render_tables[<span class="stringliteral">&#39;sonic-mirror-session:sonic-mirror-session/MIRROR_SESSION/MIRROR_SESSION_LIST&#39;</span>]</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;        <span class="keywordflow">if</span> <span class="stringliteral">&#39;dst_port&#39;</span> <span class="keywordflow">in</span> session:</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;            cmd_str=<span class="stringliteral">&quot;destination &quot;</span> + session[<span class="stringliteral">&#39;dst_port&#39;</span>]</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;            <span class="keywordflow">if</span> <span class="stringliteral">&#39;src_port&#39;</span> <span class="keywordflow">in</span> session:</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;                cmd_str+=<span class="stringliteral">&#39; source &#39;</span> + session[<span class="stringliteral">&#39;src_port&#39;</span>]</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;            <span class="keywordflow">if</span> <span class="stringliteral">&#39;direction&#39;</span> <span class="keywordflow">in</span> session:</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;                cmd_str+=<span class="stringliteral">&#39; direction &#39;</span> + session[<span class="stringliteral">&#39;direction&#39;</span>].lower()</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordflow">if</span> <span class="stringliteral">&#39;dst_ip&#39;</span> <span class="keywordflow">in</span> session:</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;            cmd_str=<span class="stringliteral">&quot;destination erspan dst-ip &quot;</span> + session[<span class="stringliteral">&#39;dst_ip&#39;</span>]</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;            <span class="keywordflow">if</span> <span class="stringliteral">&#39;src_ip&#39;</span> <span class="keywordflow">in</span> session:</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                cmd_str+=<span class="stringliteral">&#39; src-ip &#39;</span> + session[<span class="stringliteral">&#39;src_ip&#39;</span>]</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            <span class="keywordflow">if</span> <span class="stringliteral">&#39;dscp&#39;</span> <span class="keywordflow">in</span> session:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                cmd_str+=<span class="stringliteral">&#39; dscp &#39;</span> + str(session[<span class="stringliteral">&#39;dscp&#39;</span>])</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            <span class="keywordflow">if</span> <span class="stringliteral">&#39;gre_type&#39;</span> <span class="keywordflow">in</span> session:</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                cmd_str+=<span class="stringliteral">&#39; gre &#39;</span> + session[<span class="stringliteral">&#39;gre_type&#39;</span>]</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <span class="keywordflow">if</span> <span class="stringliteral">&#39;ttl&#39;</span> <span class="keywordflow">in</span> session:</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                cmd_str+=<span class="stringliteral">&#39; ttl &#39;</span> + str(session[<span class="stringliteral">&#39;ttl&#39;</span>])</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            <span class="keywordflow">if</span> <span class="stringliteral">&#39;queue&#39;</span> <span class="keywordflow">in</span> session:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                cmd_str+=<span class="stringliteral">&#39; queue &#39;</span> + str(session[<span class="stringliteral">&#39;queue&#39;</span>])</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <span class="keywordflow">if</span> <span class="stringliteral">&#39;src_port&#39;</span> <span class="keywordflow">in</span> session:</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                cmd_str+=<span class="stringliteral">&#39; source &#39;</span> + session[<span class="stringliteral">&#39;src_port&#39;</span>]</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <span class="keywordflow">if</span> <span class="stringliteral">&#39;direction&#39;</span> <span class="keywordflow">in</span> session:</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                cmd_str+=<span class="stringliteral">&#39; direction &#39;</span> + session[<span class="stringliteral">&#39;direction&#39;</span>].lower()</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">return</span> <span class="stringliteral">&#39;CB_SUCCESS&#39;</span>, cmd_str</div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="anamespaceshow__config__mirror_html_a21c82993207a88655c24efbd3eff2cd7"><div class="ttname"><a href="../../d1/d03/namespaceshow__config__mirror.html#a21c82993207a88655c24efbd3eff2cd7">show_config_mirror.show_mirror_session</a></div><div class="ttdeci">def show_mirror_session(render_tables)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/da8/show__config__mirror_8py_source.html#l00001">show_config_mirror.py:1</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+다음에 의해 생성됨 :  &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

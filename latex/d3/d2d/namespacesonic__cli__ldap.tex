@@ -1,0 +1,255 @@
+\hypertarget{namespacesonic__cli__ldap}{}\doxysection{sonic\+\_\+cli\+\_\+ldap 네임스페이스 참조}
+\label{namespacesonic__cli__ldap}\index{sonic\_cli\_ldap@{sonic\_cli\_ldap}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__ldap_abaeac0658ceca18d26ccfd320b2b1f75}{invoke}} (func, args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__ldap_af60696ae0ae92e40e98bb24d0ac42330}{run}} (func, args)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__ldap_abaeac0658ceca18d26ccfd320b2b1f75}\label{namespacesonic__cli__ldap_abaeac0658ceca18d26ccfd320b2b1f75}} 
+\index{sonic\_cli\_ldap@{sonic\_cli\_ldap}!invoke@{invoke}}
+\index{invoke@{invoke}!sonic\_cli\_ldap@{sonic\_cli\_ldap}}
+\doxysubsubsection{\texorpdfstring{invoke()}{invoke()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+ldap.\+invoke (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+ldap.\+py 파일의 24 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__ldap_abaeac0658ceca18d26ccfd320b2b1f75}{invoke}}(func, args):}
+\DoxyCodeLine{25     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{26     aa = cc.ApiClient()}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     commandType = func}
+\DoxyCodeLine{29     }
+\DoxyCodeLine{30     isDel = \textcolor{keyword}{False}}
+\DoxyCodeLine{31     \textcolor{keywordflow}{if} func.startswith(\textcolor{stringliteral}{'del\_'}) :}
+\DoxyCodeLine{32         isDel = \textcolor{keyword}{True}}
+\DoxyCodeLine{33         commandType = func.split(\textcolor{stringliteral}{'del\_'})[1]}
+\DoxyCodeLine{34    }
+\DoxyCodeLine{35     field\_val = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{36     bodyParam = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{37     }
+\DoxyCodeLine{38     modName = \textcolor{stringliteral}{"openconfig-\/aaa-\/ldap-\/ext:"}}
+\DoxyCodeLine{39     baseServerGrpUri = \textcolor{stringliteral}{"/restconf/data/openconfig-\/system:system/aaa/server-\/groups/server-\/group"}}
+\DoxyCodeLine{40     baseLdapUri = \textcolor{stringliteral}{"/restconf/data/openconfig-\/system:system/aaa/server-\/groups/server-\/group=LDAP/"}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{keywordflow}{if} commandType == \textcolor{stringliteral}{'ldap\_global\_config'} :}
+\DoxyCodeLine{43         ldap\_type = \textcolor{stringliteral}{"LDAP"}}
+\DoxyCodeLine{44     \textcolor{keywordflow}{elif} commandType == \textcolor{stringliteral}{'ldap\_nss\_config'} :}
+\DoxyCodeLine{45         ldap\_type = \textcolor{stringliteral}{"LDAP\_NSS"}}
+\DoxyCodeLine{46     \textcolor{keywordflow}{elif} commandType == \textcolor{stringliteral}{'ldap\_pam\_config'} :}
+\DoxyCodeLine{47         ldap\_type = \textcolor{stringliteral}{"LDAP\_PAM"}}
+\DoxyCodeLine{48     \textcolor{keywordflow}{elif} commandType == \textcolor{stringliteral}{'ldap\_sudo\_config'} : }
+\DoxyCodeLine{49         ldap\_type = \textcolor{stringliteral}{"LDAP\_SUDO"}}
+\DoxyCodeLine{50                }
+\DoxyCodeLine{51     \textcolor{keywordflow}{if} commandType == \textcolor{stringliteral}{'ldap\_global\_config'} \textcolor{keywordflow}{or} commandType == \textcolor{stringliteral}{'ldap\_nss\_config'} \textcolor{keywordflow}{or} commandType == \textcolor{stringliteral}{'ldap\_pam\_config'} \textcolor{keywordflow}{or} commandType == \textcolor{stringliteral}{'ldap\_sudo\_config'}:}
+\DoxyCodeLine{52         \textcolor{keywordflow}{if} isDel == \textcolor{keyword}{False} :}
+\DoxyCodeLine{53             field\_val = args[1]}
+\DoxyCodeLine{54             field\_val = field\_val.replace(\textcolor{stringliteral}{"\(\backslash\)\(\backslash\)\(\backslash\)\(\backslash\)"}, \textcolor{stringliteral}{"\(\backslash\)\(\backslash\)"})}
+\DoxyCodeLine{55             }
+\DoxyCodeLine{56         \textcolor{keywordflow}{if} args[0] == \textcolor{stringliteral}{"timelimit"} :}
+\DoxyCodeLine{57             field\_name = \textcolor{stringliteral}{"search-\/time-\/limit"}}
+\DoxyCodeLine{58             \textcolor{keywordflow}{if} isDel == \textcolor{keyword}{False}:}
+\DoxyCodeLine{59                 bodyParam = int(field\_val)}
+\DoxyCodeLine{60         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{"bind-\/timelimit"} :}
+\DoxyCodeLine{61             field\_name = \textcolor{stringliteral}{"bind-\/time-\/limit"}}
+\DoxyCodeLine{62             \textcolor{keywordflow}{if} isDel == \textcolor{keyword}{False}:}
+\DoxyCodeLine{63                 bodyParam = int(field\_val)}
+\DoxyCodeLine{64         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{"idle-\/timelimit"} :}
+\DoxyCodeLine{65             field\_name = \textcolor{stringliteral}{"idle-\/time-\/limit"}}
+\DoxyCodeLine{66             \textcolor{keywordflow}{if} isDel == \textcolor{keyword}{False}:}
+\DoxyCodeLine{67                 bodyParam = int(field\_val)}
+\DoxyCodeLine{68         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{"retry"} :}
+\DoxyCodeLine{69             field\_name = \textcolor{stringliteral}{"retransmit-\/attempts"}}
+\DoxyCodeLine{70             \textcolor{keywordflow}{if} isDel == \textcolor{keyword}{False}:}
+\DoxyCodeLine{71                 bodyParam = int(field\_val)}
+\DoxyCodeLine{72         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{"port"} :}
+\DoxyCodeLine{73             field\_name = \textcolor{stringliteral}{"port"}}
+\DoxyCodeLine{74             \textcolor{keywordflow}{if} isDel == \textcolor{keyword}{False}:}
+\DoxyCodeLine{75                 bodyParam = int(field\_val)}
+\DoxyCodeLine{76         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{"version"} :}
+\DoxyCodeLine{77             field\_name = \textcolor{stringliteral}{"version"}}
+\DoxyCodeLine{78             \textcolor{keywordflow}{if} isDel == \textcolor{keyword}{False}:}
+\DoxyCodeLine{79                 bodyParam = int(field\_val)}
+\DoxyCodeLine{80         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{"base"} :}
+\DoxyCodeLine{81             field\_name = \textcolor{stringliteral}{"base"}}
+\DoxyCodeLine{82             bodyParam = field\_val}
+\DoxyCodeLine{83         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{"ssl"} :}
+\DoxyCodeLine{84             field\_name = \textcolor{stringliteral}{"ssl"}}
+\DoxyCodeLine{85             \textcolor{keywordflow}{if} isDel == \textcolor{keyword}{False}:}
+\DoxyCodeLine{86                 bodyParam = field\_val.upper()}
+\DoxyCodeLine{87         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{"binddn"} :}
+\DoxyCodeLine{88             field\_name = \textcolor{stringliteral}{"bind-\/dn"}}
+\DoxyCodeLine{89             bodyParam = field\_val            }
+\DoxyCodeLine{90         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{"bindpw"} :}
+\DoxyCodeLine{91             field\_name = \textcolor{stringliteral}{"bind-\/pw"}}
+\DoxyCodeLine{92             bodyParam = field\_val            }
+\DoxyCodeLine{93         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{"scope"} :}
+\DoxyCodeLine{94             field\_name = \textcolor{stringliteral}{"scope"}}
+\DoxyCodeLine{95             \textcolor{keywordflow}{if} isDel == \textcolor{keyword}{False}:}
+\DoxyCodeLine{96                 bodyParam = field\_val.upper()            }
+\DoxyCodeLine{97         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{"nss-\/base-\/passwd"} :}
+\DoxyCodeLine{98             field\_name = \textcolor{stringliteral}{"nss-\/base-\/passwd"}}
+\DoxyCodeLine{99             bodyParam = field\_val            }
+\DoxyCodeLine{100         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{"nss-\/base-\/group"} :}
+\DoxyCodeLine{101             field\_name = \textcolor{stringliteral}{"nss-\/base-\/group"}}
+\DoxyCodeLine{102             bodyParam = field\_val            }
+\DoxyCodeLine{103         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{"nss-\/base-\/shadow"} :}
+\DoxyCodeLine{104             field\_name = \textcolor{stringliteral}{"nss-\/base-\/shadow"}}
+\DoxyCodeLine{105             bodyParam = field\_val            }
+\DoxyCodeLine{106         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{"nss-\/base-\/netgroup"} :}
+\DoxyCodeLine{107             field\_name = \textcolor{stringliteral}{"nss-\/base-\/netgroup"}}
+\DoxyCodeLine{108             bodyParam = field\_val            }
+\DoxyCodeLine{109         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{"nss-\/base-\/sudoers"} :}
+\DoxyCodeLine{110             field\_name = \textcolor{stringliteral}{"nss-\/base-\/sudoers"}}
+\DoxyCodeLine{111             bodyParam = field\_val            }
+\DoxyCodeLine{112         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{"nss-\/initgroups-\/ignoreusers"} :}
+\DoxyCodeLine{113             field\_name = \textcolor{stringliteral}{"nss-\/initgroups-\/ignoreusers"}}
+\DoxyCodeLine{114             bodyParam = field\_val            }
+\DoxyCodeLine{115         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{"sudoers-\/base"} :}
+\DoxyCodeLine{116             field\_name = \textcolor{stringliteral}{"sudoers-\/base"}}
+\DoxyCodeLine{117             bodyParam = field\_val            }
+\DoxyCodeLine{118         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{"pam-\/filter"} :}
+\DoxyCodeLine{119             field\_name = \textcolor{stringliteral}{"pam-\/filter"}}
+\DoxyCodeLine{120             bodyParam = field\_val            }
+\DoxyCodeLine{121         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{"pam-\/login-\/attribute"} :}
+\DoxyCodeLine{122             field\_name = \textcolor{stringliteral}{"pam-\/login-\/attribute"}}
+\DoxyCodeLine{123             bodyParam = field\_val            }
+\DoxyCodeLine{124         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{"pam-\/group-\/dn"} :}
+\DoxyCodeLine{125             field\_name = \textcolor{stringliteral}{"pam-\/group-\/dn"}}
+\DoxyCodeLine{126             bodyParam = field\_val            }
+\DoxyCodeLine{127         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{"pam-\/member-\/attribute"} :}
+\DoxyCodeLine{128             field\_name = \textcolor{stringliteral}{"pam-\/member-\/attribute"}}
+\DoxyCodeLine{129             bodyParam = field\_val            }
+\DoxyCodeLine{130         }
+\DoxyCodeLine{131         \textcolor{keywordflow}{if} isDel == \textcolor{keyword}{False} :}
+\DoxyCodeLine{132             keypath = cc.Path(baseServerGrpUri)}
+\DoxyCodeLine{133             body = \{\textcolor{stringliteral}{"openconfig-\/system:server-\/group"}:[\{\textcolor{stringliteral}{"name"}:ldap\_type,\textcolor{stringliteral}{"config"}:\{\textcolor{stringliteral}{"name"}:ldap\_type\}, modName+\textcolor{stringliteral}{"ldap"}:\{\textcolor{stringliteral}{"config"}:\{field\_name:bodyParam\}\}\}]\}            }
+\DoxyCodeLine{134             \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{135         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{136             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/system:system/aaa/server-\/groups/server-\/group=\{ldapType\}/'}+modName+\textcolor{stringliteral}{'ldap/config/\{fieldName\}'},}
+\DoxyCodeLine{137             ldapType=ldap\_type, fieldName=field\_name)}
+\DoxyCodeLine{138             \textcolor{keywordflow}{return} aa.delete (keypath)}
+\DoxyCodeLine{139                }
+\DoxyCodeLine{140     \textcolor{keywordflow}{elif} commandType == \textcolor{stringliteral}{'ldap\_server\_config'}:}
+\DoxyCodeLine{141         \textcolor{keywordflow}{if} isDel == \textcolor{keyword}{False} :}
+\DoxyCodeLine{142             keypath = cc.Path(baseServerGrpUri)}
+\DoxyCodeLine{143             body = \{\textcolor{stringliteral}{"openconfig-\/system:server-\/group"}:[\{\textcolor{stringliteral}{"name"}:\textcolor{stringliteral}{"LDAP"},\textcolor{stringliteral}{"config"}:\{\textcolor{stringliteral}{"name"}:\textcolor{stringliteral}{"LDAP"}\}, \textcolor{stringliteral}{"servers"}:\{\textcolor{stringliteral}{"server"}:[\{\textcolor{stringliteral}{"address"}:args[0],\textcolor{stringliteral}{"config"}:\{\textcolor{stringliteral}{"address"}:args[0]\},\textcolor{stringliteral}{"openconfig-\/aaa-\/ldap-\/ext:ldap"}:\{\textcolor{stringliteral}{"config"}:\{\}\}\}]\}\}]\}}
+\DoxyCodeLine{144             configObj = body[\textcolor{stringliteral}{"openconfig-\/system:server-\/group"}][0][\textcolor{stringliteral}{"servers"}][\textcolor{stringliteral}{"server"}][0][modName+\textcolor{stringliteral}{"ldap"}][\textcolor{stringliteral}{"config"}]}
+\DoxyCodeLine{145             \textcolor{keywordflow}{for} elem \textcolor{keywordflow}{in} args:}
+\DoxyCodeLine{146                 \textcolor{keywordflow}{if} elem == \textcolor{stringliteral}{'use-\/type'}:}
+\DoxyCodeLine{147                     configObj[\textcolor{stringliteral}{"use-\/type"}] = args[args.index(elem)+1].upper()}
+\DoxyCodeLine{148                 \textcolor{keywordflow}{elif} elem == \textcolor{stringliteral}{'port'}:}
+\DoxyCodeLine{149                     configObj[\textcolor{stringliteral}{"port"}] = int(args[args.index(elem)+1])}
+\DoxyCodeLine{150                 \textcolor{keywordflow}{elif} elem == \textcolor{stringliteral}{'priority'}:}
+\DoxyCodeLine{151                     configObj[\textcolor{stringliteral}{"priority"}] = int(args[args.index(elem)+1])}
+\DoxyCodeLine{152                 \textcolor{keywordflow}{elif} elem == \textcolor{stringliteral}{'ssl'}:}
+\DoxyCodeLine{153                     configObj[\textcolor{stringliteral}{"ssl"}] = args[args.index(elem)+1].upper()}
+\DoxyCodeLine{154                 \textcolor{keywordflow}{elif} elem == \textcolor{stringliteral}{'retry'}:}
+\DoxyCodeLine{155                     configObj[\textcolor{stringliteral}{"retransmit-\/attempts"}] = int(args[args.index(elem)+1])}
+\DoxyCodeLine{156             \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{157         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{158             objName = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{159             \textcolor{keywordflow}{if} len(args) > 1: }
+\DoxyCodeLine{160                 \textcolor{keywordflow}{if} args[1] == \textcolor{stringliteral}{'use-\/type'}:}
+\DoxyCodeLine{161                     objName = \textcolor{stringliteral}{'use-\/type'}}
+\DoxyCodeLine{162                 \textcolor{keywordflow}{elif} args[1] == \textcolor{stringliteral}{'port'}:}
+\DoxyCodeLine{163                     objName = \textcolor{stringliteral}{'port'}}
+\DoxyCodeLine{164                 \textcolor{keywordflow}{elif} args[1] == \textcolor{stringliteral}{'priority'}:}
+\DoxyCodeLine{165                     objName = \textcolor{stringliteral}{'priority'}}
+\DoxyCodeLine{166                 \textcolor{keywordflow}{elif} args[1] == \textcolor{stringliteral}{'ssl'}:}
+\DoxyCodeLine{167                     objName = \textcolor{stringliteral}{'ssl'}}
+\DoxyCodeLine{168                 \textcolor{keywordflow}{elif} args[1] == \textcolor{stringliteral}{'retry'}:}
+\DoxyCodeLine{169                     objName = \textcolor{stringliteral}{'retransmit-\/attempts'}}
+\DoxyCodeLine{170                 keypath = cc.Path(baseLdapUri+\textcolor{stringliteral}{'servers/server=\{address\}/'}+modName+\textcolor{stringliteral}{'ldap/config/'}+objName, address=args[0])}
+\DoxyCodeLine{171             \textcolor{keywordflow}{else}:   }
+\DoxyCodeLine{172                 keypath = cc.Path(baseLdapUri+\textcolor{stringliteral}{'servers/server=\{address\}'}, address=args[0])}
+\DoxyCodeLine{173             \textcolor{keywordflow}{return} aa.delete(keypath)     }
+\DoxyCodeLine{174     \textcolor{keywordflow}{elif} commandType == \textcolor{stringliteral}{'ldap\_map\_config'}:}
+\DoxyCodeLine{175         mapName = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{176         \textcolor{keywordflow}{if} args[0] == \textcolor{stringliteral}{"attribute"}:}
+\DoxyCodeLine{177             mapName = \textcolor{stringliteral}{"ATTRIBUTE"}}
+\DoxyCodeLine{178         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{"objectclass"}:}
+\DoxyCodeLine{179             mapName = \textcolor{stringliteral}{"OBJECTCLASS"}}
+\DoxyCodeLine{180         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{"default-\/attribute-\/value"}:}
+\DoxyCodeLine{181             mapName = \textcolor{stringliteral}{"DEFAULT\_ATTRIBUTE\_VALUE"}}
+\DoxyCodeLine{182         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{"override-\/attribute-\/value"}:}
+\DoxyCodeLine{183             mapName = \textcolor{stringliteral}{"OVERRIDE\_ATTRIBUTE\_VALUE"}}
+\DoxyCodeLine{184         }
+\DoxyCodeLine{185         \textcolor{keywordflow}{if} isDel == \textcolor{keyword}{False} :}
+\DoxyCodeLine{186             keypath = cc.Path(baseServerGrpUri)}
+\DoxyCodeLine{187             body = \{\textcolor{stringliteral}{"openconfig-\/system:server-\/group"}:[\{\textcolor{stringliteral}{"name"}:\textcolor{stringliteral}{"LDAP"},\textcolor{stringliteral}{"config"}:\{\textcolor{stringliteral}{"name"}:\textcolor{stringliteral}{"LDAP"}\},\textcolor{stringliteral}{"openconfig-\/aaa-\/ldap-\/ext:ldap"}:\{\textcolor{stringliteral}{"maps"}:\{\textcolor{stringliteral}{"map"}:[\{\textcolor{stringliteral}{"config"}:\{\textcolor{stringliteral}{"to"}:args[3].replace(\textcolor{stringliteral}{"\(\backslash\)\(\backslash\)\(\backslash\)\(\backslash\)"}, \textcolor{stringliteral}{"\(\backslash\)\(\backslash\)"})\},\textcolor{stringliteral}{"from"}:args[1].replace(\textcolor{stringliteral}{"\(\backslash\)\(\backslash\)\(\backslash\)\(\backslash\)"}, \textcolor{stringliteral}{"\(\backslash\)\(\backslash\)"}),\textcolor{stringliteral}{"name"}:mapName\}]\}\}\}]\}}
+\DoxyCodeLine{188             \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{189         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{190             keyVal = args[1].replace(\textcolor{stringliteral}{"\(\backslash\)\(\backslash\)\(\backslash\)\(\backslash\)"}, \textcolor{stringliteral}{"\(\backslash\)\(\backslash\)"})}
+\DoxyCodeLine{191             keypath = cc.Path(baseLdapUri+modName+\textcolor{stringliteral}{'ldap/maps/map='}+mapName+\textcolor{stringliteral}{','}+keyVal.replace(\textcolor{stringliteral}{"/"},\textcolor{stringliteral}{"\%2F"}))}
+\DoxyCodeLine{192             \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{193     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'ldap\_server\_src\_if\_config'}:}
+\DoxyCodeLine{194         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/system:system/aaa/server-\/groups/server-\/group'})}
+\DoxyCodeLine{195         body = \{\textcolor{stringliteral}{"openconfig-\/system:server-\/group"}:[\{\textcolor{stringliteral}{"name"}:\textcolor{stringliteral}{"LDAP"},\textcolor{stringliteral}{"config"}:\{\textcolor{stringliteral}{"name"}:\textcolor{stringliteral}{"LDAP"}\},\textcolor{stringliteral}{"openconfig-\/aaa-\/ldap-\/ext:ldap"}:\{\textcolor{stringliteral}{"config"}:\{\textcolor{stringliteral}{"source-\/interface"}:args[0] \textcolor{keywordflow}{if} args[0] != \textcolor{stringliteral}{'Management0'} \textcolor{keywordflow}{else} \textcolor{stringliteral}{'eth0'} \}\}\}]\}}
+\DoxyCodeLine{196         \textcolor{keywordflow}{return} aa.patch(path, body)}
+\DoxyCodeLine{197     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'ldap\_server\_vrf\_config'}:}
+\DoxyCodeLine{198         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/system:system/aaa/server-\/groups/server-\/group'})}
+\DoxyCodeLine{199         body = \{\textcolor{stringliteral}{"openconfig-\/system:server-\/group"}:[\{\textcolor{stringliteral}{"name"}:\textcolor{stringliteral}{"LDAP"},\textcolor{stringliteral}{"config"}:\{\textcolor{stringliteral}{"name"}:\textcolor{stringliteral}{"LDAP"}\},\textcolor{stringliteral}{"openconfig-\/aaa-\/ldap-\/ext:ldap"}:\{\textcolor{stringliteral}{"config"}:\{\textcolor{stringliteral}{"vrf-\/name"}:args[0]\}\}\}]\}}
+\DoxyCodeLine{200         \textcolor{keywordflow}{return} aa.patch(path, body)}
+\DoxyCodeLine{201     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{202         print(\textcolor{stringliteral}{"\%Error: not implemented"})}
+\DoxyCodeLine{203         exit(1)}
+\DoxyCodeLine{204 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{d3/d2d/namespacesonic__cli__ldap_abaeac0658ceca18d26ccfd320b2b1f75_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__ldap_af60696ae0ae92e40e98bb24d0ac42330}\label{namespacesonic__cli__ldap_af60696ae0ae92e40e98bb24d0ac42330}} 
+\index{sonic\_cli\_ldap@{sonic\_cli\_ldap}!run@{run}}
+\index{run@{run}!sonic\_cli\_ldap@{sonic\_cli\_ldap}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+ldap.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+ldap.\+py 파일의 205 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{205 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__ldap_af60696ae0ae92e40e98bb24d0ac42330}{run}}(func, args):}
+\DoxyCodeLine{206     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{207         api\_response = \mbox{\hyperlink{namespacesonic__cli__ldap_abaeac0658ceca18d26ccfd320b2b1f75}{invoke}}(func, args)}
+\DoxyCodeLine{208         \textcolor{keywordflow}{if} api\_response.ok():}
+\DoxyCodeLine{209             response = api\_response.content}
+\DoxyCodeLine{210             \textcolor{keywordflow}{if} response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{211                 \textcolor{keywordflow}{return}}
+\DoxyCodeLine{212             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{213                 \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\%Error: Invalid command"}}
+\DoxyCodeLine{214         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{215             \textcolor{comment}{\#error response}}
+\DoxyCodeLine{216             \textcolor{keywordflow}{print} api\_response.error\_message()}
+\DoxyCodeLine{217 }
+\DoxyCodeLine{218     \textcolor{keywordflow}{except} Exception:}
+\DoxyCodeLine{219         \textcolor{comment}{\# system/network error}}
+\DoxyCodeLine{220         \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\%Error: Transaction Failure"}}
+\DoxyCodeLine{221 }
+\DoxyCodeLine{222 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d2d/namespacesonic__cli__ldap_af60696ae0ae92e40e98bb24d0ac42330_cgraph}
+\end{center}
+\end{figure}

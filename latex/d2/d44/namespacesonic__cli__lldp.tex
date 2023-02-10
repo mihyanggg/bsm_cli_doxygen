@@ -1,0 +1,292 @@
+\hypertarget{namespacesonic__cli__lldp}{}\doxysection{sonic\+\_\+cli\+\_\+lldp 네임스페이스 참조}
+\label{namespacesonic__cli__lldp}\index{sonic\_cli\_lldp@{sonic\_cli\_lldp}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__lldp_a6e6d8412f57a2036210b5d64901b136e}{str2bool}} (s)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__lldp_a5f6e865ed0d773b47bfdc8b0e7724d40}{convert\+Tlv}} (s)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__lldp_a510bb969165c6248875b96108771445a}{convert\+Mode}} (s)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__lldp_a48d0856698c341e99d61c9fdd82be4a3}{invoke\+\_\+api}} (fn, args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__lldp_a56ce3ec6d1c2f717023aa6fb9a9d074f}{run}} (fn, args)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacesonic__cli__lldp_a9acfe7c53a4062fa4ea9b6f9184bb353}{func}} = sys.\+argv\mbox{[}1\mbox{]}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__lldp_abaaa45b1f908288bdd0fb9a0e5b7ac70}{status}} = \mbox{\hyperlink{namespacesonic__cli__lldp_a56ce3ec6d1c2f717023aa6fb9a9d074f}{run}}(\mbox{\hyperlink{namespacesonic__cli__lldp_a9acfe7c53a4062fa4ea9b6f9184bb353}{func}}, sys.\+argv\mbox{[}2\+:\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__lldp_a510bb969165c6248875b96108771445a}\label{namespacesonic__cli__lldp_a510bb969165c6248875b96108771445a}} 
+\index{sonic\_cli\_lldp@{sonic\_cli\_lldp}!convertMode@{convertMode}}
+\index{convertMode@{convertMode}!sonic\_cli\_lldp@{sonic\_cli\_lldp}}
+\doxysubsubsection{\texorpdfstring{convertMode()}{convertMode()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+lldp.\+convert\+Mode (\begin{DoxyParamCaption}\item[{}]{s }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+lldp.\+py 파일의 35 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{35 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__lldp_a510bb969165c6248875b96108771445a}{convertMode}}(s):}
+\DoxyCodeLine{36     \textcolor{keywordflow}{if} s == \textcolor{stringliteral}{"receive"}:}
+\DoxyCodeLine{37         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"RECEIVE"}}
+\DoxyCodeLine{38     \textcolor{keywordflow}{elif} s == \textcolor{stringliteral}{"transmit"}:}
+\DoxyCodeLine{39         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"TRANSMIT"}}
+\DoxyCodeLine{40 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/d44/namespacesonic__cli__lldp_a510bb969165c6248875b96108771445a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__lldp_a5f6e865ed0d773b47bfdc8b0e7724d40}\label{namespacesonic__cli__lldp_a5f6e865ed0d773b47bfdc8b0e7724d40}} 
+\index{sonic\_cli\_lldp@{sonic\_cli\_lldp}!convertTlv@{convertTlv}}
+\index{convertTlv@{convertTlv}!sonic\_cli\_lldp@{sonic\_cli\_lldp}}
+\doxysubsubsection{\texorpdfstring{convertTlv()}{convertTlv()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+lldp.\+convert\+Tlv (\begin{DoxyParamCaption}\item[{}]{s }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+lldp.\+py 파일의 29 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__lldp_a5f6e865ed0d773b47bfdc8b0e7724d40}{convertTlv}}(s):}
+\DoxyCodeLine{30     \textcolor{keywordflow}{if} s == \textcolor{stringliteral}{"management-\/address"}:}
+\DoxyCodeLine{31         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"MANAGEMENT\_ADDRESS"}}
+\DoxyCodeLine{32     \textcolor{keywordflow}{elif} s == \textcolor{stringliteral}{"system-\/capabilities"}:}
+\DoxyCodeLine{33         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"SYSTEM\_CAPABILITIES"}}
+\DoxyCodeLine{34 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/d44/namespacesonic__cli__lldp_a5f6e865ed0d773b47bfdc8b0e7724d40_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__lldp_a48d0856698c341e99d61c9fdd82be4a3}\label{namespacesonic__cli__lldp_a48d0856698c341e99d61c9fdd82be4a3}} 
+\index{sonic\_cli\_lldp@{sonic\_cli\_lldp}!invoke\_api@{invoke\_api}}
+\index{invoke\_api@{invoke\_api}!sonic\_cli\_lldp@{sonic\_cli\_lldp}}
+\doxysubsubsection{\texorpdfstring{invoke\_api()}{invoke\_api()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+lldp.\+invoke\+\_\+api (\begin{DoxyParamCaption}\item[{}]{fn,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+lldp.\+py 파일의 41 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{41 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__lldp_a48d0856698c341e99d61c9fdd82be4a3}{invoke\_api}}(fn, args):}
+\DoxyCodeLine{42     api = cc.ApiClient()}
+\DoxyCodeLine{43     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{keywordflow}{if} fn == \textcolor{stringliteral}{'get\_openconfig\_lldp\_lldp\_interfaces'}:}
+\DoxyCodeLine{46        \textcolor{keywordflow}{if} len(args) < 2: }
+\DoxyCodeLine{47            path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/lldp:lldp/interfaces'})}
+\DoxyCodeLine{48            \textcolor{keywordflow}{return} api.get(path)}
+\DoxyCodeLine{49        \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{50            path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/lldp:lldp/interfaces/interface=\{name\}'}, name=args[1])}
+\DoxyCodeLine{51            \textcolor{keywordflow}{return} api.get(path)}
+\DoxyCodeLine{52     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{'disable\_lldp\_global'}:}
+\DoxyCodeLine{53         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/lldp:lldp/config/enabled'})}
+\DoxyCodeLine{54         body = \{ \textcolor{stringliteral}{"openconfig-\/lldp:enabled"}: \mbox{\hyperlink{namespacesonic__cli__lldp_a6e6d8412f57a2036210b5d64901b136e}{str2bool}}(args[0]) \}}
+\DoxyCodeLine{55         \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{56     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{'enable\_lldp\_global'}:}
+\DoxyCodeLine{57         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/lldp:lldp/config/enabled'})}
+\DoxyCodeLine{58         \textcolor{keywordflow}{return} api.delete(keypath, body)}
+\DoxyCodeLine{59     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{'set\_hello\_time'}:}
+\DoxyCodeLine{60         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/lldp:lldp/config/hello-\/timer'})}
+\DoxyCodeLine{61         body = \{ \textcolor{stringliteral}{"openconfig-\/lldp:hello-\/timer"}: str(args[0])\}}
+\DoxyCodeLine{62         \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{63     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{'del\_hello\_time'}:}
+\DoxyCodeLine{64         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/lldp:lldp/config/hello-\/timer'})}
+\DoxyCodeLine{65         \textcolor{keywordflow}{return} api.delete(keypath, body)}
+\DoxyCodeLine{66     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{'set\_multiplier'}:}
+\DoxyCodeLine{67         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/lldp:lldp/config/openconfig-\/lldp-\/ext:multiplier'})}
+\DoxyCodeLine{68         body = \{ \textcolor{stringliteral}{"openconfig-\/lldp-\/ext:multiplier"}: int(args[0])\}}
+\DoxyCodeLine{69         \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{70     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{'del\_multiplier'}:}
+\DoxyCodeLine{71         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/lldp:lldp/config/openconfig-\/lldp-\/ext:multiplier'})}
+\DoxyCodeLine{72         \textcolor{keywordflow}{return} api.delete(keypath, body)}
+\DoxyCodeLine{73     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{'set\_system\_name'}:}
+\DoxyCodeLine{74         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/lldp:lldp/config/system-\/name'})}
+\DoxyCodeLine{75         body = \{ \textcolor{stringliteral}{"openconfig-\/lldp:system-\/name"}: args[0]\}}
+\DoxyCodeLine{76         \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{77     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{'del\_system\_name'}:}
+\DoxyCodeLine{78         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/lldp:lldp/config/system-\/name'})}
+\DoxyCodeLine{79         \textcolor{keywordflow}{return} api.delete(keypath, body)}
+\DoxyCodeLine{80     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{'set\_system\_description'}:}
+\DoxyCodeLine{81         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/lldp:lldp/config/system-\/description'})}
+\DoxyCodeLine{82         body = \{ \textcolor{stringliteral}{"openconfig-\/lldp:system-\/description"}: args[0]\}}
+\DoxyCodeLine{83         \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{84     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{'del\_system\_description'}:}
+\DoxyCodeLine{85         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/lldp:lldp/config/system-\/description'})}
+\DoxyCodeLine{86         \textcolor{keywordflow}{return} api.delete(keypath, body)}
+\DoxyCodeLine{87     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{'set\_mode'}:}
+\DoxyCodeLine{88         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/lldp:lldp/config/openconfig-\/lldp-\/ext:mode'})}
+\DoxyCodeLine{89         body = \{ \textcolor{stringliteral}{"openconfig-\/lldp-\/ext:mode"}: \mbox{\hyperlink{namespacesonic__cli__lldp_a510bb969165c6248875b96108771445a}{convertMode}}(args[0])\}}
+\DoxyCodeLine{90         \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{91     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{'del\_mode'}:}
+\DoxyCodeLine{92         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/lldp:lldp/config/openconfig-\/lldp-\/ext:mode'})}
+\DoxyCodeLine{93         \textcolor{keywordflow}{return} api.delete(keypath, body)}
+\DoxyCodeLine{94     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{'set\_tlv'}:}
+\DoxyCodeLine{95         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/lldp:lldp/config/suppress-\/tlv-\/advertisement'})}
+\DoxyCodeLine{96         body = \{ \textcolor{stringliteral}{"openconfig-\/lldp:suppress-\/tlv-\/advertisement"}: [\mbox{\hyperlink{namespacesonic__cli__lldp_a5f6e865ed0d773b47bfdc8b0e7724d40}{convertTlv}}(args[0])]\}}
+\DoxyCodeLine{97         \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{98     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{'del\_tlv'}:}
+\DoxyCodeLine{99         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/lldp:lldp/config/suppress-\/tlv-\/advertisement=\{name\}'}, name=\mbox{\hyperlink{namespacesonic__cli__lldp_a5f6e865ed0d773b47bfdc8b0e7724d40}{convertTlv}}(args[0]))}
+\DoxyCodeLine{100         \textcolor{keywordflow}{return} api.delete(keypath, body)}
+\DoxyCodeLine{101     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{'disable\_lldp\_intf'}:}
+\DoxyCodeLine{102         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/lldp:lldp/interfaces/'})}
+\DoxyCodeLine{103         body = \{\textcolor{stringliteral}{"openconfig-\/lldp:interfaces"}: \{\textcolor{stringliteral}{"interface"}: [\{\textcolor{stringliteral}{"name"}: args[0], \textcolor{stringliteral}{"config"}:\{\textcolor{stringliteral}{"enabled"}: \mbox{\hyperlink{namespacesonic__cli__lldp_a6e6d8412f57a2036210b5d64901b136e}{str2bool}}(args[1]) \}\} ]\}\}}
+\DoxyCodeLine{104         \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{105     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{'enable\_lldp\_intf'}:}
+\DoxyCodeLine{106         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/lldp:lldp/interfaces/interface=\{name\}/config/enabled'}, name=args[0])}
+\DoxyCodeLine{107         \textcolor{keywordflow}{return} api.delete(keypath, body)}
+\DoxyCodeLine{108     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{'set\_lldp\_intf\_mode'}:}
+\DoxyCodeLine{109         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/lldp:lldp/interfaces/'})}
+\DoxyCodeLine{110         body = \{\textcolor{stringliteral}{"openconfig-\/lldp:interfaces"}: \{\textcolor{stringliteral}{"interface"}: [\{\textcolor{stringliteral}{"name"}: args[0], \textcolor{stringliteral}{"config"}:\{\textcolor{stringliteral}{"openconfig-\/lldp-\/ext:mode"}: \mbox{\hyperlink{namespacesonic__cli__lldp_a510bb969165c6248875b96108771445a}{convertMode}}(args[1]) \}\} ]\}\}}
+\DoxyCodeLine{111         \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{112     \textcolor{keywordflow}{elif} fn == \textcolor{stringliteral}{'del\_lldp\_intf\_mode'}:}
+\DoxyCodeLine{113         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/lldp:lldp/interfaces/interface=\{name\}/config/openconfig-\/lldp-\/ext:mode'}, name=args[0])}
+\DoxyCodeLine{114         \textcolor{keywordflow}{return} api.delete(keypath, body)}
+\DoxyCodeLine{115     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{116         body = \{\}}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118     \textcolor{keywordflow}{return} api.cli\_not\_implemented(fn)}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/d44/namespacesonic__cli__lldp_a48d0856698c341e99d61c9fdd82be4a3_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/d44/namespacesonic__cli__lldp_a48d0856698c341e99d61c9fdd82be4a3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__lldp_a56ce3ec6d1c2f717023aa6fb9a9d074f}\label{namespacesonic__cli__lldp_a56ce3ec6d1c2f717023aa6fb9a9d074f}} 
+\index{sonic\_cli\_lldp@{sonic\_cli\_lldp}!run@{run}}
+\index{run@{run}!sonic\_cli\_lldp@{sonic\_cli\_lldp}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+lldp.\+run (\begin{DoxyParamCaption}\item[{}]{fn,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+lldp.\+py 파일의 121 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{121 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__lldp_a56ce3ec6d1c2f717023aa6fb9a9d074f}{run}}(fn, args):}
+\DoxyCodeLine{122     response = \mbox{\hyperlink{namespacesonic__cli__lldp_a48d0856698c341e99d61c9fdd82be4a3}{invoke\_api}}(fn, args)}
+\DoxyCodeLine{123     \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{124         \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{125             \textcolor{comment}{\# Get Command Output}}
+\DoxyCodeLine{126             api\_response = response.content}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128             \textcolor{keywordflow}{if} api\_response:}
+\DoxyCodeLine{129                 response = api\_response}
+\DoxyCodeLine{130                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/lldp:interfaces'} \textcolor{keywordflow}{in} response.keys():}
+\DoxyCodeLine{131                     \textcolor{keywordflow}{if} (\textcolor{keywordflow}{not} response[\textcolor{stringliteral}{'openconfig-\/lldp:interfaces'}] \textcolor{keywordflow}{or}}
+\DoxyCodeLine{132                         \textcolor{keywordflow}{not} \textcolor{stringliteral}{'interface'} \textcolor{keywordflow}{in} response[\textcolor{stringliteral}{'openconfig-\/lldp:interfaces'}]):}
+\DoxyCodeLine{133                         \textcolor{keywordflow}{return} 0}
+\DoxyCodeLine{134                     neigh\_list = sorted(response[\textcolor{stringliteral}{'openconfig-\/lldp:interfaces'}][\textcolor{stringliteral}{'interface'}],}
+\DoxyCodeLine{135                                             key = \textcolor{keyword}{lambda} x: \mbox{\hyperlink{namespacesonic__intf__utils_a9d08993d978e51fcb254e67534a554a2}{name\_to\_int\_val}}(x[\textcolor{stringliteral}{'name'}]))}
+\DoxyCodeLine{136                     \textcolor{keywordflow}{if} neigh\_list \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{137                         \textcolor{keywordflow}{return} 0}
+\DoxyCodeLine{138                     \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], neigh\_list)}
+\DoxyCodeLine{139                 \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'openconfig-\/lldp:interface'} \textcolor{keywordflow}{in} response.keys():}
+\DoxyCodeLine{140                     neigh = response[\textcolor{stringliteral}{'openconfig-\/lldp:interface'}]  \textcolor{comment}{\# [0]['neighbors']['neighbor']}}
+\DoxyCodeLine{141                     \textcolor{keywordflow}{if} neigh \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{142                         \textcolor{keywordflow}{return} 0}
+\DoxyCodeLine{143                     \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0],neigh)}
+\DoxyCodeLine{144                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{145                     print(\textcolor{stringliteral}{"\% Error: Internal error"})}
+\DoxyCodeLine{146                     \textcolor{keywordflow}{return} -\/1}
+\DoxyCodeLine{147     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{148         \textcolor{keywordflow}{return} -\/1}
+\DoxyCodeLine{149     \textcolor{keywordflow}{return} 0}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{151 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/d44/namespacesonic__cli__lldp_a56ce3ec6d1c2f717023aa6fb9a9d074f_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__lldp_a6e6d8412f57a2036210b5d64901b136e}\label{namespacesonic__cli__lldp_a6e6d8412f57a2036210b5d64901b136e}} 
+\index{sonic\_cli\_lldp@{sonic\_cli\_lldp}!str2bool@{str2bool}}
+\index{str2bool@{str2bool}!sonic\_cli\_lldp@{sonic\_cli\_lldp}}
+\doxysubsubsection{\texorpdfstring{str2bool()}{str2bool()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+lldp.\+str2bool (\begin{DoxyParamCaption}\item[{}]{s }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+lldp.\+py 파일의 26 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{26 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__lldp_a6e6d8412f57a2036210b5d64901b136e}{str2bool}}(s):}
+\DoxyCodeLine{27     \textcolor{keywordflow}{return} s.lower() \textcolor{keywordflow}{in} (\textcolor{stringliteral}{"true"}, \textcolor{stringliteral}{"t"})}
+\DoxyCodeLine{28 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/d44/namespacesonic__cli__lldp_a6e6d8412f57a2036210b5d64901b136e_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__lldp_a9acfe7c53a4062fa4ea9b6f9184bb353}\label{namespacesonic__cli__lldp_a9acfe7c53a4062fa4ea9b6f9184bb353}} 
+\index{sonic\_cli\_lldp@{sonic\_cli\_lldp}!func@{func}}
+\index{func@{func}!sonic\_cli\_lldp@{sonic\_cli\_lldp}}
+\doxysubsubsection{\texorpdfstring{func}{func}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+lldp.\+func = sys.\+argv\mbox{[}1\mbox{]}}
+
+
+
+sonic\+\_\+cli\+\_\+lldp.\+py 파일의 154 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__lldp_abaaa45b1f908288bdd0fb9a0e5b7ac70}\label{namespacesonic__cli__lldp_abaaa45b1f908288bdd0fb9a0e5b7ac70}} 
+\index{sonic\_cli\_lldp@{sonic\_cli\_lldp}!status@{status}}
+\index{status@{status}!sonic\_cli\_lldp@{sonic\_cli\_lldp}}
+\doxysubsubsection{\texorpdfstring{status}{status}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+lldp.\+status = \mbox{\hyperlink{namespacesonic__cli__lldp_a56ce3ec6d1c2f717023aa6fb9a9d074f}{run}}(\mbox{\hyperlink{namespacesonic__cli__lldp_a9acfe7c53a4062fa4ea9b6f9184bb353}{func}}, sys.\+argv\mbox{[}2\+:\mbox{]})}
+
+
+
+sonic\+\_\+cli\+\_\+lldp.\+py 파일의 156 번째 라인에서 정의되었습니다.
+

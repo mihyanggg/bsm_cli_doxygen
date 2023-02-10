@@ -1,0 +1,200 @@
+\hypertarget{namespacesonic__cli__qos__scheduler}{}\doxysection{sonic\+\_\+cli\+\_\+qos\+\_\+scheduler 네임스페이스 참조}
+\label{namespacesonic__cli__qos__scheduler}\index{sonic\_cli\_qos\_scheduler@{sonic\_cli\_qos\_scheduler}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__qos__scheduler_a7b1c0495a48fd4b1fcdc411e562af1ef}{invoke}} (\mbox{\hyperlink{namespacesonic__cli__qos__scheduler_a646333f570dc8cf438861dcd1141f038}{func}}, args=\mbox{[}$\,$\mbox{]})
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__qos__scheduler_ad64b3a0c2854543b440429c56f16c93c}{run}} (\mbox{\hyperlink{namespacesonic__cli__qos__scheduler_a646333f570dc8cf438861dcd1141f038}{func}}, args)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacesonic__cli__qos__scheduler_a646333f570dc8cf438861dcd1141f038}{func}} = sys.\+argv\mbox{[}1\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__qos__scheduler_a7b1c0495a48fd4b1fcdc411e562af1ef}\label{namespacesonic__cli__qos__scheduler_a7b1c0495a48fd4b1fcdc411e562af1ef}} 
+\index{sonic\_cli\_qos\_scheduler@{sonic\_cli\_qos\_scheduler}!invoke@{invoke}}
+\index{invoke@{invoke}!sonic\_cli\_qos\_scheduler@{sonic\_cli\_qos\_scheduler}}
+\doxysubsubsection{\texorpdfstring{invoke()}{invoke()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+qos\+\_\+scheduler.\+invoke (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args = {\ttfamily \mbox{[}\mbox{]}} }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+scheduler.\+py 파일의 11 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{11 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__qos__scheduler_a7b1c0495a48fd4b1fcdc411e562af1ef}{invoke}}(func, args=[]):}
+\DoxyCodeLine{12     api = cc.ApiClient()}
+\DoxyCodeLine{13     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'get\_openconfig\_qos\_qos\_scheduler\_policies'}:}
+\DoxyCodeLine{14         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/scheduler-\/policies'})}
+\DoxyCodeLine{15         \textcolor{keywordflow}{return} api.get(path)}
+\DoxyCodeLine{16     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'get\_openconfig\_qos\_qos\_scheduler\_policies\_scheduler\_policy\_schedulers'}:}
+\DoxyCodeLine{17         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/scheduler-\/policies/scheduler-\/policy=\{name\}/schedulers'}, name=args[0])}
+\DoxyCodeLine{18         \textcolor{keywordflow}{return} api.get(path)}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_openconfig\_qos\_qos\_scheduler\_policies'}:}
+\DoxyCodeLine{21         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/scheduler-\/policies/'})}
+\DoxyCodeLine{22         body = \{\textcolor{stringliteral}{"openconfig-\/qos:scheduler-\/policies"}: \{\textcolor{stringliteral}{"scheduler-\/policy"}: [\{\textcolor{stringliteral}{"name"}: args[0], \textcolor{stringliteral}{"config"} : \{\textcolor{stringliteral}{"name"}: args[0]\}\}]\}\}}
+\DoxyCodeLine{23         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keywordflow}{if} func ==\textcolor{stringliteral}{"delete\_openconfig\_qos\_qos\_scheduler\_policies\_scheduler\_policy"}:}
+\DoxyCodeLine{26         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/scheduler-\/policies/scheduler-\/policy=\{name\}'}, name=args[0] )}
+\DoxyCodeLine{27         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_openconfig\_qos\_qos\_scheduler\_policies\_scheduler\_policy\_schedulers\_scheduler'}:}
+\DoxyCodeLine{30         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/scheduler-\/policies/'})}
+\DoxyCodeLine{31         body = \{\textcolor{stringliteral}{"openconfig-\/qos:scheduler-\/policies"}: \{\textcolor{stringliteral}{"scheduler-\/policy"}: [\{\textcolor{stringliteral}{"name"}: args[0], \textcolor{stringliteral}{"config"} : \{\textcolor{stringliteral}{"name"}: args[0]\}, \textcolor{stringliteral}{"schedulers"}: \{\textcolor{stringliteral}{"scheduler"}: [\{\textcolor{stringliteral}{"sequence"}: int(args[1])\}]\}\}]\}\}}
+\DoxyCodeLine{32         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keywordflow}{if} func ==\textcolor{stringliteral}{"delete\_openconfig\_qos\_qos\_scheduler\_policies\_scheduler\_policy\_schedulers\_scheduler"}:}
+\DoxyCodeLine{35         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/scheduler-\/policies/scheduler-\/policy=\{name\}/schedulers/scheduler=\{sequence\}'}, name=args[0], sequence=args[1])}
+\DoxyCodeLine{36         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_openconfig\_qos\_qos\_scheduler\_policies\_scheduler\_policy\_schedulers\_scheduler\_config\_priority'}:}
+\DoxyCodeLine{39         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/scheduler-\/policies/scheduler-\/policy=\{name\}/schedulers/scheduler=\{sequence\}/config/priority'}, name=args[0], sequence=args[1])}
+\DoxyCodeLine{40         body = \{\textcolor{stringliteral}{"openconfig-\/qos:priority"}: args[2]\}}
+\DoxyCodeLine{41         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'delete\_openconfig\_qos\_qos\_scheduler\_policies\_scheduler\_policy\_schedulers\_scheduler\_config\_priority'}:}
+\DoxyCodeLine{44         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/scheduler-\/policies/scheduler-\/policy=\{name\}/schedulers/scheduler=\{sequence\}/config/priority'}, name=args[0], sequence=args[1])}
+\DoxyCodeLine{45         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_openconfig\_qos\_qos\_scheduler\_policies\_scheduler\_policy\_schedulers\_scheduler\_config\_meter\_type'}:}
+\DoxyCodeLine{48         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/scheduler-\/policies/scheduler-\/policy=\{name\}/schedulers/scheduler=\{sequence\}/config/openconfig-\/qos-\/ext:meter-\/type'}, name=args[0], sequence=args[1])}
+\DoxyCodeLine{49         body = \{\textcolor{stringliteral}{"openconfig-\/qos-\/ext:meter-\/type"}: args[2]\}}
+\DoxyCodeLine{50         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'delete\_openconfig\_qos\_qos\_scheduler\_policies\_scheduler\_policy\_schedulers\_scheduler\_config\_meter\_type'}:}
+\DoxyCodeLine{53         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/scheduler-\/policies/scheduler-\/policy=\{name\}/schedulers/scheduler=\{sequence\}/config/openconfig-\/qos-\/ext:meter-\/type'}, name=args[0], sequence=args[1])}
+\DoxyCodeLine{54         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_openconfig\_qos\_qos\_scheduler\_policies\_scheduler\_policy\_schedulers\_scheduler\_config\_weight'}:}
+\DoxyCodeLine{57         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/scheduler-\/policies/scheduler-\/policy=\{name\}/schedulers/scheduler=\{sequence\}/config/openconfig-\/qos-\/ext:weight'}, name=args[0], sequence=args[1])}
+\DoxyCodeLine{58         body = \{\textcolor{stringliteral}{"openconfig-\/qos-\/ext:weight"}: int(args[2])\}}
+\DoxyCodeLine{59         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'delete\_openconfig\_qos\_qos\_scheduler\_policies\_scheduler\_policy\_schedulers\_scheduler\_config\_weight'}:}
+\DoxyCodeLine{62         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/scheduler-\/policies/scheduler-\/policy=\{name\}/schedulers/scheduler=\{sequence\}/config/openconfig-\/qos-\/ext:weight'}, name=args[0], sequence=args[1])}
+\DoxyCodeLine{63         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_openconfig\_qos\_qos\_scheduler\_policies\_scheduler\_policy\_schedulers\_scheduler\_two\_rate\_three\_color\_config\_cir'}:}
+\DoxyCodeLine{66         \textcolor{keywordflow}{if} args[0] == \textcolor{stringliteral}{"copp-\/scheduler-\/policy"}:}
+\DoxyCodeLine{67             cir\_val = int(args[2])}
+\DoxyCodeLine{68         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{69             cir\_val = int(args[2]) * 1000}
+\DoxyCodeLine{70         cir\_str = str(cir\_val)}
+\DoxyCodeLine{71         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/scheduler-\/policies/scheduler-\/policy=\{name\}/schedulers/scheduler=\{sequence\}/two-\/rate-\/three-\/color/config/cir'}, name=args[0], sequence=args[1])}
+\DoxyCodeLine{72         body = \{\textcolor{stringliteral}{"openconfig-\/qos:cir"}: cir\_str\}}
+\DoxyCodeLine{73         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_openconfig\_qos\_qos\_scheduler\_policies\_scheduler\_policy\_schedulers\_scheduler\_two\_rate\_three\_color\_config\_pir'}:}
+\DoxyCodeLine{76         \textcolor{keywordflow}{if} args[0] == \textcolor{stringliteral}{"copp-\/scheduler-\/policy"}:}
+\DoxyCodeLine{77             pir\_val = int(args[2])}
+\DoxyCodeLine{78         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{79             pir\_val = int(args[2]) * 1000}
+\DoxyCodeLine{80         pir\_str = str(pir\_val)}
+\DoxyCodeLine{81         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/scheduler-\/policies/scheduler-\/policy=\{name\}/schedulers/scheduler=\{sequence\}/two-\/rate-\/three-\/color/config/pir'}, name=args[0], sequence=args[1])}
+\DoxyCodeLine{82         body = \{\textcolor{stringliteral}{"openconfig-\/qos:pir"}: pir\_str\}}
+\DoxyCodeLine{83         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_openconfig\_qos\_qos\_scheduler\_policies\_scheduler\_policy\_schedulers\_scheduler\_two\_rate\_three\_color\_config\_bc'}:}
+\DoxyCodeLine{86         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/scheduler-\/policies/scheduler-\/policy=\{name\}/schedulers/scheduler=\{sequence\}/two-\/rate-\/three-\/color/config/bc'}, name=args[0], sequence=args[1])}
+\DoxyCodeLine{87         body = \{\textcolor{stringliteral}{"openconfig-\/qos:bc"}: int(args[2])\}}
+\DoxyCodeLine{88         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_openconfig\_qos\_qos\_scheduler\_policies\_scheduler\_policy\_schedulers\_scheduler\_two\_rate\_three\_color\_config\_be'}:}
+\DoxyCodeLine{91         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/scheduler-\/policies/scheduler-\/policy=\{name\}/schedulers/scheduler=\{sequence\}/two-\/rate-\/three-\/color/config/be'}, name=args[0], sequence=args[1])}
+\DoxyCodeLine{92         body = \{\textcolor{stringliteral}{"openconfig-\/qos:be"}: int(args[2])\}}
+\DoxyCodeLine{93         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'delete\_openconfig\_qos\_qos\_scheduler\_policies\_scheduler\_policy\_schedulers\_scheduler\_two\_rate\_three\_color\_config\_cir'}:    }
+\DoxyCodeLine{96         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/scheduler-\/policies/scheduler-\/policy=\{name\}/schedulers/scheduler=\{sequence\}/two-\/rate-\/three-\/color/config/cir'}, name=args[0], sequence=args[1])}
+\DoxyCodeLine{97         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'delete\_openconfig\_qos\_qos\_scheduler\_policies\_scheduler\_policy\_schedulers\_scheduler\_two\_rate\_three\_color\_config\_pir'}:}
+\DoxyCodeLine{100         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/scheduler-\/policies/scheduler-\/policy=\{name\}/schedulers/scheduler=\{sequence\}/two-\/rate-\/three-\/color/config/pir'}, name=args[0], sequence=args[1])}
+\DoxyCodeLine{101         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'delete\_openconfig\_qos\_qos\_scheduler\_policies\_scheduler\_policy\_schedulers\_scheduler\_two\_rate\_three\_color\_config\_bc'}:}
+\DoxyCodeLine{104         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/scheduler-\/policies/scheduler-\/policy=\{name\}/schedulers/scheduler=\{sequence\}/two-\/rate-\/three-\/color/config/bc'}, name=args[0], sequence=args[1])}
+\DoxyCodeLine{105         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'delete\_openconfig\_qos\_qos\_scheduler\_policies\_scheduler\_policy\_schedulers\_scheduler\_two\_rate\_three\_color\_config\_be'}:}
+\DoxyCodeLine{108         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/scheduler-\/policies/scheduler-\/policy=\{name\}/schedulers/scheduler=\{sequence\}/two-\/rate-\/three-\/color/config/be'}, name=args[0], sequence=args[1])}
+\DoxyCodeLine{109         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111     \textcolor{keywordflow}{return} api.cli\_not\_implemented(func)}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d06/namespacesonic__cli__qos__scheduler_a7b1c0495a48fd4b1fcdc411e562af1ef_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__qos__scheduler_ad64b3a0c2854543b440429c56f16c93c}\label{namespacesonic__cli__qos__scheduler_ad64b3a0c2854543b440429c56f16c93c}} 
+\index{sonic\_cli\_qos\_scheduler@{sonic\_cli\_qos\_scheduler}!run@{run}}
+\index{run@{run}!sonic\_cli\_qos\_scheduler@{sonic\_cli\_qos\_scheduler}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+qos\+\_\+scheduler.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+scheduler.\+py 파일의 114 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{114 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__qos__scheduler_ad64b3a0c2854543b440429c56f16c93c}{run}}(func, args):}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116     response = \mbox{\hyperlink{namespacesonic__cli__qos__scheduler_a7b1c0495a48fd4b1fcdc411e562af1ef}{invoke}}(func, args)}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118     \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{119         \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{120             api\_response = response.content}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122             \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'get\_openconfig\_qos\_qos\_scheduler\_policies\_scheduler\_policy\_schedulers'}:}
+\DoxyCodeLine{123                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/qos:schedulers'} \textcolor{keywordflow}{in} api\_response:}
+\DoxyCodeLine{124                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'scheduler'} \textcolor{keywordflow}{in} api\_response[\textcolor{stringliteral}{'openconfig-\/qos:schedulers'}]:}
+\DoxyCodeLine{125                         \textcolor{keywordflow}{if} len(api\_response[\textcolor{stringliteral}{'openconfig-\/qos:schedulers'}][\textcolor{stringliteral}{'scheduler'}]) > 0:}
+\DoxyCodeLine{126                             api\_response[\textcolor{stringliteral}{'openconfig-\/qos:schedulers'}][\textcolor{stringliteral}{'scheduler'}][0][\textcolor{stringliteral}{'name'}] = args[0]}
+\DoxyCodeLine{127                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[1], api\_response)}
+\DoxyCodeLine{128             \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_openconfig\_qos\_qos\_scheduler\_policies'}:}
+\DoxyCodeLine{129                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], api\_response)}
+\DoxyCodeLine{130             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{131                 \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{132     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{133         \textcolor{keywordflow}{print} response.error\_message()}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d06/namespacesonic__cli__qos__scheduler_ad64b3a0c2854543b440429c56f16c93c_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__qos__scheduler_a646333f570dc8cf438861dcd1141f038}\label{namespacesonic__cli__qos__scheduler_a646333f570dc8cf438861dcd1141f038}} 
+\index{sonic\_cli\_qos\_scheduler@{sonic\_cli\_qos\_scheduler}!func@{func}}
+\index{func@{func}!sonic\_cli\_qos\_scheduler@{sonic\_cli\_qos\_scheduler}}
+\doxysubsubsection{\texorpdfstring{func}{func}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+qos\+\_\+scheduler.\+func = sys.\+argv\mbox{[}1\mbox{]}}
+
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+scheduler.\+py 파일의 139 번째 라인에서 정의되었습니다.
+

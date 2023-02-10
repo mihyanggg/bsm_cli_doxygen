@@ -1,0 +1,125 @@
+\hypertarget{namespacecli__log}{}\doxysection{cli\+\_\+log 네임스페이스 참조}
+\label{namespacecli__log}\index{cli\_log@{cli\_log}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacecli__log_afb785e6fa67602e232e1d7c8c0810836}{log\+\_\+debug}} (msg)
+\item 
+def \mbox{\hyperlink{namespacecli__log_aac8a86b1c43861789564d754ed5541d2}{log\+\_\+info}} (msg)
+\item 
+def \mbox{\hyperlink{namespacecli__log_afed273bd1d9ce2514de39e29113c77e6}{log\+\_\+error}} (msg)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespacecli__log_a06bfeb3026bc4170656b7efc17b74231}{\+\_\+\+\_\+enable\+\_\+debug}} = False
+\item 
+bool \mbox{\hyperlink{namespacecli__log_aa724bc651ca88b63e7533f18ff5bd642}{\+\_\+\+\_\+enable\+\_\+print}} = False
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacecli__log_afb785e6fa67602e232e1d7c8c0810836}\label{namespacecli__log_afb785e6fa67602e232e1d7c8c0810836}} 
+\index{cli\_log@{cli\_log}!log\_debug@{log\_debug}}
+\index{log\_debug@{log\_debug}!cli\_log@{cli\_log}}
+\doxysubsubsection{\texorpdfstring{log\_debug()}{log\_debug()}}
+{\footnotesize\ttfamily def cli\+\_\+log.\+log\+\_\+debug (\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})}
+
+
+
+cli\+\_\+log.\+py 파일의 28 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{28 \textcolor{keyword}{def }\mbox{\hyperlink{namespacecli__log_afb785e6fa67602e232e1d7c8c0810836}{log\_debug}}(msg):}
+\DoxyCodeLine{29     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} isinstance(msg, basestring):}
+\DoxyCodeLine{30         msg = str(msg)}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keywordflow}{if} \_\_enable\_debug:}
+\DoxyCodeLine{33         syslog.syslog(syslog.LOG\_DEBUG, msg)}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keywordflow}{if} \_\_enable\_print:}
+\DoxyCodeLine{36         caller\_frame = inspect.stack()[1][0]}
+\DoxyCodeLine{37         frame\_info = inspect.getframeinfo(caller\_frame)}
+\DoxyCodeLine{38         \textcolor{keywordflow}{for} line \textcolor{keywordflow}{in} msg.split(\textcolor{stringliteral}{'\(\backslash\)n'}):}
+\DoxyCodeLine{39             print(\textcolor{stringliteral}{'[\{\}:\{\}] DEBUG:: \{\}'}.format(frame\_info.function, frame\_info.lineno, line))}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacecli__log_afed273bd1d9ce2514de39e29113c77e6}\label{namespacecli__log_afed273bd1d9ce2514de39e29113c77e6}} 
+\index{cli\_log@{cli\_log}!log\_error@{log\_error}}
+\index{log\_error@{log\_error}!cli\_log@{cli\_log}}
+\doxysubsubsection{\texorpdfstring{log\_error()}{log\_error()}}
+{\footnotesize\ttfamily def cli\+\_\+log.\+log\+\_\+error (\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})}
+
+
+
+cli\+\_\+log.\+py 파일의 55 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{55 \textcolor{keyword}{def }\mbox{\hyperlink{namespacecli__log_afed273bd1d9ce2514de39e29113c77e6}{log\_error}}(msg):}
+\DoxyCodeLine{56     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} isinstance(msg, basestring):}
+\DoxyCodeLine{57         msg = str(msg)}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     syslog.syslog(syslog.LOG\_ERR, msg)}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keywordflow}{if} \_\_enable\_print:}
+\DoxyCodeLine{62         caller\_frame = inspect.stack()[1][0]}
+\DoxyCodeLine{63         frame\_info = inspect.getframeinfo(caller\_frame)}
+\DoxyCodeLine{64         \textcolor{keywordflow}{for} line \textcolor{keywordflow}{in} msg.split(\textcolor{stringliteral}{'\(\backslash\)n'}):}
+\DoxyCodeLine{65             print(\textcolor{stringliteral}{'[\{\}:\{\}] ERROR:: \{\}'}.format(frame\_info.function, frame\_info.lineno, line))}
+\DoxyCodeLine{66 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacecli__log_aac8a86b1c43861789564d754ed5541d2}\label{namespacecli__log_aac8a86b1c43861789564d754ed5541d2}} 
+\index{cli\_log@{cli\_log}!log\_info@{log\_info}}
+\index{log\_info@{log\_info}!cli\_log@{cli\_log}}
+\doxysubsubsection{\texorpdfstring{log\_info()}{log\_info()}}
+{\footnotesize\ttfamily def cli\+\_\+log.\+log\+\_\+info (\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})}
+
+
+
+cli\+\_\+log.\+py 파일의 42 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{42 \textcolor{keyword}{def }\mbox{\hyperlink{namespacecli__log_aac8a86b1c43861789564d754ed5541d2}{log\_info}}(msg):}
+\DoxyCodeLine{43     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} isinstance(msg, basestring):}
+\DoxyCodeLine{44         msg = str(msg)}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     syslog.syslog(syslog.LOG\_INFO, msg)}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{keywordflow}{if} \_\_enable\_print:}
+\DoxyCodeLine{49         caller\_frame = inspect.stack()[1][0]}
+\DoxyCodeLine{50         frame\_info = inspect.getframeinfo(caller\_frame)}
+\DoxyCodeLine{51         \textcolor{keywordflow}{for} line \textcolor{keywordflow}{in} msg.split(\textcolor{stringliteral}{'\(\backslash\)n'}):}
+\DoxyCodeLine{52             print(\textcolor{stringliteral}{'[\{\}:\{\}] INFO:: \{\}'}.format(frame\_info.function, frame\_info.lineno, line))}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacecli__log_a06bfeb3026bc4170656b7efc17b74231}\label{namespacecli__log_a06bfeb3026bc4170656b7efc17b74231}} 
+\index{cli\_log@{cli\_log}!\_\_enable\_debug@{\_\_enable\_debug}}
+\index{\_\_enable\_debug@{\_\_enable\_debug}!cli\_log@{cli\_log}}
+\doxysubsubsection{\texorpdfstring{\_\_enable\_debug}{\_\_enable\_debug}}
+{\footnotesize\ttfamily bool cli\+\_\+log.\+\_\+\+\_\+enable\+\_\+debug = False\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+cli\+\_\+log.\+py 파일의 24 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacecli__log_aa724bc651ca88b63e7533f18ff5bd642}\label{namespacecli__log_aa724bc651ca88b63e7533f18ff5bd642}} 
+\index{cli\_log@{cli\_log}!\_\_enable\_print@{\_\_enable\_print}}
+\index{\_\_enable\_print@{\_\_enable\_print}!cli\_log@{cli\_log}}
+\doxysubsubsection{\texorpdfstring{\_\_enable\_print}{\_\_enable\_print}}
+{\footnotesize\ttfamily bool cli\+\_\+log.\+\_\+\+\_\+enable\+\_\+print = False\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+cli\+\_\+log.\+py 파일의 25 번째 라인에서 정의되었습니다.
+

@@ -1,0 +1,318 @@
+\hypertarget{namespacescripts_1_1render__cli}{}\doxysection{scripts.\+render\+\_\+cli 네임스페이스 참조}
+\label{namespacescripts_1_1render__cli}\index{scripts.render\_cli@{scripts.render\_cli}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacescripts_1_1render__cli_a10393237dfe0c4cbbb4a9986717d24c9}{render\+\_\+init}} (fd)
+\item 
+def \mbox{\hyperlink{namespacescripts_1_1render__cli_aa565c2c075342e7e35129207b480247f}{cli\+\_\+getch}} ()
+\item 
+def \mbox{\hyperlink{namespacescripts_1_1render__cli_a3d384343b6f386e6388e047a450c6291}{\+\_\+write}} (string, disable\+\_\+page=False)
+\item 
+def \mbox{\hyperlink{namespacescripts_1_1render__cli_ae395c999bb2be70d73ce51b6d352167b}{write}} (t\+\_\+str, continuation=False)
+\item 
+def \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\+\_\+cli\+\_\+output}} (template\+\_\+file, response, continuation=False, $\ast$$\ast$kwargs)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespacescripts_1_1render__cli_a51e613f5b9c1bed1dc3e130ff661e251}{render\+\_\+init\+\_\+called}} = False
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacescripts_1_1render__cli_a3d384343b6f386e6388e047a450c6291}\label{namespacescripts_1_1render__cli_a3d384343b6f386e6388e047a450c6291}} 
+\index{scripts.render\_cli@{scripts.render\_cli}!\_write@{\_write}}
+\index{\_write@{\_write}!scripts.render\_cli@{scripts.render\_cli}}
+\doxysubsubsection{\texorpdfstring{\_write()}{\_write()}}
+{\footnotesize\ttfamily def scripts.\+render\+\_\+cli.\+\_\+write (\begin{DoxyParamCaption}\item[{}]{string,  }\item[{}]{disable\+\_\+page = {\ttfamily False} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyVerb}This function would take care of complete pagination logic,
+like printing --more--, accepting SPACE, ENTER, q, CTRL-C
+and act accordingly
+\end{DoxyVerb}
+ 
+
+render\+\_\+cli.\+py 파일의 79 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{79 \textcolor{keyword}{def }\mbox{\hyperlink{namespacescripts_1_1render__cli_a3d384343b6f386e6388e047a450c6291}{\_write}}(string, disable\_page=False):}
+\DoxyCodeLine{80     \textcolor{stringliteral}{"""}}
+\DoxyCodeLine{81 \textcolor{stringliteral}{    This function would take care of complete pagination logic,}}
+\DoxyCodeLine{82 \textcolor{stringliteral}{    like printing -\/-\/more-\/-\/, accepting SPACE, ENTER, q, CTRL-\/C}}
+\DoxyCodeLine{83 \textcolor{stringliteral}{    and act accordingly}}
+\DoxyCodeLine{84 \textcolor{stringliteral}{    """}}
+\DoxyCodeLine{85     \textcolor{keyword}{global} line\_count}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87     page\_len\_local = int(os.getenv(\textcolor{stringliteral}{"CLISH\_TERM\_LEN"}, \textcolor{stringliteral}{'24'}))}
+\DoxyCodeLine{88     terminal = sys.stdout}
+\DoxyCodeLine{89     \textcolor{comment}{\# set length as 0 for prints without pagination}}
+\DoxyCodeLine{90     \textcolor{keywordflow}{if} disable\_page \textcolor{keywordflow}{is} \textcolor{keyword}{True}:}
+\DoxyCodeLine{91         page\_len\_local = 0}
+\DoxyCodeLine{92     \textcolor{keywordflow}{if} len(string) != 0:}
+\DoxyCodeLine{93         terminal.write(string + \textcolor{stringliteral}{'\(\backslash\)n'})}
+\DoxyCodeLine{94         \textcolor{keywordflow}{if} page\_len\_local == 0:}
+\DoxyCodeLine{95             \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{96         line\_count = line\_count + 1}
+\DoxyCodeLine{97         \textcolor{keywordflow}{if} line\_count == page\_len\_local:}
+\DoxyCodeLine{98             terminal.write(\textcolor{stringliteral}{"-\/-\/more-\/-\/"})}
+\DoxyCodeLine{99             \textcolor{keywordflow}{while} 1:}
+\DoxyCodeLine{100                 terminal.flush()}
+\DoxyCodeLine{101                 c = \mbox{\hyperlink{namespacescripts_1_1render__cli_aa565c2c075342e7e35129207b480247f}{cli\_getch}}()}
+\DoxyCodeLine{102                 terminal.flush()}
+\DoxyCodeLine{103                 \textcolor{comment}{\# End of text (ascii value 3) is returned while pressing Ctrl-\/C}}
+\DoxyCodeLine{104                 \textcolor{comment}{\# key when CLISH executes commands from non-\/TTY}}
+\DoxyCodeLine{105                 \textcolor{comment}{\# Example : clish\_source plugin}}
+\DoxyCodeLine{106                 \textcolor{keywordflow}{if} c == \textcolor{stringliteral}{'q'} \textcolor{keywordflow}{or} ord(c) == 3:}
+\DoxyCodeLine{107                     terminal.write(\textcolor{stringliteral}{'\(\backslash\)x1b[2K'}+\textcolor{stringliteral}{'\(\backslash\)x1b[0G'})}
+\DoxyCodeLine{108                     line\_count = 0}
+\DoxyCodeLine{109                     \textcolor{comment}{\#self.is\_stopped = True}}
+\DoxyCodeLine{110                     \textcolor{keywordflow}{return} \textcolor{keyword}{True}}
+\DoxyCodeLine{111                 \textcolor{keywordflow}{elif} c == \textcolor{stringliteral}{' '}:}
+\DoxyCodeLine{112                     line\_count = 0}
+\DoxyCodeLine{113                     terminal.write(\textcolor{stringliteral}{'\(\backslash\)x1b[2K'}+\textcolor{stringliteral}{'\(\backslash\)x1b[0G'})}
+\DoxyCodeLine{114                     \textcolor{keywordflow}{break}}
+\DoxyCodeLine{115                 \textcolor{comment}{\# Carriage return (\(\backslash\)r) is returned while pressing ENTER}}
+\DoxyCodeLine{116                 \textcolor{comment}{\# key when CLISH executes commands from non-\/TTY}}
+\DoxyCodeLine{117                 \textcolor{comment}{\# Example : clish\_source plugin}}
+\DoxyCodeLine{118                 \textcolor{keywordflow}{elif} c == \textcolor{stringliteral}{'\(\backslash\)n'} \textcolor{keywordflow}{or} c == \textcolor{stringliteral}{'\(\backslash\)r'}:}
+\DoxyCodeLine{119                     line\_count = page\_len\_local -\/ 1}
+\DoxyCodeLine{120                     terminal.write(\textcolor{stringliteral}{'\(\backslash\)x1b[1A'}+\textcolor{stringliteral}{'\(\backslash\)x1b[2K'})}
+\DoxyCodeLine{121                     terminal.flush()}
+\DoxyCodeLine{122                     \textcolor{keywordflow}{break}}
+\DoxyCodeLine{123     \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{124 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{d1/d3d/namespacescripts_1_1render__cli_a3d384343b6f386e6388e047a450c6291_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{d1/d3d/namespacescripts_1_1render__cli_a3d384343b6f386e6388e047a450c6291_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacescripts_1_1render__cli_aa565c2c075342e7e35129207b480247f}\label{namespacescripts_1_1render__cli_aa565c2c075342e7e35129207b480247f}} 
+\index{scripts.render\_cli@{scripts.render\_cli}!cli\_getch@{cli\_getch}}
+\index{cli\_getch@{cli\_getch}!scripts.render\_cli@{scripts.render\_cli}}
+\doxysubsubsection{\texorpdfstring{cli\_getch()}{cli\_getch()}}
+{\footnotesize\ttfamily def scripts.\+render\+\_\+cli.\+cli\+\_\+getch (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+render\+\_\+cli.\+py 파일의 43 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{43 \textcolor{keyword}{def }\mbox{\hyperlink{namespacescripts_1_1render__cli_aa565c2c075342e7e35129207b480247f}{cli\_getch}}():}
+\DoxyCodeLine{44     \textcolor{comment}{\# Disable canonical mode of input stream}}
+\DoxyCodeLine{45     \textcolor{comment}{\# Set min bytes as 1 and read operation as blocking}}
+\DoxyCodeLine{46     fd = sys.stdin.fileno()}
+\DoxyCodeLine{47     term\_settings\_old = termios.tcgetattr(fd)}
+\DoxyCodeLine{48     term\_settings\_new = termios.tcgetattr(fd)}
+\DoxyCodeLine{49     term\_settings\_new[3] = term\_settings\_new[3] \& \string~termios.ICANON}
+\DoxyCodeLine{50     term\_settings\_new[6][termios.VMIN] = 1}
+\DoxyCodeLine{51     term\_settings\_new[6][termios.VTIME] = 0}
+\DoxyCodeLine{52     termios.tcsetattr(fd, termios.TCSANOW, term\_settings\_new)}
+\DoxyCodeLine{53     c = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{comment}{\#global ctrc\_rfd}}
+\DoxyCodeLine{56     \textcolor{comment}{\#fds = [fd, ctrlc\_rfd]}}
+\DoxyCodeLine{57     fds = [fd]}
+\DoxyCodeLine{58     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{59         termios.tcflush(fd, termios.TCIFLUSH)}
+\DoxyCodeLine{60         read\_fds, write\_fds, excep\_fds = select.select(fds, [], [])}
+\DoxyCodeLine{61         \textcolor{stringliteral}{"""}}
+\DoxyCodeLine{62 \textcolor{stringliteral}{        \# Return immediately for Ctrl-\/C interrupt}}
+\DoxyCodeLine{63 \textcolor{stringliteral}{        if ctrlc\_rfd in read\_fds:}}
+\DoxyCodeLine{64 \textcolor{stringliteral}{            return 'q'}}
+\DoxyCodeLine{65 \textcolor{stringliteral}{        """}}
+\DoxyCodeLine{66         c = os.read(fd, 1)}
+\DoxyCodeLine{67         termios.tcflush(fd, termios.TCIFLUSH)}
+\DoxyCodeLine{68     \textcolor{keywordflow}{except} (KeyboardInterrupt, SystemExit):}
+\DoxyCodeLine{69         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'q'}}
+\DoxyCodeLine{70     \textcolor{keywordflow}{except} select.error \textcolor{keyword}{as} e:}
+\DoxyCodeLine{71         \textcolor{keywordflow}{if} e[0] == 4: \textcolor{comment}{\# Interrupted system call}}
+\DoxyCodeLine{72             \textcolor{keywordflow}{return} \textcolor{stringliteral}{'q'}}
+\DoxyCodeLine{73         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{74             sys.stdout.write(\textcolor{stringliteral}{"Received error : "} + str(e))}
+\DoxyCodeLine{75     \textcolor{keywordflow}{finally}:}
+\DoxyCodeLine{76         termios.tcsetattr(fd, termios.TCSANOW, term\_settings\_old)}
+\DoxyCodeLine{77     \textcolor{keywordflow}{return} c}
+\DoxyCodeLine{78 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{d1/d3d/namespacescripts_1_1render__cli_aa565c2c075342e7e35129207b480247f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacescripts_1_1render__cli_a10393237dfe0c4cbbb4a9986717d24c9}\label{namespacescripts_1_1render__cli_a10393237dfe0c4cbbb4a9986717d24c9}} 
+\index{scripts.render\_cli@{scripts.render\_cli}!render\_init@{render\_init}}
+\index{render\_init@{render\_init}!scripts.render\_cli@{scripts.render\_cli}}
+\doxysubsubsection{\texorpdfstring{render\_init()}{render\_init()}}
+{\footnotesize\ttfamily def scripts.\+render\+\_\+cli.\+render\+\_\+init (\begin{DoxyParamCaption}\item[{}]{fd }\end{DoxyParamCaption})}
+
+
+
+render\+\_\+cli.\+py 파일의 25 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{25 \textcolor{keyword}{def }\mbox{\hyperlink{namespacescripts_1_1render__cli_a10393237dfe0c4cbbb4a9986717d24c9}{render\_init}}(fd):}
+\DoxyCodeLine{26     \textcolor{keyword}{global} ctrlc\_rfd}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{comment}{\# See Note above.}}
+\DoxyCodeLine{29     \textcolor{keyword}{global} render\_init\_called}
+\DoxyCodeLine{30     \textcolor{keywordflow}{if} render\_init\_called == \textcolor{keyword}{True}:}
+\DoxyCodeLine{31         \textcolor{keywordflow}{return} \textcolor{keywordtype}{None}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     render\_init\_called = \textcolor{keyword}{True}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     ctrlc\_rd\_fd\_num = int(fd)}
+\DoxyCodeLine{36     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{37         ctrlc\_rfd = os.fdopen(ctrlc\_rd\_fd\_num, \textcolor{stringliteral}{'r'})}
+\DoxyCodeLine{38     \textcolor{keywordflow}{except} IOError \textcolor{keyword}{as} e:}
+\DoxyCodeLine{39         sys.stdout.write(\textcolor{stringliteral}{"Received error : "} + str(e))}
+\DoxyCodeLine{40     gc.collect()}
+\DoxyCodeLine{41     \textcolor{keywordflow}{return} \textcolor{keywordtype}{None}}
+\DoxyCodeLine{42 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{d1/d3d/namespacescripts_1_1render__cli_a10393237dfe0c4cbbb4a9986717d24c9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}\label{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}} 
+\index{scripts.render\_cli@{scripts.render\_cli}!show\_cli\_output@{show\_cli\_output}}
+\index{show\_cli\_output@{show\_cli\_output}!scripts.render\_cli@{scripts.render\_cli}}
+\doxysubsubsection{\texorpdfstring{show\_cli\_output()}{show\_cli\_output()}}
+{\footnotesize\ttfamily def scripts.\+render\+\_\+cli.\+show\+\_\+cli\+\_\+output (\begin{DoxyParamCaption}\item[{}]{template\+\_\+file,  }\item[{}]{response,  }\item[{}]{continuation = {\ttfamily False},  }\item[{$\ast$$\ast$}]{kwargs }\end{DoxyParamCaption})}
+
+
+
+render\+\_\+cli.\+py 파일의 144 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{144 \textcolor{keyword}{def }\mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(template\_file, response, continuation=False, **kwargs):}
+\DoxyCodeLine{145     \textcolor{comment}{\# Create the jinja2 environment.}}
+\DoxyCodeLine{146     \textcolor{comment}{\# Notice the use of trim\_blocks, which greatly helps control whitespace.}}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148     template\_path = os.getenv(\textcolor{stringliteral}{"RENDERER\_TEMPLATE\_PATH"})}
+\DoxyCodeLine{149     \textcolor{comment}{\#template\_path = os.path.abspath(os.path.join(THIS\_DIR, "../render-\/templates"))}}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{151     j2\_env = Environment(loader=FileSystemLoader(template\_path),extensions=[\textcolor{stringliteral}{'jinja2.ext.do'},\textcolor{stringliteral}{'jinja2.ext.loopcontrols'}])}
+\DoxyCodeLine{152     j2\_env.trim\_blocks = \textcolor{keyword}{True}}
+\DoxyCodeLine{153     j2\_env.lstrip\_blocks = \textcolor{keyword}{True}}
+\DoxyCodeLine{154     j2\_env.rstrip\_blocks = \textcolor{keyword}{True}}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{156     \textcolor{keyword}{def }datetimeformat(time):}
+\DoxyCodeLine{157         \textcolor{keywordflow}{return} datetime.datetime.fromtimestamp(int(time)).strftime(\textcolor{stringliteral}{'\%Y-\/\%m-\/\%d \%H:\%M:\%S'})}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159     j2\_env.globals.update(datetimeformat=datetimeformat)}
+\DoxyCodeLine{160     j2\_env.globals.update(json\_tools=json\_tools)}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162     full\_cmd = os.getenv(\textcolor{stringliteral}{'USER\_COMMAND'}, \textcolor{keywordtype}{None})}
+\DoxyCodeLine{163     \textcolor{keywordflow}{if} full\_cmd \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{164         pipestr().\mbox{\hyperlink{namespacescripts_1_1render__cli_ae395c999bb2be70d73ce51b6d352167b}{write}}(full\_cmd.split())}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166     \textcolor{keywordflow}{if} response \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{167         t\_str = (j2\_env.get\_template(template\_file).render(json\_output=response, **kwargs))}
+\DoxyCodeLine{168         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacescripts_1_1render__cli_ae395c999bb2be70d73ce51b6d352167b}{write}}(t\_str, continuation=continuation)}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/d3d/namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{d1/d3d/namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacescripts_1_1render__cli_ae395c999bb2be70d73ce51b6d352167b}\label{namespacescripts_1_1render__cli_ae395c999bb2be70d73ce51b6d352167b}} 
+\index{scripts.render\_cli@{scripts.render\_cli}!write@{write}}
+\index{write@{write}!scripts.render\_cli@{scripts.render\_cli}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily def scripts.\+render\+\_\+cli.\+write (\begin{DoxyParamCaption}\item[{}]{t\+\_\+str,  }\item[{}]{continuation = {\ttfamily False} }\end{DoxyParamCaption})}
+
+
+
+render\+\_\+cli.\+py 파일의 125 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{125 \textcolor{keyword}{def }\mbox{\hyperlink{namespacescripts_1_1render__cli_ae395c999bb2be70d73ce51b6d352167b}{write}}(t\_str, continuation=False):}
+\DoxyCodeLine{126     \textcolor{keyword}{global} line\_count}
+\DoxyCodeLine{127     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} continuation:}
+\DoxyCodeLine{128         line\_count = 0}
+\DoxyCodeLine{129     q = \textcolor{keyword}{False}}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131     \mbox{\hyperlink{namespacescripts_1_1render__cli_a10393237dfe0c4cbbb4a9986717d24c9}{render\_init}}(0)}
+\DoxyCodeLine{132     \textcolor{keywordflow}{if} t\_str != \textcolor{stringliteral}{""}:}
+\DoxyCodeLine{133         pipelst = pipestr().read();}
+\DoxyCodeLine{134         \textcolor{keywordflow}{for} s\_str \textcolor{keywordflow}{in} t\_str.split(\textcolor{stringliteral}{'\(\backslash\)n'}):}
+\DoxyCodeLine{135             \textcolor{keywordflow}{if} pipelst:}
+\DoxyCodeLine{136                 \textcolor{keywordflow}{if} pipelst.process\_pipes(s\_str):}
+\DoxyCodeLine{137                     q = \mbox{\hyperlink{namespacescripts_1_1render__cli_a3d384343b6f386e6388e047a450c6291}{\_write}}(s\_str, pipelst.is\_page\_disabled())}
+\DoxyCodeLine{138             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{139                 q = \mbox{\hyperlink{namespacescripts_1_1render__cli_a3d384343b6f386e6388e047a450c6291}{\_write}}(s\_str)}
+\DoxyCodeLine{140             \textcolor{keywordflow}{if} q:}
+\DoxyCodeLine{141                 \textcolor{keywordflow}{return} \textcolor{keyword}{True}}
+\DoxyCodeLine{142     \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{143 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/d3d/namespacescripts_1_1render__cli_ae395c999bb2be70d73ce51b6d352167b_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{d1/d3d/namespacescripts_1_1render__cli_ae395c999bb2be70d73ce51b6d352167b_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacescripts_1_1render__cli_a51e613f5b9c1bed1dc3e130ff661e251}\label{namespacescripts_1_1render__cli_a51e613f5b9c1bed1dc3e130ff661e251}} 
+\index{scripts.render\_cli@{scripts.render\_cli}!render\_init\_called@{render\_init\_called}}
+\index{render\_init\_called@{render\_init\_called}!scripts.render\_cli@{scripts.render\_cli}}
+\doxysubsubsection{\texorpdfstring{render\_init\_called}{render\_init\_called}}
+{\footnotesize\ttfamily bool scripts.\+render\+\_\+cli.\+render\+\_\+init\+\_\+called = False}
+
+
+
+render\+\_\+cli.\+py 파일의 23 번째 라인에서 정의되었습니다.
+

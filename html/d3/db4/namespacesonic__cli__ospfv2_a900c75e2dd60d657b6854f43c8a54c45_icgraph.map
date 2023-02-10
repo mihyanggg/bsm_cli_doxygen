@@ -1,0 +1,22 @@
+<map id="sonic_cli_ospfv2.get_ospf_router_uri" name="sonic_cli_ospfv2.get_ospf_router_uri">
+<area shape="rect" id="node1" title=" " alt="" coords="732,590,887,631"/>
+<area shape="rect" id="node2" href="$d3/db4/namespacesonic__cli__ospfv2.html#a8551b255afe3c787be9050558c05cea7" title=" " alt="" coords="480,5,663,61"/>
+<area shape="rect" id="node5" href="$d3/db4/namespacesonic__cli__ospfv2.html#a4e8f441758c367d7822fa0416b311ce8" title=" " alt="" coords="479,86,664,127"/>
+<area shape="rect" id="node6" href="$d3/db4/namespacesonic__cli__ospfv2.html#a95a792e3691ebed49f25cd787062a4c2" title=" " alt="" coords="479,152,664,208"/>
+<area shape="rect" id="node7" href="$d3/db4/namespacesonic__cli__ospfv2.html#a79ffd4145df0ef824737e3337c82fff7" title=" " alt="" coords="484,233,659,274"/>
+<area shape="rect" id="node8" href="$d3/db4/namespacesonic__cli__ospfv2.html#a3452be35637b428fe0de6fde14b4dc48" title=" " alt="" coords="473,298,669,339"/>
+<area shape="rect" id="node9" href="$d3/db4/namespacesonic__cli__ospfv2.html#a7719979aed3ebbfda0bcbe6da349c886" title=" " alt="" coords="467,363,676,405"/>
+<area shape="rect" id="node10" href="$d3/db4/namespacesonic__cli__ospfv2.html#a87e93e33b9e0bf260ed5b5e0a6ad0430" title=" " alt="" coords="459,429,684,485"/>
+<area shape="rect" id="node11" href="$d3/db4/namespacesonic__cli__ospfv2.html#acfbdb4477dbc3c49519ea2646fa9b8e0" title=" " alt="" coords="475,509,667,565"/>
+<area shape="rect" id="node12" href="$d3/db4/namespacesonic__cli__ospfv2.html#a3a29481800f677f9231829d82a750b0f" title=" " alt="" coords="477,590,665,631"/>
+<area shape="rect" id="node13" href="$d3/db4/namespacesonic__cli__ospfv2.html#abec219ecb4166b861fa0456a16e7a4ca" title="OSPF Area address range config" alt="" coords="480,656,663,712"/>
+<area shape="rect" id="node14" href="$d3/db4/namespacesonic__cli__ospfv2.html#a4eb044212995a33f4b56326c1e0f50d1" title="OSPF Area config" alt="" coords="479,737,664,778"/>
+<area shape="rect" id="node15" href="$d3/db4/namespacesonic__cli__ospfv2.html#a1496e944580c5f0d4fe222f0a74ad5b3" title="OSPF Area Policy config" alt="" coords="479,803,664,859"/>
+<area shape="rect" id="node16" href="$d3/db4/namespacesonic__cli__ospfv2.html#a9d13b3f5c0b8efa7b0ed48ff2f8d0151" title="OSPF router global config" alt="" coords="473,883,669,925"/>
+<area shape="rect" id="node17" href="$d3/db4/namespacesonic__cli__ospfv2.html#ac0f9c955ed86ff9133b8ac6ca4b2b22b" title="OSPF Area network config" alt="" coords="467,949,676,990"/>
+<area shape="rect" id="node18" href="$d3/db4/namespacesonic__cli__ospfv2.html#a66cc0d514cb73944ea8d8f8d363d1a87" title="OSPF Passive interface config" alt="" coords="459,1015,684,1071"/>
+<area shape="rect" id="node19" href="$d3/db4/namespacesonic__cli__ospfv2.html#a7569e505c5cc42b0743927bd8b558e6e" title="OSPF Redistribute route config" alt="" coords="475,1095,667,1151"/>
+<area shape="rect" id="node20" href="$d3/db4/namespacesonic__cli__ospfv2.html#a335363e5f6f737ec6803edff8aa45970" title="OSPF Virtual link config" alt="" coords="477,1175,665,1217"/>
+<area shape="rect" id="node3" href="$d3/db4/namespacesonic__cli__ospfv2.html#a1ca823200052990df428f87e62a13cd3" title="OSPF CLI invoke function" alt="" coords="208,597,411,624"/>
+<area shape="rect" id="node4" href="$d3/db4/namespacesonic__cli__ospfv2.html#a9b5fc87a427eb8e8ff63d5683871974f" title=" " alt="" coords="5,597,160,624"/>
+</map>

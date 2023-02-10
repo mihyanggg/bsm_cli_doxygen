@@ -1,0 +1,12 @@
+{% if json_output -%}
+{% if json_output.__len__() > 0 %}
+{{' '}}
+{{'%-14s'|format("Port")}} {{'%-20s'|format("Device Name")}} {{'%-17s'|format("Device ID")}} {{'%-15s'|format("Port ID")}} {{'Neighbor State'}}
+{{'--------------------------------------------------------------------------------------'}}
+
+{% for i in range(json_output.__len__()) %}
+{% set neigh_info = json_output[i] %}
+{{'%-14s'|format(neigh_info['ifname'])}} {{'%-20s'|format(neigh_info['device_name'])}} {{'%-17s'|format(neigh_info['device_id'])}} {{'%-15s'|format(neigh_info['port_id'])}} {{neigh_info['status']}}
+{% endfor %}
+{%endif%}
+{%endif%}

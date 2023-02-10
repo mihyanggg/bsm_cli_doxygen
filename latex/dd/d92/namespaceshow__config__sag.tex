@@ -1,0 +1,151 @@
+\hypertarget{namespaceshow__config__sag}{}\doxysection{show\+\_\+config\+\_\+sag 네임스페이스 참조}
+\label{namespaceshow__config__sag}\index{show\_config\_sag@{show\_config\_sag}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceshow__config__sag_a4a32a59033bce8640bce83034b9668fe}{show\+\_\+sag4\+\_\+config}} (render\+\_\+tables)
+\begin{DoxyCompactList}\small\item\em Copyright 2020 Broadcom. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceshow__config__sag_aea7a17f4777cd8cc72305a40c0cf228f}{show\+\_\+sag6\+\_\+config}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__sag_a534420ce34f9b81f8955681dfd8211f6}{show\+\_\+sag4\+\_\+global}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__sag_a9579c441883b64c42ca29e345597e34a}{show\+\_\+sag6\+\_\+global}} (render\+\_\+tables)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespaceshow__config__sag_a4a32a59033bce8640bce83034b9668fe}\label{namespaceshow__config__sag_a4a32a59033bce8640bce83034b9668fe}} 
+\index{show\_config\_sag@{show\_config\_sag}!show\_sag4\_config@{show\_sag4\_config}}
+\index{show\_sag4\_config@{show\_sag4\_config}!show\_config\_sag@{show\_config\_sag}}
+\doxysubsubsection{\texorpdfstring{show\_sag4\_config()}{show\_sag4\_config()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+sag.\+show\+\_\+sag4\+\_\+config (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+Copyright 2020 Broadcom. 
+
+The term Broadcom refers to Broadcom Inc. and/or its subsidiaries. 
+
+show\+\_\+config\+\_\+sag.\+py 파일의 9 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{9 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__sag_a4a32a59033bce8640bce83034b9668fe}{show\_sag4\_config}}(render\_tables):}
+\DoxyCodeLine{10     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/vlan:sonic-\/vlan/VLAN/VLAN\_LIST'} \textcolor{keywordflow}{in} render\_tables \textcolor{keywordflow}{or} \textcolor{stringliteral}{'sonic-\/interface:sonic-\/interface/VLAN\_SUB\_INTERFACE/VLAN\_SUB\_INTERFACE\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14         ifname = render\_tables[\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/sag:sonic-\/sag/SAG/SAG\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{17             table\_all\_inst = render\_tables[\textcolor{stringliteral}{'sonic-\/sag:sonic-\/sag/SAG/SAG\_LIST'}]}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19             \textcolor{keywordflow}{for} table\_inst \textcolor{keywordflow}{in} table\_all\_inst:}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21                 \textcolor{keywordflow}{if} ifname != table\_inst[\textcolor{stringliteral}{'ifname'}]:}
+\DoxyCodeLine{22                     \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'IPv4'} != table\_inst[\textcolor{stringliteral}{'table\_distinguisher'}]:}
+\DoxyCodeLine{25                     \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'gwip'} \textcolor{keywordflow}{in} table\_inst:}
+\DoxyCodeLine{28                     gwips = table\_inst[\textcolor{stringliteral}{'gwip'}]}
+\DoxyCodeLine{29                     \textcolor{keywordflow}{for} gwip \textcolor{keywordflow}{in} gwips:}
+\DoxyCodeLine{30                         cmd\_str += \textcolor{stringliteral}{'ip anycast-\/address '} + str(gwip) + \textcolor{stringliteral}{';'}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{33 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceshow__config__sag_a534420ce34f9b81f8955681dfd8211f6}\label{namespaceshow__config__sag_a534420ce34f9b81f8955681dfd8211f6}} 
+\index{show\_config\_sag@{show\_config\_sag}!show\_sag4\_global@{show\_sag4\_global}}
+\index{show\_sag4\_global@{show\_sag4\_global}!show\_config\_sag@{show\_config\_sag}}
+\doxysubsubsection{\texorpdfstring{show\_sag4\_global()}{show\_sag4\_global()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+sag.\+show\+\_\+sag4\+\_\+global (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+sag.\+py 파일의 59 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{59 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__sag_a534420ce34f9b81f8955681dfd8211f6}{show\_sag4\_global}}(render\_tables):}
+\DoxyCodeLine{60     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/sag:sonic-\/sag/SAG\_GLOBAL/SAG\_GLOBAL\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{63         sag\_global\_all = render\_tables[\textcolor{stringliteral}{'sonic-\/sag:sonic-\/sag/SAG\_GLOBAL/SAG\_GLOBAL\_LIST'}]}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65         \textcolor{keywordflow}{for} sag\_global \textcolor{keywordflow}{in} sag\_global\_all:}
+\DoxyCodeLine{66             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'IPv4'} \textcolor{keywordflow}{in} sag\_global:}
+\DoxyCodeLine{67                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'enable'} == sag\_global[\textcolor{stringliteral}{'IPv4'}]:}
+\DoxyCodeLine{68                     cmd\_str = \textcolor{stringliteral}{'ip anycast-\/address enable'}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{71 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceshow__config__sag_aea7a17f4777cd8cc72305a40c0cf228f}\label{namespaceshow__config__sag_aea7a17f4777cd8cc72305a40c0cf228f}} 
+\index{show\_config\_sag@{show\_config\_sag}!show\_sag6\_config@{show\_sag6\_config}}
+\index{show\_sag6\_config@{show\_sag6\_config}!show\_config\_sag@{show\_config\_sag}}
+\doxysubsubsection{\texorpdfstring{show\_sag6\_config()}{show\_sag6\_config()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+sag.\+show\+\_\+sag6\+\_\+config (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+sag.\+py 파일의 34 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{34 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__sag_aea7a17f4777cd8cc72305a40c0cf228f}{show\_sag6\_config}}(render\_tables):}
+\DoxyCodeLine{35     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/vlan:sonic-\/vlan/VLAN/VLAN\_LIST'} \textcolor{keywordflow}{in} render\_tables \textcolor{keywordflow}{or} \textcolor{stringliteral}{'sonic-\/interface:sonic-\/interface/VLAN\_SUB\_INTERFACE/VLAN\_SUB\_INTERFACE\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39         ifname = render\_tables[\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/sag:sonic-\/sag/SAG/SAG\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{42             table\_all\_inst = render\_tables[\textcolor{stringliteral}{'sonic-\/sag:sonic-\/sag/SAG/SAG\_LIST'}]}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44             \textcolor{keywordflow}{for} table\_inst \textcolor{keywordflow}{in} table\_all\_inst:}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46                 \textcolor{keywordflow}{if} ifname != table\_inst[\textcolor{stringliteral}{'ifname'}]:}
+\DoxyCodeLine{47                     \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'IPv6'} != table\_inst[\textcolor{stringliteral}{'table\_distinguisher'}]:}
+\DoxyCodeLine{50                     \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'gwip'} \textcolor{keywordflow}{in} table\_inst:}
+\DoxyCodeLine{53                     gwips = table\_inst[\textcolor{stringliteral}{'gwip'}]}
+\DoxyCodeLine{54                     \textcolor{keywordflow}{for} gwip \textcolor{keywordflow}{in} gwips:}
+\DoxyCodeLine{55                         cmd\_str += \textcolor{stringliteral}{'ipv6 anycast-\/address '} + str(gwip) + \textcolor{stringliteral}{';'}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{58 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceshow__config__sag_a9579c441883b64c42ca29e345597e34a}\label{namespaceshow__config__sag_a9579c441883b64c42ca29e345597e34a}} 
+\index{show\_config\_sag@{show\_config\_sag}!show\_sag6\_global@{show\_sag6\_global}}
+\index{show\_sag6\_global@{show\_sag6\_global}!show\_config\_sag@{show\_config\_sag}}
+\doxysubsubsection{\texorpdfstring{show\_sag6\_global()}{show\_sag6\_global()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+sag.\+show\+\_\+sag6\+\_\+global (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+sag.\+py 파일의 72 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{72 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__sag_a9579c441883b64c42ca29e345597e34a}{show\_sag6\_global}}(render\_tables):}
+\DoxyCodeLine{73     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/sag:sonic-\/sag/SAG\_GLOBAL/SAG\_GLOBAL\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{76         sag\_global\_all = render\_tables[\textcolor{stringliteral}{'sonic-\/sag:sonic-\/sag/SAG\_GLOBAL/SAG\_GLOBAL\_LIST'}]}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78         \textcolor{keywordflow}{for} sag\_global \textcolor{keywordflow}{in} sag\_global\_all:}
+\DoxyCodeLine{79             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'IPv6'} \textcolor{keywordflow}{in} sag\_global:}
+\DoxyCodeLine{80                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'enable'} == sag\_global[\textcolor{stringliteral}{'IPv6'}]:}
+\DoxyCodeLine{81                     cmd\_str = \textcolor{stringliteral}{'ipv6 anycast-\/address enable'}}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+
+\end{DoxyCode}

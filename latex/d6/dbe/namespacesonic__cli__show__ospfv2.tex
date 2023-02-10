@@ -1,0 +1,805 @@
+\hypertarget{namespacesonic__cli__show__ospfv2}{}\doxysection{sonic\+\_\+cli\+\_\+show\+\_\+ospfv2 네임스페이스 참조}
+\label{namespacesonic__cli__show__ospfv2}\index{sonic\_cli\_show\_ospfv2@{sonic\_cli\_show\_ospfv2}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__show__ospfv2_a1c918f7f1a5434fb4bc036e95792885f}{generate\+\_\+show\+\_\+ip\+\_\+ospf}} (\mbox{\hyperlink{DB-PARSED_8txt_a1104b60f76e088dc6bcfbbb0c8a8e37c}{vrf}})
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__show__ospfv2_a0061b454be0217c023ad69af18d34fee}{generate\+\_\+show\+\_\+ip\+\_\+ospf\+\_\+interfaces}} (\mbox{\hyperlink{DB-PARSED_8txt_a1104b60f76e088dc6bcfbbb0c8a8e37c}{vrf}}, template, intfname)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__show__ospfv2_a8b533295e047722ac46ec1309beb94d2}{generate\+\_\+show\+\_\+ip\+\_\+ospf\+\_\+route}} (\mbox{\hyperlink{DB-PARSED_8txt_a1104b60f76e088dc6bcfbbb0c8a8e37c}{vrf}}, template)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__show__ospfv2_aff99b284ff131fab0bf9e9c3878629b5}{generate\+\_\+show\+\_\+ip\+\_\+ospf\+\_\+database}} (\mbox{\hyperlink{DB-PARSED_8txt_a1104b60f76e088dc6bcfbbb0c8a8e37c}{vrf}}, template, ls\+\_\+id, adv\+\_\+router, selforg)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__show__ospfv2_a8cdafcdcf53e0678d7595fff76ab1fc3}{ospfv2\+\_\+filter\+\_\+lsdb\+\_\+by\+\_\+adv\+\_\+router}} (response, adv\+Router)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__show__ospfv2_a734d2d7818096f4925cde848586b066b}{ospfv2\+\_\+filter\+\_\+lsdb\+\_\+by\+\_\+ls\+\_\+id}} (response, ls\+\_\+id)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__show__ospfv2_a8330116ee99ec60a20a407eb6c04ce2e}{ospfv2\+\_\+filter\+\_\+neighbors\+\_\+by\+\_\+neighbor\+\_\+id}} (response, intfname)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__show__ospfv2_ae1f60d3f9c4125181bd0e06a7b95847a}{build\+\_\+area\+\_\+id\+\_\+list}} (\mbox{\hyperlink{DB-PARSED_8txt_a7c83ca21cfc623b456b849309c45564b}{vrf\+\_\+name}})
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__show__ospfv2_a6cdbbaad26a09e91c010e2ad3c286da4}{invoke\+\_\+show\+\_\+api}} (\mbox{\hyperlink{namespacesonic__cli__show__ospfv2_aa3afef6d34bf4b14d340bffac4f30cb4}{func}}, args=\mbox{[}$\,$\mbox{]})
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__show__ospfv2_a214e081602ee73a72c420547a6c4694c}{run}} (\mbox{\hyperlink{namespacesonic__cli__show__ospfv2_aa3afef6d34bf4b14d340bffac4f30cb4}{func}}, args)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacesonic__cli__show__ospfv2_aa3afef6d34bf4b14d340bffac4f30cb4}{func}} = sys.\+argv\mbox{[}1\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__show__ospfv2_ae1f60d3f9c4125181bd0e06a7b95847a}\label{namespacesonic__cli__show__ospfv2_ae1f60d3f9c4125181bd0e06a7b95847a}} 
+\index{sonic\_cli\_show\_ospfv2@{sonic\_cli\_show\_ospfv2}!build\_area\_id\_list@{build\_area\_id\_list}}
+\index{build\_area\_id\_list@{build\_area\_id\_list}!sonic\_cli\_show\_ospfv2@{sonic\_cli\_show\_ospfv2}}
+\doxysubsubsection{\texorpdfstring{build\_area\_id\_list()}{build\_area\_id\_list()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+show\+\_\+ospfv2.\+build\+\_\+area\+\_\+id\+\_\+list (\begin{DoxyParamCaption}\item[{}]{vrf\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+ospfv2.\+py 파일의 348 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{348 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__show__ospfv2_ae1f60d3f9c4125181bd0e06a7b95847a}{build\_area\_id\_list}} (vrf\_name):}
+\DoxyCodeLine{349     api = cc.ApiClient()}
+\DoxyCodeLine{350     output = []}
+\DoxyCodeLine{351 }
+\DoxyCodeLine{352     tableArea = (\textcolor{stringliteral}{"/restconf/data/sonic-\/ospfv2:sonic-\/ospfv2/OSPFV2\_ROUTER\_AREA/OSPFV2\_ROUTER\_AREA\_LIST"},}
+\DoxyCodeLine{353              \textcolor{stringliteral}{"sonic-\/ospfv2:OSPFV2\_ROUTER\_AREA\_LIST"},}
+\DoxyCodeLine{354              \textcolor{stringliteral}{"area-\/id"})}
+\DoxyCodeLine{355     requests = [tableArea]}
+\DoxyCodeLine{356     \textcolor{keywordflow}{for} request \textcolor{keywordflow}{in} requests:}
+\DoxyCodeLine{357         keypath = cc.Path(request[0])}
+\DoxyCodeLine{358         \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{359             response = api.get(keypath)}
+\DoxyCodeLine{360             response = response.content}
+\DoxyCodeLine{361             \textcolor{keywordflow}{if} response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{362                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{363             areasList = response.get(request[1])}
+\DoxyCodeLine{364             \textcolor{keywordflow}{if} areasList \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{365                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{366             \textcolor{keywordflow}{for} area \textcolor{keywordflow}{in} areasList:}
+\DoxyCodeLine{367                 \textcolor{comment}{\# request[2] = tableArea[2] or area-\/id column}}
+\DoxyCodeLine{368                 areaId = area.get(request[2])}
+\DoxyCodeLine{369                 \textcolor{keywordflow}{if} areaId \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{370                     \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{371                 vrfName = area.get(\textcolor{stringliteral}{'vrf\_name'})}
+\DoxyCodeLine{372                 \textcolor{keywordflow}{if} vrfName \textcolor{keywordflow}{is} \textcolor{keywordtype}{None} \textcolor{keywordflow}{or}  vrfName != vrf\_name:}
+\DoxyCodeLine{373                     \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{374                 output.append(areaId)}
+\DoxyCodeLine{375             output.sort()}
+\DoxyCodeLine{376         \textcolor{keywordflow}{except}  Exception \textcolor{keyword}{as} e:}
+\DoxyCodeLine{377             log.syslog(log.LOG\_ERR, str(e))}
+\DoxyCodeLine{378             \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\%Error: Internal error"}}
+\DoxyCodeLine{379     \textcolor{keywordflow}{return} output}
+\DoxyCodeLine{380 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacesonic__cli__show__ospfv2_a1c918f7f1a5434fb4bc036e95792885f}\label{namespacesonic__cli__show__ospfv2_a1c918f7f1a5434fb4bc036e95792885f}} 
+\index{sonic\_cli\_show\_ospfv2@{sonic\_cli\_show\_ospfv2}!generate\_show\_ip\_ospf@{generate\_show\_ip\_ospf}}
+\index{generate\_show\_ip\_ospf@{generate\_show\_ip\_ospf}!sonic\_cli\_show\_ospfv2@{sonic\_cli\_show\_ospfv2}}
+\doxysubsubsection{\texorpdfstring{generate\_show\_ip\_ospf()}{generate\_show\_ip\_ospf()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+show\+\_\+ospfv2.\+generate\+\_\+show\+\_\+ip\+\_\+ospf (\begin{DoxyParamCaption}\item[{}]{vrf }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+ospfv2.\+py 파일의 30 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{30 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__show__ospfv2_a1c918f7f1a5434fb4bc036e95792885f}{generate\_show\_ip\_ospf}}(vrf):}
+\DoxyCodeLine{31     api = cc.ApiClient()}
+\DoxyCodeLine{32     keypath = []}
+\DoxyCodeLine{33     vrfName = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{34     i = 0}
+\DoxyCodeLine{35     vrfName = vrf}
+\DoxyCodeLine{36     d = \{\}}
+\DoxyCodeLine{37     dlist = []}
+\DoxyCodeLine{38     area\_id\_list = []}
+\DoxyCodeLine{39     d = \{ \textcolor{stringliteral}{'vrfName'}: vrfName \}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     area\_id\_list = build\_area\_id\_list (vrfName)}
+\DoxyCodeLine{42     dlist.append(d)}
+\DoxyCodeLine{43     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{name\}/protocols/protocol=OSPF,ospfv2/ospfv2/global/state'}, name=vrfName)}
+\DoxyCodeLine{44     response = api.get(keypath)}
+\DoxyCodeLine{45     if(response.ok()):}
+\DoxyCodeLine{46         \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{47             \textcolor{comment}{\# Get Command Output}}
+\DoxyCodeLine{48             api\_response = response.content}
+\DoxyCodeLine{49             \textcolor{keywordflow}{if} api\_response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None} \textcolor{keywordflow}{or} len(api\_response) == 0:}
+\DoxyCodeLine{50                 print(\textcolor{stringliteral}{"\% OSPF instance not found"})}
+\DoxyCodeLine{51                 \textcolor{keywordflow}{return}}
+\DoxyCodeLine{52             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/network-\/instance:state'} \textcolor{keywordflow}{in} api\_response \textcolor{keywordflow}{and} api\_response[\textcolor{stringliteral}{'openconfig-\/network-\/instance:state'}] \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{53                 api\_response[\textcolor{stringliteral}{'openconfig-\/network-\/instance:global\_state'}] = api\_response.pop(\textcolor{stringliteral}{'openconfig-\/network-\/instance:state'})}
+\DoxyCodeLine{54                 dlist.append(api\_response)}
+\DoxyCodeLine{55     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{name\}/protocols/protocol=OSPF,ospfv2/ospfv2/global/timers/spf/state'}, name=vrfName)}
+\DoxyCodeLine{56     response = api.get(keypath)}
+\DoxyCodeLine{57     if(response.ok()):}
+\DoxyCodeLine{58         \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{59             \textcolor{comment}{\# Get Command Output}}
+\DoxyCodeLine{60             api\_response = response.content}
+\DoxyCodeLine{61             \textcolor{comment}{\# Let the below code return an empty dictionary}}
+\DoxyCodeLine{62             \textcolor{comment}{\# An error code is returned from the ospfv2/global level.}}
+\DoxyCodeLine{63             \textcolor{keywordflow}{if} api\_response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{64                 print(\textcolor{stringliteral}{"Failed"})}
+\DoxyCodeLine{65                 \textcolor{keywordflow}{return}}
+\DoxyCodeLine{66             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/network-\/instance:state'} \textcolor{keywordflow}{in} api\_response \textcolor{keywordflow}{and} api\_response[\textcolor{stringliteral}{'openconfig-\/network-\/instance:state'}] \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{67                 api\_response[\textcolor{stringliteral}{'openconfig-\/network-\/instance:spf\_state'}] = api\_response.pop(\textcolor{stringliteral}{'openconfig-\/network-\/instance:state'})}
+\DoxyCodeLine{68                 dlist.append(api\_response)}
+\DoxyCodeLine{69     }
+\DoxyCodeLine{70     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{name\}/protocols/protocol=OSPF,ospfv2/ospfv2/global/timers/lsa-\/generation/state'}, name=vrfName)}
+\DoxyCodeLine{71     response = api.get(keypath)}
+\DoxyCodeLine{72     if(response.ok()):}
+\DoxyCodeLine{73         \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{74             \textcolor{comment}{\# Get Command Output}}
+\DoxyCodeLine{75             api\_response = response.content}
+\DoxyCodeLine{76             \textcolor{keywordflow}{if} api\_response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{77                 print(\textcolor{stringliteral}{"Failed"})}
+\DoxyCodeLine{78                 \textcolor{keywordflow}{return}}
+\DoxyCodeLine{79             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/network-\/instance:state'} \textcolor{keywordflow}{in} api\_response \textcolor{keywordflow}{and} api\_response[\textcolor{stringliteral}{'openconfig-\/network-\/instance:state'}] \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{80                 api\_response[\textcolor{stringliteral}{'openconfig-\/network-\/instance:lsa\_gen\_state'}] = api\_response.pop(\textcolor{stringliteral}{'openconfig-\/network-\/instance:state'})}
+\DoxyCodeLine{81                 dlist.append(api\_response)}
+\DoxyCodeLine{82     areaInfoList = []}
+\DoxyCodeLine{83     \textcolor{keywordflow}{for} areaId \textcolor{keywordflow}{in} area\_id\_list:}
+\DoxyCodeLine{84         areaConfig = OrderedDict()}
+\DoxyCodeLine{85         areaConfig[\textcolor{stringliteral}{'identifier'}] = areaId}
+\DoxyCodeLine{86         areaInfo = OrderedDict()}
+\DoxyCodeLine{87         areaInfo[\textcolor{stringliteral}{'config'}] = areaConfig}
+\DoxyCodeLine{88         areaInfo[\textcolor{stringliteral}{'identifier'}] = areaId}
+\DoxyCodeLine{89         areaInfoList.append(areaInfo)}
+\DoxyCodeLine{90         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{name\}/protocols'}}
+\DoxyCodeLine{91                           + \textcolor{stringliteral}{'/protocol=OSPF,ospfv2/ospfv2/areas/area=\{identifier1\}/state'}, name=vrfName, identifier1=areaId)}
+\DoxyCodeLine{92         response = api.get(keypath)}
+\DoxyCodeLine{93         if(response.ok()):}
+\DoxyCodeLine{94             \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{95                 \textcolor{comment}{\# Get Command Output}}
+\DoxyCodeLine{96                 api\_response = response.content}
+\DoxyCodeLine{97                 \textcolor{keywordflow}{if} api\_response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{98                     print(\textcolor{stringliteral}{"Failed"})}
+\DoxyCodeLine{99                     \textcolor{keywordflow}{return}}
+\DoxyCodeLine{100                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/network-\/instance:state'} \textcolor{keywordflow}{in} api\_response \textcolor{keywordflow}{and} api\_response[\textcolor{stringliteral}{'openconfig-\/network-\/instance:state'}] \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{101                     areaInfo[\textcolor{stringliteral}{'state'}] = api\_response[\textcolor{stringliteral}{'openconfig-\/network-\/instance:state'}]}
+\DoxyCodeLine{102     }
+\DoxyCodeLine{103         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{name\}/protocols'}}
+\DoxyCodeLine{104                           + \textcolor{stringliteral}{'/protocol=OSPF,ospfv2/ospfv2/areas/area=\{identifier1\}/openconfig-\/ospfv2-\/ext:stub'}, name=vrfName, identifier1=areaId)}
+\DoxyCodeLine{105         response = api.get(keypath)}
+\DoxyCodeLine{106         if(response.ok()):}
+\DoxyCodeLine{107             \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{108                 \textcolor{comment}{\# Get Command Output}}
+\DoxyCodeLine{109                 api\_response = response.content}
+\DoxyCodeLine{110                 \textcolor{keywordflow}{if} api\_response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{111                     print(\textcolor{stringliteral}{"Failed"})}
+\DoxyCodeLine{112                     \textcolor{keywordflow}{return}}
+\DoxyCodeLine{113                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/ospfv2-\/ext:stub'} \textcolor{keywordflow}{in} api\_response \textcolor{keywordflow}{and} api\_response[\textcolor{stringliteral}{'openconfig-\/ospfv2-\/ext:stub'}] \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{114                     areaInfo[\textcolor{stringliteral}{'openconfig-\/ospfv2-\/ext:stub'}] = api\_response[\textcolor{stringliteral}{'openconfig-\/ospfv2-\/ext:stub'}]}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116     areasInfo = OrderedDict()}
+\DoxyCodeLine{117     areasInfo[\textcolor{stringliteral}{'area'}] = areaInfoList}
+\DoxyCodeLine{118     areasOuter = OrderedDict()}
+\DoxyCodeLine{119     areasOuter[\textcolor{stringliteral}{'openconfig-\/network-\/instance:areas'}] = areasInfo  }
+\DoxyCodeLine{120     dlist.append(areasOuter)}
+\DoxyCodeLine{121     \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{"show\_ip\_ospf.j2"}, dlist)}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/dbe/namespacesonic__cli__show__ospfv2_a1c918f7f1a5434fb4bc036e95792885f_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/dbe/namespacesonic__cli__show__ospfv2_a1c918f7f1a5434fb4bc036e95792885f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__show__ospfv2_aff99b284ff131fab0bf9e9c3878629b5}\label{namespacesonic__cli__show__ospfv2_aff99b284ff131fab0bf9e9c3878629b5}} 
+\index{sonic\_cli\_show\_ospfv2@{sonic\_cli\_show\_ospfv2}!generate\_show\_ip\_ospf\_database@{generate\_show\_ip\_ospf\_database}}
+\index{generate\_show\_ip\_ospf\_database@{generate\_show\_ip\_ospf\_database}!sonic\_cli\_show\_ospfv2@{sonic\_cli\_show\_ospfv2}}
+\doxysubsubsection{\texorpdfstring{generate\_show\_ip\_ospf\_database()}{generate\_show\_ip\_ospf\_database()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+show\+\_\+ospfv2.\+generate\+\_\+show\+\_\+ip\+\_\+ospf\+\_\+database (\begin{DoxyParamCaption}\item[{}]{vrf,  }\item[{}]{template,  }\item[{}]{ls\+\_\+id,  }\item[{}]{adv\+\_\+router,  }\item[{}]{selforg }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+ospfv2.\+py 파일의 219 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{219 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__show__ospfv2_aff99b284ff131fab0bf9e9c3878629b5}{generate\_show\_ip\_ospf\_database}}(vrf, template, ls\_id, adv\_router, selforg):}
+\DoxyCodeLine{220     api = cc.ApiClient()}
+\DoxyCodeLine{221     keypath = []}
+\DoxyCodeLine{222     vrfName = vrf}
+\DoxyCodeLine{223     self\_originate = selforg}
+\DoxyCodeLine{224     advRouter = adv\_router}
+\DoxyCodeLine{225     lsId = ls\_id}
+\DoxyCodeLine{226 }
+\DoxyCodeLine{227     d = \{\}}
+\DoxyCodeLine{228     dlist = []}
+\DoxyCodeLine{229     area\_id\_list = []}
+\DoxyCodeLine{230     d = \{ \textcolor{stringliteral}{'vrfName'}: vrfName \}}
+\DoxyCodeLine{231     dlist.append(d)}
+\DoxyCodeLine{232     area\_id\_list = build\_area\_id\_list (vrfName)}
+\DoxyCodeLine{233     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{name\}/protocols/protocol=OSPF,ospfv2/ospfv2/global/state'}, name=vrfName)}
+\DoxyCodeLine{234     response = api.get(keypath)}
+\DoxyCodeLine{235     if(response.ok()):}
+\DoxyCodeLine{236         \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{237             \textcolor{comment}{\# Get Command Output}}
+\DoxyCodeLine{238             api\_response = response.content}
+\DoxyCodeLine{239             \textcolor{keywordflow}{if} api\_response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None} \textcolor{keywordflow}{or} len(api\_response) == 0:}
+\DoxyCodeLine{240                 print(\textcolor{stringliteral}{"\% OSPF instance not found"})}
+\DoxyCodeLine{241                 \textcolor{keywordflow}{return}}
+\DoxyCodeLine{242             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/network-\/instance:state'} \textcolor{keywordflow}{in} api\_response \textcolor{keywordflow}{and} api\_response[\textcolor{stringliteral}{'openconfig-\/network-\/instance:state'}] \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{243                 d = \{\}}
+\DoxyCodeLine{244                 self\_router\_id = api\_response[\textcolor{stringliteral}{'openconfig-\/network-\/instance:state'}][\textcolor{stringliteral}{'router-\/id'}]}
+\DoxyCodeLine{245                 d = \{ \textcolor{stringliteral}{'self\_router\_id'}: self\_router\_id \}}
+\DoxyCodeLine{246                 dlist.append(d)}
+\DoxyCodeLine{247 }
+\DoxyCodeLine{248     areaInfoList = []}
+\DoxyCodeLine{249     \textcolor{keywordflow}{for} areaId \textcolor{keywordflow}{in} area\_id\_list:}
+\DoxyCodeLine{250         areaConfig = OrderedDict()}
+\DoxyCodeLine{251         areaConfig[\textcolor{stringliteral}{'identifier'}] = areaId}
+\DoxyCodeLine{252         areaInfo = OrderedDict()}
+\DoxyCodeLine{253         areaInfo[\textcolor{stringliteral}{'config'}] = areaConfig}
+\DoxyCodeLine{254         areaInfo[\textcolor{stringliteral}{'identifier'}] = areaId}
+\DoxyCodeLine{255         areaInfoList.append(areaInfo)}
+\DoxyCodeLine{256         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{name\}/protocols'}}
+\DoxyCodeLine{257                           + \textcolor{stringliteral}{'/protocol=OSPF,ospfv2/ospfv2/areas/area=\{identifier1\}/lsdb'}, name=vrfName, identifier1=areaId)}
+\DoxyCodeLine{258         response = api.get(keypath)}
+\DoxyCodeLine{259         if(response.ok()):}
+\DoxyCodeLine{260             \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{261                 \textcolor{comment}{\# Get Command Output}}
+\DoxyCodeLine{262                 api\_response = response.content}
+\DoxyCodeLine{263                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/network-\/instance:lsdb'} \textcolor{keywordflow}{in} api\_response \textcolor{keywordflow}{and} api\_response[\textcolor{stringliteral}{'openconfig-\/network-\/instance:lsdb'}] \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{264                     areaInfo[\textcolor{stringliteral}{'lsdb'}] = api\_response[\textcolor{stringliteral}{'openconfig-\/network-\/instance:lsdb'}]}
+\DoxyCodeLine{265 }
+\DoxyCodeLine{266         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{name\}/protocols'}}
+\DoxyCodeLine{267                           + \textcolor{stringliteral}{'/protocol=OSPF,ospfv2/ospfv2/areas/area=\{identifier1\}/openconfig-\/ospfv2-\/ext:stub'}, name=vrfName, identifier1=areaId)}
+\DoxyCodeLine{268         response = api.get(keypath)}
+\DoxyCodeLine{269         if(response.ok()):}
+\DoxyCodeLine{270             \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{271                 \textcolor{comment}{\# Get Command Output}}
+\DoxyCodeLine{272                 api\_response = response.content}
+\DoxyCodeLine{273                 \textcolor{keywordflow}{if} api\_response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{274                     print(\textcolor{stringliteral}{"Failed"})}
+\DoxyCodeLine{275                     \textcolor{keywordflow}{return}}
+\DoxyCodeLine{276                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/ospfv2-\/ext:stub'} \textcolor{keywordflow}{in} api\_response \textcolor{keywordflow}{and} api\_response[\textcolor{stringliteral}{'openconfig-\/ospfv2-\/ext:stub'}] \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{277                     areaInfo[\textcolor{stringliteral}{'openconfig-\/ospfv2-\/ext:stub'}] = api\_response[\textcolor{stringliteral}{'openconfig-\/ospfv2-\/ext:stub'}]}
+\DoxyCodeLine{278 }
+\DoxyCodeLine{279     areasInfo = OrderedDict()}
+\DoxyCodeLine{280     areasInfo[\textcolor{stringliteral}{'area'}] = areaInfoList}
+\DoxyCodeLine{281     areasOuter = OrderedDict()}
+\DoxyCodeLine{282     areasOuter[\textcolor{stringliteral}{'openconfig-\/network-\/instance:areas'}] = areasInfo  }
+\DoxyCodeLine{283     \textcolor{keywordflow}{if} advRouter != \textcolor{stringliteral}{""}:}
+\DoxyCodeLine{284         \mbox{\hyperlink{namespacesonic__cli__show__ospfv2_a8cdafcdcf53e0678d7595fff76ab1fc3}{ospfv2\_filter\_lsdb\_by\_adv\_router}}(areasOuter, advRouter)}
+\DoxyCodeLine{285     \textcolor{keywordflow}{if} self\_originate == \textcolor{keyword}{True} \textcolor{keywordflow}{and} self\_router\_id != \textcolor{stringliteral}{""}:}
+\DoxyCodeLine{286         \mbox{\hyperlink{namespacesonic__cli__show__ospfv2_a8cdafcdcf53e0678d7595fff76ab1fc3}{ospfv2\_filter\_lsdb\_by\_adv\_router}}(areasOuter, self\_router\_id)}
+\DoxyCodeLine{287     \textcolor{keywordflow}{if} lsId != \textcolor{stringliteral}{""}:}
+\DoxyCodeLine{288         \mbox{\hyperlink{namespacesonic__cli__show__ospfv2_a734d2d7818096f4925cde848586b066b}{ospfv2\_filter\_lsdb\_by\_ls\_id}}(areasOuter, lsId)}
+\DoxyCodeLine{289 }
+\DoxyCodeLine{290     dlist.append(areasOuter)}
+\DoxyCodeLine{291     \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(template, dlist)}
+\DoxyCodeLine{292 }
+\DoxyCodeLine{293 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/dbe/namespacesonic__cli__show__ospfv2_aff99b284ff131fab0bf9e9c3878629b5_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/dbe/namespacesonic__cli__show__ospfv2_aff99b284ff131fab0bf9e9c3878629b5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__show__ospfv2_a0061b454be0217c023ad69af18d34fee}\label{namespacesonic__cli__show__ospfv2_a0061b454be0217c023ad69af18d34fee}} 
+\index{sonic\_cli\_show\_ospfv2@{sonic\_cli\_show\_ospfv2}!generate\_show\_ip\_ospf\_interfaces@{generate\_show\_ip\_ospf\_interfaces}}
+\index{generate\_show\_ip\_ospf\_interfaces@{generate\_show\_ip\_ospf\_interfaces}!sonic\_cli\_show\_ospfv2@{sonic\_cli\_show\_ospfv2}}
+\doxysubsubsection{\texorpdfstring{generate\_show\_ip\_ospf\_interfaces()}{generate\_show\_ip\_ospf\_interfaces()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+show\+\_\+ospfv2.\+generate\+\_\+show\+\_\+ip\+\_\+ospf\+\_\+interfaces (\begin{DoxyParamCaption}\item[{}]{vrf,  }\item[{}]{template,  }\item[{}]{intfname }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+ospfv2.\+py 파일의 125 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{125 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__show__ospfv2_a0061b454be0217c023ad69af18d34fee}{generate\_show\_ip\_ospf\_interfaces}}(vrf, template, intfname):}
+\DoxyCodeLine{126     api = cc.ApiClient()}
+\DoxyCodeLine{127     keypath = []}
+\DoxyCodeLine{128     interfacename = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{129     countNbr = 0 }
+\DoxyCodeLine{130     vrfName = vrf}
+\DoxyCodeLine{131     interfacename = intfname}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133     d = \{\}}
+\DoxyCodeLine{134     dlist = []}
+\DoxyCodeLine{135     area\_id\_list = []}
+\DoxyCodeLine{136     d = \{ \textcolor{stringliteral}{'vrfName'}: vrfName \}}
+\DoxyCodeLine{137     dlist.append(d)}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139     area\_id\_list = build\_area\_id\_list (vrfName)}
+\DoxyCodeLine{140     \textcolor{keywordflow}{if} len(area\_id\_list) == 0:}
+\DoxyCodeLine{141         print(\textcolor{stringliteral}{"\% OSPF instance not found"})}
+\DoxyCodeLine{142         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144     \textcolor{keywordflow}{if} interfacename != \textcolor{stringliteral}{""}:}
+\DoxyCodeLine{145         intfparam = \{\textcolor{stringliteral}{'interfacename'}: interfacename \}}
+\DoxyCodeLine{146         dlist.append(intfparam)}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148     areaInfoList = []}
+\DoxyCodeLine{149     \textcolor{keywordflow}{for} areaId \textcolor{keywordflow}{in} area\_id\_list:}
+\DoxyCodeLine{150         areaConfig = OrderedDict()}
+\DoxyCodeLine{151         areaConfig[\textcolor{stringliteral}{'identifier'}] = areaId}
+\DoxyCodeLine{152         areaInfo = OrderedDict()}
+\DoxyCodeLine{153         areaInfo[\textcolor{stringliteral}{'config'}] = areaConfig}
+\DoxyCodeLine{154         areaInfo[\textcolor{stringliteral}{'identifier'}] = areaId}
+\DoxyCodeLine{155         areaInfoList.append(areaInfo)}
+\DoxyCodeLine{156         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{name\}/protocols'}}
+\DoxyCodeLine{157                           + \textcolor{stringliteral}{'/protocol=OSPF,ospfv2/ospfv2/areas/area=\{identifier1\}/interfaces'}, name=vrfName, identifier1=areaId)}
+\DoxyCodeLine{158         response = api.get(keypath)}
+\DoxyCodeLine{159         if(response.ok()):}
+\DoxyCodeLine{160             \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{161                 \textcolor{comment}{\# Get Command Output}}
+\DoxyCodeLine{162                 api\_response = response.content}
+\DoxyCodeLine{163                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/network-\/instance:interfaces'} \textcolor{keywordflow}{in} api\_response \textcolor{keywordflow}{and} api\_response[\textcolor{stringliteral}{'openconfig-\/network-\/instance:interfaces'}] \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{164                     areaInfo[\textcolor{stringliteral}{'interfaces'}] = api\_response[\textcolor{stringliteral}{'openconfig-\/network-\/instance:interfaces'}]}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{name\}/protocols'}}
+\DoxyCodeLine{167                           + \textcolor{stringliteral}{'/protocol=OSPF,ospfv2/ospfv2/areas/area=\{identifier1\}/virtual-\/links'}, name=vrfName, identifier1=areaId)}
+\DoxyCodeLine{168         response = api.get(keypath)}
+\DoxyCodeLine{169         if(response.ok()):}
+\DoxyCodeLine{170             \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{171                 \textcolor{comment}{\# Get Command Output}}
+\DoxyCodeLine{172                 api\_response = response.content}
+\DoxyCodeLine{173                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/network-\/instance:virtual-\/links'} \textcolor{keywordflow}{in} api\_response \textcolor{keywordflow}{and} api\_response[\textcolor{stringliteral}{'openconfig-\/network-\/instance:virtual-\/links'}] \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{174                     areaInfo[\textcolor{stringliteral}{'virtual-\/links'}] = api\_response[\textcolor{stringliteral}{'openconfig-\/network-\/instance:virtual-\/links'}]}
+\DoxyCodeLine{175     }
+\DoxyCodeLine{176     areasInfo = OrderedDict()}
+\DoxyCodeLine{177     areasInfo[\textcolor{stringliteral}{'area'}] = areaInfoList}
+\DoxyCodeLine{178     areasOuter = OrderedDict()}
+\DoxyCodeLine{179     areasOuter[\textcolor{stringliteral}{'openconfig-\/network-\/instance:areas'}] = areasInfo  }
+\DoxyCodeLine{180     \textcolor{comment}{\#if '.' in intfname or ':' in intfname:}}
+\DoxyCodeLine{181     \textcolor{keywordflow}{if} \textcolor{stringliteral}{':'} \textcolor{keywordflow}{in} intfname:}
+\DoxyCodeLine{182         countNbr = \mbox{\hyperlink{namespacesonic__cli__show__ospfv2_a8330116ee99ec60a20a407eb6c04ce2e}{ospfv2\_filter\_neighbors\_by\_neighbor\_id}}(areasOuter, intfname)}
+\DoxyCodeLine{183         \textcolor{keywordflow}{if} countNbr == 0 \textcolor{keywordflow}{and} template == \textcolor{stringliteral}{"show\_ip\_ospf\_neighbor\_detail.j2"}:}
+\DoxyCodeLine{184             print(\textcolor{stringliteral}{"No such interface."})}
+\DoxyCodeLine{185             \textcolor{keywordflow}{return}}
+\DoxyCodeLine{186             }
+\DoxyCodeLine{187         \textcolor{comment}{\# since we have already filtered above, remove filter (don't filter in template)}}
+\DoxyCodeLine{188         intfparam = \{\textcolor{stringliteral}{'interfacename'}: intfname \}}
+\DoxyCodeLine{189         dlist.remove(intfparam)}
+\DoxyCodeLine{190         \textcolor{comment}{\# Change template to "neighbor detail", evenif "detail" option is not mentioned in CLI}}
+\DoxyCodeLine{191         template = \textcolor{stringliteral}{"show\_ip\_ospf\_neighbor\_detail.j2"}}
+\DoxyCodeLine{192     dlist.append(areasOuter)}
+\DoxyCodeLine{193     \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(template, dlist)}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{195 }
+\DoxyCodeLine{196 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/dbe/namespacesonic__cli__show__ospfv2_a0061b454be0217c023ad69af18d34fee_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/dbe/namespacesonic__cli__show__ospfv2_a0061b454be0217c023ad69af18d34fee_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__show__ospfv2_a8b533295e047722ac46ec1309beb94d2}\label{namespacesonic__cli__show__ospfv2_a8b533295e047722ac46ec1309beb94d2}} 
+\index{sonic\_cli\_show\_ospfv2@{sonic\_cli\_show\_ospfv2}!generate\_show\_ip\_ospf\_route@{generate\_show\_ip\_ospf\_route}}
+\index{generate\_show\_ip\_ospf\_route@{generate\_show\_ip\_ospf\_route}!sonic\_cli\_show\_ospfv2@{sonic\_cli\_show\_ospfv2}}
+\doxysubsubsection{\texorpdfstring{generate\_show\_ip\_ospf\_route()}{generate\_show\_ip\_ospf\_route()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+show\+\_\+ospfv2.\+generate\+\_\+show\+\_\+ip\+\_\+ospf\+\_\+route (\begin{DoxyParamCaption}\item[{}]{vrf,  }\item[{}]{template }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+ospfv2.\+py 파일의 197 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{197 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__show__ospfv2_a8b533295e047722ac46ec1309beb94d2}{generate\_show\_ip\_ospf\_route}}(vrf, template):}
+\DoxyCodeLine{198     api = cc.ApiClient()}
+\DoxyCodeLine{199     keypath = []}
+\DoxyCodeLine{200     vrfName = vrf}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{202     d = \{\}}
+\DoxyCodeLine{203     dlist = []}
+\DoxyCodeLine{204     d = \{ \textcolor{stringliteral}{'vrfName'}: vrfName \}}
+\DoxyCodeLine{205     dlist.append(d)}
+\DoxyCodeLine{206     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{name\}/protocols/protocol=OSPF,ospfv2/ospfv2/openconfig-\/ospfv2-\/ext:route-\/tables'}, name=vrfName)}
+\DoxyCodeLine{207     response = api.get(keypath)}
+\DoxyCodeLine{208     if(response.ok()):}
+\DoxyCodeLine{209         \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{210             \textcolor{comment}{\# Get Command Output}}
+\DoxyCodeLine{211             api\_response = response.content}
+\DoxyCodeLine{212             \textcolor{keywordflow}{if} api\_response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None} \textcolor{keywordflow}{or} len(api\_response) == 0:}
+\DoxyCodeLine{213                 print(\textcolor{stringliteral}{"\% OSPF instance not found"})}
+\DoxyCodeLine{214                 \textcolor{keywordflow}{return}}
+\DoxyCodeLine{215             dlist.append(api\_response)}
+\DoxyCodeLine{216     \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(template, dlist)}
+\DoxyCodeLine{217 }
+\DoxyCodeLine{218 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/dbe/namespacesonic__cli__show__ospfv2_a8b533295e047722ac46ec1309beb94d2_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/dbe/namespacesonic__cli__show__ospfv2_a8b533295e047722ac46ec1309beb94d2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__show__ospfv2_a6cdbbaad26a09e91c010e2ad3c286da4}\label{namespacesonic__cli__show__ospfv2_a6cdbbaad26a09e91c010e2ad3c286da4}} 
+\index{sonic\_cli\_show\_ospfv2@{sonic\_cli\_show\_ospfv2}!invoke\_show\_api@{invoke\_show\_api}}
+\index{invoke\_show\_api@{invoke\_show\_api}!sonic\_cli\_show\_ospfv2@{sonic\_cli\_show\_ospfv2}}
+\doxysubsubsection{\texorpdfstring{invoke\_show\_api()}{invoke\_show\_api()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+show\+\_\+ospfv2.\+invoke\+\_\+show\+\_\+api (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args = {\ttfamily \mbox{[}\mbox{]}} }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+ospfv2.\+py 파일의 381 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{381 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__show__ospfv2_a6cdbbaad26a09e91c010e2ad3c286da4}{invoke\_show\_api}}(func, args=[]):}
+\DoxyCodeLine{382     vrf = args[0]}
+\DoxyCodeLine{383 }
+\DoxyCodeLine{384     \textcolor{keywordflow}{if} vrf == \textcolor{stringliteral}{'all'} :}
+\DoxyCodeLine{385         print(\textcolor{stringliteral}{"\%Error: OSPF state display for VRF all not supported!"});}
+\DoxyCodeLine{386         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{387 }
+\DoxyCodeLine{388     vrf\_name\_valid = \textcolor{keyword}{False}}
+\DoxyCodeLine{389     \textcolor{keywordflow}{if} vrf == \textcolor{stringliteral}{''} \textcolor{keywordflow}{or} vrf == \textcolor{stringliteral}{'default'} :}
+\DoxyCodeLine{390         vrf\_name\_valid = \textcolor{keyword}{True}}
+\DoxyCodeLine{391     \textcolor{keywordflow}{elif} vrf.startswith(\textcolor{stringliteral}{"Vrf"}) :}
+\DoxyCodeLine{392         vrf\_name\_valid = \textcolor{keyword}{True}}
+\DoxyCodeLine{393     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} vrf\_name\_valid :}
+\DoxyCodeLine{394         print(\textcolor{stringliteral}{"\%Error: Invalid VRF name \{\}"}.format(vrf))}
+\DoxyCodeLine{395         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{396 }
+\DoxyCodeLine{397     api = cc.ApiClient()}
+\DoxyCodeLine{398     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{name\}/config'}, name= vrf)}
+\DoxyCodeLine{399     vrf\_config = api.get(keypath)}
+\DoxyCodeLine{400     \textcolor{keywordflow}{if} vrf\_config.ok():}
+\DoxyCodeLine{401         \textcolor{keywordflow}{if} vrf\_config.content == \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{402            print(\textcolor{stringliteral}{"\%Error: VRF instance not found"})}
+\DoxyCodeLine{403            \textcolor{keywordflow}{return}}
+\DoxyCodeLine{404 }
+\DoxyCodeLine{405     i = 3}
+\DoxyCodeLine{406     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'do'} \textcolor{keywordflow}{in} args \textcolor{keywordflow}{and} args[1] == \textcolor{stringliteral}{'do'}:}
+\DoxyCodeLine{407         \textcolor{comment}{\# By default, the leftmost entry is removed}}
+\DoxyCodeLine{408         args.remove(\textcolor{stringliteral}{'do'})}
+\DoxyCodeLine{409     \textcolor{keywordflow}{if} (len(args[i:]) == 1):}
+\DoxyCodeLine{410         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__show__ospfv2_a1c918f7f1a5434fb4bc036e95792885f}{generate\_show\_ip\_ospf}}(vrf)}
+\DoxyCodeLine{411     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{412         i = i + 1}
+\DoxyCodeLine{413         \textcolor{keywordflow}{for} arg \textcolor{keywordflow}{in} args[i:]:}
+\DoxyCodeLine{414             \textcolor{keywordflow}{if} (arg == \textcolor{stringliteral}{"neighbor"}):}
+\DoxyCodeLine{415                 j = i + 1}
+\DoxyCodeLine{416                 neighip = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{417                 intfname = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{418                 allneigh = \textcolor{keyword}{False}}
+\DoxyCodeLine{419                 detail = \textcolor{keyword}{False}}
+\DoxyCodeLine{420 }
+\DoxyCodeLine{421                 \textcolor{keywordflow}{for} neiarg \textcolor{keywordflow}{in} args[j:]:}
+\DoxyCodeLine{422                     \textcolor{keywordflow}{if} (neiarg == \textcolor{stringliteral}{"detail"}):}
+\DoxyCodeLine{423                         detail = \textcolor{keyword}{True}}
+\DoxyCodeLine{424                     \textcolor{keywordflow}{elif} (neiarg == \textcolor{stringliteral}{"all"}):}
+\DoxyCodeLine{425                         allneigh = \textcolor{keyword}{True}}
+\DoxyCodeLine{426                     \textcolor{keywordflow}{elif} ((\textcolor{stringliteral}{"."} \textcolor{keywordflow}{in} neiarg) \textcolor{keywordflow}{or} (\textcolor{stringliteral}{":"} \textcolor{keywordflow}{in} neiarg)):}
+\DoxyCodeLine{427                         intfname = neiarg}
+\DoxyCodeLine{428                     \textcolor{keywordflow}{elif} (neiarg == \textcolor{stringliteral}{"\(\backslash\)|"}):}
+\DoxyCodeLine{429                         \textcolor{keywordflow}{break}}
+\DoxyCodeLine{430                     \textcolor{keywordflow}{elif}  (neiarg != \textcolor{stringliteral}{"vrf"} \textcolor{keywordflow}{and} args[j -\/ 1] != \textcolor{stringliteral}{"vrf"} \textcolor{keywordflow}{and} neiarg != \textcolor{stringliteral}{"neighbor"}):}
+\DoxyCodeLine{431                         intfname = neiarg}
+\DoxyCodeLine{432 }
+\DoxyCodeLine{433                     j = j + 1               }
+\DoxyCodeLine{434                }
+\DoxyCodeLine{435                 \textcolor{keywordflow}{if} (detail == \textcolor{keyword}{True}):}
+\DoxyCodeLine{436                     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__show__ospfv2_a0061b454be0217c023ad69af18d34fee}{generate\_show\_ip\_ospf\_interfaces}}(vrf, \textcolor{stringliteral}{"show\_ip\_ospf\_neighbor\_detail.j2"}, intfname)}
+\DoxyCodeLine{437                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{438                     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__show__ospfv2_a0061b454be0217c023ad69af18d34fee}{generate\_show\_ip\_ospf\_interfaces}}(vrf, \textcolor{stringliteral}{"show\_ip\_ospf\_neighbor.j2"}, intfname)}
+\DoxyCodeLine{439 }
+\DoxyCodeLine{440             \textcolor{keywordflow}{elif} (arg == \textcolor{stringliteral}{"interface"}):}
+\DoxyCodeLine{441                 j = i}
+\DoxyCodeLine{442                 trafficcmd = \textcolor{keyword}{False}}
+\DoxyCodeLine{443                 intfname = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{444 }
+\DoxyCodeLine{445                 \textcolor{keywordflow}{for} intfarg \textcolor{keywordflow}{in} args[j:]:}
+\DoxyCodeLine{446                     \textcolor{keywordflow}{if} (intfarg == \textcolor{stringliteral}{"traffic"}):}
+\DoxyCodeLine{447                         trafficcmd = \textcolor{keyword}{True}}
+\DoxyCodeLine{448                     \textcolor{keywordflow}{elif} (intfarg == \textcolor{stringliteral}{"interface"}):}
+\DoxyCodeLine{449                         intfname = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{450                     \textcolor{keywordflow}{elif} (intfarg == \textcolor{stringliteral}{"\(\backslash\)|"}):}
+\DoxyCodeLine{451                         \textcolor{keywordflow}{break}}
+\DoxyCodeLine{452                     \textcolor{keywordflow}{elif} (intfarg != \textcolor{stringliteral}{"vrf"} \textcolor{keywordflow}{and} args[j -\/ 1] != \textcolor{stringliteral}{"vrf"}):}
+\DoxyCodeLine{453                         intfname = intfarg}
+\DoxyCodeLine{454 }
+\DoxyCodeLine{455                     j = j + 1}
+\DoxyCodeLine{456 }
+\DoxyCodeLine{457                 \textcolor{keywordflow}{if} (trafficcmd == \textcolor{keyword}{True}):}
+\DoxyCodeLine{458                     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__show__ospfv2_a0061b454be0217c023ad69af18d34fee}{generate\_show\_ip\_ospf\_interfaces}}(vrf, \textcolor{stringliteral}{"show\_ip\_ospf\_interface\_traffic.j2"}, intfname)}
+\DoxyCodeLine{459                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{460                     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__show__ospfv2_a0061b454be0217c023ad69af18d34fee}{generate\_show\_ip\_ospf\_interfaces}}(vrf, \textcolor{stringliteral}{"show\_ip\_ospf\_interface.j2"}, intfname)}
+\DoxyCodeLine{461             \textcolor{keywordflow}{elif} (arg == \textcolor{stringliteral}{"route"}):}
+\DoxyCodeLine{462                 \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__show__ospfv2_a8b533295e047722ac46ec1309beb94d2}{generate\_show\_ip\_ospf\_route}}(vrf, \textcolor{stringliteral}{"show\_ip\_ospf\_route.j2"})}
+\DoxyCodeLine{463             \textcolor{keywordflow}{elif} (arg == \textcolor{stringliteral}{"border-\/routers"}):}
+\DoxyCodeLine{464                 \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__show__ospfv2_a8b533295e047722ac46ec1309beb94d2}{generate\_show\_ip\_ospf\_route}}(vrf, \textcolor{stringliteral}{"show\_ip\_ospf\_border\_routers.j2"})}
+\DoxyCodeLine{465             \textcolor{keywordflow}{elif} (arg == \textcolor{stringliteral}{"database"}):}
+\DoxyCodeLine{466                 j = i}
+\DoxyCodeLine{467                 dbtype = \textcolor{stringliteral}{"database"}}
+\DoxyCodeLine{468                 lsid = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{469                 advrouter = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{470                 selforg = \textcolor{keyword}{False}}
+\DoxyCodeLine{471                 skipNextArg = \textcolor{keyword}{False}}
+\DoxyCodeLine{472                 maxAge = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{473 }
+\DoxyCodeLine{474                 \textcolor{keywordflow}{for} dbarg \textcolor{keywordflow}{in} args[j:]:}
+\DoxyCodeLine{475                     \textcolor{keywordflow}{if} skipNextArg == \textcolor{keyword}{True}:}
+\DoxyCodeLine{476                         skipNextArg = \textcolor{keyword}{False}}
+\DoxyCodeLine{477                     \textcolor{keywordflow}{elif} (dbarg == \textcolor{stringliteral}{"router"}):}
+\DoxyCodeLine{478                         dbtype = \textcolor{stringliteral}{"router"}}
+\DoxyCodeLine{479                     \textcolor{keywordflow}{elif} (dbarg == \textcolor{stringliteral}{"network"}):}
+\DoxyCodeLine{480                         dbtype = \textcolor{stringliteral}{"network"}}
+\DoxyCodeLine{481                     \textcolor{keywordflow}{elif} (dbarg == \textcolor{stringliteral}{"summary"}):}
+\DoxyCodeLine{482                         dbtype = \textcolor{stringliteral}{"summary"}}
+\DoxyCodeLine{483                     \textcolor{keywordflow}{elif} (dbarg == \textcolor{stringliteral}{"asbr-\/summary"}):}
+\DoxyCodeLine{484                         dbtype = \textcolor{stringliteral}{"asbr\_summary"}}
+\DoxyCodeLine{485                     \textcolor{keywordflow}{elif} (dbarg == \textcolor{stringliteral}{"external"}):}
+\DoxyCodeLine{486                         dbtype = \textcolor{stringliteral}{"external"}}
+\DoxyCodeLine{487                     \textcolor{keywordflow}{elif} ((\textcolor{stringliteral}{"."} \textcolor{keywordflow}{in} dbarg) \textcolor{keywordflow}{or} (\textcolor{stringliteral}{":"} \textcolor{keywordflow}{in} dbarg)):}
+\DoxyCodeLine{488                         lsid = args[j]}
+\DoxyCodeLine{489                     \textcolor{keywordflow}{elif} (dbarg == \textcolor{stringliteral}{"adv-\/router"}):}
+\DoxyCodeLine{490                         advrouter = args[j + 1]}
+\DoxyCodeLine{491                         skipNextArg = \textcolor{keyword}{True}}
+\DoxyCodeLine{492                     \textcolor{keywordflow}{elif} (dbarg == \textcolor{stringliteral}{"max-\/age"}):}
+\DoxyCodeLine{493                         maxAge = args[j]}
+\DoxyCodeLine{494                     \textcolor{keywordflow}{elif} (dbarg == \textcolor{stringliteral}{"self-\/originate"}):}
+\DoxyCodeLine{495                         selforg = \textcolor{keyword}{True}}
+\DoxyCodeLine{496 }
+\DoxyCodeLine{497                     j = j + 1}
+\DoxyCodeLine{498                 \textcolor{keywordflow}{if} (dbtype == \textcolor{stringliteral}{"database"}):}
+\DoxyCodeLine{499                     \textcolor{keywordflow}{if} maxAge == \textcolor{stringliteral}{""} :}
+\DoxyCodeLine{500                         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__show__ospfv2_aff99b284ff131fab0bf9e9c3878629b5}{generate\_show\_ip\_ospf\_database}}(vrf, \textcolor{stringliteral}{"show\_ip\_ospf\_database.j2"}, lsid, advrouter, selforg)}
+\DoxyCodeLine{501                     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{502                         full\_cmd = os.getenv(\textcolor{stringliteral}{'USER\_COMMAND'}, \textcolor{keywordtype}{None}).split(\textcolor{stringliteral}{'|'})[0]}
+\DoxyCodeLine{503                         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/ospfv2-\/show:show-\/ospfv2-\/max-\/age-\/lsa'})}
+\DoxyCodeLine{504                         body = \{\textcolor{stringliteral}{"sonic-\/ospfv2-\/show:input"}: \{ \textcolor{stringliteral}{"cmd"}:full\_cmd \}\}}
+\DoxyCodeLine{505                         response = cc.ApiClient().post(keypath, body)}
+\DoxyCodeLine{506                         \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response:}
+\DoxyCodeLine{507                             \textcolor{keywordflow}{print} \textcolor{stringliteral}{"No response"}}
+\DoxyCodeLine{508                             \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{509                         \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{510                             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/ospfv2-\/show:output'} \textcolor{keywordflow}{in} response.content \textcolor{keywordflow}{and} \textcolor{stringliteral}{'response'} \textcolor{keywordflow}{in} response.content[\textcolor{stringliteral}{'sonic-\/ospfv2-\/show:output'}]:}
+\DoxyCodeLine{511                                 output = response.content[\textcolor{stringliteral}{'sonic-\/ospfv2-\/show:output'}][\textcolor{stringliteral}{'response'}]}
+\DoxyCodeLine{512                                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{"dump.j2"}, output)}
+\DoxyCodeLine{513                         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{514                             \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{515                         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{516                 \textcolor{keywordflow}{if} (dbtype == \textcolor{stringliteral}{"router"}):}
+\DoxyCodeLine{517                     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__show__ospfv2_aff99b284ff131fab0bf9e9c3878629b5}{generate\_show\_ip\_ospf\_database}}(vrf, \textcolor{stringliteral}{"show\_ip\_ospf\_database\_router.j2"}, lsid, advrouter, selforg)}
+\DoxyCodeLine{518                 \textcolor{keywordflow}{elif} (dbtype == \textcolor{stringliteral}{"network"}):}
+\DoxyCodeLine{519                     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__show__ospfv2_aff99b284ff131fab0bf9e9c3878629b5}{generate\_show\_ip\_ospf\_database}}(vrf, \textcolor{stringliteral}{"show\_ip\_ospf\_database\_network.j2"}, lsid, advrouter, selforg)}
+\DoxyCodeLine{520                 \textcolor{keywordflow}{elif} (dbtype == \textcolor{stringliteral}{"summary"}):}
+\DoxyCodeLine{521                     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__show__ospfv2_aff99b284ff131fab0bf9e9c3878629b5}{generate\_show\_ip\_ospf\_database}}(vrf, \textcolor{stringliteral}{"show\_ip\_ospf\_database\_summary.j2"}, lsid, advrouter, selforg)}
+\DoxyCodeLine{522                 \textcolor{keywordflow}{elif} (dbtype == \textcolor{stringliteral}{"asbr\_summary"}):}
+\DoxyCodeLine{523                     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__show__ospfv2_aff99b284ff131fab0bf9e9c3878629b5}{generate\_show\_ip\_ospf\_database}}(vrf, \textcolor{stringliteral}{"show\_ip\_ospf\_database\_asbr\_summary.j2"}, lsid, advrouter, selforg)}
+\DoxyCodeLine{524                 \textcolor{keywordflow}{elif} (dbtype == \textcolor{stringliteral}{"external"}):}
+\DoxyCodeLine{525                     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__show__ospfv2_aff99b284ff131fab0bf9e9c3878629b5}{generate\_show\_ip\_ospf\_database}}(vrf, \textcolor{stringliteral}{"show\_ip\_ospf\_database\_external.j2"}, lsid, advrouter, selforg)}
+\DoxyCodeLine{526             \textcolor{keywordflow}{elif} (arg == \textcolor{stringliteral}{"vrf"} \textcolor{keywordflow}{or} arg == \textcolor{stringliteral}{"\(\backslash\)|"}):}
+\DoxyCodeLine{527                 \textcolor{keywordflow}{if} (arg == \textcolor{stringliteral}{"vrf"} \textcolor{keywordflow}{and} (len(args[(i + 1):]) > 1) \textcolor{keywordflow}{and} args[i + 2] != \textcolor{stringliteral}{"\(\backslash\)|"}):}
+\DoxyCodeLine{528                     \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{529 }
+\DoxyCodeLine{530                 \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__show__ospfv2_a1c918f7f1a5434fb4bc036e95792885f}{generate\_show\_ip\_ospf}}(vrf)}
+\DoxyCodeLine{531             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{532                 \textcolor{keywordflow}{continue} }
+\DoxyCodeLine{533             i = i + 1}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/dbe/namespacesonic__cli__show__ospfv2_a6cdbbaad26a09e91c010e2ad3c286da4_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/dbe/namespacesonic__cli__show__ospfv2_a6cdbbaad26a09e91c010e2ad3c286da4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__show__ospfv2_a8cdafcdcf53e0678d7595fff76ab1fc3}\label{namespacesonic__cli__show__ospfv2_a8cdafcdcf53e0678d7595fff76ab1fc3}} 
+\index{sonic\_cli\_show\_ospfv2@{sonic\_cli\_show\_ospfv2}!ospfv2\_filter\_lsdb\_by\_adv\_router@{ospfv2\_filter\_lsdb\_by\_adv\_router}}
+\index{ospfv2\_filter\_lsdb\_by\_adv\_router@{ospfv2\_filter\_lsdb\_by\_adv\_router}!sonic\_cli\_show\_ospfv2@{sonic\_cli\_show\_ospfv2}}
+\doxysubsubsection{\texorpdfstring{ospfv2\_filter\_lsdb\_by\_adv\_router()}{ospfv2\_filter\_lsdb\_by\_adv\_router()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+show\+\_\+ospfv2.\+ospfv2\+\_\+filter\+\_\+lsdb\+\_\+by\+\_\+adv\+\_\+router (\begin{DoxyParamCaption}\item[{}]{response,  }\item[{}]{adv\+Router }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+ospfv2.\+py 파일의 294 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{294 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__show__ospfv2_a8cdafcdcf53e0678d7595fff76ab1fc3}{ospfv2\_filter\_lsdb\_by\_adv\_router}}(response, advRouter):}
+\DoxyCodeLine{295     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/network-\/instance:areas'} \textcolor{keywordflow}{in}  response \textcolor{keywordflow}{and} \textcolor{stringliteral}{'area'} \textcolor{keywordflow}{in} response[\textcolor{stringliteral}{'openconfig-\/network-\/instance:areas'}]:}
+\DoxyCodeLine{296         \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(len(response[\textcolor{stringliteral}{'openconfig-\/network-\/instance:areas'}][\textcolor{stringliteral}{'area'}])):}
+\DoxyCodeLine{297             areainfo = response[\textcolor{stringliteral}{'openconfig-\/network-\/instance:areas'}][\textcolor{stringliteral}{'area'}][i]}
+\DoxyCodeLine{298             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'lsdb'} \textcolor{keywordflow}{in} areainfo \textcolor{keywordflow}{and} \textcolor{stringliteral}{'lsa-\/types'} \textcolor{keywordflow}{in} areainfo[\textcolor{stringliteral}{'lsdb'}] \textcolor{keywordflow}{and} \textcolor{stringliteral}{'lsa-\/type'} \textcolor{keywordflow}{in} areainfo[\textcolor{stringliteral}{'lsdb'}][\textcolor{stringliteral}{'lsa-\/types'}]:}
+\DoxyCodeLine{299                 \textcolor{keywordflow}{for} j \textcolor{keywordflow}{in} range(len(areainfo[\textcolor{stringliteral}{'lsdb'}][\textcolor{stringliteral}{'lsa-\/types'}][\textcolor{stringliteral}{'lsa-\/type'}])):}
+\DoxyCodeLine{300                     lsa\_type = areainfo[\textcolor{stringliteral}{'lsdb'}][\textcolor{stringliteral}{'lsa-\/types'}][\textcolor{stringliteral}{'lsa-\/type'}][j]}
+\DoxyCodeLine{301                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'lsas'} \textcolor{keywordflow}{in} lsa\_type \textcolor{keywordflow}{and} \textcolor{stringliteral}{'openconfig-\/ospfv2-\/ext:lsa-\/ext'} \textcolor{keywordflow}{in} lsa\_type[\textcolor{stringliteral}{'lsas'}]:}
+\DoxyCodeLine{302                         temp\_lsa\_list = []}
+\DoxyCodeLine{303                         \textcolor{keywordflow}{while} lsa\_type[\textcolor{stringliteral}{'lsas'}][\textcolor{stringliteral}{'openconfig-\/ospfv2-\/ext:lsa-\/ext'}]:}
+\DoxyCodeLine{304                             lsainfo = lsa\_type[\textcolor{stringliteral}{'lsas'}][\textcolor{stringliteral}{'openconfig-\/ospfv2-\/ext:lsa-\/ext'}].pop()}
+\DoxyCodeLine{305                             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'advertising-\/router'} \textcolor{keywordflow}{in} lsainfo \textcolor{keywordflow}{and} lsainfo[\textcolor{stringliteral}{'advertising-\/router'}] == advRouter:}
+\DoxyCodeLine{306                                 temp\_lsa\_list.append(lsainfo)}
+\DoxyCodeLine{307                         \textcolor{keywordflow}{while} temp\_lsa\_list:}
+\DoxyCodeLine{308                             lsa\_type[\textcolor{stringliteral}{'lsas'}][\textcolor{stringliteral}{'openconfig-\/ospfv2-\/ext:lsa-\/ext'}].append(temp\_lsa\_list.pop())}
+\DoxyCodeLine{309                                 }
+\DoxyCodeLine{310                             }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/dbe/namespacesonic__cli__show__ospfv2_a8cdafcdcf53e0678d7595fff76ab1fc3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__show__ospfv2_a734d2d7818096f4925cde848586b066b}\label{namespacesonic__cli__show__ospfv2_a734d2d7818096f4925cde848586b066b}} 
+\index{sonic\_cli\_show\_ospfv2@{sonic\_cli\_show\_ospfv2}!ospfv2\_filter\_lsdb\_by\_ls\_id@{ospfv2\_filter\_lsdb\_by\_ls\_id}}
+\index{ospfv2\_filter\_lsdb\_by\_ls\_id@{ospfv2\_filter\_lsdb\_by\_ls\_id}!sonic\_cli\_show\_ospfv2@{sonic\_cli\_show\_ospfv2}}
+\doxysubsubsection{\texorpdfstring{ospfv2\_filter\_lsdb\_by\_ls\_id()}{ospfv2\_filter\_lsdb\_by\_ls\_id()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+show\+\_\+ospfv2.\+ospfv2\+\_\+filter\+\_\+lsdb\+\_\+by\+\_\+ls\+\_\+id (\begin{DoxyParamCaption}\item[{}]{response,  }\item[{}]{ls\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+ospfv2.\+py 파일의 311 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{311 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__show__ospfv2_a734d2d7818096f4925cde848586b066b}{ospfv2\_filter\_lsdb\_by\_ls\_id}}(response, ls\_id):}
+\DoxyCodeLine{312     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/network-\/instance:areas'} \textcolor{keywordflow}{in}  response \textcolor{keywordflow}{and} \textcolor{stringliteral}{'area'} \textcolor{keywordflow}{in} response[\textcolor{stringliteral}{'openconfig-\/network-\/instance:areas'}]:}
+\DoxyCodeLine{313         \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(len(response[\textcolor{stringliteral}{'openconfig-\/network-\/instance:areas'}][\textcolor{stringliteral}{'area'}])):}
+\DoxyCodeLine{314             areainfo = response[\textcolor{stringliteral}{'openconfig-\/network-\/instance:areas'}][\textcolor{stringliteral}{'area'}][i]}
+\DoxyCodeLine{315             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'lsdb'} \textcolor{keywordflow}{in} areainfo \textcolor{keywordflow}{and} \textcolor{stringliteral}{'lsa-\/types'} \textcolor{keywordflow}{in} areainfo[\textcolor{stringliteral}{'lsdb'}] \textcolor{keywordflow}{and} \textcolor{stringliteral}{'lsa-\/type'} \textcolor{keywordflow}{in} areainfo[\textcolor{stringliteral}{'lsdb'}][\textcolor{stringliteral}{'lsa-\/types'}]:}
+\DoxyCodeLine{316                 \textcolor{keywordflow}{for} j \textcolor{keywordflow}{in} range(len(areainfo[\textcolor{stringliteral}{'lsdb'}][\textcolor{stringliteral}{'lsa-\/types'}][\textcolor{stringliteral}{'lsa-\/type'}])):}
+\DoxyCodeLine{317                     lsa\_type = areainfo[\textcolor{stringliteral}{'lsdb'}][\textcolor{stringliteral}{'lsa-\/types'}][\textcolor{stringliteral}{'lsa-\/type'}][j]}
+\DoxyCodeLine{318                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'lsas'} \textcolor{keywordflow}{in} lsa\_type \textcolor{keywordflow}{and} \textcolor{stringliteral}{'openconfig-\/ospfv2-\/ext:lsa-\/ext'} \textcolor{keywordflow}{in} lsa\_type[\textcolor{stringliteral}{'lsas'}]:}
+\DoxyCodeLine{319                         temp\_lsa\_list = []}
+\DoxyCodeLine{320                         \textcolor{keywordflow}{while} lsa\_type[\textcolor{stringliteral}{'lsas'}][\textcolor{stringliteral}{'openconfig-\/ospfv2-\/ext:lsa-\/ext'}]:}
+\DoxyCodeLine{321                             lsainfo = lsa\_type[\textcolor{stringliteral}{'lsas'}][\textcolor{stringliteral}{'openconfig-\/ospfv2-\/ext:lsa-\/ext'}].pop()}
+\DoxyCodeLine{322                             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'link-\/state-\/id'} \textcolor{keywordflow}{in} lsainfo \textcolor{keywordflow}{and} lsainfo[\textcolor{stringliteral}{'link-\/state-\/id'}] == ls\_id:}
+\DoxyCodeLine{323                                 temp\_lsa\_list.append(lsainfo)}
+\DoxyCodeLine{324                         \textcolor{keywordflow}{while} temp\_lsa\_list:}
+\DoxyCodeLine{325                             lsa\_type[\textcolor{stringliteral}{'lsas'}][\textcolor{stringliteral}{'openconfig-\/ospfv2-\/ext:lsa-\/ext'}].append(temp\_lsa\_list.pop())}
+\DoxyCodeLine{326 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/dbe/namespacesonic__cli__show__ospfv2_a734d2d7818096f4925cde848586b066b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__show__ospfv2_a8330116ee99ec60a20a407eb6c04ce2e}\label{namespacesonic__cli__show__ospfv2_a8330116ee99ec60a20a407eb6c04ce2e}} 
+\index{sonic\_cli\_show\_ospfv2@{sonic\_cli\_show\_ospfv2}!ospfv2\_filter\_neighbors\_by\_neighbor\_id@{ospfv2\_filter\_neighbors\_by\_neighbor\_id}}
+\index{ospfv2\_filter\_neighbors\_by\_neighbor\_id@{ospfv2\_filter\_neighbors\_by\_neighbor\_id}!sonic\_cli\_show\_ospfv2@{sonic\_cli\_show\_ospfv2}}
+\doxysubsubsection{\texorpdfstring{ospfv2\_filter\_neighbors\_by\_neighbor\_id()}{ospfv2\_filter\_neighbors\_by\_neighbor\_id()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+show\+\_\+ospfv2.\+ospfv2\+\_\+filter\+\_\+neighbors\+\_\+by\+\_\+neighbor\+\_\+id (\begin{DoxyParamCaption}\item[{}]{response,  }\item[{}]{intfname }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+ospfv2.\+py 파일의 327 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{327 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__show__ospfv2_a8330116ee99ec60a20a407eb6c04ce2e}{ospfv2\_filter\_neighbors\_by\_neighbor\_id}}(response, intfname):}
+\DoxyCodeLine{328     count = 0}
+\DoxyCodeLine{329     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/network-\/instance:areas'} \textcolor{keywordflow}{in}  response \textcolor{keywordflow}{and} \textcolor{stringliteral}{'area'} \textcolor{keywordflow}{in} response[\textcolor{stringliteral}{'openconfig-\/network-\/instance:areas'}]:}
+\DoxyCodeLine{330         \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(len(response[\textcolor{stringliteral}{'openconfig-\/network-\/instance:areas'}][\textcolor{stringliteral}{'area'}])):}
+\DoxyCodeLine{331             areainfo = response[\textcolor{stringliteral}{'openconfig-\/network-\/instance:areas'}][\textcolor{stringliteral}{'area'}][i]}
+\DoxyCodeLine{332             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'interfaces'} \textcolor{keywordflow}{in} areainfo \textcolor{keywordflow}{and} \textcolor{stringliteral}{'interface'} \textcolor{keywordflow}{in} areainfo[\textcolor{stringliteral}{'interfaces'}]:}
+\DoxyCodeLine{333                 \textcolor{keywordflow}{for} j \textcolor{keywordflow}{in} range(len(areainfo[\textcolor{stringliteral}{'interfaces'}][\textcolor{stringliteral}{'interface'}])):}
+\DoxyCodeLine{334                     interfaceinfo = areainfo[\textcolor{stringliteral}{'interfaces'}][\textcolor{stringliteral}{'interface'}][j]}
+\DoxyCodeLine{335                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/ospfv2-\/ext:neighbors-\/list'} \textcolor{keywordflow}{in} interfaceinfo \textcolor{keywordflow}{and} \textcolor{stringliteral}{'neighbor'} \textcolor{keywordflow}{in} interfaceinfo[\textcolor{stringliteral}{'openconfig-\/ospfv2-\/ext:neighbors-\/list'}]:}
+\DoxyCodeLine{336                         temp\_nbr\_list = []}
+\DoxyCodeLine{337                         \textcolor{keywordflow}{while} interfaceinfo[\textcolor{stringliteral}{'openconfig-\/ospfv2-\/ext:neighbors-\/list'}][\textcolor{stringliteral}{'neighbor'}]:}
+\DoxyCodeLine{338                             nbr = interfaceinfo[\textcolor{stringliteral}{'openconfig-\/ospfv2-\/ext:neighbors-\/list'}][\textcolor{stringliteral}{'neighbor'}].pop()}
+\DoxyCodeLine{339                             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'neighbor-\/id'} \textcolor{keywordflow}{in} nbr \textcolor{keywordflow}{and} nbr[\textcolor{stringliteral}{'neighbor-\/id'}] == intfname:}
+\DoxyCodeLine{340                                 temp\_nbr\_list.append(nbr)}
+\DoxyCodeLine{341                         \textcolor{keywordflow}{while} temp\_nbr\_list:}
+\DoxyCodeLine{342                             interfaceinfo[\textcolor{stringliteral}{'openconfig-\/ospfv2-\/ext:neighbors-\/list'}][\textcolor{stringliteral}{'neighbor'}].append(temp\_nbr\_list.pop())}
+\DoxyCodeLine{343                             count = count + 1}
+\DoxyCodeLine{344     \textcolor{keywordflow}{return} count}
+\DoxyCodeLine{345 }
+\DoxyCodeLine{346 \textcolor{comment}{\# The below function prepares area\_id\_list e.g. ['0.0.0.0', '0.0.0.1'] }}
+\DoxyCodeLine{347 \textcolor{comment}{\# For area\_id = 5, it is internally treated as string 0.0.0.5}}
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/dbe/namespacesonic__cli__show__ospfv2_a8330116ee99ec60a20a407eb6c04ce2e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__show__ospfv2_a214e081602ee73a72c420547a6c4694c}\label{namespacesonic__cli__show__ospfv2_a214e081602ee73a72c420547a6c4694c}} 
+\index{sonic\_cli\_show\_ospfv2@{sonic\_cli\_show\_ospfv2}!run@{run}}
+\index{run@{run}!sonic\_cli\_show\_ospfv2@{sonic\_cli\_show\_ospfv2}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+show\+\_\+ospfv2.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+ospfv2.\+py 파일의 534 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{534 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__show__ospfv2_a214e081602ee73a72c420547a6c4694c}{run}}(func, args):}
+\DoxyCodeLine{535     \mbox{\hyperlink{namespacesonic__cli__show__ospfv2_a6cdbbaad26a09e91c010e2ad3c286da4}{invoke\_show\_api}}(func, args)}
+\DoxyCodeLine{536 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/dbe/namespacesonic__cli__show__ospfv2_a214e081602ee73a72c420547a6c4694c_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__show__ospfv2_aa3afef6d34bf4b14d340bffac4f30cb4}\label{namespacesonic__cli__show__ospfv2_aa3afef6d34bf4b14d340bffac4f30cb4}} 
+\index{sonic\_cli\_show\_ospfv2@{sonic\_cli\_show\_ospfv2}!func@{func}}
+\index{func@{func}!sonic\_cli\_show\_ospfv2@{sonic\_cli\_show\_ospfv2}}
+\doxysubsubsection{\texorpdfstring{func}{func}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+show\+\_\+ospfv2.\+func = sys.\+argv\mbox{[}1\mbox{]}}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+ospfv2.\+py 파일의 540 번째 라인에서 정의되었습니다.
+

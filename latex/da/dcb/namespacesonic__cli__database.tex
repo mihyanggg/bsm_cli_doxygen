@@ -1,0 +1,124 @@
+\hypertarget{namespacesonic__cli__database}{}\doxysection{sonic\+\_\+cli\+\_\+database 네임스페이스 참조}
+\label{namespacesonic__cli__database}\index{sonic\_cli\_database@{sonic\_cli\_database}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__database_a6e9c9fe8f5cb258b2455cb2076f862f2}{invoke}} (func, args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__database_a20426383291ed7cf050dfff2664048cd}{show\+\_\+database\+\_\+map}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__database_ac698c020da97d6b64f10e7f84df13111}{run}} (func, args)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__database_a6e9c9fe8f5cb258b2455cb2076f862f2}\label{namespacesonic__cli__database_a6e9c9fe8f5cb258b2455cb2076f862f2}} 
+\index{sonic\_cli\_database@{sonic\_cli\_database}!invoke@{invoke}}
+\index{invoke@{invoke}!sonic\_cli\_database@{sonic\_cli\_database}}
+\doxysubsubsection{\texorpdfstring{invoke()}{invoke()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+database.\+invoke (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+database.\+py 파일의 6 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{6 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__database_a6e9c9fe8f5cb258b2455cb2076f862f2}{invoke}}(func, args):}
+\DoxyCodeLine{7     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'map'}:}
+\DoxyCodeLine{8         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__database_a20426383291ed7cf050dfff2664048cd}{show\_database\_map}}(args)}
+\DoxyCodeLine{9 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/dcb/namespacesonic__cli__database_a6e9c9fe8f5cb258b2455cb2076f862f2_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/dcb/namespacesonic__cli__database_a6e9c9fe8f5cb258b2455cb2076f862f2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__database_ac698c020da97d6b64f10e7f84df13111}\label{namespacesonic__cli__database_ac698c020da97d6b64f10e7f84df13111}} 
+\index{sonic\_cli\_database@{sonic\_cli\_database}!run@{run}}
+\index{run@{run}!sonic\_cli\_database@{sonic\_cli\_database}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+database.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+database.\+py 파일의 27 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{27 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__database_ac698c020da97d6b64f10e7f84df13111}{run}}(func, args):}
+\DoxyCodeLine{28     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{29         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__database_a6e9c9fe8f5cb258b2455cb2076f862f2}{invoke}}(func, args)}
+\DoxyCodeLine{30     \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} ex:}
+\DoxyCodeLine{31         print(ex)}
+\DoxyCodeLine{32         print(\textcolor{stringliteral}{"\%Error: Transaction Failure"})}
+\DoxyCodeLine{33         \textcolor{keywordflow}{return} -\/1}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/dcb/namespacesonic__cli__database_ac698c020da97d6b64f10e7f84df13111_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__database_a20426383291ed7cf050dfff2664048cd}\label{namespacesonic__cli__database_a20426383291ed7cf050dfff2664048cd}} 
+\index{sonic\_cli\_database@{sonic\_cli\_database}!show\_database\_map@{show\_database\_map}}
+\index{show\_database\_map@{show\_database\_map}!sonic\_cli\_database@{sonic\_cli\_database}}
+\doxysubsubsection{\texorpdfstring{show\_database\_map()}{show\_database\_map()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+database.\+show\+\_\+database\+\_\+map (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+database.\+py 파일의 10 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{10 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__database_a20426383291ed7cf050dfff2664048cd}{show\_database\_map}}(args):}
+\DoxyCodeLine{11     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{12         db\_names = SonicDBConfig.get\_dblist()}
+\DoxyCodeLine{13         display\_dict = dict()}
+\DoxyCodeLine{14         \textcolor{keywordflow}{for} db\_name \textcolor{keywordflow}{in} db\_names:}
+\DoxyCodeLine{15             db\_dict = dict()}
+\DoxyCodeLine{16             db\_dict[\textcolor{stringliteral}{"name"}] = db\_name}
+\DoxyCodeLine{17             db\_dict[\textcolor{stringliteral}{"id"}] = SonicDBConfig.get\_dbid(db\_name)}
+\DoxyCodeLine{18             db\_dict[\textcolor{stringliteral}{"port"}] = SonicDBConfig.get\_port(db\_name)}
+\DoxyCodeLine{19             db\_dict[\textcolor{stringliteral}{"socket"}] = SonicDBConfig.get\_socket(db\_name)}
+\DoxyCodeLine{20             db\_dict[\textcolor{stringliteral}{"instance"}] = SonicDBConfig.get\_instancename(db\_name)}
+\DoxyCodeLine{21             display\_dict[SonicDBConfig.get\_dbid(db\_name)] = db\_dict}
+\DoxyCodeLine{22         \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], display\_dict)}
+\DoxyCodeLine{23     \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{24         print(\textcolor{stringliteral}{"\%Error: Cannot read database configuration"})}
+\DoxyCodeLine{25         \textcolor{keywordflow}{return} -\/1}
+\DoxyCodeLine{26 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/dcb/namespacesonic__cli__database_a20426383291ed7cf050dfff2664048cd_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/dcb/namespacesonic__cli__database_a20426383291ed7cf050dfff2664048cd_icgraph}
+\end{center}
+\end{figure}

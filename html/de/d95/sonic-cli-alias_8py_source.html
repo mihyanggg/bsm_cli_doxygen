@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: cli/sonic-cli-alias.py 소스 파일</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'검색');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','검색');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_2990d7c532eb7441b74916b8f5365141.html">cli</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">sonic-cli-alias.py</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../de/d95/sonic-cli-alias_8py.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="../../d6/daf/namespacesonic-cli-alias.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/python</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">import</span> sys</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">import</span> time</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">import</span> json</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">import</span> ast</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">from</span> rpipe_utils <span class="keyword">import</span> pipestr</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">import</span> cli_client <span class="keyword">as</span> cc</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">from</span> <a class="code" href="../../d1/d3d/namespacescripts_1_1render__cli.html">scripts.render_cli</a> <span class="keyword">import</span> show_cli_output</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">import</span> traceback</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">import</span> urllib3</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;urllib3.disable_warnings()</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d6/daf/namespacesonic-cli-alias.html#a99ffe24930c6f675c71c3f22b001dab0">   33</a></span>&#160;<span class="keyword">def </span><a class="code" href="../../d6/daf/namespacesonic-cli-alias.html#a99ffe24930c6f675c71c3f22b001dab0">invoke_api</a>(func, args=[]):</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">global</span> config</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    api = cc.ApiClient()</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment"># Get Alias Mode</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">if</span> func == <span class="stringliteral">&#39;get_sonic_device_metadata_sonic_device_metadata_device_metadata_device_metadata_list_intf_naming_mode&#39;</span>:</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        path = cc.Path(<span class="stringliteral">&#39;/restconf/data/sonic-device-metadata:sonic-device-metadata/DEVICE_METADATA/DEVICE_METADATA_LIST={name}/intf_naming_mode&#39;</span>, name=<span class="stringliteral">&quot;localhost&quot;</span>)</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">return</span> api.get(path)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">return</span> api.cli_not_implemented(func)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d6/daf/namespacesonic-cli-alias.html#a9ed7231a14857c5d54f3dd7ef226554f">   46</a></span>&#160;<span class="keyword">def </span><a class="code" href="../../d6/daf/namespacesonic-cli-alias.html#a9ed7231a14857c5d54f3dd7ef226554f">run</a>(func, args):</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        response = <a class="code" href="../../d6/daf/namespacesonic-cli-alias.html#a99ffe24930c6f675c71c3f22b001dab0">invoke_api</a>(func, args)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">if</span> response.ok():</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keywordflow">if</span> response.content <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <span class="comment"># Get Command Output</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                api_response = response.content</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                <span class="keywordflow">if</span> <span class="keywordflow">not</span> api_response:</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                    api_response = {<span class="stringliteral">&#39;sonic-device-metadata:intf_naming_mode&#39;</span>: <span class="stringliteral">&quot;native&quot;</span>}</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                api_response = {<span class="stringliteral">&#39;sonic-device-metadata:intf_naming_mode&#39;</span>: <span class="stringliteral">&quot;native&quot;</span>}</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <a class="code" href="../../d1/d3d/namespacescripts_1_1render__cli.html#a21c728cd1db8b5bd209adc5f3325305d">show_cli_output</a>(args[0], api_response)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">except</span> Exception <span class="keyword">as</span> e:</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        print(<span class="stringliteral">&quot;Failure: %s\n&quot;</span> %(e))</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keywordflow">if</span> __name__ == <span class="stringliteral">&#39;__main__&#39;</span>:</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    pipestr().<a class="code" href="../../d1/d3d/namespacescripts_1_1render__cli.html#ae395c999bb2be70d73ce51b6d352167b">write</a>(sys.argv)</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="../../d6/daf/namespacesonic-cli-alias.html#ac7bd96f8087a9055f248f9fdbb1d3d83">   68</a></span>&#160;    func = sys.argv[1]</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <a class="code" href="../../d6/daf/namespacesonic-cli-alias.html#a9ed7231a14857c5d54f3dd7ef226554f">run</a>(func, sys.argv[2:])</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="anamespacesonic-cli-alias_html_a99ffe24930c6f675c71c3f22b001dab0"><div class="ttname"><a href="../../d6/daf/namespacesonic-cli-alias.html#a99ffe24930c6f675c71c3f22b001dab0">sonic-cli-alias.invoke_api</a></div><div class="ttdeci">def invoke_api(func, args=[])</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d95/sonic-cli-alias_8py_source.html#l00033">sonic-cli-alias.py:33</a></div></div>
+<div class="ttc" id="anamespacesonic-cli-alias_html_a9ed7231a14857c5d54f3dd7ef226554f"><div class="ttname"><a href="../../d6/daf/namespacesonic-cli-alias.html#a9ed7231a14857c5d54f3dd7ef226554f">sonic-cli-alias.run</a></div><div class="ttdeci">def run(func, args)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d95/sonic-cli-alias_8py_source.html#l00046">sonic-cli-alias.py:46</a></div></div>
+<div class="ttc" id="anamespacescripts_1_1render__cli_html"><div class="ttname"><a href="../../d1/d3d/namespacescripts_1_1render__cli.html">scripts.render_cli</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d21/render__cli_8py_source.html#l00001">render_cli.py:1</a></div></div>
+<div class="ttc" id="anamespacescripts_1_1render__cli_html_ae395c999bb2be70d73ce51b6d352167b"><div class="ttname"><a href="../../d1/d3d/namespacescripts_1_1render__cli.html#ae395c999bb2be70d73ce51b6d352167b">scripts.render_cli.write</a></div><div class="ttdeci">def write(t_str, continuation=False)</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d21/render__cli_8py_source.html#l00125">render_cli.py:125</a></div></div>
+<div class="ttc" id="anamespacescripts_1_1render__cli_html_a21c728cd1db8b5bd209adc5f3325305d"><div class="ttname"><a href="../../d1/d3d/namespacescripts_1_1render__cli.html#a21c728cd1db8b5bd209adc5f3325305d">scripts.render_cli.show_cli_output</a></div><div class="ttdeci">def show_cli_output(template_file, response, continuation=False, **kwargs)</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d21/render__cli_8py_source.html#l00144">render_cli.py:144</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+다음에 의해 생성됨 :  &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

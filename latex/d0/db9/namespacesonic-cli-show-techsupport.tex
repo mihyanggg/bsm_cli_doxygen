@@ -1,0 +1,117 @@
+\hypertarget{namespacesonic-cli-show-techsupport}{}\doxysection{sonic-\/cli-\/show-\/techsupport 네임스페이스 참조}
+\label{namespacesonic-cli-show-techsupport}\index{sonic-\/cli-\/show-\/techsupport@{sonic-\/cli-\/show-\/techsupport}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic-cli-show-techsupport_af106c1ac8180510e831b67b850b8219a}{invoke}} (func, args)
+\item 
+def \mbox{\hyperlink{namespacesonic-cli-show-techsupport_adfd2a1f8419d287e6a33cbb06fa077d2}{run}} (func, args)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic-cli-show-techsupport_af106c1ac8180510e831b67b850b8219a}\label{namespacesonic-cli-show-techsupport_af106c1ac8180510e831b67b850b8219a}} 
+\index{sonic-\/cli-\/show-\/techsupport@{sonic-\/cli-\/show-\/techsupport}!invoke@{invoke}}
+\index{invoke@{invoke}!sonic-\/cli-\/show-\/techsupport@{sonic-\/cli-\/show-\/techsupport}}
+\doxysubsubsection{\texorpdfstring{invoke()}{invoke()}}
+{\footnotesize\ttfamily def sonic-\/cli-\/show-\/techsupport.\+invoke (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic-\/cli-\/show-\/techsupport.\+py 파일의 7 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{7 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic-cli-show-techsupport_af106c1ac8180510e831b67b850b8219a}{invoke}}(func, args):}
+\DoxyCodeLine{8     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{9     aa = cc.ApiClient()}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11     \textcolor{comment}{\# Gather tech support information into a compressed file}}
+\DoxyCodeLine{12     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'rpc\_sonic\_show\_techsupport\_sonic\_show\_techsupport\_info'}:}
+\DoxyCodeLine{13         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/show-\/techsupport:sonic-\/show-\/techsupport-\/info'})}
+\DoxyCodeLine{14         \textcolor{keywordflow}{if} args \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{15             body = \{\textcolor{stringliteral}{"sonic-\/show-\/techsupport:input"}:\{\textcolor{stringliteral}{"date"}: \textcolor{keywordtype}{None}\}\}}
+\DoxyCodeLine{16         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{17             body = \{\textcolor{stringliteral}{"sonic-\/show-\/techsupport:input"}:\{\textcolor{stringliteral}{"date"}: args[0]\}\}}
+\DoxyCodeLine{18         \textcolor{keywordflow}{return} aa.post(keypath, body)}
+\DoxyCodeLine{19     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{20         print(\textcolor{stringliteral}{"\%Error: not implemented"})}
+\DoxyCodeLine{21         exit(1)}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/db9/namespacesonic-cli-show-techsupport_af106c1ac8180510e831b67b850b8219a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic-cli-show-techsupport_adfd2a1f8419d287e6a33cbb06fa077d2}\label{namespacesonic-cli-show-techsupport_adfd2a1f8419d287e6a33cbb06fa077d2}} 
+\index{sonic-\/cli-\/show-\/techsupport@{sonic-\/cli-\/show-\/techsupport}!run@{run}}
+\index{run@{run}!sonic-\/cli-\/show-\/techsupport@{sonic-\/cli-\/show-\/techsupport}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic-\/cli-\/show-\/techsupport.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic-\/cli-\/show-\/techsupport.\+py 파일의 24 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic-cli-show-techsupport_adfd2a1f8419d287e6a33cbb06fa077d2}{run}}(func, args):}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keywordflow}{if} func != \textcolor{stringliteral}{'rpc\_sonic\_show\_techsupport\_sonic\_show\_techsupport\_info'}:}
+\DoxyCodeLine{27         print(\textcolor{stringliteral}{"\%Error: Show Techsupport parsing Failed: Invalid "}}
+\DoxyCodeLine{28               \textcolor{stringliteral}{"function"})}
+\DoxyCodeLine{29         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{32         api\_response = \mbox{\hyperlink{namespacesonic-cli-show-techsupport_af106c1ac8180510e831b67b850b8219a}{invoke}}(func, args)}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{35         print(\textcolor{stringliteral}{"\%Error: An exception occurred while attempting to gather the "}}
+\DoxyCodeLine{36               \textcolor{stringliteral}{"requested information via a remote procedure call. "})}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     response = api\_response.content}
+\DoxyCodeLine{39     \textcolor{keywordflow}{if} ((response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}) \textcolor{keywordflow}{or}}
+\DoxyCodeLine{40        (response[\textcolor{stringliteral}{'sonic-\/show-\/techsupport:output'}] \textcolor{keywordflow}{is} \textcolor{keywordtype}{None})):}
+\DoxyCodeLine{41         print(\textcolor{stringliteral}{"\%Error: Command Failure: Unknown failure type"})}
+\DoxyCodeLine{42         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     output\_msg\_object = response[\textcolor{stringliteral}{'sonic-\/show-\/techsupport:output'}]}
+\DoxyCodeLine{45     \textcolor{keywordflow}{if} ((output\_msg\_object[\textcolor{stringliteral}{'output-\/filename'}] \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}) \textcolor{keywordflow}{or}}
+\DoxyCodeLine{46        (len(output\_msg\_object[\textcolor{stringliteral}{'output-\/filename'}]) \textcolor{keywordflow}{is} 0)):}
+\DoxyCodeLine{47         print(\textcolor{stringliteral}{"\%Error: Command Failure: Unknown failure type"})}
+\DoxyCodeLine{48         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} api\_response.ok():}
+\DoxyCodeLine{51         \textcolor{comment}{\# Print the message for a failing return code}}
+\DoxyCodeLine{52         print(output\_msg\_object[\textcolor{stringliteral}{'output-\/filename'}])}
+\DoxyCodeLine{53         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{comment}{\# No error code flagged: Normal case handling}}
+\DoxyCodeLine{56     output\_message = output\_msg\_object[\textcolor{stringliteral}{'output-\/filename'}]}
+\DoxyCodeLine{57     output\_file\_match = re.search(\textcolor{stringliteral}{'\(\backslash\)/var\(\backslash\)/.*dump.*\(\backslash\).gz'},}
+\DoxyCodeLine{58                                   output\_message)}
+\DoxyCodeLine{59     \textcolor{keywordflow}{if} output\_file\_match \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{60         output\_filename = output\_file\_match.group()}
+\DoxyCodeLine{61         print(\textcolor{stringliteral}{"Output stored in:  "} + output\_filename)}
+\DoxyCodeLine{62     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{63         \textcolor{comment}{\# Error message with non-\/error return code}}
+\DoxyCodeLine{64         print(output\_message)}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/db9/namespacesonic-cli-show-techsupport_adfd2a1f8419d287e6a33cbb06fa077d2_cgraph}
+\end{center}
+\end{figure}

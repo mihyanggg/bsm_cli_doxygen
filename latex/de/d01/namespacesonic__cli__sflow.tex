@@ -1,0 +1,223 @@
+\hypertarget{namespacesonic__cli__sflow}{}\doxysection{sonic\+\_\+cli\+\_\+sflow 네임스페이스 참조}
+\label{namespacesonic__cli__sflow}\index{sonic\_cli\_sflow@{sonic\_cli\_sflow}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__sflow_ab0ffa747f3258e200e15bea595fce334}{print\+\_\+exception}} (e)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__sflow_a48d05cf5cbc5d667a1bfa1534e947f60}{invoke\+\_\+api}} (\mbox{\hyperlink{namespacesonic__cli__sflow_a642ed75f97f9603ec151e75e24051246}{func}}, args=\mbox{[}$\,$\mbox{]})
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__sflow_a4aec27d1eb98ca63f3ac9fd27439d4e8}{run}} (\mbox{\hyperlink{namespacesonic__cli__sflow_a642ed75f97f9603ec151e75e24051246}{func}}, args)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacesonic__cli__sflow_a642ed75f97f9603ec151e75e24051246}{func}} = sys.\+argv\mbox{[}1\mbox{]}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__sflow_af8119e35003d208e7461fce58990f57c}{ret}} = \mbox{\hyperlink{namespacesonic__cli__sflow_a4aec27d1eb98ca63f3ac9fd27439d4e8}{run}}(\mbox{\hyperlink{namespacesonic__cli__sflow_a642ed75f97f9603ec151e75e24051246}{func}}, sys.\+argv\mbox{[}2\+:\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__sflow_a48d05cf5cbc5d667a1bfa1534e947f60}\label{namespacesonic__cli__sflow_a48d05cf5cbc5d667a1bfa1534e947f60}} 
+\index{sonic\_cli\_sflow@{sonic\_cli\_sflow}!invoke\_api@{invoke\_api}}
+\index{invoke\_api@{invoke\_api}!sonic\_cli\_sflow@{sonic\_cli\_sflow}}
+\doxysubsubsection{\texorpdfstring{invoke\_api()}{invoke\_api()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+sflow.\+invoke\+\_\+api (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args = {\ttfamily \mbox{[}\mbox{]}} }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+sflow.\+py 파일의 47 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{47 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__sflow_a48d05cf5cbc5d667a1bfa1534e947f60}{invoke\_api}}(func, args=[]):}
+\DoxyCodeLine{48     api = cc.ApiClient()}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'put\_sonic\_sflow\_sonic\_sflow\_sflow\_collector\_sflow\_collector\_list'}:}
+\DoxyCodeLine{51         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/sampling:sampling/sflow/collectors'})}
+\DoxyCodeLine{52         body = \{\textcolor{stringliteral}{"openconfig-\/sampling:collectors"}: \{}
+\DoxyCodeLine{53                 \textcolor{stringliteral}{"collector"}: [}
+\DoxyCodeLine{54                 \{}
+\DoxyCodeLine{55                     \textcolor{stringliteral}{"address"}: args[0],}
+\DoxyCodeLine{56                     \textcolor{stringliteral}{"port"}: int(args[1]),}
+\DoxyCodeLine{57                     \textcolor{stringliteral}{"vrf"}: args[2],}
+\DoxyCodeLine{58                     \textcolor{stringliteral}{"config"}: \{}
+\DoxyCodeLine{59                         \textcolor{stringliteral}{"address"}: args[0],}
+\DoxyCodeLine{60                         \textcolor{stringliteral}{"port"}: int(args[1]),}
+\DoxyCodeLine{61                         \textcolor{stringliteral}{"vrf"}: args[2]}
+\DoxyCodeLine{62                     \}}
+\DoxyCodeLine{63                 \}]\}\}}
+\DoxyCodeLine{64         \textcolor{keywordflow}{return} api.put(path, body)}
+\DoxyCodeLine{65     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_sonic\_sflow\_sonic\_sflow\_sflow\_collector\_sflow\_collector\_list'}:}
+\DoxyCodeLine{66         name = args[0] + \textcolor{stringliteral}{','} + args[1] + \textcolor{stringliteral}{','} + args[2]}
+\DoxyCodeLine{67         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/sampling:sampling/sflow/collectors/collector='} + name)}
+\DoxyCodeLine{68         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_sonic\_sflow\_sonic\_sflow\_sflow\_session\_sflow\_session\_list\_sample\_rate'}:}
+\DoxyCodeLine{71         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/sampling:sampling/sflow/interfaces'})}
+\DoxyCodeLine{72         body = \{\textcolor{stringliteral}{"openconfig-\/sampling:interfaces"}: \{}
+\DoxyCodeLine{73                 \textcolor{stringliteral}{"interface"}: [\{}
+\DoxyCodeLine{74                     \textcolor{stringliteral}{"name"}: args[0],}
+\DoxyCodeLine{75                     \textcolor{stringliteral}{"config"}: \{}
+\DoxyCodeLine{76                         \textcolor{stringliteral}{"name"}: args[0],}
+\DoxyCodeLine{77                         \textcolor{stringliteral}{"sampling-\/rate"}: int(args[1])}
+\DoxyCodeLine{78                \}\}]\}\}}
+\DoxyCodeLine{79         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{80     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_sonic\_sflow\_sonic\_sflow\_sflow\_session\_sflow\_session\_list\_sample\_rate'}:}
+\DoxyCodeLine{81         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/sampling:sampling/sflow/interfaces/interface=\{ifname\}/config/sampling-\/rate'},}
+\DoxyCodeLine{82                        ifname=args[0])}
+\DoxyCodeLine{83         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{84     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_sonic\_sflow\_sonic\_sflow\_sflow\_session\_sflow\_session\_list\_admin\_state'}:}
+\DoxyCodeLine{85         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/sampling:sampling/sflow/interfaces'})}
+\DoxyCodeLine{86         body = \{\textcolor{stringliteral}{"openconfig-\/sampling:interfaces"}: \{}
+\DoxyCodeLine{87                 \textcolor{stringliteral}{"interface"}: [\{}
+\DoxyCodeLine{88                     \textcolor{stringliteral}{"name"}: args[0],}
+\DoxyCodeLine{89                     \textcolor{stringliteral}{"config"}: \{}
+\DoxyCodeLine{90                         \textcolor{stringliteral}{"name"}: args[0],}
+\DoxyCodeLine{91                         \textcolor{stringliteral}{"enabled"}: (args[1] == \textcolor{stringliteral}{"up"}),}
+\DoxyCodeLine{92                \}\}]\}\}}
+\DoxyCodeLine{93         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{94     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_sonic\_sflow\_sonic\_sflow\_sflow\_sflow\_list\_admin\_state'}:}
+\DoxyCodeLine{95         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/sampling:sampling/sflow/config/enabled'})}
+\DoxyCodeLine{96         body = \{}
+\DoxyCodeLine{97               \textcolor{stringliteral}{"openconfig-\/sampling:enabled"}: (args[0] == \textcolor{stringliteral}{"up"})}
+\DoxyCodeLine{98         \}}
+\DoxyCodeLine{99         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{100     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_sonic\_sflow\_sonic\_sflow\_sflow\_sflow\_list\_agent\_id'}:}
+\DoxyCodeLine{101         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/sampling:sampling/sflow/config/openconfig-\/sampling-\/ext:agent'})}
+\DoxyCodeLine{102         body = \{}
+\DoxyCodeLine{103               \textcolor{stringliteral}{"openconfig-\/sampling-\/ext:agent"}: args[0]}
+\DoxyCodeLine{104         \}}
+\DoxyCodeLine{105         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{106     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_sonic\_sflow\_sonic\_sflow\_sflow\_sflow\_list\_polling\_interval'}:}
+\DoxyCodeLine{107         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/sampling:sampling/sflow/config/openconfig-\/sampling-\/ext:polling-\/interval'})}
+\DoxyCodeLine{108         body = \{}
+\DoxyCodeLine{109               \textcolor{stringliteral}{"openconfig-\/sampling-\/ext:polling-\/interval"}: int(args[0])}
+\DoxyCodeLine{110         \}}
+\DoxyCodeLine{111         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{112     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_sonic\_sflow\_sonic\_sflow\_sflow\_sflow\_list\_polling\_interval'}:}
+\DoxyCodeLine{113         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/sampling:sampling/sflow/config/openconfig-\/sampling-\/ext:polling-\/interval'})}
+\DoxyCodeLine{114         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{115     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_sonic\_sflow\_sonic\_sflow\_sflow\_sflow\_list\_agent\_id'}:}
+\DoxyCodeLine{116         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/sampling:sampling/sflow/config/openconfig-\/sampling-\/ext:agent'})}
+\DoxyCodeLine{117         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{118     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_sonic\_sflow\_sonic\_sflow\_sflow\_session\_table'}:}
+\DoxyCodeLine{119         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/sampling:sampling/sflow/interfaces'})}
+\DoxyCodeLine{120         \textcolor{keywordflow}{return} api.get(path)}
+\DoxyCodeLine{121     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_sonic\_sflow\_sonic\_sflow'}:}
+\DoxyCodeLine{122         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/sampling:sampling/sflow'})}
+\DoxyCodeLine{123         \textcolor{keywordflow}{return} api.get(path)}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125     \textcolor{keywordflow}{return} api.cli\_not\_implemented(fn)}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d01/namespacesonic__cli__sflow_a48d05cf5cbc5d667a1bfa1534e947f60_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__sflow_ab0ffa747f3258e200e15bea595fce334}\label{namespacesonic__cli__sflow_ab0ffa747f3258e200e15bea595fce334}} 
+\index{sonic\_cli\_sflow@{sonic\_cli\_sflow}!print\_exception@{print\_exception}}
+\index{print\_exception@{print\_exception}!sonic\_cli\_sflow@{sonic\_cli\_sflow}}
+\doxysubsubsection{\texorpdfstring{print\_exception()}{print\_exception()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+sflow.\+print\+\_\+exception (\begin{DoxyParamCaption}\item[{}]{e }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+sflow.\+py 파일의 30 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{30 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__sflow_ab0ffa747f3258e200e15bea595fce334}{print\_exception}}(e):}
+\DoxyCodeLine{31     \textcolor{keywordflow}{if} e.body != \textcolor{stringliteral}{""}:}
+\DoxyCodeLine{32         body = json.loads(e.body)}
+\DoxyCodeLine{33         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"ietf-\/restconf:errors"} \textcolor{keywordflow}{in} body:}
+\DoxyCodeLine{34             err = body[\textcolor{stringliteral}{"ietf-\/restconf:errors"}]}
+\DoxyCodeLine{35             \textcolor{keywordflow}{if} \textcolor{stringliteral}{"error"} \textcolor{keywordflow}{in} err:}
+\DoxyCodeLine{36                 errDict = \{\}}
+\DoxyCodeLine{37                 \textcolor{keywordflow}{for} dict \textcolor{keywordflow}{in} err[\textcolor{stringliteral}{"error"}]:}
+\DoxyCodeLine{38                     \textcolor{keywordflow}{for} k, v \textcolor{keywordflow}{in} dict.iteritems():}
+\DoxyCodeLine{39                         errDict[k] = v}
+\DoxyCodeLine{40                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{"error-\/message"} \textcolor{keywordflow}{in} errDict:}
+\DoxyCodeLine{41                     print(\textcolor{stringliteral}{"\% Error: "} + errDict[\textcolor{stringliteral}{"error-\/message"}])}
+\DoxyCodeLine{42                     \textcolor{keywordflow}{return}}
+\DoxyCodeLine{43     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{44         print(\textcolor{stringliteral}{"\% Error: Transaction failure."})}
+\DoxyCodeLine{45     \textcolor{keywordflow}{return}}
+\DoxyCodeLine{46 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacesonic__cli__sflow_a4aec27d1eb98ca63f3ac9fd27439d4e8}\label{namespacesonic__cli__sflow_a4aec27d1eb98ca63f3ac9fd27439d4e8}} 
+\index{sonic\_cli\_sflow@{sonic\_cli\_sflow}!run@{run}}
+\index{run@{run}!sonic\_cli\_sflow@{sonic\_cli\_sflow}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+sflow.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+sflow.\+py 파일의 128 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{128 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__sflow_a4aec27d1eb98ca63f3ac9fd27439d4e8}{run}}(func, args):}
+\DoxyCodeLine{129     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{130         response = \mbox{\hyperlink{namespacesonic__cli__sflow_a48d05cf5cbc5d667a1bfa1534e947f60}{invoke\_api}}(func, args)}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132         \textcolor{keywordflow}{if} (response.ok() \textcolor{keywordflow}{is} \textcolor{keyword}{False}):}
+\DoxyCodeLine{133             \textcolor{keywordflow}{print} response.error\_message()}
+\DoxyCodeLine{134             \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136         \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'get\_sonic\_sflow\_sonic\_sflow\_sflow\_session\_table'}:}
+\DoxyCodeLine{137             sess\_lst = [[]]}
+\DoxyCodeLine{138             \textcolor{keywordflow}{if} response.content:}
+\DoxyCodeLine{139                 sess\_lst = response.content[\textcolor{stringliteral}{'openconfig-\/sampling:interfaces'}][\textcolor{stringliteral}{'interface'}]}
+\DoxyCodeLine{140                 sess\_lst = [sorted(sess\_lst, key=\textcolor{keyword}{lambda} x : \mbox{\hyperlink{namespacesonic__intf__utils_a9d08993d978e51fcb254e67534a554a2}{name\_to\_int\_val}}(x[\textcolor{stringliteral}{'name'}]))]}
+\DoxyCodeLine{141             \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], sess\_lst)}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143         \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_sonic\_sflow\_sonic\_sflow'}:}
+\DoxyCodeLine{144             \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], response.content)}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146     \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} e:}
+\DoxyCodeLine{147         print(\textcolor{stringliteral}{"\% Error: Internal error: "} + str(e))}
+\DoxyCodeLine{148         \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{149     \textcolor{keywordflow}{return} 0}
+\DoxyCodeLine{150 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d01/namespacesonic__cli__sflow_a4aec27d1eb98ca63f3ac9fd27439d4e8_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__sflow_a642ed75f97f9603ec151e75e24051246}\label{namespacesonic__cli__sflow_a642ed75f97f9603ec151e75e24051246}} 
+\index{sonic\_cli\_sflow@{sonic\_cli\_sflow}!func@{func}}
+\index{func@{func}!sonic\_cli\_sflow@{sonic\_cli\_sflow}}
+\doxysubsubsection{\texorpdfstring{func}{func}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+sflow.\+func = sys.\+argv\mbox{[}1\mbox{]}}
+
+
+
+sonic\+\_\+cli\+\_\+sflow.\+py 파일의 153 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__sflow_af8119e35003d208e7461fce58990f57c}\label{namespacesonic__cli__sflow_af8119e35003d208e7461fce58990f57c}} 
+\index{sonic\_cli\_sflow@{sonic\_cli\_sflow}!ret@{ret}}
+\index{ret@{ret}!sonic\_cli\_sflow@{sonic\_cli\_sflow}}
+\doxysubsubsection{\texorpdfstring{ret}{ret}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+sflow.\+ret = \mbox{\hyperlink{namespacesonic__cli__sflow_a4aec27d1eb98ca63f3ac9fd27439d4e8}{run}}(\mbox{\hyperlink{namespacesonic__cli__sflow_a642ed75f97f9603ec151e75e24051246}{func}}, sys.\+argv\mbox{[}2\+:\mbox{]})}
+
+
+
+sonic\+\_\+cli\+\_\+sflow.\+py 파일의 154 번째 라인에서 정의되었습니다.
+

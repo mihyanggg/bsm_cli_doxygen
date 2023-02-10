@@ -1,0 +1,290 @@
+\hypertarget{namespaceshow__config__static__routes}{}\doxysection{show\+\_\+config\+\_\+static\+\_\+routes 네임스페이스 참조}
+\label{namespaceshow__config__static__routes}\index{show\_config\_static\_routes@{show\_config\_static\_routes}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceshow__config__static__routes_a62655f6329ce1c8f2d7ed33fc25873eb}{static\+\_\+route\+\_\+nh\+\_\+cli}} (cmd\+\_\+str, intf\+\_\+list, ip\+\_\+list, bh\+\_\+list, nh\+\_\+vrf\+\_\+list, dist\+\_\+list, tag\+\_\+list, track\+\_\+list)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__static__routes_a177d88fbde41662315551fe97e5b76f3}{show\+\_\+ntwk\+\_\+static\+\_\+v4route}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__static__routes_aba65aba2a01ed68a4b233b37b6ae085a}{show\+\_\+ntwk\+\_\+static\+\_\+v6route}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__static__routes_ac85f753e41a50ef9207e3f1c3d5cd002}{static\+\_\+route\+\_\+get\+\_\+prefix\+\_\+type}} (\mbox{\hyperlink{DB-PARSED_8txt_a1bdb52a70f2b944da1ac484fd1f99d09}{prefix}})
+\item 
+def \mbox{\hyperlink{namespaceshow__config__static__routes_adad4df8db977e73acfc4bcc1bf6c5dc5}{static\+\_\+route\+\_\+ntwk\+\_\+inst}} (ip\+\_\+version, cmd\+\_\+prfx, render\+\_\+tables)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespaceshow__config__static__routes_a177d88fbde41662315551fe97e5b76f3}\label{namespaceshow__config__static__routes_a177d88fbde41662315551fe97e5b76f3}} 
+\index{show\_config\_static\_routes@{show\_config\_static\_routes}!show\_ntwk\_static\_v4route@{show\_ntwk\_static\_v4route}}
+\index{show\_ntwk\_static\_v4route@{show\_ntwk\_static\_v4route}!show\_config\_static\_routes@{show\_config\_static\_routes}}
+\doxysubsubsection{\texorpdfstring{show\_ntwk\_static\_v4route()}{show\_ntwk\_static\_v4route()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+static\+\_\+routes.\+show\+\_\+ntwk\+\_\+static\+\_\+v4route (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+static\+\_\+routes.\+py 파일의 65 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{65 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__static__routes_a177d88fbde41662315551fe97e5b76f3}{show\_ntwk\_static\_v4route}}(render\_tables):}
+\DoxyCodeLine{66    cmd\_prfx = \textcolor{stringliteral}{'ip route '}}
+\DoxyCodeLine{67    \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceshow__config__static__routes_adad4df8db977e73acfc4bcc1bf6c5dc5}{static\_route\_ntwk\_inst}}(\textcolor{stringliteral}{"ipv4"}, cmd\_prfx, render\_tables)}
+\DoxyCodeLine{68 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/dd7/namespaceshow__config__static__routes_a177d88fbde41662315551fe97e5b76f3_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__static__routes_aba65aba2a01ed68a4b233b37b6ae085a}\label{namespaceshow__config__static__routes_aba65aba2a01ed68a4b233b37b6ae085a}} 
+\index{show\_config\_static\_routes@{show\_config\_static\_routes}!show\_ntwk\_static\_v6route@{show\_ntwk\_static\_v6route}}
+\index{show\_ntwk\_static\_v6route@{show\_ntwk\_static\_v6route}!show\_config\_static\_routes@{show\_config\_static\_routes}}
+\doxysubsubsection{\texorpdfstring{show\_ntwk\_static\_v6route()}{show\_ntwk\_static\_v6route()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+static\+\_\+routes.\+show\+\_\+ntwk\+\_\+static\+\_\+v6route (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+static\+\_\+routes.\+py 파일의 69 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{69 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__static__routes_aba65aba2a01ed68a4b233b37b6ae085a}{show\_ntwk\_static\_v6route}}(render\_tables):}
+\DoxyCodeLine{70    cmd\_prfx = \textcolor{stringliteral}{'ipv6 route '}}
+\DoxyCodeLine{71    \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceshow__config__static__routes_adad4df8db977e73acfc4bcc1bf6c5dc5}{static\_route\_ntwk\_inst}}(\textcolor{stringliteral}{"ipv6"}, cmd\_prfx, render\_tables)}
+\DoxyCodeLine{72 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/dd7/namespaceshow__config__static__routes_aba65aba2a01ed68a4b233b37b6ae085a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__static__routes_ac85f753e41a50ef9207e3f1c3d5cd002}\label{namespaceshow__config__static__routes_ac85f753e41a50ef9207e3f1c3d5cd002}} 
+\index{show\_config\_static\_routes@{show\_config\_static\_routes}!static\_route\_get\_prefix\_type@{static\_route\_get\_prefix\_type}}
+\index{static\_route\_get\_prefix\_type@{static\_route\_get\_prefix\_type}!show\_config\_static\_routes@{show\_config\_static\_routes}}
+\doxysubsubsection{\texorpdfstring{static\_route\_get\_prefix\_type()}{static\_route\_get\_prefix\_type()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+static\+\_\+routes.\+static\+\_\+route\+\_\+get\+\_\+prefix\+\_\+type (\begin{DoxyParamCaption}\item[{}]{prefix }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+static\+\_\+routes.\+py 파일의 73 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{73 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__static__routes_ac85f753e41a50ef9207e3f1c3d5cd002}{static\_route\_get\_prefix\_type}}(prefix):}
+\DoxyCodeLine{74    ip\_prf = prefix.split(\textcolor{stringliteral}{'/'})}
+\DoxyCodeLine{75    \textcolor{keywordflow}{if} (ip\_prf \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}):}
+\DoxyCodeLine{76       addr = ip\_prf[0]}
+\DoxyCodeLine{77       \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{78          socket.inet\_pton(socket.AF\_INET, addr)}
+\DoxyCodeLine{79          \textcolor{keywordflow}{return} \textcolor{stringliteral}{"ipv4"}}
+\DoxyCodeLine{80       \textcolor{keywordflow}{except} socket.error:}
+\DoxyCodeLine{81          \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{82             socket.inet\_pton(socket.AF\_INET6, addr)}
+\DoxyCodeLine{83             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"ipv6"}}
+\DoxyCodeLine{84          \textcolor{keywordflow}{except} socket.error:}
+\DoxyCodeLine{85             \textcolor{keywordflow}{return} \textcolor{keywordtype}{None} }
+\DoxyCodeLine{86    \textcolor{keywordflow}{return} \textcolor{keywordtype}{None} }
+\DoxyCodeLine{87        }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/dd7/namespaceshow__config__static__routes_ac85f753e41a50ef9207e3f1c3d5cd002_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__static__routes_a62655f6329ce1c8f2d7ed33fc25873eb}\label{namespaceshow__config__static__routes_a62655f6329ce1c8f2d7ed33fc25873eb}} 
+\index{show\_config\_static\_routes@{show\_config\_static\_routes}!static\_route\_nh\_cli@{static\_route\_nh\_cli}}
+\index{static\_route\_nh\_cli@{static\_route\_nh\_cli}!show\_config\_static\_routes@{show\_config\_static\_routes}}
+\doxysubsubsection{\texorpdfstring{static\_route\_nh\_cli()}{static\_route\_nh\_cli()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+static\+\_\+routes.\+static\+\_\+route\+\_\+nh\+\_\+cli (\begin{DoxyParamCaption}\item[{}]{cmd\+\_\+str,  }\item[{}]{intf\+\_\+list,  }\item[{}]{ip\+\_\+list,  }\item[{}]{bh\+\_\+list,  }\item[{}]{nh\+\_\+vrf\+\_\+list,  }\item[{}]{dist\+\_\+list,  }\item[{}]{tag\+\_\+list,  }\item[{}]{track\+\_\+list }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+static\+\_\+routes.\+py 파일의 5 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{5 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__static__routes_a62655f6329ce1c8f2d7ed33fc25873eb}{static\_route\_nh\_cli}}(cmd\_str, intf\_list , ip\_list, bh\_list , nh\_vrf\_list, dist\_list, tag\_list, track\_list):}
+\DoxyCodeLine{6    all\_cmd=\textcolor{stringliteral}{''}}
+\DoxyCodeLine{7    no\_of\_nh = 0 }
+\DoxyCodeLine{8    \textcolor{keywordflow}{if} len(ip\_list) != 0 :}
+\DoxyCodeLine{9       no\_of\_nh = len(ip\_list)}
+\DoxyCodeLine{10    \textcolor{keywordflow}{elif} len(intf\_list) != 0:}
+\DoxyCodeLine{11       no\_of\_nh = len(intf\_list)}
+\DoxyCodeLine{12    \textcolor{keywordflow}{elif} len(bh\_list) != 0:}
+\DoxyCodeLine{13       no\_of\_nh = len(bh\_list)}
+\DoxyCodeLine{14    \textcolor{keywordflow}{if} (no\_of\_nh == 0): \textcolor{keywordflow}{return} \textcolor{keywordtype}{None}}
+\DoxyCodeLine{15    len\_attr = len(ip\_list)}
+\DoxyCodeLine{16    \textcolor{keywordflow}{if} (len\_attr != 0  \textcolor{keywordflow}{and} len\_attr != no\_of\_nh): \textcolor{keywordflow}{return} \textcolor{keywordtype}{None}}
+\DoxyCodeLine{17    len\_attr = len(intf\_list)}
+\DoxyCodeLine{18    \textcolor{keywordflow}{if} (len\_attr != 0  \textcolor{keywordflow}{and} len\_attr != no\_of\_nh): \textcolor{keywordflow}{return} \textcolor{keywordtype}{None}}
+\DoxyCodeLine{19    len\_attr = len(bh\_list)}
+\DoxyCodeLine{20    \textcolor{keywordflow}{if} (len\_attr != 0  \textcolor{keywordflow}{and} len\_attr != no\_of\_nh): \textcolor{keywordflow}{return} \textcolor{keywordtype}{None}}
+\DoxyCodeLine{21    len\_attr = len(dist\_list)}
+\DoxyCodeLine{22    \textcolor{keywordflow}{if} (len\_attr != 0  \textcolor{keywordflow}{and} len\_attr != no\_of\_nh): \textcolor{keywordflow}{return} \textcolor{keywordtype}{None}}
+\DoxyCodeLine{23    len\_attr = len(nh\_vrf\_list)}
+\DoxyCodeLine{24    \textcolor{keywordflow}{if} (len\_attr != 0  \textcolor{keywordflow}{and} len\_attr != no\_of\_nh): \textcolor{keywordflow}{return} \textcolor{keywordtype}{None}}
+\DoxyCodeLine{25    len\_attr = len(tag\_list)}
+\DoxyCodeLine{26    \textcolor{keywordflow}{if} (len\_attr != 0  \textcolor{keywordflow}{and} len\_attr != no\_of\_nh): \textcolor{keywordflow}{return} \textcolor{keywordtype}{None}}
+\DoxyCodeLine{27    len\_attr = len(track\_list)}
+\DoxyCodeLine{28    \textcolor{keywordflow}{if} (len\_attr != 0  \textcolor{keywordflow}{and} len\_attr != no\_of\_nh): \textcolor{keywordflow}{return} \textcolor{keywordtype}{None}}
+\DoxyCodeLine{29    }
+\DoxyCodeLine{30    \textcolor{keywordflow}{for} iter \textcolor{keywordflow}{in} range (0, no\_of\_nh):}
+\DoxyCodeLine{31       this\_cmd = cmd\_str}
+\DoxyCodeLine{32       \textcolor{keywordflow}{if} bh\_list  \textcolor{keywordflow}{and} bh\_list[iter] == \textcolor{stringliteral}{'true'}:}
+\DoxyCodeLine{33          this\_cmd = this\_cmd +\textcolor{stringliteral}{' blackhole'} }
+\DoxyCodeLine{34          \textcolor{keywordflow}{if} tag\_list \textcolor{keywordflow}{and} tag\_list[iter]:}
+\DoxyCodeLine{35             \textcolor{keywordflow}{if} tag\_list[iter] != \textcolor{stringliteral}{'0'}:}
+\DoxyCodeLine{36                this\_cmd = this\_cmd + \textcolor{stringliteral}{' tag '} + tag\_list[iter]}
+\DoxyCodeLine{37          \textcolor{keywordflow}{if} dist\_list \textcolor{keywordflow}{and} dist\_list[iter]:}
+\DoxyCodeLine{38             \textcolor{keywordflow}{if} dist\_list[iter] != \textcolor{stringliteral}{'0'}:}
+\DoxyCodeLine{39                this\_cmd = this\_cmd + \textcolor{stringliteral}{' '} + dist\_list[iter]}
+\DoxyCodeLine{40          all\_cmd = all\_cmd + this\_cmd +\textcolor{stringliteral}{';'}}
+\DoxyCodeLine{41          \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{42       \textcolor{keywordflow}{if} ip\_list \textcolor{keywordflow}{and} ip\_list[iter]:}
+\DoxyCodeLine{43         \textcolor{keywordflow}{if} ip\_list[iter] != \textcolor{stringliteral}{'0.0.0.0'} \textcolor{keywordflow}{and} ip\_list[iter] != \textcolor{stringliteral}{'0:0:0:0:0:0:0:0'} \textcolor{keywordflow}{and} ip\_list[iter] != \textcolor{stringliteral}{'::'}:}
+\DoxyCodeLine{44            this\_cmd = this\_cmd + \textcolor{stringliteral}{' '} + ip\_list[iter]}
+\DoxyCodeLine{45       \textcolor{keywordflow}{if} intf\_list \textcolor{keywordflow}{and} intf\_list[iter]:}
+\DoxyCodeLine{46         table\_rec = \{\textcolor{stringliteral}{"ifname"} : intf\_list[iter]\}}
+\DoxyCodeLine{47         int\_syntax = \mbox{\hyperlink{namespaceshow__config__if__cmd_a8b1e27fd62439957aa7bb5fb16c078e7}{show\_render\_if\_cmd}}(table\_rec, \textcolor{stringliteral}{'ifname'}, \textcolor{stringliteral}{''}, \textcolor{stringliteral}{''})}
+\DoxyCodeLine{48         \textcolor{keywordflow}{if} int\_syntax:  }
+\DoxyCodeLine{49            this\_cmd = this\_cmd + \textcolor{stringliteral}{' interface '}+ int\_syntax}
+\DoxyCodeLine{50       \textcolor{keywordflow}{if} nh\_vrf\_list \textcolor{keywordflow}{and}  nh\_vrf\_list[iter]:}
+\DoxyCodeLine{51         this\_cmd = this\_cmd + \textcolor{stringliteral}{' nexthop-\/vrf '}+  nh\_vrf\_list[iter]}
+\DoxyCodeLine{52       \textcolor{keywordflow}{if} tag\_list \textcolor{keywordflow}{and} tag\_list[iter]:}
+\DoxyCodeLine{53         \textcolor{keywordflow}{if} tag\_list[iter] != \textcolor{stringliteral}{'0'}:}
+\DoxyCodeLine{54            this\_cmd = this\_cmd + \textcolor{stringliteral}{' tag '} + tag\_list[iter] }
+\DoxyCodeLine{55       \textcolor{keywordflow}{if} track\_list \textcolor{keywordflow}{and} track\_list[iter]:}
+\DoxyCodeLine{56         \textcolor{keywordflow}{if} track\_list[iter] != \textcolor{stringliteral}{'0'}:}
+\DoxyCodeLine{57            this\_cmd = this\_cmd + \textcolor{stringliteral}{' track '} + track\_list[iter] }
+\DoxyCodeLine{58       \textcolor{keywordflow}{if} dist\_list \textcolor{keywordflow}{and} dist\_list[iter]:}
+\DoxyCodeLine{59         \textcolor{keywordflow}{if} dist\_list[iter] != \textcolor{stringliteral}{'0'}:}
+\DoxyCodeLine{60            this\_cmd = this\_cmd + \textcolor{stringliteral}{' '} + dist\_list[iter]}
+\DoxyCodeLine{61       all\_cmd = all\_cmd + this\_cmd +\textcolor{stringliteral}{';'}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63    \textcolor{keywordflow}{return} all\_cmd  }
+\DoxyCodeLine{64 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/dd7/namespaceshow__config__static__routes_a62655f6329ce1c8f2d7ed33fc25873eb_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/dd7/namespaceshow__config__static__routes_a62655f6329ce1c8f2d7ed33fc25873eb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__static__routes_adad4df8db977e73acfc4bcc1bf6c5dc5}\label{namespaceshow__config__static__routes_adad4df8db977e73acfc4bcc1bf6c5dc5}} 
+\index{show\_config\_static\_routes@{show\_config\_static\_routes}!static\_route\_ntwk\_inst@{static\_route\_ntwk\_inst}}
+\index{static\_route\_ntwk\_inst@{static\_route\_ntwk\_inst}!show\_config\_static\_routes@{show\_config\_static\_routes}}
+\doxysubsubsection{\texorpdfstring{static\_route\_ntwk\_inst()}{static\_route\_ntwk\_inst()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+static\+\_\+routes.\+static\+\_\+route\+\_\+ntwk\+\_\+inst (\begin{DoxyParamCaption}\item[{}]{ip\+\_\+version,  }\item[{}]{cmd\+\_\+prfx,  }\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+static\+\_\+routes.\+py 파일의 88 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{88 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__static__routes_adad4df8db977e73acfc4bcc1bf6c5dc5}{static\_route\_ntwk\_inst}}(ip\_version, cmd\_prfx, render\_tables):}
+\DoxyCodeLine{89    cmd\_str = cmd\_str\_to\_send = cmd\_for\_vrf = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{90    vrf\_key =  render\_tables[\textcolor{stringliteral}{'vrf\_name'}]}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92    \textcolor{keywordflow}{if} vrf\_key \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{93       \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str }
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95    \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/static-\/route:sonic-\/static-\/route/STATIC\_ROUTE/STATIC\_ROUTE\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{96       \textcolor{keywordflow}{for} rt\_inst \textcolor{keywordflow}{in} render\_tables[\textcolor{stringliteral}{'sonic-\/static-\/route:sonic-\/static-\/route/STATIC\_ROUTE/STATIC\_ROUTE\_LIST'}]:}
+\DoxyCodeLine{97          cmd\_for\_vrf =\textcolor{stringliteral}{''}}
+\DoxyCodeLine{98          \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} rt\_inst[\textcolor{stringliteral}{'vrf-\/name'}]:}
+\DoxyCodeLine{99             \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{100          \textcolor{keywordflow}{if} (vrf\_key == \textcolor{stringliteral}{'default'} \textcolor{keywordflow}{and} rt\_inst[\textcolor{stringliteral}{'vrf-\/name'}] != vrf\_key):}
+\DoxyCodeLine{101             \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{102          \textcolor{keywordflow}{if} (vrf\_key == \textcolor{stringliteral}{'mgmt'}):}
+\DoxyCodeLine{103             \textcolor{keywordflow}{if}  (rt\_inst[\textcolor{stringliteral}{'vrf-\/name'}] == vrf\_key):}
+\DoxyCodeLine{104                 cmd\_for\_vrf = \textcolor{stringliteral}{"vrf "}+ rt\_inst[\textcolor{stringliteral}{'vrf-\/name'}]}
+\DoxyCodeLine{105             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{106                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{107          \textcolor{keywordflow}{if} (vrf\_key == \textcolor{stringliteral}{'Vrf*'}):}
+\DoxyCodeLine{108             if(\textcolor{stringliteral}{'Vrf'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} rt\_inst[\textcolor{stringliteral}{'vrf-\/name'}]): }
+\DoxyCodeLine{109                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{110             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{111                 cmd\_for\_vrf = \textcolor{stringliteral}{"vrf "}+ rt\_inst[\textcolor{stringliteral}{'vrf-\/name'}] }
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114          prefix = rt\_inst[\textcolor{stringliteral}{'prefix'}] }
+\DoxyCodeLine{115          prefix\_type = \mbox{\hyperlink{namespaceshow__config__static__routes_ac85f753e41a50ef9207e3f1c3d5cd002}{static\_route\_get\_prefix\_type}}(prefix)}
+\DoxyCodeLine{116          \textcolor{keywordflow}{if} prefix\_type \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{117             \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119          \textcolor{keywordflow}{if} (ip\_version == \textcolor{stringliteral}{'ipv6'} \textcolor{keywordflow}{and} prefix\_type != \textcolor{stringliteral}{"ipv6"}):}
+\DoxyCodeLine{120             \textcolor{keywordflow}{continue} }
+\DoxyCodeLine{121          \textcolor{keywordflow}{elif} (ip\_version == \textcolor{stringliteral}{'ipv4'} \textcolor{keywordflow}{and} prefix\_type != \textcolor{stringliteral}{"ipv4"}):}
+\DoxyCodeLine{122             \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124          \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} cmd\_for\_vrf: }
+\DoxyCodeLine{125             cmd\_str = cmd\_prfx + prefix}
+\DoxyCodeLine{126          \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{127             cmd\_str = cmd\_prfx + cmd\_for\_vrf + \textcolor{stringliteral}{' '} + prefix}
+\DoxyCodeLine{128          intf\_list = bh\_list = ip\_list = nh\_vrf\_list = dist\_list = tag\_list = track\_list = [] }
+\DoxyCodeLine{129          \textcolor{keywordflow}{for} nh\_attr \textcolor{keywordflow}{in} rt\_inst:}
+\DoxyCodeLine{130             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'ifname'} \textcolor{keywordflow}{in} nh\_attr:}
+\DoxyCodeLine{131                intf\_list = rt\_inst[\textcolor{stringliteral}{'ifname'}].split(\textcolor{stringliteral}{','})}
+\DoxyCodeLine{132             \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'nexthop-\/vrf'} \textcolor{keywordflow}{in} nh\_attr:}
+\DoxyCodeLine{133                nh\_vrf\_list = rt\_inst[\textcolor{stringliteral}{'nexthop-\/vrf'}].split(\textcolor{stringliteral}{','})}
+\DoxyCodeLine{134             \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'nexthop'} \textcolor{keywordflow}{in} nh\_attr:}
+\DoxyCodeLine{135                ip\_list = rt\_inst[\textcolor{stringliteral}{'nexthop'}].split(\textcolor{stringliteral}{','})}
+\DoxyCodeLine{136             \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'blackhole'} \textcolor{keywordflow}{in} nh\_attr:}
+\DoxyCodeLine{137                bh\_list = rt\_inst[\textcolor{stringliteral}{'blackhole'}].split(\textcolor{stringliteral}{','})}
+\DoxyCodeLine{138             \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'distance'} \textcolor{keywordflow}{in} nh\_attr:}
+\DoxyCodeLine{139                dist\_list = rt\_inst[\textcolor{stringliteral}{'distance'}].split(\textcolor{stringliteral}{','})}
+\DoxyCodeLine{140             \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'tag'} \textcolor{keywordflow}{in} nh\_attr:}
+\DoxyCodeLine{141                tag\_list = rt\_inst[\textcolor{stringliteral}{'tag'}].split(\textcolor{stringliteral}{','})}
+\DoxyCodeLine{142             \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'track'} \textcolor{keywordflow}{in} nh\_attr:}
+\DoxyCodeLine{143                track\_list = rt\_inst[\textcolor{stringliteral}{'track'}].split(\textcolor{stringliteral}{','})}
+\DoxyCodeLine{144             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{145                \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{146          nh\_pram\_cli = \mbox{\hyperlink{namespaceshow__config__static__routes_a62655f6329ce1c8f2d7ed33fc25873eb}{static\_route\_nh\_cli}}(cmd\_str, intf\_list , ip\_list, bh\_list , nh\_vrf\_list, dist\_list,tag\_list, track\_list)}
+\DoxyCodeLine{147          \textcolor{keywordflow}{if} (nh\_pram\_cli \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}):}
+\DoxyCodeLine{148             cmd\_str\_to\_send = cmd\_str\_to\_send + nh\_pram\_cli }
+\DoxyCodeLine{149           }
+\DoxyCodeLine{150    \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str\_to\_send}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/dd7/namespaceshow__config__static__routes_adad4df8db977e73acfc4bcc1bf6c5dc5_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/dd7/namespaceshow__config__static__routes_adad4df8db977e73acfc4bcc1bf6c5dc5_icgraph}
+\end{center}
+\end{figure}

@@ -1,0 +1,257 @@
+\hypertarget{namespacesonic__intf__utils}{}\doxysection{sonic\+\_\+intf\+\_\+utils 네임스페이스 참조}
+\label{namespacesonic__intf__utils}\index{sonic\_intf\_utils@{sonic\_intf\_utils}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__intf__utils_a9d08993d978e51fcb254e67534a554a2}{name\+\_\+to\+\_\+int\+\_\+val}} (if\+Name)
+\item 
+def \mbox{\hyperlink{namespacesonic__intf__utils_a37f5bc232488cc6b0495833c4819bbe1}{is\+Mgmt\+Vrf\+Enabled}} (cc)
+\item 
+def \mbox{\hyperlink{namespacesonic__intf__utils_af92507076f53fc7f8a52668d6cce11f6}{is\+\_\+intf\+\_\+naming\+\_\+mode\+\_\+std}} ()
+\item 
+def \mbox{\hyperlink{namespacesonic__intf__utils_a6a5618c9d59c5c2edd261778710d19b4}{find\+\_\+ranges}} (vlan\+\_\+lst)
+\item 
+def \mbox{\hyperlink{namespacesonic__intf__utils_a819da28a8cd2cf891b540b5a6709e5b9}{vlan\+Full\+List}} ()
+\item 
+def \mbox{\hyperlink{namespacesonic__intf__utils_a443ea428a73d97dbf276e0e912614e82}{vlan\+Except\+List}} (\mbox{\hyperlink{DB-PARSED_8txt_addabc8824603aaf546e74207e521e163}{vlan}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__intf__utils_a6a5618c9d59c5c2edd261778710d19b4}\label{namespacesonic__intf__utils_a6a5618c9d59c5c2edd261778710d19b4}} 
+\index{sonic\_intf\_utils@{sonic\_intf\_utils}!find\_ranges@{find\_ranges}}
+\index{find\_ranges@{find\_ranges}!sonic\_intf\_utils@{sonic\_intf\_utils}}
+\doxysubsubsection{\texorpdfstring{find\_ranges()}{find\_ranges()}}
+{\footnotesize\ttfamily def sonic\+\_\+intf\+\_\+utils.\+find\+\_\+ranges (\begin{DoxyParamCaption}\item[{}]{vlan\+\_\+lst }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+intf\+\_\+utils.\+py 파일의 97 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{97 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__intf__utils_a6a5618c9d59c5c2edd261778710d19b4}{find\_ranges}}(vlan\_lst):}
+\DoxyCodeLine{98     ranges = []}
+\DoxyCodeLine{99     vlan\_lst.sort()}
+\DoxyCodeLine{100     \textcolor{keywordflow}{for} k, g \textcolor{keywordflow}{in} groupby(enumerate(vlan\_lst), \textcolor{keyword}{lambda} (i,x):i-\/x):}
+\DoxyCodeLine{101         group = \mbox{\hyperlink{DB-PARSED_8txt_a2f17a95f95f14e0f847ea893e98f909a}{map}}(itemgetter(1), g)}
+\DoxyCodeLine{102         ranges.append((group[0], group[-\/1]))}
+\DoxyCodeLine{103     vlan\_list\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{104     \textcolor{keywordflow}{for} range \textcolor{keywordflow}{in} ranges:}
+\DoxyCodeLine{105        \textcolor{keywordflow}{if} vlan\_list\_str:}
+\DoxyCodeLine{106            vlan\_list\_str += \textcolor{stringliteral}{','}}
+\DoxyCodeLine{107        \textcolor{keywordflow}{if} range[0] == range[1]:}
+\DoxyCodeLine{108            vlan\_list\_str += str(range[0])}
+\DoxyCodeLine{109        \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{110            vlan\_list\_str = vlan\_list\_str + str(range[0]) + \textcolor{stringliteral}{"-\/"} + str(range[1])}
+\DoxyCodeLine{111     \textcolor{keywordflow}{return} vlan\_list\_str}
+\DoxyCodeLine{112 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/df4/namespacesonic__intf__utils_a6a5618c9d59c5c2edd261778710d19b4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__intf__utils_af92507076f53fc7f8a52668d6cce11f6}\label{namespacesonic__intf__utils_af92507076f53fc7f8a52668d6cce11f6}} 
+\index{sonic\_intf\_utils@{sonic\_intf\_utils}!is\_intf\_naming\_mode\_std@{is\_intf\_naming\_mode\_std}}
+\index{is\_intf\_naming\_mode\_std@{is\_intf\_naming\_mode\_std}!sonic\_intf\_utils@{sonic\_intf\_utils}}
+\doxysubsubsection{\texorpdfstring{is\_intf\_naming\_mode\_std()}{is\_intf\_naming\_mode\_std()}}
+{\footnotesize\ttfamily def sonic\+\_\+intf\+\_\+utils.\+is\+\_\+intf\+\_\+naming\+\_\+mode\+\_\+std (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+intf\+\_\+utils.\+py 파일의 71 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{71 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__intf__utils_af92507076f53fc7f8a52668d6cce11f6}{is\_intf\_naming\_mode\_std}}():}
+\DoxyCodeLine{72     api = cc.ApiClient()}
+\DoxyCodeLine{73     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{74         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/device-\/metadata:sonic-\/device-\/metadata/DEVICE\_METADATA/DEVICE\_METADATA\_LIST=\{name\}/intf\_naming\_mode'}, name=\textcolor{stringliteral}{"localhost"})}
+\DoxyCodeLine{75         response = api.get(path)}
+\DoxyCodeLine{76         \textcolor{keywordflow}{if} response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{77             \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79         \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{80             response = response.content}
+\DoxyCodeLine{81             \textcolor{keywordflow}{if} response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{82                 \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84         response = response.get(\textcolor{stringliteral}{'sonic-\/device-\/metadata:intf\_naming\_mode'})}
+\DoxyCodeLine{85         \textcolor{keywordflow}{if} response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{86             \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"standard"} \textcolor{keywordflow}{in} response.lower():}
+\DoxyCodeLine{89             \textcolor{keywordflow}{return} \textcolor{keyword}{True}}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91         \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93     \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} e:}
+\DoxyCodeLine{94         syslog.syslog(syslog.LOG\_ERR, str(e))}
+\DoxyCodeLine{95         \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{96 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/df4/namespacesonic__intf__utils_af92507076f53fc7f8a52668d6cce11f6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__intf__utils_a37f5bc232488cc6b0495833c4819bbe1}\label{namespacesonic__intf__utils_a37f5bc232488cc6b0495833c4819bbe1}} 
+\index{sonic\_intf\_utils@{sonic\_intf\_utils}!isMgmtVrfEnabled@{isMgmtVrfEnabled}}
+\index{isMgmtVrfEnabled@{isMgmtVrfEnabled}!sonic\_intf\_utils@{sonic\_intf\_utils}}
+\doxysubsubsection{\texorpdfstring{isMgmtVrfEnabled()}{isMgmtVrfEnabled()}}
+{\footnotesize\ttfamily def sonic\+\_\+intf\+\_\+utils.\+is\+Mgmt\+Vrf\+Enabled (\begin{DoxyParamCaption}\item[{}]{cc }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+intf\+\_\+utils.\+py 파일의 51 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{51 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__intf__utils_a37f5bc232488cc6b0495833c4819bbe1}{isMgmtVrfEnabled}}(cc):}
+\DoxyCodeLine{52     api = cc.ApiClient()}
+\DoxyCodeLine{53     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{54         request = \textcolor{stringliteral}{"/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=mgmt/state/enabled/"}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56         response = api.get(request)}
+\DoxyCodeLine{57         response = response.content}
+\DoxyCodeLine{58     \textcolor{keywordflow}{if} response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{59         \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{60         response = response.get(\textcolor{stringliteral}{'openconfig-\/network-\/instance:enabled'})}
+\DoxyCodeLine{61         \textcolor{keywordflow}{if} response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{62             \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{63         \textcolor{keywordflow}{elif} response \textcolor{keywordflow}{is} \textcolor{keyword}{False}:}
+\DoxyCodeLine{64             \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{65         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{66             \textcolor{keywordflow}{return} \textcolor{keyword}{True}}
+\DoxyCodeLine{67     \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} e:}
+\DoxyCodeLine{68         syslog.syslog(syslog.LOG\_ERR, str(e))}
+\DoxyCodeLine{69         \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{70 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacesonic__intf__utils_a9d08993d978e51fcb254e67534a554a2}\label{namespacesonic__intf__utils_a9d08993d978e51fcb254e67534a554a2}} 
+\index{sonic\_intf\_utils@{sonic\_intf\_utils}!name\_to\_int\_val@{name\_to\_int\_val}}
+\index{name\_to\_int\_val@{name\_to\_int\_val}!sonic\_intf\_utils@{sonic\_intf\_utils}}
+\doxysubsubsection{\texorpdfstring{name\_to\_int\_val()}{name\_to\_int\_val()}}
+{\footnotesize\ttfamily def sonic\+\_\+intf\+\_\+utils.\+name\+\_\+to\+\_\+int\+\_\+val (\begin{DoxyParamCaption}\item[{}]{if\+Name }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+intf\+\_\+utils.\+py 파일의 26 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{26 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__intf__utils_a9d08993d978e51fcb254e67534a554a2}{name\_to\_int\_val}}(ifName):}
+\DoxyCodeLine{27     val = 0}
+\DoxyCodeLine{28     \textcolor{keywordflow}{if} ifName.startswith(\textcolor{stringliteral}{'Eth'}):}
+\DoxyCodeLine{29         tk = ifName.split(\textcolor{stringliteral}{'.'})}
+\DoxyCodeLine{30         plist = re.findall(\textcolor{stringliteral}{r'\(\backslash\)d+'}, tk[0])}
+\DoxyCodeLine{31         val = 0}
+\DoxyCodeLine{32         \textcolor{keywordflow}{if} len(plist) == 1:  \textcolor{comment}{\#ex: Ethernet40}}
+\DoxyCodeLine{33            val = int(plist[0]) * 10000}
+\DoxyCodeLine{34         \textcolor{keywordflow}{elif} len(plist) == 2:  \textcolor{comment}{\#ex: Eth1/5}}
+\DoxyCodeLine{35            val= int(plist[0]+plist[1].zfill(3)+\textcolor{stringliteral}{'000000'})}
+\DoxyCodeLine{36         \textcolor{keywordflow}{elif} len(plist) == 3:  \textcolor{comment}{\#ex: Eth1/5/2}}
+\DoxyCodeLine{37            val= int(plist[0]+plist[1].zfill(3)+plist[2].zfill(2)+\textcolor{stringliteral}{'0000'})}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39         \textcolor{keywordflow}{if} len(tk) == 2:   \textcolor{comment}{\#ex: 2345 in Eth1/1.2345}}
+\DoxyCodeLine{40            val += int(tk[1])}
+\DoxyCodeLine{41     \textcolor{keywordflow}{elif} ifName.startswith(\textcolor{stringliteral}{'PortChannel'}):}
+\DoxyCodeLine{42         tk = ifName.split(\textcolor{stringliteral}{'.'})}
+\DoxyCodeLine{43         val = 2000000000 + int(tk[0][11:])}
+\DoxyCodeLine{44         \textcolor{keywordflow}{if} len(tk) == 2:   \textcolor{comment}{\#ex: 100 in PortChannel2.100}}
+\DoxyCodeLine{45            val += int(tk[1])}
+\DoxyCodeLine{46     \textcolor{keywordflow}{elif} ifName.startswith(\textcolor{stringliteral}{'Vlan'}):}
+\DoxyCodeLine{47         val = 3000000000 + int(ifName[4:])}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{keywordflow}{return} val}
+\DoxyCodeLine{50 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/df4/namespacesonic__intf__utils_a9d08993d978e51fcb254e67534a554a2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__intf__utils_a443ea428a73d97dbf276e0e912614e82}\label{namespacesonic__intf__utils_a443ea428a73d97dbf276e0e912614e82}} 
+\index{sonic\_intf\_utils@{sonic\_intf\_utils}!vlanExceptList@{vlanExceptList}}
+\index{vlanExceptList@{vlanExceptList}!sonic\_intf\_utils@{sonic\_intf\_utils}}
+\doxysubsubsection{\texorpdfstring{vlanExceptList()}{vlanExceptList()}}
+{\footnotesize\ttfamily def sonic\+\_\+intf\+\_\+utils.\+vlan\+Except\+List (\begin{DoxyParamCaption}\item[{}]{vlan }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+intf\+\_\+utils.\+py 파일의 119 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{119 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__intf__utils_a443ea428a73d97dbf276e0e912614e82}{vlanExceptList}}(vlan):}
+\DoxyCodeLine{120     exceptStr = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{121     exceptList = \mbox{\hyperlink{namespacesonic__intf__utils_a819da28a8cd2cf891b540b5a6709e5b9}{vlanFullList}}()}
+\DoxyCodeLine{122     vlanList = vlan.split(\textcolor{stringliteral}{','})}
+\DoxyCodeLine{123     \textcolor{keywordflow}{for} vid \textcolor{keywordflow}{in} vlanList:}
+\DoxyCodeLine{124         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'-\/'} \textcolor{keywordflow}{in} vid:}
+\DoxyCodeLine{125             vid = vid.replace(\textcolor{stringliteral}{'-\/'},\textcolor{stringliteral}{'..'})}
+\DoxyCodeLine{126         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'..'} \textcolor{keywordflow}{in} vid:}
+\DoxyCodeLine{127             vidList = vid.split(\textcolor{stringliteral}{'..'})}
+\DoxyCodeLine{128             lower = int(vidList[0])}
+\DoxyCodeLine{129             upper = int(vidList[1])}
+\DoxyCodeLine{130             \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(lower,upper+1):}
+\DoxyCodeLine{131                 \textcolor{keywordflow}{if} i \textcolor{keywordflow}{in} exceptList:}
+\DoxyCodeLine{132                     exceptList.remove(i)}
+\DoxyCodeLine{133         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{134             exceptList.remove(int(vid))}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136     exceptStr = \mbox{\hyperlink{namespacesonic__intf__utils_a6a5618c9d59c5c2edd261778710d19b4}{find\_ranges}}(exceptList)}
+\DoxyCodeLine{137     \textcolor{keywordflow}{return} exceptStr}
+\DoxyCodeLine{138 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/df4/namespacesonic__intf__utils_a443ea428a73d97dbf276e0e912614e82_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__intf__utils_a819da28a8cd2cf891b540b5a6709e5b9}\label{namespacesonic__intf__utils_a819da28a8cd2cf891b540b5a6709e5b9}} 
+\index{sonic\_intf\_utils@{sonic\_intf\_utils}!vlanFullList@{vlanFullList}}
+\index{vlanFullList@{vlanFullList}!sonic\_intf\_utils@{sonic\_intf\_utils}}
+\doxysubsubsection{\texorpdfstring{vlanFullList()}{vlanFullList()}}
+{\footnotesize\ttfamily def sonic\+\_\+intf\+\_\+utils.\+vlan\+Full\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+intf\+\_\+utils.\+py 파일의 113 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{113 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__intf__utils_a819da28a8cd2cf891b540b5a6709e5b9}{vlanFullList}}():}
+\DoxyCodeLine{114     fullList = []}
+\DoxyCodeLine{115     \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range (1,4095):}
+\DoxyCodeLine{116         fullList.append(i)}
+\DoxyCodeLine{117     \textcolor{keywordflow}{return} fullList}
+\DoxyCodeLine{118 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/df4/namespacesonic__intf__utils_a819da28a8cd2cf891b540b5a6709e5b9_icgraph}
+\end{center}
+\end{figure}

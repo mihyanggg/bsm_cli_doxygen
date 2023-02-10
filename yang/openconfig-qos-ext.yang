@@ -1,0 +1,1118 @@
+module openconfig-qos-ext {
+
+    yang-version "1";
+
+    // namespace
+    namespace "http://openconfig.net/yang/qos/extension";
+
+    prefix "oc-qos-ext";
+
+    import openconfig-qos { prefix oc-qos; }
+    import openconfig-yang-types { prefix oc-yang; }
+    import openconfig-extensions { prefix oc-ext; }
+    import openconfig-types { prefix "oc-types"; }
+    import openconfig-qos-pfc { prefix oc-qos-pfc; }
+
+    organization "Dell";
+
+    contact
+      "Dell";
+
+    description
+      "This module defines YANG model for network quality-of-service extension.";
+
+    oc-ext:openconfig-version "0.1.0";
+
+    revision "2020-04-01" {
+      description
+        "Initial version";
+      reference "0.1.0";
+    }
+
+    grouping qos-ext-queue-state {
+	    description "Queue state and counters";
+        leaf traffic-type {
+            type string;
+            description
+               "Type of traffic (Unicast/Multicast/Anycast) to be queued";
+        }
+
+        leaf dropped-octets {
+            type oc-yang:counter64;
+            description
+                "Number of octets dropped by the queue due to overrun";
+        }
+
+        leaf watermark {
+            type oc-yang:counter64;
+            description
+                "occupancy watermark in bytes since last watermark clearance";
+        }
+
+        leaf watermark-percent {
+            type oc-types:percentage;
+            description
+                "occupancy watermark in percentage since last watermark clearance";
+        }
+
+
+        leaf persistent-watermark {
+            type oc-yang:counter64;
+            description
+                "occupancy watermark in bytes since system up";
+        }
+
+        leaf persistent-watermark-percent {
+            type oc-types:percentage;
+            description
+                "occupancy watermark in percent since system up";
+        }
+
+        leaf transmit-pkts-per-second {
+            type oc-yang:counter64;
+            description
+                "Number of packets transmitted per second by the queue";
+        }
+
+        leaf transmit-octets-per-second {
+            type oc-yang:counter64;
+            description
+                "Number of octets transmitted per second by the queue";
+        }
+
+        leaf transmit-bits-per-second {
+            type oc-yang:counter64;
+            description
+                "Number of bits transmitted per second by the queue";
+        }
+    }
+
+    augment /oc-qos:qos/oc-qos:interfaces/oc-qos:interface/oc-qos:output/oc-qos:queues/oc-qos:queue/oc-qos:state {
+        description
+            "Queue extesnions for state and counters";
+        uses qos-ext-queue-state;
+    }
+
+
+    augment /oc-qos:qos/oc-qos:queues/oc-qos:queue/oc-qos:wred/oc-qos:config {
+        description
+            "Queue config extensions";
+        leaf wred-profile {
+            type string;
+            description
+                "Name of the WRED profile";
+        }
+    }
+
+    augment /oc-qos:qos/oc-qos:queues/oc-qos:queue/oc-qos:wred/oc-qos:state {
+        description
+            "Queue config association";
+        leaf wred-profile {
+            type string;
+            description
+                "Name of the WRED profile";
+        }
+    }
+
+    grouping qos-ext-interface-priority-group-config {
+        description
+            "Configuration data for the priority group associated with the
+            interface";
+
+        leaf name {
+            type string;
+            description
+                "Name of the priority group";
+        }
+    }
+
+    grouping qos-ext-interface-priority-group-state {
+        description
+            "Operational state data for the priority group associated with the
+            interface";
+
+        leaf headroom-watermark {
+            type oc-yang:counter64;
+            description
+                "occupancy watermark in the headroom in bytes since last watermark clearance";
+        }
+
+        leaf headroom-persistent-watermark {
+            type oc-yang:counter64;
+            description
+                "occupancy watermark in bytes since system up";
+        }
+
+        leaf shared-watermark {
+            type oc-yang:counter64;
+            description
+                "occupancy watermark in shared buffer in bytes since last watermark clearance";
+        }
+
+        leaf shared-persistent-watermark {
+            type oc-yang:counter64;
+            description
+                "occupancy watermark in shared buffer in bytes since system up";
+        }
+
+        leaf headroom-watermark-percent {
+            type oc-types:percentage;
+            description
+                "occupancy watermark in the headroom in percentage since last watermark clearance";
+        }
+
+        leaf headroom-persistent-watermark-percent {
+            type oc-types:percentage;
+            description
+                "occupancy watermark in percentage since system up";
+        }
+
+        leaf shared-watermark-percent {
+            type oc-types:percentage;
+            description
+                "occupancy watermark in shared buffer in percentage since last watermark clearance";
+        }
+
+        leaf shared-persistent-watermark-percent {
+            type oc-types:percentage;
+            description
+                "occupancy watermark in shared buffer in percentage since system up";
+        }
+    }
+
+    grouping qos-ext-interface-priority-group-top {
+        description
+        "Top-level grouping for the priority group associated with the
+        interface";
+
+        container priority-groups {
+            description
+            "Surrounding container for a list of priority groups that are
+            instantiated on an interface.";
+
+            list priority-group {
+                key "name";
+
+                description
+                  "Top-level container for the priority group associated with this
+                  interface";
+
+                leaf name {
+                  type leafref {
+                    path "../config/name";
+                  }
+                  description
+                    "Reference to the name of the priority group
+                    instantiated on the interface.";
+                }
+
+                container config {
+                  description
+                    "Configuration data for the priority group associated with the
+                    interface";
+
+                  uses qos-ext-interface-priority-group-config;
+                }
+
+                container state {
+                  config false;
+                  description
+                    "Operational state data for the priority group associated with the
+                    interface";
+
+                  uses qos-ext-interface-priority-group-config;
+                  uses qos-ext-interface-priority-group-state;
+                }
+            }
+        }
+    }
+
+    grouping qos-ext-pfc-priority-config {
+        description "PFC Configuration data per priority";
+        leaf dot1p {
+            type uint8 {
+                range 0..7;
+            }
+            description
+                "3-bit class-of-service value in the
+                Ethernet packet header for 802.1Q VLAN-tagged packets,
+                         also known as PCP (priority code point).";
+            reference
+                "IEEE 802.1Q-2014 - IEEE Standard for Local and metropolitan
+                area networks--Bridges and Bridged Networks";
+        }
+
+        leaf enable {
+            type boolean;
+            default false;
+            description
+                "Set to True Enables the Priority-based PAUSE frame based flow control.
+                Set to False, disables PFC.";
+        }
+    }
+
+    grouping qos-ext-pfc-priority-state {
+        description "PFC Operational data per priority.";
+
+        container statistics {
+            description
+                "Container for pause frame statistics per prioity for an interface.";
+
+            uses oc-qos-pfc:qos-pfc-if-priority-state;
+        }
+    }
+
+    grouping qos-ext-pfc-priorities-top {
+        description
+            "Top-level grouping for PFC priorities.";
+
+        container pfc-priorities {
+            description
+                "Container for PFC priorities";
+            list pfc-priority {
+                key "dot1p";
+                description
+                    "List of PFC priorities";
+
+                leaf dot1p {
+                    type leafref {
+                        path ../config/dot1p;
+                    }
+                    description
+                        "Reference to PFC priroity key";
+                }
+
+                container config {
+                    description
+                        "Configuration data for PFC priority";
+                    uses qos-ext-pfc-priority-config;
+                }
+
+                container state {
+                    config false;
+                    description
+                        "Operational data for PFC priority";
+                    uses qos-ext-pfc-priority-config;
+                    uses qos-ext-pfc-priority-state;
+                }
+            }
+        }
+    }
+
+    grouping qos-ext-interface-pfc-config {
+        description
+            "Configuration data for the PFC associated with the interface";
+
+    }
+
+    grouping qos-ext-interface-pfc-state {
+        description
+            "Operational state data for the PFC associated with the
+            interface";
+    }
+
+    grouping qos-ext-interface-pfc-top {
+        description
+            "Top-level grouping for IEEE Std 802.3 Priority-based PAUSE frame
+            based flow control associated with the interface";
+
+        container pfc {
+            description
+                "Top Level Container for IEEE Std 802.3 Priority-based PAUSE frame based flow control.";
+            reference
+                "IEEE Std 802.3, Annex 31D";
+
+            container config {
+                description
+                    "Configuration data for the PFC on interface";
+                leaf asymmetric {
+                    type boolean;
+                    default false;
+                    description
+                        "Set to True Enables the asymmetric PFC on interface and
+                        set to false disables Asymmetric behaviour. When asymmetric
+                        PFC enabled interface should handle all incoming pause frames on all priorities,
+                            not just on PFC enabled priorities.";
+                }
+            }
+
+            container state {
+                config false;
+                description
+                    "Operational state data for the PFC associated with the interface";
+
+                leaf asymmetric {
+                    type boolean;
+                    default false;
+                    description
+                        "Set to True Enables the asymmetric PFC on interface and
+                        set to false disables Asymmetric behaviour. When asymmetric
+                        PFC enabled interface should handle all incoming pause frames on all priorities,
+                            not just on PFC enabled priorities.";
+                }
+            }
+            uses qos-ext-pfc-priorities-top;
+            uses oc-qos-pfc:qos-pfc-if-watchdog-top;
+            uses oc-qos-pfc:qos-pfc-if-queue-top;
+        }
+    }
+
+    augment /oc-qos:qos/oc-qos:interfaces/oc-qos:interface/oc-qos:input {
+        description
+            "Priority groups at interface input";
+        uses qos-ext-interface-priority-group-top;
+    }
+
+    augment /oc-qos:qos/oc-qos:interfaces/oc-qos:interface{
+        description
+            "IEEE Std 802.3 Priority-based PAUSE frame
+             based flow control at interface";
+        uses qos-ext-interface-pfc-top;
+    }
+
+    augment /oc-qos:qos {
+      description
+        "Priority-based Flow Control watchdog";
+
+      uses oc-qos-pfc:qos-pfc-watchdog-top;
+    }
+
+	rpc clear-watermarks {
+		description
+			"Clear the recorded watermarks for various buffers";
+		input {
+			leaf buffer {
+				type string;
+				description
+					"queue or priority-groups buffers";
+			}
+
+			leaf buffer-type {
+				type string;
+				description
+					"For Queue buffers, the type of queue: unicast or multicast;
+				for Priority Group buffers, the shared buffer or headroom buffer";
+			}
+
+			leaf watermark-type {
+				type string;
+				description
+					"watermark or persistent-watermark";
+			}
+
+		}
+		output {
+			leaf status {
+				type int32;
+				description
+					"The status of the operation execution request.";
+			}
+			leaf-list status-detail {
+				type string;
+				description "The detailed status of the operation execution request.";
+			}
+		}
+	}
+
+	grouping qos-ext-threshold-config {
+
+		description
+			"Configuration data for buffer thresholds";
+
+
+		leaf buffer {
+			type string;
+			description
+				"Queue buffer / Priority Group buffers";
+		}
+
+		leaf type {
+			type string;
+			description
+				"For Queue buffers, the type of queue: unicast or multicast;
+			for Priority Group buffers, the shared buffer or headroom buffer";
+		}
+
+		leaf port {
+			type string;
+			description
+				"The name of the port whose buffer is monitored for threshold breaches";
+		}
+
+		leaf index {
+			type uint32;
+			description
+				"Queue index or Priority Group index within a port";
+		}
+
+		leaf threshold-value {
+			type oc-types:percentage;
+			description
+				"Threshold value , in percentage, of the Counter to be considered a breach";
+		}
+
+	}
+
+	grouping qos-ext-threshold-state {
+		description 
+			"Dummy state container ";
+	}
+
+	grouping qos-ext-threshold-top {
+		description
+			"Top-level grouping for QoS threshold configuration";
+
+		container thresholds {
+			description
+				"Enclosing container for the list of threshold configurations";
+
+            list threshold {
+
+                key "buffer type port index";
+
+                leaf buffer {
+                  type leafref {
+                    path "../config/buffer";
+                  }
+                  description
+                    "Reference to the buffer of the threshold config";
+                }
+
+                leaf type {
+                  type leafref {
+                    path "../config/type";
+                  }
+                  description
+                    "Reference to the type of the threshold config";
+                }
+
+
+                leaf port {
+                  type leafref {
+                    path "../config/port";
+                  }
+                  description
+                    "Reference to the port of the threshold config";
+                }
+
+
+                leaf index {
+                  type leafref {
+                    path "../config/index";
+                  }
+                  description
+                    "Reference to the buffer index of the threshold config";
+                }
+
+                description
+                    "List of threshold configurations";
+
+                container config {
+                    
+					description
+                        "Operational data for breach event";
+
+					uses qos-ext-threshold-config;
+				}
+
+				container state {
+					config false;
+					description 
+						"Operational state data";
+
+					uses qos-ext-threshold-config;
+					uses qos-ext-threshold-state;
+				}
+            }
+        }
+    }
+
+
+	grouping qos-ext-threshold-breach-top {
+        description
+            "Top-level grouping for QoS threshold breach information";
+
+        container threshold-breaches {
+            config false;
+            description
+                "Enclosing container for the list of threshold breaches";
+
+            list breach {
+                key "id";
+
+                leaf id {
+                  type leafref {
+                    path "../state/id";
+                  }
+                  description
+                    "Reference to the id of the breach event.";
+                }
+
+                description
+                    "List of threshold breaches";
+
+                container state {
+                    config false;
+                    description
+                        "Operational data for breach event";
+
+                    leaf id {
+                        type string;
+                        description
+                            "Index uniquely identifying a breach entry";
+                    }
+
+                    leaf buffer {
+                        type string;
+                        description
+                            "Queue buffer breach or Priority Group buffer breach";
+                    }
+
+                    leaf type {
+                        type string;
+                        description
+                            "For Queue breach, the type of queue: unicast or multicast;
+                        for Priority Group breach, the shared buffer or headroom buffer";
+                    }
+
+                    leaf port {
+                        type string;
+                        description
+                            "The name of the port whose buffer is breached";
+                    }
+
+                    leaf index {
+                        type uint32;
+                        description
+                            "Queue index or Priority Group index within a port";
+                    }
+
+                    leaf breach-value {
+                        type uint32;
+                        description
+                            "Counter value in term of percentage at breach";
+                    }
+
+                    leaf counter {
+                        type oc-yang:counter64;
+                        description
+                            "Counter value at breach";
+                    }
+
+                    leaf time-stamp {
+                        type string;
+                        description
+                            "Time-stamp (%y-%m-%d - %H:%M:%S) when the threshold breach occurred";
+                    }
+                }
+            }
+        }
+    }
+
+	grouping qos-ext-telemetry-watermark-config {
+		description 
+			"watermark global refresh interval (telemetry) ";
+	
+		leaf refresh-interval {
+			type uint16 {
+				range "1..600";
+			}
+			units "seconds";
+			default "120";
+			description 
+				"Watermark counters auto refresh interval (telemetry)";
+		}
+	}
+
+    grouping qos-ext-telemetry-watermark-state {
+        description
+          "Operational state container";
+    }
+
+	grouping qos-ext-telemetry-watermark-top {
+        description
+          "Configuration for Watermark counters auto refresh interval (telemetry)";
+
+        container telemetry-watermark {
+            description
+              "TODO:";
+            container config {
+                description
+                  "Container holding the watermark config";
+                uses qos-ext-telemetry-watermark-config;
+            }
+            container state {
+                config false;
+                description
+                  "State container";
+                uses qos-ext-telemetry-watermark-config;
+                uses qos-ext-telemetry-watermark-state;
+            }
+        }
+    }
+
+
+	grouping qos-ext-watermark-config {
+		description 
+			"watermark global refresh interval ";
+	
+		leaf refresh-interval {
+			type uint16 {
+				range "1..600";
+			}
+			units "seconds";
+			default "10";
+			description 
+				"Watermark counters auto refresh interval";
+		}
+	}
+
+    grouping qos-ext-watermark-state {
+        description
+          "Operational state container";
+    }
+
+	grouping qos-ext-watermark-top {
+        description
+          "Configuration for Watermark counters auto refresh interval";
+
+        container watermark {
+            description
+              "TODO:";
+            container config {
+                description
+                  "Container holding the watermark config";
+                uses qos-ext-watermark-config;
+            }
+            container state {
+                config false;
+                description
+                  "State container";
+                uses qos-ext-watermark-config;
+                uses qos-ext-watermark-state;
+            }
+        }
+    }
+
+
+    augment /oc-qos:qos {
+        description
+            "Qos extensions containers";
+        uses qos-ext-watermark-top;
+		uses qos-ext-telemetry-watermark-top;
+		uses qos-ext-threshold-top;
+        uses qos-ext-threshold-breach-top;
+        uses qos-ext-wred-profile-top;
+    }
+
+
+    augment /oc-qos:qos/oc-qos:scheduler-policies/oc-qos:scheduler-policy/oc-qos:schedulers/oc-qos:scheduler/oc-qos:config {
+        description
+            "Scheduler policy configs";
+        leaf weight {
+            type uint8 {
+                range "1..100";
+            }
+            description
+                "DWRR weight";
+        }
+        leaf meter-type {
+            type enumeration {
+                enum PACKETS {
+                    description
+                        "Packets are metered";
+                }
+                enum BYTES {
+                    description
+                        "Bytes are metered";
+                }
+            }
+            description
+                "Identifies the metering method used by the scheduler policy";
+        }
+    }
+
+    augment /oc-qos:qos/oc-qos:scheduler-policies/oc-qos:scheduler-policy/oc-qos:schedulers/oc-qos:scheduler/oc-qos:state {
+        description
+            "Scheduler policy configs state";
+        leaf weight {
+            type uint8 {
+                range "1..100";
+            }
+            description
+                "DWRR weight";
+        }
+        leaf meter-type {
+            type enumeration {
+                enum PACKETS {
+                    description
+                        "Packets are metered";
+                }
+                enum BYTES {
+                    description
+                        "Bytes are metered";
+                }
+            }
+            description
+                "Identifies the metering method used by the scheduler policy";
+        }
+    }
+
+    deviation /oc-qos:qos/oc-qos:interfaces/oc-qos:interface/oc-qos:output/oc-qos:classifiers {
+        deviate not-supported;
+    }
+
+    deviation /oc-qos:qos/oc-qos:interfaces/oc-qos:interface/oc-qos:input/oc-qos:classifiers {
+        deviate not-supported;
+    }
+
+    deviation /oc-qos:qos/oc-qos:scheduler-policies/oc-qos:scheduler-policy/oc-qos:schedulers/oc-qos:scheduler/oc-qos:config/oc-qos:type{
+      deviate not-supported;
+    }
+
+    deviation /oc-qos:qos/oc-qos:scheduler-policies/oc-qos:scheduler-policy/oc-qos:schedulers/oc-qos:scheduler/oc-qos:state/oc-qos:type{
+      deviate not-supported;
+    }
+
+    deviation /oc-qos:qos/oc-qos:scheduler-policies/oc-qos:scheduler-policy/oc-qos:config/oc-qos:name {
+        deviate replace {
+            type string {
+                length "1..32";
+            }
+        }
+    }
+
+    deviation /oc-qos:qos/oc-qos:scheduler-policies/oc-qos:scheduler-policy/oc-qos:schedulers/oc-qos:scheduler/oc-qos:config/oc-qos:priority{
+        deviate replace {
+            type enumeration {
+                enum STRICT {
+                    description
+                        "This scheduler term is considered as a strict priority
+                        term - such that packets that arrive in the queue are
+                        immediately serviced.";
+                }
+                enum DWRR {
+                    description
+                        "This scheduler term is considered as a deficit weighted
+                        round robin term - such that packets that arrive in the queue are
+                        serviced based on deficit counter with weighted round robin fashion.";
+                }
+                enum WRR {
+                    description
+                        "This scheduler term is considered as a deficit weighted
+                        round robin term - such that packets that arrive in the queue are
+                        serviced based on weighted round robin fashion.";
+                }
+            }
+        }
+    }
+
+    deviation /oc-qos:qos/oc-qos:scheduler-policies/oc-qos:scheduler-policy/oc-qos:schedulers/oc-qos:scheduler/oc-qos:state/oc-qos:priority{
+        deviate replace {
+            type enumeration {
+                enum STRICT {
+                    description
+                        "This scheduler term is considered as a strict priority
+                        term - such that packets that arrive in the queue are
+                        immediately serviced.";
+                }
+                enum DWRR {
+                    description
+                        "This scheduler term is considered as a deficit weighted
+                        round robin term - such that packets that arrive in the queue are
+                        serviced based on deficit counter with weighted round robin fashion.";
+                }
+                enum WRR {
+                    description
+                        "This scheduler term is considered as a deficit weighted
+                        round robin term - such that packets that arrive in the queue are
+                        serviced based on weighted round robin fashion.";
+                }
+            }
+        }
+    }
+
+
+    deviation /oc-qos:qos/oc-qos:scheduler-policies/oc-qos:scheduler-policy/oc-qos:schedulers/oc-qos:scheduler/oc-qos:one-rate-two-color {
+      deviate not-supported;
+    }
+
+    deviation /oc-qos:qos/oc-qos:scheduler-policies/oc-qos:scheduler-policy/oc-qos:schedulers/oc-qos:scheduler/oc-qos:two-rate-three-color/oc-qos:config/oc-qos:cir-pct {
+      deviate not-supported;
+    }
+
+    deviation /oc-qos:qos/oc-qos:scheduler-policies/oc-qos:scheduler-policy/oc-qos:schedulers/oc-qos:scheduler/oc-qos:two-rate-three-color/oc-qos:config/oc-qos:cir-pct-remaining {
+      deviate not-supported;
+    }
+
+    deviation /oc-qos:qos/oc-qos:scheduler-policies/oc-qos:scheduler-policy/oc-qos:schedulers/oc-qos:scheduler/oc-qos:two-rate-three-color/oc-qos:config/oc-qos:pir-pct {
+      deviate not-supported;
+    }
+
+    deviation /oc-qos:qos/oc-qos:scheduler-policies/oc-qos:scheduler-policy/oc-qos:schedulers/oc-qos:scheduler/oc-qos:two-rate-three-color/oc-qos:config/oc-qos:pir-pct-remaining {
+      deviate not-supported;
+    }
+
+    deviation /oc-qos:qos/oc-qos:scheduler-policies/oc-qos:scheduler-policy/oc-qos:schedulers/oc-qos:scheduler/oc-qos:two-rate-three-color/oc-qos:state/oc-qos:cir-pct {
+      deviate not-supported;
+    }
+
+    deviation /oc-qos:qos/oc-qos:scheduler-policies/oc-qos:scheduler-policy/oc-qos:schedulers/oc-qos:scheduler/oc-qos:two-rate-three-color/oc-qos:state/oc-qos:cir-pct-remaining {
+      deviate not-supported;
+    }
+
+    deviation /oc-qos:qos/oc-qos:scheduler-policies/oc-qos:scheduler-policy/oc-qos:schedulers/oc-qos:scheduler/oc-qos:two-rate-three-color/oc-qos:state/oc-qos:pir-pct {
+      deviate not-supported;
+    }
+
+    deviation /oc-qos:qos/oc-qos:scheduler-policies/oc-qos:scheduler-policy/oc-qos:schedulers/oc-qos:scheduler/oc-qos:two-rate-three-color/oc-qos:state/oc-qos:pir-pct-remaining {
+      deviate not-supported;
+    }
+
+    deviation /oc-qos:qos/oc-qos:scheduler-policies/oc-qos:scheduler-policy/oc-qos:schedulers/oc-qos:scheduler/oc-qos:two-rate-three-color/oc-qos:conform-action {
+      deviate not-supported;
+    }
+
+    deviation /oc-qos:qos/oc-qos:scheduler-policies/oc-qos:scheduler-policy/oc-qos:schedulers/oc-qos:scheduler/oc-qos:two-rate-three-color/oc-qos:exceed-action {
+      deviate not-supported;
+    }
+
+    deviation /oc-qos:qos/oc-qos:scheduler-policies/oc-qos:scheduler-policy/oc-qos:schedulers/oc-qos:scheduler/oc-qos:two-rate-three-color/oc-qos:violate-action {
+      deviate not-supported;
+    }
+
+    deviation /oc-qos:qos/oc-qos:scheduler-policies/oc-qos:scheduler-policy/oc-qos:schedulers/oc-qos:scheduler/oc-qos:inputs {
+      deviate not-supported;
+    }
+
+    deviation /oc-qos:qos/oc-qos:scheduler-policies/oc-qos:scheduler-policy/oc-qos:schedulers/oc-qos:scheduler/oc-qos:output {
+      deviate not-supported;
+    }
+
+
+    grouping qos-ext-wred-profile-config {
+        description
+          "Configuration parameters relating to a WRED profile";
+
+        leaf name {
+            type string;
+            description
+                "Name of the WRED profile.";
+        }
+
+        leaf green-min-threshold {
+            type uint64;
+            description
+                "Mininum threshold set for green packets.";
+        }
+
+        leaf yellow-min-threshold {
+            type uint64;
+            description
+                "Mininum threshold set for yellow packets.";
+        }
+
+        leaf red-min-threshold {
+            type uint64;
+            description
+                "Mininum threshold set for red packets.";
+        }
+
+        leaf green-max-threshold {
+            type uint64;
+            description
+                "Maximum threshold set for green packets.";
+        }
+
+        leaf yellow-max-threshold {
+            type uint64;
+            description
+                "Maximum threshold set for yellow packets.";
+        }
+
+        leaf red-max-threshold {
+            type uint64;
+            description
+                "Maximum threshold set for red packets.";
+        }
+
+        leaf ecn {
+
+            type enumeration {
+
+                enum ECN_NONE {
+                    description
+                        "No ECN for all packets.";
+                }
+
+                enum ECN_GREEN {
+                    description
+                        "ECN for green colored packets.";
+                }
+
+                enum ECN_YELLOW {
+                    description
+                        "ECN for yellow colored packets.";
+                }
+
+                enum ECN_RED {
+                    description
+                        "ECN for red colored packets.";
+                }
+
+                enum ECN_GREEN_YELLOW {
+                    description
+                        "ECN for green and yellow colored packets.";
+                }
+
+                enum ECN_GREEN_RED {
+                    description
+                        "ECN for green and red colored packets.";
+                }
+
+                enum ECN_YELLOW_RED  {
+                    description
+                        "ECN for yellow and red colored packets.";
+                }
+
+                enum ECN_ALL {
+                    description
+                        "ECN for all packets.";
+                }
+            }
+            description
+                "ECN setting for colored packets";
+        }
+
+        leaf wred-green-enable {
+            type boolean;
+            description
+                "WRED enabled/disabled for green packets";
+        }
+
+        leaf wred-yellow-enable {
+            type boolean;
+            description
+                "WRED enabled/disabled for yellow packets";
+        }
+
+        leaf wred-red-enable {
+            type boolean;
+            description
+                "WRED enabled/disabled for red packets";
+        }
+
+        leaf green-drop-probability {
+            type uint64;
+            description
+                "Drop probability for green packets";
+        }
+
+        leaf yellow-drop-probability {
+            type uint64;
+            description
+                "Drop probability for yellow packets";
+        }
+
+        leaf red-drop-probability {
+            type uint64;
+            description
+                "Drop probability for red packets";
+        }
+    }
+
+    grouping qos-ext-wred-profile-state {
+        description
+          "Operationalparameters relating to a WRED profile";
+    }
+
+    grouping qos-ext-wred-profile-top {
+        description
+          "Top-level grouping for QoS WRED profile";
+
+        container wred-profiles {
+            description
+                "Containers for WRED profiles";
+
+            list wred-profile {
+                key "name";
+
+                description
+                    "List of WRED profiles";
+                leaf name {
+                  type leafref {
+                    path "../config/name";
+                  }
+                  description
+                    "Reference to the name of the WRED profile";
+                }
+
+                container config {
+                  description
+                    "Configuration parameters relating to a WRED profile.";
+                  uses qos-ext-wred-profile-config;
+                }
+
+                container state {
+                  config false;
+                  description
+                    "Operational state parameters relating to a WRED profile.";
+                  uses qos-ext-wred-profile-config;
+                  uses qos-ext-wred-profile-state;
+                }
+
+            }
+        }
+    }
+
+  deviation /oc-qos:qos/oc-qos:interfaces/oc-qos:interface/oc-qos:input/oc-qos:queues {
+    deviate not-supported;
+  }
+
+  deviation /oc-qos:qos/oc-qos:interfaces/oc-qos:interface/oc-qos:input/oc-qos:scheduler-policy {
+    deviate not-supported;
+  }
+
+  deviation /oc-qos:qos/oc-qos:interfaces/oc-qos:interface/oc-qos:input/oc-qos:virtual-output-queues {
+    deviate not-supported;
+  }
+
+  deviation /oc-qos:qos/oc-qos:classifiers {
+    deviate not-supported;
+  }
+
+  // rpc statements
+  rpc clear-threshold-breach {
+      description "RPC for clearing threshold breaches. Input can be :
+          1. Single breach event id
+          2. All breach events";
+
+      input {
+          leaf breach-event-id {
+               type union {
+                   type enumeration {
+                       enum ALL {
+                           description
+                               "ECN for all packets.";
+                       }
+                   }
+                  type uint64;
+              }
+              description
+                 "Input parameter breach event id - all or a evendId";
+         }
+     }
+     output {
+         leaf status {
+              type int32;
+              description
+                 "The status of the operation execution request.";
+         }
+         leaf status-detail {
+              type string;
+              description
+                 "The detailed status of the operation execution request.";
+         }
+     }
+  }
+}

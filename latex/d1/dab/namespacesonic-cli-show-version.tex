@@ -1,0 +1,109 @@
+\hypertarget{namespacesonic-cli-show-version}{}\doxysection{sonic-\/cli-\/show-\/version 네임스페이스 참조}
+\label{namespacesonic-cli-show-version}\index{sonic-\/cli-\/show-\/version@{sonic-\/cli-\/show-\/version}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic-cli-show-version_a43cc7e5ea127e50bf42adfd694499e98}{invoke}} (\mbox{\hyperlink{namespacesonic-cli-show-version_a117e2cb6464e27459f321f6654df515f}{func}}, args)
+\item 
+def \mbox{\hyperlink{namespacesonic-cli-show-version_acfe64d86a210cb39f352a239d54c42e7}{run}} (\mbox{\hyperlink{namespacesonic-cli-show-version_a117e2cb6464e27459f321f6654df515f}{func}}, args)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacesonic-cli-show-version_a117e2cb6464e27459f321f6654df515f}{func}} = sys.\+argv\mbox{[}1\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic-cli-show-version_a43cc7e5ea127e50bf42adfd694499e98}\label{namespacesonic-cli-show-version_a43cc7e5ea127e50bf42adfd694499e98}} 
+\index{sonic-\/cli-\/show-\/version@{sonic-\/cli-\/show-\/version}!invoke@{invoke}}
+\index{invoke@{invoke}!sonic-\/cli-\/show-\/version@{sonic-\/cli-\/show-\/version}}
+\doxysubsubsection{\texorpdfstring{invoke()}{invoke()}}
+{\footnotesize\ttfamily def sonic-\/cli-\/show-\/version.\+invoke (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic-\/cli-\/show-\/version.\+py 파일의 31 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{31 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic-cli-show-version_a43cc7e5ea127e50bf42adfd694499e98}{invoke}}(func, args):}
+\DoxyCodeLine{32     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{33     aa = cc.ApiClient()}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'get\_openconfig\_platform\_components\_component'}:}
+\DoxyCodeLine{36         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/platform:components/component=\%s'}\%args[0])}
+\DoxyCodeLine{37         \textcolor{keywordflow}{return} aa.get(keypath)}
+\DoxyCodeLine{38     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{39         \textcolor{keywordflow}{return} body}
+\DoxyCodeLine{40 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/dab/namespacesonic-cli-show-version_a43cc7e5ea127e50bf42adfd694499e98_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic-cli-show-version_acfe64d86a210cb39f352a239d54c42e7}\label{namespacesonic-cli-show-version_acfe64d86a210cb39f352a239d54c42e7}} 
+\index{sonic-\/cli-\/show-\/version@{sonic-\/cli-\/show-\/version}!run@{run}}
+\index{run@{run}!sonic-\/cli-\/show-\/version@{sonic-\/cli-\/show-\/version}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic-\/cli-\/show-\/version.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic-\/cli-\/show-\/version.\+py 파일의 41 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{41 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic-cli-show-version_acfe64d86a210cb39f352a239d54c42e7}{run}}(func, args):}
+\DoxyCodeLine{42     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{43         api\_response = \mbox{\hyperlink{namespacesonic-cli-show-version_a43cc7e5ea127e50bf42adfd694499e98}{invoke}}(func,args)}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45         \textcolor{keywordflow}{if} api\_response.ok():}
+\DoxyCodeLine{46             response = api\_response.content}
+\DoxyCodeLine{47             \textcolor{keywordflow}{if} response \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None} \textcolor{keywordflow}{and} len(response) \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} 0:}
+\DoxyCodeLine{48                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/platform:component'} \textcolor{keywordflow}{in} response:}
+\DoxyCodeLine{49                     show\_ver\_comp = response[\textcolor{stringliteral}{'openconfig-\/platform:component'}]}
+\DoxyCodeLine{50                     show\_ver\_compo = show\_ver\_comp[0]}
+\DoxyCodeLine{51                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/platform-\/ext:software'} \textcolor{keywordflow}{in} show\_ver\_compo:}
+\DoxyCodeLine{52                         responseContent = show\_ver\_compo[\textcolor{stringliteral}{'openconfig-\/platform-\/ext:software'}]}
+\DoxyCodeLine{53                     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{54                         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{55                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{56                     \textcolor{keywordflow}{return}}
+\DoxyCodeLine{57             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{58                 \textcolor{keywordflow}{return}}
+\DoxyCodeLine{59         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{60             \textcolor{keywordflow}{return}}
+\DoxyCodeLine{61         \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(sys.argv[3], responseContent)}
+\DoxyCodeLine{62     \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} e:}
+\DoxyCodeLine{63         log.syslog(log.LOG\_ERR, str(e))}
+\DoxyCodeLine{64         \textcolor{keywordflow}{print} \textcolor{stringliteral}{'Error Transaction'}}
+\DoxyCodeLine{65 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/dab/namespacesonic-cli-show-version_acfe64d86a210cb39f352a239d54c42e7_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacesonic-cli-show-version_a117e2cb6464e27459f321f6654df515f}\label{namespacesonic-cli-show-version_a117e2cb6464e27459f321f6654df515f}} 
+\index{sonic-\/cli-\/show-\/version@{sonic-\/cli-\/show-\/version}!func@{func}}
+\index{func@{func}!sonic-\/cli-\/show-\/version@{sonic-\/cli-\/show-\/version}}
+\doxysubsubsection{\texorpdfstring{func}{func}}
+{\footnotesize\ttfamily sonic-\/cli-\/show-\/version.\+func = sys.\+argv\mbox{[}1\mbox{]}}
+
+
+
+sonic-\/cli-\/show-\/version.\+py 파일의 68 번째 라인에서 정의되었습니다.
+

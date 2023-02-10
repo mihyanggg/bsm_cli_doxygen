@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: cli/show_config_ntp.py 소스 파일</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'검색');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','검색');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_2990d7c532eb7441b74916b8f5365141.html">cli</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">show_config_ntp.py</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d2/de9/show__config__ntp_8py.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="../../de/d6f/namespaceshow__config__ntp.html">    1</a></span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">from</span> show_config_if_cmd <span class="keyword">import</span> format_intf_name</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">from</span> show_config_if_cmd <span class="keyword">import</span> show_get_if_cmd</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="../../de/d6f/namespaceshow__config__ntp.html#a3f22c0e11e4a0d31b93b2f36d497263f">   22</a></span>&#160;<span class="keyword">def </span><a class="code" href="../../de/d6f/namespaceshow__config__ntp.html#a3f22c0e11e4a0d31b93b2f36d497263f">show_ntp_source_if</a>(render_tables):</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    cmd_str = <span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    cmd_prfx = <span class="stringliteral">&#39;ntp source-interface &#39;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">if</span> <span class="stringliteral">&#39;sonic-system-ntp:sonic-system-ntp/NTP/NTP_LIST&#39;</span> <span class="keywordflow">in</span> render_tables:</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">for</span> ntp_inst <span class="keywordflow">in</span> render_tables[<span class="stringliteral">&#39;sonic-system-ntp:sonic-system-ntp/NTP/NTP_LIST&#39;</span>]:</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <span class="keywordflow">if</span> <span class="stringliteral">&#39;src_intf&#39;</span> <span class="keywordflow">in</span> ntp_inst:</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                <span class="keywordflow">if</span> <a class="code" href="../../d2/d95/DB-PARSED_8txt.html#ac29ea28f91ad2ea4368e6dd578e39341">type</a>(ntp_inst[<span class="stringliteral">&#39;src_intf&#39;</span>]) == list:</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                    <span class="keywordflow">for</span> intf_inst <span class="keywordflow">in</span> ntp_inst[<span class="stringliteral">&#39;src_intf&#39;</span>]:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                        intf_name = <a class="code" href="../../d8/d29/namespaceshow__config__if__cmd.html#a63c7cd04994357ce4f432c6ee0b691df">format_intf_name</a>(intf_inst)</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                        cmd_str = cmd_str+<span class="stringliteral">&#39;;&#39;</span>+cmd_prfx+intf_name</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                    <span class="keywordflow">return</span> <a class="code" href="../../d8/d29/namespaceshow__config__if__cmd.html#a8f6524ea64da425e224a6857ae3449fd">show_get_if_cmd</a>(render_tables,</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                                           <span class="stringliteral">&#39;sonic-system-ntp:sonic-system-ntp/NTP/NTP_LIST&#39;</span>,</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                                           <span class="stringliteral">&#39;src_intf&#39;</span>,</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                                           cmd_prfx)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">return</span> <span class="stringliteral">&#39;CB_SUCCESS&#39;</span>, cmd_str</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../de/d6f/namespaceshow__config__ntp.html#aa7fb7b856e0d6fccc8b2d5eb488cc7f3">   40</a></span>&#160;<span class="keyword">def </span><a class="code" href="../../de/d6f/namespaceshow__config__ntp.html#aa7fb7b856e0d6fccc8b2d5eb488cc7f3">show_ntp_trusted_key</a>(render_tables):</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    cmd_str = <span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    cmd_prfx = <span class="stringliteral">&#39;ntp trusted-key &#39;</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">if</span> <span class="stringliteral">&#39;sonic-system-ntp:sonic-system-ntp/NTP/NTP_LIST&#39;</span> <span class="keywordflow">in</span> render_tables:</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">for</span> ntp_inst <span class="keywordflow">in</span> render_tables[<span class="stringliteral">&#39;sonic-system-ntp:sonic-system-ntp/NTP/NTP_LIST&#39;</span>]:</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="keywordflow">if</span> <span class="stringliteral">&#39;trusted_key&#39;</span> <span class="keywordflow">in</span> ntp_inst:</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                <span class="keywordflow">if</span> <a class="code" href="../../d2/d95/DB-PARSED_8txt.html#ac29ea28f91ad2ea4368e6dd578e39341">type</a>(ntp_inst[<span class="stringliteral">&#39;trusted_key&#39;</span>]) == list:</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                    <span class="keywordflow">for</span> key_id <span class="keywordflow">in</span> ntp_inst[<span class="stringliteral">&#39;trusted_key&#39;</span>]:</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                        cmd_str = cmd_str+<span class="stringliteral">&#39;;&#39;</span>+cmd_prfx+str(key_id)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">return</span> <span class="stringliteral">&#39;CB_SUCCESS&#39;</span>, cmd_str</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="../../de/d6f/namespaceshow__config__ntp.html#a8c054f7c1191655742ad6a3b4566c6d3">   53</a></span>&#160;<span class="keyword">def </span><a class="code" href="../../de/d6f/namespaceshow__config__ntp.html#a8c054f7c1191655742ad6a3b4566c6d3">show_ntp_authentication_key</a>(render_tables):</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    cmd_str = <span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    cmd_prfx = <span class="stringliteral">&#39;ntp authentication-key &#39;</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">if</span> <span class="stringliteral">&#39;sonic-system-ntp:sonic-system-ntp/NTP_AUTHENTICATION_KEY/NTP_AUTHENTICATION_KEY_LIST&#39;</span> <span class="keywordflow">in</span> render_tables:</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">for</span> ntp_key <span class="keywordflow">in</span> render_tables[<span class="stringliteral">&#39;sonic-system-ntp:sonic-system-ntp/NTP_AUTHENTICATION_KEY/NTP_AUTHENTICATION_KEY_LIST&#39;</span>]:</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            encrypted = <span class="stringliteral">&quot;&quot;</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keywordflow">if</span> ntp_key[<span class="stringliteral">&#39;encrypted&#39;</span>] == <span class="keyword">True</span>:</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                encrypted = <span class="stringliteral">&quot; encrypted&quot;</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keywordflow">if</span> ntp_key[<span class="stringliteral">&#39;type&#39;</span>] == <span class="stringliteral">&#39;SHA2_256&#39;</span>:</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                cmd_str = cmd_str+<span class="stringliteral">&#39;;&#39;</span>+cmd_prfx+str(ntp_key[<span class="stringliteral">&#39;id&#39;</span>])+<span class="stringliteral">&quot; sha2-256 &quot;</span>+ntp_key[<span class="stringliteral">&#39;value&#39;</span>]+encrypted</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                cmd_str = cmd_str+<span class="stringliteral">&#39;;&#39;</span>+cmd_prfx+str(ntp_key[<span class="stringliteral">&#39;id&#39;</span>])+<span class="stringliteral">&quot; &quot;</span>+ntp_key[<span class="stringliteral">&#39;type&#39;</span>].lower()+<span class="stringliteral">&quot; &quot;</span>+ntp_key[<span class="stringliteral">&#39;value&#39;</span>]+encrypted</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">return</span> <span class="stringliteral">&#39;CB_SUCCESS&#39;</span>, cmd_str</div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="anamespaceshow__config__ntp_html_aa7fb7b856e0d6fccc8b2d5eb488cc7f3"><div class="ttname"><a href="../../de/d6f/namespaceshow__config__ntp.html#aa7fb7b856e0d6fccc8b2d5eb488cc7f3">show_config_ntp.show_ntp_trusted_key</a></div><div class="ttdeci">def show_ntp_trusted_key(render_tables)</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/de9/show__config__ntp_8py_source.html#l00040">show_config_ntp.py:40</a></div></div>
+<div class="ttc" id="anamespaceshow__config__if__cmd_html_a8f6524ea64da425e224a6857ae3449fd"><div class="ttname"><a href="../../d8/d29/namespaceshow__config__if__cmd.html#a8f6524ea64da425e224a6857ae3449fd">show_config_if_cmd.show_get_if_cmd</a></div><div class="ttdeci">def show_get_if_cmd(render_tables, table_name, attr_name, cmd_prfx)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d71/show__config__if__cmd_8py_source.html#l00059">show_config_if_cmd.py:59</a></div></div>
+<div class="ttc" id="anamespaceshow__config__ntp_html_a3f22c0e11e4a0d31b93b2f36d497263f"><div class="ttname"><a href="../../de/d6f/namespaceshow__config__ntp.html#a3f22c0e11e4a0d31b93b2f36d497263f">show_config_ntp.show_ntp_source_if</a></div><div class="ttdeci">def show_ntp_source_if(render_tables)</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/de9/show__config__ntp_8py_source.html#l00022">show_config_ntp.py:22</a></div></div>
+<div class="ttc" id="aDB-PARSED_8txt_html_ac29ea28f91ad2ea4368e6dd578e39341"><div class="ttname"><a href="../../d2/d95/DB-PARSED_8txt.html#ac29ea28f91ad2ea4368e6dd578e39341">type</a></div><div class="ttdeci">ip name server source interface[1:TABLE_KEYS][2:TABLES][3:SEC_TABLE_KEYS] type</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d95/DB-PARSED_8txt_source.html#l00128">DB-PARSED.txt:128</a></div></div>
+<div class="ttc" id="anamespaceshow__config__ntp_html_a8c054f7c1191655742ad6a3b4566c6d3"><div class="ttname"><a href="../../de/d6f/namespaceshow__config__ntp.html#a8c054f7c1191655742ad6a3b4566c6d3">show_config_ntp.show_ntp_authentication_key</a></div><div class="ttdeci">def show_ntp_authentication_key(render_tables)</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/de9/show__config__ntp_8py_source.html#l00053">show_config_ntp.py:53</a></div></div>
+<div class="ttc" id="anamespaceshow__config__if__cmd_html_a63c7cd04994357ce4f432c6ee0b691df"><div class="ttname"><a href="../../d8/d29/namespaceshow__config__if__cmd.html#a63c7cd04994357ce4f432c6ee0b691df">show_config_if_cmd.format_intf_name</a></div><div class="ttdeci">def format_intf_name(intf)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d71/show__config__if__cmd_8py_source.html#l00046">show_config_if_cmd.py:46</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+다음에 의해 생성됨 :  &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

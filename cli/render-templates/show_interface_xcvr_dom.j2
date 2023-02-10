@@ -1,0 +1,84 @@
+{% if json_output -%}
+
+{% for ifName in json_output %}
+
+{% set info = json_output[ifName] %}
+
+{{' '}}
+{{'-----------------------------------------------------------------------'}}
+{{ifName.ljust(14)}}
+{{'-----------------------------------------------------------------------'}}
+
+{% if info -%}
+
+{{"    Identifier: "}}{{info['type']}}
+{{"    Vendor Name: "}}{{info['vendor']}}
+{{"    Vendor Part: "}}{{info['vendor-part']}}
+
+{%     if info['type'] == 'QSFP-DD' and 'Flat' in info['memory-type'] -%}
+
+{{"    DOM is not supported"}}
+
+{% else %}
+
+{{"    ChannelMonitorValues:"}}
+
+{%     set data = info['rx-power'] %}
+{%     for v in data.split(',') %}
+{{"        Rx{}Power: ".format(loop.index)}}{{v}}{{" dBm"}}
+{%     endfor %}
+
+{%     set data = info['tx-bias'] %}
+{%     for v in data.split(',') %}
+{{"        Tx{}Bias: ".format(loop.index)}}{{v}}{{" mA"}}
+{%     endfor %}
+
+{%     set data = info['tx-power'] %}
+{%     for v in data.split(',') %}
+{{"        Tx{}Power: ".format(loop.index)}}{{v}}{{" dBm"}}
+{%     endfor %}
+
+
+{%     if info['type'] in ['QSFP', 'QSFP+', 'QSFP28'] and 'Flat' in info['memory-type'] -%}
+{{"    DOM Threshold is not supported"}}
+{%     else %}
+
+{{"    ChannelThresholdValues:"}}
+{{"        RxPowerHighAlarm  : "}}{{info['alarm-rx-power-hi']}}{{" dBm"}}
+{{"        RxPowerHighWarning: "}}{{info['warning-rx-power-hi']}}{{" dBm"}}
+{{"        RxPowerLowAlarm   : "}}{{info['alarm-rx-power-lo']}}{{" dBm"}}
+{{"        RxPowerLowWarning : "}}{{info['warning-rx-power-lo']}}{{" dBm"}}
+{{"        TxBiasHighAlarm   : "}}{{info['alarm-tx-bias-hi']}}{{" mA"}}
+{{"        TxBiasHighWarning : "}}{{info['warning-tx-bias-hi']}}{{" mA"}}
+{{"        TxBiasLowAlarm    : "}}{{info['alarm-tx-bias-lo']}}{{" mA"}}
+{{"        TxBiasLowWarning  : "}}{{info['warning-tx-bias-lo']}}{{" mA"}}
+{{"        TxPowerHighAlarm  : "}}{{info['alarm-tx-power-hi']}}{{" dBm"}}
+{{"        TxPowerHighWarning: "}}{{info['warning-tx-power-hi']}}{{" dBm"}}
+{{"        TxPowerLowAlarm   : "}}{{info['alarm-tx-power-lo']}}{{" dBm"}}
+{{"        TxPowerLowWarning : "}}{{info['warning-tx-power-lo']}}{{" dBm"}}
+
+{{"    ModuleMonitorValues:"}}
+{{"        Temperature: "}}{{info['temperature']}}{{" C"}}
+{{"        Vcc: "}}{{info['voltage']}}{{" Volts"}}
+
+{{"    ModuleThresholdValues:"}}
+{{"        TempHighAlarm  : "}}{{info['alarm-temp-hi']}}{{" C"}}
+{{"        TempHighWarning: "}}{{info['warning-temp-hi']}}{{" C"}}
+{{"        TempLowAlarm   : "}}{{info['alarm-temp-lo']}}{{" C"}}
+{{"        TempLowWarning : "}}{{info['warning-temp-lo']}}{{" C"}}
+{{"        VccHighAlarm   : "}}{{info['alarm-volt-hi']}}{{" Volts"}}
+{{"        VccHighWarning : "}}{{info['warning-volt-hi']}}{{" Volts"}}
+{{"        VccLowAlarm    : "}}{{info['alarm-volt-lo']}}{{" Volts"}}
+{{"        VccLowWarning  : "}}{{info['warning-volt-lo']}}{{" Volts"}}
+
+{%     endif %}
+{%     endif %}
+
+{% else %}
+
+{{"    None detected"}}
+
+{% endif %}
+
+{% endfor %}
+{% endif %}

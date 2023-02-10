@@ -1,0 +1,1023 @@
+\hypertarget{namespacesonic__cli__qos__pfc}{}\doxysection{sonic\+\_\+cli\+\_\+qos\+\_\+pfc 네임스페이스 참조}
+\label{namespacesonic__cli__qos__pfc}\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__qos__pfc_af3996ab69d43e5662ed23a135f4e20c6}{get\+Key\+From\+Dict\+Data}} (diction, value)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__qos__pfc_af68a7e3e65bd00330942bfb81cf61d90}{get\+Pfc\+Queue\+Counters}} (if\+Name, \mbox{\hyperlink{DB-PARSED_8txt_af8ceabb22d9297bd28382151f35a2252}{queue}})
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__qos__pfc_ab7e58c6ecc5c7ce95732f6928d5baa76}{get\+Pause\+Counters}} (if\+Name, rx)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__qos__pfc_a1f8d8719b1d15f97f6e22ae4b18024c3}{get\+Port\+List}} ()
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__qos__pfc_a092c3f208450c221750f38eed3a7de65}{get\+Pfc\+Statistics}} (if\+Name)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__qos__pfc_a94f76b2d3037469a48b503ea6be04b1f}{get\+Pfc\+Queue\+Statistics}} (if\+Name)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__qos__pfc_a51fd2f25c9e84dead8bac7961c0f1e94}{get\+Qos\+Intf\+Summary}} (if\+Name)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__qos__pfc_a6ed0a7ec80f3da8b1dda2fb1ce8d7f66}{invoke}} (func, args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__qos__pfc_a490bccccef39365699f3a06152bbccc3}{run}} (func, args)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespacesonic__cli__qos__pfc_a78b9d88a5c9ab2ff46b4f84f618baaf0}{debug}} = False
+\item 
+int \mbox{\hyperlink{namespacesonic__cli__qos__pfc_abd814c0553283e9f386c140017c5bfda}{R\+E\+S\+P\+O\+N\+S\+E\+\_\+\+OK}} = 200
+\item 
+int \mbox{\hyperlink{namespacesonic__cli__qos__pfc_a9d84eb9f525f6b778a2005d57843002c}{R\+E\+S\+P\+O\+N\+S\+E\+\_\+\+N\+O\+\_\+\+C\+O\+N\+T\+E\+NT}} = 204
+\item 
+int \mbox{\hyperlink{namespacesonic__cli__qos__pfc_a4b27404edc7a00dcf6b4ad32d70bb8d8}{R\+E\+S\+P\+O\+N\+S\+E\+\_\+\+S\+R\+V\+\_\+\+E\+R\+R\+OR}} = 500
+\item 
+dictionary \mbox{\hyperlink{namespacesonic__cli__qos__pfc_abca629e04b7c946c563d185920ddf0c4}{Actions}} = \{ \textquotesingle{}forward\textquotesingle{} \+: \textquotesingle{}F\+O\+R\+W\+A\+RD\textquotesingle{}, \textquotesingle{}drop\textquotesingle{}\+: \textquotesingle{}D\+R\+OP\textquotesingle{}, \textquotesingle{}alert\textquotesingle{}\+: \textquotesingle{}A\+L\+E\+RT\textquotesingle{} \}
+\item 
+dictionary \mbox{\hyperlink{namespacesonic__cli__qos__pfc_ac8e764ecb603670891942f04883bc516}{Ables}} = \{ \textquotesingle{}enable\textquotesingle{} \+: \textquotesingle{}E\+N\+A\+B\+LE\textquotesingle{}, \textquotesingle{}disable\textquotesingle{}\+: \textquotesingle{}D\+I\+S\+A\+B\+LE\textquotesingle{} \}
+\item 
+list \mbox{\hyperlink{namespacesonic__cli__qos__pfc_a57fb3d8e149de143b45907fc37e800a7}{S\+O\+R\+T\+E\+D\+\_\+\+G\+L\+O\+B\+A\+L\+\_\+\+O\+R\+D\+ER}} = \mbox{[}\textquotesingle{}poll-\/interval\textquotesingle{}, \textquotesingle{}counter-\/poll\textquotesingle{}\mbox{]}
+\item 
+list \mbox{\hyperlink{namespacesonic__cli__qos__pfc_aabbbb38ad3ca204032419631c1b9ea80}{S\+O\+R\+T\+E\+D\+\_\+\+I\+N\+T\+E\+R\+F\+A\+C\+E\+\_\+\+O\+R\+D\+ER}} = \mbox{[}\textquotesingle{}action\textquotesingle{}, \textquotesingle{}detection-\/time\textquotesingle{}, \textquotesingle{}restoration-\/time\textquotesingle{}\mbox{]}
+\item 
+int \mbox{\hyperlink{namespacesonic__cli__qos__pfc_a88db16538430d141d5d3db6481cf447a}{D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+E\+T\+E\+C\+T\+I\+O\+N\+\_\+\+T\+I\+ME}} = 200
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__qos__pfc_adb09444b127f972326d9390749efe6cd}{D\+E\+F\+A\+U\+L\+T\+\_\+\+A\+C\+T\+I\+ON}} = \textquotesingle{}drop\textquotesingle{}
+\item 
+\mbox{\hyperlink{namespacesonic__cli__qos__pfc_ac1e284ab829ac2cf212507ddc12fd738}{P\+Stats}} = collections.\+namedtuple(\textquotesingle{}P\+Stats\textquotesingle{}, \textquotesingle{}pfc0, pfc1, pfc2, pfc3, pfc4, pfc5, pfc6, pfc7\textquotesingle{})
+\item 
+dictionary \mbox{\hyperlink{namespacesonic__cli__qos__pfc_a2366e9175b8740fac821e6f773ca0ce9}{counter\+Bucket\+Rx\+Dict}}
+\item 
+dictionary \mbox{\hyperlink{namespacesonic__cli__qos__pfc_abf4fcc2ee5065323574c7732b421dd5f}{counter\+Bucket\+Tx\+Dict}}
+\item 
+list \mbox{\hyperlink{namespacesonic__cli__qos__pfc_ae08f51000a0a08e4142ec253203dc1e4}{S\+T\+A\+T\+S\+\_\+\+L\+I\+ST}}
+\item 
+list \mbox{\hyperlink{namespacesonic__cli__qos__pfc_a36766df40c0ab5317d20d158c89322cb}{S\+T\+A\+T\+S\+\_\+\+D\+I\+S\+P\+L\+A\+Y\+\_\+\+O\+R\+D\+ER}} = \mbox{[}\textquotesingle{}storm-\/detected\textquotesingle{}, \textquotesingle{}storm-\/restored\textquotesingle{}, \textquotesingle{}tx-\/ok\textquotesingle{}, \textquotesingle{}tx-\/drop\textquotesingle{}, \textquotesingle{}rx-\/ok\textquotesingle{}, \textquotesingle{}rx-\/drop\textquotesingle{}, \textquotesingle{}tx-\/ok-\/last\textquotesingle{}, \textquotesingle{}tx-\/drop-\/last\textquotesingle{}, \textquotesingle{}rx-\/ok-\/last\textquotesingle{}, \textquotesingle{}rx-\/drop-\/last\textquotesingle{}\mbox{]}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__qos__pfc_a1a3c24bcfdbacb9485f5e54dc4275d7c}{S\+T\+A\+T\+U\+S\+\_\+\+NA}} = \textquotesingle{}N/A\textquotesingle{}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__qos__pfc_a3f72d243b18e5eb6a0f38ed9256e350d}{C\+O\+U\+N\+T\+E\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+P\+R\+E\+F\+IX}} = \textquotesingle{}C\+O\+U\+N\+T\+E\+R\+S\+:\textquotesingle{}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__qos__pfc_af8ad334ad25fa5507c5bb95db02508cb}{C\+O\+U\+N\+T\+E\+R\+S\+\_\+\+P\+O\+R\+T\+\_\+\+N\+A\+M\+E\+\_\+\+M\+AP}} = \textquotesingle{}C\+O\+U\+N\+T\+E\+R\+S\+\_\+\+P\+O\+R\+T\+\_\+\+N\+A\+M\+E\+\_\+\+M\+AP\textquotesingle{}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__qos__pfc_a9f7d6d78305b5dfc92c1de7d6912947a}{C\+O\+U\+N\+T\+E\+R\+S\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+N\+A\+M\+E\+\_\+\+M\+AP}} = \textquotesingle{}C\+O\+U\+N\+T\+E\+R\+S\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+N\+A\+M\+E\+\_\+\+M\+AP\textquotesingle{}
+\item 
+bool \mbox{\hyperlink{namespacesonic__cli__qos__pfc_a9f6a9a3a895ca716e9337d603eee6ce4}{R\+X\+\_\+\+C\+O\+U\+N\+T\+E\+RS}} = True
+\item 
+bool \mbox{\hyperlink{namespacesonic__cli__qos__pfc_a5050b4f1e99d24ebb2c04cbccc723748}{T\+X\+\_\+\+C\+O\+U\+N\+T\+E\+RS}} = False
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__qos__pfc_a3fac92a5e82c82973b6b381efb175d20}{mod\+Name}} = \textquotesingle{}openconfig-\/qos-\/\mbox{\hyperlink{DB-PARSED_8txt_acf339dd8a9c39a3e2ee2fb154d7d0e5a}{pfc}}-\/ext\+:\textquotesingle{}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__qos__pfc_a4d783141e1a6aff53eb3a411539e4730}{global\+Pfc\+Wd\+Uri}} = \textquotesingle{}/restconf/data/openconfig-\/qos\+:qos/openconfig-\/qos-\/ext\+:pfc-\/watchdog\textquotesingle{}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__qos__pfc_aaed4f7d13e0e5b050f09b770eb280c50}{interface\+Pfc\+Uri}} = \textquotesingle{}/restconf/data/openconfig-\/qos\+:qos/interfaces/\mbox{\hyperlink{DB-PARSED_8txt_ad180c042b961290b2dad087aa2d53301}{interface}}=\{intf\+Name\}/openconfig-\/qos-\/ext\+:pfc\textquotesingle{}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__qos__pfc_a598a1ab18af1bdf23b48b1262dda3bf1}{interface\+Pfc\+Wd\+Uri}} = \mbox{\hyperlink{namespacesonic__cli__qos__pfc_aaed4f7d13e0e5b050f09b770eb280c50}{interface\+Pfc\+Uri}} + \textquotesingle{}/watchdog\textquotesingle{}
+\item 
+\mbox{\hyperlink{namespacesonic__cli__qos__pfc_a4c914678d4acb0634717b830657a9986}{aa}} = cc.\+Api\+Client()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__qos__pfc_af3996ab69d43e5662ed23a135f4e20c6}\label{namespacesonic__cli__qos__pfc_af3996ab69d43e5662ed23a135f4e20c6}} 
+\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}!getKeyFromDictData@{getKeyFromDictData}}
+\index{getKeyFromDictData@{getKeyFromDictData}!sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsubsection{\texorpdfstring{getKeyFromDictData()}{getKeyFromDictData()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+get\+Key\+From\+Dict\+Data (\begin{DoxyParamCaption}\item[{}]{diction,  }\item[{}]{value }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+py 파일의 91 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{91 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__qos__pfc_af3996ab69d43e5662ed23a135f4e20c6}{getKeyFromDictData}}(diction, value):}
+\DoxyCodeLine{92     \textcolor{keywordflow}{if} isinstance(diction, dict):}
+\DoxyCodeLine{93         \textcolor{keywordflow}{for} key, data \textcolor{keywordflow}{in} diction.items():}
+\DoxyCodeLine{94             \textcolor{keywordflow}{if} data == value:}
+\DoxyCodeLine{95                 \textcolor{keywordflow}{return} key}
+\DoxyCodeLine{96     \textcolor{keywordflow}{return} \textcolor{keywordtype}{None}}
+\DoxyCodeLine{97 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d98/namespacesonic__cli__qos__pfc_af3996ab69d43e5662ed23a135f4e20c6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__qos__pfc_ab7e58c6ecc5c7ce95732f6928d5baa76}\label{namespacesonic__cli__qos__pfc_ab7e58c6ecc5c7ce95732f6928d5baa76}} 
+\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}!getPauseCounters@{getPauseCounters}}
+\index{getPauseCounters@{getPauseCounters}!sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsubsection{\texorpdfstring{getPauseCounters()}{getPauseCounters()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+get\+Pause\+Counters (\begin{DoxyParamCaption}\item[{}]{if\+Name,  }\item[{}]{rx }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    Get the counters from specific table.
+\end{DoxyVerb}
+ 
+
+sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+py 파일의 119 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{119 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__qos__pfc_ab7e58c6ecc5c7ce95732f6928d5baa76}{getPauseCounters}}(ifName, rx):}
+\DoxyCodeLine{120     \textcolor{stringliteral}{"""}}
+\DoxyCodeLine{121 \textcolor{stringliteral}{        Get the counters from specific table.}}
+\DoxyCodeLine{122 \textcolor{stringliteral}{    """}}
+\DoxyCodeLine{123     err = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{124     pause = []}
+\DoxyCodeLine{125     uriStat = interfacePfcUri}
+\DoxyCodeLine{126     \textcolor{keywordflow}{for} cos \textcolor{keywordflow}{in} range(0,8):}
+\DoxyCodeLine{127         keypath = cc.Path(uriStat +  \textcolor{stringliteral}{'/pfc-\/priorities/pfc-\/priority=\{dot1p\}/state/statistics'}, intfName=ifName, dot1p=str(cos))}
+\DoxyCodeLine{128         response = aa.get(keypath, \textcolor{keywordtype}{None}, \textcolor{keyword}{False})}
+\DoxyCodeLine{129         \textcolor{keywordflow}{if} (response \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}) \textcolor{keywordflow}{and} (response.ok()) \textcolor{keywordflow}{and} (response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}):}
+\DoxyCodeLine{130             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/qos-\/ext:statistics'} \textcolor{keywordflow}{in} response.content.keys():}
+\DoxyCodeLine{131                 data = response.content[\textcolor{stringliteral}{'openconfig-\/qos-\/ext:statistics'}]}
+\DoxyCodeLine{132                 \textcolor{comment}{\#key = 'pfc' + str(cos)}}
+\DoxyCodeLine{133                 \textcolor{keywordflow}{if} rx:}
+\DoxyCodeLine{134                     pause.append(int(data[\textcolor{stringliteral}{'pause-\/frames-\/rx'}], 10))}
+\DoxyCodeLine{135                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{136                     pause.append(int(data[\textcolor{stringliteral}{'pause-\/frames-\/tx'}], 10))}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138     \textcolor{keywordflow}{if} len(pause) < 8:}
+\DoxyCodeLine{139         err = \textcolor{stringliteral}{'\{0\}: unable to fetch pause counters'}.format(ifName)}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141     \textcolor{keywordflow}{return} (err, pause)}
+\DoxyCodeLine{142 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d98/namespacesonic__cli__qos__pfc_ab7e58c6ecc5c7ce95732f6928d5baa76_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__qos__pfc_af68a7e3e65bd00330942bfb81cf61d90}\label{namespacesonic__cli__qos__pfc_af68a7e3e65bd00330942bfb81cf61d90}} 
+\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}!getPfcQueueCounters@{getPfcQueueCounters}}
+\index{getPfcQueueCounters@{getPfcQueueCounters}!sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsubsection{\texorpdfstring{getPfcQueueCounters()}{getPfcQueueCounters()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+get\+Pfc\+Queue\+Counters (\begin{DoxyParamCaption}\item[{}]{if\+Name,  }\item[{}]{queue }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    Get the counters from specific table.
+\end{DoxyVerb}
+ 
+
+sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+py 파일의 98 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{98 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__qos__pfc_af68a7e3e65bd00330942bfb81cf61d90}{getPfcQueueCounters}}(ifName, queue):}
+\DoxyCodeLine{99     \textcolor{stringliteral}{"""}}
+\DoxyCodeLine{100 \textcolor{stringliteral}{        Get the counters from specific table.}}
+\DoxyCodeLine{101 \textcolor{stringliteral}{    """}}
+\DoxyCodeLine{102     err = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{103     counters = []}
+\DoxyCodeLine{104     uriStat = interfacePfcUri}
+\DoxyCodeLine{105     keypath = cc.Path(uriStat +  \textcolor{stringliteral}{'/pfc-\/queue/pfc-\/queue=\{queue\}/statistics'}, intfName=ifName, queue=str(queue))}
+\DoxyCodeLine{106     response = aa.get(keypath, \textcolor{keywordtype}{None}, \textcolor{keyword}{False})}
+\DoxyCodeLine{107     \textcolor{keywordflow}{if} (response \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}) \textcolor{keywordflow}{and} (response.ok()) \textcolor{keywordflow}{and} (response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}):}
+\DoxyCodeLine{108         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/qos-\/ext:statistics'} \textcolor{keywordflow}{in} response.content.keys():}
+\DoxyCodeLine{109             data = response.content[\textcolor{stringliteral}{'openconfig-\/qos-\/ext:statistics'}]}
+\DoxyCodeLine{110             \textcolor{keywordflow}{for} stat \textcolor{keywordflow}{in} STATS\_DISPLAY\_ORDER:}
+\DoxyCodeLine{111                 counters.append(data[stat])}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113     \textcolor{keywordflow}{if} (response \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}) \textcolor{keywordflow}{and} (\textcolor{keywordflow}{not} response.ok()):}
+\DoxyCodeLine{114         counters = [0,0,0,0,0,0,0,0,0,0]}
+\DoxyCodeLine{115         err = response.error\_message()}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117     \textcolor{keywordflow}{return} (err, counters)}
+\DoxyCodeLine{118 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d98/namespacesonic__cli__qos__pfc_af68a7e3e65bd00330942bfb81cf61d90_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__qos__pfc_a94f76b2d3037469a48b503ea6be04b1f}\label{namespacesonic__cli__qos__pfc_a94f76b2d3037469a48b503ea6be04b1f}} 
+\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}!getPfcQueueStatistics@{getPfcQueueStatistics}}
+\index{getPfcQueueStatistics@{getPfcQueueStatistics}!sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsubsection{\texorpdfstring{getPfcQueueStatistics()}{getPfcQueueStatistics()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+get\+Pfc\+Queue\+Statistics (\begin{DoxyParamCaption}\item[{}]{if\+Name }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+py 파일의 188 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{188 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__qos__pfc_a94f76b2d3037469a48b503ea6be04b1f}{getPfcQueueStatistics}}(ifName):}
+\DoxyCodeLine{189     path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/interfaces/interface=\{interface\_id\}/output/queues'}, interface\_id=ifName)}
+\DoxyCodeLine{190     response = aa.get(path, \textcolor{keywordtype}{None}, \textcolor{keyword}{False})}
+\DoxyCodeLine{191     ques = []}
+\DoxyCodeLine{192     \textcolor{keywordflow}{if} response.ok() \textcolor{keywordflow}{and} (response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}) \textcolor{keywordflow}{and} (\textcolor{stringliteral}{'openconfig-\/qos:queues'} \textcolor{keywordflow}{in} response.content):}
+\DoxyCodeLine{193         queues = response.content[\textcolor{stringliteral}{'openconfig-\/qos:queues'}][\textcolor{stringliteral}{'queue'}]}
+\DoxyCodeLine{194         \textcolor{keywordflow}{for} queue \textcolor{keywordflow}{in} queues:}
+\DoxyCodeLine{195             \_, q = queue[\textcolor{stringliteral}{'state'}][\textcolor{stringliteral}{'name'}].split(\textcolor{stringliteral}{':'}, 1)}
+\DoxyCodeLine{196             ques.append((int(q)))}
+\DoxyCodeLine{197         ques = sorted(ques)}
+\DoxyCodeLine{198         err = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{199         pfcQueueCounters = collections.OrderedDict()}
+\DoxyCodeLine{200         \textcolor{keywordflow}{for} q \textcolor{keywordflow}{in} ques:}
+\DoxyCodeLine{201             err, pfcQueueCounters[q] = \mbox{\hyperlink{namespacesonic__cli__qos__pfc_af68a7e3e65bd00330942bfb81cf61d90}{getPfcQueueCounters}}(ifName, q)}
+\DoxyCodeLine{202 }
+\DoxyCodeLine{203         response = aa.cli\_not\_implemented(\textcolor{stringliteral}{""})      \textcolor{comment}{\# Just to get the proper format to return data and status}}
+\DoxyCodeLine{204         \textcolor{keywordflow}{if} len(pfcQueueCounters) == 0:}
+\DoxyCodeLine{205             response.status\_code = RESPONSE\_NO\_CONTENT}
+\DoxyCodeLine{206             response.set\_error\_message(\textcolor{stringliteral}{"No Content Found"})}
+\DoxyCodeLine{207             response.content = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{208         \textcolor{keywordflow}{elif} err == \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{209             response.status\_code = RESPONSE\_OK}
+\DoxyCodeLine{210             data = \{\}}
+\DoxyCodeLine{211             data[ifName] = pfcQueueCounters}
+\DoxyCodeLine{212             response.content = collections.OrderedDict(data)}
+\DoxyCodeLine{213         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{214             response.status\_code = RESPONSE\_SRV\_ERROR}
+\DoxyCodeLine{215             response.set\_error\_message(err)}
+\DoxyCodeLine{216             response.content = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{217     \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{218 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d98/namespacesonic__cli__qos__pfc_a94f76b2d3037469a48b503ea6be04b1f_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d98/namespacesonic__cli__qos__pfc_a94f76b2d3037469a48b503ea6be04b1f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__qos__pfc_a092c3f208450c221750f38eed3a7de65}\label{namespacesonic__cli__qos__pfc_a092c3f208450c221750f38eed3a7de65}} 
+\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}!getPfcStatistics@{getPfcStatistics}}
+\index{getPfcStatistics@{getPfcStatistics}!sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsubsection{\texorpdfstring{getPfcStatistics()}{getPfcStatistics()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+get\+Pfc\+Statistics (\begin{DoxyParamCaption}\item[{}]{if\+Name }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+py 파일의 160 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{160 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__qos__pfc_a092c3f208450c221750f38eed3a7de65}{getPfcStatistics}}(ifName):}
+\DoxyCodeLine{161     err = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{162     response = aa.cli\_not\_implemented(\textcolor{stringliteral}{""})}
+\DoxyCodeLine{163     response.status\_code = RESPONSE\_NO\_CONTENT}
+\DoxyCodeLine{164     response.set\_error\_message(\textcolor{stringliteral}{"No Content Found"})}
+\DoxyCodeLine{165     response.content = collections.OrderedDict()}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167     \textcolor{comment}{\# Build a dictionary of the stats}}
+\DoxyCodeLine{168     pauseRx = collections.OrderedDict()}
+\DoxyCodeLine{169     pauseTx = collections.OrderedDict()}
+\DoxyCodeLine{170     err, pauseRx[ifName] = \mbox{\hyperlink{namespacesonic__cli__qos__pfc_ab7e58c6ecc5c7ce95732f6928d5baa76}{getPauseCounters}}(ifName, RX\_COUNTERS)}
+\DoxyCodeLine{171     \textcolor{keywordflow}{if} err \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{172         response.set\_error\_message(err)}
+\DoxyCodeLine{173         \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{174     err, pauseTx[ifName] = \mbox{\hyperlink{namespacesonic__cli__qos__pfc_ab7e58c6ecc5c7ce95732f6928d5baa76}{getPauseCounters}}(ifName, TX\_COUNTERS)}
+\DoxyCodeLine{175     \textcolor{keywordflow}{if} err \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{176         response.set\_error\_message(err)}
+\DoxyCodeLine{177         \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{178 }
+\DoxyCodeLine{179     ifFrames = \{\}}
+\DoxyCodeLine{180     fcFrames = \{\}}
+\DoxyCodeLine{181     ifFrames[\textcolor{stringliteral}{'rx'}] = pauseRx[ifName]}
+\DoxyCodeLine{182     ifFrames[\textcolor{stringliteral}{'tx'}] = pauseTx[ifName]}
+\DoxyCodeLine{183     fcFrames[ifName] = ifFrames}
+\DoxyCodeLine{184     response.status\_code = RESPONSE\_OK}
+\DoxyCodeLine{185     response.content = collections.OrderedDict(fcFrames)}
+\DoxyCodeLine{186     \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{187 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d98/namespacesonic__cli__qos__pfc_a092c3f208450c221750f38eed3a7de65_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d98/namespacesonic__cli__qos__pfc_a092c3f208450c221750f38eed3a7de65_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__qos__pfc_a1f8d8719b1d15f97f6e22ae4b18024c3}\label{namespacesonic__cli__qos__pfc_a1f8d8719b1d15f97f6e22ae4b18024c3}} 
+\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}!getPortList@{getPortList}}
+\index{getPortList@{getPortList}!sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsubsection{\texorpdfstring{getPortList()}{getPortList()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+get\+Port\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+py 파일의 143 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{143 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__qos__pfc_a1f8d8719b1d15f97f6e22ae4b18024c3}{getPortList}}():}
+\DoxyCodeLine{144     path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/port:sonic-\/port/PORT/PORT\_LIST'})}
+\DoxyCodeLine{145     response = aa.get(path, \textcolor{keywordtype}{None}, \textcolor{keyword}{False})}
+\DoxyCodeLine{146     portList = []}
+\DoxyCodeLine{147     intfList = \{\}}
+\DoxyCodeLine{148     \textcolor{keywordflow}{if} response.ok() \textcolor{keywordflow}{and} (response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}) \textcolor{keywordflow}{and} (\textcolor{stringliteral}{'sonic-\/port:PORT\_LIST'} \textcolor{keywordflow}{in} response.content):}
+\DoxyCodeLine{149         intfList = response.content[\textcolor{stringliteral}{'sonic-\/port:PORT\_LIST'}]}
+\DoxyCodeLine{150         \textcolor{keywordflow}{for} intf \textcolor{keywordflow}{in} intfList:}
+\DoxyCodeLine{151             intfName = intf.get(\textcolor{stringliteral}{'ifname'})}
+\DoxyCodeLine{152             \textcolor{comment}{\# ALIAS mode is not supported in the PFC WD transformers}}
+\DoxyCodeLine{153             \textcolor{comment}{\# And the transformers ought to be revised later to have}}
+\DoxyCodeLine{154             \textcolor{comment}{\# getPortList() totally removed/replaced}}
+\DoxyCodeLine{155             \textcolor{keywordflow}{if} (intfName \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}) \textcolor{keywordflow}{or} (\textcolor{keywordflow}{not} intfName.startswith(\textcolor{stringliteral}{'Eth'})):}
+\DoxyCodeLine{156                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{157             portList.append(intfName)}
+\DoxyCodeLine{158     \textcolor{keywordflow}{return} natsorted(portList)}
+\DoxyCodeLine{159 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d98/namespacesonic__cli__qos__pfc_a1f8d8719b1d15f97f6e22ae4b18024c3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__qos__pfc_a51fd2f25c9e84dead8bac7961c0f1e94}\label{namespacesonic__cli__qos__pfc_a51fd2f25c9e84dead8bac7961c0f1e94}} 
+\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}!getQosIntfSummary@{getQosIntfSummary}}
+\index{getQosIntfSummary@{getQosIntfSummary}!sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsubsection{\texorpdfstring{getQosIntfSummary()}{getQosIntfSummary()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+get\+Qos\+Intf\+Summary (\begin{DoxyParamCaption}\item[{}]{if\+Name }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+py 파일의 219 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{219 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__qos__pfc_a51fd2f25c9e84dead8bac7961c0f1e94}{getQosIntfSummary}}(ifName):}
+\DoxyCodeLine{220     info = \{ ifName: \{\} \}}
+\DoxyCodeLine{221 }
+\DoxyCodeLine{222     path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/interfaces/interface=\{interface\_id\}/output/scheduler-\/policy/config'}, interface\_id=ifName)}
+\DoxyCodeLine{223     data = aa.get(path, \textcolor{keywordtype}{None}, \textcolor{keyword}{False})}
+\DoxyCodeLine{224     \textcolor{keywordflow}{if} (\textcolor{keywordflow}{not} data.ok()) \textcolor{keywordflow}{or} (\textcolor{keywordflow}{not} data.content):}
+\DoxyCodeLine{225         data.content = \{\}}
+\DoxyCodeLine{226         data.content[\textcolor{stringliteral}{'openconfig-\/qos:config'}] = \{\textcolor{stringliteral}{'name'}:\textcolor{stringliteral}{''}\}}
+\DoxyCodeLine{227     info[ifName].update(\{\textcolor{stringliteral}{'policy'}: data.content[\textcolor{stringliteral}{'openconfig-\/qos:config'}][\textcolor{stringliteral}{'name'}]\})}
+\DoxyCodeLine{228 }
+\DoxyCodeLine{229     path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/interfaces/interface=\{interface\_id\}/openconfig-\/qos-\/maps-\/ext:interface-\/maps/config'}, interface\_id=ifName)}
+\DoxyCodeLine{230     data = aa.get(path, \textcolor{keywordtype}{None}, \textcolor{keyword}{False})}
+\DoxyCodeLine{231     \textcolor{keywordflow}{if} (\textcolor{keywordflow}{not} data.ok()) \textcolor{keywordflow}{or} (\textcolor{keywordflow}{not} data.content):}
+\DoxyCodeLine{232         data.content = \{\}}
+\DoxyCodeLine{233         data.content[\textcolor{stringliteral}{'openconfig-\/qos-\/maps-\/ext:config'}] = \{}
+\DoxyCodeLine{234             \textcolor{stringliteral}{'dscp-\/to-\/forwarding-\/group'}:\textcolor{stringliteral}{''},}
+\DoxyCodeLine{235             \textcolor{stringliteral}{'dot1p-\/to-\/forwarding-\/group'}:\textcolor{stringliteral}{''},}
+\DoxyCodeLine{236             \textcolor{stringliteral}{'forwarding-\/group-\/to-\/queue'}:\textcolor{stringliteral}{''},}
+\DoxyCodeLine{237             \textcolor{stringliteral}{'forwarding-\/group-\/to-\/priority-\/group'}:\textcolor{stringliteral}{''},}
+\DoxyCodeLine{238             \textcolor{stringliteral}{'forwarding-\/group-\/to-\/dscp'}:\textcolor{stringliteral}{''},}
+\DoxyCodeLine{239             \textcolor{stringliteral}{'forwarding-\/group-\/to-\/dot1p'}:\textcolor{stringliteral}{''},}
+\DoxyCodeLine{240             \textcolor{stringliteral}{'pfc-\/priority-\/to-\/queue'}:\textcolor{stringliteral}{''}}
+\DoxyCodeLine{241         \}}
+\DoxyCodeLine{242     info[ifName].update(\{\textcolor{stringliteral}{'interface-\/maps'}: data.content[\textcolor{stringliteral}{'openconfig-\/qos-\/maps-\/ext:config'}]\})}
+\DoxyCodeLine{243 }
+\DoxyCodeLine{244     path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/interfaces/interface=\{interface\_id\}/openconfig-\/qos-\/ext:pfc'}, interface\_id=ifName)}
+\DoxyCodeLine{245     data = aa.get(path, \textcolor{keywordtype}{None}, \textcolor{keyword}{False})}
+\DoxyCodeLine{246     \textcolor{keywordflow}{if} (\textcolor{keywordflow}{not} data.ok()) \textcolor{keywordflow}{or} (\textcolor{keywordflow}{not} data.content):}
+\DoxyCodeLine{247         data.content = \{\}}
+\DoxyCodeLine{248         data.content[\textcolor{stringliteral}{'openconfig-\/qos-\/ext:pfc'}] = \{\}}
+\DoxyCodeLine{249     info[ifName].update(\{\textcolor{stringliteral}{'pfc'}: data.content[\textcolor{stringliteral}{'openconfig-\/qos-\/ext:pfc'}]\})}
+\DoxyCodeLine{250 }
+\DoxyCodeLine{251     response = data}
+\DoxyCodeLine{252     response.status\_code = RESPONSE\_OK}
+\DoxyCodeLine{253     response.content = info}
+\DoxyCodeLine{254     \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{255 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d98/namespacesonic__cli__qos__pfc_a51fd2f25c9e84dead8bac7961c0f1e94_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__qos__pfc_a6ed0a7ec80f3da8b1dda2fb1ce8d7f66}\label{namespacesonic__cli__qos__pfc_a6ed0a7ec80f3da8b1dda2fb1ce8d7f66}} 
+\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}!invoke@{invoke}}
+\index{invoke@{invoke}!sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsubsection{\texorpdfstring{invoke()}{invoke()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+invoke (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+py 파일의 256 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{256 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__qos__pfc_a6ed0a7ec80f3da8b1dda2fb1ce8d7f66}{invoke}}(func, args):}
+\DoxyCodeLine{257     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{258 }
+\DoxyCodeLine{259     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'interval'}:}
+\DoxyCodeLine{260         \textcolor{keywordflow}{if} len(args) == 0:}
+\DoxyCodeLine{261             keypath = cc.Path(globalPfcWdUri + \textcolor{stringliteral}{'/poll/config'})}
+\DoxyCodeLine{262             \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{263         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{264             keypath = cc.Path(globalPfcWdUri + \textcolor{stringliteral}{'/poll/config/poll-\/interval'})}
+\DoxyCodeLine{265             body = \{\textcolor{stringliteral}{"openconfig-\/qos-\/ext:poll-\/interval"} : int(args[0])\}}
+\DoxyCodeLine{266             \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{267 }
+\DoxyCodeLine{268     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'counter-\/poll'} :}
+\DoxyCodeLine{269         keypath = cc.Path(globalPfcWdUri + \textcolor{stringliteral}{'/flex/config/counter-\/poll'})}
+\DoxyCodeLine{270         body = \{\textcolor{stringliteral}{"openconfig-\/qos-\/ext:counter-\/poll"} : Ables[args[0]]\}}
+\DoxyCodeLine{271         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{272 }
+\DoxyCodeLine{273     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'pfcwd\_if\_action'}:}
+\DoxyCodeLine{274         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/interfaces/'})}
+\DoxyCodeLine{275         interface = args[0]}
+\DoxyCodeLine{276         action = Actions[args[1]]}
+\DoxyCodeLine{277         body = \{\textcolor{stringliteral}{"openconfig-\/qos:interfaces"}: \{\textcolor{stringliteral}{"interface"}: [\{\textcolor{stringliteral}{"interface-\/id"}: interface, \textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"interface-\/id"}: interface\}, \textcolor{stringliteral}{"openconfig-\/qos-\/ext:pfc"}: \{\textcolor{stringliteral}{"watchdog"}: \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"action"}: action\}\}, \}\}]\}\}}
+\DoxyCodeLine{278         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{279 }
+\DoxyCodeLine{280     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'pfcwd\_if\_no\_action'}:}
+\DoxyCodeLine{281         keypath = cc.Path(interfacePfcWdUri + \textcolor{stringliteral}{'/config/action'}, intfName=args[0])}
+\DoxyCodeLine{282         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{283 }
+\DoxyCodeLine{284     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'pfcwd\_if\_detect'}:}
+\DoxyCodeLine{285         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/interfaces/'})}
+\DoxyCodeLine{286         interface = args[0]}
+\DoxyCodeLine{287         body = \{\textcolor{stringliteral}{"openconfig-\/qos:interfaces"}: \{\textcolor{stringliteral}{"interface"}: [\{\textcolor{stringliteral}{"interface-\/id"}: interface, \textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"interface-\/id"}: interface\}, \textcolor{stringliteral}{"openconfig-\/qos-\/ext:pfc"}: \{\textcolor{stringliteral}{"watchdog"}: \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"detection-\/time"}: int(args[1])\}\}, \}\}]\}\}}
+\DoxyCodeLine{288         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{289 }
+\DoxyCodeLine{290     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'pfcwd\_if\_no\_detect'}:}
+\DoxyCodeLine{291         keypath = cc.Path(interfacePfcWdUri + \textcolor{stringliteral}{'/config/detection-\/time'}, intfName=args[0])}
+\DoxyCodeLine{292         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{293 }
+\DoxyCodeLine{294     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'pfcwd\_if\_restore'}:}
+\DoxyCodeLine{295         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/interfaces/'})}
+\DoxyCodeLine{296         interface = args[0]}
+\DoxyCodeLine{297         body = \{\textcolor{stringliteral}{"openconfig-\/qos:interfaces"}: \{\textcolor{stringliteral}{"interface"}: [\{\textcolor{stringliteral}{"interface-\/id"}: interface, \textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"interface-\/id"}: interface\}, \textcolor{stringliteral}{"openconfig-\/qos-\/ext:pfc"}: \{\textcolor{stringliteral}{"watchdog"}: \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"restoration-\/time"}: int(args[1])\}\}, \}\}]\}\}}
+\DoxyCodeLine{298         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{299 }
+\DoxyCodeLine{300     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'pfcwd\_if\_no\_restore'}:}
+\DoxyCodeLine{301         keypath = cc.Path(interfacePfcWdUri + \textcolor{stringliteral}{'/config/restoration-\/time'}, intfName=args[0])}
+\DoxyCodeLine{302         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{303 }
+\DoxyCodeLine{304     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'pfcwd\_if\_enable'}:}
+\DoxyCodeLine{305         \textcolor{keywordflow}{if} len(args) < 2:}
+\DoxyCodeLine{306             \textcolor{keywordflow}{return} \textcolor{keywordtype}{None}}
+\DoxyCodeLine{307         \textcolor{keywordflow}{if} args[1] == \textcolor{stringliteral}{'off'}:}
+\DoxyCodeLine{308             keypath = cc.Path(interfacePfcWdUri + \textcolor{stringliteral}{'/config'}, intfName=args[0])}
+\DoxyCodeLine{309             response = aa.delete(keypath)}
+\DoxyCodeLine{310 }
+\DoxyCodeLine{311         \textcolor{keywordflow}{elif} args[1] == \textcolor{stringliteral}{'on'}:}
+\DoxyCodeLine{312             keypath = cc.Path(interfacePfcWdUri + \textcolor{stringliteral}{'/state'}, intfName=args[0])}
+\DoxyCodeLine{313             response = aa.get(keypath, \textcolor{keywordtype}{None}, \textcolor{keyword}{False})}
+\DoxyCodeLine{314             cfg = \{\}}
+\DoxyCodeLine{315             \textcolor{keywordflow}{if} response.ok() \textcolor{keywordflow}{and} (response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}):}
+\DoxyCodeLine{316                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/qos-\/ext:state'} \textcolor{keywordflow}{in} response.content.keys():}
+\DoxyCodeLine{317                     cfg = response.content[\textcolor{stringliteral}{'openconfig-\/qos-\/ext:state'}]}
+\DoxyCodeLine{318 }
+\DoxyCodeLine{319             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'action'} \textcolor{keywordflow}{in} cfg.keys():}
+\DoxyCodeLine{320                 action = cfg[\textcolor{stringliteral}{'action'}]}
+\DoxyCodeLine{321             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{322                 action = Actions[DEFAULT\_ACTION]}
+\DoxyCodeLine{323 }
+\DoxyCodeLine{324             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'detection-\/time'} \textcolor{keywordflow}{in} cfg.keys():}
+\DoxyCodeLine{325                 detectTime = cfg[\textcolor{stringliteral}{'detection-\/time'}]}
+\DoxyCodeLine{326             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{327                 detectTime = DEFAULT\_DETECTION\_TIME}
+\DoxyCodeLine{328 }
+\DoxyCodeLine{329             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'restoration-\/time'} \textcolor{keywordflow}{in} cfg.keys():}
+\DoxyCodeLine{330                 restoreTime = cfg[\textcolor{stringliteral}{'restoration-\/time'}]}
+\DoxyCodeLine{331             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{332                 restoreTime = 2 * detectTime}
+\DoxyCodeLine{333 }
+\DoxyCodeLine{334             \textcolor{keywordflow}{if} restoreTime < (2 * detectTime):}
+\DoxyCodeLine{335                 \textcolor{keywordflow}{print} \textcolor{stringliteral}{"Warning: restoration time ("} + str(restoreTime) + \textcolor{stringliteral}{") is less than twice detection time("} + str(detectTime) + \textcolor{stringliteral}{")."}}
+\DoxyCodeLine{336 }
+\DoxyCodeLine{337             interface = args[0]}
+\DoxyCodeLine{338 }
+\DoxyCodeLine{339             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/interfaces/'})}
+\DoxyCodeLine{340             body = \{\textcolor{stringliteral}{"openconfig-\/qos:interfaces"}: \{\textcolor{stringliteral}{"interface"}: [\{\textcolor{stringliteral}{"interface-\/id"}: interface, \textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"interface-\/id"}: interface\},}
+\DoxyCodeLine{341                     \textcolor{stringliteral}{"openconfig-\/qos-\/ext:pfc"}: \{\textcolor{stringliteral}{"watchdog"}: \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"action"}: action, \textcolor{stringliteral}{"detection-\/time"}: detectTime, \textcolor{stringliteral}{"restoration-\/time"}: restoreTime\}\},\}\}]\}\}}
+\DoxyCodeLine{342             response = aa.patch(keypath, body)}
+\DoxyCodeLine{343         \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{344 }
+\DoxyCodeLine{345     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'show\_pfc\_watchdog'}:}
+\DoxyCodeLine{346         interval=\textcolor{stringliteral}{"Not Available"}}
+\DoxyCodeLine{347         keypath = cc.Path(globalPfcWdUri + \textcolor{stringliteral}{'/poll/config/poll-\/interval'})}
+\DoxyCodeLine{348         response = aa.get(keypath, \textcolor{keywordtype}{None}, \textcolor{keyword}{False})}
+\DoxyCodeLine{349         \textcolor{keywordflow}{if} response.ok() \textcolor{keywordflow}{and} (response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}):}
+\DoxyCodeLine{350             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/qos-\/ext:poll-\/interval'} \textcolor{keywordflow}{in} response.content.keys():}
+\DoxyCodeLine{351                 interval = response.content[\textcolor{stringliteral}{'openconfig-\/qos-\/ext:poll-\/interval'}]}
+\DoxyCodeLine{352         keypath = cc.Path(globalPfcWdUri + \textcolor{stringliteral}{'/flex/config/counter-\/poll'})}
+\DoxyCodeLine{353         response = aa.get(keypath, \textcolor{keywordtype}{None}, \textcolor{keyword}{False})}
+\DoxyCodeLine{354         poll=\textcolor{stringliteral}{"Not Available"}}
+\DoxyCodeLine{355         \textcolor{keywordflow}{if} response.ok() \textcolor{keywordflow}{and} (response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}):}
+\DoxyCodeLine{356             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/qos-\/ext:counter-\/poll'} \textcolor{keywordflow}{in} response.content.keys():}
+\DoxyCodeLine{357                 poll = response.content[\textcolor{stringliteral}{'openconfig-\/qos-\/ext:counter-\/poll'}]}
+\DoxyCodeLine{358                 \textcolor{comment}{\# find key based on dictionary value}}
+\DoxyCodeLine{359                 \textcolor{keywordflow}{for} key, data \textcolor{keywordflow}{in} Ables.items():}
+\DoxyCodeLine{360                     \textcolor{keywordflow}{if} data == poll:}
+\DoxyCodeLine{361                         poll = key + \textcolor{stringliteral}{'d'}}
+\DoxyCodeLine{362 }
+\DoxyCodeLine{363         datam = \{\}}
+\DoxyCodeLine{364         datam[\textcolor{stringliteral}{'poll-\/interval'}] = interval}
+\DoxyCodeLine{365         datam[\textcolor{stringliteral}{'counter-\/poll'}] = poll}
+\DoxyCodeLine{366         order = []}
+\DoxyCodeLine{367         \textcolor{keywordflow}{for} key \textcolor{keywordflow}{in} SORTED\_GLOBAL\_ORDER:}
+\DoxyCodeLine{368             \textcolor{keywordflow}{if} datam.has\_key(key):}
+\DoxyCodeLine{369                 order.append(key)}
+\DoxyCodeLine{370         tuples = [(key, datam[key]) \textcolor{keywordflow}{for} key \textcolor{keywordflow}{in} order]}
+\DoxyCodeLine{371         response=aa.cli\_not\_implemented(\textcolor{stringliteral}{""})      \textcolor{comment}{\# Just to get the proper format to return data and status}}
+\DoxyCodeLine{372         response.status\_code = RESPONSE\_OK}
+\DoxyCodeLine{373         response.content = collections.OrderedDict(tuples)}
+\DoxyCodeLine{374         \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{375 }
+\DoxyCodeLine{376     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'show\_port\_pfc\_watchdog'}:}
+\DoxyCodeLine{377         datam = \{\}}
+\DoxyCodeLine{378 }
+\DoxyCodeLine{379         datam[\textcolor{stringliteral}{'action'}] =  \textcolor{stringliteral}{"N/A"}}
+\DoxyCodeLine{380         datam[\textcolor{stringliteral}{'detection-\/time'}] =  \textcolor{stringliteral}{"0"}}
+\DoxyCodeLine{381         datam[\textcolor{stringliteral}{'restoration-\/time'}] = \textcolor{stringliteral}{"0"}}
+\DoxyCodeLine{382 }
+\DoxyCodeLine{383         keypath = cc.Path(interfacePfcWdUri + \textcolor{stringliteral}{'/state'}, intfName=args[0])}
+\DoxyCodeLine{384         response = aa.get(keypath, \textcolor{keywordtype}{None}, \textcolor{keyword}{False})}
+\DoxyCodeLine{385         \textcolor{keywordflow}{if} response.ok() \textcolor{keywordflow}{and} (response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}):}
+\DoxyCodeLine{386             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/qos-\/ext:state'} \textcolor{keywordflow}{in} response.content.keys():}
+\DoxyCodeLine{387                 state = response.content[\textcolor{stringliteral}{'openconfig-\/qos-\/ext:state'}]}
+\DoxyCodeLine{388                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'action'} \textcolor{keywordflow}{in} state.keys():}
+\DoxyCodeLine{389                     action = state[\textcolor{stringliteral}{'action'}]}
+\DoxyCodeLine{390                     action = \mbox{\hyperlink{namespacesonic__cli__qos__pfc_af3996ab69d43e5662ed23a135f4e20c6}{getKeyFromDictData}}(Actions, action)}
+\DoxyCodeLine{391                     \textcolor{keywordflow}{if} action != \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{392                         datam[\textcolor{stringliteral}{'action'}] = action}
+\DoxyCodeLine{393                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'detection-\/time'} \textcolor{keywordflow}{in} state.keys():}
+\DoxyCodeLine{394                     datam[\textcolor{stringliteral}{'detection-\/time'}] =  state[\textcolor{stringliteral}{'detection-\/time'}]}
+\DoxyCodeLine{395                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'restoration-\/time'} \textcolor{keywordflow}{in} state.keys():}
+\DoxyCodeLine{396                     datam[\textcolor{stringliteral}{'restoration-\/time'}] = state[\textcolor{stringliteral}{'restoration-\/time'}]}
+\DoxyCodeLine{397 }
+\DoxyCodeLine{398         order = []}
+\DoxyCodeLine{399         \textcolor{keywordflow}{for} key \textcolor{keywordflow}{in} SORTED\_INTERFACE\_ORDER:}
+\DoxyCodeLine{400             \textcolor{keywordflow}{if} datam.has\_key(key):}
+\DoxyCodeLine{401                 order.append(key)}
+\DoxyCodeLine{402         tuples = [(key, datam[key]) \textcolor{keywordflow}{for} key \textcolor{keywordflow}{in} order]}
+\DoxyCodeLine{403 }
+\DoxyCodeLine{404         response=aa.cli\_not\_implemented(\textcolor{stringliteral}{""})      \textcolor{comment}{\# Just to get the proper format to return data and status}}
+\DoxyCodeLine{405         response.status\_code = RESPONSE\_OK}
+\DoxyCodeLine{406         response.content = collections.OrderedDict(tuples)}
+\DoxyCodeLine{407         \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{408 }
+\DoxyCodeLine{409     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'show\_port\_pfc\_statistics'}:}
+\DoxyCodeLine{410         response = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{411         \textcolor{keywordflow}{if} args[0].lower() \textcolor{keywordflow}{in} [ \textcolor{stringliteral}{'ethernetall'}, \textcolor{stringliteral}{'ethall'} ]:}
+\DoxyCodeLine{412             response = aa.cli\_not\_implemented(\textcolor{stringliteral}{""})}
+\DoxyCodeLine{413             response.status\_code = RESPONSE\_OK}
+\DoxyCodeLine{414             response.content = collections.OrderedDict()}
+\DoxyCodeLine{415             \textcolor{keywordflow}{for} port \textcolor{keywordflow}{in} \mbox{\hyperlink{namespacesonic__cli__qos__pfc_a1f8d8719b1d15f97f6e22ae4b18024c3}{getPortList}}():}
+\DoxyCodeLine{416                 data = \mbox{\hyperlink{namespacesonic__cli__qos__pfc_a092c3f208450c221750f38eed3a7de65}{getPfcStatistics}}(port)}
+\DoxyCodeLine{417                 \textcolor{keywordflow}{if} (data \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}) \textcolor{keywordflow}{or} (\textcolor{keywordflow}{not} data.ok()) \textcolor{keywordflow}{or} (\textcolor{keywordflow}{not} data.content):}
+\DoxyCodeLine{418                     \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{419                 response.content.update(data.content)}
+\DoxyCodeLine{420         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{421             response = \mbox{\hyperlink{namespacesonic__cli__qos__pfc_a092c3f208450c221750f38eed3a7de65}{getPfcStatistics}}(args[0])}
+\DoxyCodeLine{422         \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{423 }
+\DoxyCodeLine{424     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'show\_port\_pfc\_queue\_statistics'}:}
+\DoxyCodeLine{425         response = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{426         \textcolor{keywordflow}{if} args[0].lower() \textcolor{keywordflow}{in} [ \textcolor{stringliteral}{'ethernetall'}, \textcolor{stringliteral}{'ethall'} ]:}
+\DoxyCodeLine{427             response = aa.cli\_not\_implemented(\textcolor{stringliteral}{""})}
+\DoxyCodeLine{428             response.status\_code = RESPONSE\_OK}
+\DoxyCodeLine{429             response.content = collections.OrderedDict()}
+\DoxyCodeLine{430             \textcolor{keywordflow}{for} port \textcolor{keywordflow}{in} \mbox{\hyperlink{namespacesonic__cli__qos__pfc_a1f8d8719b1d15f97f6e22ae4b18024c3}{getPortList}}():}
+\DoxyCodeLine{431                 data = \mbox{\hyperlink{namespacesonic__cli__qos__pfc_a94f76b2d3037469a48b503ea6be04b1f}{getPfcQueueStatistics}}(port)}
+\DoxyCodeLine{432                 \textcolor{keywordflow}{if} (data \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}) \textcolor{keywordflow}{or} (\textcolor{keywordflow}{not} data.ok()) \textcolor{keywordflow}{or} (\textcolor{keywordflow}{not} data.content):}
+\DoxyCodeLine{433                     \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{434                 response.content.update(data.content)}
+\DoxyCodeLine{435         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{436             response = \mbox{\hyperlink{namespacesonic__cli__qos__pfc_a94f76b2d3037469a48b503ea6be04b1f}{getPfcQueueStatistics}}(args[0])}
+\DoxyCodeLine{437         \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{438 }
+\DoxyCodeLine{439     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'show\_port\_pfc\_summary'}:}
+\DoxyCodeLine{440         response = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{441         \textcolor{keywordflow}{if} args[0].lower() \textcolor{keywordflow}{in} [ \textcolor{stringliteral}{'ethernetall'}, \textcolor{stringliteral}{'ethall'} ]:}
+\DoxyCodeLine{442             response = aa.cli\_not\_implemented(\textcolor{stringliteral}{""})}
+\DoxyCodeLine{443             response.status\_code = RESPONSE\_OK}
+\DoxyCodeLine{444             response.content = collections.OrderedDict()}
+\DoxyCodeLine{445             \textcolor{keywordflow}{for} port \textcolor{keywordflow}{in} \mbox{\hyperlink{namespacesonic__cli__qos__pfc_a1f8d8719b1d15f97f6e22ae4b18024c3}{getPortList}}():}
+\DoxyCodeLine{446                 data = \mbox{\hyperlink{namespacesonic__cli__qos__pfc_a51fd2f25c9e84dead8bac7961c0f1e94}{getQosIntfSummary}}(port)}
+\DoxyCodeLine{447                 \textcolor{keywordflow}{if} (data \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}) \textcolor{keywordflow}{or} (\textcolor{keywordflow}{not} data.ok()) \textcolor{keywordflow}{or} (\textcolor{keywordflow}{not} data.content):}
+\DoxyCodeLine{448                     \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{449                 response.content.update(data.content)}
+\DoxyCodeLine{450         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{451             response = \mbox{\hyperlink{namespacesonic__cli__qos__pfc_a51fd2f25c9e84dead8bac7961c0f1e94}{getQosIntfSummary}}(args[0])}
+\DoxyCodeLine{452         \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{453 }
+\DoxyCodeLine{454     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_openconfig\_qos\_qos\_queues\_queue'}:}
+\DoxyCodeLine{455         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/queues/queue=\{name\}'}, name=args[0])}
+\DoxyCodeLine{456         tmpl = \textcolor{stringliteral}{'show\_qos\_queue\_config.j2'}}
+\DoxyCodeLine{457         \textcolor{keywordflow}{if} args[0].split(\textcolor{stringliteral}{':'})[0].lower() \textcolor{keywordflow}{in} [ \textcolor{stringliteral}{'ethernetall'}, \textcolor{stringliteral}{'ethall'} ]:}
+\DoxyCodeLine{458             path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/qos:qos/queues'})}
+\DoxyCodeLine{459             tmpl = \textcolor{stringliteral}{'show\_qos\_queue\_config\_all.j2'}}
+\DoxyCodeLine{460         data = aa.get(path, \textcolor{keywordtype}{None}, \textcolor{keyword}{False})}
+\DoxyCodeLine{461         \textcolor{keywordflow}{if} data.ok() \textcolor{keywordflow}{and} (data.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}):}
+\DoxyCodeLine{462             od = collections.OrderedDict()}
+\DoxyCodeLine{463             \textcolor{keywordflow}{for} port \textcolor{keywordflow}{in} natsorted(data.content.keys()):}
+\DoxyCodeLine{464                 od[port] = data.content[port]}
+\DoxyCodeLine{465             data.content = od}
+\DoxyCodeLine{466             \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(tmpl, data.content)}
+\DoxyCodeLine{467         \textcolor{keywordflow}{return} \textcolor{keywordtype}{None}}
+\DoxyCodeLine{468 }
+\DoxyCodeLine{469     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{470         print(\textcolor{stringliteral}{"\%Error: not implemented"})}
+\DoxyCodeLine{471         exit(1)}
+\DoxyCodeLine{472 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d98/namespacesonic__cli__qos__pfc_a6ed0a7ec80f3da8b1dda2fb1ce8d7f66_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d98/namespacesonic__cli__qos__pfc_a6ed0a7ec80f3da8b1dda2fb1ce8d7f66_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__qos__pfc_a490bccccef39365699f3a06152bbccc3}\label{namespacesonic__cli__qos__pfc_a490bccccef39365699f3a06152bbccc3}} 
+\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}!run@{run}}
+\index{run@{run}!sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+py 파일의 473 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{473 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__qos__pfc_a490bccccef39365699f3a06152bbccc3}{run}}(func, args):}
+\DoxyCodeLine{474     \textcolor{keywordflow}{if} debug == \textcolor{keyword}{True}:}
+\DoxyCodeLine{475         \textcolor{keywordflow}{print} \textcolor{stringliteral}{"(sonic-\/cli-\/qos-\/pfc) run = "}, func, len(args), args}
+\DoxyCodeLine{476     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{477         apiResponse = \mbox{\hyperlink{namespacesonic__cli__qos__pfc_a6ed0a7ec80f3da8b1dda2fb1ce8d7f66}{invoke}}(func, args)}
+\DoxyCodeLine{478         \textcolor{keywordflow}{if} debug == \textcolor{keyword}{True}:}
+\DoxyCodeLine{479             \textcolor{keywordflow}{print} apiResponse.status\_code}
+\DoxyCodeLine{480         \textcolor{keywordflow}{if} apiResponse \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{481             \textcolor{keywordflow}{return}}
+\DoxyCodeLine{482         \textcolor{keywordflow}{elif} apiResponse.ok():}
+\DoxyCodeLine{483             response = apiResponse.content}
+\DoxyCodeLine{484             \textcolor{keywordflow}{if} debug == \textcolor{keyword}{True}:}
+\DoxyCodeLine{485                 \textcolor{keywordflow}{print} response}
+\DoxyCodeLine{486             \textcolor{keywordflow}{if} func.startswith(\textcolor{stringliteral}{'show\_'}):}
+\DoxyCodeLine{487                 \textcolor{keywordflow}{if} apiResponse.status\_code == RESPONSE\_NO\_CONTENT:}
+\DoxyCodeLine{488                     message = apiResponse.error\_message()}
+\DoxyCodeLine{489                     \textcolor{keywordflow}{print} message[7:]}
+\DoxyCodeLine{490                 \textcolor{keywordflow}{elif} func.startswith(\textcolor{stringliteral}{'show\_port'}) \textcolor{keywordflow}{and} (response \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}):}
+\DoxyCodeLine{491                     \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[1], response)}
+\DoxyCodeLine{492                 \textcolor{keywordflow}{elif} func.startswith(\textcolor{stringliteral}{'show\_pfc'}) \textcolor{keywordflow}{and} (response \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}):}
+\DoxyCodeLine{493                     \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], response)}
+\DoxyCodeLine{494             \textcolor{keywordflow}{elif} response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{495                 \textcolor{keywordflow}{return}}
+\DoxyCodeLine{496             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{497                 \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\%Error: Invalid command"}}
+\DoxyCodeLine{498         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{499             \textcolor{comment}{\#error response}}
+\DoxyCodeLine{500             \textcolor{keywordflow}{print} apiResponse.error\_message()}
+\DoxyCodeLine{501 }
+\DoxyCodeLine{502     \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} e:}
+\DoxyCodeLine{503         log.syslog(log.LOG\_ERR, str(e))}
+\DoxyCodeLine{504         \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\%Error: Transaction Failure"}}
+\DoxyCodeLine{505 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d98/namespacesonic__cli__qos__pfc_a490bccccef39365699f3a06152bbccc3_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__qos__pfc_a4c914678d4acb0634717b830657a9986}\label{namespacesonic__cli__qos__pfc_a4c914678d4acb0634717b830657a9986}} 
+\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}!aa@{aa}}
+\index{aa@{aa}!sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsubsection{\texorpdfstring{aa}{aa}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+aa = cc.\+Api\+Client()}
+
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+py 파일의 89 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__qos__pfc_ac8e764ecb603670891942f04883bc516}\label{namespacesonic__cli__qos__pfc_ac8e764ecb603670891942f04883bc516}} 
+\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}!Ables@{Ables}}
+\index{Ables@{Ables}!sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsubsection{\texorpdfstring{Ables}{Ables}}
+{\footnotesize\ttfamily dictionary sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+Ables = \{ \textquotesingle{}enable\textquotesingle{} \+: \textquotesingle{}E\+N\+A\+B\+LE\textquotesingle{}, \textquotesingle{}disable\textquotesingle{}\+: \textquotesingle{}D\+I\+S\+A\+B\+LE\textquotesingle{} \}}
+
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+py 파일의 38 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__qos__pfc_abca629e04b7c946c563d185920ddf0c4}\label{namespacesonic__cli__qos__pfc_abca629e04b7c946c563d185920ddf0c4}} 
+\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}!Actions@{Actions}}
+\index{Actions@{Actions}!sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsubsection{\texorpdfstring{Actions}{Actions}}
+{\footnotesize\ttfamily dictionary sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+Actions = \{ \textquotesingle{}forward\textquotesingle{} \+: \textquotesingle{}F\+O\+R\+W\+A\+RD\textquotesingle{}, \textquotesingle{}drop\textquotesingle{}\+: \textquotesingle{}D\+R\+OP\textquotesingle{}, \textquotesingle{}alert\textquotesingle{}\+: \textquotesingle{}A\+L\+E\+RT\textquotesingle{} \}}
+
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+py 파일의 37 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__qos__pfc_a3f72d243b18e5eb6a0f38ed9256e350d}\label{namespacesonic__cli__qos__pfc_a3f72d243b18e5eb6a0f38ed9256e350d}} 
+\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}!COUNTER\_TABLE\_PREFIX@{COUNTER\_TABLE\_PREFIX}}
+\index{COUNTER\_TABLE\_PREFIX@{COUNTER\_TABLE\_PREFIX}!sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsubsection{\texorpdfstring{COUNTER\_TABLE\_PREFIX}{COUNTER\_TABLE\_PREFIX}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+C\+O\+U\+N\+T\+E\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+P\+R\+E\+F\+IX = \textquotesingle{}C\+O\+U\+N\+T\+E\+R\+S\+:\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+py 파일의 78 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__qos__pfc_a2366e9175b8740fac821e6f773ca0ce9}\label{namespacesonic__cli__qos__pfc_a2366e9175b8740fac821e6f773ca0ce9}} 
+\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}!counterBucketRxDict@{counterBucketRxDict}}
+\index{counterBucketRxDict@{counterBucketRxDict}!sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsubsection{\texorpdfstring{counterBucketRxDict}{counterBucketRxDict}}
+{\footnotesize\ttfamily dictionary sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+counter\+Bucket\+Rx\+Dict}
+
+{\bfseries 초기값\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  \{}
+\DoxyCodeLine{2     \textcolor{stringliteral}{'SAI\_PORT\_STAT\_PFC\_0\_RX\_PKTS'}: 0,}
+\DoxyCodeLine{3     \textcolor{stringliteral}{'SAI\_PORT\_STAT\_PFC\_1\_RX\_PKTS'}: 1,}
+\DoxyCodeLine{4     \textcolor{stringliteral}{'SAI\_PORT\_STAT\_PFC\_2\_RX\_PKTS'}: 2,}
+\DoxyCodeLine{5     \textcolor{stringliteral}{'SAI\_PORT\_STAT\_PFC\_3\_RX\_PKTS'}: 3,}
+\DoxyCodeLine{6     \textcolor{stringliteral}{'SAI\_PORT\_STAT\_PFC\_4\_RX\_PKTS'}: 4,}
+\DoxyCodeLine{7     \textcolor{stringliteral}{'SAI\_PORT\_STAT\_PFC\_5\_RX\_PKTS'}: 5,}
+\DoxyCodeLine{8     \textcolor{stringliteral}{'SAI\_PORT\_STAT\_PFC\_6\_RX\_PKTS'}: 6,}
+\DoxyCodeLine{9     \textcolor{stringliteral}{'SAI\_PORT\_STAT\_PFC\_7\_RX\_PKTS'}: 7}
+\DoxyCodeLine{10 \}}
+
+\end{DoxyCode}
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+py 파일의 46 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__qos__pfc_abf4fcc2ee5065323574c7732b421dd5f}\label{namespacesonic__cli__qos__pfc_abf4fcc2ee5065323574c7732b421dd5f}} 
+\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}!counterBucketTxDict@{counterBucketTxDict}}
+\index{counterBucketTxDict@{counterBucketTxDict}!sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsubsection{\texorpdfstring{counterBucketTxDict}{counterBucketTxDict}}
+{\footnotesize\ttfamily dictionary sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+counter\+Bucket\+Tx\+Dict}
+
+{\bfseries 초기값\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  \{}
+\DoxyCodeLine{2     \textcolor{stringliteral}{'SAI\_PORT\_STAT\_PFC\_0\_TX\_PKTS'}: 0,}
+\DoxyCodeLine{3     \textcolor{stringliteral}{'SAI\_PORT\_STAT\_PFC\_1\_TX\_PKTS'}: 1,}
+\DoxyCodeLine{4     \textcolor{stringliteral}{'SAI\_PORT\_STAT\_PFC\_2\_TX\_PKTS'}: 2,}
+\DoxyCodeLine{5     \textcolor{stringliteral}{'SAI\_PORT\_STAT\_PFC\_3\_TX\_PKTS'}: 3,}
+\DoxyCodeLine{6     \textcolor{stringliteral}{'SAI\_PORT\_STAT\_PFC\_4\_TX\_PKTS'}: 4,}
+\DoxyCodeLine{7     \textcolor{stringliteral}{'SAI\_PORT\_STAT\_PFC\_5\_TX\_PKTS'}: 5,}
+\DoxyCodeLine{8     \textcolor{stringliteral}{'SAI\_PORT\_STAT\_PFC\_6\_TX\_PKTS'}: 6,}
+\DoxyCodeLine{9     \textcolor{stringliteral}{'SAI\_PORT\_STAT\_PFC\_7\_TX\_PKTS'}: 7}
+\DoxyCodeLine{10 \}}
+
+\end{DoxyCode}
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+py 파일의 57 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__qos__pfc_af8ad334ad25fa5507c5bb95db02508cb}\label{namespacesonic__cli__qos__pfc_af8ad334ad25fa5507c5bb95db02508cb}} 
+\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}!COUNTERS\_PORT\_NAME\_MAP@{COUNTERS\_PORT\_NAME\_MAP}}
+\index{COUNTERS\_PORT\_NAME\_MAP@{COUNTERS\_PORT\_NAME\_MAP}!sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsubsection{\texorpdfstring{COUNTERS\_PORT\_NAME\_MAP}{COUNTERS\_PORT\_NAME\_MAP}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+C\+O\+U\+N\+T\+E\+R\+S\+\_\+\+P\+O\+R\+T\+\_\+\+N\+A\+M\+E\+\_\+\+M\+AP = \textquotesingle{}C\+O\+U\+N\+T\+E\+R\+S\+\_\+\+P\+O\+R\+T\+\_\+\+N\+A\+M\+E\+\_\+\+M\+AP\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+py 파일의 79 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__qos__pfc_a9f7d6d78305b5dfc92c1de7d6912947a}\label{namespacesonic__cli__qos__pfc_a9f7d6d78305b5dfc92c1de7d6912947a}} 
+\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}!COUNTERS\_QUEUE\_NAME\_MAP@{COUNTERS\_QUEUE\_NAME\_MAP}}
+\index{COUNTERS\_QUEUE\_NAME\_MAP@{COUNTERS\_QUEUE\_NAME\_MAP}!sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsubsection{\texorpdfstring{COUNTERS\_QUEUE\_NAME\_MAP}{COUNTERS\_QUEUE\_NAME\_MAP}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+C\+O\+U\+N\+T\+E\+R\+S\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+N\+A\+M\+E\+\_\+\+M\+AP = \textquotesingle{}C\+O\+U\+N\+T\+E\+R\+S\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+N\+A\+M\+E\+\_\+\+M\+AP\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+py 파일의 80 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__qos__pfc_a78b9d88a5c9ab2ff46b4f84f618baaf0}\label{namespacesonic__cli__qos__pfc_a78b9d88a5c9ab2ff46b4f84f618baaf0}} 
+\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}!debug@{debug}}
+\index{debug@{debug}!sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsubsection{\texorpdfstring{debug}{debug}}
+{\footnotesize\ttfamily bool sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+debug = False}
+
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+py 파일의 31 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__qos__pfc_adb09444b127f972326d9390749efe6cd}\label{namespacesonic__cli__qos__pfc_adb09444b127f972326d9390749efe6cd}} 
+\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}!DEFAULT\_ACTION@{DEFAULT\_ACTION}}
+\index{DEFAULT\_ACTION@{DEFAULT\_ACTION}!sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_ACTION}{DEFAULT\_ACTION}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+D\+E\+F\+A\+U\+L\+T\+\_\+\+A\+C\+T\+I\+ON = \textquotesingle{}drop\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+py 파일의 42 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__qos__pfc_a88db16538430d141d5d3db6481cf447a}\label{namespacesonic__cli__qos__pfc_a88db16538430d141d5d3db6481cf447a}} 
+\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}!DEFAULT\_DETECTION\_TIME@{DEFAULT\_DETECTION\_TIME}}
+\index{DEFAULT\_DETECTION\_TIME@{DEFAULT\_DETECTION\_TIME}!sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_DETECTION\_TIME}{DEFAULT\_DETECTION\_TIME}}
+{\footnotesize\ttfamily int sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+E\+T\+E\+C\+T\+I\+O\+N\+\_\+\+T\+I\+ME = 200}
+
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+py 파일의 41 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__qos__pfc_a4d783141e1a6aff53eb3a411539e4730}\label{namespacesonic__cli__qos__pfc_a4d783141e1a6aff53eb3a411539e4730}} 
+\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}!globalPfcWdUri@{globalPfcWdUri}}
+\index{globalPfcWdUri@{globalPfcWdUri}!sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsubsection{\texorpdfstring{globalPfcWdUri}{globalPfcWdUri}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+global\+Pfc\+Wd\+Uri = \textquotesingle{}/restconf/data/openconfig-\/qos\+:qos/openconfig-\/qos-\/ext\+:pfc-\/watchdog\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+py 파일의 85 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__qos__pfc_aaed4f7d13e0e5b050f09b770eb280c50}\label{namespacesonic__cli__qos__pfc_aaed4f7d13e0e5b050f09b770eb280c50}} 
+\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}!interfacePfcUri@{interfacePfcUri}}
+\index{interfacePfcUri@{interfacePfcUri}!sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsubsection{\texorpdfstring{interfacePfcUri}{interfacePfcUri}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+interface\+Pfc\+Uri = \textquotesingle{}/restconf/data/openconfig-\/qos\+:qos/interfaces/\mbox{\hyperlink{DB-PARSED_8txt_ad180c042b961290b2dad087aa2d53301}{interface}}=\{intf\+Name\}/openconfig-\/qos-\/ext\+:pfc\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+py 파일의 86 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__qos__pfc_a598a1ab18af1bdf23b48b1262dda3bf1}\label{namespacesonic__cli__qos__pfc_a598a1ab18af1bdf23b48b1262dda3bf1}} 
+\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}!interfacePfcWdUri@{interfacePfcWdUri}}
+\index{interfacePfcWdUri@{interfacePfcWdUri}!sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsubsection{\texorpdfstring{interfacePfcWdUri}{interfacePfcWdUri}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+interface\+Pfc\+Wd\+Uri = \mbox{\hyperlink{namespacesonic__cli__qos__pfc_aaed4f7d13e0e5b050f09b770eb280c50}{interface\+Pfc\+Uri}} + \textquotesingle{}/watchdog\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+py 파일의 87 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__qos__pfc_a3fac92a5e82c82973b6b381efb175d20}\label{namespacesonic__cli__qos__pfc_a3fac92a5e82c82973b6b381efb175d20}} 
+\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}!modName@{modName}}
+\index{modName@{modName}!sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsubsection{\texorpdfstring{modName}{modName}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+mod\+Name = \textquotesingle{}openconfig-\/qos-\/\mbox{\hyperlink{DB-PARSED_8txt_acf339dd8a9c39a3e2ee2fb154d7d0e5a}{pfc}}-\/ext\+:\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+py 파일의 84 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__qos__pfc_ac1e284ab829ac2cf212507ddc12fd738}\label{namespacesonic__cli__qos__pfc_ac1e284ab829ac2cf212507ddc12fd738}} 
+\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}!PStats@{PStats}}
+\index{PStats@{PStats}!sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsubsection{\texorpdfstring{PStats}{PStats}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+P\+Stats = collections.\+namedtuple(\textquotesingle{}P\+Stats\textquotesingle{}, \textquotesingle{}pfc0, pfc1, pfc2, pfc3, pfc4, pfc5, pfc6, pfc7\textquotesingle{})}
+
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+py 파일의 44 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__qos__pfc_a9d84eb9f525f6b778a2005d57843002c}\label{namespacesonic__cli__qos__pfc_a9d84eb9f525f6b778a2005d57843002c}} 
+\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}!RESPONSE\_NO\_CONTENT@{RESPONSE\_NO\_CONTENT}}
+\index{RESPONSE\_NO\_CONTENT@{RESPONSE\_NO\_CONTENT}!sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsubsection{\texorpdfstring{RESPONSE\_NO\_CONTENT}{RESPONSE\_NO\_CONTENT}}
+{\footnotesize\ttfamily int sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+R\+E\+S\+P\+O\+N\+S\+E\+\_\+\+N\+O\+\_\+\+C\+O\+N\+T\+E\+NT = 204}
+
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+py 파일의 34 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__qos__pfc_abd814c0553283e9f386c140017c5bfda}\label{namespacesonic__cli__qos__pfc_abd814c0553283e9f386c140017c5bfda}} 
+\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}!RESPONSE\_OK@{RESPONSE\_OK}}
+\index{RESPONSE\_OK@{RESPONSE\_OK}!sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsubsection{\texorpdfstring{RESPONSE\_OK}{RESPONSE\_OK}}
+{\footnotesize\ttfamily int sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+R\+E\+S\+P\+O\+N\+S\+E\+\_\+\+OK = 200}
+
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+py 파일의 33 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__qos__pfc_a4b27404edc7a00dcf6b4ad32d70bb8d8}\label{namespacesonic__cli__qos__pfc_a4b27404edc7a00dcf6b4ad32d70bb8d8}} 
+\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}!RESPONSE\_SRV\_ERROR@{RESPONSE\_SRV\_ERROR}}
+\index{RESPONSE\_SRV\_ERROR@{RESPONSE\_SRV\_ERROR}!sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsubsection{\texorpdfstring{RESPONSE\_SRV\_ERROR}{RESPONSE\_SRV\_ERROR}}
+{\footnotesize\ttfamily int sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+R\+E\+S\+P\+O\+N\+S\+E\+\_\+\+S\+R\+V\+\_\+\+E\+R\+R\+OR = 500}
+
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+py 파일의 35 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__qos__pfc_a9f6a9a3a895ca716e9337d603eee6ce4}\label{namespacesonic__cli__qos__pfc_a9f6a9a3a895ca716e9337d603eee6ce4}} 
+\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}!RX\_COUNTERS@{RX\_COUNTERS}}
+\index{RX\_COUNTERS@{RX\_COUNTERS}!sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsubsection{\texorpdfstring{RX\_COUNTERS}{RX\_COUNTERS}}
+{\footnotesize\ttfamily bool sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+R\+X\+\_\+\+C\+O\+U\+N\+T\+E\+RS = True}
+
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+py 파일의 81 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__qos__pfc_a57fb3d8e149de143b45907fc37e800a7}\label{namespacesonic__cli__qos__pfc_a57fb3d8e149de143b45907fc37e800a7}} 
+\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}!SORTED\_GLOBAL\_ORDER@{SORTED\_GLOBAL\_ORDER}}
+\index{SORTED\_GLOBAL\_ORDER@{SORTED\_GLOBAL\_ORDER}!sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsubsection{\texorpdfstring{SORTED\_GLOBAL\_ORDER}{SORTED\_GLOBAL\_ORDER}}
+{\footnotesize\ttfamily list sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+S\+O\+R\+T\+E\+D\+\_\+\+G\+L\+O\+B\+A\+L\+\_\+\+O\+R\+D\+ER = \mbox{[}\textquotesingle{}poll-\/interval\textquotesingle{}, \textquotesingle{}counter-\/poll\textquotesingle{}\mbox{]}}
+
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+py 파일의 39 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__qos__pfc_aabbbb38ad3ca204032419631c1b9ea80}\label{namespacesonic__cli__qos__pfc_aabbbb38ad3ca204032419631c1b9ea80}} 
+\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}!SORTED\_INTERFACE\_ORDER@{SORTED\_INTERFACE\_ORDER}}
+\index{SORTED\_INTERFACE\_ORDER@{SORTED\_INTERFACE\_ORDER}!sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsubsection{\texorpdfstring{SORTED\_INTERFACE\_ORDER}{SORTED\_INTERFACE\_ORDER}}
+{\footnotesize\ttfamily list sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+S\+O\+R\+T\+E\+D\+\_\+\+I\+N\+T\+E\+R\+F\+A\+C\+E\+\_\+\+O\+R\+D\+ER = \mbox{[}\textquotesingle{}action\textquotesingle{}, \textquotesingle{}detection-\/time\textquotesingle{}, \textquotesingle{}restoration-\/time\textquotesingle{}\mbox{]}}
+
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+py 파일의 40 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__qos__pfc_a36766df40c0ab5317d20d158c89322cb}\label{namespacesonic__cli__qos__pfc_a36766df40c0ab5317d20d158c89322cb}} 
+\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}!STATS\_DISPLAY\_ORDER@{STATS\_DISPLAY\_ORDER}}
+\index{STATS\_DISPLAY\_ORDER@{STATS\_DISPLAY\_ORDER}!sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsubsection{\texorpdfstring{STATS\_DISPLAY\_ORDER}{STATS\_DISPLAY\_ORDER}}
+{\footnotesize\ttfamily list sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+S\+T\+A\+T\+S\+\_\+\+D\+I\+S\+P\+L\+A\+Y\+\_\+\+O\+R\+D\+ER = \mbox{[}\textquotesingle{}storm-\/detected\textquotesingle{}, \textquotesingle{}storm-\/restored\textquotesingle{}, \textquotesingle{}tx-\/ok\textquotesingle{}, \textquotesingle{}tx-\/drop\textquotesingle{}, \textquotesingle{}rx-\/ok\textquotesingle{}, \textquotesingle{}rx-\/drop\textquotesingle{}, \textquotesingle{}tx-\/ok-\/last\textquotesingle{}, \textquotesingle{}tx-\/drop-\/last\textquotesingle{}, \textquotesingle{}rx-\/ok-\/last\textquotesingle{}, \textquotesingle{}rx-\/drop-\/last\textquotesingle{}\mbox{]}}
+
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+py 파일의 75 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__qos__pfc_ae08f51000a0a08e4142ec253203dc1e4}\label{namespacesonic__cli__qos__pfc_ae08f51000a0a08e4142ec253203dc1e4}} 
+\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}!STATS\_LIST@{STATS\_LIST}}
+\index{STATS\_LIST@{STATS\_LIST}!sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsubsection{\texorpdfstring{STATS\_LIST}{STATS\_LIST}}
+{\footnotesize\ttfamily list sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+S\+T\+A\+T\+S\+\_\+\+L\+I\+ST}
+
+{\bfseries 초기값\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  [}
+\DoxyCodeLine{2     \textcolor{stringliteral}{'PFC\_WD\_QUEUE\_STATS\_DEADLOCK\_DETECTED'}, \textcolor{stringliteral}{'PFC\_WD\_QUEUE\_STATS\_DEADLOCK\_RESTORED'},}
+\DoxyCodeLine{3     \textcolor{stringliteral}{'PFC\_WD\_QUEUE\_STATS\_TX\_PACKETS'},        \textcolor{stringliteral}{'PFC\_WD\_QUEUE\_STATS\_TX\_DROPPED\_PACKETS'},}
+\DoxyCodeLine{4     \textcolor{stringliteral}{'PFC\_WD\_QUEUE\_STATS\_RX\_PACKETS'},        \textcolor{stringliteral}{'PFC\_WD\_QUEUE\_STATS\_RX\_DROPPED\_PACKETS'},}
+\DoxyCodeLine{5     \textcolor{stringliteral}{'PFC\_WD\_QUEUE\_STATS\_TX\_PACKETS\_LAST'},   \textcolor{stringliteral}{'PFC\_WD\_QUEUE\_STATS\_TX\_DROPPED\_PACKETS\_LAST'},}
+\DoxyCodeLine{6     \textcolor{stringliteral}{'PFC\_WD\_QUEUE\_STATS\_RX\_PACKETS\_LAST'},   \textcolor{stringliteral}{'PFC\_WD\_QUEUE\_STATS\_RX\_DROPPED\_PACKETS\_LAST'}]}
+
+\end{DoxyCode}
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+py 파일의 68 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__qos__pfc_a1a3c24bcfdbacb9485f5e54dc4275d7c}\label{namespacesonic__cli__qos__pfc_a1a3c24bcfdbacb9485f5e54dc4275d7c}} 
+\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}!STATUS\_NA@{STATUS\_NA}}
+\index{STATUS\_NA@{STATUS\_NA}!sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsubsection{\texorpdfstring{STATUS\_NA}{STATUS\_NA}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+S\+T\+A\+T\+U\+S\+\_\+\+NA = \textquotesingle{}N/A\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+py 파일의 77 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__qos__pfc_a5050b4f1e99d24ebb2c04cbccc723748}\label{namespacesonic__cli__qos__pfc_a5050b4f1e99d24ebb2c04cbccc723748}} 
+\index{sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}!TX\_COUNTERS@{TX\_COUNTERS}}
+\index{TX\_COUNTERS@{TX\_COUNTERS}!sonic\_cli\_qos\_pfc@{sonic\_cli\_qos\_pfc}}
+\doxysubsubsection{\texorpdfstring{TX\_COUNTERS}{TX\_COUNTERS}}
+{\footnotesize\ttfamily bool sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+T\+X\+\_\+\+C\+O\+U\+N\+T\+E\+RS = False}
+
+
+
+sonic\+\_\+cli\+\_\+qos\+\_\+pfc.\+py 파일의 82 번째 라인에서 정의되었습니다.
+

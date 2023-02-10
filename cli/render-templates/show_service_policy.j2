@@ -1,0 +1,59 @@
+{% if json_output %}
+    {% for intf_name, intf_data in json_output.items() %}
+        {{- intf_name }}
+        {% for stage, stage_data in intf_data.items() %}
+            {% for policy_name, policy_data in stage_data.items() %}
+                {{- '  Policy' }} {{ policy_name }} {{ 'type' }} {{ policy_data["TYPE"]|lower }} {{ 'at' }} {{ stage|lower }}{{ "\n" }}
+                {{- '  Description:'}} {{ policy_data["DESCRIPTION"] }}
+                {% for flow_prio, flow_data in policy_data["FLOWS"].items() %}
+                    {{- '    Flow' }} {{ flow_data["CLASS_NAME"] }} {{ 'at priority' }} {{ flow_data["PRIORITY"] }} ({{ flow_data["STATE"]["STATUS"] }}){{ "\n" }}
+                    {{- '      Description:' }} {{ flow_data.get("DESCRIPTION", "") }}
+                    {% if "SET_PCP" in flow_data %}
+                        {{- '      set-pcp' }} {{ flow_data["SET_PCP"] }}
+                    {% endif %}
+                    {% if "SET_DSCP" in flow_data %}
+                        {{- '      set-dscp' }} {{ flow_data["SET_DSCP"] }}
+                    {% endif %}
+                    {% if "SET_TC" in flow_data %}
+                        {{- '      set-traffic-class' }} {{ flow_data["SET_TC"] }}
+                    {% endif %}
+                    {% if "SET_TRAP_QUEUE" in flow_data %}
+                        {{- '      set-trap-queue' }} {{ flow_data["SET_TRAP_QUEUE"] }}
+                    {% endif %}
+                    {% if ( ("SET_POLICER_CIR" in flow_data) or ("SET_POLICER_CBS" in flow_data) or ("SET_POLICER_PIR" in flow_data) or ("SET_POLICER_PBS" in flow_data) ) %}
+                        {% set policer_state = flow_data["STATE"]["POLICER"] %}
+                        {{- '      police: cir' }} {{ flow_data.get("SET_POLICER_CIR", 0) }} cbs {{ flow_data.get("SET_POLICER_CBS", 0)  }} pir {{ flow_data.get("SET_POLICER_PIR", 0)  }} pbs {{ flow_data.get("SET_POLICER_PBS", 0) }} ({{ policer_state["STATUS"] }}){{"\n"}}
+                        {% set color_mode = policer_state["COLOR_SOURCE"] %}
+                        {% if color_mode != 'NA' %}
+                            {% set color_mode = 'color-' + color_mode %}
+                        {% endif %}
+                        {{- '        type' }} {{ policer_state.get("UNITS", "unknown") }} {{ 'mode' }} {{ color_mode }}{{"\n"}}
+                        {{- '        operational cir' }} {{ policer_state.get("OPERATIONAL_CIR", 0) }} cbs {{ policer_state.get("OPERATIONAL_CBS", 0)  }} pir {{ policer_state.get("OPERATIONAL_PIR", 0)  }} pbs {{ policer_state.get("OPERATIONAL_PBS", 0) }}{{"\n"}}
+                        {{- '        green' }} {{ policer_state["CONFORMED_PACKETS"] }} packets {{ policer_state["CONFORMED_BYTES"] }} {{ 'bytes action' }} {{ policer_state["CONFORMED_PACKET_ACTION"] }}{{"\n"}}
+                        {{- '        yellow' }} {{ policer_state["EXCEED_PACKETS"] }} packets {{ policer_state["EXCEED_BYTES"] }} {{ 'bytes action' }} {{ policer_state["EXCEED_PACKET_ACTION"] }}{{"\n"}}
+                        {{- '        red' }} {{ policer_state["VIOLATED_PACKETS"] }} packets {{ policer_state["VIOLATED_BYTES"] }} {{ 'bytes action' }} {{ policer_state["VIOLATED_PACKET_ACTION"] }}{{"\n"}}
+                    {% endif %}
+                    {% if "SET_MIRROR_SESSION" in flow_data %}
+                        {{- '      set mirror-session' }} {{ flow_data["SET_MIRROR_SESSION"] }}
+                    {% endif %}
+                    {% if "FORWARDING_ACTIONS" in flow_data %}
+                        {% for egr_entries in flow_data["FORWARDING_ACTIONS"].values() %}
+                            {% for egr_entry in egr_entries %}
+                                {{- '      set'}} {{ egr_entry }}{{"\n"}}
+                            {% endfor %}
+                        {% endfor %}
+                    {% endif %}
+                    {% if "DEFAULT_PACKET_ACTION" in flow_data %}
+                        {% set is_selected = "" %}
+                        {% set selected = flow_data["STATE"]["FORWARDING_SELECTED"] %}
+                        {% if selected.get("PACKET_ACTION", "") == flow_data["DEFAULT_PACKET_ACTION"] %}
+                            {% set is_selected="(Selected)" %}
+                        {% endif %}
+                        {{- '      set interface null'}} {{ is_selected }}
+                    {% endif %}
+                    {{- '      Packet matches:' }} {{ flow_data["STATE"].get("MATCHED_PACKETS", "-") }} frames {{ flow_data["STATE"].get("MATCHED_BYTES", "-") }} bytes
+                {% endfor %}
+            {% endfor %}
+        {% endfor %}
+    {% endfor %}
+{% endif %}

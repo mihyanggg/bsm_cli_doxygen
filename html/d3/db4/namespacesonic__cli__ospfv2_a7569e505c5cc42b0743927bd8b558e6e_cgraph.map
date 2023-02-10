@@ -1,0 +1,8 @@
+<map id="sonic_cli_ospfv2.patch_ospf_router_resdistribute_config" name="sonic_cli_ospfv2.patch_ospf_router_resdistribute_config">
+<area shape="rect" id="node1" title="OSPF Redistribute route config" alt="" coords="5,86,197,142"/>
+<area shape="rect" id="node2" href="$d3/db4/namespacesonic__cli__ospfv2.html#abab4f02196eabd551d445a008864ecd0" title=" " alt="" coords="245,5,416,47"/>
+<area shape="rect" id="node3" href="$d3/db4/namespacesonic__cli__ospfv2.html#a9298bb0991e7f1ba62892cfe15834b78" title=" " alt="" coords="491,35,652,76"/>
+<area shape="rect" id="node4" href="$d3/db4/namespacesonic__cli__ospfv2.html#ac81ecfa959c217fabead880212497317" title=" " alt="" coords="252,123,409,164"/>
+<area shape="rect" id="node5" href="$d3/db4/namespacesonic__cli__ospfv2.html#a900c75e2dd60d657b6854f43c8a54c45" title=" " alt="" coords="253,188,408,229"/>
+<area shape="rect" id="node6" href="$d3/db4/namespacesonic__cli__ospfv2.html#ad3470cfc600e758f8c410bfa94a02b71" title="OSPF uris" alt="" coords="464,188,679,229"/>
+</map>

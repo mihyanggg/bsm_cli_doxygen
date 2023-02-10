@@ -1,0 +1,9 @@
+<map id="sonic_cli_ospfv2.patch_ospf_router_passive_interface_config" name="sonic_cli_ospfv2.patch_ospf_router_passive_interface_config">
+<area shape="rect" id="node1" title="OSPF Passive interface config" alt="" coords="5,115,231,171"/>
+<area shape="rect" id="node2" href="$d3/db4/namespacesonic__cli__ospfv2.html#abab4f02196eabd551d445a008864ecd0" title=" " alt="" coords="279,5,449,47"/>
+<area shape="rect" id="node3" href="$d3/db4/namespacesonic__cli__ospfv2.html#a9298bb0991e7f1ba62892cfe15834b78" title=" " alt="" coords="524,35,685,76"/>
+<area shape="rect" id="node4" href="$d3/db4/namespacesonic__cli__ospfv2.html#ac81ecfa959c217fabead880212497317" title=" " alt="" coords="285,123,443,164"/>
+<area shape="rect" id="node5" href="$d3/db4/namespacesonic__cli__ospfv2.html#a7dbe26aa087513b9d4d37f2ab7c28b8a" title=" " alt="" coords="287,188,441,229"/>
+<area shape="rect" id="node6" href="$d3/db4/namespacesonic__cli__ospfv2.html#a900c75e2dd60d657b6854f43c8a54c45" title=" " alt="" coords="287,253,441,295"/>
+<area shape="rect" id="node7" href="$d3/db4/namespacesonic__cli__ospfv2.html#ad3470cfc600e758f8c410bfa94a02b71" title="OSPF uris" alt="" coords="497,253,712,295"/>
+</map>

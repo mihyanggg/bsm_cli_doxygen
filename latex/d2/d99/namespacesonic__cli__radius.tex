@@ -1,0 +1,633 @@
+\hypertarget{namespacesonic__cli__radius}{}\doxysection{sonic\+\_\+cli\+\_\+radius 네임스페이스 참조}
+\label{namespacesonic__cli__radius}\index{sonic\_cli\_radius@{sonic\_cli\_radius}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__radius_a1ec73546f43e993778c2f3a5ddeb64c4}{invoke\+\_\+api}} (func, args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__radius_ac1ad3bfe4206a110c97574bd72120c4f}{get\+\_\+sonic\+\_\+radius\+\_\+global}} ()
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__radius_a4cc8d6d03bb918059ab9f32d4d27f241}{get\+\_\+sonic\+\_\+radius\+\_\+servers}} (globals)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__radius_acc10d2bdfa64f936ba1e606c2b8c91fa}{run}} (func, args)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__radius_ae8fa2c61c9b99451b5ef18fc25426790}{S\+Y\+S\+T\+EM}} = \textquotesingle{}/restconf/data/openconfig-\/system\+:system/\textquotesingle{}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__radius_aa576f46a03d52d6eaed6bfbe4b05f774}{A\+AA}} = \mbox{\hyperlink{namespacesonic__cli__radius_ae8fa2c61c9b99451b5ef18fc25426790}{S\+Y\+S\+T\+EM}} + \textquotesingle{}aaa/\textquotesingle{}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__radius_a0e2394e5d02a8241a9445a8c9ace566a}{S\+E\+R\+V\+E\+R\+\_\+\+G\+R\+O\+U\+PS}} = \mbox{\hyperlink{namespacesonic__cli__radius_aa576f46a03d52d6eaed6bfbe4b05f774}{A\+AA}} + \textquotesingle{}server-\/groups/\textquotesingle{}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__radius_a80c4164266ceb537aceb37c02b58acfb}{R\+A\+D\+I\+U\+S\+\_\+\+S\+E\+R\+V\+E\+R\+\_\+\+G\+R\+O\+UP}} = \mbox{\hyperlink{namespacesonic__cli__radius_a0e2394e5d02a8241a9445a8c9ace566a}{S\+E\+R\+V\+E\+R\+\_\+\+G\+R\+O\+U\+PS}} + \textquotesingle{}server-\/group=R\+A\+D\+I\+US/\textquotesingle{}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__radius_a74e3785f67b897601df47cada665b353}{R\+A\+D\+I\+U\+S\+\_\+\+S\+E\+R\+V\+E\+R\+\_\+\+G\+R\+O\+U\+P\+\_\+\+C\+O\+N\+F\+IG}} = \mbox{\hyperlink{namespacesonic__cli__radius_a80c4164266ceb537aceb37c02b58acfb}{R\+A\+D\+I\+U\+S\+\_\+\+S\+E\+R\+V\+E\+R\+\_\+\+G\+R\+O\+UP}} + \textquotesingle{}config/\textquotesingle{}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__radius_ac42f5656242c39687e03aea9efe38fce}{R\+A\+D\+I\+U\+S\+\_\+\+C\+O\+N\+F\+IG}} = \mbox{\hyperlink{namespacesonic__cli__radius_a80c4164266ceb537aceb37c02b58acfb}{R\+A\+D\+I\+U\+S\+\_\+\+S\+E\+R\+V\+E\+R\+\_\+\+G\+R\+O\+UP}} + \textquotesingle{}openconfig-\/aaa-\/\mbox{\hyperlink{DB-PARSED_8txt_a1865eb3901c986ef93c8422c0236d799}{radius}}-\/ext\+:radius/config/\textquotesingle{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__radius_ac1ad3bfe4206a110c97574bd72120c4f}\label{namespacesonic__cli__radius_ac1ad3bfe4206a110c97574bd72120c4f}} 
+\index{sonic\_cli\_radius@{sonic\_cli\_radius}!get\_sonic\_radius\_global@{get\_sonic\_radius\_global}}
+\index{get\_sonic\_radius\_global@{get\_sonic\_radius\_global}!sonic\_cli\_radius@{sonic\_cli\_radius}}
+\doxysubsubsection{\texorpdfstring{get\_sonic\_radius\_global()}{get\_sonic\_radius\_global()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+radius.\+get\+\_\+sonic\+\_\+radius\+\_\+global (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}RADIUS KLISH globals show
+\end{DoxyVerb}
+ 
+
+sonic\+\_\+cli\+\_\+radius.\+py 파일의 291 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{291 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__radius_ac1ad3bfe4206a110c97574bd72120c4f}{get\_sonic\_radius\_global}}():}
+\DoxyCodeLine{292     \textcolor{stringliteral}{"""}}
+\DoxyCodeLine{293 \textcolor{stringliteral}{    RADIUS KLISH globals show}}
+\DoxyCodeLine{294 \textcolor{stringliteral}{    """}}
+\DoxyCodeLine{295     api\_response = \{\}}
+\DoxyCodeLine{296     api = cc.ApiClient()}
+\DoxyCodeLine{297 }
+\DoxyCodeLine{298     path = cc.Path(RADIUS\_SERVER\_GROUP\_CONFIG)}
+\DoxyCodeLine{299     response = api.get(path)}
+\DoxyCodeLine{300     \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{301         \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{and} \textcolor{stringliteral}{'openconfig-\/system:config'} \textcolor{keywordflow}{in} response.content:}
+\DoxyCodeLine{302             api\_response = (response.content)[\textcolor{stringliteral}{'openconfig-\/system:config'}]}
+\DoxyCodeLine{303 }
+\DoxyCodeLine{304     path = cc.Path(RADIUS\_CONFIG)}
+\DoxyCodeLine{305     response = api.get(path)}
+\DoxyCodeLine{306     \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{307         \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{and} \textcolor{stringliteral}{'openconfig-\/aaa-\/radius-\/ext:config'} \textcolor{keywordflow}{in} response.content:}
+\DoxyCodeLine{308             api\_response.update((response.content)[\textcolor{stringliteral}{'openconfig-\/aaa-\/radius-\/ext:config'}])}
+\DoxyCodeLine{309 }
+\DoxyCodeLine{310     \textcolor{keywordflow}{if} len(api\_response) > 0:}
+\DoxyCodeLine{311         \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{"show\_radius\_global.j2"}, api\_response)}
+\DoxyCodeLine{312     \textcolor{keywordflow}{return} api\_response}
+\DoxyCodeLine{313 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/d99/namespacesonic__cli__radius_ac1ad3bfe4206a110c97574bd72120c4f_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=347pt]{d2/d99/namespacesonic__cli__radius_ac1ad3bfe4206a110c97574bd72120c4f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__radius_a4cc8d6d03bb918059ab9f32d4d27f241}\label{namespacesonic__cli__radius_a4cc8d6d03bb918059ab9f32d4d27f241}} 
+\index{sonic\_cli\_radius@{sonic\_cli\_radius}!get\_sonic\_radius\_servers@{get\_sonic\_radius\_servers}}
+\index{get\_sonic\_radius\_servers@{get\_sonic\_radius\_servers}!sonic\_cli\_radius@{sonic\_cli\_radius}}
+\doxysubsubsection{\texorpdfstring{get\_sonic\_radius\_servers()}{get\_sonic\_radius\_servers()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+radius.\+get\+\_\+sonic\+\_\+radius\+\_\+servers (\begin{DoxyParamCaption}\item[{}]{globals }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}RADIUS KLISH server show
+\end{DoxyVerb}
+ 
+
+sonic\+\_\+cli\+\_\+radius.\+py 파일의 314 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{314 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__radius_a4cc8d6d03bb918059ab9f32d4d27f241}{get\_sonic\_radius\_servers}}(globals):}
+\DoxyCodeLine{315     \textcolor{stringliteral}{"""}}
+\DoxyCodeLine{316 \textcolor{stringliteral}{    RADIUS KLISH server show}}
+\DoxyCodeLine{317 \textcolor{stringliteral}{    """}}
+\DoxyCodeLine{318     api\_response = \{\}}
+\DoxyCodeLine{319     api = cc.ApiClient()}
+\DoxyCodeLine{320 }
+\DoxyCodeLine{321     path = cc.Path(RADIUS\_SERVER\_GROUP + \textcolor{stringliteral}{'servers'})}
+\DoxyCodeLine{322     response = api.get(path)}
+\DoxyCodeLine{323 }
+\DoxyCodeLine{324     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response.ok():}
+\DoxyCodeLine{325         print(\textcolor{stringliteral}{"\%Error: Get Failure"})}
+\DoxyCodeLine{326         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{327 }
+\DoxyCodeLine{328     \textcolor{keywordflow}{if}    (\textcolor{keywordflow}{not} response.content)\(\backslash\)}
+\DoxyCodeLine{329        \textcolor{keywordflow}{or} (\textcolor{keywordflow}{not} \textcolor{stringliteral}{'openconfig-\/system:servers'} \textcolor{keywordflow}{in} response.content)\(\backslash\)}
+\DoxyCodeLine{330        \textcolor{keywordflow}{or} (\textcolor{keywordflow}{not} \textcolor{stringliteral}{'server'} \textcolor{keywordflow}{in} response.content[\textcolor{stringliteral}{'openconfig-\/system:servers'}]):}
+\DoxyCodeLine{331         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{332     server\_list =  response.content[\textcolor{stringliteral}{'openconfig-\/system:servers'}][\textcolor{stringliteral}{'server'}]}
+\DoxyCodeLine{333 }
+\DoxyCodeLine{334     api\_response[\textcolor{stringliteral}{'header'}] = \textcolor{stringliteral}{'True'}}
+\DoxyCodeLine{335     \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{"show\_radius\_server.j2"}, api\_response)}
+\DoxyCodeLine{336 }
+\DoxyCodeLine{337     \textcolor{keywordflow}{for} server \textcolor{keywordflow}{in} server\_list:}
+\DoxyCodeLine{338         api\_response.clear()}
+\DoxyCodeLine{339         api\_response[\textcolor{stringliteral}{'header'}] = \textcolor{stringliteral}{'False'}}
+\DoxyCodeLine{340         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'address'} \textcolor{keywordflow}{in} server:}
+\DoxyCodeLine{341             api\_response[\textcolor{stringliteral}{'address'}] = server[\textcolor{stringliteral}{'address'}]}
+\DoxyCodeLine{342 }
+\DoxyCodeLine{343         api\_response[\textcolor{stringliteral}{'timeout'}] = \textcolor{stringliteral}{"-\/"}}
+\DoxyCodeLine{344         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'config'} \textcolor{keywordflow}{in} server \(\backslash\)}
+\DoxyCodeLine{345                 \textcolor{keywordflow}{and} \textcolor{stringliteral}{'timeout'} \textcolor{keywordflow}{in} server[\textcolor{stringliteral}{'config'}]:}
+\DoxyCodeLine{346             api\_response[\textcolor{stringliteral}{'timeout'}] = server[\textcolor{stringliteral}{'config'}][\textcolor{stringliteral}{'timeout'}]}
+\DoxyCodeLine{347 }
+\DoxyCodeLine{348         api\_response[\textcolor{stringliteral}{'port'}] = \textcolor{stringliteral}{"-\/"}}
+\DoxyCodeLine{349         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'radius'} \textcolor{keywordflow}{in} server \(\backslash\)}
+\DoxyCodeLine{350                 \textcolor{keywordflow}{and} \textcolor{stringliteral}{'config'} \textcolor{keywordflow}{in} server[\textcolor{stringliteral}{'radius'}] \(\backslash\)}
+\DoxyCodeLine{351                 \textcolor{keywordflow}{and} \textcolor{stringliteral}{'auth-\/port'} \textcolor{keywordflow}{in} server[\textcolor{stringliteral}{'radius'}][\textcolor{stringliteral}{'config'}]:}
+\DoxyCodeLine{352             api\_response[\textcolor{stringliteral}{'port'}] = server[\textcolor{stringliteral}{'radius'}][\textcolor{stringliteral}{'config'}][\textcolor{stringliteral}{'auth-\/port'}]}
+\DoxyCodeLine{353 }
+\DoxyCodeLine{354         api\_response[\textcolor{stringliteral}{'key'}] = \textcolor{stringliteral}{"-\/"}}
+\DoxyCodeLine{355         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'radius'} \textcolor{keywordflow}{in} server \(\backslash\)}
+\DoxyCodeLine{356                 \textcolor{keywordflow}{and} \textcolor{stringliteral}{'config'} \textcolor{keywordflow}{in} server[\textcolor{stringliteral}{'radius'}] \(\backslash\)}
+\DoxyCodeLine{357                 \textcolor{keywordflow}{and} \textcolor{stringliteral}{'secret-\/key'} \textcolor{keywordflow}{in} server[\textcolor{stringliteral}{'radius'}][\textcolor{stringliteral}{'config'}]:}
+\DoxyCodeLine{358             api\_response[\textcolor{stringliteral}{'key'}] = server[\textcolor{stringliteral}{'radius'}][\textcolor{stringliteral}{'config'}][\textcolor{stringliteral}{'secret-\/key'}]}
+\DoxyCodeLine{359 }
+\DoxyCodeLine{360         api\_response[\textcolor{stringliteral}{'retransmit'}] = \textcolor{stringliteral}{"-\/"}}
+\DoxyCodeLine{361         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'radius'} \textcolor{keywordflow}{in} server \(\backslash\)}
+\DoxyCodeLine{362                 \textcolor{keywordflow}{and} \textcolor{stringliteral}{'config'} \textcolor{keywordflow}{in} server[\textcolor{stringliteral}{'radius'}] \(\backslash\)}
+\DoxyCodeLine{363                 \textcolor{keywordflow}{and} \textcolor{stringliteral}{'retransmit-\/attempts'} \textcolor{keywordflow}{in} server[\textcolor{stringliteral}{'radius'}][\textcolor{stringliteral}{'config'}]:}
+\DoxyCodeLine{364             api\_response[\textcolor{stringliteral}{'retransmit'}] = \(\backslash\)}
+\DoxyCodeLine{365                 server[\textcolor{stringliteral}{'radius'}][\textcolor{stringliteral}{'config'}][\textcolor{stringliteral}{'retransmit-\/attempts'}]}
+\DoxyCodeLine{366 }
+\DoxyCodeLine{367         api\_response[\textcolor{stringliteral}{'authtype'}] = \textcolor{stringliteral}{"-\/"}}
+\DoxyCodeLine{368         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'config'} \textcolor{keywordflow}{in} server \(\backslash\)}
+\DoxyCodeLine{369                 \textcolor{keywordflow}{and} \textcolor{stringliteral}{'openconfig-\/system-\/ext:auth-\/type'} \textcolor{keywordflow}{in} server[\textcolor{stringliteral}{'config'}]:}
+\DoxyCodeLine{370             api\_response[\textcolor{stringliteral}{'authtype'}] = \(\backslash\)}
+\DoxyCodeLine{371                 server[\textcolor{stringliteral}{'config'}][\textcolor{stringliteral}{'openconfig-\/system-\/ext:auth-\/type'}]}
+\DoxyCodeLine{372 }
+\DoxyCodeLine{373         api\_response[\textcolor{stringliteral}{'priority'}] = \textcolor{stringliteral}{"-\/"}}
+\DoxyCodeLine{374         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'config'} \textcolor{keywordflow}{in} server \(\backslash\)}
+\DoxyCodeLine{375                 \textcolor{keywordflow}{and} \textcolor{stringliteral}{'openconfig-\/system-\/ext:priority'} \textcolor{keywordflow}{in} server[\textcolor{stringliteral}{'config'}]:}
+\DoxyCodeLine{376             api\_response[\textcolor{stringliteral}{'priority'}] = \(\backslash\)}
+\DoxyCodeLine{377                 server[\textcolor{stringliteral}{'config'}][\textcolor{stringliteral}{'openconfig-\/system-\/ext:priority'}]}
+\DoxyCodeLine{378 }
+\DoxyCodeLine{379         api\_response[\textcolor{stringliteral}{'vrf'}] = \textcolor{stringliteral}{"-\/"}}
+\DoxyCodeLine{380         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'config'} \textcolor{keywordflow}{in} server \(\backslash\)}
+\DoxyCodeLine{381                 \textcolor{keywordflow}{and} \textcolor{stringliteral}{'openconfig-\/system-\/ext:vrf'} \textcolor{keywordflow}{in} server[\textcolor{stringliteral}{'config'}]:}
+\DoxyCodeLine{382             api\_response[\textcolor{stringliteral}{'vrf'}] = \(\backslash\)}
+\DoxyCodeLine{383                 server[\textcolor{stringliteral}{'config'}][\textcolor{stringliteral}{'openconfig-\/system-\/ext:vrf'}]}
+\DoxyCodeLine{384 }
+\DoxyCodeLine{385         api\_response[\textcolor{stringliteral}{'src\_intf'}] = \textcolor{stringliteral}{"-\/"}}
+\DoxyCodeLine{386         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'radius'} \textcolor{keywordflow}{in} server \(\backslash\)}
+\DoxyCodeLine{387                 \textcolor{keywordflow}{and} \textcolor{stringliteral}{'config'} \textcolor{keywordflow}{in} server[\textcolor{stringliteral}{'radius'}] \(\backslash\)}
+\DoxyCodeLine{388                 \textcolor{keywordflow}{and} \textcolor{stringliteral}{'openconfig-\/aaa-\/radius-\/ext:source-\/interface'} \(\backslash\)}
+\DoxyCodeLine{389                     \textcolor{keywordflow}{in} server[\textcolor{stringliteral}{'radius'}][\textcolor{stringliteral}{'config'}]:}
+\DoxyCodeLine{390             api\_response[\textcolor{stringliteral}{'src\_intf'}] = server[\textcolor{stringliteral}{'radius'}][\textcolor{stringliteral}{'config'}]\(\backslash\)}
+\DoxyCodeLine{391                 [\textcolor{stringliteral}{'openconfig-\/aaa-\/radius-\/ext:source-\/interface'}]}
+\DoxyCodeLine{392 }
+\DoxyCodeLine{393         \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{"show\_radius\_server.j2"}, api\_response)}
+\DoxyCodeLine{394 }
+\DoxyCodeLine{395     statistics = \textcolor{stringliteral}{'False'}}
+\DoxyCodeLine{396     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'statistics'} \textcolor{keywordflow}{in} globals:}
+\DoxyCodeLine{397         statistics = globals[\textcolor{stringliteral}{'statistics'}]}
+\DoxyCodeLine{398 }
+\DoxyCodeLine{399     \textcolor{keywordflow}{if} statistics != \textcolor{keyword}{True}:}
+\DoxyCodeLine{400         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{401 }
+\DoxyCodeLine{402     api\_response[\textcolor{stringliteral}{'header'}] = \textcolor{stringliteral}{'True'}}
+\DoxyCodeLine{403     \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{"show\_radius\_statistics.j2"}, api\_response)}
+\DoxyCodeLine{404 }
+\DoxyCodeLine{405     \textcolor{keywordflow}{for} server \textcolor{keywordflow}{in} server\_list:}
+\DoxyCodeLine{406         api\_response.clear()}
+\DoxyCodeLine{407         api\_response[\textcolor{stringliteral}{'header'}] = \textcolor{stringliteral}{'False'}}
+\DoxyCodeLine{408         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'address'} \textcolor{keywordflow}{in} server:}
+\DoxyCodeLine{409             api\_response[\textcolor{stringliteral}{'address'}] = server[\textcolor{stringliteral}{'address'}]}
+\DoxyCodeLine{410         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'radius'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} server \textcolor{keywordflow}{or} \(\backslash\)}
+\DoxyCodeLine{411            \textcolor{stringliteral}{'state'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} server[\textcolor{stringliteral}{'radius'}] \textcolor{keywordflow}{or} \(\backslash\)}
+\DoxyCodeLine{412            \textcolor{stringliteral}{'counters'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} server[\textcolor{stringliteral}{'radius'}][\textcolor{stringliteral}{'state'}]:}
+\DoxyCodeLine{413             \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{414         counters = server[\textcolor{stringliteral}{'radius'}][\textcolor{stringliteral}{'state'}][\textcolor{stringliteral}{'counters'}]}
+\DoxyCodeLine{415         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'access-\/accepts'} \textcolor{keywordflow}{in} counters:}
+\DoxyCodeLine{416             api\_response[\textcolor{stringliteral}{'access-\/accepts'}] = counters[\textcolor{stringliteral}{'access-\/accepts'}]}
+\DoxyCodeLine{417         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'access-\/rejects'} \textcolor{keywordflow}{in} counters:}
+\DoxyCodeLine{418             api\_response[\textcolor{stringliteral}{'access-\/rejects'}] = counters[\textcolor{stringliteral}{'access-\/rejects'}]}
+\DoxyCodeLine{419         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/aaa-\/radius-\/ext:access-\/requests'} \textcolor{keywordflow}{in} counters:}
+\DoxyCodeLine{420             api\_response[\textcolor{stringliteral}{'access-\/requests'}] = \(\backslash\)}
+\DoxyCodeLine{421                 counters[\textcolor{stringliteral}{'openconfig-\/aaa-\/radius-\/ext:access-\/requests'}]}
+\DoxyCodeLine{422         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/aaa-\/radius-\/ext:retried-\/access-\/requests'} \textcolor{keywordflow}{in} counters:}
+\DoxyCodeLine{423             api\_response[\textcolor{stringliteral}{'retried-\/access-\/requests'}] = \(\backslash\)}
+\DoxyCodeLine{424                 counters[\textcolor{stringliteral}{'openconfig-\/aaa-\/radius-\/ext:retried-\/access-\/requests'}]}
+\DoxyCodeLine{425         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'timeout-\/access-\/requests'} \textcolor{keywordflow}{in} counters:}
+\DoxyCodeLine{426             api\_response[\textcolor{stringliteral}{'timeout-\/access-\/requests'}] = \(\backslash\)}
+\DoxyCodeLine{427                 counters[\textcolor{stringliteral}{'timeout-\/access-\/requests'}]}
+\DoxyCodeLine{428         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/aaa-\/radius-\/ext:access-\/challenges'} \textcolor{keywordflow}{in} counters:}
+\DoxyCodeLine{429             api\_response[\textcolor{stringliteral}{'access-\/challenges'}] = \(\backslash\)}
+\DoxyCodeLine{430                 counters[\textcolor{stringliteral}{'openconfig-\/aaa-\/radius-\/ext:access-\/challenges'}]}
+\DoxyCodeLine{431         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/aaa-\/radius-\/ext:bad-\/authenticators'} \textcolor{keywordflow}{in} counters:}
+\DoxyCodeLine{432             api\_response[\textcolor{stringliteral}{'bad-\/authenticators'}] = \(\backslash\)}
+\DoxyCodeLine{433                 counters[\textcolor{stringliteral}{'openconfig-\/aaa-\/radius-\/ext:bad-\/authenticators'}]}
+\DoxyCodeLine{434         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/aaa-\/radius-\/ext:invalid-\/packets'} \textcolor{keywordflow}{in} counters:}
+\DoxyCodeLine{435             api\_response[\textcolor{stringliteral}{'invalid-\/packets'}] = \(\backslash\)}
+\DoxyCodeLine{436                 counters[\textcolor{stringliteral}{'openconfig-\/aaa-\/radius-\/ext:invalid-\/packets'}]}
+\DoxyCodeLine{437 }
+\DoxyCodeLine{438         \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{"show\_radius\_statistics.j2"}, api\_response)}
+\DoxyCodeLine{439 }
+\DoxyCodeLine{440 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/d99/namespacesonic__cli__radius_a4cc8d6d03bb918059ab9f32d4d27f241_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/d99/namespacesonic__cli__radius_a4cc8d6d03bb918059ab9f32d4d27f241_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__radius_a1ec73546f43e993778c2f3a5ddeb64c4}\label{namespacesonic__cli__radius_a1ec73546f43e993778c2f3a5ddeb64c4}} 
+\index{sonic\_cli\_radius@{sonic\_cli\_radius}!invoke\_api@{invoke\_api}}
+\index{invoke\_api@{invoke\_api}!sonic\_cli\_radius@{sonic\_cli\_radius}}
+\doxysubsubsection{\texorpdfstring{invoke\_api()}{invoke\_api()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+radius.\+invoke\+\_\+api (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Make the REST request for RADIUS
+\end{DoxyVerb}
+ 
+
+sonic\+\_\+cli\+\_\+radius.\+py 파일의 36 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{36 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__radius_a1ec73546f43e993778c2f3a5ddeb64c4}{invoke\_api}}(func, args):}
+\DoxyCodeLine{37     \textcolor{stringliteral}{"""}}
+\DoxyCodeLine{38 \textcolor{stringliteral}{    Make the REST request for RADIUS}}
+\DoxyCodeLine{39 \textcolor{stringliteral}{    """}}
+\DoxyCodeLine{40     api = cc.ApiClient()}
+\DoxyCodeLine{41     keypath = []}
+\DoxyCodeLine{42     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_openconfig\_radius\_global\_config\_source\_address'}:}
+\DoxyCodeLine{45         keypath = cc.Path(SERVER\_GROUPS)}
+\DoxyCodeLine{46         body = \(\backslash\)}
+\DoxyCodeLine{47         \{ \textcolor{stringliteral}{"openconfig-\/system:server-\/groups"}: \{\(\backslash\)}
+\DoxyCodeLine{48             \textcolor{stringliteral}{"openconfig-\/system:server-\/group"}: [\{\(\backslash\)}
+\DoxyCodeLine{49               \textcolor{stringliteral}{"openconfig-\/system:name"}: \textcolor{stringliteral}{"RADIUS"},\(\backslash\)}
+\DoxyCodeLine{50               \textcolor{stringliteral}{"openconfig-\/system:config"}: \{\(\backslash\)}
+\DoxyCodeLine{51                 \textcolor{stringliteral}{"openconfig-\/system:name"}: \textcolor{stringliteral}{"RADIUS"},\(\backslash\)}
+\DoxyCodeLine{52                 \textcolor{stringliteral}{"openconfig-\/system-\/ext:source-\/address"}: args[0]\(\backslash\)}
+\DoxyCodeLine{53               \}\(\backslash\)}
+\DoxyCodeLine{54             \}]\(\backslash\)}
+\DoxyCodeLine{55           \}\(\backslash\)}
+\DoxyCodeLine{56         \}}
+\DoxyCodeLine{57         \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{58     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_radius\_global\_config\_nas\_ip\_address'}:}
+\DoxyCodeLine{59         keypath = cc.Path(SERVER\_GROUPS)}
+\DoxyCodeLine{60         body = \(\backslash\)}
+\DoxyCodeLine{61         \{ \textcolor{stringliteral}{"openconfig-\/system:server-\/groups"}: \{\(\backslash\)}
+\DoxyCodeLine{62             \textcolor{stringliteral}{"openconfig-\/system:server-\/group"}: [\{\(\backslash\)}
+\DoxyCodeLine{63               \textcolor{stringliteral}{"openconfig-\/system:name"}: \textcolor{stringliteral}{"RADIUS"},\(\backslash\)}
+\DoxyCodeLine{64               \textcolor{stringliteral}{"openconfig-\/system:config"}: \{\(\backslash\)}
+\DoxyCodeLine{65                 \textcolor{stringliteral}{"openconfig-\/system:name"}: \textcolor{stringliteral}{"RADIUS"}\(\backslash\)}
+\DoxyCodeLine{66               \},\(\backslash\)}
+\DoxyCodeLine{67               \textcolor{stringliteral}{"openconfig-\/aaa-\/radius-\/ext:radius"}: \{\(\backslash\)}
+\DoxyCodeLine{68                 \textcolor{stringliteral}{"openconfig-\/aaa-\/radius-\/ext:config"}: \{\(\backslash\)}
+\DoxyCodeLine{69                   \textcolor{stringliteral}{"openconfig-\/aaa-\/radius-\/ext:nas-\/ip-\/address"}: args[0]\(\backslash\)}
+\DoxyCodeLine{70                 \}\(\backslash\)}
+\DoxyCodeLine{71               \}\(\backslash\)}
+\DoxyCodeLine{72             \}]\(\backslash\)}
+\DoxyCodeLine{73           \}\(\backslash\)}
+\DoxyCodeLine{74         \}}
+\DoxyCodeLine{75         \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{76     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_radius\_global\_config\_statistics'}:}
+\DoxyCodeLine{77         \textcolor{keywordflow}{if} args[0] == \textcolor{stringliteral}{'enable'}:}
+\DoxyCodeLine{78             keypath = cc.Path(SERVER\_GROUPS)}
+\DoxyCodeLine{79             body = \(\backslash\)}
+\DoxyCodeLine{80             \{ \textcolor{stringliteral}{"openconfig-\/system:server-\/groups"}: \{\(\backslash\)}
+\DoxyCodeLine{81                 \textcolor{stringliteral}{"openconfig-\/system:server-\/group"}: [\{\(\backslash\)}
+\DoxyCodeLine{82                   \textcolor{stringliteral}{"openconfig-\/system:name"}: \textcolor{stringliteral}{"RADIUS"},\(\backslash\)}
+\DoxyCodeLine{83                   \textcolor{stringliteral}{"openconfig-\/system:config"}: \{\(\backslash\)}
+\DoxyCodeLine{84                     \textcolor{stringliteral}{"openconfig-\/system:name"}: \textcolor{stringliteral}{"RADIUS"}\(\backslash\)}
+\DoxyCodeLine{85                   \},\(\backslash\)}
+\DoxyCodeLine{86                   \textcolor{stringliteral}{"openconfig-\/aaa-\/radius-\/ext:radius"}: \{\(\backslash\)}
+\DoxyCodeLine{87                     \textcolor{stringliteral}{"openconfig-\/aaa-\/radius-\/ext:config"}: \{\(\backslash\)}
+\DoxyCodeLine{88                       \textcolor{stringliteral}{"openconfig-\/aaa-\/radius-\/ext:statistics"}: \textcolor{keyword}{True}\(\backslash\)}
+\DoxyCodeLine{89                     \}\(\backslash\)}
+\DoxyCodeLine{90                   \}\(\backslash\)}
+\DoxyCodeLine{91                 \}]\(\backslash\)}
+\DoxyCodeLine{92               \}\(\backslash\)}
+\DoxyCodeLine{93             \}}
+\DoxyCodeLine{94             \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{95         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{96             keypath = cc.Path(RADIUS\_CONFIG + \textcolor{stringliteral}{'statistics'})}
+\DoxyCodeLine{97             \textcolor{keywordflow}{return} api.delete(keypath)}
+\DoxyCodeLine{98     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_radius\_global\_config\_timeout'}:}
+\DoxyCodeLine{99         keypath = cc.Path(SERVER\_GROUPS)}
+\DoxyCodeLine{100         body = \(\backslash\)}
+\DoxyCodeLine{101         \{ \textcolor{stringliteral}{"openconfig-\/system:server-\/groups"}: \{\(\backslash\)}
+\DoxyCodeLine{102             \textcolor{stringliteral}{"openconfig-\/system:server-\/group"}: [\{\(\backslash\)}
+\DoxyCodeLine{103               \textcolor{stringliteral}{"openconfig-\/system:name"}: \textcolor{stringliteral}{"RADIUS"},\(\backslash\)}
+\DoxyCodeLine{104               \textcolor{stringliteral}{"openconfig-\/system:config"}: \{\(\backslash\)}
+\DoxyCodeLine{105                 \textcolor{stringliteral}{"openconfig-\/system:name"}: \textcolor{stringliteral}{"RADIUS"},\(\backslash\)}
+\DoxyCodeLine{106                 \textcolor{stringliteral}{"openconfig-\/system-\/ext:timeout"}: int(args[0])\(\backslash\)}
+\DoxyCodeLine{107               \}\(\backslash\)}
+\DoxyCodeLine{108             \}]\(\backslash\)}
+\DoxyCodeLine{109           \}\(\backslash\)}
+\DoxyCodeLine{110         \}}
+\DoxyCodeLine{111         \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{112     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_radius\_global\_config\_retransmit'}:}
+\DoxyCodeLine{113         keypath = cc.Path(SERVER\_GROUPS)}
+\DoxyCodeLine{114         body = \(\backslash\)}
+\DoxyCodeLine{115         \{ \textcolor{stringliteral}{"openconfig-\/system:server-\/groups"}: \{\(\backslash\)}
+\DoxyCodeLine{116             \textcolor{stringliteral}{"openconfig-\/system:server-\/group"}: [\{\(\backslash\)}
+\DoxyCodeLine{117               \textcolor{stringliteral}{"openconfig-\/system:name"}: \textcolor{stringliteral}{"RADIUS"},\(\backslash\)}
+\DoxyCodeLine{118               \textcolor{stringliteral}{"openconfig-\/system:config"}: \{\(\backslash\)}
+\DoxyCodeLine{119                   \textcolor{stringliteral}{"openconfig-\/system:name"}: \textcolor{stringliteral}{"RADIUS"}\(\backslash\)}
+\DoxyCodeLine{120               \},\(\backslash\)}
+\DoxyCodeLine{121               \textcolor{stringliteral}{"openconfig-\/aaa-\/radius-\/ext:radius"}: \{\(\backslash\)}
+\DoxyCodeLine{122                 \textcolor{stringliteral}{"openconfig-\/aaa-\/radius-\/ext:config"}: \{\(\backslash\)}
+\DoxyCodeLine{123                   \textcolor{stringliteral}{"openconfig-\/aaa-\/radius-\/ext:retransmit-\/attempts"}: int(args[0])\(\backslash\)}
+\DoxyCodeLine{124                 \}\(\backslash\)}
+\DoxyCodeLine{125               \}\(\backslash\)}
+\DoxyCodeLine{126             \}]\(\backslash\)}
+\DoxyCodeLine{127           \}\(\backslash\)}
+\DoxyCodeLine{128         \}}
+\DoxyCodeLine{129         \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{130     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_radius\_global\_config\_key'}:}
+\DoxyCodeLine{131         keypath = cc.Path(SERVER\_GROUPS)}
+\DoxyCodeLine{132         body = \(\backslash\)}
+\DoxyCodeLine{133         \{ \textcolor{stringliteral}{"openconfig-\/system:server-\/groups"}: \{\(\backslash\)}
+\DoxyCodeLine{134             \textcolor{stringliteral}{"openconfig-\/system:server-\/group"}: [\{\(\backslash\)}
+\DoxyCodeLine{135               \textcolor{stringliteral}{"openconfig-\/system:name"}: \textcolor{stringliteral}{"RADIUS"},\(\backslash\)}
+\DoxyCodeLine{136               \textcolor{stringliteral}{"openconfig-\/system:config"}: \{\(\backslash\)}
+\DoxyCodeLine{137                 \textcolor{stringliteral}{"openconfig-\/system:name"}: \textcolor{stringliteral}{"RADIUS"},\(\backslash\)}
+\DoxyCodeLine{138                 \textcolor{stringliteral}{"openconfig-\/system-\/ext:secret-\/key"}: (args[0]).replace(\textcolor{stringliteral}{"\(\backslash\)\(\backslash\)\(\backslash\)\(\backslash\)"}, \textcolor{stringliteral}{"\(\backslash\)\(\backslash\)"}),\(\backslash\)}
+\DoxyCodeLine{139                 \textcolor{stringliteral}{"openconfig-\/system-\/ext:encrypted"}: \textcolor{keyword}{False} \textcolor{keywordflow}{if} len(args) < 2 \textcolor{keywordflow}{else} \textcolor{keyword}{True} \(\backslash\)}
+\DoxyCodeLine{140               \}\(\backslash\)}
+\DoxyCodeLine{141             \}]\(\backslash\)}
+\DoxyCodeLine{142           \}\(\backslash\)}
+\DoxyCodeLine{143         \}}
+\DoxyCodeLine{144         \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{145     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_radius\_global\_config\_auth\_type'}:}
+\DoxyCodeLine{146         keypath = cc.Path(SERVER\_GROUPS)}
+\DoxyCodeLine{147         body = \(\backslash\)}
+\DoxyCodeLine{148         \{ \textcolor{stringliteral}{"openconfig-\/system:server-\/groups"}: \{\(\backslash\)}
+\DoxyCodeLine{149             \textcolor{stringliteral}{"openconfig-\/system:server-\/group"}: [\{\(\backslash\)}
+\DoxyCodeLine{150               \textcolor{stringliteral}{"openconfig-\/system:name"}: \textcolor{stringliteral}{"RADIUS"},\(\backslash\)}
+\DoxyCodeLine{151               \textcolor{stringliteral}{"openconfig-\/system:config"}: \{\(\backslash\)}
+\DoxyCodeLine{152                 \textcolor{stringliteral}{"openconfig-\/system:name"}: \textcolor{stringliteral}{"RADIUS"},\(\backslash\)}
+\DoxyCodeLine{153                 \textcolor{stringliteral}{"openconfig-\/system-\/ext:auth-\/type"}: args[0]\(\backslash\)}
+\DoxyCodeLine{154               \}\(\backslash\)}
+\DoxyCodeLine{155             \}]\(\backslash\)}
+\DoxyCodeLine{156           \}\(\backslash\)}
+\DoxyCodeLine{157         \}}
+\DoxyCodeLine{158         \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{159     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_radius\_global\_config\_host'}:}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161         auth\_port = (args[1])[10:]}
+\DoxyCodeLine{162         timeout = (args[2])[8:]}
+\DoxyCodeLine{163         retransmit = (args[3])[11:]}
+\DoxyCodeLine{164         key = ((args[4])[4:]).replace(\textcolor{stringliteral}{"\(\backslash\)\(\backslash\)\(\backslash\)\(\backslash\)"}, \textcolor{stringliteral}{"\(\backslash\)\(\backslash\)"})}
+\DoxyCodeLine{165         auth\_type = (args[5])[10:]}
+\DoxyCodeLine{166         priority = (args[6])[9:]}
+\DoxyCodeLine{167         vrf = (args[7])[4:]}
+\DoxyCodeLine{168         source\_interface = (args[8])[17:]}
+\DoxyCodeLine{169         \textcolor{keywordflow}{if} len(source\_interface) != 0:}
+\DoxyCodeLine{170             max\_args = 10}
+\DoxyCodeLine{171         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{172             max\_args = 9}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174         body = \{}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{176                  \textcolor{stringliteral}{"openconfig-\/system:server"}: [\{}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{178                        \textcolor{stringliteral}{"openconfig-\/system:address"}: args[0],}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180                        \textcolor{stringliteral}{"openconfig-\/system:config"}: \{}
+\DoxyCodeLine{181                            \textcolor{stringliteral}{"address"}: args[0],}
+\DoxyCodeLine{182                        \},}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184                        \textcolor{stringliteral}{"openconfig-\/system:radius"}: \{}
+\DoxyCodeLine{185                            \textcolor{stringliteral}{"openconfig-\/system:config"}: \{}
+\DoxyCodeLine{186                            \}}
+\DoxyCodeLine{187                        \}}
+\DoxyCodeLine{188                   \}]}
+\DoxyCodeLine{189                \}}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{191         \textcolor{keywordflow}{if} len(auth\_port) != 0:}
+\DoxyCodeLine{192             body[\textcolor{stringliteral}{"openconfig-\/system:server"}][0][\textcolor{stringliteral}{"openconfig-\/system:radius"}]\(\backslash\)}
+\DoxyCodeLine{193                 [\textcolor{stringliteral}{"openconfig-\/system:config"}][\textcolor{stringliteral}{"auth-\/port"}] = int(auth\_port)}
+\DoxyCodeLine{194         \textcolor{keywordflow}{if} len(retransmit) != 0:}
+\DoxyCodeLine{195             body[\textcolor{stringliteral}{"openconfig-\/system:server"}][0][\textcolor{stringliteral}{"openconfig-\/system:radius"}]\(\backslash\)}
+\DoxyCodeLine{196                 [\textcolor{stringliteral}{"openconfig-\/system:config"}][\textcolor{stringliteral}{"retransmit-\/attempts"}] \(\backslash\)}
+\DoxyCodeLine{197                 = int(retransmit)}
+\DoxyCodeLine{198         \textcolor{keywordflow}{if} len(key) != 0:}
+\DoxyCodeLine{199             body[\textcolor{stringliteral}{"openconfig-\/system:server"}][0][\textcolor{stringliteral}{"openconfig-\/system:radius"}]\(\backslash\)}
+\DoxyCodeLine{200                 [\textcolor{stringliteral}{"openconfig-\/system:config"}][\textcolor{stringliteral}{"secret-\/key"}] = key}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{202         \textcolor{keywordflow}{if} len(args) > max\_args:}
+\DoxyCodeLine{203             body[\textcolor{stringliteral}{"openconfig-\/system:server"}][0][\textcolor{stringliteral}{"openconfig-\/system:radius"}]\(\backslash\)}
+\DoxyCodeLine{204                 [\textcolor{stringliteral}{"openconfig-\/system:config"}][\textcolor{stringliteral}{"encrypted"}] = \textcolor{keyword}{True}}
+\DoxyCodeLine{205         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{206             body[\textcolor{stringliteral}{"openconfig-\/system:server"}][0][\textcolor{stringliteral}{"openconfig-\/system:radius"}]\(\backslash\)}
+\DoxyCodeLine{207                 [\textcolor{stringliteral}{"openconfig-\/system:config"}][\textcolor{stringliteral}{"encrypted"}] = \textcolor{keyword}{False}}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{209         \textcolor{keywordflow}{if} len(timeout) != 0:}
+\DoxyCodeLine{210             body[\textcolor{stringliteral}{"openconfig-\/system:server"}][0][\textcolor{stringliteral}{"openconfig-\/system:config"}]\(\backslash\)}
+\DoxyCodeLine{211                 [\textcolor{stringliteral}{"timeout"}] = int(timeout)}
+\DoxyCodeLine{212         \textcolor{keywordflow}{if} len(auth\_type) != 0:}
+\DoxyCodeLine{213             body[\textcolor{stringliteral}{"openconfig-\/system:server"}][0][\textcolor{stringliteral}{"openconfig-\/system:config"}]\(\backslash\)}
+\DoxyCodeLine{214                 [\textcolor{stringliteral}{"openconfig-\/system-\/ext:auth-\/type"}] = auth\_type}
+\DoxyCodeLine{215         \textcolor{keywordflow}{if} len(priority) != 0:}
+\DoxyCodeLine{216             body[\textcolor{stringliteral}{"openconfig-\/system:server"}][0][\textcolor{stringliteral}{"openconfig-\/system:config"}]\(\backslash\)}
+\DoxyCodeLine{217                 [\textcolor{stringliteral}{"openconfig-\/system-\/ext:priority"}] = int(priority)}
+\DoxyCodeLine{218         \textcolor{keywordflow}{if} len(vrf) != 0:}
+\DoxyCodeLine{219             body[\textcolor{stringliteral}{"openconfig-\/system:server"}][0][\textcolor{stringliteral}{"openconfig-\/system:config"}]\(\backslash\)}
+\DoxyCodeLine{220                 [\textcolor{stringliteral}{"openconfig-\/system-\/ext:vrf"}] = vrf}
+\DoxyCodeLine{221         \textcolor{keywordflow}{if} len(source\_interface) != 0:}
+\DoxyCodeLine{222             body[\textcolor{stringliteral}{"openconfig-\/system:server"}][0][\textcolor{stringliteral}{"openconfig-\/system:radius"}]\(\backslash\)}
+\DoxyCodeLine{223                 [\textcolor{stringliteral}{"openconfig-\/system:config"}]\(\backslash\)}
+\DoxyCodeLine{224                 [\textcolor{stringliteral}{"openconfig-\/aaa-\/radius-\/ext:source-\/interface"}] = args[9] \(\backslash\)}
+\DoxyCodeLine{225                     \textcolor{keywordflow}{if} args[9] != \textcolor{stringliteral}{'Management0'} \textcolor{keywordflow}{else} \textcolor{stringliteral}{'eth0'}}
+\DoxyCodeLine{226 }
+\DoxyCodeLine{227         keypath = cc.Path(SERVER\_GROUPS)}
+\DoxyCodeLine{228         restconf\_body = \(\backslash\)}
+\DoxyCodeLine{229         \{ \textcolor{stringliteral}{"openconfig-\/system:server-\/groups"}: \{\(\backslash\)}
+\DoxyCodeLine{230             \textcolor{stringliteral}{"openconfig-\/system:server-\/group"}: [\{\(\backslash\)}
+\DoxyCodeLine{231               \textcolor{stringliteral}{"openconfig-\/system:name"}: \textcolor{stringliteral}{"RADIUS"},\(\backslash\)}
+\DoxyCodeLine{232               \textcolor{stringliteral}{"openconfig-\/system:config"}: \{\(\backslash\)}
+\DoxyCodeLine{233                 \textcolor{stringliteral}{"openconfig-\/system:name"}: \textcolor{stringliteral}{"RADIUS"}\(\backslash\)}
+\DoxyCodeLine{234               \},\(\backslash\)}
+\DoxyCodeLine{235               \textcolor{stringliteral}{"openconfig-\/system:servers"}: body\(\backslash\)}
+\DoxyCodeLine{236             \}]\(\backslash\)}
+\DoxyCodeLine{237           \}\(\backslash\)}
+\DoxyCodeLine{238         \}}
+\DoxyCodeLine{239         \textcolor{keywordflow}{return} api.patch(keypath, restconf\_body)}
+\DoxyCodeLine{240     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_openconfig\_radius\_global\_config\_source\_address'}:}
+\DoxyCodeLine{241         keypath = cc.Path(RADIUS\_SERVER\_GROUP +}
+\DoxyCodeLine{242             \textcolor{stringliteral}{'config/openconfig-\/system-\/ext:source-\/address'})}
+\DoxyCodeLine{243         \textcolor{keywordflow}{return} api.delete(keypath)}
+\DoxyCodeLine{244     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_openconfig\_radius\_global\_config\_nas\_ip\_address'}:}
+\DoxyCodeLine{245         keypath = cc.Path(RADIUS\_CONFIG + \textcolor{stringliteral}{'nas-\/ip-\/address'})}
+\DoxyCodeLine{246         \textcolor{keywordflow}{return} api.delete(keypath)}
+\DoxyCodeLine{247     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_openconfig\_radius\_global\_config\_retransmit'}:}
+\DoxyCodeLine{248         keypath = cc.Path(RADIUS\_CONFIG + \textcolor{stringliteral}{'retransmit-\/attempts'})}
+\DoxyCodeLine{249         \textcolor{keywordflow}{return} api.delete(keypath)}
+\DoxyCodeLine{250     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_openconfig\_radius\_global\_config\_key'}:}
+\DoxyCodeLine{251         keypath = cc.Path(RADIUS\_SERVER\_GROUP +}
+\DoxyCodeLine{252             \textcolor{stringliteral}{'config/openconfig-\/system-\/ext:secret-\/key'})}
+\DoxyCodeLine{253         \textcolor{keywordflow}{return} api.delete(keypath)}
+\DoxyCodeLine{254     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_openconfig\_radius\_global\_config\_auth\_type'}:}
+\DoxyCodeLine{255         keypath = cc.Path(RADIUS\_SERVER\_GROUP +}
+\DoxyCodeLine{256             \textcolor{stringliteral}{'config/openconfig-\/system-\/ext:auth-\/type'})}
+\DoxyCodeLine{257         \textcolor{keywordflow}{return} api.delete(keypath)}
+\DoxyCodeLine{258     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_openconfig\_radius\_global\_config\_timeout'}:}
+\DoxyCodeLine{259         keypath = cc.Path(RADIUS\_SERVER\_GROUP +}
+\DoxyCodeLine{260             \textcolor{stringliteral}{'config/openconfig-\/system-\/ext:timeout'})}
+\DoxyCodeLine{261         \textcolor{keywordflow}{return} api.delete(keypath)}
+\DoxyCodeLine{262     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_openconfig\_radius\_global\_config\_host'}:}
+\DoxyCodeLine{263         path = RADIUS\_SERVER\_GROUP + \textcolor{stringliteral}{'servers/server=\{address\}'}}
+\DoxyCodeLine{264         \textcolor{keywordflow}{if} (len(args) >= 2) \textcolor{keywordflow}{and} (len(args[1]) != 0):}
+\DoxyCodeLine{265 }
+\DoxyCodeLine{266             uri\_suffix = \{}
+\DoxyCodeLine{267                 \textcolor{stringliteral}{"auth-\/port"}: \textcolor{stringliteral}{"/radius/config/auth-\/port"},}
+\DoxyCodeLine{268                 \textcolor{stringliteral}{"retransmit"}: \textcolor{stringliteral}{"/radius/config/retransmit-\/attempts"},}
+\DoxyCodeLine{269                 \textcolor{stringliteral}{"key"}: \textcolor{stringliteral}{"/radius/config/secret-\/key"},}
+\DoxyCodeLine{270                 \textcolor{stringliteral}{"timeout"}: \textcolor{stringliteral}{"/config/timeout"},}
+\DoxyCodeLine{271                 \textcolor{stringliteral}{"auth-\/type"}: \textcolor{stringliteral}{"/config/openconfig-\/system-\/ext:auth-\/type"},}
+\DoxyCodeLine{272                 \textcolor{stringliteral}{"priority"}: \textcolor{stringliteral}{"/config/openconfig-\/system-\/ext:priority"},}
+\DoxyCodeLine{273                 \textcolor{stringliteral}{"vrf"}: \textcolor{stringliteral}{"/config/openconfig-\/system-\/ext:vrf"},}
+\DoxyCodeLine{274                 \textcolor{stringliteral}{"source-\/interface"}: \textcolor{stringliteral}{"/radius/config/openconfig-\/aaa-\/radius-\/ext:source-\/interface"},}
+\DoxyCodeLine{275             \}}
+\DoxyCodeLine{276 }
+\DoxyCodeLine{277             path = path + uri\_suffix.get(args[1], \textcolor{stringliteral}{"Invalid Attribute"})}
+\DoxyCodeLine{278 }
+\DoxyCodeLine{279         keypath = cc.Path(path, address=args[0])}
+\DoxyCodeLine{280         \textcolor{keywordflow}{return} api.delete(keypath)}
+\DoxyCodeLine{281     \textcolor{comment}{\# Clear RADIUS statistics}}
+\DoxyCodeLine{282     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'rpc\_sonic\_clear\_radius\_statistics'}:}
+\DoxyCodeLine{283         path = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/system-\/radius-\/clear:clear-\/radius'})}
+\DoxyCodeLine{284         body = \{\}}
+\DoxyCodeLine{285         \textcolor{keywordflow}{return} api.post(path, body)}
+\DoxyCodeLine{286     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{287         body = \{\}}
+\DoxyCodeLine{288 }
+\DoxyCodeLine{289     \textcolor{keywordflow}{return} api.cli\_not\_implemented(func)}
+\DoxyCodeLine{290 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/d99/namespacesonic__cli__radius_a1ec73546f43e993778c2f3a5ddeb64c4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__radius_acc10d2bdfa64f936ba1e606c2b8c91fa}\label{namespacesonic__cli__radius_acc10d2bdfa64f936ba1e606c2b8c91fa}} 
+\index{sonic\_cli\_radius@{sonic\_cli\_radius}!run@{run}}
+\index{run@{run}!sonic\_cli\_radius@{sonic\_cli\_radius}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+radius.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Main routine for RADIUS KLISH Actioner script
+\end{DoxyVerb}
+ 
+
+sonic\+\_\+cli\+\_\+radius.\+py 파일의 441 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{441 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__radius_acc10d2bdfa64f936ba1e606c2b8c91fa}{run}}(func, args):}
+\DoxyCodeLine{442     \textcolor{stringliteral}{"""}}
+\DoxyCodeLine{443 \textcolor{stringliteral}{    Main routine for RADIUS KLISH Actioner script}}
+\DoxyCodeLine{444 \textcolor{stringliteral}{    """}}
+\DoxyCodeLine{445     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{446         \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'get\_sonic\_radius'}:}
+\DoxyCodeLine{447             global\_response = \mbox{\hyperlink{namespacesonic__cli__radius_ac1ad3bfe4206a110c97574bd72120c4f}{get\_sonic\_radius\_global}}()}
+\DoxyCodeLine{448             \mbox{\hyperlink{namespacesonic__cli__radius_a4cc8d6d03bb918059ab9f32d4d27f241}{get\_sonic\_radius\_servers}}(globals=global\_response)}
+\DoxyCodeLine{449             \textcolor{keywordflow}{return}}
+\DoxyCodeLine{450 }
+\DoxyCodeLine{451         response = \mbox{\hyperlink{namespacesonic__cli__radius_a1ec73546f43e993778c2f3a5ddeb64c4}{invoke\_api}}(func, args)}
+\DoxyCodeLine{452 }
+\DoxyCodeLine{453         \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{454             \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{455                 print(\textcolor{stringliteral}{"\%Error: Invalid command"})}
+\DoxyCodeLine{456         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{457             print(response.error\_message())}
+\DoxyCodeLine{458     \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} e:}
+\DoxyCodeLine{459         \textcolor{comment}{\# system/network error}}
+\DoxyCodeLine{460         print(\textcolor{stringliteral}{"\%Error: Transaction Failure"})}
+\DoxyCodeLine{461 }
+\DoxyCodeLine{462 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/d99/namespacesonic__cli__radius_acc10d2bdfa64f936ba1e606c2b8c91fa_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__radius_aa576f46a03d52d6eaed6bfbe4b05f774}\label{namespacesonic__cli__radius_aa576f46a03d52d6eaed6bfbe4b05f774}} 
+\index{sonic\_cli\_radius@{sonic\_cli\_radius}!AAA@{AAA}}
+\index{AAA@{AAA}!sonic\_cli\_radius@{sonic\_cli\_radius}}
+\doxysubsubsection{\texorpdfstring{AAA}{AAA}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+radius.\+A\+AA = \mbox{\hyperlink{namespacesonic__cli__radius_ae8fa2c61c9b99451b5ef18fc25426790}{S\+Y\+S\+T\+EM}} + \textquotesingle{}aaa/\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+radius.\+py 파일의 30 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__radius_ac42f5656242c39687e03aea9efe38fce}\label{namespacesonic__cli__radius_ac42f5656242c39687e03aea9efe38fce}} 
+\index{sonic\_cli\_radius@{sonic\_cli\_radius}!RADIUS\_CONFIG@{RADIUS\_CONFIG}}
+\index{RADIUS\_CONFIG@{RADIUS\_CONFIG}!sonic\_cli\_radius@{sonic\_cli\_radius}}
+\doxysubsubsection{\texorpdfstring{RADIUS\_CONFIG}{RADIUS\_CONFIG}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+radius.\+R\+A\+D\+I\+U\+S\+\_\+\+C\+O\+N\+F\+IG = \mbox{\hyperlink{namespacesonic__cli__radius_a80c4164266ceb537aceb37c02b58acfb}{R\+A\+D\+I\+U\+S\+\_\+\+S\+E\+R\+V\+E\+R\+\_\+\+G\+R\+O\+UP}} + \textquotesingle{}openconfig-\/aaa-\/\mbox{\hyperlink{DB-PARSED_8txt_a1865eb3901c986ef93c8422c0236d799}{radius}}-\/ext\+:radius/config/\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+radius.\+py 파일의 34 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__radius_a80c4164266ceb537aceb37c02b58acfb}\label{namespacesonic__cli__radius_a80c4164266ceb537aceb37c02b58acfb}} 
+\index{sonic\_cli\_radius@{sonic\_cli\_radius}!RADIUS\_SERVER\_GROUP@{RADIUS\_SERVER\_GROUP}}
+\index{RADIUS\_SERVER\_GROUP@{RADIUS\_SERVER\_GROUP}!sonic\_cli\_radius@{sonic\_cli\_radius}}
+\doxysubsubsection{\texorpdfstring{RADIUS\_SERVER\_GROUP}{RADIUS\_SERVER\_GROUP}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+radius.\+R\+A\+D\+I\+U\+S\+\_\+\+S\+E\+R\+V\+E\+R\+\_\+\+G\+R\+O\+UP = \mbox{\hyperlink{namespacesonic__cli__radius_a0e2394e5d02a8241a9445a8c9ace566a}{S\+E\+R\+V\+E\+R\+\_\+\+G\+R\+O\+U\+PS}} + \textquotesingle{}server-\/group=R\+A\+D\+I\+US/\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+radius.\+py 파일의 32 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__radius_a74e3785f67b897601df47cada665b353}\label{namespacesonic__cli__radius_a74e3785f67b897601df47cada665b353}} 
+\index{sonic\_cli\_radius@{sonic\_cli\_radius}!RADIUS\_SERVER\_GROUP\_CONFIG@{RADIUS\_SERVER\_GROUP\_CONFIG}}
+\index{RADIUS\_SERVER\_GROUP\_CONFIG@{RADIUS\_SERVER\_GROUP\_CONFIG}!sonic\_cli\_radius@{sonic\_cli\_radius}}
+\doxysubsubsection{\texorpdfstring{RADIUS\_SERVER\_GROUP\_CONFIG}{RADIUS\_SERVER\_GROUP\_CONFIG}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+radius.\+R\+A\+D\+I\+U\+S\+\_\+\+S\+E\+R\+V\+E\+R\+\_\+\+G\+R\+O\+U\+P\+\_\+\+C\+O\+N\+F\+IG = \mbox{\hyperlink{namespacesonic__cli__radius_a80c4164266ceb537aceb37c02b58acfb}{R\+A\+D\+I\+U\+S\+\_\+\+S\+E\+R\+V\+E\+R\+\_\+\+G\+R\+O\+UP}} + \textquotesingle{}config/\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+radius.\+py 파일의 33 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__radius_a0e2394e5d02a8241a9445a8c9ace566a}\label{namespacesonic__cli__radius_a0e2394e5d02a8241a9445a8c9ace566a}} 
+\index{sonic\_cli\_radius@{sonic\_cli\_radius}!SERVER\_GROUPS@{SERVER\_GROUPS}}
+\index{SERVER\_GROUPS@{SERVER\_GROUPS}!sonic\_cli\_radius@{sonic\_cli\_radius}}
+\doxysubsubsection{\texorpdfstring{SERVER\_GROUPS}{SERVER\_GROUPS}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+radius.\+S\+E\+R\+V\+E\+R\+\_\+\+G\+R\+O\+U\+PS = \mbox{\hyperlink{namespacesonic__cli__radius_aa576f46a03d52d6eaed6bfbe4b05f774}{A\+AA}} + \textquotesingle{}server-\/groups/\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+radius.\+py 파일의 31 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__radius_ae8fa2c61c9b99451b5ef18fc25426790}\label{namespacesonic__cli__radius_ae8fa2c61c9b99451b5ef18fc25426790}} 
+\index{sonic\_cli\_radius@{sonic\_cli\_radius}!SYSTEM@{SYSTEM}}
+\index{SYSTEM@{SYSTEM}!sonic\_cli\_radius@{sonic\_cli\_radius}}
+\doxysubsubsection{\texorpdfstring{SYSTEM}{SYSTEM}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+radius.\+S\+Y\+S\+T\+EM = \textquotesingle{}/restconf/data/openconfig-\/system\+:system/\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+radius.\+py 파일의 29 번째 라인에서 정의되었습니다.
+

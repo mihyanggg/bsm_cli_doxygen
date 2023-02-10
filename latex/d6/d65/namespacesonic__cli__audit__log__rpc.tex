@@ -1,0 +1,75 @@
+\hypertarget{namespacesonic__cli__audit__log__rpc}{}\doxysection{sonic\+\_\+cli\+\_\+audit\+\_\+log\+\_\+rpc 네임스페이스 참조}
+\label{namespacesonic__cli__audit__log__rpc}\index{sonic\_cli\_audit\_log\_rpc@{sonic\_cli\_audit\_log\_rpc}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__audit__log__rpc_a458556cddaa6c393fa81a1a43f8fcaec}{run}} (\mbox{\hyperlink{namespacesonic__cli__audit__log__rpc_af7c442cc3538713538b935eb48937f8c}{func}}, args)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacesonic__cli__audit__log__rpc_af7c442cc3538713538b935eb48937f8c}{func}} = sys.\+argv\mbox{[}1\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__audit__log__rpc_a458556cddaa6c393fa81a1a43f8fcaec}\label{namespacesonic__cli__audit__log__rpc_a458556cddaa6c393fa81a1a43f8fcaec}} 
+\index{sonic\_cli\_audit\_log\_rpc@{sonic\_cli\_audit\_log\_rpc}!run@{run}}
+\index{run@{run}!sonic\_cli\_audit\_log\_rpc@{sonic\_cli\_audit\_log\_rpc}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+audit\+\_\+log\+\_\+rpc.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+audit\+\_\+log\+\_\+rpc.\+py 파일의 8 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{8 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__audit__log__rpc_a458556cddaa6c393fa81a1a43f8fcaec}{run}}(func, args):}
+\DoxyCodeLine{9     aa = cc.ApiClient()}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'rpc\_sonic\_auditlog\_get\_auditlog'}:}
+\DoxyCodeLine{12         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/auditlog:get-\/auditlog'})}
+\DoxyCodeLine{13         \textcolor{keywordflow}{if} len(args) == 0:}
+\DoxyCodeLine{14             body = \{ \textcolor{stringliteral}{"sonic-\/auditlog:input"}: \{\textcolor{stringliteral}{"content-\/type"} : \textcolor{stringliteral}{""}\} \}}
+\DoxyCodeLine{15         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{16             body = \{ \textcolor{stringliteral}{"sonic-\/auditlog:input"}: \{\textcolor{stringliteral}{"content-\/type"} : \textcolor{stringliteral}{"all"}\} \}}
+\DoxyCodeLine{17         response = aa.post(keypath, body)}
+\DoxyCodeLine{18         \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{19             api\_response = response.content[\textcolor{stringliteral}{"sonic-\/get-\/auditlog:output"}][\textcolor{stringliteral}{"audit-\/content"}]}
+\DoxyCodeLine{20             \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{"show\_audit\_log\_rpc.j2"}, api\_response)}
+\DoxyCodeLine{21         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{22             print(response.error\_message())}
+\DoxyCodeLine{23             \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'rpc\_sonic\_auditlog\_clear\_auditlog'}:}
+\DoxyCodeLine{26         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/auditlog:clear-\/auditlog'})}
+\DoxyCodeLine{27         body = \{ \textcolor{stringliteral}{"sonic-\/auditlog:input"}: \textcolor{stringliteral}{""} \}}
+\DoxyCodeLine{28         response = aa.post(keypath, body)}
+\DoxyCodeLine{29         \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response.ok():}
+\DoxyCodeLine{30             print(response.error\_message())}
+\DoxyCodeLine{31             \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{32 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/d65/namespacesonic__cli__audit__log__rpc_a458556cddaa6c393fa81a1a43f8fcaec_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__audit__log__rpc_af7c442cc3538713538b935eb48937f8c}\label{namespacesonic__cli__audit__log__rpc_af7c442cc3538713538b935eb48937f8c}} 
+\index{sonic\_cli\_audit\_log\_rpc@{sonic\_cli\_audit\_log\_rpc}!func@{func}}
+\index{func@{func}!sonic\_cli\_audit\_log\_rpc@{sonic\_cli\_audit\_log\_rpc}}
+\doxysubsubsection{\texorpdfstring{func}{func}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+audit\+\_\+log\+\_\+rpc.\+func = sys.\+argv\mbox{[}1\mbox{]}}
+
+
+
+sonic\+\_\+cli\+\_\+audit\+\_\+log\+\_\+rpc.\+py 파일의 36 번째 라인에서 정의되었습니다.
+

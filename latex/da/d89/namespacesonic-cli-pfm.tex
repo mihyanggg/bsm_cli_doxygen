@@ -1,0 +1,404 @@
+\hypertarget{namespacesonic-cli-pfm}{}\doxysection{sonic-\/cli-\/pfm 네임스페이스 참조}
+\label{namespacesonic-cli-pfm}\index{sonic-\/cli-\/pfm@{sonic-\/cli-\/pfm}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic-cli-pfm_a1de36ccebbcc22c73bf7600728b9c257}{convert4\+Bytes\+To\+Str}} (b)
+\item 
+def \mbox{\hyperlink{namespacesonic-cli-pfm_a87adb283437ab4da000c3015ba43ecf0}{decode\+Psu\+Stats}} (psu)
+\item 
+def \mbox{\hyperlink{namespacesonic-cli-pfm_a6f522b1aadf5e97a191cb9602853f653}{run}} (\mbox{\hyperlink{namespacesonic-cli-pfm_a1f55e0fc7a1ee813f1d6637a4fe073c0}{func}}, args)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacesonic-cli-pfm_a1f55e0fc7a1ee813f1d6637a4fe073c0}{func}} = sys.\+argv\mbox{[}1\mbox{]}
+\item 
+def \mbox{\hyperlink{namespacesonic-cli-pfm_a8474b669172a0545c654099385599230}{ret}} = \mbox{\hyperlink{namespacesonic-cli-pfm_a6f522b1aadf5e97a191cb9602853f653}{run}}(\mbox{\hyperlink{namespacesonic-cli-pfm_a1f55e0fc7a1ee813f1d6637a4fe073c0}{func}}, sys.\+argv\mbox{[}2\+:\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic-cli-pfm_a1de36ccebbcc22c73bf7600728b9c257}\label{namespacesonic-cli-pfm_a1de36ccebbcc22c73bf7600728b9c257}} 
+\index{sonic-\/cli-\/pfm@{sonic-\/cli-\/pfm}!convert4BytesToStr@{convert4BytesToStr}}
+\index{convert4BytesToStr@{convert4BytesToStr}!sonic-\/cli-\/pfm@{sonic-\/cli-\/pfm}}
+\doxysubsubsection{\texorpdfstring{convert4BytesToStr()}{convert4BytesToStr()}}
+{\footnotesize\ttfamily def sonic-\/cli-\/pfm.\+convert4\+Bytes\+To\+Str (\begin{DoxyParamCaption}\item[{}]{b }\end{DoxyParamCaption})}
+
+
+
+sonic-\/cli-\/pfm.\+py 파일의 31 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{31 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic-cli-pfm_a1de36ccebbcc22c73bf7600728b9c257}{convert4BytesToStr}}(b):}
+\DoxyCodeLine{32     \textcolor{keywordflow}{return} unpack(\textcolor{stringliteral}{'>f'}, b64decode(b))[0]}
+\DoxyCodeLine{33 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d89/namespacesonic-cli-pfm_a1de36ccebbcc22c73bf7600728b9c257_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic-cli-pfm_a87adb283437ab4da000c3015ba43ecf0}\label{namespacesonic-cli-pfm_a87adb283437ab4da000c3015ba43ecf0}} 
+\index{sonic-\/cli-\/pfm@{sonic-\/cli-\/pfm}!decodePsuStats@{decodePsuStats}}
+\index{decodePsuStats@{decodePsuStats}!sonic-\/cli-\/pfm@{sonic-\/cli-\/pfm}}
+\doxysubsubsection{\texorpdfstring{decodePsuStats()}{decodePsuStats()}}
+{\footnotesize\ttfamily def sonic-\/cli-\/pfm.\+decode\+Psu\+Stats (\begin{DoxyParamCaption}\item[{}]{psu }\end{DoxyParamCaption})}
+
+
+
+sonic-\/cli-\/pfm.\+py 파일의 34 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{34 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic-cli-pfm_a87adb283437ab4da000c3015ba43ecf0}{decodePsuStats}}(psu):}
+\DoxyCodeLine{35     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'power-\/supply'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} psu \textcolor{keywordflow}{or} \textcolor{stringliteral}{'state'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} psu[\textcolor{stringliteral}{'power-\/supply'}]:}
+\DoxyCodeLine{36         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{37     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/platform-\/psu:output-\/current'} \textcolor{keywordflow}{in} psu[\textcolor{stringliteral}{'power-\/supply'}][\textcolor{stringliteral}{'state'}]:}
+\DoxyCodeLine{38         psu[\textcolor{stringliteral}{'power-\/supply'}][\textcolor{stringliteral}{'state'}][\textcolor{stringliteral}{'openconfig-\/platform-\/psu:output-\/current'}] = \(\backslash\)}
+\DoxyCodeLine{39             \mbox{\hyperlink{namespacesonic-cli-pfm_a1de36ccebbcc22c73bf7600728b9c257}{convert4BytesToStr}}(psu[\textcolor{stringliteral}{'power-\/supply'}][\textcolor{stringliteral}{'state'}][\textcolor{stringliteral}{'openconfig-\/platform-\/psu:output-\/current'}])}
+\DoxyCodeLine{40     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/platform-\/psu:output-\/power'} \textcolor{keywordflow}{in} psu[\textcolor{stringliteral}{'power-\/supply'}][\textcolor{stringliteral}{'state'}]:}
+\DoxyCodeLine{41         psu[\textcolor{stringliteral}{'power-\/supply'}][\textcolor{stringliteral}{'state'}][\textcolor{stringliteral}{'openconfig-\/platform-\/psu:output-\/power'}] = \(\backslash\)}
+\DoxyCodeLine{42             \mbox{\hyperlink{namespacesonic-cli-pfm_a1de36ccebbcc22c73bf7600728b9c257}{convert4BytesToStr}}(psu[\textcolor{stringliteral}{'power-\/supply'}][\textcolor{stringliteral}{'state'}][\textcolor{stringliteral}{'openconfig-\/platform-\/psu:output-\/power'}])}
+\DoxyCodeLine{43     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/platform-\/psu:output-\/voltage'} \textcolor{keywordflow}{in} psu[\textcolor{stringliteral}{'power-\/supply'}][\textcolor{stringliteral}{'state'}]:}
+\DoxyCodeLine{44         psu[\textcolor{stringliteral}{'power-\/supply'}][\textcolor{stringliteral}{'state'}][\textcolor{stringliteral}{'openconfig-\/platform-\/psu:output-\/voltage'}] = \(\backslash\)}
+\DoxyCodeLine{45             \mbox{\hyperlink{namespacesonic-cli-pfm_a1de36ccebbcc22c73bf7600728b9c257}{convert4BytesToStr}}(psu[\textcolor{stringliteral}{'power-\/supply'}][\textcolor{stringliteral}{'state'}][\textcolor{stringliteral}{'openconfig-\/platform-\/psu:output-\/voltage'}])}
+\DoxyCodeLine{46     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/platform-\/psu:temperature'} \textcolor{keywordflow}{in} psu[\textcolor{stringliteral}{'power-\/supply'}][\textcolor{stringliteral}{'state'}]:}
+\DoxyCodeLine{47         psu[\textcolor{stringliteral}{'power-\/supply'}][\textcolor{stringliteral}{'state'}][\textcolor{stringliteral}{'openconfig-\/platform-\/psu:temperature'}] = \(\backslash\)}
+\DoxyCodeLine{48             \mbox{\hyperlink{namespacesonic-cli-pfm_a1de36ccebbcc22c73bf7600728b9c257}{convert4BytesToStr}}(psu[\textcolor{stringliteral}{'power-\/supply'}][\textcolor{stringliteral}{'state'}][\textcolor{stringliteral}{'openconfig-\/platform-\/psu:temperature'}])}
+\DoxyCodeLine{49     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/platform-\/psu:input-\/current'} \textcolor{keywordflow}{in} psu[\textcolor{stringliteral}{'power-\/supply'}][\textcolor{stringliteral}{'state'}]:}
+\DoxyCodeLine{50         psu[\textcolor{stringliteral}{'power-\/supply'}][\textcolor{stringliteral}{'state'}][\textcolor{stringliteral}{'openconfig-\/platform-\/psu:input-\/current'}] = \(\backslash\)}
+\DoxyCodeLine{51             \mbox{\hyperlink{namespacesonic-cli-pfm_a1de36ccebbcc22c73bf7600728b9c257}{convert4BytesToStr}}(psu[\textcolor{stringliteral}{'power-\/supply'}][\textcolor{stringliteral}{'state'}][\textcolor{stringliteral}{'openconfig-\/platform-\/psu:input-\/current'}])}
+\DoxyCodeLine{52     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/platform-\/ext:input-\/power'} \textcolor{keywordflow}{in} psu[\textcolor{stringliteral}{'power-\/supply'}][\textcolor{stringliteral}{'state'}]:}
+\DoxyCodeLine{53         psu[\textcolor{stringliteral}{'power-\/supply'}][\textcolor{stringliteral}{'state'}][\textcolor{stringliteral}{'openconfig-\/platform-\/ext:input-\/power'}] = \(\backslash\)}
+\DoxyCodeLine{54             \mbox{\hyperlink{namespacesonic-cli-pfm_a1de36ccebbcc22c73bf7600728b9c257}{convert4BytesToStr}}(psu[\textcolor{stringliteral}{'power-\/supply'}][\textcolor{stringliteral}{'state'}][\textcolor{stringliteral}{'openconfig-\/platform-\/ext:input-\/power'}])}
+\DoxyCodeLine{55     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/platform-\/psu:input-\/voltage'} \textcolor{keywordflow}{in} psu[\textcolor{stringliteral}{'power-\/supply'}][\textcolor{stringliteral}{'state'}]:}
+\DoxyCodeLine{56         psu[\textcolor{stringliteral}{'power-\/supply'}][\textcolor{stringliteral}{'state'}][\textcolor{stringliteral}{'openconfig-\/platform-\/psu:input-\/voltage'}] = \(\backslash\)}
+\DoxyCodeLine{57             \mbox{\hyperlink{namespacesonic-cli-pfm_a1de36ccebbcc22c73bf7600728b9c257}{convert4BytesToStr}}(psu[\textcolor{stringliteral}{'power-\/supply'}][\textcolor{stringliteral}{'state'}][\textcolor{stringliteral}{'openconfig-\/platform-\/psu:input-\/voltage'}])}
+\DoxyCodeLine{58 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d89/namespacesonic-cli-pfm_a87adb283437ab4da000c3015ba43ecf0_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d89/namespacesonic-cli-pfm_a87adb283437ab4da000c3015ba43ecf0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic-cli-pfm_a6f522b1aadf5e97a191cb9602853f653}\label{namespacesonic-cli-pfm_a6f522b1aadf5e97a191cb9602853f653}} 
+\index{sonic-\/cli-\/pfm@{sonic-\/cli-\/pfm}!run@{run}}
+\index{run@{run}!sonic-\/cli-\/pfm@{sonic-\/cli-\/pfm}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic-\/cli-\/pfm.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic-\/cli-\/pfm.\+py 파일의 59 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{59 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic-cli-pfm_a6f522b1aadf5e97a191cb9602853f653}{run}}(func, args):}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{comment}{\# set of operational, non-\/static, keys to omit from output of a transceiver}}
+\DoxyCodeLine{62     dom\_op\_params\_keys = [\textcolor{stringliteral}{'lb-\/host-\/side-\/input-\/support'}, \textcolor{stringliteral}{'lb-\/host-\/side-\/output-\/support'},}
+\DoxyCodeLine{63                           \textcolor{stringliteral}{'lb-\/media-\/side-\/input-\/support'}, \textcolor{stringliteral}{'lb-\/media-\/side-\/output-\/support'},}
+\DoxyCodeLine{64                           \textcolor{stringliteral}{'lb-\/per-\/lane-\/host-\/side-\/support'}, \textcolor{stringliteral}{'lb-\/per-\/lane-\/media-\/side-\/support'},}
+\DoxyCodeLine{65                           \textcolor{stringliteral}{'lb-\/simul-\/host-\/media-\/side-\/support'},}
+\DoxyCodeLine{66                           \textcolor{stringliteral}{'lb-\/host-\/side-\/input-\/enable'}, \textcolor{stringliteral}{'lb-\/host-\/side-\/output-\/enable'},}
+\DoxyCodeLine{67                           \textcolor{stringliteral}{'lb-\/media-\/side-\/input-\/enable'}, \textcolor{stringliteral}{'lb-\/media-\/side-\/output-\/enable'},}
+\DoxyCodeLine{68                           \textcolor{stringliteral}{'lb-\/per-\/lane-\/host-\/side-\/enable'}, \textcolor{stringliteral}{'lb-\/per-\/lane-\/media-\/side-\/enable'},}
+\DoxyCodeLine{69                           \textcolor{stringliteral}{'lb-\/simul-\/host-\/media-\/side-\/enable'},}
+\DoxyCodeLine{70                           \textcolor{stringliteral}{'lol-\/lane-\/1'}, \textcolor{stringliteral}{'lol-\/lane-\/2'}, \textcolor{stringliteral}{'lol-\/lane-\/3'}, \textcolor{stringliteral}{'lol-\/lane-\/4'},}
+\DoxyCodeLine{71                           \textcolor{stringliteral}{'lol-\/lane-\/5'}, \textcolor{stringliteral}{'lol-\/lane-\/6'}, \textcolor{stringliteral}{'lol-\/lane-\/7'}, \textcolor{stringliteral}{'lol-\/lane-\/8'},}
+\DoxyCodeLine{72                           \textcolor{stringliteral}{'los-\/lane-\/1'}, \textcolor{stringliteral}{'los-\/lane-\/2'}, \textcolor{stringliteral}{'los-\/lane-\/3'}, \textcolor{stringliteral}{'los-\/lane-\/4'},}
+\DoxyCodeLine{73                           \textcolor{stringliteral}{'los-\/lane-\/5'}, \textcolor{stringliteral}{'los-\/lane-\/6'}, \textcolor{stringliteral}{'los-\/lane-\/7'}, \textcolor{stringliteral}{'los-\/lane-\/8'},}
+\DoxyCodeLine{74                           \textcolor{stringliteral}{'tx-\/bias-\/lane-\/1'}, \textcolor{stringliteral}{'tx-\/bias-\/lane-\/2'}, \textcolor{stringliteral}{'tx-\/bias-\/lane-\/3'}, \textcolor{stringliteral}{'tx-\/bias-\/lane-\/4'},}
+\DoxyCodeLine{75                           \textcolor{stringliteral}{'tx-\/bias-\/lane-\/5'}, \textcolor{stringliteral}{'tx-\/bias-\/lane-\/6'}, \textcolor{stringliteral}{'tx-\/bias-\/lane-\/7'}, \textcolor{stringliteral}{'tx-\/bias-\/lane-\/8'},}
+\DoxyCodeLine{76                           \textcolor{stringliteral}{'rx-\/power-\/lane-\/1'}, \textcolor{stringliteral}{'rx-\/power-\/lane-\/2'}, \textcolor{stringliteral}{'rx-\/power-\/lane-\/3'}, \textcolor{stringliteral}{'rx-\/power-\/lane-\/4'},}
+\DoxyCodeLine{77                           \textcolor{stringliteral}{'rx-\/power-\/lane-\/5'}, \textcolor{stringliteral}{'rx-\/power-\/lane-\/6'}, \textcolor{stringliteral}{'rx-\/power-\/lane-\/7'}, \textcolor{stringliteral}{'rx-\/power-\/lane-\/8'},}
+\DoxyCodeLine{78                           \textcolor{stringliteral}{'tx-\/power-\/lane-\/1'}, \textcolor{stringliteral}{'tx-\/power-\/lane-\/2'}, \textcolor{stringliteral}{'tx-\/power-\/lane-\/3'}, \textcolor{stringliteral}{'tx-\/power-\/lane-\/4'},}
+\DoxyCodeLine{79                           \textcolor{stringliteral}{'tx-\/power-\/lane-\/5'}, \textcolor{stringliteral}{'tx-\/power-\/lane-\/6'}, \textcolor{stringliteral}{'tx-\/power-\/lane-\/7'}, \textcolor{stringliteral}{'tx-\/power-\/lane-\/8'},}
+\DoxyCodeLine{80                           \textcolor{stringliteral}{'voltage'}, \textcolor{stringliteral}{'temperature'}]}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83     aa = cc.ApiClient()}
+\DoxyCodeLine{84     template = sys.argv[3]}
+\DoxyCodeLine{85     response = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{86     hasValidComp = \textcolor{keyword}{False}}
+\DoxyCodeLine{87     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{88         \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'get\_openconfig\_platform\_components\_component'}:}
+\DoxyCodeLine{89             path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/platform:components/component=\%s'}\%args[0])}
+\DoxyCodeLine{90             response = aa.get(path)}
+\DoxyCodeLine{91             \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{92                 \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{93                     response.content = OrderedDict()}
+\DoxyCodeLine{94                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(template, response.content)}
+\DoxyCodeLine{95             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{96                 \textcolor{keywordflow}{print} response.error\_message()}
+\DoxyCodeLine{97                 \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{98         \textcolor{keywordflow}{elif} (func == \textcolor{stringliteral}{'get\_openconfig\_platform\_components\_component\_psu\_status'} \textcolor{keywordflow}{or}}
+\DoxyCodeLine{99             func == \textcolor{stringliteral}{'get\_openconfig\_platform\_components\_component\_psu\_summary'}):}
+\DoxyCodeLine{100             template = sys.argv[2]}
+\DoxyCodeLine{101             psuInfo = OrderedDict()}
+\DoxyCodeLine{102             \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} xrange(1, sys.maxsize):}
+\DoxyCodeLine{103                 path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/platform:components/component=PSU \%s'}\%i)}
+\DoxyCodeLine{104                 response = aa.get(path)}
+\DoxyCodeLine{105                 \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response.ok():}
+\DoxyCodeLine{106                     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} hasValidComp:}
+\DoxyCodeLine{107                         \textcolor{keywordflow}{print} response.error\_message()}
+\DoxyCodeLine{108                         \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{109                     \textcolor{keywordflow}{break}}
+\DoxyCodeLine{110                 \textcolor{keywordflow}{if} response.content == \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{111                     \textcolor{keywordflow}{break}}
+\DoxyCodeLine{112                 hasValidComp = \textcolor{keyword}{True}}
+\DoxyCodeLine{113                 \textcolor{keywordflow}{if} (response.content \textcolor{keywordflow}{is} \textcolor{keywordtype}{None} \textcolor{keywordflow}{or} len(response.content) == 0 \textcolor{keywordflow}{or}}
+\DoxyCodeLine{114                     \textcolor{keywordflow}{not} (\textcolor{stringliteral}{'openconfig-\/platform:component'} \textcolor{keywordflow}{in} response.content) \textcolor{keywordflow}{or}}
+\DoxyCodeLine{115                     len(response.content[\textcolor{stringliteral}{'openconfig-\/platform:component'}]) == 0 \textcolor{keywordflow}{or}}
+\DoxyCodeLine{116                     len(response.content[\textcolor{stringliteral}{'openconfig-\/platform:component'}][0]) < 2 \textcolor{keywordflow}{or}}
+\DoxyCodeLine{117                     \textcolor{keywordflow}{not} (\textcolor{stringliteral}{'name'} \textcolor{keywordflow}{in} response.content[\textcolor{stringliteral}{'openconfig-\/platform:component'}][0])):}
+\DoxyCodeLine{118                     \textcolor{keywordflow}{break}}
+\DoxyCodeLine{119                 psuName = response.content[\textcolor{stringliteral}{'openconfig-\/platform:component'}][0][\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{120                 psuInfo[psuName] = response.content[\textcolor{stringliteral}{'openconfig-\/platform:component'}][0]}
+\DoxyCodeLine{121                 \mbox{\hyperlink{namespacesonic-cli-pfm_a87adb283437ab4da000c3015ba43ecf0}{decodePsuStats}}(psuInfo[psuName])}
+\DoxyCodeLine{122                 \textcolor{keywordflow}{for} j \textcolor{keywordflow}{in} xrange(1, sys.maxsize):}
+\DoxyCodeLine{123                     path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/platform:components/component=PSU \{\} FAN \{\}'}.format(i, j))}
+\DoxyCodeLine{124                     response = aa.get(path)}
+\DoxyCodeLine{125                     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response.ok():}
+\DoxyCodeLine{126                         \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} hasValidComp:}
+\DoxyCodeLine{127                             \textcolor{keywordflow}{print} response.error\_message()}
+\DoxyCodeLine{128                             \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{129                         \textcolor{keywordflow}{break}}
+\DoxyCodeLine{130                     \textcolor{keywordflow}{if} (response.content \textcolor{keywordflow}{is} \textcolor{keywordtype}{None} \textcolor{keywordflow}{or} len(response.content) == 0 \textcolor{keywordflow}{or}}
+\DoxyCodeLine{131                         \textcolor{keywordflow}{not} (\textcolor{stringliteral}{'openconfig-\/platform:component'} \textcolor{keywordflow}{in} response.content) \textcolor{keywordflow}{or}}
+\DoxyCodeLine{132                         len(response.content[\textcolor{stringliteral}{'openconfig-\/platform:component'}]) == 0 \textcolor{keywordflow}{or}}
+\DoxyCodeLine{133                         len(response.content[\textcolor{stringliteral}{'openconfig-\/platform:component'}][0]) < 2 \textcolor{keywordflow}{or}}
+\DoxyCodeLine{134                         \textcolor{keywordflow}{not} (\textcolor{stringliteral}{'name'} \textcolor{keywordflow}{in} response.content[\textcolor{stringliteral}{'openconfig-\/platform:component'}][0])):}
+\DoxyCodeLine{135                         \textcolor{keywordflow}{break}}
+\DoxyCodeLine{136                     fanName = response.content[\textcolor{stringliteral}{'openconfig-\/platform:component'}][0][\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{137                     psuInfo[psuName][fanName] = response.content[\textcolor{stringliteral}{'openconfig-\/platform:component'}][0]}
+\DoxyCodeLine{138             \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(template, psuInfo)}
+\DoxyCodeLine{139         \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_openconfig\_platform\_components\_component\_fan\_status'}:}
+\DoxyCodeLine{140             template = sys.argv[2]}
+\DoxyCodeLine{141             fanInfo = OrderedDict()}
+\DoxyCodeLine{142             \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} xrange(1, sys.maxsize):}
+\DoxyCodeLine{143                 path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/platform:components/component=FAN \%s'}\%i)}
+\DoxyCodeLine{144                 response = aa.get(path)}
+\DoxyCodeLine{145                 \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response.ok():}
+\DoxyCodeLine{146                     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} hasValidComp:}
+\DoxyCodeLine{147                         \textcolor{keywordflow}{print} response.error\_message()}
+\DoxyCodeLine{148                         \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{149                     \textcolor{keywordflow}{break}}
+\DoxyCodeLine{150                 \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{151                     \textcolor{keywordflow}{break}}
+\DoxyCodeLine{152                 hasValidComp = \textcolor{keyword}{True}}
+\DoxyCodeLine{153                 \textcolor{keywordflow}{if} (response.content \textcolor{keywordflow}{is} \textcolor{keywordtype}{None} \textcolor{keywordflow}{or} len(response.content) == 0 \textcolor{keywordflow}{or}}
+\DoxyCodeLine{154                     \textcolor{keywordflow}{not} (\textcolor{stringliteral}{'openconfig-\/platform:component'} \textcolor{keywordflow}{in} response.content) \textcolor{keywordflow}{or}}
+\DoxyCodeLine{155                     len(response.content[\textcolor{stringliteral}{'openconfig-\/platform:component'}]) == 0 \textcolor{keywordflow}{or}}
+\DoxyCodeLine{156                     len(response.content[\textcolor{stringliteral}{'openconfig-\/platform:component'}][0]) < 2 \textcolor{keywordflow}{or}}
+\DoxyCodeLine{157                     \textcolor{keywordflow}{not} (\textcolor{stringliteral}{'name'} \textcolor{keywordflow}{in} response.content[\textcolor{stringliteral}{'openconfig-\/platform:component'}][0])):}
+\DoxyCodeLine{158                     \textcolor{keywordflow}{break}}
+\DoxyCodeLine{159                 fanName = response.content[\textcolor{stringliteral}{'openconfig-\/platform:component'}][0][\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{160                 fanInfo[fanName] = response.content[\textcolor{stringliteral}{'openconfig-\/platform:component'}][0]}
+\DoxyCodeLine{161             \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(template, fanInfo)}
+\DoxyCodeLine{162         \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_openconfig\_platform\_components\_component\_transceiver\_status'}:}
+\DoxyCodeLine{163             if\_name = args[0]}
+\DoxyCodeLine{164             template = args[1]}
+\DoxyCodeLine{165             xcvrInfo = OrderedDict()}
+\DoxyCodeLine{166             summary = \textcolor{keyword}{False}}
+\DoxyCodeLine{167             if\_list = []}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{169             \textcolor{keywordflow}{if} if\_name \textcolor{keywordflow}{in} [\textcolor{stringliteral}{"Ethernet\_SUMMARY"}, \textcolor{stringliteral}{"Ethernet\_ALL"}]:}
+\DoxyCodeLine{170                 summary = (\textcolor{keyword}{True} \textcolor{keywordflow}{if} (if\_name == \textcolor{stringliteral}{"Ethernet\_SUMMARY"}) \textcolor{keywordflow}{else} \textcolor{keyword}{False})}
+\DoxyCodeLine{171                 \textcolor{comment}{\# Get list of ports}}
+\DoxyCodeLine{172                 path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/port:sonic-\/port/PORT/PORT\_LIST'})}
+\DoxyCodeLine{173                 response = aa.get(path)}
+\DoxyCodeLine{174                 \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response.ok():}
+\DoxyCodeLine{175                     \textcolor{keywordflow}{print} response.error\_message()}
+\DoxyCodeLine{176                     \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{177                 \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response.content \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{178                     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{179                         \textcolor{keywordflow}{for} d \textcolor{keywordflow}{in} response.content[\textcolor{stringliteral}{'sonic-\/port:PORT\_LIST'}]:}
+\DoxyCodeLine{180                             if\_list.append(d[\textcolor{stringliteral}{'ifname'}])}
+\DoxyCodeLine{181                     \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{182                         \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{183             \textcolor{keywordflow}{elif} if\_name == \textcolor{stringliteral}{'Ethernet\_X\_SUMMARY'}:}
+\DoxyCodeLine{184                 summary = \textcolor{keyword}{True}}
+\DoxyCodeLine{185                 \textcolor{keywordflow}{if} args[2] == \textcolor{stringliteral}{'do'}:}
+\DoxyCodeLine{186                     if\_name = args[6]}
+\DoxyCodeLine{187                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{188                     if\_name = args[5]}
+\DoxyCodeLine{189                 if\_list.append(if\_name)}
+\DoxyCodeLine{190             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{191                 \textcolor{comment}{\# Singleton}}
+\DoxyCodeLine{192                 if\_list.append(if\_name)}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{194             \textcolor{keywordflow}{for} nm \textcolor{keywordflow}{in} if\_list:}
+\DoxyCodeLine{195                 n = nm}
+\DoxyCodeLine{196                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'/'} \textcolor{keywordflow}{in} nm:}
+\DoxyCodeLine{197                     n = nm.replace(\textcolor{stringliteral}{'/'}, \textcolor{stringliteral}{'\%2F'})}
+\DoxyCodeLine{198                 path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/platform:components/component='} + n)}
+\DoxyCodeLine{199                 response = aa.get(path)}
+\DoxyCodeLine{200                 \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response.ok():}
+\DoxyCodeLine{201                     \textcolor{keywordflow}{print} response.error\_message()}
+\DoxyCodeLine{202                     \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{203                 \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{204                     xcvrInfo[nm] = \{\}}
+\DoxyCodeLine{205                     \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{206                 \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{207                     xcvrInfo[nm] = response.content[\textcolor{stringliteral}{'openconfig-\/platform:component'}][0]}
+\DoxyCodeLine{208                 \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{209                     xcvrInfo[nm] = \{\}}
+\DoxyCodeLine{210 }
+\DoxyCodeLine{211             \textcolor{comment}{\# Clean up the data}}
+\DoxyCodeLine{212             cli\_dict = OrderedDict()}
+\DoxyCodeLine{213             \textcolor{keywordflow}{for} val \textcolor{keywordflow}{in} sorted(xcvrInfo.keys(),  key=\textcolor{keyword}{lambda} x: ifutils.name\_to\_int\_val(x)):}
+\DoxyCodeLine{214                 d2 = OrderedDict()}
+\DoxyCodeLine{215                 \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{216                     d = xcvrInfo[val][\textcolor{stringliteral}{'openconfig-\/platform-\/transceiver:transceiver'}][\textcolor{stringliteral}{'state'}]}
+\DoxyCodeLine{217                     \textcolor{keywordflow}{for} k  \textcolor{keywordflow}{in} d:}
+\DoxyCodeLine{218                         a = k}
+\DoxyCodeLine{219                         b = d[k]}
+\DoxyCodeLine{220                         \textcolor{keywordflow}{if} \textcolor{stringliteral}{':'} \textcolor{keywordflow}{in} k:}
+\DoxyCodeLine{221                             a = k.split(\textcolor{stringliteral}{':'})[1]}
+\DoxyCodeLine{222                         \textcolor{keywordflow}{if} \textcolor{stringliteral}{':'} \textcolor{keywordflow}{in} d[k]:}
+\DoxyCodeLine{223                             b = d[k].split(\textcolor{stringliteral}{':'})[1]}
+\DoxyCodeLine{224                         \textcolor{keywordflow}{if} a \textcolor{keywordflow}{in} [\textcolor{stringliteral}{'connector-\/type'}, \textcolor{stringliteral}{'form-\/factor'}]:}
+\DoxyCodeLine{225                             b = b.replace(\textcolor{stringliteral}{'\_CONNECTOR'}, \textcolor{stringliteral}{''})}
+\DoxyCodeLine{226                             b = b.replace(\textcolor{stringliteral}{'\_PLUS'}, \textcolor{stringliteral}{'+'})}
+\DoxyCodeLine{227                             b = b.replace(\textcolor{stringliteral}{'\_'}, \textcolor{stringliteral}{'-\/'})}
+\DoxyCodeLine{228                         \textcolor{keywordflow}{if} a \textcolor{keywordflow}{in} dom\_op\_params\_keys:}
+\DoxyCodeLine{229                             \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{230 }
+\DoxyCodeLine{231                         d2[a] = b}
+\DoxyCodeLine{232                 \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{233                     d2.update( \{\textcolor{stringliteral}{'present'}:\textcolor{stringliteral}{'NOT-\/PRESENT'} \})}
+\DoxyCodeLine{234                 cli\_dict[val] = (val,d2)}
+\DoxyCodeLine{235             \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{236                 \textcolor{keywordflow}{if} summary:}
+\DoxyCodeLine{237                     \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(template, (\textcolor{keyword}{True}, cli\_dict))}
+\DoxyCodeLine{238                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{239                     \textcolor{keywordflow}{for} k \textcolor{keywordflow}{in} cli\_dict:}
+\DoxyCodeLine{240                         \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(template, (\textcolor{keyword}{False}, cli\_dict[k]))}
+\DoxyCodeLine{241             \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} e:}
+\DoxyCodeLine{242                 \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{243         \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_openconfig\_platform\_components\_component\_temperature'}:}
+\DoxyCodeLine{244             template = sys.argv[2]}
+\DoxyCodeLine{245             tempInfo = OrderedDict()}
+\DoxyCodeLine{246             \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} xrange(1, sys.maxsize):}
+\DoxyCodeLine{247                 path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/platform:components/component=TEMP \%s'}\%i)}
+\DoxyCodeLine{248                 response = aa.get(path)}
+\DoxyCodeLine{249                 \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response.ok():}
+\DoxyCodeLine{250                     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} hasValidComp:}
+\DoxyCodeLine{251                         \textcolor{keywordflow}{print} response.error\_message()}
+\DoxyCodeLine{252                         \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{253                     \textcolor{keywordflow}{break}}
+\DoxyCodeLine{254                 \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{255                     \textcolor{keywordflow}{break}}
+\DoxyCodeLine{256                 hasValidComp = \textcolor{keyword}{True}}
+\DoxyCodeLine{257                 \textcolor{keywordflow}{if} (response.content \textcolor{keywordflow}{is} \textcolor{keywordtype}{None} \textcolor{keywordflow}{or} len(response.content) == 0 \textcolor{keywordflow}{or}}
+\DoxyCodeLine{258                     \textcolor{keywordflow}{not} (\textcolor{stringliteral}{'openconfig-\/platform:component'} \textcolor{keywordflow}{in} response.content) \textcolor{keywordflow}{or}}
+\DoxyCodeLine{259                     len(response.content[\textcolor{stringliteral}{'openconfig-\/platform:component'}]) == 0 \textcolor{keywordflow}{or}}
+\DoxyCodeLine{260                     \textcolor{keywordflow}{not} (\textcolor{stringliteral}{'state'} \textcolor{keywordflow}{in} response.content[\textcolor{stringliteral}{'openconfig-\/platform:component'}][0])):}
+\DoxyCodeLine{261                     \textcolor{keywordflow}{break}}
+\DoxyCodeLine{262                 tempName = response.content[\textcolor{stringliteral}{'openconfig-\/platform:component'}][0][\textcolor{stringliteral}{'state'}][\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{263         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'temperature'} \textcolor{keywordflow}{in} response.content[\textcolor{stringliteral}{'openconfig-\/platform:component'}][0][\textcolor{stringliteral}{'state'}]:}
+\DoxyCodeLine{264                     tempInfo[tempName] = response.content[\textcolor{stringliteral}{'openconfig-\/platform:component'}][0][\textcolor{stringliteral}{'state'}][\textcolor{stringliteral}{'temperature'}]}
+\DoxyCodeLine{265                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{266                     tempInfo[tempName] = OrderedDict()}
+\DoxyCodeLine{267             tempInfo = OrderedDict(sorted(tempInfo.items()))}
+\DoxyCodeLine{268             \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(template, tempInfo)}
+\DoxyCodeLine{269         \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_openconfig\_platform\_components\_component\_firmware'}:}
+\DoxyCodeLine{270             template = sys.argv[2]}
+\DoxyCodeLine{271             firmInfo = OrderedDict()}
+\DoxyCodeLine{272             \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} xrange(1, 10):}
+\DoxyCodeLine{273                 path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/platform:components/component=FIRMWARE \%s'}\%i)}
+\DoxyCodeLine{274                 response = aa.get(path)}
+\DoxyCodeLine{275                 \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response.ok():}
+\DoxyCodeLine{276                     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} hasValidComp:}
+\DoxyCodeLine{277                         \textcolor{keywordflow}{print} response.error\_message()}
+\DoxyCodeLine{278                         \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{279                     \textcolor{keywordflow}{break}}
+\DoxyCodeLine{280                 \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{281                     \textcolor{keywordflow}{break}}
+\DoxyCodeLine{282                 hasValidComp = \textcolor{keyword}{True}}
+\DoxyCodeLine{283                 \textcolor{keywordflow}{if} (response.content \textcolor{keywordflow}{is} \textcolor{keywordtype}{None} \textcolor{keywordflow}{or} len(response.content) == 0 \textcolor{keywordflow}{or}}
+\DoxyCodeLine{284                     \textcolor{keywordflow}{not} (\textcolor{stringliteral}{'openconfig-\/platform:component'} \textcolor{keywordflow}{in} response.content) \textcolor{keywordflow}{or}}
+\DoxyCodeLine{285                     len(response.content[\textcolor{stringliteral}{'openconfig-\/platform:component'}]) == 0 \textcolor{keywordflow}{or}}
+\DoxyCodeLine{286                     \textcolor{keywordflow}{not} (\textcolor{stringliteral}{'state'} \textcolor{keywordflow}{in} response.content[\textcolor{stringliteral}{'openconfig-\/platform:component'}][0])):}
+\DoxyCodeLine{287                     \textcolor{keywordflow}{break}}
+\DoxyCodeLine{288                 firmName = response.content[\textcolor{stringliteral}{'openconfig-\/platform:component'}][0][\textcolor{stringliteral}{'state'}][\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{289                 resp = response.content[\textcolor{stringliteral}{'openconfig-\/platform:component'}][0]}
+\DoxyCodeLine{290                 chassisName = \textcolor{stringliteral}{'N/A'}}
+\DoxyCodeLine{291                 moduleName = \textcolor{stringliteral}{'N/A'}}
+\DoxyCodeLine{292 }
+\DoxyCodeLine{293                 \textcolor{keywordflow}{if} (\textcolor{stringliteral}{'chassis'} \textcolor{keywordflow}{in} resp \textcolor{keywordflow}{and} \textcolor{stringliteral}{'state'} \textcolor{keywordflow}{in} resp[\textcolor{stringliteral}{'chassis'}] \textcolor{keywordflow}{and}}
+\DoxyCodeLine{294                     \textcolor{stringliteral}{'openconfig-\/platform-\/ext:name'} \textcolor{keywordflow}{in} resp[\textcolor{stringliteral}{'chassis'}][\textcolor{stringliteral}{'state'}]):}
+\DoxyCodeLine{295                     chassisName = resp[\textcolor{stringliteral}{'chassis'}][\textcolor{stringliteral}{'state'}][\textcolor{stringliteral}{'openconfig-\/platform-\/ext:name'}]}
+\DoxyCodeLine{296                 \textcolor{keywordflow}{if} (\textcolor{stringliteral}{'chassis'} \textcolor{keywordflow}{in} resp \textcolor{keywordflow}{and} \textcolor{stringliteral}{'state'} \textcolor{keywordflow}{in} resp[\textcolor{stringliteral}{'chassis'}] \textcolor{keywordflow}{and}}
+\DoxyCodeLine{297                     \textcolor{stringliteral}{'openconfig-\/platform-\/ext:module'} \textcolor{keywordflow}{in} resp[\textcolor{stringliteral}{'chassis'}][\textcolor{stringliteral}{'state'}]):}
+\DoxyCodeLine{298                     chassisName = resp[\textcolor{stringliteral}{'chassis'}][\textcolor{stringliteral}{'state'}][\textcolor{stringliteral}{'openconfig-\/platform-\/ext:module'}]}
+\DoxyCodeLine{299 }
+\DoxyCodeLine{300                 \textcolor{keywordflow}{if} chassisName \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} firmInfo:}
+\DoxyCodeLine{301                     firmInfo[chassisName] = OrderedDict()}
+\DoxyCodeLine{302                 \textcolor{keywordflow}{if} moduleName \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} firmInfo[chassisName]:}
+\DoxyCodeLine{303                     firmInfo[chassisName][moduleName] = OrderedDict()}
+\DoxyCodeLine{304                 firmInfo[chassisName][moduleName][firmName] = resp[\textcolor{stringliteral}{'state'}]}
+\DoxyCodeLine{305 }
+\DoxyCodeLine{306             firmInfo = OrderedDict(sorted(firmInfo.items()))}
+\DoxyCodeLine{307             \textcolor{keywordflow}{for} chassis \textcolor{keywordflow}{in} firmInfo:}
+\DoxyCodeLine{308                 firmInfo[chassis] = OrderedDict(sorted(firmInfo[chassis].items()))}
+\DoxyCodeLine{309                 \textcolor{keywordflow}{for} module \textcolor{keywordflow}{in} firmInfo[chassis]:}
+\DoxyCodeLine{310                     firmInfo[chassis][module] = OrderedDict(sorted(firmInfo[chassis][module].items()))}
+\DoxyCodeLine{311             \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(template, firmInfo)}
+\DoxyCodeLine{312     \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} e:}
+\DoxyCodeLine{313         print(\textcolor{stringliteral}{"\%Error: Transaction Failure"})}
+\DoxyCodeLine{314         \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{315     \textcolor{keywordflow}{return} 0}
+\DoxyCodeLine{316 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d89/namespacesonic-cli-pfm_a6f522b1aadf5e97a191cb9602853f653_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacesonic-cli-pfm_a1f55e0fc7a1ee813f1d6637a4fe073c0}\label{namespacesonic-cli-pfm_a1f55e0fc7a1ee813f1d6637a4fe073c0}} 
+\index{sonic-\/cli-\/pfm@{sonic-\/cli-\/pfm}!func@{func}}
+\index{func@{func}!sonic-\/cli-\/pfm@{sonic-\/cli-\/pfm}}
+\doxysubsubsection{\texorpdfstring{func}{func}}
+{\footnotesize\ttfamily sonic-\/cli-\/pfm.\+func = sys.\+argv\mbox{[}1\mbox{]}}
+
+
+
+sonic-\/cli-\/pfm.\+py 파일의 319 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic-cli-pfm_a8474b669172a0545c654099385599230}\label{namespacesonic-cli-pfm_a8474b669172a0545c654099385599230}} 
+\index{sonic-\/cli-\/pfm@{sonic-\/cli-\/pfm}!ret@{ret}}
+\index{ret@{ret}!sonic-\/cli-\/pfm@{sonic-\/cli-\/pfm}}
+\doxysubsubsection{\texorpdfstring{ret}{ret}}
+{\footnotesize\ttfamily def sonic-\/cli-\/pfm.\+ret = \mbox{\hyperlink{namespacesonic-cli-pfm_a6f522b1aadf5e97a191cb9602853f653}{run}}(\mbox{\hyperlink{namespacesonic-cli-pfm_a1f55e0fc7a1ee813f1d6637a4fe073c0}{func}}, sys.\+argv\mbox{[}2\+:\mbox{]})}
+
+
+
+sonic-\/cli-\/pfm.\+py 파일의 320 번째 라인에서 정의되었습니다.
+

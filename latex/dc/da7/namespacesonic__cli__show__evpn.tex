@@ -1,0 +1,50 @@
+\hypertarget{namespacesonic__cli__show__evpn}{}\doxysection{sonic\+\_\+cli\+\_\+show\+\_\+evpn 네임스페이스 참조}
+\label{namespacesonic__cli__show__evpn}\index{sonic\_cli\_show\_evpn@{sonic\_cli\_show\_evpn}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__show__evpn_a1cdce6b5713410f0c86ee7ac2823b2c2}{run}} (func, args)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__show__evpn_a1cdce6b5713410f0c86ee7ac2823b2c2}\label{namespacesonic__cli__show__evpn_a1cdce6b5713410f0c86ee7ac2823b2c2}} 
+\index{sonic\_cli\_show\_evpn@{sonic\_cli\_show\_evpn}!run@{run}}
+\index{run@{run}!sonic\_cli\_show\_evpn@{sonic\_cli\_show\_evpn}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+show\+\_\+evpn.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+evpn.\+py 파일의 24 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__show__evpn_a1cdce6b5713410f0c86ee7ac2823b2c2}{run}}(func, args):}
+\DoxyCodeLine{25     full\_cmd = os.getenv(\textcolor{stringliteral}{'USER\_COMMAND'}, \textcolor{keywordtype}{None}).split(\textcolor{stringliteral}{'|'})[0].lstrip(\textcolor{stringliteral}{'do '})}
+\DoxyCodeLine{26     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{"get\_evpn"}:}
+\DoxyCodeLine{27         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/bgp-\/show:show-\/bgp-\/evpn'})}
+\DoxyCodeLine{28         body = \{\textcolor{stringliteral}{"sonic-\/bgp-\/show:input"}: \{ \textcolor{stringliteral}{"cmd"}:full\_cmd \}\}}
+\DoxyCodeLine{29         response = cc.ApiClient().post(keypath, body, response\_type=\textcolor{stringliteral}{'string'})}
+\DoxyCodeLine{30         \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response:}
+\DoxyCodeLine{31             \textcolor{keywordflow}{print} \textcolor{stringliteral}{"No response"}}
+\DoxyCodeLine{32             \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{33         \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{34             \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{35                 content = response.content}
+\DoxyCodeLine{36                 content = content[38:-\/3].replace(\textcolor{stringliteral}{'\(\backslash\)u003e'}, \textcolor{stringliteral}{'>'})}
+\DoxyCodeLine{37                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{"dump.j2"}, content)}
+\DoxyCodeLine{38         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{39             \textcolor{keywordflow}{print} response.error\_message()}
+\DoxyCodeLine{40             \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{41         \textcolor{keywordflow}{return}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/da7/namespacesonic__cli__show__evpn_a1cdce6b5713410f0c86ee7ac2823b2c2_cgraph}
+\end{center}
+\end{figure}

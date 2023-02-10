@@ -1,0 +1,659 @@
+\hypertarget{namespaceshow__config__fbs}{}\doxysection{show\+\_\+config\+\_\+fbs 네임스페이스 참조}
+\label{namespaceshow__config__fbs}\index{show\_config\_fbs@{show\_config\_fbs}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceshow__config__fbs_a400ba4a76d2e424c347d4f4ef4650b22}{show\+\_\+running\+\_\+fbs\+\_\+classifier}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__fbs_ae7abff5936529085e55b2b0c926c6da3}{show\+\_\+running\+\_\+fbs\+\_\+policy}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__fbs_af38d4f3be36243333c268157d6f387d4}{\+\_\+\+\_\+show\+\_\+runn\+\_\+fbs\+\_\+service\+\_\+policy\+\_\+for\+\_\+intf}} (\mbox{\hyperlink{DB-PARSED_8txt_ade21f1b8207be12557c95ca35b93ef08}{ifname}}, cache)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__fbs_a1a2aecb578d7f753981843fc7772ec39}{show\+\_\+running\+\_\+fbs\+\_\+service\+\_\+policy\+\_\+global}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__fbs_abb73b3253b70e22be5dc4465df209208}{show\+\_\+running\+\_\+fbs\+\_\+service\+\_\+policy\+\_\+ctrlplane}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__fbs_a9253330242829daff06341cb25081029}{show\+\_\+running\+\_\+fbs\+\_\+service\+\_\+policy\+\_\+interface}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__fbs_a6514d3d1786722b3f297d6c3ae74140c}{run}} (opstr, args)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__fbs_a774a1a9c2890ff0285d3a3ce9d890fe8}{show\+\_\+running\+\_\+class\+\_\+map}} (args)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__fbs_a338cd73880dad0e47078124579f73c26}{show\+\_\+running\+\_\+next\+\_\+hop\+\_\+group\+\_\+by\+\_\+name}} (args)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__fbs_a05c2c734eefe59dcb22e78810a8162a2}{show\+\_\+running\+\_\+config\+\_\+fbs\+\_\+start\+\_\+callback}} (context, cache)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__fbs_a1462b8acf5b199e66143f9b98b327e64}{show\+\_\+running\+\_\+next\+\_\+hop\+\_\+group}} (render\+\_\+tables)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespaceshow__config__fbs_af38d4f3be36243333c268157d6f387d4}\label{namespaceshow__config__fbs_af38d4f3be36243333c268157d6f387d4}} 
+\index{show\_config\_fbs@{show\_config\_fbs}!\_\_show\_runn\_fbs\_service\_policy\_for\_intf@{\_\_show\_runn\_fbs\_service\_policy\_for\_intf}}
+\index{\_\_show\_runn\_fbs\_service\_policy\_for\_intf@{\_\_show\_runn\_fbs\_service\_policy\_for\_intf}!show\_config\_fbs@{show\_config\_fbs}}
+\doxysubsubsection{\texorpdfstring{\_\_show\_runn\_fbs\_service\_policy\_for\_intf()}{\_\_show\_runn\_fbs\_service\_policy\_for\_intf()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+fbs.\+\_\+\+\_\+show\+\_\+runn\+\_\+fbs\+\_\+service\+\_\+policy\+\_\+for\+\_\+intf (\begin{DoxyParamCaption}\item[{}]{ifname,  }\item[{}]{cache }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+show\+\_\+config\+\_\+fbs.\+py 파일의 291 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{291 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__fbs_af38d4f3be36243333c268157d6f387d4}{\_\_show\_runn\_fbs\_service\_policy\_for\_intf}}(ifname, cache):}
+\DoxyCodeLine{292     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{293     policy\_types = [\textcolor{stringliteral}{'qos'}, \textcolor{stringliteral}{'monitoring'}, \textcolor{stringliteral}{'forwarding'}, \textcolor{stringliteral}{'acl-\/copp'}]}
+\DoxyCodeLine{294     directions = [\textcolor{stringliteral}{'ingress'}, \textcolor{stringliteral}{'egress'}]}
+\DoxyCodeLine{295     cfg\_pdir\_map = \{directions[0]: \textcolor{stringliteral}{"in"}, directions[1]: \textcolor{stringliteral}{"out"}\}}
+\DoxyCodeLine{296     \textcolor{keywordflow}{if} ifname \textcolor{keywordflow}{in} cache:}
+\DoxyCodeLine{297         ifdata = cache[ifname]}
+\DoxyCodeLine{298         \textcolor{keywordflow}{for} pdir \textcolor{keywordflow}{in} directions:}
+\DoxyCodeLine{299             \textcolor{keywordflow}{for} policy\_type \textcolor{keywordflow}{in} policy\_types:}
+\DoxyCodeLine{300                 key = \textcolor{stringliteral}{'\{\}\_\{\}\_POLICY'}.format(pdir.upper(), policy\_type.upper())}
+\DoxyCodeLine{301                 \textcolor{keywordflow}{if} key \textcolor{keywordflow}{in} ifdata:}
+\DoxyCodeLine{302                     cmd\_str += \textcolor{stringliteral}{'service-\/policy type \{\} \{\} \{\};'}.format(policy\_type, cfg\_pdir\_map[pdir], ifdata[key])}
+\DoxyCodeLine{303 }
+\DoxyCodeLine{304     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str, \textcolor{keyword}{True}}
+\DoxyCodeLine{305 }
+\DoxyCodeLine{306 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d0c/namespaceshow__config__fbs_af38d4f3be36243333c268157d6f387d4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__fbs_a6514d3d1786722b3f297d6c3ae74140c}\label{namespaceshow__config__fbs_a6514d3d1786722b3f297d6c3ae74140c}} 
+\index{show\_config\_fbs@{show\_config\_fbs}!run@{run}}
+\index{run@{run}!show\_config\_fbs@{show\_config\_fbs}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+fbs.\+run (\begin{DoxyParamCaption}\item[{}]{opstr,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+fbs.\+py 파일의 319 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{319 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__fbs_a6514d3d1786722b3f297d6c3ae74140c}{run}}(opstr, args):}
+\DoxyCodeLine{320     \textcolor{keywordflow}{if} opstr == \textcolor{stringliteral}{"show\_running\_class\_map"}:}
+\DoxyCodeLine{321         \mbox{\hyperlink{namespaceshow__config__fbs_a774a1a9c2890ff0285d3a3ce9d890fe8}{show\_running\_class\_map}}(args)}
+\DoxyCodeLine{322     \textcolor{keywordflow}{elif} opstr == \textcolor{stringliteral}{"show\_running\_next\_hop\_group\_by\_name"}:}
+\DoxyCodeLine{323         \mbox{\hyperlink{namespaceshow__config__fbs_a338cd73880dad0e47078124579f73c26}{show\_running\_next\_hop\_group\_by\_name}}(args)}
+\DoxyCodeLine{324 }
+\DoxyCodeLine{325 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d0c/namespaceshow__config__fbs_a6514d3d1786722b3f297d6c3ae74140c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__fbs_a774a1a9c2890ff0285d3a3ce9d890fe8}\label{namespaceshow__config__fbs_a774a1a9c2890ff0285d3a3ce9d890fe8}} 
+\index{show\_config\_fbs@{show\_config\_fbs}!show\_running\_class\_map@{show\_running\_class\_map}}
+\index{show\_running\_class\_map@{show\_running\_class\_map}!show\_config\_fbs@{show\_config\_fbs}}
+\doxysubsubsection{\texorpdfstring{show\_running\_class\_map()}{show\_running\_class\_map()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+fbs.\+show\+\_\+running\+\_\+class\+\_\+map (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+fbs.\+py 파일의 326 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{326 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__fbs_a774a1a9c2890ff0285d3a3ce9d890fe8}{show\_running\_class\_map}}(args):}
+\DoxyCodeLine{327     \textcolor{keyword}{import} sonic\_cli\_show\_config }
+\DoxyCodeLine{328     \mbox{\hyperlink{namespacesonic__cli__show__config_a97db9b59be4b41ed63d8d28071ae9ac4}{sonic\_cli\_show\_config.run}}(\textcolor{stringliteral}{"show\_view"},}
+\DoxyCodeLine{329                               [\textcolor{stringliteral}{"views=configure-\/\$\{fbs-\/class-\/type\}-\/classifier"},}
+\DoxyCodeLine{330                                \textcolor{stringliteral}{'view\_keys="fbs-\/class-\/name=\{class\_name\}"'}.format(}
+\DoxyCodeLine{331                                    class\_name=args[0] \textcolor{keywordflow}{if} len(args) == 1 \textcolor{keywordflow}{else} \textcolor{stringliteral}{""})])}
+\DoxyCodeLine{332 }
+\DoxyCodeLine{333 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d0c/namespaceshow__config__fbs_a774a1a9c2890ff0285d3a3ce9d890fe8_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d0c/namespaceshow__config__fbs_a774a1a9c2890ff0285d3a3ce9d890fe8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__fbs_a05c2c734eefe59dcb22e78810a8162a2}\label{namespaceshow__config__fbs_a05c2c734eefe59dcb22e78810a8162a2}} 
+\index{show\_config\_fbs@{show\_config\_fbs}!show\_running\_config\_fbs\_start\_callback@{show\_running\_config\_fbs\_start\_callback}}
+\index{show\_running\_config\_fbs\_start\_callback@{show\_running\_config\_fbs\_start\_callback}!show\_config\_fbs@{show\_config\_fbs}}
+\doxysubsubsection{\texorpdfstring{show\_running\_config\_fbs\_start\_callback()}{show\_running\_config\_fbs\_start\_callback()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+fbs.\+show\+\_\+running\+\_\+config\+\_\+fbs\+\_\+start\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{context,  }\item[{}]{cache }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+fbs.\+py 파일의 342 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{342 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__fbs_a05c2c734eefe59dcb22e78810a8162a2}{show\_running\_config\_fbs\_start\_callback}}(context, cache):}
+\DoxyCodeLine{343     fbs\_client = cc.ApiClient()}
+\DoxyCodeLine{344     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/flow-\/based-\/services:sonic-\/flow-\/based-\/services/POLICY\_BINDING\_TABLE/POLICY\_BINDING\_TABLE\_LIST'})}
+\DoxyCodeLine{345     response = fbs\_client.get(keypath, depth=\textcolor{keywordtype}{None}, ignore404=\textcolor{keyword}{False})}
+\DoxyCodeLine{346     \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{347         \textcolor{keywordflow}{for} binding \textcolor{keywordflow}{in} response.content.get(\textcolor{stringliteral}{'sonic-\/flow-\/based-\/services:POLICY\_BINDING\_TABLE\_LIST'}, []):}
+\DoxyCodeLine{348             cache[binding.pop(\textcolor{stringliteral}{'INTERFACE\_NAME'})] = binding}
+\DoxyCodeLine{349 }
+\DoxyCodeLine{350 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceshow__config__fbs_a400ba4a76d2e424c347d4f4ef4650b22}\label{namespaceshow__config__fbs_a400ba4a76d2e424c347d4f4ef4650b22}} 
+\index{show\_config\_fbs@{show\_config\_fbs}!show\_running\_fbs\_classifier@{show\_running\_fbs\_classifier}}
+\index{show\_running\_fbs\_classifier@{show\_running\_fbs\_classifier}!show\_config\_fbs@{show\_config\_fbs}}
+\doxysubsubsection{\texorpdfstring{show\_running\_fbs\_classifier()}{show\_running\_fbs\_classifier()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+fbs.\+show\+\_\+running\+\_\+fbs\+\_\+classifier (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+fbs.\+py 파일의 28 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{28 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__fbs_a400ba4a76d2e424c347d4f4ef4650b22}{show\_running\_fbs\_classifier}}(render\_tables):}
+\DoxyCodeLine{29     fbs\_client = cc.ApiClient()}
+\DoxyCodeLine{30     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'fbs-\/class-\/name'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{31         body = \{\textcolor{stringliteral}{"sonic-\/flow-\/based-\/services:input"}: \{\textcolor{stringliteral}{"CLASSIFIER\_NAME"}: render\_tables[\textcolor{stringliteral}{'fbs-\/class-\/name'}]\}\}}
+\DoxyCodeLine{32     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{33         body = \{\textcolor{stringliteral}{"sonic-\/flow-\/based-\/services:input"}: \{\}\}}
+\DoxyCodeLine{34     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/flow-\/based-\/services:get-\/classifier'})}
+\DoxyCodeLine{35     response = fbs\_client.post(keypath, body)}
+\DoxyCodeLine{36     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{37     \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{38         \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None} \textcolor{keywordflow}{and} bool(response.content):}
+\DoxyCodeLine{39             output = response.content[\textcolor{stringliteral}{"sonic-\/flow-\/based-\/services:output"}][\textcolor{stringliteral}{"CLASSIFIERS"}]}
+\DoxyCodeLine{40             render\_data = OrderedDict()}
+\DoxyCodeLine{41             output\_dict = dict()}
+\DoxyCodeLine{42             \textcolor{keywordflow}{for} entry \textcolor{keywordflow}{in} output:}
+\DoxyCodeLine{43                 output\_dict[entry[\textcolor{stringliteral}{"CLASSIFIER\_NAME"}]] = entry}
+\DoxyCodeLine{44             sorted\_keys = natsorted(output\_dict.keys())}
+\DoxyCodeLine{45             \textcolor{keywordflow}{for} key \textcolor{keywordflow}{in} sorted\_keys:}
+\DoxyCodeLine{46                 render\_data[key] = output\_dict[key]}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48             index = 0}
+\DoxyCodeLine{49             \textcolor{keywordflow}{for} class\_name \textcolor{keywordflow}{in} render\_data:}
+\DoxyCodeLine{50                 cmd\_str += \textcolor{stringliteral}{''} \textcolor{keywordflow}{if} index == 0 \textcolor{keywordflow}{else} \textcolor{stringliteral}{"!;"} }
+\DoxyCodeLine{51                 index += 1}
+\DoxyCodeLine{52                 class\_data = render\_data[class\_name]}
+\DoxyCodeLine{53                 match\_type = class\_data[\textcolor{stringliteral}{'MATCH\_TYPE'}].lower()}
+\DoxyCodeLine{54                 fields\_str = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{55                 \textcolor{keywordflow}{if} match\_type == \textcolor{stringliteral}{'fields'}:}
+\DoxyCodeLine{56                     fields\_str = \textcolor{stringliteral}{'match-\/all'}}
+\DoxyCodeLine{57                 cmd\_str += \textcolor{stringliteral}{'class-\/map \{\} match-\/type \{\} \{\};'}.format(class\_name, match\_type, fields\_str)}
+\DoxyCodeLine{58                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'DESCRIPTION'} \textcolor{keywordflow}{in} class\_data.keys() \textcolor{keywordflow}{and} class\_data[\textcolor{stringliteral}{'DESCRIPTION'}] != \textcolor{stringliteral}{""}:}
+\DoxyCodeLine{59                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{' '} \textcolor{keywordflow}{in} class\_data[\textcolor{stringliteral}{'DESCRIPTION'}]:}
+\DoxyCodeLine{60                         cmd\_str += \textcolor{stringliteral}{' description "\{\}";'}.format(class\_data[\textcolor{stringliteral}{'DESCRIPTION'}])}
+\DoxyCodeLine{61                     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{62                         cmd\_str += \textcolor{stringliteral}{' description \{\};'}.format(class\_data[\textcolor{stringliteral}{'DESCRIPTION'}])}
+\DoxyCodeLine{63                 \textcolor{keywordflow}{if} match\_type == \textcolor{stringliteral}{'copp'}:}
+\DoxyCodeLine{64                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'TRAP\_IDS'} \textcolor{keywordflow}{in} class\_data.keys():}
+\DoxyCodeLine{65                         trap\_id\_list = class\_data[\textcolor{stringliteral}{'TRAP\_IDS'}].split(\textcolor{stringliteral}{','})}
+\DoxyCodeLine{66                         \textcolor{keywordflow}{for} trap\_id \textcolor{keywordflow}{in} trap\_id\_list:}
+\DoxyCodeLine{67                             cmd\_str += \textcolor{stringliteral}{' match protocol \{\};'}.format(trap\_id)}
+\DoxyCodeLine{68                 \textcolor{keywordflow}{elif} match\_type.lower() == \textcolor{stringliteral}{'acl'}:}
+\DoxyCodeLine{69                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'ACL\_TYPE'} \textcolor{keywordflow}{in} class\_data:}
+\DoxyCodeLine{70                         acl\_type = class\_data[\textcolor{stringliteral}{"ACL\_TYPE"}]}
+\DoxyCodeLine{71                         \textcolor{keywordflow}{if} acl\_type == \textcolor{stringliteral}{"L2"}:}
+\DoxyCodeLine{72                             acl\_type\_str = \textcolor{stringliteral}{"mac"}}
+\DoxyCodeLine{73                         \textcolor{keywordflow}{elif} acl\_type == \textcolor{stringliteral}{"L3"}:}
+\DoxyCodeLine{74                             acl\_type\_str = \textcolor{stringliteral}{"ip"}}
+\DoxyCodeLine{75                         \textcolor{keywordflow}{elif} acl\_type == \textcolor{stringliteral}{"L3V6"}:}
+\DoxyCodeLine{76                             acl\_type\_str = \textcolor{stringliteral}{"ipv6"}}
+\DoxyCodeLine{77                         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{78                             acl\_type\_str = \textcolor{stringliteral}{'unknown'}}
+\DoxyCodeLine{79                         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'ACL\_NAME'} \textcolor{keywordflow}{in} class\_data:}
+\DoxyCodeLine{80                             cmd\_str += \textcolor{stringliteral}{' match access-\/group \{\} \{\};'}.format(acl\_type\_str, class\_data[\textcolor{stringliteral}{"ACL\_NAME"}])}
+\DoxyCodeLine{81                 \textcolor{keywordflow}{elif} match\_type.lower() == \textcolor{stringliteral}{'fields'}:}
+\DoxyCodeLine{82                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'ETHER\_TYPE'} \textcolor{keywordflow}{in} class\_data:}
+\DoxyCodeLine{83                         val = \mbox{\hyperlink{namespacesonic__cli__fbs_aab711ebe84d3f8aa48e7c4f40ba4f167}{ethertype\_to\_user\_fmt}}(class\_data[\textcolor{stringliteral}{"ETHER\_TYPE"}])}
+\DoxyCodeLine{84                         cmd\_str += \textcolor{stringliteral}{' match ethertype \{\};'}.format(val)}
+\DoxyCodeLine{85                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'SRC\_MAC'} \textcolor{keywordflow}{in} class\_data:}
+\DoxyCodeLine{86                         val = \mbox{\hyperlink{namespacesonic__cli__acl_a626b622bf92bd06db94b10f9df0317dd}{sonic\_cli\_acl.mac\_addr\_to\_user\_fmt}}(class\_data[\textcolor{stringliteral}{"SRC\_MAC"}])}
+\DoxyCodeLine{87                         cmd\_str += \textcolor{stringliteral}{' match source-\/adress mac \{\};'}.format(val)}
+\DoxyCodeLine{88                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'DST\_MAC'} \textcolor{keywordflow}{in} class\_data:}
+\DoxyCodeLine{89                         val = \mbox{\hyperlink{namespacesonic__cli__acl_a626b622bf92bd06db94b10f9df0317dd}{sonic\_cli\_acl.mac\_addr\_to\_user\_fmt}}(class\_data[\textcolor{stringliteral}{"DST\_MAC"}])}
+\DoxyCodeLine{90                         cmd\_str += \textcolor{stringliteral}{' match destination-\/adress mac \{\};'}.format(val)}
+\DoxyCodeLine{91                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'VLAN'} \textcolor{keywordflow}{in} class\_data:}
+\DoxyCodeLine{92                         cmd\_str += \textcolor{stringliteral}{' match vlan \{\};'}.format(class\_data[\textcolor{stringliteral}{"VLAN"}])}
+\DoxyCodeLine{93                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'PCP'} \textcolor{keywordflow}{in} class\_data:}
+\DoxyCodeLine{94                         cmd\_str += \textcolor{stringliteral}{' match pcp \{\};'}.format(\mbox{\hyperlink{namespacesonic__cli__acl_a9e2076c99de8165b6e20f55443aeff7c}{sonic\_cli\_acl.pcp\_to\_user\_fmt}}(class\_data[\textcolor{stringliteral}{"PCP"}]))}
+\DoxyCodeLine{95                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'DSCP'} \textcolor{keywordflow}{in} class\_data:}
+\DoxyCodeLine{96                         cmd\_str += \textcolor{stringliteral}{' match dscp \{\};'}.format(\mbox{\hyperlink{namespacesonic__cli__acl_adaf1a821f00645179a4416745eec9a9a}{sonic\_cli\_acl.dscp\_to\_user\_fmt}}(class\_data[\textcolor{stringliteral}{"DSCP"}]))}
+\DoxyCodeLine{97                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'DEI'} \textcolor{keywordflow}{in} class\_data:}
+\DoxyCodeLine{98                         cmd\_str += \textcolor{stringliteral}{' match dei \{\};'}.format(class\_data[\textcolor{stringliteral}{"DEI"}]) }
+\DoxyCodeLine{99                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'IP\_PROTOCOL'} \textcolor{keywordflow}{in} class\_data:}
+\DoxyCodeLine{100                         val = \mbox{\hyperlink{namespacesonic__cli__acl_aec04c792f33978d7c3a3067618d014b0}{sonic\_cli\_acl.ip\_protocol\_to\_user\_fmt}}(class\_data[\textcolor{stringliteral}{"IP\_PROTOCOL"}])}
+\DoxyCodeLine{101                         cmd\_str += \textcolor{stringliteral}{' match ip protocol \{\};'}.format(val)}
+\DoxyCodeLine{102                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'SRC\_IP'} \textcolor{keywordflow}{in} class\_data:}
+\DoxyCodeLine{103                         val = \mbox{\hyperlink{namespacesonic__cli__acl_a8d902528cfa88fdb5bdcc4faa479fc7d}{sonic\_cli\_acl.convert\_ip\_addr\_to\_user\_fmt}}(class\_data[\textcolor{stringliteral}{"SRC\_IP"}])}
+\DoxyCodeLine{104                         cmd\_str += \textcolor{stringliteral}{' match source-\/address ip \{\};'}.format(val)}
+\DoxyCodeLine{105                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'SRC\_IPV6'} \textcolor{keywordflow}{in} class\_data:}
+\DoxyCodeLine{106                         val = \mbox{\hyperlink{namespacesonic__cli__acl_a8d902528cfa88fdb5bdcc4faa479fc7d}{sonic\_cli\_acl.convert\_ip\_addr\_to\_user\_fmt}}(class\_data[\textcolor{stringliteral}{"SRC\_IPV6"}])}
+\DoxyCodeLine{107                         cmd\_str += \textcolor{stringliteral}{' match source-\/address ipv6 \{\};'}.format(val)}
+\DoxyCodeLine{108                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'DST\_IP'} \textcolor{keywordflow}{in} class\_data:}
+\DoxyCodeLine{109                         val = \mbox{\hyperlink{namespacesonic__cli__acl_a8d902528cfa88fdb5bdcc4faa479fc7d}{sonic\_cli\_acl.convert\_ip\_addr\_to\_user\_fmt}}(class\_data[\textcolor{stringliteral}{"DST\_IP"}])}
+\DoxyCodeLine{110                         cmd\_str += \textcolor{stringliteral}{' match destination-\/address ip \{\};'}.format(val)}
+\DoxyCodeLine{111                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'DST\_IPV6'} \textcolor{keywordflow}{in} class\_data:}
+\DoxyCodeLine{112                         val = \mbox{\hyperlink{namespacesonic__cli__acl_a8d902528cfa88fdb5bdcc4faa479fc7d}{sonic\_cli\_acl.convert\_ip\_addr\_to\_user\_fmt}}(class\_data[\textcolor{stringliteral}{"DST\_IPV6"}])}
+\DoxyCodeLine{113                         cmd\_str += \textcolor{stringliteral}{' match destination-\/address ipv6 \{\};'}.format(val)}
+\DoxyCodeLine{114                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'L4\_SRC\_PORT'} \textcolor{keywordflow}{in} class\_data:}
+\DoxyCodeLine{115                         cmd\_str += \textcolor{stringliteral}{' match source-\/port eq \{\};'}.format(class\_data[\textcolor{stringliteral}{"L4\_SRC\_PORT"}])}
+\DoxyCodeLine{116                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'L4\_SRC\_PORT\_RANGE'} \textcolor{keywordflow}{in} class\_data:}
+\DoxyCodeLine{117                         val = class\_data[\textcolor{stringliteral}{"L4\_SRC\_PORT\_RANGE"}]}
+\DoxyCodeLine{118                         cmd\_str += \textcolor{stringliteral}{' match source-\/port range \{\};'}.format(class\_data[\textcolor{stringliteral}{"L4\_SRC\_PORT\_RANGE"}])}
+\DoxyCodeLine{119                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'L4\_DST\_PORT'} \textcolor{keywordflow}{in} class\_data:}
+\DoxyCodeLine{120                         val = class\_data[\textcolor{stringliteral}{"L4\_DST\_PORT"}]}
+\DoxyCodeLine{121                         cmd\_str += \textcolor{stringliteral}{' match destination-\/port eq \{\};'}.format(class\_data[\textcolor{stringliteral}{"L4\_DST\_PORT"}])}
+\DoxyCodeLine{122                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'L4\_DST\_PORT\_RANGE'} \textcolor{keywordflow}{in} class\_data:}
+\DoxyCodeLine{123                         val = class\_data[\textcolor{stringliteral}{"L4\_DST\_PORT"}]}
+\DoxyCodeLine{124                         cmd\_str += \textcolor{stringliteral}{' match destination-\/port range \{\};'}.format(class\_data[\textcolor{stringliteral}{"L4\_DST\_PORT\_RANGE"}])}
+\DoxyCodeLine{125                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'TCP\_FLAGS'} \textcolor{keywordflow}{in} class\_data:}
+\DoxyCodeLine{126                         val = \mbox{\hyperlink{namespacesonic__cli__acl_ad9919d6e2aca9a8a7609845162bb8603}{sonic\_cli\_acl.tcp\_flags\_to\_user\_fmt}}(class\_data[\textcolor{stringliteral}{"TCP\_FLAGS"}])}
+\DoxyCodeLine{127                         cmd\_str += \textcolor{stringliteral}{' match tcp-\/flags \{\};'}.format(val)}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str, \textcolor{keyword}{True}}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d0c/namespaceshow__config__fbs_a400ba4a76d2e424c347d4f4ef4650b22_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__fbs_ae7abff5936529085e55b2b0c926c6da3}\label{namespaceshow__config__fbs_ae7abff5936529085e55b2b0c926c6da3}} 
+\index{show\_config\_fbs@{show\_config\_fbs}!show\_running\_fbs\_policy@{show\_running\_fbs\_policy}}
+\index{show\_running\_fbs\_policy@{show\_running\_fbs\_policy}!show\_config\_fbs@{show\_config\_fbs}}
+\doxysubsubsection{\texorpdfstring{show\_running\_fbs\_policy()}{show\_running\_fbs\_policy()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+fbs.\+show\+\_\+running\+\_\+fbs\+\_\+policy (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+fbs.\+py 파일의 132 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{132 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__fbs_ae7abff5936529085e55b2b0c926c6da3}{show\_running\_fbs\_policy}}(render\_tables):}
+\DoxyCodeLine{133     fbs\_client = cc.ApiClient()}
+\DoxyCodeLine{134     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'fbs-\/policy-\/name'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{135         body = \{\textcolor{stringliteral}{"sonic-\/flow-\/based-\/services:input"}: \{\textcolor{stringliteral}{"POLICY\_NAME"}:render\_tables[\textcolor{stringliteral}{'fbs-\/policy-\/name'}]\}\}}
+\DoxyCodeLine{136     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{137         body = \{\textcolor{stringliteral}{"sonic-\/flow-\/based-\/services:input"}: \{\}\}}
+\DoxyCodeLine{138     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/flow-\/based-\/services:get-\/policy'})}
+\DoxyCodeLine{139     response = fbs\_client.post(keypath, body)}
+\DoxyCodeLine{140     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{141     \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{142         \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None} \textcolor{keywordflow}{and} bool(response.content):}
+\DoxyCodeLine{143             render\_data = OrderedDict()}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145             output = response.content[\textcolor{stringliteral}{"sonic-\/flow-\/based-\/services:output"}][\textcolor{stringliteral}{"POLICIES"}]}
+\DoxyCodeLine{146             policy\_names = []}
+\DoxyCodeLine{147             data = dict()}
+\DoxyCodeLine{148             \textcolor{keywordflow}{for} entry \textcolor{keywordflow}{in} output:}
+\DoxyCodeLine{149                 policy\_names.append(entry[\textcolor{stringliteral}{"POLICY\_NAME"}])}
+\DoxyCodeLine{150                 data[entry[\textcolor{stringliteral}{"POLICY\_NAME"}]] = entry}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{152             policy\_names = natsorted(policy\_names)}
+\DoxyCodeLine{153             \textcolor{keywordflow}{for} name \textcolor{keywordflow}{in} policy\_names:}
+\DoxyCodeLine{154                 render\_data[name] = OrderedDict()}
+\DoxyCodeLine{155                 policy\_data = data[name]}
+\DoxyCodeLine{156                 render\_data[name][\textcolor{stringliteral}{"TYPE"}] = policy\_data[\textcolor{stringliteral}{"TYPE"}].lower().replace(\textcolor{stringliteral}{"\_"}, \textcolor{stringliteral}{"-\/"})}
+\DoxyCodeLine{157                 render\_data[name][\textcolor{stringliteral}{"DESCRIPTION"}] = policy\_data.get(\textcolor{stringliteral}{"DESCRIPTION"}, \textcolor{stringliteral}{""})}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159                 render\_data[name][\textcolor{stringliteral}{"FLOWS"}] = OrderedDict()}
+\DoxyCodeLine{160                 flows = dict()}
+\DoxyCodeLine{161                 \textcolor{keywordflow}{for} flow \textcolor{keywordflow}{in} policy\_data.get(\textcolor{stringliteral}{"FLOWS"}, list()):}
+\DoxyCodeLine{162                     flows[(flow[\textcolor{stringliteral}{"PRIORITY"}], flow[\textcolor{stringliteral}{"CLASS\_NAME"}])] = flow}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164                 flow\_keys = natsorted(flows.keys(), reverse=\textcolor{keyword}{True})}
+\DoxyCodeLine{165                 \textcolor{keywordflow}{for} flow \textcolor{keywordflow}{in} flow\_keys:}
+\DoxyCodeLine{166                     render\_data[name][\textcolor{stringliteral}{"FLOWS"}][flow] = flows[flow]}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168                 render\_data[name][\textcolor{stringliteral}{"APPLIED\_INTERFACES"}] = policy\_data.get(\textcolor{stringliteral}{"APPLIED\_INTERFACES"}, [])}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{170             index = 0}
+\DoxyCodeLine{171             \textcolor{keywordflow}{for} policy\_name \textcolor{keywordflow}{in} render\_data:}
+\DoxyCodeLine{172                 cmd\_str += \textcolor{stringliteral}{''} \textcolor{keywordflow}{if} index == 0 \textcolor{keywordflow}{else} \textcolor{stringliteral}{"!;"} }
+\DoxyCodeLine{173                 index += 1}
+\DoxyCodeLine{174                 match\_type = render\_data[policy\_name][\textcolor{stringliteral}{'TYPE'}].lower().replace(\textcolor{stringliteral}{"\_"}, \textcolor{stringliteral}{"-\/"})}
+\DoxyCodeLine{175                 cmd\_str += \textcolor{stringliteral}{'policy-\/map \{\} type \{\};'}.format(policy\_name, match\_type)}
+\DoxyCodeLine{176                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'DESCRIPTION'} \textcolor{keywordflow}{in} render\_data[policy\_name] \textcolor{keywordflow}{and} render\_data[policy\_name][\textcolor{stringliteral}{'DESCRIPTION'}] != \textcolor{stringliteral}{""}:}
+\DoxyCodeLine{177                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{' '} \textcolor{keywordflow}{in} render\_data[policy\_name][\textcolor{stringliteral}{'DESCRIPTION'}]:}
+\DoxyCodeLine{178                         cmd\_str += \textcolor{stringliteral}{' description "\{\}";'}.format(render\_data[policy\_name][\textcolor{stringliteral}{'DESCRIPTION'}])}
+\DoxyCodeLine{179                     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{180                         cmd\_str += \textcolor{stringliteral}{' description \{\};'}.format(render\_data[policy\_name][\textcolor{stringliteral}{'DESCRIPTION'}])}
+\DoxyCodeLine{181                 \textcolor{keywordflow}{for} flow \textcolor{keywordflow}{in} render\_data[policy\_name][\textcolor{stringliteral}{'FLOWS'}]:}
+\DoxyCodeLine{182                     flow\_data = render\_data[policy\_name][\textcolor{stringliteral}{'FLOWS'}][flow]}
+\DoxyCodeLine{183                     priority = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{184                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'PRIORITY'} \textcolor{keywordflow}{in} flow\_data:}
+\DoxyCodeLine{185                         priority = \textcolor{stringliteral}{"priority "} + str(flow\_data[\textcolor{stringliteral}{'PRIORITY'}]) }
+\DoxyCodeLine{186                     cmd\_str += \textcolor{stringliteral}{' class \{\} \{\};'}.format(flow\_data[\textcolor{stringliteral}{'CLASS\_NAME'}], priority)}
+\DoxyCodeLine{187                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'DESCRIPTION'} \textcolor{keywordflow}{in} flow\_data \textcolor{keywordflow}{and} flow\_data[\textcolor{stringliteral}{'DESCRIPTION'}] != \textcolor{stringliteral}{""}:}
+\DoxyCodeLine{188                         \textcolor{keywordflow}{if} \textcolor{stringliteral}{" "} \textcolor{keywordflow}{in} flow\_data[\textcolor{stringliteral}{'DESCRIPTION'}]:}
+\DoxyCodeLine{189                             cmd\_str += \textcolor{stringliteral}{' description "\{\}";'}.format(flow\_data[\textcolor{stringliteral}{'DESCRIPTION'}])}
+\DoxyCodeLine{190                         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{191                             cmd\_str += \textcolor{stringliteral}{' description \{\};'}.format(flow\_data[\textcolor{stringliteral}{'DESCRIPTION'}])}
+\DoxyCodeLine{192                     \textcolor{keywordflow}{if} match\_type == \textcolor{stringliteral}{'copp'}:}
+\DoxyCodeLine{193                         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'TRAP\_GROUP'} \textcolor{keywordflow}{in} flow\_data:}
+\DoxyCodeLine{194                             \textcolor{keywordflow}{if} flow\_data[\textcolor{stringliteral}{'TRAP\_GROUP'}] != \textcolor{stringliteral}{'null'}:}
+\DoxyCodeLine{195                                 cmd\_str += \textcolor{stringliteral}{'  set copp-\/action \{\};'}.format(flow\_data[\textcolor{stringliteral}{'TRAP\_GROUP'}])}
+\DoxyCodeLine{196                                 cmd\_str += \textcolor{stringliteral}{' !;'}}
+\DoxyCodeLine{197                     \textcolor{keywordflow}{elif} match\_type == \textcolor{stringliteral}{'qos'}:}
+\DoxyCodeLine{198                         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'SET\_PCP'} \textcolor{keywordflow}{in} flow\_data:}
+\DoxyCodeLine{199                             cmd\_str += \textcolor{stringliteral}{'  set pcp \{\};'}.format(flow\_data[\textcolor{stringliteral}{'SET\_PCP'}])}
+\DoxyCodeLine{200                         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'SET\_DSCP'} \textcolor{keywordflow}{in} flow\_data:}
+\DoxyCodeLine{201                             cmd\_str += \textcolor{stringliteral}{'  set dscp \{\};'}.format(flow\_data[\textcolor{stringliteral}{'SET\_DSCP'}])}
+\DoxyCodeLine{202                         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'SET\_TC'} \textcolor{keywordflow}{in} flow\_data:}
+\DoxyCodeLine{203                             cmd\_str += \textcolor{stringliteral}{'  set traffic-\/class \{\};'}.format(flow\_data[\textcolor{stringliteral}{'SET\_TC'}])}
+\DoxyCodeLine{204 }
+\DoxyCodeLine{205                         pstr = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{206                         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'SET\_POLICER\_CIR'} \textcolor{keywordflow}{in} flow\_data:}
+\DoxyCodeLine{207                             pstr += \textcolor{stringliteral}{'cir \{\} '}.format(flow\_data[\textcolor{stringliteral}{'SET\_POLICER\_CIR'}])}
+\DoxyCodeLine{208                         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'SET\_POLICER\_CBS'} \textcolor{keywordflow}{in} flow\_data:}
+\DoxyCodeLine{209                             pstr += \textcolor{stringliteral}{'cbs \{\} '}.format(flow\_data[\textcolor{stringliteral}{'SET\_POLICER\_CBS'}])}
+\DoxyCodeLine{210                         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'SET\_POLICER\_PIR'} \textcolor{keywordflow}{in} flow\_data:}
+\DoxyCodeLine{211                             pstr += \textcolor{stringliteral}{'pir \{\} '}.format(flow\_data[\textcolor{stringliteral}{'SET\_POLICER\_PIR'}])}
+\DoxyCodeLine{212                         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'SET\_POLICER\_PBS'} \textcolor{keywordflow}{in} flow\_data:}
+\DoxyCodeLine{213                             pstr += \textcolor{stringliteral}{'pbs \{\} '}.format(flow\_data[\textcolor{stringliteral}{'SET\_POLICER\_PBS'}])}
+\DoxyCodeLine{214                         \textcolor{keywordflow}{if} pstr != \textcolor{stringliteral}{""}:}
+\DoxyCodeLine{215                             cmd\_str += \textcolor{stringliteral}{'  police \{\};'}.format(pstr)}
+\DoxyCodeLine{216                         cmd\_str += \textcolor{stringliteral}{' !;'}}
+\DoxyCodeLine{217                     \textcolor{keywordflow}{elif} match\_type == \textcolor{stringliteral}{'forwarding'}:}
+\DoxyCodeLine{218                         all\_egress = list()}
+\DoxyCodeLine{219                         \textcolor{keywordflow}{for} nhop \textcolor{keywordflow}{in} flow\_data.get(\textcolor{stringliteral}{"SET\_IP\_NEXTHOP"}, list()):}
+\DoxyCodeLine{220                             vrf\_str = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{221                             prio\_str = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{222                             prio = 0}
+\DoxyCodeLine{223                             \textcolor{keywordflow}{if} \textcolor{stringliteral}{"VRF"} \textcolor{keywordflow}{in} nhop:}
+\DoxyCodeLine{224                                 vrf\_str = \textcolor{stringliteral}{"vrf "} + str(nhop[\textcolor{stringliteral}{"VRF"}])}
+\DoxyCodeLine{225                             \textcolor{keywordflow}{if} \textcolor{stringliteral}{"PRIORITY"} \textcolor{keywordflow}{in} nhop:}
+\DoxyCodeLine{226                                 prio\_str = \textcolor{stringliteral}{"priority "} + str(nhop[\textcolor{stringliteral}{"PRIORITY"}])}
+\DoxyCodeLine{227                                 prio = int(nhop[\textcolor{stringliteral}{"PRIORITY"}])}
+\DoxyCodeLine{228                             all\_egress.append((prio, \textcolor{stringliteral}{'set ip next-\/hop \{\} \{\} \{\};'}.format(nhop[\textcolor{stringliteral}{"IP\_ADDRESS"}], vrf\_str, prio\_str).replace(\textcolor{stringliteral}{'  '}, \textcolor{stringliteral}{' '})))}
+\DoxyCodeLine{229                         \textcolor{keywordflow}{for} nhop \textcolor{keywordflow}{in} flow\_data.get(\textcolor{stringliteral}{'SET\_IP\_NEXTHOP\_GROUP'}, list()):}
+\DoxyCodeLine{230                             prio\_str = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{231                             prio = 0}
+\DoxyCodeLine{232                             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'PRIORITY'} \textcolor{keywordflow}{in} nhop:}
+\DoxyCodeLine{233                                 prio\_str = \textcolor{stringliteral}{"priority "} + str(nhop[\textcolor{stringliteral}{"PRIORITY"}])}
+\DoxyCodeLine{234                                 prio = int(nhop[\textcolor{stringliteral}{"PRIORITY"}])}
+\DoxyCodeLine{235                             all\_egress.append((prio, \textcolor{stringliteral}{'set ip next-\/hop-\/group \{\} \{\};'}.format(nhop[\textcolor{stringliteral}{"GROUP\_NAME"}], prio\_str).replace(\textcolor{stringliteral}{'  '}, \textcolor{stringliteral}{' '})))}
+\DoxyCodeLine{236                         \textcolor{keywordflow}{for} nhop \textcolor{keywordflow}{in} flow\_data.get(\textcolor{stringliteral}{"SET\_IPV6\_NEXTHOP"}, list()):}
+\DoxyCodeLine{237                             vrf\_str = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{238                             prio\_str = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{239                             prio = 0}
+\DoxyCodeLine{240                             \textcolor{keywordflow}{if} \textcolor{stringliteral}{"VRF"} \textcolor{keywordflow}{in} nhop:}
+\DoxyCodeLine{241                                 vrf\_str = \textcolor{stringliteral}{"vrf "} + str(nhop[\textcolor{stringliteral}{"VRF"}])}
+\DoxyCodeLine{242                             \textcolor{keywordflow}{if} \textcolor{stringliteral}{"PRIORITY"} \textcolor{keywordflow}{in} nhop:}
+\DoxyCodeLine{243                                 prio\_str = \textcolor{stringliteral}{"priority "} + str(nhop[\textcolor{stringliteral}{"PRIORITY"}])}
+\DoxyCodeLine{244                                 prio = int(nhop[\textcolor{stringliteral}{"PRIORITY"}])}
+\DoxyCodeLine{245                             all\_egress.append((prio, \textcolor{stringliteral}{'set ipv6 next-\/hop \{\} \{\} \{\};'}.format(nhop[\textcolor{stringliteral}{"IP\_ADDRESS"}], vrf\_str, prio\_str).replace(\textcolor{stringliteral}{'  '}, \textcolor{stringliteral}{' '})))}
+\DoxyCodeLine{246                         \textcolor{keywordflow}{for} nhop \textcolor{keywordflow}{in} flow\_data.get(\textcolor{stringliteral}{'SET\_IPV6\_NEXTHOP\_GROUP'}, list()):}
+\DoxyCodeLine{247                             prio\_str = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{248                             prio = 0}
+\DoxyCodeLine{249                             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'PRIORITY'} \textcolor{keywordflow}{in} nhop:}
+\DoxyCodeLine{250                                 prio\_str = \textcolor{stringliteral}{"priority "} + str(nhop[\textcolor{stringliteral}{"PRIORITY"}])}
+\DoxyCodeLine{251                                 prio = int(nhop[\textcolor{stringliteral}{"PRIORITY"}])}
+\DoxyCodeLine{252                             all\_egress.append((prio, \textcolor{stringliteral}{'set ipv6 next-\/hop-\/group \{\} \{\};'}.format(nhop[\textcolor{stringliteral}{"GROUP\_NAME"}], prio\_str).replace(\textcolor{stringliteral}{'  '}, \textcolor{stringliteral}{' '})))}
+\DoxyCodeLine{253                         \textcolor{keywordflow}{for} intf \textcolor{keywordflow}{in}  flow\_data.get(\textcolor{stringliteral}{"SET\_INTERFACE"}, list()):}
+\DoxyCodeLine{254                             prio\_str = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{255                             prio = 0}
+\DoxyCodeLine{256                             \textcolor{keywordflow}{if} \textcolor{stringliteral}{"PRIORITY"} \textcolor{keywordflow}{in} intf:}
+\DoxyCodeLine{257                                 prio\_str = \textcolor{stringliteral}{"priority "} + str(intf[\textcolor{stringliteral}{"PRIORITY"}])}
+\DoxyCodeLine{258                                 prio = int(intf[\textcolor{stringliteral}{"PRIORITY"}])}
+\DoxyCodeLine{259                             all\_egress.append((prio, \textcolor{stringliteral}{'set interface \{\} \{\};'}.format(intf[\textcolor{stringliteral}{"INTERFACE"}], prio\_str)))}
+\DoxyCodeLine{260 }
+\DoxyCodeLine{261                         all\_egress.sort(key=\textcolor{keyword}{lambda} x: 0xffff-\/x[0])}
+\DoxyCodeLine{262                         \textcolor{keywordflow}{for} egr \textcolor{keywordflow}{in} all\_egress:}
+\DoxyCodeLine{263                             cmd\_str += \textcolor{stringliteral}{'  \{\};'}.format(egr[1])}
+\DoxyCodeLine{264                         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'DEFAULT\_PACKET\_ACTION'} \textcolor{keywordflow}{in} flow\_data:}
+\DoxyCodeLine{265                             cmd\_str += \textcolor{stringliteral}{'  set interface null;'}}
+\DoxyCodeLine{266                         cmd\_str += \textcolor{stringliteral}{' !;'}}
+\DoxyCodeLine{267                     \textcolor{keywordflow}{elif} match\_type == \textcolor{stringliteral}{'monitoring'}:}
+\DoxyCodeLine{268                         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'SET\_MIRROR\_SESSION'} \textcolor{keywordflow}{in} flow\_data:}
+\DoxyCodeLine{269                             cmd\_str += \textcolor{stringliteral}{'  set mirror-\/session \{\};'}.format(flow\_data[\textcolor{stringliteral}{'SET\_MIRROR\_SESSION'}])}
+\DoxyCodeLine{270                         cmd\_str += \textcolor{stringliteral}{' !;'}}
+\DoxyCodeLine{271                     \textcolor{keywordflow}{elif} match\_type == \textcolor{stringliteral}{'acl-\/copp'}:}
+\DoxyCodeLine{272                         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'SET\_TRAP\_QUEUE'} \textcolor{keywordflow}{in} flow\_data:}
+\DoxyCodeLine{273                             cmd\_str += \textcolor{stringliteral}{'  set trap-\/queue \{\};'}.format(flow\_data[\textcolor{stringliteral}{'SET\_TRAP\_QUEUE'}])}
+\DoxyCodeLine{274 }
+\DoxyCodeLine{275                         pstr = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{276                         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'SET\_POLICER\_CIR'} \textcolor{keywordflow}{in} flow\_data:}
+\DoxyCodeLine{277                             pstr += \textcolor{stringliteral}{'cir \{\} '}.format(flow\_data[\textcolor{stringliteral}{'SET\_POLICER\_CIR'}])}
+\DoxyCodeLine{278                         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'SET\_POLICER\_CBS'} \textcolor{keywordflow}{in} flow\_data:}
+\DoxyCodeLine{279                             pstr += \textcolor{stringliteral}{'cbs \{\} '}.format(flow\_data[\textcolor{stringliteral}{'SET\_POLICER\_CBS'}])}
+\DoxyCodeLine{280                         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'SET\_POLICER\_PIR'} \textcolor{keywordflow}{in} flow\_data:}
+\DoxyCodeLine{281                             pstr += \textcolor{stringliteral}{'pir \{\} '}.format(flow\_data[\textcolor{stringliteral}{'SET\_POLICER\_PIR'}])}
+\DoxyCodeLine{282                         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'SET\_POLICER\_PBS'} \textcolor{keywordflow}{in} flow\_data:}
+\DoxyCodeLine{283                             pstr += \textcolor{stringliteral}{'pbs \{\} '}.format(flow\_data[\textcolor{stringliteral}{'SET\_POLICER\_PBS'}])}
+\DoxyCodeLine{284                         \textcolor{keywordflow}{if} pstr != \textcolor{stringliteral}{""}:}
+\DoxyCodeLine{285                             cmd\_str += \textcolor{stringliteral}{'  police \{\};'}.format(pstr)}
+\DoxyCodeLine{286                         cmd\_str += \textcolor{stringliteral}{' !;'}}
+\DoxyCodeLine{287 }
+\DoxyCodeLine{288     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str, \textcolor{keyword}{True}}
+\DoxyCodeLine{289 }
+\DoxyCodeLine{290 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceshow__config__fbs_abb73b3253b70e22be5dc4465df209208}\label{namespaceshow__config__fbs_abb73b3253b70e22be5dc4465df209208}} 
+\index{show\_config\_fbs@{show\_config\_fbs}!show\_running\_fbs\_service\_policy\_ctrlplane@{show\_running\_fbs\_service\_policy\_ctrlplane}}
+\index{show\_running\_fbs\_service\_policy\_ctrlplane@{show\_running\_fbs\_service\_policy\_ctrlplane}!show\_config\_fbs@{show\_config\_fbs}}
+\doxysubsubsection{\texorpdfstring{show\_running\_fbs\_service\_policy\_ctrlplane()}{show\_running\_fbs\_service\_policy\_ctrlplane()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+fbs.\+show\+\_\+running\+\_\+fbs\+\_\+service\+\_\+policy\+\_\+ctrlplane (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+fbs.\+py 파일의 311 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{311 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__fbs_abb73b3253b70e22be5dc4465df209208}{show\_running\_fbs\_service\_policy\_ctrlplane}}(render\_tables):}
+\DoxyCodeLine{312     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceshow__config__fbs_af38d4f3be36243333c268157d6f387d4}{\_\_show\_runn\_fbs\_service\_policy\_for\_intf}}(\textcolor{stringliteral}{'CtrlPlane'}, render\_tables[\_\_name\_\_])}
+\DoxyCodeLine{313 }
+\DoxyCodeLine{314 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d0c/namespaceshow__config__fbs_abb73b3253b70e22be5dc4465df209208_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__fbs_a1a2aecb578d7f753981843fc7772ec39}\label{namespaceshow__config__fbs_a1a2aecb578d7f753981843fc7772ec39}} 
+\index{show\_config\_fbs@{show\_config\_fbs}!show\_running\_fbs\_service\_policy\_global@{show\_running\_fbs\_service\_policy\_global}}
+\index{show\_running\_fbs\_service\_policy\_global@{show\_running\_fbs\_service\_policy\_global}!show\_config\_fbs@{show\_config\_fbs}}
+\doxysubsubsection{\texorpdfstring{show\_running\_fbs\_service\_policy\_global()}{show\_running\_fbs\_service\_policy\_global()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+fbs.\+show\+\_\+running\+\_\+fbs\+\_\+service\+\_\+policy\+\_\+global (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+fbs.\+py 파일의 307 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{307 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__fbs_a1a2aecb578d7f753981843fc7772ec39}{show\_running\_fbs\_service\_policy\_global}}(render\_tables):}
+\DoxyCodeLine{308     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceshow__config__fbs_af38d4f3be36243333c268157d6f387d4}{\_\_show\_runn\_fbs\_service\_policy\_for\_intf}}(\textcolor{stringliteral}{'Switch'}, render\_tables[\_\_name\_\_])}
+\DoxyCodeLine{309 }
+\DoxyCodeLine{310 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d0c/namespaceshow__config__fbs_a1a2aecb578d7f753981843fc7772ec39_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__fbs_a9253330242829daff06341cb25081029}\label{namespaceshow__config__fbs_a9253330242829daff06341cb25081029}} 
+\index{show\_config\_fbs@{show\_config\_fbs}!show\_running\_fbs\_service\_policy\_interface@{show\_running\_fbs\_service\_policy\_interface}}
+\index{show\_running\_fbs\_service\_policy\_interface@{show\_running\_fbs\_service\_policy\_interface}!show\_config\_fbs@{show\_config\_fbs}}
+\doxysubsubsection{\texorpdfstring{show\_running\_fbs\_service\_policy\_interface()}{show\_running\_fbs\_service\_policy\_interface()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+fbs.\+show\+\_\+running\+\_\+fbs\+\_\+service\+\_\+policy\+\_\+interface (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+fbs.\+py 파일의 315 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{315 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__fbs_a9253330242829daff06341cb25081029}{show\_running\_fbs\_service\_policy\_interface}}(render\_tables):}
+\DoxyCodeLine{316     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceshow__config__fbs_af38d4f3be36243333c268157d6f387d4}{\_\_show\_runn\_fbs\_service\_policy\_for\_intf}}(render\_tables[\textcolor{stringliteral}{'name'}], render\_tables[\_\_name\_\_])}
+\DoxyCodeLine{317 }
+\DoxyCodeLine{318 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d0c/namespaceshow__config__fbs_a9253330242829daff06341cb25081029_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__fbs_a1462b8acf5b199e66143f9b98b327e64}\label{namespaceshow__config__fbs_a1462b8acf5b199e66143f9b98b327e64}} 
+\index{show\_config\_fbs@{show\_config\_fbs}!show\_running\_next\_hop\_group@{show\_running\_next\_hop\_group}}
+\index{show\_running\_next\_hop\_group@{show\_running\_next\_hop\_group}!show\_config\_fbs@{show\_config\_fbs}}
+\doxysubsubsection{\texorpdfstring{show\_running\_next\_hop\_group()}{show\_running\_next\_hop\_group()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+fbs.\+show\+\_\+running\+\_\+next\+\_\+hop\+\_\+group (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+fbs.\+py 파일의 351 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{351 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__fbs_a1462b8acf5b199e66143f9b98b327e64}{show\_running\_next\_hop\_group}}(render\_tables):}
+\DoxyCodeLine{352     fbs\_client = cc.ApiClient()}
+\DoxyCodeLine{353     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'fbs-\/nhgrp-\/name'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{354         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/fbs-\/ext:fbs/next-\/hop-\/groups/next-\/hop-\/group=\{group\_name\}'}, }
+\DoxyCodeLine{355                 group\_name=render\_tables[\textcolor{stringliteral}{"fbs-\/nhgrp-\/name"}])}
+\DoxyCodeLine{356     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{357         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/fbs-\/ext:fbs/next-\/hop-\/groups/next-\/hop-\/group'})}
+\DoxyCodeLine{358     }
+\DoxyCodeLine{359     response = fbs\_client.get(path, ignore404=\textcolor{keyword}{False})}
+\DoxyCodeLine{360     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response.ok():}
+\DoxyCodeLine{361         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'fbs-\/nhgrp-\/name'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{362             \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, \textcolor{stringliteral}{"\%Error: No pbf next-\/hop group found"}, \textcolor{keyword}{True}}
+\DoxyCodeLine{363         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{364             \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, \textcolor{stringliteral}{''}, \textcolor{keyword}{True}}
+\DoxyCodeLine{365 }
+\DoxyCodeLine{366     all\_groups = response.content.get(\textcolor{stringliteral}{"openconfig-\/fbs-\/ext:next-\/hop-\/group"}, list())}
+\DoxyCodeLine{367     data = dict()}
+\DoxyCodeLine{368     runn\_config = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{369     \textcolor{keywordflow}{for} grp\_data \textcolor{keywordflow}{in} all\_groups:}
+\DoxyCodeLine{370         item = dict()}
+\DoxyCodeLine{371         group\_name = grp\_data[\textcolor{stringliteral}{"group-\/name"}]}
+\DoxyCodeLine{372         grp\_type = (grp\_data[\textcolor{stringliteral}{"state"}].\mbox{\hyperlink{namespacescripts_1_1json__tools_afd87b9a49f4372aebe9a000a029a76fe}{get}}(\textcolor{stringliteral}{"group-\/type"}, \textcolor{stringliteral}{""})).replace(\textcolor{stringliteral}{"openconfig-\/fbs-\/ext:NEXT\_HOP\_GROUP\_TYPE\_"},}
+\DoxyCodeLine{373                                                                      \textcolor{stringliteral}{""}).replace(\textcolor{stringliteral}{"V4"}, \textcolor{stringliteral}{""}).lower()}
+\DoxyCodeLine{374         data[(grp\_type, group\_name)] = item}
+\DoxyCodeLine{375 }
+\DoxyCodeLine{376         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'description'} \textcolor{keywordflow}{in} grp\_data[\textcolor{stringliteral}{"config"}]:}
+\DoxyCodeLine{377             item[\textcolor{stringliteral}{"DESCRIPTION"}] = grp\_data[\textcolor{stringliteral}{"config"}][\textcolor{stringliteral}{'description'}]}
+\DoxyCodeLine{378             \textcolor{keywordflow}{if} \textcolor{stringliteral}{' '} \textcolor{keywordflow}{in} item[\textcolor{stringliteral}{"DESCRIPTION"}]:}
+\DoxyCodeLine{379                 item[\textcolor{stringliteral}{"DESCRIPTION"}] = \textcolor{stringliteral}{'"\{\}"'}.format(item[\textcolor{stringliteral}{"DESCRIPTION"}])}
+\DoxyCodeLine{380         thr\_cli = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{381         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'threshold-\/type'} \textcolor{keywordflow}{in} grp\_data[\textcolor{stringliteral}{"config"}]:}
+\DoxyCodeLine{382             thr\_cli += \textcolor{stringliteral}{'threshold type \{\}'}.format(grp\_data[\textcolor{stringliteral}{"config"}][\textcolor{stringliteral}{'threshold-\/type'}].replace(\textcolor{stringliteral}{"openconfig-\/fbs-\/ext:NEXT\_HOP\_GROUP\_THRESHOLD\_"}, \textcolor{stringliteral}{""}).lower())}
+\DoxyCodeLine{383             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'threshold-\/up'} \textcolor{keywordflow}{in} grp\_data[\textcolor{stringliteral}{"config"}]:}
+\DoxyCodeLine{384                 thr\_cli += \textcolor{stringliteral}{' up \{\}'}.format(grp\_data[\textcolor{stringliteral}{"config"}][\textcolor{stringliteral}{'threshold-\/up'}])}
+\DoxyCodeLine{385             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'threshold-\/down'} \textcolor{keywordflow}{in} grp\_data[\textcolor{stringliteral}{"config"}]:}
+\DoxyCodeLine{386                 thr\_cli += \textcolor{stringliteral}{' down \{\}'}.format(grp\_data[\textcolor{stringliteral}{"config"}][\textcolor{stringliteral}{'threshold-\/down'}])}
+\DoxyCodeLine{387             item[\textcolor{stringliteral}{'THRESHOLD'}] = thr\_cli}
+\DoxyCodeLine{388 }
+\DoxyCodeLine{389         nhops = list()}
+\DoxyCodeLine{390         \textcolor{keywordflow}{for} nh \textcolor{keywordflow}{in} grp\_data.get(\textcolor{stringliteral}{"next-\/hops"}, dict()).\mbox{\hyperlink{namespacescripts_1_1json__tools_afd87b9a49f4372aebe9a000a029a76fe}{get}}(\textcolor{stringliteral}{"next-\/hop"}, list()):}
+\DoxyCodeLine{391             eid = int(nh[\textcolor{stringliteral}{"entry-\/id"}])}
+\DoxyCodeLine{392             cli\_str = \textcolor{stringliteral}{"entry \{\} next-\/hop \{\}"}.format(eid, nh[\textcolor{stringliteral}{"state"}][\textcolor{stringliteral}{"ip-\/address"}])}
+\DoxyCodeLine{393             \textcolor{keywordflow}{if} \textcolor{stringliteral}{"network-\/instance"} \textcolor{keywordflow}{in} nh[\textcolor{stringliteral}{"state"}]:}
+\DoxyCodeLine{394                 cli\_str = \textcolor{stringliteral}{"\{\} vrf \{\}"}.format(cli\_str, nh[\textcolor{stringliteral}{"state"}][\textcolor{stringliteral}{"network-\/instance"}])}
+\DoxyCodeLine{395             \textcolor{keywordflow}{if} \textcolor{stringliteral}{"next-\/hop-\/type"} \textcolor{keywordflow}{in} nh[\textcolor{stringliteral}{"state"}]:}
+\DoxyCodeLine{396                 cli\_str = \textcolor{stringliteral}{"\{\} \{\}"}.format(cli\_str, nh[\textcolor{stringliteral}{"state"}][\textcolor{stringliteral}{"next-\/hop-\/type"}].split(\textcolor{stringliteral}{":"})[-\/1].}
+\DoxyCodeLine{397                                          replace(\textcolor{stringliteral}{'NEXT\_HOP\_TYPE\_'}, \textcolor{stringliteral}{''}).lower().replace(\textcolor{stringliteral}{'\_'}, \textcolor{stringliteral}{'-\/'}))}
+\DoxyCodeLine{398             nhops.append((eid, cli\_str))}
+\DoxyCodeLine{399             nhops.sort(key=\textcolor{keyword}{lambda} x: x[0])}
+\DoxyCodeLine{400             item[\textcolor{stringliteral}{'NEXT\_HOPS'}] = nhops}
+\DoxyCodeLine{401 }
+\DoxyCodeLine{402     \textcolor{keywordflow}{for} grp\_name \textcolor{keywordflow}{in} natsorted(data.keys()):}
+\DoxyCodeLine{403         grp\_data = data[grp\_name]}
+\DoxyCodeLine{404         runn\_config += \textcolor{stringliteral}{'pbf next-\/hop-\/group \{\} type \{\};'}.format(grp\_name[1], grp\_name[0])}
+\DoxyCodeLine{405         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'DESCRIPTION'} \textcolor{keywordflow}{in} grp\_data:}
+\DoxyCodeLine{406             runn\_config += \textcolor{stringliteral}{'  description \{\};'}.format(grp\_data[\textcolor{stringliteral}{'DESCRIPTION'}])}
+\DoxyCodeLine{407         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'THRESHOLD'} \textcolor{keywordflow}{in} grp\_data:}
+\DoxyCodeLine{408             runn\_config += \textcolor{stringliteral}{'  \{\};'}.format(grp\_data[\textcolor{stringliteral}{'THRESHOLD'}])}
+\DoxyCodeLine{409         \textcolor{keywordflow}{for} nh \textcolor{keywordflow}{in} grp\_data.get(\textcolor{stringliteral}{'NEXT\_HOPS'}, list()):}
+\DoxyCodeLine{410             runn\_config += \textcolor{stringliteral}{'  \{\};'}.format(nh[1])}
+\DoxyCodeLine{411         runn\_config += \textcolor{stringliteral}{'!;'}}
+\DoxyCodeLine{412 }
+\DoxyCodeLine{413     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, runn\_config, \textcolor{keyword}{True}}
+\DoxyCodeLine{414 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d0c/namespaceshow__config__fbs_a1462b8acf5b199e66143f9b98b327e64_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__fbs_a338cd73880dad0e47078124579f73c26}\label{namespaceshow__config__fbs_a338cd73880dad0e47078124579f73c26}} 
+\index{show\_config\_fbs@{show\_config\_fbs}!show\_running\_next\_hop\_group\_by\_name@{show\_running\_next\_hop\_group\_by\_name}}
+\index{show\_running\_next\_hop\_group\_by\_name@{show\_running\_next\_hop\_group\_by\_name}!show\_config\_fbs@{show\_config\_fbs}}
+\doxysubsubsection{\texorpdfstring{show\_running\_next\_hop\_group\_by\_name()}{show\_running\_next\_hop\_group\_by\_name()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+fbs.\+show\+\_\+running\+\_\+next\+\_\+hop\+\_\+group\+\_\+by\+\_\+name (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+fbs.\+py 파일의 334 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{334 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__fbs_a338cd73880dad0e47078124579f73c26}{show\_running\_next\_hop\_group\_by\_name}}(args):}
+\DoxyCodeLine{335     \textcolor{keyword}{import} sonic\_cli\_show\_config }
+\DoxyCodeLine{336     \mbox{\hyperlink{namespacesonic__cli__show__config_a97db9b59be4b41ed63d8d28071ae9ac4}{sonic\_cli\_show\_config.run}}(\textcolor{stringliteral}{"show\_view"},}
+\DoxyCodeLine{337                               [\textcolor{stringliteral}{"views=configure-\/pbf-\/\$\{fbs-\/dynamic-\/nhgrp-\/type\}-\/nh-\/grp"},}
+\DoxyCodeLine{338                                \textcolor{stringliteral}{'view\_keys="fbs-\/nhgrp-\/name=\{grp\_name\}"'}.format(}
+\DoxyCodeLine{339                                    grp\_name=args[0] \textcolor{keywordflow}{if} len(args) == 1 \textcolor{keywordflow}{else} \textcolor{stringliteral}{""})])}
+\DoxyCodeLine{340 }
+\DoxyCodeLine{341 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d0c/namespaceshow__config__fbs_a338cd73880dad0e47078124579f73c26_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d0c/namespaceshow__config__fbs_a338cd73880dad0e47078124579f73c26_icgraph}
+\end{center}
+\end{figure}

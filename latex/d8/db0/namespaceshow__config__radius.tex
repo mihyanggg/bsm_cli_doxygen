@@ -1,0 +1,157 @@
+\hypertarget{namespaceshow__config__radius}{}\doxysection{show\+\_\+config\+\_\+radius 네임스페이스 참조}
+\label{namespaceshow__config__radius}\index{show\_config\_radius@{show\_config\_radius}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceshow__config__radius_a2a343a91c3f5832d1ffc42e88fa3b78f}{show\+\_\+radius\+\_\+global\+\_\+key}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__radius_acba5f8b101c1a917602f643b95b2ca5a}{show\+\_\+radius\+\_\+statistics\+\_\+config}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__radius_a69ebbbd1f69c1907343206a7ca82d901}{get\+\_\+radius\+\_\+entry}} (data)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__radius_af6b663d69f7dedd80beeecadaddeb043}{show\+\_\+radius\+\_\+host\+\_\+config}} (render\+\_\+tables)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespaceshow__config__radius_a69ebbbd1f69c1907343206a7ca82d901}\label{namespaceshow__config__radius_a69ebbbd1f69c1907343206a7ca82d901}} 
+\index{show\_config\_radius@{show\_config\_radius}!get\_radius\_entry@{get\_radius\_entry}}
+\index{get\_radius\_entry@{get\_radius\_entry}!show\_config\_radius@{show\_config\_radius}}
+\doxysubsubsection{\texorpdfstring{get\_radius\_entry()}{get\_radius\_entry()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+radius.\+get\+\_\+radius\+\_\+entry (\begin{DoxyParamCaption}\item[{}]{data }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+radius.\+py 파일의 40 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{40 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__radius_a69ebbbd1f69c1907343206a7ca82d901}{get\_radius\_entry}}(data):}
+\DoxyCodeLine{41     \textcolor{keywordflow}{for} entry \textcolor{keywordflow}{in} data.get(\textcolor{stringliteral}{'sonic-\/system-\/radius:sonic-\/system-\/radius/RADIUS/RADIUS\_LIST'}, []):}
+\DoxyCodeLine{42         \textcolor{keywordflow}{if} entry.get(\textcolor{stringliteral}{'global\_key'}) == \textcolor{stringliteral}{'global'}:}
+\DoxyCodeLine{43             \textcolor{keywordflow}{return} entry }
+\DoxyCodeLine{44     \textcolor{keywordflow}{return} \{\}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{comment}{\# To show the running configuration of the 'radius-\/server host'}}
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/db0/namespaceshow__config__radius_a69ebbbd1f69c1907343206a7ca82d901_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__radius_a2a343a91c3f5832d1ffc42e88fa3b78f}\label{namespaceshow__config__radius_a2a343a91c3f5832d1ffc42e88fa3b78f}} 
+\index{show\_config\_radius@{show\_config\_radius}!show\_radius\_global\_key@{show\_radius\_global\_key}}
+\index{show\_radius\_global\_key@{show\_radius\_global\_key}!show\_config\_radius@{show\_config\_radius}}
+\doxysubsubsection{\texorpdfstring{show\_radius\_global\_key()}{show\_radius\_global\_key()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+radius.\+show\+\_\+radius\+\_\+global\+\_\+key (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+radius.\+py 파일의 23 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__radius_a2a343a91c3f5832d1ffc42e88fa3b78f}{show\_radius\_global\_key}}(render\_tables):}
+\DoxyCodeLine{24     cmd = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{25     entry = \mbox{\hyperlink{namespaceshow__config__radius_a69ebbbd1f69c1907343206a7ca82d901}{get\_radius\_entry}}(render\_tables)}
+\DoxyCodeLine{26     \textcolor{keywordflow}{if} (\textcolor{stringliteral}{'passkey'} \textcolor{keywordflow}{in} entry) \textcolor{keywordflow}{and} entry[\textcolor{stringliteral}{'passkey'}]:}
+\DoxyCodeLine{27         cmd = \textcolor{stringliteral}{'radius-\/server key '} + entry.get(\textcolor{stringliteral}{'passkey'}) + \textcolor{stringliteral}{' encrypted'}}
+\DoxyCodeLine{28     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{comment}{\# show\_radius\_statistics\_config renders running config for 'radius-\/server statistics'}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/db0/namespaceshow__config__radius_a2a343a91c3f5832d1ffc42e88fa3b78f_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__radius_af6b663d69f7dedd80beeecadaddeb043}\label{namespaceshow__config__radius_af6b663d69f7dedd80beeecadaddeb043}} 
+\index{show\_config\_radius@{show\_config\_radius}!show\_radius\_host\_config@{show\_radius\_host\_config}}
+\index{show\_radius\_host\_config@{show\_radius\_host\_config}!show\_config\_radius@{show\_config\_radius}}
+\doxysubsubsection{\texorpdfstring{show\_radius\_host\_config()}{show\_radius\_host\_config()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+radius.\+show\+\_\+radius\+\_\+host\+\_\+config (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+radius.\+py 파일의 47 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{47 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__radius_af6b663d69f7dedd80beeecadaddeb043}{show\_radius\_host\_config}}(render\_tables):}
+\DoxyCodeLine{48     cmd = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{49     \textcolor{keywordflow}{for} entry \textcolor{keywordflow}{in} render\_tables.get(\textcolor{stringliteral}{'sonic-\/system-\/radius:sonic-\/system-\/radius/RADIUS\_SERVER/RADIUS\_SERVER\_LIST'}, []):}
+\DoxyCodeLine{50         \textcolor{keywordflow}{if} cmd != \textcolor{stringliteral}{''}:}
+\DoxyCodeLine{51             cmd += \textcolor{stringliteral}{';'}}
+\DoxyCodeLine{52         cmd += \textcolor{stringliteral}{'radius-\/server host '} + entry.get(\textcolor{stringliteral}{'ipaddress'})}
+\DoxyCodeLine{53         auth\_port = entry.get(\textcolor{stringliteral}{'auth\_port'})}
+\DoxyCodeLine{54         \textcolor{keywordflow}{if} auth\_port != \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{55             cmd += \textcolor{stringliteral}{' auth-\/port '} + str(auth\_port)}
+\DoxyCodeLine{56         \textcolor{keywordflow}{if} entry.get(\textcolor{stringliteral}{'timeout'}) != \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{57             cmd += \textcolor{stringliteral}{' timeout '} + str(entry.get(\textcolor{stringliteral}{'timeout'}))}
+\DoxyCodeLine{58         \textcolor{keywordflow}{if} entry.get(\textcolor{stringliteral}{'retransmit'}) != \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{59             cmd += \textcolor{stringliteral}{' retransmit '} + str(entry.get(\textcolor{stringliteral}{'retransmit'}))}
+\DoxyCodeLine{60         \textcolor{keywordflow}{if} entry.get(\textcolor{stringliteral}{'passkey'}) != \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{61             cmd += \textcolor{stringliteral}{' key '} + entry.get(\textcolor{stringliteral}{'passkey'})}
+\DoxyCodeLine{62             cmd += \textcolor{stringliteral}{' encrypted '}}
+\DoxyCodeLine{63         \textcolor{keywordflow}{if} entry.get(\textcolor{stringliteral}{'auth\_type'}) != \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{64             cmd += \textcolor{stringliteral}{' auth-\/type '} + entry.get(\textcolor{stringliteral}{'auth\_type'})}
+\DoxyCodeLine{65         priority = entry.get(\textcolor{stringliteral}{'priority'})}
+\DoxyCodeLine{66         \textcolor{keywordflow}{if} priority != \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{67             cmd += \textcolor{stringliteral}{' priority '} + str(priority)}
+\DoxyCodeLine{68         \textcolor{keywordflow}{if} entry.get(\textcolor{stringliteral}{'vrf'}) != \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{69             cmd += \textcolor{stringliteral}{' vrf '} + entry.get(\textcolor{stringliteral}{'vrf'})}
+\DoxyCodeLine{70         src\_intf = entry.get(\textcolor{stringliteral}{'src\_intf'})}
+\DoxyCodeLine{71         \textcolor{keywordflow}{if} src\_intf != \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{72             cmd += \textcolor{stringliteral}{' source-\/interface '} + \(\backslash\)}
+\DoxyCodeLine{73                    \mbox{\hyperlink{namespaceshow__config__if__cmd_a8b1e27fd62439957aa7bb5fb16c078e7}{show\_render\_if\_cmd}}( entry, \textcolor{stringliteral}{'src\_intf'}, \textcolor{stringliteral}{''}, \textcolor{keywordtype}{None})}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/db0/namespaceshow__config__radius_af6b663d69f7dedd80beeecadaddeb043_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__radius_acba5f8b101c1a917602f643b95b2ca5a}\label{namespaceshow__config__radius_acba5f8b101c1a917602f643b95b2ca5a}} 
+\index{show\_config\_radius@{show\_config\_radius}!show\_radius\_statistics\_config@{show\_radius\_statistics\_config}}
+\index{show\_radius\_statistics\_config@{show\_radius\_statistics\_config}!show\_config\_radius@{show\_config\_radius}}
+\doxysubsubsection{\texorpdfstring{show\_radius\_statistics\_config()}{show\_radius\_statistics\_config()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+radius.\+show\+\_\+radius\+\_\+statistics\+\_\+config (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+radius.\+py 파일의 31 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{31 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__radius_acba5f8b101c1a917602f643b95b2ca5a}{show\_radius\_statistics\_config}}(render\_tables):}
+\DoxyCodeLine{32     cmd = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{33     entry = \mbox{\hyperlink{namespaceshow__config__radius_a69ebbbd1f69c1907343206a7ca82d901}{get\_radius\_entry}}(render\_tables)}
+\DoxyCodeLine{34     \textcolor{keywordflow}{if} ( \textcolor{stringliteral}{'statistics'} \textcolor{keywordflow}{in} entry ) \textcolor{keywordflow}{and} entry[\textcolor{stringliteral}{'statistics'}]:}
+\DoxyCodeLine{35         cmd = \textcolor{stringliteral}{'radius-\/server statistics enable'}}
+\DoxyCodeLine{36     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{comment}{\# get\_radius\_entry returns global RADIUS\_LIST entry}}
+\DoxyCodeLine{39 \textcolor{comment}{\# Returns an empty dict if no matching entry found.}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/db0/namespaceshow__config__radius_acba5f8b101c1a917602f643b95b2ca5a_cgraph}
+\end{center}
+\end{figure}

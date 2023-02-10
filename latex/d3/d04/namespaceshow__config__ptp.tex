@@ -1,0 +1,177 @@
+\hypertarget{namespaceshow__config__ptp}{}\doxysection{show\+\_\+config\+\_\+ptp 네임스페이스 참조}
+\label{namespaceshow__config__ptp}\index{show\_config\_ptp@{show\_config\_ptp}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceshow__config__ptp_aaf925a22d57dd6d68e9a51a6d36f4579}{show\+\_\+ptp\+\_\+mode}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__ptp_a9a7669ee0eb332665c984029f174686d}{show\+\_\+ptp\+\_\+domain\+\_\+profile}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__ptp_a48f77af28079992956181f4f5e7e1a01}{show\+\_\+ptp\+\_\+two\+\_\+step}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__ptp_a923cbf22ba11ea6bd7bd6fe49f2f4bdf}{show\+\_\+ptp\+\_\+network\+\_\+transport}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__ptp_a36e80d5a3b3218e11a781b03736f770a}{show\+\_\+ptp\+\_\+master\+\_\+table}} (render\+\_\+tables)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespaceshow__config__ptp_a9a7669ee0eb332665c984029f174686d}\label{namespaceshow__config__ptp_a9a7669ee0eb332665c984029f174686d}} 
+\index{show\_config\_ptp@{show\_config\_ptp}!show\_ptp\_domain\_profile@{show\_ptp\_domain\_profile}}
+\index{show\_ptp\_domain\_profile@{show\_ptp\_domain\_profile}!show\_config\_ptp@{show\_config\_ptp}}
+\doxysubsubsection{\texorpdfstring{show\_ptp\_domain\_profile()}{show\_ptp\_domain\_profile()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+ptp.\+show\+\_\+ptp\+\_\+domain\+\_\+profile (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+ptp.\+py 파일의 20 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{20 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__ptp_a9a7669ee0eb332665c984029f174686d}{show\_ptp\_domain\_profile}}(render\_tables):}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{23     cmd\_prfx = \textcolor{stringliteral}{'ptp domain-\/profile '}}
+\DoxyCodeLine{24     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/ptp:sonic-\/ptp/PTP\_CLOCK/PTP\_CLOCK\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{25         \textcolor{keywordflow}{for} ptp\_inst \textcolor{keywordflow}{in} render\_tables[\textcolor{stringliteral}{'sonic-\/ptp:sonic-\/ptp/PTP\_CLOCK/PTP\_CLOCK\_LIST'}]:}
+\DoxyCodeLine{26           \textcolor{keywordflow}{if} \textcolor{stringliteral}{'domain-\/profile'} \textcolor{keywordflow}{in} ptp\_inst:}
+\DoxyCodeLine{27             domain\_profile = ptp\_inst[\textcolor{stringliteral}{'domain-\/profile'}]}
+\DoxyCodeLine{28             \textcolor{keywordflow}{if} domain\_profile == \textcolor{stringliteral}{"ieee1588"}:}
+\DoxyCodeLine{29                 cmd\_str = cmd\_prfx + \textcolor{stringliteral}{"default"}}
+\DoxyCodeLine{30             \textcolor{keywordflow}{elif} domain\_profile == \textcolor{stringliteral}{"G.8275.1"}:}
+\DoxyCodeLine{31                 cmd\_str = cmd\_prfx + \textcolor{stringliteral}{"g8275.1"}}
+\DoxyCodeLine{32             \textcolor{keywordflow}{elif} domain\_profile == \textcolor{stringliteral}{"G.8275.2"}:}
+\DoxyCodeLine{33                 cmd\_str = cmd\_prfx + \textcolor{stringliteral}{"g8275.2"}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{36 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceshow__config__ptp_a36e80d5a3b3218e11a781b03736f770a}\label{namespaceshow__config__ptp_a36e80d5a3b3218e11a781b03736f770a}} 
+\index{show\_config\_ptp@{show\_config\_ptp}!show\_ptp\_master\_table@{show\_ptp\_master\_table}}
+\index{show\_ptp\_master\_table@{show\_ptp\_master\_table}!show\_config\_ptp@{show\_config\_ptp}}
+\doxysubsubsection{\texorpdfstring{show\_ptp\_master\_table()}{show\_ptp\_master\_table()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+ptp.\+show\+\_\+ptp\+\_\+master\+\_\+table (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+ptp.\+py 파일의 72 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{72 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__ptp_a36e80d5a3b3218e11a781b03736f770a}{show\_ptp\_master\_table}}(render\_tables):}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74     underlying\_interface = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{75     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{76     cmd\_prfx = \textcolor{stringliteral}{'ptp port master-\/table '}}
+\DoxyCodeLine{77     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/ptp:sonic-\/ptp/PTP\_PORT/PTP\_PORT\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{78         \textcolor{keywordflow}{for} ptp\_inst \textcolor{keywordflow}{in} render\_tables[\textcolor{stringliteral}{'sonic-\/ptp:sonic-\/ptp/PTP\_PORT/PTP\_PORT\_LIST'}]:}
+\DoxyCodeLine{79             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'unicast-\/table'} \textcolor{keywordflow}{in} ptp\_inst:}
+\DoxyCodeLine{80                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'underlying-\/interface'} \textcolor{keywordflow}{in} ptp\_inst:}
+\DoxyCodeLine{81                     underlying\_interface = ptp\_inst[\textcolor{stringliteral}{'underlying-\/interface'}]}
+\DoxyCodeLine{82                 unicast\_table = ptp\_inst[\textcolor{stringliteral}{'unicast-\/table'}].split(\textcolor{stringliteral}{","})}
+\DoxyCodeLine{83                 \textcolor{keywordflow}{if} len(unicast\_table) == 1 \textcolor{keywordflow}{and} unicast\_table[0] == \textcolor{stringliteral}{''}:}
+\DoxyCodeLine{84                     unicast\_table = []}
+\DoxyCodeLine{85                 \textcolor{keywordflow}{if} (underlying\_interface \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}):}
+\DoxyCodeLine{86                     \textcolor{keywordflow}{for} i, address \textcolor{keywordflow}{in} enumerate(unicast\_table):}
+\DoxyCodeLine{87                         cmd\_str += cmd\_prfx + underlying\_interface + \textcolor{stringliteral}{" add "}+ address + \textcolor{stringliteral}{";"}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceshow__config__ptp_aaf925a22d57dd6d68e9a51a6d36f4579}\label{namespaceshow__config__ptp_aaf925a22d57dd6d68e9a51a6d36f4579}} 
+\index{show\_config\_ptp@{show\_config\_ptp}!show\_ptp\_mode@{show\_ptp\_mode}}
+\index{show\_ptp\_mode@{show\_ptp\_mode}!show\_config\_ptp@{show\_config\_ptp}}
+\doxysubsubsection{\texorpdfstring{show\_ptp\_mode()}{show\_ptp\_mode()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+ptp.\+show\+\_\+ptp\+\_\+mode (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+ptp.\+py 파일의 1 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__ptp_aaf925a22d57dd6d68e9a51a6d36f4579}{show\_ptp\_mode}}(render\_tables):}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{4     cmd\_prfx = \textcolor{stringliteral}{'ptp mode '}}
+\DoxyCodeLine{5     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/ptp:sonic-\/ptp/PTP\_CLOCK/PTP\_CLOCK\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{6         \textcolor{keywordflow}{for} ptp\_inst \textcolor{keywordflow}{in} render\_tables[\textcolor{stringliteral}{'sonic-\/ptp:sonic-\/ptp/PTP\_CLOCK/PTP\_CLOCK\_LIST'}]:}
+\DoxyCodeLine{7           \textcolor{keywordflow}{if} \textcolor{stringliteral}{'clock-\/type'} \textcolor{keywordflow}{in} ptp\_inst:}
+\DoxyCodeLine{8             clock\_type = ptp\_inst[\textcolor{stringliteral}{'clock-\/type'}]}
+\DoxyCodeLine{9             \textcolor{keywordflow}{if} clock\_type == \textcolor{stringliteral}{"BC"}:}
+\DoxyCodeLine{10                 cmd\_str = cmd\_prfx + \textcolor{stringliteral}{"boundary-\/clock"}}
+\DoxyCodeLine{11             \textcolor{keywordflow}{elif} clock\_type == \textcolor{stringliteral}{"P2P\_TC"}:}
+\DoxyCodeLine{12                 cmd\_str = cmd\_prfx + \textcolor{stringliteral}{"peer-\/to-\/peer-\/transparent-\/clock"}}
+\DoxyCodeLine{13             \textcolor{keywordflow}{elif} clock\_type == \textcolor{stringliteral}{"E2E\_TC"}:}
+\DoxyCodeLine{14                 cmd\_str = cmd\_prfx + \textcolor{stringliteral}{"end-\/to-\/end-\/transparent-\/clock"}}
+\DoxyCodeLine{15             \textcolor{keywordflow}{elif} clock\_type == \textcolor{stringliteral}{"disable"}:}
+\DoxyCodeLine{16                 cmd\_str = cmd\_prfx + \textcolor{stringliteral}{"disable"}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{19 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceshow__config__ptp_a923cbf22ba11ea6bd7bd6fe49f2f4bdf}\label{namespaceshow__config__ptp_a923cbf22ba11ea6bd7bd6fe49f2f4bdf}} 
+\index{show\_config\_ptp@{show\_config\_ptp}!show\_ptp\_network\_transport@{show\_ptp\_network\_transport}}
+\index{show\_ptp\_network\_transport@{show\_ptp\_network\_transport}!show\_config\_ptp@{show\_config\_ptp}}
+\doxysubsubsection{\texorpdfstring{show\_ptp\_network\_transport()}{show\_ptp\_network\_transport()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+ptp.\+show\+\_\+ptp\+\_\+network\+\_\+transport (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+ptp.\+py 파일의 52 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{52 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__ptp_a923cbf22ba11ea6bd7bd6fe49f2f4bdf}{show\_ptp\_network\_transport}}(render\_tables):}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{55     cmd\_prfx = \textcolor{stringliteral}{'ptp network-\/transport '}}
+\DoxyCodeLine{56     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/ptp:sonic-\/ptp/PTP\_CLOCK/PTP\_CLOCK\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{57         \textcolor{keywordflow}{for} ptp\_inst \textcolor{keywordflow}{in} render\_tables[\textcolor{stringliteral}{'sonic-\/ptp:sonic-\/ptp/PTP\_CLOCK/PTP\_CLOCK\_LIST'}]:}
+\DoxyCodeLine{58           \textcolor{keywordflow}{if} \textcolor{stringliteral}{'network-\/transport'} \textcolor{keywordflow}{in} ptp\_inst:}
+\DoxyCodeLine{59             network\_transport = ptp\_inst[\textcolor{stringliteral}{'network-\/transport'}]}
+\DoxyCodeLine{60             \textcolor{keywordflow}{if} network\_transport == \textcolor{stringliteral}{"L2"}:}
+\DoxyCodeLine{61                 cmd\_str = cmd\_prfx + \textcolor{stringliteral}{"l2 "}}
+\DoxyCodeLine{62             \textcolor{keywordflow}{elif} network\_transport == \textcolor{stringliteral}{"UDPv4"}:}
+\DoxyCodeLine{63                 cmd\_str = cmd\_prfx + \textcolor{stringliteral}{"ipv4 "}}
+\DoxyCodeLine{64             \textcolor{keywordflow}{elif} network\_transport == \textcolor{stringliteral}{"UDPv6"}:}
+\DoxyCodeLine{65                 cmd\_str = cmd\_prfx + \textcolor{stringliteral}{"ipv6 "}}
+\DoxyCodeLine{66           \textcolor{keywordflow}{if} \textcolor{stringliteral}{'unicast-\/multicast'} \textcolor{keywordflow}{in} ptp\_inst:}
+\DoxyCodeLine{67             unicast\_multicast = ptp\_inst[\textcolor{stringliteral}{'unicast-\/multicast'}]}
+\DoxyCodeLine{68             cmd\_str = cmd\_str + unicast\_multicast}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{71 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceshow__config__ptp_a48f77af28079992956181f4f5e7e1a01}\label{namespaceshow__config__ptp_a48f77af28079992956181f4f5e7e1a01}} 
+\index{show\_config\_ptp@{show\_config\_ptp}!show\_ptp\_two\_step@{show\_ptp\_two\_step}}
+\index{show\_ptp\_two\_step@{show\_ptp\_two\_step}!show\_config\_ptp@{show\_config\_ptp}}
+\doxysubsubsection{\texorpdfstring{show\_ptp\_two\_step()}{show\_ptp\_two\_step()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+ptp.\+show\+\_\+ptp\+\_\+two\+\_\+step (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+ptp.\+py 파일의 37 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{37 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__ptp_a48f77af28079992956181f4f5e7e1a01}{show\_ptp\_two\_step}}(render\_tables):}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{40     cmd\_prfx = \textcolor{stringliteral}{'ptp two-\/step '}}
+\DoxyCodeLine{41     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/ptp:sonic-\/ptp/PTP\_CLOCK/PTP\_CLOCK\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{42         \textcolor{keywordflow}{for} ptp\_inst \textcolor{keywordflow}{in} render\_tables[\textcolor{stringliteral}{'sonic-\/ptp:sonic-\/ptp/PTP\_CLOCK/PTP\_CLOCK\_LIST'}]:}
+\DoxyCodeLine{43           \textcolor{keywordflow}{if} \textcolor{stringliteral}{'two-\/step-\/flag'} \textcolor{keywordflow}{in} ptp\_inst:}
+\DoxyCodeLine{44             two\_step = ptp\_inst[\textcolor{stringliteral}{'two-\/step-\/flag'}]}
+\DoxyCodeLine{45             \textcolor{keywordflow}{if} two\_step == 1:}
+\DoxyCodeLine{46                 cmd\_str = cmd\_prfx + \textcolor{stringliteral}{"enable"}}
+\DoxyCodeLine{47             \textcolor{keywordflow}{elif} two\_step == 0:}
+\DoxyCodeLine{48                 cmd\_str = cmd\_prfx + \textcolor{stringliteral}{"disable"}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+\DoxyCodeLine{51 }
+
+\end{DoxyCode}

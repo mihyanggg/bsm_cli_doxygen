@@ -1,0 +1,476 @@
+\hypertarget{namespacesonic__cli__vrrp}{}\doxysection{sonic\+\_\+cli\+\_\+vrrp 네임스페이스 참조}
+\label{namespacesonic__cli__vrrp}\index{sonic\_cli\_vrrp@{sonic\_cli\_vrrp}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__vrrp_a2460fd3088f18437d318c74a4e295497}{invoke}} (func, args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__vrrp_a56e371864d4e5e8cf26894013ad59eb2}{run}} (func, args)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__vrrp_a2460fd3088f18437d318c74a4e295497}\label{namespacesonic__cli__vrrp_a2460fd3088f18437d318c74a4e295497}} 
+\index{sonic\_cli\_vrrp@{sonic\_cli\_vrrp}!invoke@{invoke}}
+\index{invoke@{invoke}!sonic\_cli\_vrrp@{sonic\_cli\_vrrp}}
+\doxysubsubsection{\texorpdfstring{invoke()}{invoke()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+vrrp.\+invoke (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+vrrp.\+py 파일의 31 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{31 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__vrrp_a2460fd3088f18437d318c74a4e295497}{invoke}}(func, args):}
+\DoxyCodeLine{32     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{33     aa = cc.ApiClient()}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     addr4 = \textcolor{stringliteral}{"1.1.1.1"}}
+\DoxyCodeLine{36     addr6 = \textcolor{stringliteral}{"1::1"}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{comment}{\# Get VRRP all -\/ nothing for get all}}
+\DoxyCodeLine{39     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{''}:}
+\DoxyCodeLine{40         keypath = cc.Path(\textcolor{stringliteral}{''})}
+\DoxyCodeLine{41         \textcolor{keywordflow}{return} aa.get(keypath)}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{comment}{\# Get VRRP instance}}
+\DoxyCodeLine{44     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'get\_openconfig\_if\_ip\_interfaces\_interface\_subinterfaces\_subinterface\_ip\_addresses\_address\_vrrp\_vrrp\_group\_state'}:}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46         \textcolor{keywordflow}{if} len(args) == 2:}
+\DoxyCodeLine{47             \textcolor{keywordflow}{if} args[0] == \textcolor{stringliteral}{"ipv4"}:}
+\DoxyCodeLine{48                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/vrrp:get-\/vrrp'})}
+\DoxyCodeLine{49             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{50                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/vrrp:get-\/vrrp6'})}
+\DoxyCodeLine{51             \textcolor{keywordflow}{return} aa.post(keypath, body)}
+\DoxyCodeLine{52         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{53             \textcolor{keywordflow}{if} \textcolor{stringliteral}{"Vlan"} \textcolor{keywordflow}{in} args[2]:}
+\DoxyCodeLine{54                 \textcolor{keywordflow}{if} args[0] == \textcolor{stringliteral}{"ipv4"}:}
+\DoxyCodeLine{55                     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv4/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}'}, name=args[2], ip=addr4, vrid=args[3])}
+\DoxyCodeLine{56                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{57                     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv6/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}'}, name=args[2], ip=addr6, vrid=args[3])}
+\DoxyCodeLine{58             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{59                 parent\_if = args[2]}
+\DoxyCodeLine{60                 sub\_if = \textcolor{stringliteral}{"0"}}
+\DoxyCodeLine{61                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'.'} \textcolor{keywordflow}{in} parent\_if:}
+\DoxyCodeLine{62                     parent\_if = args[2].split(\textcolor{stringliteral}{'.'})[0]}
+\DoxyCodeLine{63                     sub\_if = args[2].split(\textcolor{stringliteral}{'.'})[1]}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65                 \textcolor{keywordflow}{if} args[0] == \textcolor{stringliteral}{"ipv4"}:}
+\DoxyCodeLine{66                     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}'}, name=parent\_if, index=sub\_if, ip=addr4, vrid=args[3])}
+\DoxyCodeLine{67                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{68                     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv6/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}'}, name=parent\_if, index=sub\_if, ip=addr6, vrid=args[3])}
+\DoxyCodeLine{69             \textcolor{keywordflow}{return} aa.get(keypath)}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71     \textcolor{comment}{\# VRRP delete}}
+\DoxyCodeLine{72     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'delete\_openconfig\_if\_ip\_interfaces\_interface\_subinterfaces\_subinterface\_ip\_addresses\_address\_vrrp\_vrrp\_group'} :}
+\DoxyCodeLine{73         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"Vlan"} \textcolor{keywordflow}{in} args[0]:}
+\DoxyCodeLine{74             \textcolor{keywordflow}{if} args[2] == \textcolor{stringliteral}{"ipv4"}:}
+\DoxyCodeLine{75                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv4/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}'}, name=args[0], ip=addr4, vrid=args[1])}
+\DoxyCodeLine{76             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{77                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv6/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}'}, name=args[0], ip=addr6, vrid=args[1])}
+\DoxyCodeLine{78         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{79             parent\_if = args[0]}
+\DoxyCodeLine{80             sub\_if = \textcolor{stringliteral}{"0"}}
+\DoxyCodeLine{81             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'.'} \textcolor{keywordflow}{in} parent\_if:}
+\DoxyCodeLine{82                 parent\_if = args[0].split(\textcolor{stringliteral}{'.'})[0]}
+\DoxyCodeLine{83                 sub\_if = args[0].split(\textcolor{stringliteral}{'.'})[1]}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85             \textcolor{keywordflow}{if} args[2] == \textcolor{stringliteral}{"ipv4"}:}
+\DoxyCodeLine{86                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}'}, name=parent\_if, index=sub\_if, ip=addr4, vrid=args[1])}
+\DoxyCodeLine{87             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{88                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv6/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}'}, name=parent\_if, index=sub\_if, ip=addr6, vrid=args[1])}
+\DoxyCodeLine{89         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91     \textcolor{comment}{\# VRRP set}}
+\DoxyCodeLine{92     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'post\_openconfig\_if\_ip\_interfaces\_interface\_subinterfaces\_subinterface\_ip\_addresses\_address\_vrrp\_vrrp\_group\_config'} :}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"Vlan"} \textcolor{keywordflow}{in} args[0]:}
+\DoxyCodeLine{95             \textcolor{keywordflow}{if} args[2] == \textcolor{stringliteral}{"ipv4"}:}
+\DoxyCodeLine{96                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv4/addresses/address=\{ip\}/vrrp'}, name=args[0], ip=addr4)}
+\DoxyCodeLine{97             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{98                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv6/addresses/address=\{ip\}/vrrp'}, name=args[0], ip=addr6)}
+\DoxyCodeLine{99         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{100             parent\_if = args[0]}
+\DoxyCodeLine{101             sub\_if = \textcolor{stringliteral}{"0"}}
+\DoxyCodeLine{102             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'.'} \textcolor{keywordflow}{in} parent\_if:}
+\DoxyCodeLine{103                 parent\_if = args[0].split(\textcolor{stringliteral}{'.'})[0]}
+\DoxyCodeLine{104                 sub\_if = args[0].split(\textcolor{stringliteral}{'.'})[1]}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106             \textcolor{keywordflow}{if} args[2] == \textcolor{stringliteral}{"ipv4"}:}
+\DoxyCodeLine{107                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/addresses/address=\{ip\}/vrrp'}, name=parent\_if, index=sub\_if, ip=addr4)}
+\DoxyCodeLine{108             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{109                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv6/addresses/address=\{ip\}/vrrp'}, name=parent\_if, index=sub\_if, ip=addr6)}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111         body=collections.defaultdict(dict)}
+\DoxyCodeLine{112         body = \{\textcolor{stringliteral}{"openconfig-\/if-\/ip:vrrp"}: \{\textcolor{stringliteral}{"vrrp-\/group"}: [\{\textcolor{stringliteral}{"virtual-\/router-\/id"}: int(args[1]),\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"virtual-\/router-\/id"}: int(args[1])\}\}]\}\}}
+\DoxyCodeLine{113         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115     \textcolor{comment}{\# VRRP delete vip}}
+\DoxyCodeLine{116     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'del\_llist\_openconfig\_if\_ip\_interfaces\_interface\_subinterfaces\_subinterface\_ip\_addresses\_address\_vrrp\_vrrp\_group\_config\_virtual\_address'} :}
+\DoxyCodeLine{117         body = collections.defaultdict(dict)}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"Vlan"} \textcolor{keywordflow}{in} args[0]:}
+\DoxyCodeLine{120             \textcolor{keywordflow}{if} args[3] == \textcolor{stringliteral}{"ipv4"}:}
+\DoxyCodeLine{121                 body = \{\textcolor{stringliteral}{"name"}: args[0], \textcolor{stringliteral}{"ip"}: addr4, \textcolor{stringliteral}{"vrid"}: args[1], \textcolor{stringliteral}{"vip"}: args[2]\}}
+\DoxyCodeLine{122                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv4/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/virtual-\/address=\{vip\}'}, **body)}
+\DoxyCodeLine{123             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{124                 body = \{\textcolor{stringliteral}{"name"}: args[0], \textcolor{stringliteral}{"ip"}: addr6, \textcolor{stringliteral}{"vrid"}: args[1], \textcolor{stringliteral}{"vip"}: args[2]\}}
+\DoxyCodeLine{125                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv6/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/virtual-\/address=\{vip\}'}, **body)}
+\DoxyCodeLine{126         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{127             parent\_if = args[0]}
+\DoxyCodeLine{128             sub\_if = \textcolor{stringliteral}{"0"}}
+\DoxyCodeLine{129             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'.'} \textcolor{keywordflow}{in} parent\_if:}
+\DoxyCodeLine{130                 parent\_if = args[0].split(\textcolor{stringliteral}{'.'})[0]}
+\DoxyCodeLine{131                 sub\_if = args[0].split(\textcolor{stringliteral}{'.'})[1]}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133             \textcolor{keywordflow}{if} args[3] == \textcolor{stringliteral}{"ipv4"}:}
+\DoxyCodeLine{134                 body = \{\textcolor{stringliteral}{"name"}: parent\_if, \textcolor{stringliteral}{"index"}: sub\_if, \textcolor{stringliteral}{"ip"}: addr4, \textcolor{stringliteral}{"vrid"}: args[1], \textcolor{stringliteral}{"vip"}: args[2]\}}
+\DoxyCodeLine{135                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/virtual-\/address=\{vip\}'}, **body)}
+\DoxyCodeLine{136             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{137                 body = \{\textcolor{stringliteral}{"name"}: parent\_if, \textcolor{stringliteral}{"index"}: sub\_if, \textcolor{stringliteral}{"ip"}: addr6, \textcolor{stringliteral}{"vrid"}: args[1], \textcolor{stringliteral}{"vip"}: args[2]\}}
+\DoxyCodeLine{138                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv6/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/virtual-\/address=\{vip\}'}, **body)}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142     \textcolor{comment}{\# VRRP set vip}}
+\DoxyCodeLine{143     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_openconfig\_if\_ip\_interfaces\_interface\_subinterfaces\_subinterface\_ip\_addresses\_address\_vrrp\_vrrp\_group\_config\_virtual\_address'} :}
+\DoxyCodeLine{144         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"Vlan"} \textcolor{keywordflow}{in} args[0]:}
+\DoxyCodeLine{145             \textcolor{keywordflow}{if} args[3] == \textcolor{stringliteral}{"ipv4"}:}
+\DoxyCodeLine{146                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv4/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/virtual-\/address'}, name=args[0], ip=addr4, vrid=args[1])}
+\DoxyCodeLine{147             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{148                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv6/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/virtual-\/address'}, name=args[0], ip=addr6, vrid=args[1])}
+\DoxyCodeLine{149         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{150             parent\_if = args[0]}
+\DoxyCodeLine{151             sub\_if = \textcolor{stringliteral}{"0"}}
+\DoxyCodeLine{152             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'.'} \textcolor{keywordflow}{in} parent\_if:}
+\DoxyCodeLine{153                 parent\_if = args[0].split(\textcolor{stringliteral}{'.'})[0]}
+\DoxyCodeLine{154                 sub\_if = args[0].split(\textcolor{stringliteral}{'.'})[1]}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{156             \textcolor{keywordflow}{if} args[3] == \textcolor{stringliteral}{"ipv4"}:}
+\DoxyCodeLine{157                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/virtual-\/address'}, name=parent\_if, index=sub\_if, ip=addr4, vrid=args[1])}
+\DoxyCodeLine{158             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{159                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv6/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/virtual-\/address'}, name=parent\_if, index=sub\_if, ip=addr6, vrid=args[1])}
+\DoxyCodeLine{160         body=collections.defaultdict(dict)}
+\DoxyCodeLine{161         body = \{\textcolor{stringliteral}{"openconfig-\/if-\/ip:virtual-\/address"}: [args[2]]\}}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166     \textcolor{comment}{\# VRRP delete track interface}}
+\DoxyCodeLine{167     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'delete\_openconfig\_interfaces\_ext'} :}
+\DoxyCodeLine{168         body = collections.defaultdict(dict)}
+\DoxyCodeLine{169         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"Vlan"} \textcolor{keywordflow}{in} args[0]:}
+\DoxyCodeLine{170             \textcolor{keywordflow}{if} args[3] == \textcolor{stringliteral}{"ipv4"}:}
+\DoxyCodeLine{171                 body = \{\textcolor{stringliteral}{"name"}: args[0], \textcolor{stringliteral}{"ip"}: addr4, \textcolor{stringliteral}{"vrid"}: args[1], \textcolor{stringliteral}{"trackif"}: args[2]\}}
+\DoxyCodeLine{172                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv4/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/openconfig-\/interfaces-\/ext:vrrp-\/track/vrrp-\/track-\/interface=\{trackif\}'}, **body)}
+\DoxyCodeLine{173             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{174                 body = \{\textcolor{stringliteral}{"name"}: args[0], \textcolor{stringliteral}{"ip"}: addr6, \textcolor{stringliteral}{"vrid"}: args[1], \textcolor{stringliteral}{"trackif"}: args[2]\}}
+\DoxyCodeLine{175                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv6/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/openconfig-\/interfaces-\/ext:vrrp-\/track/vrrp-\/track-\/interface=\{trackif\}'}, **body)}
+\DoxyCodeLine{176         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{177             parent\_if = args[0]}
+\DoxyCodeLine{178             sub\_if = \textcolor{stringliteral}{"0"}}
+\DoxyCodeLine{179             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'.'} \textcolor{keywordflow}{in} parent\_if:}
+\DoxyCodeLine{180                 parent\_if = args[0].split(\textcolor{stringliteral}{'.'})[0]}
+\DoxyCodeLine{181                 sub\_if = args[0].split(\textcolor{stringliteral}{'.'})[1]}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{183             \textcolor{keywordflow}{if} args[3] == \textcolor{stringliteral}{"ipv4"}:}
+\DoxyCodeLine{184                 body = \{\textcolor{stringliteral}{"name"}: parent\_if, \textcolor{stringliteral}{"index"}: sub\_if, \textcolor{stringliteral}{"ip"}: addr4, \textcolor{stringliteral}{"vrid"}: args[1], \textcolor{stringliteral}{"trackif"}: args[2]\}}
+\DoxyCodeLine{185                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/openconfig-\/interfaces-\/ext:vrrp-\/track/vrrp-\/track-\/interface=\{trackif\}'}, **body)}
+\DoxyCodeLine{186             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{187                 body = \{\textcolor{stringliteral}{"name"}: parent\_if, \textcolor{stringliteral}{"index"}: sub\_if, \textcolor{stringliteral}{"ip"}: addr6, \textcolor{stringliteral}{"vrid"}: args[1], \textcolor{stringliteral}{"trackif"}: args[2]\}}
+\DoxyCodeLine{188                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv6/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/openconfig-\/interfaces-\/ext:vrrp-\/track/vrrp-\/track-\/interface=\{trackif\}'}, **body)}
+\DoxyCodeLine{189         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{191     \textcolor{comment}{\# VRRP set track interfaces}}
+\DoxyCodeLine{192     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_openconfig\_interfaces\_ext'} :}
+\DoxyCodeLine{193         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"Vlan"} \textcolor{keywordflow}{in} args[0]:}
+\DoxyCodeLine{194             \textcolor{keywordflow}{if} args[4] == \textcolor{stringliteral}{"ipv4"}:}
+\DoxyCodeLine{195                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv4/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/openconfig-\/interfaces-\/ext:vrrp-\/track'}, name=args[0], ip=addr4, vrid=args[1])}
+\DoxyCodeLine{196             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{197                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv6/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/openconfig-\/interfaces-\/ext:vrrp-\/track'}, name=args[0], ip=addr6, vrid=args[1])}
+\DoxyCodeLine{198         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{199             parent\_if = args[0]}
+\DoxyCodeLine{200             sub\_if = \textcolor{stringliteral}{"0"}}
+\DoxyCodeLine{201             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'.'} \textcolor{keywordflow}{in} parent\_if:}
+\DoxyCodeLine{202                 parent\_if = args[0].split(\textcolor{stringliteral}{'.'})[0]}
+\DoxyCodeLine{203                 sub\_if = args[0].split(\textcolor{stringliteral}{'.'})[1]}
+\DoxyCodeLine{204 }
+\DoxyCodeLine{205             \textcolor{keywordflow}{if} args[4] == \textcolor{stringliteral}{"ipv4"}:}
+\DoxyCodeLine{206                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/openconfig-\/interfaces-\/ext:vrrp-\/track'}, name=parent\_if, index=sub\_if, ip=addr4, vrid=args[1])}
+\DoxyCodeLine{207             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{208                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv6/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/openconfig-\/interfaces-\/ext:vrrp-\/track'}, name=parent\_if, index=sub\_if, ip=addr6, vrid=args[1])}
+\DoxyCodeLine{209         body=collections.defaultdict(dict)}
+\DoxyCodeLine{210         body = \{\textcolor{stringliteral}{"openconfig-\/interfaces-\/ext:vrrp-\/track"}: \{\textcolor{stringliteral}{"vrrp-\/track-\/interface"}: [\{\textcolor{stringliteral}{"track-\/intf"}: args[2],\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"track-\/intf"}: args[2],\textcolor{stringliteral}{"priority-\/increment"}: int(args[3])\}\}]\}\}}
+\DoxyCodeLine{211         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{212 }
+\DoxyCodeLine{213 }
+\DoxyCodeLine{214     \textcolor{comment}{\# VRRP delete priority}}
+\DoxyCodeLine{215     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'delete\_openconfig\_if\_ip\_interfaces\_interface\_subinterfaces\_subinterface\_ip\_addresses\_address\_vrrp\_vrrp\_group\_config\_priority'} :}
+\DoxyCodeLine{216         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"Vlan"} \textcolor{keywordflow}{in} args[0]:}
+\DoxyCodeLine{217             \textcolor{keywordflow}{if} args[2] == \textcolor{stringliteral}{"ipv4"}:}
+\DoxyCodeLine{218                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv4/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/priority'},name=args[0], ip=addr4, vrid=args[1])}
+\DoxyCodeLine{219             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{220                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv6/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/priority'}, name=args[0], ip=addr6, vrid=args[1])}
+\DoxyCodeLine{221         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{222             parent\_if = args[0]}
+\DoxyCodeLine{223             sub\_if = \textcolor{stringliteral}{"0"}}
+\DoxyCodeLine{224             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'.'} \textcolor{keywordflow}{in} parent\_if:}
+\DoxyCodeLine{225                 parent\_if = args[0].split(\textcolor{stringliteral}{'.'})[0]}
+\DoxyCodeLine{226                 sub\_if = args[0].split(\textcolor{stringliteral}{'.'})[1]}
+\DoxyCodeLine{227 }
+\DoxyCodeLine{228             \textcolor{keywordflow}{if} args[2] == \textcolor{stringliteral}{"ipv4"}:}
+\DoxyCodeLine{229                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/priority'},name=parent\_if, index=sub\_if, ip=addr4, vrid=args[1])}
+\DoxyCodeLine{230             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{231                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv6/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/priority'}, name=parent\_if, index=sub\_if, ip=addr6, vrid=args[1])}
+\DoxyCodeLine{232         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{233 }
+\DoxyCodeLine{234     \textcolor{comment}{\# VRRP set priority}}
+\DoxyCodeLine{235     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_openconfig\_if\_ip\_interfaces\_interface\_subinterfaces\_subinterface\_ip\_addresses\_address\_vrrp\_vrrp\_group\_config\_priority'} :}
+\DoxyCodeLine{236         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"Vlan"} \textcolor{keywordflow}{in} args[0]:}
+\DoxyCodeLine{237             \textcolor{keywordflow}{if} args[3] == \textcolor{stringliteral}{"ipv4"}:}
+\DoxyCodeLine{238                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv4/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/priority'}, name=args[0], ip=addr4, vrid=args[1])}
+\DoxyCodeLine{239             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{240                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv6/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/priority'}, name=args[0], ip=addr6, vrid=args[1])}
+\DoxyCodeLine{241         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{242             parent\_if = args[0]}
+\DoxyCodeLine{243             sub\_if = \textcolor{stringliteral}{"0"}}
+\DoxyCodeLine{244             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'.'} \textcolor{keywordflow}{in} parent\_if:}
+\DoxyCodeLine{245                 parent\_if = args[0].split(\textcolor{stringliteral}{'.'})[0]}
+\DoxyCodeLine{246                 sub\_if = args[0].split(\textcolor{stringliteral}{'.'})[1]}
+\DoxyCodeLine{247 }
+\DoxyCodeLine{248             \textcolor{keywordflow}{if} args[3] == \textcolor{stringliteral}{"ipv4"}:}
+\DoxyCodeLine{249                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/priority'}, name=parent\_if, index=sub\_if, ip=addr4, vrid=args[1])}
+\DoxyCodeLine{250             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{251                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv6/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/priority'}, name=parent\_if, index=sub\_if, ip=addr6, vrid=args[1])}
+\DoxyCodeLine{252 }
+\DoxyCodeLine{253         body=collections.defaultdict(dict)}
+\DoxyCodeLine{254         body = \{\textcolor{stringliteral}{"openconfig-\/if-\/ip:priority"}: int(args[2])\}}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{256         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{257 }
+\DoxyCodeLine{258     \textcolor{comment}{\# VRRP set \& delete preempt}}
+\DoxyCodeLine{259     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_openconfig\_if\_ip\_interfaces\_interface\_subinterfaces\_subinterface\_ip\_addresses\_address\_vrrp\_vrrp\_group\_config\_preempt'} :}
+\DoxyCodeLine{260         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"Vlan"} \textcolor{keywordflow}{in} args[0]:}
+\DoxyCodeLine{261             \textcolor{keywordflow}{if} args[3] == \textcolor{stringliteral}{"ipv4"}:}
+\DoxyCodeLine{262                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv4/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/preempt'}, name=args[0], ip=addr4, vrid=args[1])}
+\DoxyCodeLine{263             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{264                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv6/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/preempt'}, name=args[0], ip=addr6, vrid=args[1])}
+\DoxyCodeLine{265         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{266             parent\_if = args[0]}
+\DoxyCodeLine{267             sub\_if = \textcolor{stringliteral}{"0"}}
+\DoxyCodeLine{268             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'.'} \textcolor{keywordflow}{in} parent\_if:}
+\DoxyCodeLine{269                 parent\_if = args[0].split(\textcolor{stringliteral}{'.'})[0]}
+\DoxyCodeLine{270                 sub\_if = args[0].split(\textcolor{stringliteral}{'.'})[1]}
+\DoxyCodeLine{271 }
+\DoxyCodeLine{272             \textcolor{keywordflow}{if} args[3] == \textcolor{stringliteral}{"ipv4"}:}
+\DoxyCodeLine{273                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/preempt'}, name=parent\_if, index=sub\_if, ip=addr4, vrid=args[1])}
+\DoxyCodeLine{274             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{275                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv6/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/preempt'}, name=parent\_if, index=sub\_if, ip=addr6, vrid=args[1])}
+\DoxyCodeLine{276 }
+\DoxyCodeLine{277         body=collections.defaultdict(dict)}
+\DoxyCodeLine{278         \textcolor{keywordflow}{if} args[2] == \textcolor{stringliteral}{"true"}:}
+\DoxyCodeLine{279             body = \{\textcolor{stringliteral}{"openconfig-\/if-\/ip:preempt"}: \textcolor{keyword}{True}\}}
+\DoxyCodeLine{280         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{281             body = \{\textcolor{stringliteral}{"openconfig-\/if-\/ip:preempt"}: \textcolor{keyword}{False}\}}
+\DoxyCodeLine{282 }
+\DoxyCodeLine{283         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{284 }
+\DoxyCodeLine{285     \textcolor{comment}{\# VRRP set \& delete use\_v2\_checksum}}
+\DoxyCodeLine{286     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_openconfig\_if\_ip\_interfaces\_interface\_subinterfaces\_subinterface\_ip\_addresses\_address\_vrrp\_vrrp\_group\_config\_use\_v2\_checksum'}:}
+\DoxyCodeLine{287         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"Vlan"} \textcolor{keywordflow}{in} args[0]:}
+\DoxyCodeLine{288             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv4/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/openconfig-\/interfaces-\/ext:use-\/v2-\/checksum'}, name=args[0], ip=addr4, vrid=args[1])}
+\DoxyCodeLine{289         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{290             parent\_if = args[0]}
+\DoxyCodeLine{291             sub\_if = \textcolor{stringliteral}{"0"}}
+\DoxyCodeLine{292             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'.'} \textcolor{keywordflow}{in} parent\_if:}
+\DoxyCodeLine{293                 parent\_if = args[0].split(\textcolor{stringliteral}{'.'})[0]}
+\DoxyCodeLine{294                 sub\_if = args[0].split(\textcolor{stringliteral}{'.'})[1]}
+\DoxyCodeLine{295 }
+\DoxyCodeLine{296             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/openconfig-\/interfaces-\/ext:use-\/v2-\/checksum'}, name=parent\_if, index=sub\_if, ip=addr4, vrid=args[1])}
+\DoxyCodeLine{297 }
+\DoxyCodeLine{298         body=collections.defaultdict(dict)}
+\DoxyCodeLine{299         \textcolor{keywordflow}{if} args[2] == \textcolor{stringliteral}{"true"}:}
+\DoxyCodeLine{300             body = \{\textcolor{stringliteral}{"openconfig-\/if-\/ip:use-\/v2-\/checksum"}: \textcolor{keyword}{True}\}}
+\DoxyCodeLine{301         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{302             body = \{\textcolor{stringliteral}{"openconfig-\/if-\/ip:use-\/v2-\/checksum"}: \textcolor{keyword}{False}\}}
+\DoxyCodeLine{303 }
+\DoxyCodeLine{304         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{305 }
+\DoxyCodeLine{306     \textcolor{comment}{\# VRRP delete advertisement}}
+\DoxyCodeLine{307     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'delete\_openconfig\_if\_ip\_interfaces\_interface\_subinterfaces\_subinterface\_ip\_addresses\_address\_vrrp\_vrrp\_group\_config\_advertisement\_interval'} :}
+\DoxyCodeLine{308         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"Vlan"} \textcolor{keywordflow}{in} args[0]:}
+\DoxyCodeLine{309             \textcolor{keywordflow}{if} args[2] == \textcolor{stringliteral}{"ipv4"}:}
+\DoxyCodeLine{310                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv4/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/advertisement-\/interval'}, name=args[0], ip=addr4, vrid=args[1])}
+\DoxyCodeLine{311             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{312                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv6/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/advertisement-\/interval'}, name=args[0], ip=addr6, vrid=args[1])}
+\DoxyCodeLine{313         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{314             parent\_if = args[0]}
+\DoxyCodeLine{315             sub\_if = \textcolor{stringliteral}{"0"}}
+\DoxyCodeLine{316             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'.'} \textcolor{keywordflow}{in} parent\_if:}
+\DoxyCodeLine{317                 parent\_if = args[0].split(\textcolor{stringliteral}{'.'})[0]}
+\DoxyCodeLine{318                 sub\_if = args[0].split(\textcolor{stringliteral}{'.'})[1]}
+\DoxyCodeLine{319 }
+\DoxyCodeLine{320             \textcolor{keywordflow}{if} args[2] == \textcolor{stringliteral}{"ipv4"}:}
+\DoxyCodeLine{321                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/advertisement-\/interval'}, name=parent\_if, index=sub\_if, ip=addr4, vrid=args[1])}
+\DoxyCodeLine{322             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{323                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv6/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/advertisement-\/interval'}, name=parent\_if, index=sub\_if, ip=addr6, vrid=args[1])}
+\DoxyCodeLine{324 }
+\DoxyCodeLine{325         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{326 }
+\DoxyCodeLine{327     \textcolor{comment}{\# VRRP set advertisement}}
+\DoxyCodeLine{328     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_openconfig\_if\_ip\_interfaces\_interface\_subinterfaces\_subinterface\_ip\_addresses\_address\_vrrp\_vrrp\_group\_config\_advertisement\_interval'} :}
+\DoxyCodeLine{329         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"Vlan"} \textcolor{keywordflow}{in} args[0]:}
+\DoxyCodeLine{330             \textcolor{keywordflow}{if} args[3] == \textcolor{stringliteral}{"ipv4"}:}
+\DoxyCodeLine{331                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv4/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/advertisement-\/interval'}, name=args[0], ip=addr4, vrid=args[1])}
+\DoxyCodeLine{332             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{333                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv6/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/advertisement-\/interval'}, name=args[0], ip=addr6, vrid=args[1])}
+\DoxyCodeLine{334         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{335             parent\_if = args[0]}
+\DoxyCodeLine{336             sub\_if = \textcolor{stringliteral}{"0"}}
+\DoxyCodeLine{337             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'.'} \textcolor{keywordflow}{in} parent\_if:}
+\DoxyCodeLine{338                 parent\_if = args[0].split(\textcolor{stringliteral}{'.'})[0]}
+\DoxyCodeLine{339                 sub\_if = args[0].split(\textcolor{stringliteral}{'.'})[1]}
+\DoxyCodeLine{340 }
+\DoxyCodeLine{341             \textcolor{keywordflow}{if} args[3] == \textcolor{stringliteral}{"ipv4"}:}
+\DoxyCodeLine{342                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/advertisement-\/interval'}, name=parent\_if, index=sub\_if, ip=addr4, vrid=args[1])}
+\DoxyCodeLine{343             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{344                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv6/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/advertisement-\/interval'}, name=parent\_if, index=sub\_if, ip=addr6, vrid=args[1])}
+\DoxyCodeLine{345 }
+\DoxyCodeLine{346         body=collections.defaultdict(dict)}
+\DoxyCodeLine{347         body = \{\textcolor{stringliteral}{"openconfig-\/if-\/ip:advertisement-\/interval"}: int(args[2])\}}
+\DoxyCodeLine{348         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{349 }
+\DoxyCodeLine{350     \textcolor{comment}{\# VRRP delete version}}
+\DoxyCodeLine{351     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'delete\_openconfig\_interfaces\_ext\_interfaces\_interface\_subinterfaces\_subinterface\_ip\_addresses\_address\_vrrp\_vrrp\_group\_config\_version'} :}
+\DoxyCodeLine{352         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"Vlan"} \textcolor{keywordflow}{in} args[0]:}
+\DoxyCodeLine{353             \textcolor{keywordflow}{if} args[2] == \textcolor{stringliteral}{"ipv4"}:}
+\DoxyCodeLine{354                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv4/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/openconfig-\/interfaces-\/ext:version'}, name=args[0], ip=addr4, vrid=args[1])}
+\DoxyCodeLine{355             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{356                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv6/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/openconfig-\/interfaces-\/ext:version'}, name=args[0], ip=addr6, vrid=args[1])}
+\DoxyCodeLine{357         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{358             parent\_if = args[0]}
+\DoxyCodeLine{359             sub\_if = \textcolor{stringliteral}{"0"}}
+\DoxyCodeLine{360             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'.'} \textcolor{keywordflow}{in} parent\_if:}
+\DoxyCodeLine{361                 parent\_if = args[0].split(\textcolor{stringliteral}{'.'})[0]}
+\DoxyCodeLine{362                 sub\_if = args[0].split(\textcolor{stringliteral}{'.'})[1]}
+\DoxyCodeLine{363 }
+\DoxyCodeLine{364             \textcolor{keywordflow}{if} args[2] == \textcolor{stringliteral}{"ipv4"}:}
+\DoxyCodeLine{365                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/openconfig-\/interfaces-\/ext:version'}, name=parent\_if, index=sub\_if, ip=addr4, vrid=args[1])}
+\DoxyCodeLine{366             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{367                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv6/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/openconfig-\/interfaces-\/ext:version'}, name=parent\_if, index=sub\_if, ip=addr6, vrid=args[1])}
+\DoxyCodeLine{368 }
+\DoxyCodeLine{369         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{370 }
+\DoxyCodeLine{371     \textcolor{comment}{\# VRRP set version}}
+\DoxyCodeLine{372     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_openconfig\_interfaces\_ext\_interfaces\_interface\_subinterfaces\_subinterface\_ip\_addresses\_address\_vrrp\_vrrp\_group\_config\_version'} :}
+\DoxyCodeLine{373         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"Vlan"} \textcolor{keywordflow}{in} args[0]:}
+\DoxyCodeLine{374             \textcolor{keywordflow}{if} args[3] == \textcolor{stringliteral}{"ipv4"}:}
+\DoxyCodeLine{375                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv4/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/openconfig-\/interfaces-\/ext:version'}, name=args[0], ip=addr4, vrid=args[1])}
+\DoxyCodeLine{376             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{377                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv6/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/openconfig-\/interfaces-\/ext:version'}, name=args[0], ip=addr6, vrid=args[1])}
+\DoxyCodeLine{378         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{379             parent\_if = args[0]}
+\DoxyCodeLine{380             sub\_if = \textcolor{stringliteral}{"0"}}
+\DoxyCodeLine{381             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'.'} \textcolor{keywordflow}{in} parent\_if:}
+\DoxyCodeLine{382                 parent\_if = args[0].split(\textcolor{stringliteral}{'.'})[0]}
+\DoxyCodeLine{383                 sub\_if = args[0].split(\textcolor{stringliteral}{'.'})[1]}
+\DoxyCodeLine{384 }
+\DoxyCodeLine{385             \textcolor{keywordflow}{if} args[3] == \textcolor{stringliteral}{"ipv4"}:}
+\DoxyCodeLine{386                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/openconfig-\/interfaces-\/ext:version'}, name=parent\_if, index=sub\_if, ip=addr4, vrid=args[1])}
+\DoxyCodeLine{387             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{388                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv6/addresses/address=\{ip\}/vrrp/vrrp-\/group=\{vrid\}/config/openconfig-\/interfaces-\/ext:version'}, name=parent\_if, index=sub\_if, ip=addr6, vrid=args[1])}
+\DoxyCodeLine{389 }
+\DoxyCodeLine{390         body=collections.defaultdict(dict)}
+\DoxyCodeLine{391         body = \{\textcolor{stringliteral}{"openconfig-\/interfaces-\/ext:version"}: int(args[2])\}}
+\DoxyCodeLine{392 }
+\DoxyCodeLine{393         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{394 }
+\DoxyCodeLine{395     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{396         print(\textcolor{stringliteral}{"\%Error: not implemented"})}
+\DoxyCodeLine{397         exit(1)}
+\DoxyCodeLine{398 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=337pt]{db/d7b/namespacesonic__cli__vrrp_a2460fd3088f18437d318c74a4e295497_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__vrrp_a56e371864d4e5e8cf26894013ad59eb2}\label{namespacesonic__cli__vrrp_a56e371864d4e5e8cf26894013ad59eb2}} 
+\index{sonic\_cli\_vrrp@{sonic\_cli\_vrrp}!run@{run}}
+\index{run@{run}!sonic\_cli\_vrrp@{sonic\_cli\_vrrp}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+vrrp.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+vrrp.\+py 파일의 399 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{399 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__vrrp_a56e371864d4e5e8cf26894013ad59eb2}{run}}(func, args):}
+\DoxyCodeLine{400     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{401         \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_openconfig\_if\_ip\_interfaces\_interface\_subinterfaces\_subinterface\_ip\_addresses\_address\_vrrp\_vrrp\_group\_config\_priority'} \textcolor{keywordflow}{and} args[2] == \textcolor{stringliteral}{"100"}:}
+\DoxyCodeLine{402             func = \textcolor{stringliteral}{'delete\_openconfig\_if\_ip\_interfaces\_interface\_subinterfaces\_subinterface\_ip\_addresses\_address\_vrrp\_vrrp\_group\_config\_priority'}}
+\DoxyCodeLine{403             args[2] = args[3]}
+\DoxyCodeLine{404 }
+\DoxyCodeLine{405 }
+\DoxyCodeLine{406         api\_response = \mbox{\hyperlink{namespacesonic__cli__vrrp_a2460fd3088f18437d318c74a4e295497}{invoke}}(func, args)}
+\DoxyCodeLine{407 }
+\DoxyCodeLine{408         \textcolor{keywordflow}{if} api\_response.ok():}
+\DoxyCodeLine{409             response = api\_response.content}
+\DoxyCodeLine{410             \textcolor{keywordflow}{if} response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{411                 \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{412             \textcolor{comment}{\# is it correct}}
+\DoxyCodeLine{413             \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'openconfig-\/if-\/ip:vrrp-\/group'} \textcolor{keywordflow}{in} response.keys():}
+\DoxyCodeLine{414                 \textcolor{comment}{\# check for subif}}
+\DoxyCodeLine{415                 response[\textcolor{stringliteral}{u'ifname'}] = args[2]}
+\DoxyCodeLine{416                 response[\textcolor{stringliteral}{u'vrid'}] = args[3]}
+\DoxyCodeLine{417 }
+\DoxyCodeLine{418                 \textcolor{keywordflow}{if} args[0] == \textcolor{stringliteral}{"ipv6"}:}
+\DoxyCodeLine{419                     response[\textcolor{stringliteral}{u'afi'}] = 2}
+\DoxyCodeLine{420                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{421                     response[\textcolor{stringliteral}{u'afi'}] = 1}
+\DoxyCodeLine{422 }
+\DoxyCodeLine{423                 single\_instance = response.values()[0][0]}
+\DoxyCodeLine{424                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'config'} \textcolor{keywordflow}{in} single\_instance.keys():}
+\DoxyCodeLine{425                     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{426                         response[\textcolor{stringliteral}{'openconfig-\/if-\/ip:vrrp-\/group'}][0][\textcolor{stringliteral}{'openconfig-\/interfaces-\/ext:vrrp-\/track'}][}
+\DoxyCodeLine{427                                  \textcolor{stringliteral}{'vrrp-\/track-\/interface'}] = natsorted(}
+\DoxyCodeLine{428                                   response[\textcolor{stringliteral}{'openconfig-\/if-\/ip:vrrp-\/group'}][0][\textcolor{stringliteral}{'openconfig-\/interfaces-\/ext:vrrp-\/track'}][\textcolor{stringliteral}{'vrrp-\/track-\/interface'}], key = \textcolor{keyword}{lambda} i: i[\textcolor{stringliteral}{"track-\/intf"}])}
+\DoxyCodeLine{429                     \textcolor{keywordflow}{except} KeyError:}
+\DoxyCodeLine{430                         \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{431                     \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{"show\_vrrp.j2"}, response)}
+\DoxyCodeLine{432                 \textcolor{keywordflow}{return}}
+\DoxyCodeLine{433             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{434                 \textcolor{keywordflow}{if} args[0] == \textcolor{stringliteral}{"ipv6"}:}
+\DoxyCodeLine{435                     response[\textcolor{stringliteral}{u'afi'}] = 2}
+\DoxyCodeLine{436                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{437                     response[\textcolor{stringliteral}{u'afi'}] = 1}
+\DoxyCodeLine{438                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{"show\_vrrp\_summary.j2"}, response)}
+\DoxyCodeLine{439         \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'post\_openconfig\_if\_ip\_interfaces\_interface\_subinterfaces\_subinterface\_ip\_addresses\_address\_vrrp\_vrrp\_group\_config'} \textcolor{keywordflow}{and} \textcolor{stringliteral}{'\%Error: Resource not found'} \textcolor{keywordflow}{in} api\_response.error\_message():}
+\DoxyCodeLine{440             print(\textcolor{stringliteral}{'\%Error: Configure interface IP before configuring VRRP'})}
+\DoxyCodeLine{441             \textcolor{keywordflow}{return} 1 }
+\DoxyCodeLine{442         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{443             \textcolor{comment}{\#error response}}
+\DoxyCodeLine{444             print(api\_response.error\_message())}
+\DoxyCodeLine{445             \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{446 }
+\DoxyCodeLine{447     \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{448             \textcolor{comment}{\# system/network error}}
+\DoxyCodeLine{449             \textcolor{keywordflow}{raise}}
+\DoxyCodeLine{450 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d7b/namespacesonic__cli__vrrp_a56e371864d4e5e8cf26894013ad59eb2_cgraph}
+\end{center}
+\end{figure}

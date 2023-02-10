@@ -1,0 +1,178 @@
+\hypertarget{namespacesonic__cli__switch__resource}{}\doxysection{sonic\+\_\+cli\+\_\+switch\+\_\+resource 네임스페이스 참조}
+\label{namespacesonic__cli__switch__resource}\index{sonic\_cli\_switch\_resource@{sonic\_cli\_switch\_resource}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__switch__resource_a5dd8eea6cda1c8a56c9cc39be814d3b9}{invoke\+\_\+api}} (\mbox{\hyperlink{namespacesonic__cli__switch__resource_a396381997caa59621bc23c2c9ca36a59}{func}}, args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__switch__resource_a3f2ebd143e2bfb03a7ce3d3039bdd144}{run}} (\mbox{\hyperlink{namespacesonic__cli__switch__resource_a396381997caa59621bc23c2c9ca36a59}{func}}, args)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacesonic__cli__switch__resource_a396381997caa59621bc23c2c9ca36a59}{func}} = sys.\+argv\mbox{[}1\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__switch__resource_a5dd8eea6cda1c8a56c9cc39be814d3b9}\label{namespacesonic__cli__switch__resource_a5dd8eea6cda1c8a56c9cc39be814d3b9}} 
+\index{sonic\_cli\_switch\_resource@{sonic\_cli\_switch\_resource}!invoke\_api@{invoke\_api}}
+\index{invoke\_api@{invoke\_api}!sonic\_cli\_switch\_resource@{sonic\_cli\_switch\_resource}}
+\doxysubsubsection{\texorpdfstring{invoke\_api()}{invoke\_api()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+switch\+\_\+resource.\+invoke\+\_\+api (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+switch\+\_\+resource.\+py 파일의 12 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{12 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__switch__resource_a5dd8eea6cda1c8a56c9cc39be814d3b9}{invoke\_api}}(func, args):}
+\DoxyCodeLine{13     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{14     api = cc.ApiClient()}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \textcolor{comment}{\# Set/Get the rules of all DROP MONITOR table entries.}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'get\_openconfig\_system\_ext\_system\_swresource'}:}
+\DoxyCodeLine{19       path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/system:system/openconfig-\/system-\/ext:swresource'})}
+\DoxyCodeLine{20       \textcolor{keywordflow}{return} api.get(path)}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_system\_ext\_system\_swresource'}:}
+\DoxyCodeLine{24        path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/system:system/openconfig-\/system-\/ext:swresource'})}
+\DoxyCodeLine{25        \textcolor{keywordflow}{if} args[0] == \textcolor{stringliteral}{"min"}:}
+\DoxyCodeLine{26            flowlimit = \textcolor{stringliteral}{"MIN"}}
+\DoxyCodeLine{27        \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{"none"}:}
+\DoxyCodeLine{28                flowlimit = \textcolor{stringliteral}{"NONE"}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30        body =  \{}
+\DoxyCodeLine{31                 \textcolor{stringliteral}{"openconfig-\/system-\/ext:swresource"}: \{}
+\DoxyCodeLine{32                          \textcolor{stringliteral}{"resource"}: [}
+\DoxyCodeLine{33                            \{}
+\DoxyCodeLine{34                             \textcolor{stringliteral}{"name"}: \textcolor{stringliteral}{"DROP\_MONITOR"},}
+\DoxyCodeLine{35                             \textcolor{stringliteral}{"config"}: \{}
+\DoxyCodeLine{36                             \textcolor{stringliteral}{"name"}: \textcolor{stringliteral}{"DROP\_MONITOR"},}
+\DoxyCodeLine{37                             \textcolor{stringliteral}{"flows"}: flowlimit}
+\DoxyCodeLine{38                              \}}
+\DoxyCodeLine{39                             \}}
+\DoxyCodeLine{40                                      ]}
+\DoxyCodeLine{41                                                      \}}
+\DoxyCodeLine{42                 \}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44        \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_openconfig\_system\_ext\_system\_swresource'}:}
+\DoxyCodeLine{48         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/system:system/openconfig-\/system-\/ext:swresource'},)}
+\DoxyCodeLine{49         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     \textcolor{comment}{\# check paths and data}}
+\DoxyCodeLine{52     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_system\_ext\_system\_swresource\_routes'}:}
+\DoxyCodeLine{53         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/system:system/openconfig-\/system-\/ext:swresource'})}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55         \textcolor{keywordflow}{if} args[0] == \textcolor{stringliteral}{"default"}:}
+\DoxyCodeLine{56             routescale = \textcolor{stringliteral}{"DEFAULT"}}
+\DoxyCodeLine{57         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{"max"}:}
+\DoxyCodeLine{58             routescale = \textcolor{stringliteral}{"MAX"}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60         \textcolor{keywordflow}{print} \textcolor{stringliteral}{"L2, L3 host and route scaling numbers may change. Config save, reboot is required for this change to take effect"}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62         body =  \{}
+\DoxyCodeLine{63                 \textcolor{stringliteral}{"openconfig-\/system-\/ext:swresource"}: \{}
+\DoxyCodeLine{64                         \textcolor{stringliteral}{"resource"}: [}
+\DoxyCodeLine{65                                         \{}
+\DoxyCodeLine{66                                         \textcolor{stringliteral}{"name"}: \textcolor{stringliteral}{"ROUTE\_SCALE"},}
+\DoxyCodeLine{67                                         \textcolor{stringliteral}{"config"}: \{}
+\DoxyCodeLine{68                                             \textcolor{stringliteral}{"name"}: \textcolor{stringliteral}{"ROUTE\_SCALE"},}
+\DoxyCodeLine{69                                             \textcolor{stringliteral}{"routes"}: routescale}
+\DoxyCodeLine{70                                             \}}
+\DoxyCodeLine{71                                         \}}
+\DoxyCodeLine{72                                     ]}
+\DoxyCodeLine{73                         \}}
+\DoxyCodeLine{74                 \}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79     \textcolor{keywordflow}{return} api.cli\_not\_implemented(func)}
+\DoxyCodeLine{80 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d31/namespacesonic__cli__switch__resource_a5dd8eea6cda1c8a56c9cc39be814d3b9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__switch__resource_a3f2ebd143e2bfb03a7ce3d3039bdd144}\label{namespacesonic__cli__switch__resource_a3f2ebd143e2bfb03a7ce3d3039bdd144}} 
+\index{sonic\_cli\_switch\_resource@{sonic\_cli\_switch\_resource}!run@{run}}
+\index{run@{run}!sonic\_cli\_switch\_resource@{sonic\_cli\_switch\_resource}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+switch\+\_\+resource.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+switch\+\_\+resource.\+py 파일의 81 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{81 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__switch__resource_a3f2ebd143e2bfb03a7ce3d3039bdd144}{run}}(func, args):}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83     response = \mbox{\hyperlink{namespacesonic__cli__switch__resource_a5dd8eea6cda1c8a56c9cc39be814d3b9}{invoke\_api}}(func, args)}
+\DoxyCodeLine{84     \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{85         \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{86             \textcolor{comment}{\# Get Command Output}}
+\DoxyCodeLine{87             api\_response = response.content}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89             \textcolor{keywordflow}{if} api\_response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{90                 print(\textcolor{stringliteral}{"Failed"})}
+\DoxyCodeLine{91             \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_openconfig\_system\_ext\_system\_swresource'}:}
+\DoxyCodeLine{92                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], api\_response)}
+\DoxyCodeLine{93             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{94                 \textcolor{keywordflow}{return}}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{97             api\_response = response.content}
+\DoxyCodeLine{98             \textcolor{keywordflow}{if} \textcolor{stringliteral}{"ietf-\/restconf:errors"} \textcolor{keywordflow}{in} api\_response:}
+\DoxyCodeLine{99                  err = api\_response[\textcolor{stringliteral}{"ietf-\/restconf:errors"}]}
+\DoxyCodeLine{100                  \textcolor{keywordflow}{if} \textcolor{stringliteral}{"error"} \textcolor{keywordflow}{in} err:}
+\DoxyCodeLine{101                      errList = err[\textcolor{stringliteral}{"error"}]}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103                      errDict = \{\}}
+\DoxyCodeLine{104                      \textcolor{keywordflow}{for} dict \textcolor{keywordflow}{in} errList:}
+\DoxyCodeLine{105                          \textcolor{keywordflow}{for} k, v \textcolor{keywordflow}{in} dict.iteritems():}
+\DoxyCodeLine{106                               errDict[k] = v}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108                      \textcolor{keywordflow}{if} \textcolor{stringliteral}{"error-\/message"} \textcolor{keywordflow}{in} errDict:}
+\DoxyCodeLine{109                          \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\%Error: "} + errDict[\textcolor{stringliteral}{"error-\/message"}]}
+\DoxyCodeLine{110                          \textcolor{keywordflow}{return}}
+\DoxyCodeLine{111                      \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\%Error: Transaction Failure"}}
+\DoxyCodeLine{112                      \textcolor{keywordflow}{return}}
+\DoxyCodeLine{113             \textcolor{keywordflow}{print} response.error\_message()}
+\DoxyCodeLine{114             \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\%Error: Transaction Failure"}}
+\DoxyCodeLine{115 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d31/namespacesonic__cli__switch__resource_a3f2ebd143e2bfb03a7ce3d3039bdd144_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__switch__resource_a396381997caa59621bc23c2c9ca36a59}\label{namespacesonic__cli__switch__resource_a396381997caa59621bc23c2c9ca36a59}} 
+\index{sonic\_cli\_switch\_resource@{sonic\_cli\_switch\_resource}!func@{func}}
+\index{func@{func}!sonic\_cli\_switch\_resource@{sonic\_cli\_switch\_resource}}
+\doxysubsubsection{\texorpdfstring{func}{func}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+switch\+\_\+resource.\+func = sys.\+argv\mbox{[}1\mbox{]}}
+
+
+
+sonic\+\_\+cli\+\_\+switch\+\_\+resource.\+py 파일의 118 번째 라인에서 정의되었습니다.
+

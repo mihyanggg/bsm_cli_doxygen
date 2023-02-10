@@ -1,0 +1,106 @@
+\hypertarget{namespacesonic-cli-alias}{}\doxysection{sonic-\/cli-\/alias 네임스페이스 참조}
+\label{namespacesonic-cli-alias}\index{sonic-\/cli-\/alias@{sonic-\/cli-\/alias}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic-cli-alias_a99ffe24930c6f675c71c3f22b001dab0}{invoke\+\_\+api}} (\mbox{\hyperlink{namespacesonic-cli-alias_ac7bd96f8087a9055f248f9fdbb1d3d83}{func}}, args=\mbox{[}$\,$\mbox{]})
+\item 
+def \mbox{\hyperlink{namespacesonic-cli-alias_a9ed7231a14857c5d54f3dd7ef226554f}{run}} (\mbox{\hyperlink{namespacesonic-cli-alias_ac7bd96f8087a9055f248f9fdbb1d3d83}{func}}, args)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacesonic-cli-alias_ac7bd96f8087a9055f248f9fdbb1d3d83}{func}} = sys.\+argv\mbox{[}1\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic-cli-alias_a99ffe24930c6f675c71c3f22b001dab0}\label{namespacesonic-cli-alias_a99ffe24930c6f675c71c3f22b001dab0}} 
+\index{sonic-\/cli-\/alias@{sonic-\/cli-\/alias}!invoke\_api@{invoke\_api}}
+\index{invoke\_api@{invoke\_api}!sonic-\/cli-\/alias@{sonic-\/cli-\/alias}}
+\doxysubsubsection{\texorpdfstring{invoke\_api()}{invoke\_api()}}
+{\footnotesize\ttfamily def sonic-\/cli-\/alias.\+invoke\+\_\+api (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args = {\ttfamily \mbox{[}\mbox{]}} }\end{DoxyParamCaption})}
+
+
+
+sonic-\/cli-\/alias.\+py 파일의 33 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{33 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic-cli-alias_a99ffe24930c6f675c71c3f22b001dab0}{invoke\_api}}(func, args=[]):}
+\DoxyCodeLine{34     \textcolor{keyword}{global} config}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     api = cc.ApiClient()}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{comment}{\# Get Alias Mode}}
+\DoxyCodeLine{39     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'get\_sonic\_device\_metadata\_sonic\_device\_metadata\_device\_metadata\_device\_metadata\_list\_intf\_naming\_mode'}:}
+\DoxyCodeLine{40         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/device-\/metadata:sonic-\/device-\/metadata/DEVICE\_METADATA/DEVICE\_METADATA\_LIST=\{name\}/intf\_naming\_mode'}, name=\textcolor{stringliteral}{"localhost"})}
+\DoxyCodeLine{41         \textcolor{keywordflow}{return} api.get(path)}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{44         \textcolor{keywordflow}{return} api.cli\_not\_implemented(func)}
+\DoxyCodeLine{45 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/daf/namespacesonic-cli-alias_a99ffe24930c6f675c71c3f22b001dab0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic-cli-alias_a9ed7231a14857c5d54f3dd7ef226554f}\label{namespacesonic-cli-alias_a9ed7231a14857c5d54f3dd7ef226554f}} 
+\index{sonic-\/cli-\/alias@{sonic-\/cli-\/alias}!run@{run}}
+\index{run@{run}!sonic-\/cli-\/alias@{sonic-\/cli-\/alias}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic-\/cli-\/alias.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic-\/cli-\/alias.\+py 파일의 46 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{46 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic-cli-alias_a9ed7231a14857c5d54f3dd7ef226554f}{run}}(func, args):}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{49         response = \mbox{\hyperlink{namespacesonic-cli-alias_a99ffe24930c6f675c71c3f22b001dab0}{invoke\_api}}(func, args)}
+\DoxyCodeLine{50         \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{51             \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{52                 \textcolor{comment}{\# Get Command Output}}
+\DoxyCodeLine{53                 api\_response = response.content}
+\DoxyCodeLine{54                 \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} api\_response:}
+\DoxyCodeLine{55                     api\_response = \{\textcolor{stringliteral}{'sonic-\/device-\/metadata:intf\_naming\_mode'}: \textcolor{stringliteral}{"native"}\}}
+\DoxyCodeLine{56             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{57                 api\_response = \{\textcolor{stringliteral}{'sonic-\/device-\/metadata:intf\_naming\_mode'}: \textcolor{stringliteral}{"native"}\}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59             \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], api\_response)}
+\DoxyCodeLine{60  }
+\DoxyCodeLine{61     \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} e:}
+\DoxyCodeLine{62         print(\textcolor{stringliteral}{"Failure: \%s\(\backslash\)n"} \%(e))}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/daf/namespacesonic-cli-alias_a9ed7231a14857c5d54f3dd7ef226554f_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacesonic-cli-alias_ac7bd96f8087a9055f248f9fdbb1d3d83}\label{namespacesonic-cli-alias_ac7bd96f8087a9055f248f9fdbb1d3d83}} 
+\index{sonic-\/cli-\/alias@{sonic-\/cli-\/alias}!func@{func}}
+\index{func@{func}!sonic-\/cli-\/alias@{sonic-\/cli-\/alias}}
+\doxysubsubsection{\texorpdfstring{func}{func}}
+{\footnotesize\ttfamily sonic-\/cli-\/alias.\+func = sys.\+argv\mbox{[}1\mbox{]}}
+
+
+
+sonic-\/cli-\/alias.\+py 파일의 68 번째 라인에서 정의되었습니다.
+

@@ -1,0 +1,8 @@
+<map id="sonic_cli_ospfv2.patch_ospf_interface_md_auth_config" name="sonic_cli_ospfv2.patch_ospf_interface_md_auth_config">
+<area shape="rect" id="node1" title="OSPF interface authentication config" alt="" coords="5,115,192,171"/>
+<area shape="rect" id="node2" href="$d3/db4/namespacesonic__cli__ospfv2.html#abab4f02196eabd551d445a008864ecd0" title=" " alt="" coords="240,5,411,47"/>
+<area shape="rect" id="node3" href="$d3/db4/namespacesonic__cli__ospfv2.html#a9298bb0991e7f1ba62892cfe15834b78" title=" " alt="" coords="459,35,620,76"/>
+<area shape="rect" id="node4" href="$d3/db4/namespacesonic__cli__ospfv2.html#ac81ecfa959c217fabead880212497317" title=" " alt="" coords="247,123,404,164"/>
+<area shape="rect" id="node5" href="$d3/db4/namespacesonic__cli__ospfv2.html#a7dbe26aa087513b9d4d37f2ab7c28b8a" title=" " alt="" coords="248,188,403,229"/>
+<area shape="rect" id="node6" href="$d3/db4/namespacesonic__cli__ospfv2.html#ab5faa1e409c184478379de5fa20f40cc" title="OSPF interface config" alt="" coords="248,253,403,295"/>
+</map>

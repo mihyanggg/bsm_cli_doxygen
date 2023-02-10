@@ -1,0 +1,516 @@
+\hypertarget{namespacesonic__cli__threshold}{}\doxysection{sonic\+\_\+cli\+\_\+threshold 네임스페이스 참조}
+\label{namespacesonic__cli__threshold}\index{sonic\_cli\_threshold@{sonic\_cli\_threshold}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__threshold_aaf8a83cccb3cf7c0bc0d4929fe093e3b}{get\+\_\+print\+\_\+all\+\_\+port\+\_\+config}} (\mbox{\hyperlink{DB-PARSED_8txt_ac29ea28f91ad2ea4368e6dd578e39341}{type}}, th\+\_\+type, renderer\+\_\+template)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__threshold_ad08e436992999a9246bb3268f4777ab3}{get\+\_\+print\+\_\+cpu\+\_\+port\+\_\+config}} (\mbox{\hyperlink{DB-PARSED_8txt_ac29ea28f91ad2ea4368e6dd578e39341}{type}}, th\+\_\+type, renderer\+\_\+template)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__threshold_aaf4dc3391fdce09cd0b477e675bfcb63}{invoke\+\_\+api}} (func, args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__threshold_a57e66b2ca1833bf3c917136fba484fe1}{run}} (func, args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__threshold_ae5b06e932d1320a75bf3b385fb9018c5}{get\+\_\+threshold\+\_\+breach\+\_\+event\+\_\+reports}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__threshold_a6371c04a826a8bb9e41cad52aceb3a96}{get\+\_\+list\+\_\+sonic\+\_\+threshold\+\_\+sonic\+\_\+threshold\+\_\+threshold\+\_\+bufferpool\+\_\+table\+\_\+threshold\+\_\+bufferpool\+\_\+table\+\_\+list}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__threshold_a79ef691600ed047ff753a5ff9a0d10cf}{get\+\_\+list\+\_\+sonic\+\_\+threshold\+\_\+sonic\+\_\+threshold\+\_\+threshold\+\_\+table\+\_\+threshold\+\_\+table\+\_\+list}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__threshold_a31602b670e30cb44872413dfd900282b}{rpc\+\_\+sonic\+\_\+buffer\+\_\+pool\+\_\+get\+\_\+buffer\+\_\+pool\+\_\+wm\+\_\+stats}} (args)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__threshold_a6371c04a826a8bb9e41cad52aceb3a96}\label{namespacesonic__cli__threshold_a6371c04a826a8bb9e41cad52aceb3a96}} 
+\index{sonic\_cli\_threshold@{sonic\_cli\_threshold}!get\_list\_sonic\_threshold\_sonic\_threshold\_threshold\_bufferpool\_table\_threshold\_bufferpool\_table\_list@{get\_list\_sonic\_threshold\_sonic\_threshold\_threshold\_bufferpool\_table\_threshold\_bufferpool\_table\_list}}
+\index{get\_list\_sonic\_threshold\_sonic\_threshold\_threshold\_bufferpool\_table\_threshold\_bufferpool\_table\_list@{get\_list\_sonic\_threshold\_sonic\_threshold\_threshold\_bufferpool\_table\_threshold\_bufferpool\_table\_list}!sonic\_cli\_threshold@{sonic\_cli\_threshold}}
+\doxysubsubsection{\texorpdfstring{get\_list\_sonic\_threshold\_sonic\_threshold\_threshold\_bufferpool\_table\_threshold\_bufferpool\_table\_list()}{get\_list\_sonic\_threshold\_sonic\_threshold\_threshold\_bufferpool\_table\_threshold\_bufferpool\_table\_list()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+threshold.\+get\+\_\+list\+\_\+sonic\+\_\+threshold\+\_\+sonic\+\_\+threshold\+\_\+threshold\+\_\+bufferpool\+\_\+table\+\_\+threshold\+\_\+bufferpool\+\_\+table\+\_\+list (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+threshold.\+py 파일의 196 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{196 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__threshold_a6371c04a826a8bb9e41cad52aceb3a96}{get\_list\_sonic\_threshold\_sonic\_threshold\_threshold\_bufferpool\_table\_threshold\_bufferpool\_table\_list}}(args):}
+\DoxyCodeLine{197     api\_response = \{\}}
+\DoxyCodeLine{198     api = cc.ApiClient()}
+\DoxyCodeLine{199     path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/threshold:sonic-\/threshold/THRESHOLD\_BUFFERPOOL\_TABLE/THRESHOLD\_BUFFERPOOL\_TABLE\_LIST'})}
+\DoxyCodeLine{200     response = api.get(path)}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{202     \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{203         \textcolor{keywordflow}{if} response.content:}
+\DoxyCodeLine{204             api\_response = response.content[\textcolor{stringliteral}{'sonic-\/threshold:THRESHOLD\_BUFFERPOOL\_TABLE\_LIST'}]}
+\DoxyCodeLine{205             \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(len(api\_response)):}
+\DoxyCodeLine{206                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'pool\_name'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} api\_response[i] \textcolor{keywordflow}{and} \textcolor{stringliteral}{'threshold'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} api\_response[i]:}
+\DoxyCodeLine{207                    print(\textcolor{stringliteral}{"Failed : Required mandatory parameters are not found"})}
+\DoxyCodeLine{208                    \textcolor{keywordflow}{return}}
+\DoxyCodeLine{209         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{210             print(\textcolor{stringliteral}{"No buffer pool threshold entries found in DB"})}
+\DoxyCodeLine{211     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{212         \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\%Error: REST API transaction failure"}}
+\DoxyCodeLine{213     \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{"show\_buffer\_pool\_threshold\_config.j2"}, api\_response)}
+\DoxyCodeLine{214 }
+\DoxyCodeLine{215 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/de1/namespacesonic__cli__threshold_a6371c04a826a8bb9e41cad52aceb3a96_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/de1/namespacesonic__cli__threshold_a6371c04a826a8bb9e41cad52aceb3a96_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__threshold_a79ef691600ed047ff753a5ff9a0d10cf}\label{namespacesonic__cli__threshold_a79ef691600ed047ff753a5ff9a0d10cf}} 
+\index{sonic\_cli\_threshold@{sonic\_cli\_threshold}!get\_list\_sonic\_threshold\_sonic\_threshold\_threshold\_table\_threshold\_table\_list@{get\_list\_sonic\_threshold\_sonic\_threshold\_threshold\_table\_threshold\_table\_list}}
+\index{get\_list\_sonic\_threshold\_sonic\_threshold\_threshold\_table\_threshold\_table\_list@{get\_list\_sonic\_threshold\_sonic\_threshold\_threshold\_table\_threshold\_table\_list}!sonic\_cli\_threshold@{sonic\_cli\_threshold}}
+\doxysubsubsection{\texorpdfstring{get\_list\_sonic\_threshold\_sonic\_threshold\_threshold\_table\_threshold\_table\_list()}{get\_list\_sonic\_threshold\_sonic\_threshold\_threshold\_table\_threshold\_table\_list()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+threshold.\+get\+\_\+list\+\_\+sonic\+\_\+threshold\+\_\+sonic\+\_\+threshold\+\_\+threshold\+\_\+table\+\_\+threshold\+\_\+table\+\_\+list (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+threshold.\+py 파일의 216 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{216 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__threshold_a79ef691600ed047ff753a5ff9a0d10cf}{get\_list\_sonic\_threshold\_sonic\_threshold\_threshold\_table\_threshold\_table\_list}}(args):}
+\DoxyCodeLine{217 }
+\DoxyCodeLine{218     \textcolor{keywordflow}{if} args[0] == \textcolor{stringliteral}{'do'}:}
+\DoxyCodeLine{219         args[2] = args[3]}
+\DoxyCodeLine{220         args[3] = args[4]}
+\DoxyCodeLine{221 }
+\DoxyCodeLine{222     \textcolor{keywordflow}{if} args[2] == \textcolor{stringliteral}{'queue'} \textcolor{keywordflow}{and} args[3] == \textcolor{stringliteral}{'unicast'}:}
+\DoxyCodeLine{223         renderer\_template = \textcolor{stringliteral}{"show\_threshold\_queue\_unicast\_config.j2"}}
+\DoxyCodeLine{224     \textcolor{keywordflow}{if} args[2] == \textcolor{stringliteral}{'queue'} \textcolor{keywordflow}{and} args[3] == \textcolor{stringliteral}{'multicast'}:}
+\DoxyCodeLine{225         renderer\_template = \textcolor{stringliteral}{"show\_threshold\_queue\_multicast\_config.j2"}}
+\DoxyCodeLine{226     \textcolor{keywordflow}{elif} args[2] == \textcolor{stringliteral}{'priority-\/group'} \textcolor{keywordflow}{and} args[3] == \textcolor{stringliteral}{'shared'}:}
+\DoxyCodeLine{227         renderer\_template = \textcolor{stringliteral}{"show\_threshold\_priority\_group\_config.j2"}}
+\DoxyCodeLine{228     \textcolor{keywordflow}{elif} args[2] == \textcolor{stringliteral}{'priority-\/group'} \textcolor{keywordflow}{and} args[3] == \textcolor{stringliteral}{'headroom'}:}
+\DoxyCodeLine{229         renderer\_template = \textcolor{stringliteral}{"show\_threshold\_priority\_group\_config.j2"}}
+\DoxyCodeLine{230     \textcolor{keywordflow}{elif} args[2] == \textcolor{stringliteral}{'queue'} \textcolor{keywordflow}{and} args[3] == \textcolor{stringliteral}{'CPU'}:}
+\DoxyCodeLine{231         renderer\_template = \textcolor{stringliteral}{"show\_threshold\_cpu\_queue.j2"}}
+\DoxyCodeLine{232 }
+\DoxyCodeLine{233     \textcolor{keywordflow}{if} args[2] == \textcolor{stringliteral}{'queue'} \textcolor{keywordflow}{and} args[3] == \textcolor{stringliteral}{'CPU'}:}
+\DoxyCodeLine{234         \mbox{\hyperlink{namespacesonic__cli__threshold_ad08e436992999a9246bb3268f4777ab3}{get\_print\_cpu\_port\_config}}(args[2], args[3], renderer\_template)}
+\DoxyCodeLine{235     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{236         \mbox{\hyperlink{namespacesonic__cli__threshold_aaf8a83cccb3cf7c0bc0d4929fe093e3b}{get\_print\_all\_port\_config}}(args[2], args[3], renderer\_template)}
+\DoxyCodeLine{237 }
+\DoxyCodeLine{238 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/de1/namespacesonic__cli__threshold_a79ef691600ed047ff753a5ff9a0d10cf_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/de1/namespacesonic__cli__threshold_a79ef691600ed047ff753a5ff9a0d10cf_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__threshold_aaf8a83cccb3cf7c0bc0d4929fe093e3b}\label{namespacesonic__cli__threshold_aaf8a83cccb3cf7c0bc0d4929fe093e3b}} 
+\index{sonic\_cli\_threshold@{sonic\_cli\_threshold}!get\_print\_all\_port\_config@{get\_print\_all\_port\_config}}
+\index{get\_print\_all\_port\_config@{get\_print\_all\_port\_config}!sonic\_cli\_threshold@{sonic\_cli\_threshold}}
+\doxysubsubsection{\texorpdfstring{get\_print\_all\_port\_config()}{get\_print\_all\_port\_config()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+threshold.\+get\+\_\+print\+\_\+all\+\_\+port\+\_\+config (\begin{DoxyParamCaption}\item[{}]{type,  }\item[{}]{th\+\_\+type,  }\item[{}]{renderer\+\_\+template }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+threshold.\+py 파일의 10 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{10 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__threshold_aaf8a83cccb3cf7c0bc0d4929fe093e3b}{get\_print\_all\_port\_config}}(type, th\_type, renderer\_template):}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12     \textcolor{comment}{\# Get the list of interfaces on the system and create a base dictionary with interface name and all zero values}}
+\DoxyCodeLine{13     api = cc.ApiClient()}
+\DoxyCodeLine{14     path = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/counters:interface\_counters'})}
+\DoxyCodeLine{15     body = \{\textcolor{stringliteral}{"sonic-\/counters:input"}:\{\}\}}
+\DoxyCodeLine{16     response =  api.post(path, body)}
+\DoxyCodeLine{17     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} (response.ok() \textcolor{keywordflow}{and} response.content):}
+\DoxyCodeLine{18         \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\%Error: REST API transaction failure on sonic-\/counters:interface\_counters"}}
+\DoxyCodeLine{19         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     table = []}
+\DoxyCodeLine{22     output = \{\}}
+\DoxyCodeLine{23     \textcolor{keywordflow}{for} keys \textcolor{keywordflow}{in} natsorted(response.content[\textcolor{stringliteral}{"sonic-\/counters:output"}][\textcolor{stringliteral}{"interfaces"}][\textcolor{stringliteral}{"interface"}]):}
+\DoxyCodeLine{24         output[keys] = \{\textcolor{stringliteral}{"q0"}:0,\textcolor{stringliteral}{"q1"}:0,\textcolor{stringliteral}{"q2"}:0,\textcolor{stringliteral}{"q3"}:0,\textcolor{stringliteral}{"q4"}:0,\textcolor{stringliteral}{"q5"}:0,\textcolor{stringliteral}{"q6"}:0,\textcolor{stringliteral}{"q7"}:0\}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{comment}{\# Now get threshold table and update the earlier dictionary with values got from threshold table}}
+\DoxyCodeLine{28     path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/threshold:sonic-\/threshold/THRESHOLD\_TABLE'})}
+\DoxyCodeLine{29     response = api.get(path)}
+\DoxyCodeLine{30     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response.ok():}
+\DoxyCodeLine{31         \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\%Error: REST API transaction failure for THRESHOLD\_TABLE"}}
+\DoxyCodeLine{32         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keywordflow}{if} response.content:}
+\DoxyCodeLine{35         \textcolor{keywordflow}{for} key \textcolor{keywordflow}{in} response.content[\textcolor{stringliteral}{'sonic-\/threshold:THRESHOLD\_TABLE'}][\textcolor{stringliteral}{'THRESHOLD\_TABLE\_LIST'}]:}
+\DoxyCodeLine{36             \textcolor{keywordflow}{if} key[\textcolor{stringliteral}{'buffer'}] != type:}
+\DoxyCodeLine{37                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{38             \textcolor{keywordflow}{if} key[\textcolor{stringliteral}{'threshold\_buffer\_type'}] != th\_type:}
+\DoxyCodeLine{39                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{40             \textcolor{keywordflow}{if} key[\textcolor{stringliteral}{'interface\_name'}] == \textcolor{stringliteral}{'CPU'}:}
+\DoxyCodeLine{41                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{42             intf\_name = key[\textcolor{stringliteral}{'interface\_name'}]}
+\DoxyCodeLine{43             queue\_num = key[\textcolor{stringliteral}{'buffer\_index\_per\_port'}]}
+\DoxyCodeLine{44             thresh = key[\textcolor{stringliteral}{'threshold'}]}
+\DoxyCodeLine{45             queue\_name = \textcolor{stringliteral}{"q\{\}"}.format(queue\_num)}
+\DoxyCodeLine{46             queue\_list = \{queue\_name:thresh\}}
+\DoxyCodeLine{47             output[intf\_name].update(queue\_list)}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{comment}{\# Populate the array to print using jinja2 template}}
+\DoxyCodeLine{50     \textcolor{keywordflow}{for} key \textcolor{keywordflow}{in} natsorted(output):}
+\DoxyCodeLine{51         table.append((key, output[key][\textcolor{stringliteral}{'q0'}], output[key][\textcolor{stringliteral}{'q1'}], output[key][\textcolor{stringliteral}{'q2'}], output[key][\textcolor{stringliteral}{'q3'}],}
+\DoxyCodeLine{52                     output[key][\textcolor{stringliteral}{'q4'}], output[key][\textcolor{stringliteral}{'q5'}], output[key][\textcolor{stringliteral}{'q6'}], output[key][\textcolor{stringliteral}{'q7'}]))}
+\DoxyCodeLine{53     \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(renderer\_template, table)}
+\DoxyCodeLine{54     \textcolor{keywordflow}{return}}
+\DoxyCodeLine{55 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/de1/namespacesonic__cli__threshold_aaf8a83cccb3cf7c0bc0d4929fe093e3b_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/de1/namespacesonic__cli__threshold_aaf8a83cccb3cf7c0bc0d4929fe093e3b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__threshold_ad08e436992999a9246bb3268f4777ab3}\label{namespacesonic__cli__threshold_ad08e436992999a9246bb3268f4777ab3}} 
+\index{sonic\_cli\_threshold@{sonic\_cli\_threshold}!get\_print\_cpu\_port\_config@{get\_print\_cpu\_port\_config}}
+\index{get\_print\_cpu\_port\_config@{get\_print\_cpu\_port\_config}!sonic\_cli\_threshold@{sonic\_cli\_threshold}}
+\doxysubsubsection{\texorpdfstring{get\_print\_cpu\_port\_config()}{get\_print\_cpu\_port\_config()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+threshold.\+get\+\_\+print\+\_\+cpu\+\_\+port\+\_\+config (\begin{DoxyParamCaption}\item[{}]{type,  }\item[{}]{th\+\_\+type,  }\item[{}]{renderer\+\_\+template }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+threshold.\+py 파일의 56 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{56 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__threshold_ad08e436992999a9246bb3268f4777ab3}{get\_print\_cpu\_port\_config}}(type, th\_type, renderer\_template):}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{comment}{\# Create a base dictionary with CPU queue name and zero values}}
+\DoxyCodeLine{59     table = []}
+\DoxyCodeLine{60     output = \{\}}
+\DoxyCodeLine{61     \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(48):}
+\DoxyCodeLine{62         queue\_name = \textcolor{stringliteral}{"CPU:\{\}"}.format(i)}
+\DoxyCodeLine{63         output[queue\_name] = \{\textcolor{stringliteral}{'q'}:0\}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \textcolor{comment}{\# Now get threshold table and update the earlier dictionary with values got from threshold table}}
+\DoxyCodeLine{66     path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/threshold:sonic-\/threshold/THRESHOLD\_TABLE'})}
+\DoxyCodeLine{67     api = cc.ApiClient()}
+\DoxyCodeLine{68     response = api.get(path)}
+\DoxyCodeLine{69     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response.ok():}
+\DoxyCodeLine{70         \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\%Error: REST API transaction failure for THRESHOLD\_TABLE"}}
+\DoxyCodeLine{71         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \textcolor{keywordflow}{if} response.content:}
+\DoxyCodeLine{74         \textcolor{keywordflow}{for} key \textcolor{keywordflow}{in} response.content[\textcolor{stringliteral}{'sonic-\/threshold:THRESHOLD\_TABLE'}][\textcolor{stringliteral}{'THRESHOLD\_TABLE\_LIST'}]:}
+\DoxyCodeLine{75             \textcolor{keywordflow}{if} key[\textcolor{stringliteral}{'interface\_name'}] != \textcolor{stringliteral}{'CPU'}:}
+\DoxyCodeLine{76                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{77             queue\_num = key[\textcolor{stringliteral}{'buffer\_index\_per\_port'}]}
+\DoxyCodeLine{78             intf\_name = \textcolor{stringliteral}{"CPU:\{\}"}.format(queue\_num)}
+\DoxyCodeLine{79             thresh = key[\textcolor{stringliteral}{'threshold'}]}
+\DoxyCodeLine{80             queue\_list = \{\textcolor{stringliteral}{'q'}:thresh\}}
+\DoxyCodeLine{81             output[intf\_name].update(queue\_list)}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83     \textcolor{comment}{\# Populate the array to print using jinja2 template}}
+\DoxyCodeLine{84     \textcolor{keywordflow}{for} key \textcolor{keywordflow}{in} natsorted(output):}
+\DoxyCodeLine{85         table.append((key, output[key][\textcolor{stringliteral}{'q'}]))}
+\DoxyCodeLine{86     \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(renderer\_template, table)}
+\DoxyCodeLine{87     \textcolor{keywordflow}{return}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/de1/namespacesonic__cli__threshold_ad08e436992999a9246bb3268f4777ab3_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/de1/namespacesonic__cli__threshold_ad08e436992999a9246bb3268f4777ab3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__threshold_ae5b06e932d1320a75bf3b385fb9018c5}\label{namespacesonic__cli__threshold_ae5b06e932d1320a75bf3b385fb9018c5}} 
+\index{sonic\_cli\_threshold@{sonic\_cli\_threshold}!get\_threshold\_breach\_event\_reports@{get\_threshold\_breach\_event\_reports}}
+\index{get\_threshold\_breach\_event\_reports@{get\_threshold\_breach\_event\_reports}!sonic\_cli\_threshold@{sonic\_cli\_threshold}}
+\doxysubsubsection{\texorpdfstring{get\_threshold\_breach\_event\_reports()}{get\_threshold\_breach\_event\_reports()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+threshold.\+get\+\_\+threshold\+\_\+breach\+\_\+event\+\_\+reports (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+threshold.\+py 파일의 174 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{174 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__threshold_ae5b06e932d1320a75bf3b385fb9018c5}{get\_threshold\_breach\_event\_reports}}(args):}
+\DoxyCodeLine{175     api\_response = \{\}}
+\DoxyCodeLine{176     api = cc.ApiClient()}
+\DoxyCodeLine{177     \textcolor{comment}{\# connect to COUNTERS\_DB to get THRESHOLD\_BREACH\_TABLE entries}}
+\DoxyCodeLine{178     path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/threshold:sonic-\/threshold/THRESHOLD\_BREACH\_TABLE/THRESHOLD\_BREACH\_TABLE\_LIST'})}
+\DoxyCodeLine{179     response = api.get(path)}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181     \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{182         \textcolor{keywordflow}{if} response.content:}
+\DoxyCodeLine{183             api\_response = response.content[\textcolor{stringliteral}{'sonic-\/threshold:THRESHOLD\_BREACH\_TABLE\_LIST'}]}
+\DoxyCodeLine{184             api\_response = natsorted(api\_response, key = \textcolor{keyword}{lambda} k:k[\textcolor{stringliteral}{'eventid'}], reverse=\textcolor{keyword}{True})}
+\DoxyCodeLine{185             \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(len(api\_response)):}
+\DoxyCodeLine{186                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{"breachreport"} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} api\_response[i] \textcolor{keywordflow}{and} \textcolor{stringliteral}{"buffer"} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} api\_response[i] \textcolor{keywordflow}{and} \textcolor{stringliteral}{"type"} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} api\_response[i] \(\backslash\)}
+\DoxyCodeLine{187                 \textcolor{keywordflow}{and} \textcolor{stringliteral}{"port"} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} api\_response[i] \textcolor{keywordflow}{and} \textcolor{stringliteral}{"index"} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} api\_response[i] \textcolor{keywordflow}{and} \textcolor{stringliteral}{"breach\_value"} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} \(\backslash\)}
+\DoxyCodeLine{188                 api\_response[i] \textcolor{keywordflow}{and} \textcolor{stringliteral}{"time-\/stamp"} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} api\_response[i]:}
+\DoxyCodeLine{189             print(\textcolor{stringliteral}{"Failed : Required mandatory parameters are not found"})}
+\DoxyCodeLine{190                     \textcolor{keywordflow}{return}}
+\DoxyCodeLine{191     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{192     \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\%Error: REST API transaction failure"}}
+\DoxyCodeLine{193     \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{"show\_threshold\_breach\_event\_reports.j2"}, api\_response)}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{195 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/de1/namespacesonic__cli__threshold_ae5b06e932d1320a75bf3b385fb9018c5_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/de1/namespacesonic__cli__threshold_ae5b06e932d1320a75bf3b385fb9018c5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__threshold_aaf4dc3391fdce09cd0b477e675bfcb63}\label{namespacesonic__cli__threshold_aaf4dc3391fdce09cd0b477e675bfcb63}} 
+\index{sonic\_cli\_threshold@{sonic\_cli\_threshold}!invoke\_api@{invoke\_api}}
+\index{invoke\_api@{invoke\_api}!sonic\_cli\_threshold@{sonic\_cli\_threshold}}
+\doxysubsubsection{\texorpdfstring{invoke\_api()}{invoke\_api()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+threshold.\+invoke\+\_\+api (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+threshold.\+py 파일의 90 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{90 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__threshold_aaf4dc3391fdce09cd0b477e675bfcb63}{invoke\_api}}(func, args):}
+\DoxyCodeLine{91     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{92     api = cc.ApiClient()}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94     \textcolor{comment}{\# Set/Get the rules of all THRESHOLD\_TABLE entries.}}
+\DoxyCodeLine{95     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_sonic\_threshold\_sonic\_threshold\_threshold\_table\_threshold\_table\_list\_threshold'}:}
+\DoxyCodeLine{96     path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/threshold:sonic-\/threshold/THRESHOLD\_TABLE/THRESHOLD\_TABLE\_LIST'})}
+\DoxyCodeLine{97         body = \{ \textcolor{stringliteral}{"sonic-\/threshold:THRESHOLD\_TABLE\_LIST"}: [\{ \textcolor{stringliteral}{"buffer"}: args[1], \textcolor{stringliteral}{"threshold\_buffer\_type"}: args[3], \textcolor{stringliteral}{"interface\_name"}: args[5], \textcolor{stringliteral}{"buffer\_index\_per\_port"}: int(args[2]), \textcolor{stringliteral}{"threshold"}:  int(args[4]) \}] \}}
+\DoxyCodeLine{98         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_sonic\_threshold\_sonic\_threshold\_threshold\_table\_threshold\_table\_list\_threshold'}:}
+\DoxyCodeLine{101     path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/threshold:sonic-\/threshold/THRESHOLD\_TABLE/THRESHOLD\_TABLE\_LIST=\{buffer\},\{threshold\_buffer\_type\},\{interface\_name\},\{buffer\_index\_per\_port\}'}, buffer = args[2], threshold\_buffer\_type = args[4], interface\_name = args[5], buffer\_index\_per\_port = args[3] )}
+\DoxyCodeLine{102     \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_list\_sonic\_threshold\_sonic\_threshold\_threshold\_bufferpool\_table\_threshold\_bufferpool\_table\_list'}:}
+\DoxyCodeLine{105     path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/threshold:sonic-\/threshold/THRESHOLD\_BUFFERPOOL\_TABLE/THRESHOLD\_BUFFERPOOL\_TABLE\_LIST'})}
+\DoxyCodeLine{106     \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_sonic\_threshold\_sonic\_threshold\_threshold\_bufferpool\_table\_threshold\_bufferpool\_table\_list\_threshold'}:}
+\DoxyCodeLine{109         pool\_name = args[0]}
+\DoxyCodeLine{110         pool\_list = []}
+\DoxyCodeLine{111         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/buffer-\/pool:sonic-\/buffer-\/pool/BUFFER\_POOL'})}
+\DoxyCodeLine{112         response = api.get(path)}
+\DoxyCodeLine{113         \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response.ok():}
+\DoxyCodeLine{114             \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\%Error: REST API transaction failure for BUFFER\_POOL"}}
+\DoxyCodeLine{115             \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117         \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response.content:}
+\DoxyCodeLine{118             \textcolor{keywordflow}{print} \textcolor{stringliteral}{"Buffer pool configuration missing on the system! Please configure buffer pools"}}
+\DoxyCodeLine{119             \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121         \textcolor{keywordflow}{for} key \textcolor{keywordflow}{in} response.content[\textcolor{stringliteral}{'sonic-\/buffer-\/pool:BUFFER\_POOL'}][\textcolor{stringliteral}{'BUFFER\_POOL\_LIST'}]:}
+\DoxyCodeLine{122             pool\_list.append(key[\textcolor{stringliteral}{'name'}])}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124         \textcolor{keywordflow}{if} pool\_name \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} pool\_list:}
+\DoxyCodeLine{125             \textcolor{keywordflow}{print} \textcolor{stringliteral}{"Invalid pool \{\}, please configure a valid pool name from \{\}"}.format(pool\_name, pool\_list)}
+\DoxyCodeLine{126             \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128     path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/threshold:sonic-\/threshold/THRESHOLD\_BUFFERPOOL\_TABLE/THRESHOLD\_BUFFERPOOL\_TABLE\_LIST'})}
+\DoxyCodeLine{129         body = \{ \textcolor{stringliteral}{"sonic-\/threshold:THRESHOLD\_BUFFERPOOL\_TABLE\_LIST"}: [\{ \textcolor{stringliteral}{"pool\_name"}: args[0], \textcolor{stringliteral}{"threshold"}:  int(args[1]) \}] \}}
+\DoxyCodeLine{130         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'rpc\_sonic\_threshold\_clear\_threshold\_breach'}:}
+\DoxyCodeLine{133     path = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/threshold:clear-\/threshold-\/breach'})}
+\DoxyCodeLine{134     body = \{ \textcolor{stringliteral}{"sonic-\/threshold:input"}:  \{\textcolor{stringliteral}{"breach\_event\_id"}:args[3] \}\}}
+\DoxyCodeLine{135     \textcolor{keywordflow}{return} api.post(path, body)}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'rpc\_sonic\_buffer\_pool\_clear\_buffer\_pool\_wm\_stats'}:}
+\DoxyCodeLine{138     path = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/buffer-\/pool:clear-\/buffer-\/pool-\/wm-\/stats'})}
+\DoxyCodeLine{139         body = \{ \textcolor{stringliteral}{"sonic-\/buffer-\/pool:input"}:  \{\textcolor{stringliteral}{"watermark-\/type"}:args[0] \}\}}
+\DoxyCodeLine{140         \textcolor{keywordflow}{return} api.post(path, body)}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{143        body = \{\}}
+\DoxyCodeLine{144     \textcolor{keywordflow}{return} api.cli\_not\_implemented(func)}
+\DoxyCodeLine{145 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/de1/namespacesonic__cli__threshold_aaf4dc3391fdce09cd0b477e675bfcb63_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__threshold_a31602b670e30cb44872413dfd900282b}\label{namespacesonic__cli__threshold_a31602b670e30cb44872413dfd900282b}} 
+\index{sonic\_cli\_threshold@{sonic\_cli\_threshold}!rpc\_sonic\_buffer\_pool\_get\_buffer\_pool\_wm\_stats@{rpc\_sonic\_buffer\_pool\_get\_buffer\_pool\_wm\_stats}}
+\index{rpc\_sonic\_buffer\_pool\_get\_buffer\_pool\_wm\_stats@{rpc\_sonic\_buffer\_pool\_get\_buffer\_pool\_wm\_stats}!sonic\_cli\_threshold@{sonic\_cli\_threshold}}
+\doxysubsubsection{\texorpdfstring{rpc\_sonic\_buffer\_pool\_get\_buffer\_pool\_wm\_stats()}{rpc\_sonic\_buffer\_pool\_get\_buffer\_pool\_wm\_stats()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+threshold.\+rpc\+\_\+sonic\+\_\+buffer\+\_\+pool\+\_\+get\+\_\+buffer\+\_\+pool\+\_\+wm\+\_\+stats (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+threshold.\+py 파일의 239 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{239 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__threshold_a31602b670e30cb44872413dfd900282b}{rpc\_sonic\_buffer\_pool\_get\_buffer\_pool\_wm\_stats}}(args):}
+\DoxyCodeLine{240 }
+\DoxyCodeLine{241     watermark\_stats\_type = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{242         \textcolor{keywordflow}{if} (len(args) == 2):}
+\DoxyCodeLine{243             watermark\_stats\_type = args[1]}
+\DoxyCodeLine{244             renderer\_template = \textcolor{stringliteral}{"show\_buffer\_pool\_stats\_percentage.j2"}}
+\DoxyCodeLine{245         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{246             watermark\_stats\_type = \textcolor{stringliteral}{'bytes'}}
+\DoxyCodeLine{247             renderer\_template = \textcolor{stringliteral}{"show\_buffer\_pool\_stats\_bytes.j2"}}
+\DoxyCodeLine{248 }
+\DoxyCodeLine{249     api\_response = \{\}}
+\DoxyCodeLine{250     api = cc.ApiClient()}
+\DoxyCodeLine{251     path = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/buffer-\/pool:get-\/buffer-\/pool-\/wm-\/stats'})}
+\DoxyCodeLine{252     body = \{ \textcolor{stringliteral}{"sonic-\/buffer-\/pool:input"}:  \{\textcolor{stringliteral}{"watermark-\/stats-\/type"}:watermark\_stats\_type, \textcolor{stringliteral}{"watermark-\/type"}:args[0]\} \}}
+\DoxyCodeLine{253     response = api.post(path, body)}
+\DoxyCodeLine{254 }
+\DoxyCodeLine{255     \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{256         \textcolor{keywordflow}{if} response.content:}
+\DoxyCodeLine{257             api\_response = response.content[\textcolor{stringliteral}{'sonic-\/buffer-\/pool:output'}][\textcolor{stringliteral}{'Buffer\_pool\_list'}]}
+\DoxyCodeLine{258             \textcolor{keywordflow}{if} api\_response:}
+\DoxyCodeLine{259             \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(len(api\_response)):}
+\DoxyCodeLine{260               \textcolor{keywordflow}{if} \textcolor{stringliteral}{'Poolname'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} api\_response[i] \textcolor{keywordflow}{and} \textcolor{stringliteral}{'StatsValue'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} api\_response[i]:}
+\DoxyCodeLine{261                 print(\textcolor{stringliteral}{"Required parameters are not found in buffer pool stats payload"})}
+\DoxyCodeLine{262                 \textcolor{keywordflow}{return}}
+\DoxyCodeLine{263         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{264             print(\textcolor{stringliteral}{"Buffer pool configuration missing on the system! Please configure buffer pools "})}
+\DoxyCodeLine{265     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{266         \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\%Error: REST API transaction failure for buffer pool stats"}}
+\DoxyCodeLine{267     \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(renderer\_template, api\_response)}
+\DoxyCodeLine{268 }
+\DoxyCodeLine{269 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/de1/namespacesonic__cli__threshold_a31602b670e30cb44872413dfd900282b_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/de1/namespacesonic__cli__threshold_a31602b670e30cb44872413dfd900282b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__threshold_a57e66b2ca1833bf3c917136fba484fe1}\label{namespacesonic__cli__threshold_a57e66b2ca1833bf3c917136fba484fe1}} 
+\index{sonic\_cli\_threshold@{sonic\_cli\_threshold}!run@{run}}
+\index{run@{run}!sonic\_cli\_threshold@{sonic\_cli\_threshold}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+threshold.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+threshold.\+py 파일의 146 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{146 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__threshold_a57e66b2ca1833bf3c917136fba484fe1}{run}}(func, args):}
+\DoxyCodeLine{147     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'get\_threshold\_breach\_event\_reports'}:}
+\DoxyCodeLine{148     \mbox{\hyperlink{namespacesonic__cli__threshold_ae5b06e932d1320a75bf3b385fb9018c5}{get\_threshold\_breach\_event\_reports}}(args)}
+\DoxyCodeLine{149     \textcolor{keywordflow}{return}}
+\DoxyCodeLine{150     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_list\_sonic\_threshold\_sonic\_threshold\_threshold\_bufferpool\_table\_threshold\_bufferpool\_table\_list'}:}
+\DoxyCodeLine{151         \mbox{\hyperlink{namespacesonic__cli__threshold_a6371c04a826a8bb9e41cad52aceb3a96}{get\_list\_sonic\_threshold\_sonic\_threshold\_threshold\_bufferpool\_table\_threshold\_bufferpool\_table\_list}}(args)}
+\DoxyCodeLine{152     \textcolor{keywordflow}{return}}
+\DoxyCodeLine{153     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_list\_sonic\_threshold\_sonic\_threshold\_threshold\_table\_threshold\_table\_list'}:}
+\DoxyCodeLine{154         \mbox{\hyperlink{namespacesonic__cli__threshold_a79ef691600ed047ff753a5ff9a0d10cf}{get\_list\_sonic\_threshold\_sonic\_threshold\_threshold\_table\_threshold\_table\_list}}(args)}
+\DoxyCodeLine{155     \textcolor{keywordflow}{return}}
+\DoxyCodeLine{156     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'rpc\_sonic\_buffer\_pool\_get\_buffer\_pool\_wm\_stats'}:}
+\DoxyCodeLine{157     \mbox{\hyperlink{namespacesonic__cli__threshold_a31602b670e30cb44872413dfd900282b}{rpc\_sonic\_buffer\_pool\_get\_buffer\_pool\_wm\_stats}}(args)}
+\DoxyCodeLine{158     \textcolor{keywordflow}{return}}
+\DoxyCodeLine{159     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{160          api\_response = \mbox{\hyperlink{namespacesonic__cli__threshold_aaf4dc3391fdce09cd0b477e675bfcb63}{invoke\_api}}(func, args)}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162          \textcolor{keywordflow}{if} api\_response.ok():}
+\DoxyCodeLine{163              response = api\_response.content}
+\DoxyCodeLine{164              \textcolor{keywordflow}{if} response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{165                  \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{166          \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{167              \textcolor{comment}{\#error response}}
+\DoxyCodeLine{168              print(api\_response.error\_message())}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{170     \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{171              \textcolor{comment}{\# system/network error}}
+\DoxyCodeLine{172              \textcolor{keywordflow}{raise}}
+\DoxyCodeLine{173 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/de1/namespacesonic__cli__threshold_a57e66b2ca1833bf3c917136fba484fe1_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/de1/namespacesonic__cli__threshold_a57e66b2ca1833bf3c917136fba484fe1_icgraph}
+\end{center}
+\end{figure}

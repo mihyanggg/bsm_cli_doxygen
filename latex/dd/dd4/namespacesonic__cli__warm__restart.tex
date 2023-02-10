@@ -1,0 +1,165 @@
+\hypertarget{namespacesonic__cli__warm__restart}{}\doxysection{sonic\+\_\+cli\+\_\+warm\+\_\+restart 네임스페이스 참조}
+\label{namespacesonic__cli__warm__restart}\index{sonic\_cli\_warm\_restart@{sonic\_cli\_warm\_restart}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__warm__restart_a6efd1ad58a3e4f70b6488d26cea9fdc6}{invoke\+\_\+api}} (\mbox{\hyperlink{namespacesonic__cli__warm__restart_a2bec8483656636bff263e8b8cd3d193f}{func}}, args=\mbox{[}$\,$\mbox{]})
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__warm__restart_a7f3ac9ba5f0f4d53ddf3805da9061548}{run}} (\mbox{\hyperlink{namespacesonic__cli__warm__restart_a2bec8483656636bff263e8b8cd3d193f}{func}}, args)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacesonic__cli__warm__restart_a2bec8483656636bff263e8b8cd3d193f}{func}} = sys.\+argv\mbox{[}1\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__warm__restart_a6efd1ad58a3e4f70b6488d26cea9fdc6}\label{namespacesonic__cli__warm__restart_a6efd1ad58a3e4f70b6488d26cea9fdc6}} 
+\index{sonic\_cli\_warm\_restart@{sonic\_cli\_warm\_restart}!invoke\_api@{invoke\_api}}
+\index{invoke\_api@{invoke\_api}!sonic\_cli\_warm\_restart@{sonic\_cli\_warm\_restart}}
+\doxysubsubsection{\texorpdfstring{invoke\_api()}{invoke\_api()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+warm\+\_\+restart.\+invoke\+\_\+api (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args = {\ttfamily \mbox{[}\mbox{]}} }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+warm\+\_\+restart.\+py 파일의 29 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__warm__restart_a6efd1ad58a3e4f70b6488d26cea9fdc6}{invoke\_api}}(func, args=[]):}
+\DoxyCodeLine{30     api = cc.ApiClient()}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{comment}{\# Warm restart state information}}
+\DoxyCodeLine{33     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'get\_openconfig\_warm\_restart\_warm\_restart\_status\_submodules'}:}
+\DoxyCodeLine{34         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/warm-\/restart:warm-\/restart/status/submodules'})}
+\DoxyCodeLine{35         \textcolor{keywordflow}{return} api.get(path)}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{comment}{\# Warm restart system service enable}}
+\DoxyCodeLine{38     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_openconfig\_warm\_restart\_warm\_restart\_config\_enable'}:}
+\DoxyCodeLine{39         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/warm-\/restart:warm-\/restart/config/enable'})}
+\DoxyCodeLine{40         body = \{ \textcolor{stringliteral}{"openconfig-\/warm-\/restart:enable"}: \textcolor{keyword}{True} \}}
+\DoxyCodeLine{41         \textcolor{keywordflow}{return} api.patch(path,body)}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{comment}{\# Warm restart BGP/TEAMD/SWSS service enable}}
+\DoxyCodeLine{44     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_openconfig\_warm\_restart\_warm\_restart\_enable\_modules\_config\_enable'}:}
+\DoxyCodeLine{45         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/warm-\/restart:warm-\/restart/enable'})}
+\DoxyCodeLine{46         body = \{}
+\DoxyCodeLine{47                  \textcolor{stringliteral}{"openconfig-\/warm-\/restart:enable"}: \{}
+\DoxyCodeLine{48                    \textcolor{stringliteral}{"modules"}: [}
+\DoxyCodeLine{49                      \{}
+\DoxyCodeLine{50                        \textcolor{stringliteral}{"module"}: args[0].upper(),}
+\DoxyCodeLine{51                        \textcolor{stringliteral}{"config"}: \{}
+\DoxyCodeLine{52                          \textcolor{stringliteral}{"module"}: args[0].upper(),}
+\DoxyCodeLine{53                          \textcolor{stringliteral}{"enable"}: \textcolor{keyword}{True} \textcolor{keywordflow}{if} args[1] == \textcolor{stringliteral}{"true"} \textcolor{keywordflow}{else} \textcolor{keyword}{False}}
+\DoxyCodeLine{54                        \}}
+\DoxyCodeLine{55                      \}}
+\DoxyCodeLine{56                    ]}
+\DoxyCodeLine{57                  \}}
+\DoxyCodeLine{58                \}}
+\DoxyCodeLine{59         \textcolor{keywordflow}{return} api.patch(path,body) }
+\DoxyCodeLine{60     }
+\DoxyCodeLine{61     \textcolor{comment}{\# Warm restart BGP eoiu config}}
+\DoxyCodeLine{62     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_openconfig\_warm\_restart\_warm\_restart\_config\_bgp\_eoiu'}:}
+\DoxyCodeLine{63         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/warm-\/restart:warm-\/restart/config/bgp-\/eoiu'})}
+\DoxyCodeLine{64         \textcolor{keywordflow}{if} args[0] == \textcolor{stringliteral}{"true"}:}
+\DoxyCodeLine{65             body = \{ \textcolor{stringliteral}{"openconfig-\/warm-\/restart:bgp-\/eoiu"}: \textcolor{keyword}{True} \}}
+\DoxyCodeLine{66         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{67             body = \{ \textcolor{stringliteral}{"openconfig-\/warm-\/restart:bgp-\/eoiu"}: \textcolor{keyword}{False} \}}
+\DoxyCodeLine{68         \textcolor{keywordflow}{return} api.patch(path,body)}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     \textcolor{comment}{\# Warm restart BGP, SWSS, TEAMD timer config}}
+\DoxyCodeLine{71     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_openconfig\_warm\_restart\_warm\_restart\_timers\_timer\_config\_value'}:}
+\DoxyCodeLine{72         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/warm-\/restart:warm-\/restart/timers'})}
+\DoxyCodeLine{73         body = \{}
+\DoxyCodeLine{74            \textcolor{stringliteral}{"openconfig-\/warm-\/restart:timers"}: \{}
+\DoxyCodeLine{75              \textcolor{stringliteral}{"timer"}: [}
+\DoxyCodeLine{76                \{}
+\DoxyCodeLine{77                  \textcolor{stringliteral}{"submodule"}: args[0].upper(),}
+\DoxyCodeLine{78                  \textcolor{stringliteral}{"config"}: \{}
+\DoxyCodeLine{79                    \textcolor{stringliteral}{"submodule"}: args[0].upper(),}
+\DoxyCodeLine{80                    \textcolor{stringliteral}{"value"}: int(args[1])}
+\DoxyCodeLine{81                  \}}
+\DoxyCodeLine{82                \}}
+\DoxyCodeLine{83              ]}
+\DoxyCodeLine{84            \}}
+\DoxyCodeLine{85          \}}
+\DoxyCodeLine{86         \textcolor{keywordflow}{return} api.patch(path,body)}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88     \textcolor{comment}{\# Disable warm restart system service}}
+\DoxyCodeLine{89     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'delete\_openconfig\_warm\_restart\_warm\_restart\_config\_enable'}:}
+\DoxyCodeLine{90         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/warm-\/restart:warm-\/restart/config/enable'})}
+\DoxyCodeLine{91         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93     \textcolor{comment}{\# Disable warm restart BGP, SWSS, TEAMD service}}
+\DoxyCodeLine{94     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'delete\_openconfig\_warm\_restart\_warm\_restart\_enable\_modules\_config\_enable'}:}
+\DoxyCodeLine{95         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/warm-\/restart:warm-\/restart/enable/modules=\{module\}/config/enable'}, module=args[0].upper())}
+\DoxyCodeLine{96         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98     \textcolor{comment}{\# Disable warm restart BGP EOIU flag}}
+\DoxyCodeLine{99     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'delete\_openconfig\_warm\_restart\_warm\_restart\_config\_bgp\_eoiu'}:}
+\DoxyCodeLine{100         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/warm-\/restart:warm-\/restart/config/bgp-\/eoiu'})}
+\DoxyCodeLine{101         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103     \textcolor{comment}{\# Disable warm restart BGP, SWSS , TEAMD timer}}
+\DoxyCodeLine{104     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'delete\_openconfig\_warm\_restart\_warm\_restart\_timers\_timer\_config\_value'}:}
+\DoxyCodeLine{105         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/warm-\/restart:warm-\/restart/timers/timer=\{submodule\}/config/value'}, submodule=args[0].upper())}
+\DoxyCodeLine{106         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108     \textcolor{keywordflow}{return} api.cli\_not\_implemented(func)}
+\DoxyCodeLine{109 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/dd4/namespacesonic__cli__warm__restart_a6efd1ad58a3e4f70b6488d26cea9fdc6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__warm__restart_a7f3ac9ba5f0f4d53ddf3805da9061548}\label{namespacesonic__cli__warm__restart_a7f3ac9ba5f0f4d53ddf3805da9061548}} 
+\index{sonic\_cli\_warm\_restart@{sonic\_cli\_warm\_restart}!run@{run}}
+\index{run@{run}!sonic\_cli\_warm\_restart@{sonic\_cli\_warm\_restart}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+warm\+\_\+restart.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+warm\+\_\+restart.\+py 파일의 110 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{110 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__warm__restart_a7f3ac9ba5f0f4d53ddf3805da9061548}{run}}(func, args):}
+\DoxyCodeLine{111     response = \mbox{\hyperlink{namespacesonic__cli__warm__restart_a6efd1ad58a3e4f70b6488d26cea9fdc6}{invoke\_api}}(func, args)}
+\DoxyCodeLine{112     \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{113         \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{114             \textcolor{comment}{\# Get Command Output}}
+\DoxyCodeLine{115             api\_response = response.content}
+\DoxyCodeLine{116             \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], api\_response)}
+\DoxyCodeLine{117     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{118         \textcolor{keywordflow}{print} response.error\_message()}
+\DoxyCodeLine{119 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/dd4/namespacesonic__cli__warm__restart_a7f3ac9ba5f0f4d53ddf3805da9061548_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__warm__restart_a2bec8483656636bff263e8b8cd3d193f}\label{namespacesonic__cli__warm__restart_a2bec8483656636bff263e8b8cd3d193f}} 
+\index{sonic\_cli\_warm\_restart@{sonic\_cli\_warm\_restart}!func@{func}}
+\index{func@{func}!sonic\_cli\_warm\_restart@{sonic\_cli\_warm\_restart}}
+\doxysubsubsection{\texorpdfstring{func}{func}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+warm\+\_\+restart.\+func = sys.\+argv\mbox{[}1\mbox{]}}
+
+
+
+sonic\+\_\+cli\+\_\+warm\+\_\+restart.\+py 파일의 123 번째 라인에서 정의되었습니다.
+

@@ -1,0 +1,369 @@
+\hypertarget{namespacesonic__cli__infra}{}\doxysection{sonic\+\_\+cli\+\_\+infra 네임스페이스 참조}
+\label{namespacesonic__cli__infra}\index{sonic\_cli\_infra@{sonic\_cli\_infra}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__infra_a64292cf33b6c2becbb68f668afdca761}{stp\+\_\+mode\+\_\+get}} ()
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__infra_a4400205ebc9b4dc8608472d560e94513}{run\+\_\+get\+\_\+sonic\+\_\+infra\+\_\+reboot}} (func, argv)
+\begin{DoxyCompactList}\small\item\em Run an external command \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacesonic__cli__infra_af833ea3e1c8f3707d5ed9501fae06859}{run\+\_\+get\+\_\+openconfig\+\_\+infra\+\_\+state}} (func, argv)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__infra_ae1937978e39cec86aa5a219f8cbd9d11}{run\+\_\+get\+\_\+sonic\+\_\+infra\+\_\+config}} (func, argv)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__infra_a7b8b2be25c71fd9c77973e16f6d6ca88}{run\+\_\+set\+\_\+openconfig\+\_\+logger}} (func, argv)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__infra_aac206ee0cd90d4f090e3effb9ecde347}{invoke}} (func, argv)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__infra_a623e0ac7022da0ab49c52daa32a4b8c4}{run}} (func, args)
+\begin{DoxyCompactList}\small\item\em Main function \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__infra_aac206ee0cd90d4f090e3effb9ecde347}\label{namespacesonic__cli__infra_aac206ee0cd90d4f090e3effb9ecde347}} 
+\index{sonic\_cli\_infra@{sonic\_cli\_infra}!invoke@{invoke}}
+\index{invoke@{invoke}!sonic\_cli\_infra@{sonic\_cli\_infra}}
+\doxysubsubsection{\texorpdfstring{invoke()}{invoke()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+infra.\+invoke (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{argv }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+infra.\+py 파일의 136 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{136 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__infra_aac206ee0cd90d4f090e3effb9ecde347}{invoke}}(func, argv):}
+\DoxyCodeLine{137     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{"get\_sonic\_infra\_reboot"}:}
+\DoxyCodeLine{138          \mbox{\hyperlink{namespacesonic__cli__infra_a4400205ebc9b4dc8608472d560e94513}{run\_get\_sonic\_infra\_reboot}}(func, argv)}
+\DoxyCodeLine{139     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"get\_openconfig\_infra\_state"}:}
+\DoxyCodeLine{140          \mbox{\hyperlink{namespacesonic__cli__infra_af833ea3e1c8f3707d5ed9501fae06859}{run\_get\_openconfig\_infra\_state}}(func, argv) }
+\DoxyCodeLine{141     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"get\_openconfig\_infra\_config"}:}
+\DoxyCodeLine{142          \mbox{\hyperlink{namespacesonic__cli__infra_ae1937978e39cec86aa5a219f8cbd9d11}{run\_get\_sonic\_infra\_config}}(func, argv)}
+\DoxyCodeLine{143     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{"set\_openconfig\_logger"}:}
+\DoxyCodeLine{144          \mbox{\hyperlink{namespacesonic__cli__infra_a7b8b2be25c71fd9c77973e16f6d6ca88}{run\_set\_openconfig\_logger}}(func, argv)}
+\DoxyCodeLine{145     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{146          \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\%Error: invalid command"}}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d4/d2f/namespacesonic__cli__infra_aac206ee0cd90d4f090e3effb9ecde347_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=343pt]{d4/d2f/namespacesonic__cli__infra_aac206ee0cd90d4f090e3effb9ecde347_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__infra_a623e0ac7022da0ab49c52daa32a4b8c4}\label{namespacesonic__cli__infra_a623e0ac7022da0ab49c52daa32a4b8c4}} 
+\index{sonic\_cli\_infra@{sonic\_cli\_infra}!run@{run}}
+\index{run@{run}!sonic\_cli\_infra@{sonic\_cli\_infra}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+infra.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+Main function 
+
+
+
+sonic\+\_\+cli\+\_\+infra.\+py 파일의 150 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{150 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__infra_a623e0ac7022da0ab49c52daa32a4b8c4}{run}}(func, args):}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{152     argv = []}
+\DoxyCodeLine{153     \textcolor{keywordflow}{for} x \textcolor{keywordflow}{in} args:}
+\DoxyCodeLine{154         \textcolor{keywordflow}{if} x == \textcolor{stringliteral}{"\(\backslash\)|"}:}
+\DoxyCodeLine{155             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{156         argv.append(x.rstrip(\textcolor{stringliteral}{"\(\backslash\)n"}))}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158     \mbox{\hyperlink{namespacesonic__cli__infra_aac206ee0cd90d4f090e3effb9ecde347}{invoke}}(func.rstrip(\textcolor{stringliteral}{"\(\backslash\)n"}), argv)}
+\DoxyCodeLine{159 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d4/d2f/namespacesonic__cli__infra_a623e0ac7022da0ab49c52daa32a4b8c4_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__infra_af833ea3e1c8f3707d5ed9501fae06859}\label{namespacesonic__cli__infra_af833ea3e1c8f3707d5ed9501fae06859}} 
+\index{sonic\_cli\_infra@{sonic\_cli\_infra}!run\_get\_openconfig\_infra\_state@{run\_get\_openconfig\_infra\_state}}
+\index{run\_get\_openconfig\_infra\_state@{run\_get\_openconfig\_infra\_state}!sonic\_cli\_infra@{sonic\_cli\_infra}}
+\doxysubsubsection{\texorpdfstring{run\_get\_openconfig\_infra\_state()}{run\_get\_openconfig\_infra\_state()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+infra.\+run\+\_\+get\+\_\+openconfig\+\_\+infra\+\_\+state (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{argv }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+infra.\+py 파일의 73 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{73 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__infra_af833ea3e1c8f3707d5ed9501fae06859}{run\_get\_openconfig\_infra\_state}}(func, argv):}
+\DoxyCodeLine{74     aa = cc.ApiClient()}
+\DoxyCodeLine{75     templ = argv[1]}
+\DoxyCodeLine{76     \textcolor{keywordflow}{if} argv[0] == \textcolor{stringliteral}{"clock"}:}
+\DoxyCodeLine{77        path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/system:system/openconfig-\/system-\/ext:infra/state/clock'})}
+\DoxyCodeLine{78     \textcolor{keywordflow}{elif} argv[0] == \textcolor{stringliteral}{"uptime"}:}
+\DoxyCodeLine{79        path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/system:system/openconfig-\/system-\/ext:infra/state/uptime'})}
+\DoxyCodeLine{80     \textcolor{keywordflow}{elif} argv[0] == \textcolor{stringliteral}{"reboot-\/cause"}:}
+\DoxyCodeLine{81        path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/system:system/openconfig-\/system-\/ext:infra/state/reboot-\/cause'})}
+\DoxyCodeLine{82     \textcolor{keywordflow}{elif} argv[0] == \textcolor{stringliteral}{"user-\/list"}:}
+\DoxyCodeLine{83        path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/system:system/openconfig-\/system-\/ext:infra/state/show-\/user-\/list'})}
+\DoxyCodeLine{84     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{85        \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\%Error: invalid state command"}}
+\DoxyCodeLine{86     api\_response = aa.get(path)}
+\DoxyCodeLine{87     \textcolor{keywordflow}{if} api\_response.ok():}
+\DoxyCodeLine{88         \textcolor{keywordflow}{if} api\_response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{89             response = api\_response.content}
+\DoxyCodeLine{90             \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(templ, response)}
+\DoxyCodeLine{91     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{92         \textcolor{keywordflow}{print} api\_response.error\_message()}
+\DoxyCodeLine{93 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d4/d2f/namespacesonic__cli__infra_af833ea3e1c8f3707d5ed9501fae06859_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d4/d2f/namespacesonic__cli__infra_af833ea3e1c8f3707d5ed9501fae06859_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__infra_ae1937978e39cec86aa5a219f8cbd9d11}\label{namespacesonic__cli__infra_ae1937978e39cec86aa5a219f8cbd9d11}} 
+\index{sonic\_cli\_infra@{sonic\_cli\_infra}!run\_get\_sonic\_infra\_config@{run\_get\_sonic\_infra\_config}}
+\index{run\_get\_sonic\_infra\_config@{run\_get\_sonic\_infra\_config}!sonic\_cli\_infra@{sonic\_cli\_infra}}
+\doxysubsubsection{\texorpdfstring{run\_get\_sonic\_infra\_config()}{run\_get\_sonic\_infra\_config()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+infra.\+run\+\_\+get\+\_\+sonic\+\_\+infra\+\_\+config (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{argv }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+infra.\+py 파일의 94 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{94 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__infra_ae1937978e39cec86aa5a219f8cbd9d11}{run\_get\_sonic\_infra\_config}}(func, argv):}
+\DoxyCodeLine{95     templ = argv[1]}
+\DoxyCodeLine{96     process\_msg = \textcolor{keyword}{True}}
+\DoxyCodeLine{97     cmd=argv[0]}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99     data=\{\textcolor{stringliteral}{"Param"}:\textcolor{stringliteral}{" \%s"} \%cmd\}}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101     aa = cc.ApiClient()}
+\DoxyCodeLine{102     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/system-\/infra:config'})}
+\DoxyCodeLine{103     body = \{ \textcolor{stringliteral}{"sonic-\/system-\/infra:input"}:data\}}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105     print(\textcolor{stringliteral}{"config \%s in process ....."}\%cmd) }
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107     api\_response = aa.post(keypath, body)}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{110         \textcolor{keywordflow}{if} api\_response.ok():}
+\DoxyCodeLine{111            response = api\_response.content}
+\DoxyCodeLine{112            \textcolor{keywordflow}{if} response \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None} \textcolor{keywordflow}{and} \textcolor{stringliteral}{'sonic-\/system-\/infra:output'} \textcolor{keywordflow}{in} response:}
+\DoxyCodeLine{113               \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(templ, response[\textcolor{stringliteral}{'sonic-\/system-\/infra:output'}][\textcolor{stringliteral}{'result'}])}
+\DoxyCodeLine{114     \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} e:}
+\DoxyCodeLine{115         log.syslog(log.LOG\_ERR, str(e))}
+\DoxyCodeLine{116         \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\%Error: Traction Failure"}}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d4/d2f/namespacesonic__cli__infra_ae1937978e39cec86aa5a219f8cbd9d11_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d4/d2f/namespacesonic__cli__infra_ae1937978e39cec86aa5a219f8cbd9d11_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__infra_a4400205ebc9b4dc8608472d560e94513}\label{namespacesonic__cli__infra_a4400205ebc9b4dc8608472d560e94513}} 
+\index{sonic\_cli\_infra@{sonic\_cli\_infra}!run\_get\_sonic\_infra\_reboot@{run\_get\_sonic\_infra\_reboot}}
+\index{run\_get\_sonic\_infra\_reboot@{run\_get\_sonic\_infra\_reboot}!sonic\_cli\_infra@{sonic\_cli\_infra}}
+\doxysubsubsection{\texorpdfstring{run\_get\_sonic\_infra\_reboot()}{run\_get\_sonic\_infra\_reboot()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+infra.\+run\+\_\+get\+\_\+sonic\+\_\+infra\+\_\+reboot (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{argv }\end{DoxyParamCaption})}
+
+
+
+Run an external command 
+
+
+
+sonic\+\_\+cli\+\_\+infra.\+py 파일의 32 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{32 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__infra_a4400205ebc9b4dc8608472d560e94513}{run\_get\_sonic\_infra\_reboot}}(func, argv):}
+\DoxyCodeLine{33     templ = argv[2]}
+\DoxyCodeLine{34     process\_msg = \textcolor{keyword}{True} }
+\DoxyCodeLine{35     \textcolor{keywordflow}{if} argv[1] == \textcolor{stringliteral}{"null"}: }
+\DoxyCodeLine{36        cmd=argv[0]}
+\DoxyCodeLine{37     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{38        cmd=argv[0] + \textcolor{stringliteral}{" "} + argv[1]}
+\DoxyCodeLine{39        \textcolor{keywordflow}{if} argv[1] == \textcolor{stringliteral}{'-\/h'}:}
+\DoxyCodeLine{40           process\_msg = \textcolor{keyword}{False}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} os.getenv(\textcolor{stringliteral}{'KLISH\_CLI\_USER'}):}
+\DoxyCodeLine{43        data=\{\textcolor{stringliteral}{"Param"}:\textcolor{stringliteral}{"sudo \%s"} \%cmd\}}
+\DoxyCodeLine{44     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{45        user\_string = \textcolor{stringliteral}{"-\/u \{\}"}.format(os.getenv(\textcolor{stringliteral}{'KLISH\_CLI\_USER'}))}
+\DoxyCodeLine{46        data=\{\textcolor{stringliteral}{"Param"}:\textcolor{stringliteral}{"sudo \%s \%s"} \%(cmd, user\_string)\}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     aa = cc.ApiClient()}
+\DoxyCodeLine{49     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/operations/openconfig-\/system-\/ext:reboot-\/ops'})}
+\DoxyCodeLine{50     body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/ext:input"}:data\}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{keywordflow}{if} cmd == \textcolor{stringliteral}{"warm-\/reboot"} \textcolor{keywordflow}{and} \mbox{\hyperlink{namespacesonic__cli__infra_a64292cf33b6c2becbb68f668afdca761}{stp\_mode\_get}}() == -\/1:}
+\DoxyCodeLine{53         print(\textcolor{stringliteral}{"Error: warm-\/reboot not allowed as spanning-\/tree is enabled"})}
+\DoxyCodeLine{54         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keywordflow}{if} process\_msg:}
+\DoxyCodeLine{57        print(\textcolor{stringliteral}{"\%s in process ....."}\%cmd) }
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     api\_response = aa.post(keypath, body)}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keywordflow}{if} process\_msg:}
+\DoxyCodeLine{62        time.sleep(1)}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{65         \textcolor{keywordflow}{if} api\_response.ok():}
+\DoxyCodeLine{66            response = api\_response.content}
+\DoxyCodeLine{67            \textcolor{keywordflow}{if} response \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None} \textcolor{keywordflow}{and} \textcolor{stringliteral}{'openconfig-\/system-\/ext:output'} \textcolor{keywordflow}{in} response:}
+\DoxyCodeLine{68               \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(templ, response[\textcolor{stringliteral}{'openconfig-\/system-\/ext:output'}][\textcolor{stringliteral}{'result'}])}
+\DoxyCodeLine{69     \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} e:}
+\DoxyCodeLine{70         log.syslog(log.LOG\_ERR, str(e))}
+\DoxyCodeLine{71         \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\%Error: Traction Failure"}}
+\DoxyCodeLine{72 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d4/d2f/namespacesonic__cli__infra_a4400205ebc9b4dc8608472d560e94513_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d4/d2f/namespacesonic__cli__infra_a4400205ebc9b4dc8608472d560e94513_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__infra_a7b8b2be25c71fd9c77973e16f6d6ca88}\label{namespacesonic__cli__infra_a7b8b2be25c71fd9c77973e16f6d6ca88}} 
+\index{sonic\_cli\_infra@{sonic\_cli\_infra}!run\_set\_openconfig\_logger@{run\_set\_openconfig\_logger}}
+\index{run\_set\_openconfig\_logger@{run\_set\_openconfig\_logger}!sonic\_cli\_infra@{sonic\_cli\_infra}}
+\doxysubsubsection{\texorpdfstring{run\_set\_openconfig\_logger()}{run\_set\_openconfig\_logger()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+infra.\+run\+\_\+set\+\_\+openconfig\+\_\+logger (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{argv }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+infra.\+py 파일의 119 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{119 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__infra_a7b8b2be25c71fd9c77973e16f6d6ca88}{run\_set\_openconfig\_logger}}(func, argv):}
+\DoxyCodeLine{120     templ = argv[0]}
+\DoxyCodeLine{121     messages = (\textcolor{stringliteral}{" "}.join(argv[2:])).strip(\textcolor{stringliteral}{'"'})}
+\DoxyCodeLine{122     data=\{\textcolor{stringliteral}{"Messages"}:\textcolor{stringliteral}{" \%s"} \%messages\}}
+\DoxyCodeLine{123     aa = cc.ApiClient()}
+\DoxyCodeLine{124     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/operations/openconfig-\/system-\/ext:logger'})}
+\DoxyCodeLine{125     body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/ext:input"}:data\}}
+\DoxyCodeLine{126     api\_response = aa.post(keypath, body)}
+\DoxyCodeLine{127     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{128         \textcolor{keywordflow}{if} api\_response.ok():}
+\DoxyCodeLine{129            response = api\_response.content}
+\DoxyCodeLine{130            \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(templ, response[\textcolor{stringliteral}{'openconfig-\/system-\/ext:output'}][\textcolor{stringliteral}{'result'}])}
+\DoxyCodeLine{131     \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} e:}
+\DoxyCodeLine{132         \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\%Error: Traction Failure"}}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d4/d2f/namespacesonic__cli__infra_a7b8b2be25c71fd9c77973e16f6d6ca88_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d4/d2f/namespacesonic__cli__infra_a7b8b2be25c71fd9c77973e16f6d6ca88_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__infra_a64292cf33b6c2becbb68f668afdca761}\label{namespacesonic__cli__infra_a64292cf33b6c2becbb68f668afdca761}} 
+\index{sonic\_cli\_infra@{sonic\_cli\_infra}!stp\_mode\_get@{stp\_mode\_get}}
+\index{stp\_mode\_get@{stp\_mode\_get}!sonic\_cli\_infra@{sonic\_cli\_infra}}
+\doxysubsubsection{\texorpdfstring{stp\_mode\_get()}{stp\_mode\_get()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+infra.\+stp\+\_\+mode\+\_\+get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+infra.\+py 파일의 13 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{13 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__infra_a64292cf33b6c2becbb68f668afdca761}{stp\_mode\_get}}():}
+\DoxyCodeLine{14     \textcolor{keyword}{global} g\_stp\_resp}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     aa = cc.ApiClient()}
+\DoxyCodeLine{17     g\_stp\_resp = aa.get(\textcolor{stringliteral}{'/restconf/data/openconfig-\/spanning-\/tree:stp/global/config/enabled-\/protocol'}, \textcolor{keywordtype}{None}, \textcolor{keyword}{False})}
+\DoxyCodeLine{18     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} g\_stp\_resp.ok():}
+\DoxyCodeLine{19         \textcolor{keywordflow}{return} 0}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} \textcolor{stringliteral}{'openconfig-\/spanning-\/tree:enabled-\/protocol'} \textcolor{keywordflow}{in} g\_stp\_resp.content:}
+\DoxyCodeLine{22         \textcolor{keywordflow}{return} 0}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{keywordflow}{if} g\_stp\_resp[\textcolor{stringliteral}{'openconfig-\/spanning-\/tree:enabled-\/protocol'}][0] == \textcolor{stringliteral}{"openconfig-\/spanning-\/tree-\/ext:PVST"}:}
+\DoxyCodeLine{25         \textcolor{keywordflow}{return} -\/1}
+\DoxyCodeLine{26     \textcolor{keywordflow}{elif} g\_stp\_resp[\textcolor{stringliteral}{'openconfig-\/spanning-\/tree:enabled-\/protocol'}][0] == \textcolor{stringliteral}{"openconfig-\/spanning-\/tree-\/types:RAPID\_PVST"}:}
+\DoxyCodeLine{27         \textcolor{keywordflow}{return} -\/1}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keywordflow}{return} 0}
+\DoxyCodeLine{30 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d4/d2f/namespacesonic__cli__infra_a64292cf33b6c2becbb68f668afdca761_icgraph}
+\end{center}
+\end{figure}

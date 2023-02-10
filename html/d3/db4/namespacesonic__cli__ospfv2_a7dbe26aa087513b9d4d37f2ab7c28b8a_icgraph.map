@@ -1,0 +1,11 @@
+<map id="sonic_cli_ospfv2.get_ospf_if_and_subif" name="sonic_cli_ospfv2.get_ospf_if_and_subif">
+<area shape="rect" id="node1" title=" " alt="" coords="732,196,887,237"/>
+<area shape="rect" id="node2" href="$d3/db4/namespacesonic__cli__ospfv2.html#a636bea9139c4f39434ad19bcce52b47f" title=" " alt="" coords="484,5,659,47"/>
+<area shape="rect" id="node5" href="$d3/db4/namespacesonic__cli__ospfv2.html#a681efef461efac82b287aeae8e12e053" title=" " alt="" coords="478,71,665,127"/>
+<area shape="rect" id="node6" href="$d3/db4/namespacesonic__cli__ospfv2.html#a87e93e33b9e0bf260ed5b5e0a6ad0430" title=" " alt="" coords="459,151,684,207"/>
+<area shape="rect" id="node7" href="$d3/db4/namespacesonic__cli__ospfv2.html#a72b8dabc832506271d58ff6c58737800" title=" " alt="" coords="487,232,656,273"/>
+<area shape="rect" id="node8" href="$d3/db4/namespacesonic__cli__ospfv2.html#a40623340d76f6a1dae20f64cabb508ce" title="OSPF interface authentication config" alt="" coords="478,298,665,354"/>
+<area shape="rect" id="node9" href="$d3/db4/namespacesonic__cli__ospfv2.html#a66cc0d514cb73944ea8d8f8d363d1a87" title="OSPF Passive interface config" alt="" coords="459,378,684,434"/>
+<area shape="rect" id="node3" href="$d3/db4/namespacesonic__cli__ospfv2.html#a1ca823200052990df428f87e62a13cd3" title="OSPF CLI invoke function" alt="" coords="208,203,411,230"/>
+<area shape="rect" id="node4" href="$d3/db4/namespacesonic__cli__ospfv2.html#a9b5fc87a427eb8e8ff63d5683871974f" title=" " alt="" coords="5,203,160,230"/>
+</map>

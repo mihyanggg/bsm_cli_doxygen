@@ -1,0 +1,507 @@
+\hypertarget{namespacesonic__cli__bgp__evpn}{}\doxysection{sonic\+\_\+cli\+\_\+bgp\+\_\+evpn 네임스페이스 참조}
+\label{namespacesonic__cli__bgp__evpn}\index{sonic\_cli\_bgp\_evpn@{sonic\_cli\_bgp\_evpn}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__bgp__evpn_ac1fbe7ed57a8c1d182c1d085d79095f7}{invoke\+\_\+api}} (\mbox{\hyperlink{namespacesonic__cli__bgp__evpn_a3bebbc30c2ca681e486e0f51864a2c9e}{func}}, args=\mbox{[}$\,$\mbox{]})
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__bgp__evpn_a2bdacda97772abae4bd3739ed392c692}{run}} (\mbox{\hyperlink{namespacesonic__cli__bgp__evpn_a3bebbc30c2ca681e486e0f51864a2c9e}{func}}, args)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacesonic__cli__bgp__evpn_a3bebbc30c2ca681e486e0f51864a2c9e}{func}} = sys.\+argv\mbox{[}1\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__bgp__evpn_ac1fbe7ed57a8c1d182c1d085d79095f7}\label{namespacesonic__cli__bgp__evpn_ac1fbe7ed57a8c1d182c1d085d79095f7}} 
+\index{sonic\_cli\_bgp\_evpn@{sonic\_cli\_bgp\_evpn}!invoke\_api@{invoke\_api}}
+\index{invoke\_api@{invoke\_api}!sonic\_cli\_bgp\_evpn@{sonic\_cli\_bgp\_evpn}}
+\doxysubsubsection{\texorpdfstring{invoke\_api()}{invoke\_api()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+bgp\+\_\+evpn.\+invoke\+\_\+api (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args = {\ttfamily \mbox{[}\mbox{]}} }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+bgp\+\_\+evpn.\+py 파일의 29 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__bgp__evpn_ac1fbe7ed57a8c1d182c1d085d79095f7}{invoke\_api}}(func, args=[]):}
+\DoxyCodeLine{30     api = cc.ApiClient()}
+\DoxyCodeLine{31     keypath = []}
+\DoxyCodeLine{32     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{33      }
+\DoxyCodeLine{34     \textcolor{comment}{\#Patch cases}}
+\DoxyCodeLine{35     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_bgp\_evpn\_advertise\_all\_vni'}:}
+\DoxyCodeLine{36         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{37             +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn/openconfig-\/bgp-\/evpn-\/ext:config'}}
+\DoxyCodeLine{38             +\textcolor{stringliteral}{'/advertise-\/all-\/vni'},}
+\DoxyCodeLine{39                 vrf=args[0], af\_name=args[1])}
+\DoxyCodeLine{40         body = \{ \textcolor{stringliteral}{"openconfig-\/bgp-\/evpn-\/ext:advertise-\/all-\/vni"}: \textcolor{keyword}{True} \textcolor{keywordflow}{if} args[2] == \textcolor{stringliteral}{'True'} \textcolor{keywordflow}{else} \textcolor{keyword}{False} \}}
+\DoxyCodeLine{41         \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{42     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_bgp\_evpn\_advertise\_default\_gw'}:}
+\DoxyCodeLine{43         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{44             +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn/openconfig-\/bgp-\/evpn-\/ext:config'}}
+\DoxyCodeLine{45             +\textcolor{stringliteral}{'/advertise-\/default-\/gw'},}
+\DoxyCodeLine{46                 vrf=args[0], af\_name=args[1])}
+\DoxyCodeLine{47         body = \{ \textcolor{stringliteral}{"openconfig-\/bgp-\/evpn-\/ext:advertise-\/default-\/gw"}: \textcolor{keyword}{True} \textcolor{keywordflow}{if} args[2] == \textcolor{stringliteral}{'True'} \textcolor{keywordflow}{else} \textcolor{keyword}{False} \}}
+\DoxyCodeLine{48         \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{49     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_bgp\_evpn\_advertise\_svi\_ip'}:}
+\DoxyCodeLine{50         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{51             +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn/openconfig-\/bgp-\/evpn-\/ext:config'}}
+\DoxyCodeLine{52             +\textcolor{stringliteral}{'/advertise-\/svi-\/ip'},}
+\DoxyCodeLine{53                 vrf=args[0], af\_name=args[1])}
+\DoxyCodeLine{54         body = \{ \textcolor{stringliteral}{"openconfig-\/bgp-\/evpn-\/ext:advertise-\/svi-\/ip"}: \textcolor{keyword}{True} \textcolor{keywordflow}{if} args[2] == \textcolor{stringliteral}{'True'} \textcolor{keywordflow}{else} \textcolor{keyword}{False} \}}
+\DoxyCodeLine{55         \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{56     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_bgp\_evpn\_default\_originate'}:}
+\DoxyCodeLine{57         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{58             +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn'}}
+\DoxyCodeLine{59             +\textcolor{stringliteral}{'/openconfig-\/bgp-\/evpn-\/ext:default-\/originate/config/\{originate\_family\}'},}
+\DoxyCodeLine{60                 vrf=args[0], af\_name=args[1], originate\_family=args[2])}
+\DoxyCodeLine{61         body = \{ \textcolor{stringliteral}{"openconfig-\/bgp-\/evpn-\/ext:\{\}"}.format(args[2]): \textcolor{keyword}{True} \}}
+\DoxyCodeLine{62         \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{63     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_bgp\_evpn\_rd'}:}
+\DoxyCodeLine{64         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{65             +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn/openconfig-\/bgp-\/evpn-\/ext:config'}}
+\DoxyCodeLine{66             +\textcolor{stringliteral}{'/route-\/distinguisher'},}
+\DoxyCodeLine{67                 vrf=args[0], af\_name=args[1])}
+\DoxyCodeLine{68         body = \{ \textcolor{stringliteral}{"openconfig-\/bgp-\/evpn-\/ext:route-\/distinguisher"}: args[2] \}}
+\DoxyCodeLine{69         \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{70     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_bgp\_evpn\_rt'}:}
+\DoxyCodeLine{71         rttype = args[3]}
+\DoxyCodeLine{72         \textcolor{keywordflow}{if} rttype == \textcolor{stringliteral}{'both'} \textcolor{keywordflow}{or} rttype == \textcolor{stringliteral}{'import'}:}
+\DoxyCodeLine{73             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{74                 +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn/openconfig-\/bgp-\/evpn-\/ext:config'}}
+\DoxyCodeLine{75                 +\textcolor{stringliteral}{'/import-\/rts'},}
+\DoxyCodeLine{76                     vrf=args[0], af\_name=args[1])}
+\DoxyCodeLine{77             body = \{ \textcolor{stringliteral}{"openconfig-\/bgp-\/evpn-\/ext:import-\/rts"}: [ args[2] ] \}}
+\DoxyCodeLine{78             response = api.patch(keypath, body)}
+\DoxyCodeLine{79             \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response.ok():}
+\DoxyCodeLine{80                 \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{81         \textcolor{keywordflow}{if} rttype == \textcolor{stringliteral}{'both'} \textcolor{keywordflow}{or} rttype == \textcolor{stringliteral}{'export'}:}
+\DoxyCodeLine{82             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{83                 +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn/openconfig-\/bgp-\/evpn-\/ext:config'}}
+\DoxyCodeLine{84                 +\textcolor{stringliteral}{'/export-\/rts'},}
+\DoxyCodeLine{85                     vrf=args[0], af\_name=args[1], route\_target\_type=args[3])}
+\DoxyCodeLine{86             body = \{ \textcolor{stringliteral}{"openconfig-\/bgp-\/evpn-\/ext:export-\/rts"}: [ args[2] ] \}}
+\DoxyCodeLine{87             response = api.patch(keypath, body)}
+\DoxyCodeLine{88         \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{89     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_bgp\_evpn\_advertise'}:}
+\DoxyCodeLine{90         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{91             +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn/openconfig-\/bgp-\/evpn-\/ext:config'}}
+\DoxyCodeLine{92             +\textcolor{stringliteral}{'/advertise-\/list'},}
+\DoxyCodeLine{93                 vrf=args[0], af\_name=args[1])}
+\DoxyCodeLine{94         body = \{ \textcolor{stringliteral}{"openconfig-\/bgp-\/evpn-\/ext:advertise-\/list"}: [ args[2] ] \}}
+\DoxyCodeLine{95         \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{96     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_bgp\_evpn\_autort'}:}
+\DoxyCodeLine{97         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{98             +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn/openconfig-\/bgp-\/evpn-\/ext:config'}}
+\DoxyCodeLine{99             +\textcolor{stringliteral}{'/autort'},}
+\DoxyCodeLine{100                 vrf=args[0], af\_name=args[1])}
+\DoxyCodeLine{101         body = \{ \textcolor{stringliteral}{"openconfig-\/bgp-\/evpn-\/ext:autort"}: args[2].upper().replace(\textcolor{stringliteral}{'-\/'},\textcolor{stringliteral}{'\_'}) \}}
+\DoxyCodeLine{102         \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{103     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_bgp\_evpn\_flooding'}:}
+\DoxyCodeLine{104         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{105             +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn'}}
+\DoxyCodeLine{106             +\textcolor{stringliteral}{'/openconfig-\/bgp-\/evpn-\/ext:flooding'},}
+\DoxyCodeLine{107                 vrf=args[0], af\_name=args[1])}
+\DoxyCodeLine{108         body = \{ \textcolor{stringliteral}{"openconfig-\/bgp-\/evpn-\/ext:flooding"}: args[2] \}}
+\DoxyCodeLine{109         \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{110     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_bgp\_evpn\_dad\_enable\_params'}:}
+\DoxyCodeLine{111         \textcolor{keywordflow}{if} len(args) < 3:}
+\DoxyCodeLine{112             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{113                 +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn'}}
+\DoxyCodeLine{114                 +\textcolor{stringliteral}{'/openconfig-\/bgp-\/evpn-\/ext:dup-\/addr-\/detection/config/enabled'},}
+\DoxyCodeLine{115                     vrf=args[0], af\_name=args[1])}
+\DoxyCodeLine{116             body = \{ \textcolor{stringliteral}{"openconfig-\/bgp-\/evpn-\/ext:enabled"}: \textcolor{keyword}{True} \}}
+\DoxyCodeLine{117             \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{118         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{119             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{120                 +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn'}}
+\DoxyCodeLine{121                 +\textcolor{stringliteral}{'/openconfig-\/bgp-\/evpn-\/ext:dup-\/addr-\/detection/config'},}
+\DoxyCodeLine{122                     vrf=args[0], af\_name=args[1])}
+\DoxyCodeLine{123             body = \{ }
+\DoxyCodeLine{124                         \textcolor{stringliteral}{"openconfig-\/bgp-\/evpn-\/ext:config"}: \{}
+\DoxyCodeLine{125                             \textcolor{stringliteral}{"enabled"}: \textcolor{keyword}{True},}
+\DoxyCodeLine{126                             \textcolor{stringliteral}{"max-\/moves"}: int(args[2]),}
+\DoxyCodeLine{127                             \textcolor{stringliteral}{"time"}: int(args[3])}
+\DoxyCodeLine{128                         \}}
+\DoxyCodeLine{129                     \}}
+\DoxyCodeLine{130             \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{131     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_bgp\_evpn\_dad\_freeze'}:}
+\DoxyCodeLine{132         \textcolor{keywordflow}{if} args[2] == \textcolor{stringliteral}{'permanent'}:}
+\DoxyCodeLine{133             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{134                 +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn'}}
+\DoxyCodeLine{135                 +\textcolor{stringliteral}{'/openconfig-\/bgp-\/evpn-\/ext:dup-\/addr-\/detection/config/freeze'},}
+\DoxyCodeLine{136                     vrf=args[0], af\_name=args[1])}
+\DoxyCodeLine{137             body = \{ \textcolor{stringliteral}{"openconfig-\/bgp-\/evpn-\/ext:freeze"}: \textcolor{stringliteral}{"permanent"} \}}
+\DoxyCodeLine{138             \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{139         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{140             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{141                 +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn'}}
+\DoxyCodeLine{142                 +\textcolor{stringliteral}{'/openconfig-\/bgp-\/evpn-\/ext:dup-\/addr-\/detection/config/freeze'},}
+\DoxyCodeLine{143                     vrf=args[0], af\_name=args[1])}
+\DoxyCodeLine{144             body = \{ \textcolor{stringliteral}{"openconfig-\/bgp-\/evpn-\/ext:freeze"}: args[3] \}}
+\DoxyCodeLine{145             \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147     \textcolor{comment}{\#Patch EVPN VNI cases}}
+\DoxyCodeLine{148     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_bgp\_evpn\_vni'}:}
+\DoxyCodeLine{149         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{150             +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn'}}
+\DoxyCodeLine{151             +\textcolor{stringliteral}{'/openconfig-\/bgp-\/evpn-\/ext:vnis/vni'},}
+\DoxyCodeLine{152                 vrf=args[0], af\_name=args[1])}
+\DoxyCodeLine{153         body = \{ \textcolor{stringliteral}{"openconfig-\/bgp-\/evpn-\/ext:vni"}: [ }
+\DoxyCodeLine{154                     \{ \textcolor{stringliteral}{"vni-\/number"}: int(args[2]), }
+\DoxyCodeLine{155                         \textcolor{stringliteral}{"config"} : }
+\DoxyCodeLine{156                             \{ \textcolor{stringliteral}{"vni-\/number"} : int(args[2]) \} }
+\DoxyCodeLine{157                     \} ] }
+\DoxyCodeLine{158                 \}}
+\DoxyCodeLine{159         \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{160     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_bgp\_evpn\_vni\_rt'}:}
+\DoxyCodeLine{161         rttype = args[4]}
+\DoxyCodeLine{162         \textcolor{keywordflow}{if} rttype == \textcolor{stringliteral}{'both'} \textcolor{keywordflow}{or} rttype == \textcolor{stringliteral}{'import'}:}
+\DoxyCodeLine{163             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{164                 +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn'}}
+\DoxyCodeLine{165                 +\textcolor{stringliteral}{'/openconfig-\/bgp-\/evpn-\/ext:vnis/vni=\{vni\_number\}/config/import-\/rts'},}
+\DoxyCodeLine{166                     vrf=args[0], af\_name=args[1], vni\_number=args[2])}
+\DoxyCodeLine{167             body = \{ \textcolor{stringliteral}{"openconfig-\/bgp-\/evpn-\/ext:import-\/rts"}: [ args[3] ] \}}
+\DoxyCodeLine{168             response = api.patch(keypath, body)}
+\DoxyCodeLine{169             \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response.ok():}
+\DoxyCodeLine{170                 \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{171         \textcolor{keywordflow}{if} rttype == \textcolor{stringliteral}{'both'} \textcolor{keywordflow}{or} rttype == \textcolor{stringliteral}{'export'}:}
+\DoxyCodeLine{172             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{173                 +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn'}}
+\DoxyCodeLine{174                 +\textcolor{stringliteral}{'/openconfig-\/bgp-\/evpn-\/ext:vnis/vni=\{vni\_number\}/config/export-\/rts'},}
+\DoxyCodeLine{175                     vrf=args[0], af\_name=args[1], vni\_number=args[2])}
+\DoxyCodeLine{176             body = \{ \textcolor{stringliteral}{"openconfig-\/bgp-\/evpn-\/ext:export-\/rts"}: [ args[3] ] \}}
+\DoxyCodeLine{177             response = api.patch(keypath, body)}
+\DoxyCodeLine{178         \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{179     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_bgp\_evpn\_vni\_advertise\_default\_gw'}:}
+\DoxyCodeLine{180         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{181             +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn'}}
+\DoxyCodeLine{182             +\textcolor{stringliteral}{'/openconfig-\/bgp-\/evpn-\/ext:vnis/vni=\{vni\_number\}/config/advertise-\/default-\/gw'},}
+\DoxyCodeLine{183                 vrf=args[0], af\_name=args[1], vni\_number=args[2])}
+\DoxyCodeLine{184         body = \{ \textcolor{stringliteral}{"openconfig-\/bgp-\/evpn-\/ext:advertise-\/default-\/gw"}: \textcolor{keyword}{True} \}}
+\DoxyCodeLine{185         \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{186     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_bgp\_evpn\_vni\_advertise\_svi\_ip'}:}
+\DoxyCodeLine{187         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{188             +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn'}}
+\DoxyCodeLine{189             +\textcolor{stringliteral}{'/openconfig-\/bgp-\/evpn-\/ext:vnis/vni=\{vni\_number\}/config/advertise-\/svi-\/ip'},}
+\DoxyCodeLine{190                 vrf=args[0], af\_name=args[1], vni\_number=args[2])}
+\DoxyCodeLine{191         body = \{ \textcolor{stringliteral}{"openconfig-\/bgp-\/evpn-\/ext:advertise-\/svi-\/ip"}: \textcolor{keyword}{True} \}}
+\DoxyCodeLine{192         \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{193     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_bgp\_evpn\_vni\_rd'}:}
+\DoxyCodeLine{194         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{195             +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn'}}
+\DoxyCodeLine{196             +\textcolor{stringliteral}{'/openconfig-\/bgp-\/evpn-\/ext:vnis/vni=\{vni\_number\}/config/route-\/distinguisher'},}
+\DoxyCodeLine{197                 vrf=args[0], af\_name=args[1], vni\_number=args[2])}
+\DoxyCodeLine{198         body = \{ \textcolor{stringliteral}{"openconfig-\/bgp-\/evpn-\/ext:route-\/distinguisher"}: args[3] \}}
+\DoxyCodeLine{199         \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{201     \textcolor{comment}{\#PIP cases}}
+\DoxyCodeLine{202     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_bgp\_evpn\_advertise\_pip'}:}
+\DoxyCodeLine{203         \textcolor{comment}{\# fetch parameter values}}
+\DoxyCodeLine{204         arg\_map = \{\}}
+\DoxyCodeLine{205         \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(len(args)):}
+\DoxyCodeLine{206             arg\_val = (args[i].split(\textcolor{stringliteral}{":"}, 1))[-\/1]}
+\DoxyCodeLine{207             arg\_name = (args[i].split(\textcolor{stringliteral}{":"}, 1))[0]}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{209             \textcolor{keywordflow}{if} arg\_val :}
+\DoxyCodeLine{210                 arg\_map[arg\_name] = arg\_val}
+\DoxyCodeLine{211          }
+\DoxyCodeLine{212         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'enable'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} arg\_map.keys() :}
+\DoxyCodeLine{213             print(\textcolor{stringliteral}{"PIP comamnd option enable not present"})}
+\DoxyCodeLine{214             \textcolor{keywordflow}{return} \textcolor{keywordtype}{None}}
+\DoxyCodeLine{215          }
+\DoxyCodeLine{216         \textcolor{keywordflow}{if}  arg\_map[\textcolor{stringliteral}{"enable"}] != \textcolor{stringliteral}{'True'} :}
+\DoxyCodeLine{217             print(\textcolor{stringliteral}{"PIP comamnd option enable not true"})}
+\DoxyCodeLine{218             \textcolor{keywordflow}{return} \textcolor{keywordtype}{None}}
+\DoxyCodeLine{219 }
+\DoxyCodeLine{220         pip\_cfg\_data = \{\}}
+\DoxyCodeLine{221         pip\_cfg\_data.update(\{ \textcolor{stringliteral}{'openconfig-\/bgp-\/evpn-\/ext:advertise-\/pip'}: \textcolor{keyword}{True} \})}
+\DoxyCodeLine{222 }
+\DoxyCodeLine{223         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'ip'} \textcolor{keywordflow}{in} arg\_map.keys() :}
+\DoxyCodeLine{224             pip\_cfg\_data.update(\{ \textcolor{stringliteral}{'openconfig-\/bgp-\/evpn-\/ext:advertise-\/pip-\/ip'}: arg\_map[\textcolor{stringliteral}{'ip'}] \})}
+\DoxyCodeLine{225 }
+\DoxyCodeLine{226         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'peer'} \textcolor{keywordflow}{in} arg\_map.keys() :}
+\DoxyCodeLine{227             pip\_cfg\_data.update(\{ \textcolor{stringliteral}{'openconfig-\/bgp-\/evpn-\/ext:advertise-\/pip-\/peer-\/ip'}: arg\_map[\textcolor{stringliteral}{'peer'}] \})}
+\DoxyCodeLine{228 }
+\DoxyCodeLine{229         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'mac'} \textcolor{keywordflow}{in} arg\_map.keys() :}
+\DoxyCodeLine{230             pip\_cfg\_data.update(\{ \textcolor{stringliteral}{'openconfig-\/bgp-\/evpn-\/ext:advertise-\/pip-\/mac'}: arg\_map[\textcolor{stringliteral}{'mac'}] \})}
+\DoxyCodeLine{231 }
+\DoxyCodeLine{232         keypath\_str =  \textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{\}'}.format(arg\_map[\textcolor{stringliteral}{'vrf'}])}
+\DoxyCodeLine{233         keypath\_str += \textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{\}/l2vpn-\/evpn'}.format(arg\_map[\textcolor{stringliteral}{'af'}])}
+\DoxyCodeLine{234         keypath\_str += \textcolor{stringliteral}{'/openconfig-\/bgp-\/evpn-\/ext:config/'}}
+\DoxyCodeLine{235 }
+\DoxyCodeLine{236         keypath = cc.Path(keypath\_str)}
+\DoxyCodeLine{237         body = \{ \textcolor{stringliteral}{'openconfig-\/bgp-\/evpn-\/ext:config'} : pip\_cfg\_data \}}
+\DoxyCodeLine{238         \textcolor{comment}{\#print("PIP cmd keypath \{\}", keypath\_str)}}
+\DoxyCodeLine{239         \textcolor{comment}{\#print("PIP cmd body \{\}", body)}}
+\DoxyCodeLine{240 }
+\DoxyCodeLine{241         \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{242 }
+\DoxyCodeLine{243     \textcolor{comment}{\#Delete cases}}
+\DoxyCodeLine{244     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_bgp\_evpn\_advertise\_all\_vni'}:}
+\DoxyCodeLine{245         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{246             +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn'}}
+\DoxyCodeLine{247             +\textcolor{stringliteral}{'/openconfig-\/bgp-\/evpn-\/ext:config/advertise-\/all-\/vni'},}
+\DoxyCodeLine{248                 vrf=args[0], af\_name=args[1])}
+\DoxyCodeLine{249         \textcolor{keywordflow}{return} api.delete(keypath)}
+\DoxyCodeLine{250     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_bgp\_evpn\_advertise\_default\_gw'}:}
+\DoxyCodeLine{251         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{252             +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn'}}
+\DoxyCodeLine{253             +\textcolor{stringliteral}{'/openconfig-\/bgp-\/evpn-\/ext:config/advertise-\/default-\/gw'},}
+\DoxyCodeLine{254                 vrf=args[0], af\_name=args[1])}
+\DoxyCodeLine{255         \textcolor{keywordflow}{return} api.delete(keypath)}
+\DoxyCodeLine{256     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_bgp\_evpn\_advertise\_svi\_ip'}:}
+\DoxyCodeLine{257         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{258             +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn'}}
+\DoxyCodeLine{259             +\textcolor{stringliteral}{'/openconfig-\/bgp-\/evpn-\/ext:config/advertise-\/svi-\/ip'},}
+\DoxyCodeLine{260                 vrf=args[0], af\_name=args[1])}
+\DoxyCodeLine{261         \textcolor{keywordflow}{return} api.delete(keypath)}
+\DoxyCodeLine{262     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_bgp\_evpn\_default\_originate'}:}
+\DoxyCodeLine{263         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{264             +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn'}}
+\DoxyCodeLine{265             +\textcolor{stringliteral}{'/openconfig-\/bgp-\/evpn-\/ext:default-\/originate/config/\{originate\_family\}'},}
+\DoxyCodeLine{266                 vrf=args[0], af\_name=args[1], originate\_family=args[2])}
+\DoxyCodeLine{267         \textcolor{keywordflow}{return} api.delete(keypath)}
+\DoxyCodeLine{268     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_bgp\_evpn\_rd'}:}
+\DoxyCodeLine{269         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{270             +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn'}}
+\DoxyCodeLine{271             +\textcolor{stringliteral}{'/openconfig-\/bgp-\/evpn-\/ext:config/route-\/distinguisher'},}
+\DoxyCodeLine{272                 vrf=args[0], af\_name=args[1])}
+\DoxyCodeLine{273         \textcolor{keywordflow}{return} api.delete(keypath)}
+\DoxyCodeLine{274     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_bgp\_evpn\_rt'}:}
+\DoxyCodeLine{275         rttype = args[3]}
+\DoxyCodeLine{276         \textcolor{keywordflow}{if} rttype == \textcolor{stringliteral}{"both"} \textcolor{keywordflow}{or} rttype == \textcolor{stringliteral}{"import"}:}
+\DoxyCodeLine{277             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{278                 +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn'}}
+\DoxyCodeLine{279                 +\textcolor{stringliteral}{'/openconfig-\/bgp-\/evpn-\/ext:config/import-\/rts=\{route\_target\}'},}
+\DoxyCodeLine{280                     vrf=args[0], af\_name=args[1], route\_target=args[2])}
+\DoxyCodeLine{281             response = api.delete(keypath)}
+\DoxyCodeLine{282             \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response.ok():}
+\DoxyCodeLine{283                 \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{284         \textcolor{keywordflow}{if} rttype == \textcolor{stringliteral}{"both"} \textcolor{keywordflow}{or} rttype == \textcolor{stringliteral}{"export"}:}
+\DoxyCodeLine{285             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{286                 +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn'}}
+\DoxyCodeLine{287                 +\textcolor{stringliteral}{'/openconfig-\/bgp-\/evpn-\/ext:config/export-\/rts=\{route\_target\}'},}
+\DoxyCodeLine{288                     vrf=args[0], af\_name=args[1], route\_target=args[2])}
+\DoxyCodeLine{289             response = api.delete(keypath)}
+\DoxyCodeLine{290         \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{291     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_bgp\_evpn\_advertise'}:}
+\DoxyCodeLine{292         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{293             +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn'}}
+\DoxyCodeLine{294             +\textcolor{stringliteral}{'/openconfig-\/bgp-\/evpn-\/ext:config/advertise-\/list=\{afi\_safi\_name\}'},}
+\DoxyCodeLine{295                 vrf=args[0], af\_name=args[1], afi\_safi\_name=args[2])}
+\DoxyCodeLine{296         \textcolor{keywordflow}{return} api.delete(keypath)}
+\DoxyCodeLine{297     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_bgp\_evpn\_autort'}:}
+\DoxyCodeLine{298         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{299             +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn'}}
+\DoxyCodeLine{300             +\textcolor{stringliteral}{'/openconfig-\/bgp-\/evpn-\/ext:config/autort'},}
+\DoxyCodeLine{301                 vrf=args[0], af\_name=args[1])}
+\DoxyCodeLine{302         \textcolor{keywordflow}{return} api.delete(keypath)}
+\DoxyCodeLine{303     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_bgp\_evpn\_flooding'}:}
+\DoxyCodeLine{304         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{305             +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn'}}
+\DoxyCodeLine{306             +\textcolor{stringliteral}{'/openconfig-\/bgp-\/evpn-\/ext:flooding'},}
+\DoxyCodeLine{307                 vrf=args[0], af\_name=args[1])}
+\DoxyCodeLine{308         \textcolor{keywordflow}{return} api.delete(keypath)}
+\DoxyCodeLine{309     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_bgp\_evpn\_dad\_enable\_params'}:}
+\DoxyCodeLine{310         \textcolor{keywordflow}{if} len(args) < 3:}
+\DoxyCodeLine{311             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{312                 +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn'}}
+\DoxyCodeLine{313                 +\textcolor{stringliteral}{'/openconfig-\/bgp-\/evpn-\/ext:dup-\/addr-\/detection/config/enabled'},}
+\DoxyCodeLine{314                     vrf=args[0], af\_name=args[1])}
+\DoxyCodeLine{315             \textcolor{keywordflow}{return} api.delete(keypath)}
+\DoxyCodeLine{316         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{317             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{318                 +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn'}}
+\DoxyCodeLine{319                 +\textcolor{stringliteral}{'/openconfig-\/bgp-\/evpn-\/ext:dup-\/addr-\/detection/config/max-\/moves'},}
+\DoxyCodeLine{320                     vrf=args[0], af\_name=args[1])}
+\DoxyCodeLine{321             api.delete(keypath)}
+\DoxyCodeLine{322             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{323                 +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn'}}
+\DoxyCodeLine{324                 +\textcolor{stringliteral}{'/openconfig-\/bgp-\/evpn-\/ext:dup-\/addr-\/detection/config/time'},}
+\DoxyCodeLine{325                     vrf=args[0], af\_name=args[1])}
+\DoxyCodeLine{326             \textcolor{keywordflow}{return} api.delete(keypath)}
+\DoxyCodeLine{327     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_bgp\_evpn\_dad\_freeze'}:}
+\DoxyCodeLine{328         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{329             +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn'}}
+\DoxyCodeLine{330             +\textcolor{stringliteral}{'/openconfig-\/bgp-\/evpn-\/ext:dup-\/addr-\/detection/config/freeze'},}
+\DoxyCodeLine{331                 vrf=args[0], af\_name=args[1])}
+\DoxyCodeLine{332         \textcolor{keywordflow}{return} api.delete(keypath)}
+\DoxyCodeLine{333 }
+\DoxyCodeLine{334     \textcolor{comment}{\#Delete EVPN VNI cases}}
+\DoxyCodeLine{335     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_bgp\_evpn\_vni'}:}
+\DoxyCodeLine{336         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{337             +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn'}}
+\DoxyCodeLine{338             +\textcolor{stringliteral}{'/openconfig-\/bgp-\/evpn-\/ext:vnis/vni=\{vni\_number\}'},}
+\DoxyCodeLine{339                 vrf=args[0], af\_name=args[1], vni\_number=args[2])}
+\DoxyCodeLine{340         \textcolor{keywordflow}{return} api.delete(keypath)}
+\DoxyCodeLine{341     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_bgp\_evpn\_vni\_rt'}:}
+\DoxyCodeLine{342         rttype = args[4]}
+\DoxyCodeLine{343         \textcolor{keywordflow}{if} rttype == \textcolor{stringliteral}{"both"} \textcolor{keywordflow}{or} rttype == \textcolor{stringliteral}{"import"}:}
+\DoxyCodeLine{344             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{345                 +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn'}}
+\DoxyCodeLine{346                 +\textcolor{stringliteral}{'/openconfig-\/bgp-\/evpn-\/ext:vnis/vni=\{vni\_number\}/config/import-\/rts=\{route\_target\}'},}
+\DoxyCodeLine{347                     vrf=args[0], af\_name=args[1], vni\_number=args[2], route\_target=args[3])}
+\DoxyCodeLine{348             response = api.delete(keypath)}
+\DoxyCodeLine{349             \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response.ok():}
+\DoxyCodeLine{350                 \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{351         \textcolor{keywordflow}{if} rttype == \textcolor{stringliteral}{"both"} \textcolor{keywordflow}{or} rttype == \textcolor{stringliteral}{"export"}:}
+\DoxyCodeLine{352             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{353                 +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn'}}
+\DoxyCodeLine{354                 +\textcolor{stringliteral}{'/openconfig-\/bgp-\/evpn-\/ext:vnis/vni=\{vni\_number\}/config/export-\/rts=\{route\_target\}'},}
+\DoxyCodeLine{355                     vrf=args[0], af\_name=args[1], vni\_number=args[2], route\_target=args[3])}
+\DoxyCodeLine{356             response = api.delete(keypath)}
+\DoxyCodeLine{357         \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{358     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_bgp\_evpn\_vni\_advertise\_default\_gw'}:}
+\DoxyCodeLine{359         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{360             +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn'}}
+\DoxyCodeLine{361             +\textcolor{stringliteral}{'/openconfig-\/bgp-\/evpn-\/ext:vnis/vni=\{vni\_number\}/config/advertise-\/default-\/gw'},}
+\DoxyCodeLine{362                 vrf=args[0], af\_name=args[1], vni\_number=args[2])}
+\DoxyCodeLine{363         \textcolor{keywordflow}{return} api.delete(keypath)}
+\DoxyCodeLine{364     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_bgp\_evpn\_vni\_advertise\_svi\_ip'}:}
+\DoxyCodeLine{365         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{366             +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn'}}
+\DoxyCodeLine{367             +\textcolor{stringliteral}{'/openconfig-\/bgp-\/evpn-\/ext:vnis/vni=\{vni\_number\}/config/advertise-\/svi-\/ip'},}
+\DoxyCodeLine{368                 vrf=args[0], af\_name=args[1], vni\_number=args[2])}
+\DoxyCodeLine{369         \textcolor{keywordflow}{return} api.delete(keypath)}
+\DoxyCodeLine{370     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_bgp\_evpn\_vni\_rd'}:}
+\DoxyCodeLine{371         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{vrf\}'}}
+\DoxyCodeLine{372             +\textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{af\_name\}/l2vpn-\/evpn'}}
+\DoxyCodeLine{373             +\textcolor{stringliteral}{'/openconfig-\/bgp-\/evpn-\/ext:vnis/vni=\{vni\_number\}/config/route-\/distinguisher'},}
+\DoxyCodeLine{374                 vrf=args[0], af\_name=args[1], vni\_number=args[2])}
+\DoxyCodeLine{375         \textcolor{keywordflow}{return} api.delete(keypath)}
+\DoxyCodeLine{376 }
+\DoxyCodeLine{377     \textcolor{comment}{\#Delete PIP cases}}
+\DoxyCodeLine{378     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_bgp\_evpn\_advertise\_pip'}:}
+\DoxyCodeLine{379         \textcolor{comment}{\#fetch parameter values}}
+\DoxyCodeLine{380         \textcolor{comment}{\#print("PIP cmd input args \{\}", args)}}
+\DoxyCodeLine{381         arg\_map = \{\}}
+\DoxyCodeLine{382         \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(len(args)):}
+\DoxyCodeLine{383             arg\_val = (args[i].split(\textcolor{stringliteral}{":"}, 1))[-\/1]}
+\DoxyCodeLine{384             arg\_name = (args[i].split(\textcolor{stringliteral}{":"}, 1))[0]}
+\DoxyCodeLine{385             \textcolor{keywordflow}{if} arg\_val:}
+\DoxyCodeLine{386                 arg\_map[arg\_name] = arg\_val}
+\DoxyCodeLine{387         \textcolor{comment}{\#print("PIP cmd arg map \{\}", arg\_map)}}
+\DoxyCodeLine{388         \textcolor{comment}{\#\{'peer': 'peer-\/ip', 'ip': 'ip', 'enable': 'False', 'vrf': 'default', 'af': 'L2VPN\_EVPN'\}}}
+\DoxyCodeLine{389 }
+\DoxyCodeLine{390         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'enable'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} arg\_map.keys() :}
+\DoxyCodeLine{391             print(\textcolor{stringliteral}{"PIP comamnd option enable not present"})}
+\DoxyCodeLine{392             \textcolor{keywordflow}{return} \textcolor{keywordtype}{None}}
+\DoxyCodeLine{393 }
+\DoxyCodeLine{394         \textcolor{keywordflow}{if}  arg\_map[\textcolor{stringliteral}{"enable"}] != \textcolor{stringliteral}{'False'} :}
+\DoxyCodeLine{395             print(\textcolor{stringliteral}{"PIP comamnd option enable not false"})}
+\DoxyCodeLine{396             \textcolor{keywordflow}{return} \textcolor{keywordtype}{None}}
+\DoxyCodeLine{397 }
+\DoxyCodeLine{398         keypath\_str =  \textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{\}'}.format(arg\_map[\textcolor{stringliteral}{'vrf'}])}
+\DoxyCodeLine{399         keypath\_str += \textcolor{stringliteral}{'/protocols/protocol=BGP,bgp/bgp/global/afi-\/safis/afi-\/safi=\{\}/l2vpn-\/evpn'}.format(arg\_map[\textcolor{stringliteral}{'af'}])}
+\DoxyCodeLine{400         keypath\_str += \textcolor{stringliteral}{'/openconfig-\/bgp-\/evpn-\/ext:config/'}}
+\DoxyCodeLine{401         \textcolor{comment}{\#print("PIP cmd keypath \{\}", keypath\_str)}}
+\DoxyCodeLine{402 }
+\DoxyCodeLine{403         response = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{404         unconfig\_pip\_all = \textcolor{keyword}{True}}
+\DoxyCodeLine{405 }
+\DoxyCodeLine{406         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'ip'} \textcolor{keywordflow}{in} arg\_map.keys() :}
+\DoxyCodeLine{407             unconfig\_pip\_all = \textcolor{keyword}{False}}
+\DoxyCodeLine{408             keypath = cc.Path(keypath\_str + \textcolor{stringliteral}{'advertise-\/pip-\/ip'})}
+\DoxyCodeLine{409             response = api.delete(keypath)}
+\DoxyCodeLine{410             \textcolor{keywordflow}{if} response.ok() == \textcolor{keyword}{False} : \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{411 }
+\DoxyCodeLine{412         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'peer'} \textcolor{keywordflow}{in} arg\_map.keys() :}
+\DoxyCodeLine{413             unconfig\_pip\_all = \textcolor{keyword}{False}}
+\DoxyCodeLine{414             keypath = cc.Path(keypath\_str + \textcolor{stringliteral}{'advertise-\/pip-\/peer-\/ip'})}
+\DoxyCodeLine{415             response = api.delete(keypath)}
+\DoxyCodeLine{416             \textcolor{keywordflow}{if} response.ok() == \textcolor{keyword}{False} : \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{417 }
+\DoxyCodeLine{418         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'mac'} \textcolor{keywordflow}{in} arg\_map.keys() :}
+\DoxyCodeLine{419             unconfig\_pip\_all = \textcolor{keyword}{False}}
+\DoxyCodeLine{420             keypath = cc.Path(keypath\_str + \textcolor{stringliteral}{'advertise-\/pip-\/mac'})}
+\DoxyCodeLine{421             response = api.delete(keypath)}
+\DoxyCodeLine{422             \textcolor{keywordflow}{if} response.ok() == \textcolor{keyword}{False} : \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{423 }
+\DoxyCodeLine{424         \textcolor{keywordflow}{if} unconfig\_pip\_all :}
+\DoxyCodeLine{425             \textcolor{keywordflow}{if} arg\_map[\textcolor{stringliteral}{'vrf'}] != \textcolor{stringliteral}{'default'} :}
+\DoxyCodeLine{426                 \textcolor{keywordflow}{return} api.\_make\_error\_response(\textcolor{stringliteral}{"no advertise-\/pip command not allowed for non default VRFs"})}
+\DoxyCodeLine{427             keypath = cc.Path(keypath\_str + \textcolor{stringliteral}{'advertise-\/pip-\/ip'})}
+\DoxyCodeLine{428             response = api.delete(keypath)}
+\DoxyCodeLine{429             \textcolor{keywordflow}{if} response.ok() == \textcolor{keyword}{False} : \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{430             \textcolor{keywordflow}{if} arg\_map[\textcolor{stringliteral}{'vrf'}] == \textcolor{stringliteral}{'default'} : }
+\DoxyCodeLine{431                 keypath = cc.Path(keypath\_str + \textcolor{stringliteral}{'advertise-\/pip-\/peer-\/ip'})}
+\DoxyCodeLine{432                 response = api.delete(keypath)}
+\DoxyCodeLine{433                 \textcolor{keywordflow}{if} response.ok() == \textcolor{keyword}{False} : \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{434             \textcolor{keywordflow}{if} arg\_map[\textcolor{stringliteral}{'vrf'}] != \textcolor{stringliteral}{'default'} :}
+\DoxyCodeLine{435                  keypath = cc.Path(keypath\_str + \textcolor{stringliteral}{'advertise-\/pip-\/mac'})}
+\DoxyCodeLine{436                  response = api.delete(keypath)}
+\DoxyCodeLine{437                  \textcolor{keywordflow}{if} response.ok() == \textcolor{keyword}{False} : \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{438             keypath = cc.Path(keypath\_str)}
+\DoxyCodeLine{439             pip\_cfg\_data = \{\textcolor{stringliteral}{'openconfig-\/bgp-\/evpn-\/ext:advertise-\/pip'}: \textcolor{keyword}{False} \}}
+\DoxyCodeLine{440             body = \{ \textcolor{stringliteral}{'openconfig-\/bgp-\/evpn-\/ext:config'} : pip\_cfg\_data \}}
+\DoxyCodeLine{441             response = api.patch(keypath, body)}
+\DoxyCodeLine{442             \textcolor{comment}{\#keypath = cc.Path(keypath\_str + 'advertise-\/pip')}}
+\DoxyCodeLine{443             \textcolor{comment}{\#response = api.delete(keypath)}}
+\DoxyCodeLine{444             \textcolor{keywordflow}{if} response.ok() == \textcolor{keyword}{False} : \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{445 }
+\DoxyCodeLine{446         \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{447 }
+\DoxyCodeLine{448     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{449         body = \{\}}
+\DoxyCodeLine{450 }
+\DoxyCodeLine{451     \textcolor{keywordflow}{return} api.cli\_not\_implemented(func)}
+\DoxyCodeLine{452 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d88/namespacesonic__cli__bgp__evpn_ac1fbe7ed57a8c1d182c1d085d79095f7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__bgp__evpn_a2bdacda97772abae4bd3739ed392c692}\label{namespacesonic__cli__bgp__evpn_a2bdacda97772abae4bd3739ed392c692}} 
+\index{sonic\_cli\_bgp\_evpn@{sonic\_cli\_bgp\_evpn}!run@{run}}
+\index{run@{run}!sonic\_cli\_bgp\_evpn@{sonic\_cli\_bgp\_evpn}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+bgp\+\_\+evpn.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+bgp\+\_\+evpn.\+py 파일의 453 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{453 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__bgp__evpn_a2bdacda97772abae4bd3739ed392c692}{run}}(func, args):}
+\DoxyCodeLine{454     response = \mbox{\hyperlink{namespacesonic__cli__bgp__evpn_ac1fbe7ed57a8c1d182c1d085d79095f7}{invoke\_api}}(func, args)}
+\DoxyCodeLine{455 }
+\DoxyCodeLine{456     \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{457         \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{458             print(\textcolor{stringliteral}{"Failed"})}
+\DoxyCodeLine{459     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{460         print(response.error\_message())}
+\DoxyCodeLine{461 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d88/namespacesonic__cli__bgp__evpn_a2bdacda97772abae4bd3739ed392c692_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__bgp__evpn_a3bebbc30c2ca681e486e0f51864a2c9e}\label{namespacesonic__cli__bgp__evpn_a3bebbc30c2ca681e486e0f51864a2c9e}} 
+\index{sonic\_cli\_bgp\_evpn@{sonic\_cli\_bgp\_evpn}!func@{func}}
+\index{func@{func}!sonic\_cli\_bgp\_evpn@{sonic\_cli\_bgp\_evpn}}
+\doxysubsubsection{\texorpdfstring{func}{func}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+bgp\+\_\+evpn.\+func = sys.\+argv\mbox{[}1\mbox{]}}
+
+
+
+sonic\+\_\+cli\+\_\+bgp\+\_\+evpn.\+py 파일의 465 번째 라인에서 정의되었습니다.
+

@@ -1,0 +1,55 @@
+\hypertarget{namespaceshow__config__copp}{}\doxysection{show\+\_\+config\+\_\+copp 네임스페이스 참조}
+\label{namespaceshow__config__copp}\index{show\_config\_copp@{show\_config\_copp}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceshow__config__copp_a41c4eaa47fcab681158ee1b8a9025da0}{show\+\_\+copp\+\_\+police}} (render\+\_\+tables)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespaceshow__config__copp_a41c4eaa47fcab681158ee1b8a9025da0}\label{namespaceshow__config__copp_a41c4eaa47fcab681158ee1b8a9025da0}} 
+\index{show\_config\_copp@{show\_config\_copp}!show\_copp\_police@{show\_copp\_police}}
+\index{show\_copp\_police@{show\_copp\_police}!show\_config\_copp@{show\_config\_copp}}
+\doxysubsubsection{\texorpdfstring{show\_copp\_police()}{show\_copp\_police()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+copp.\+show\+\_\+copp\+\_\+police (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+copp.\+py 파일의 1 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__copp_a41c4eaa47fcab681158ee1b8a9025da0}{show\_copp\_police}}(render\_tables):}
+\DoxyCodeLine{2     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{3     cmd\_prfx = \textcolor{stringliteral}{'police'}}
+\DoxyCodeLine{4     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/copp:sonic-\/copp/COPP\_GROUP/COPP\_GROUP\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{5         police\_inst = render\_tables[\textcolor{stringliteral}{'sonic-\/copp:sonic-\/copp/COPP\_GROUP/COPP\_GROUP\_LIST'}]}
+\DoxyCodeLine{6         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'cir'} \textcolor{keywordflow}{in} police\_inst:}
+\DoxyCodeLine{7             cmd\_prfx += \textcolor{stringliteral}{' cir '} + police\_inst[\textcolor{stringliteral}{'cir'}]}
+\DoxyCodeLine{8             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'cbs'} \textcolor{keywordflow}{in} police\_inst:}
+\DoxyCodeLine{9                 cmd\_prfx += \textcolor{stringliteral}{' cbs '} + police\_inst[\textcolor{stringliteral}{'cbs'}]}
+\DoxyCodeLine{10                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'pir'} \textcolor{keywordflow}{in} police\_inst:}
+\DoxyCodeLine{11                     cmd\_prfx += \textcolor{stringliteral}{' pir '} + police\_inst[\textcolor{stringliteral}{'pir'}]}
+\DoxyCodeLine{12                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'pbs'} \textcolor{keywordflow}{in} police\_inst:}
+\DoxyCodeLine{13                         cmd\_prfx += \textcolor{stringliteral}{' pbs '} + police\_inst[\textcolor{stringliteral}{'pbs'}]}
+\DoxyCodeLine{14         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'meter\_type'} \textcolor{keywordflow}{in} police\_inst:}
+\DoxyCodeLine{15             meter\_type = police\_inst[\textcolor{stringliteral}{'meter\_type'}]}
+\DoxyCodeLine{16             \textcolor{keywordflow}{if} meter\_type == \textcolor{stringliteral}{'packets'}:}
+\DoxyCodeLine{17                 meter\_type = \textcolor{stringliteral}{'pps'}}
+\DoxyCodeLine{18             \textcolor{keywordflow}{if} meter\_type == \textcolor{stringliteral}{'bytes'}:}
+\DoxyCodeLine{19                 meter\_type = \textcolor{stringliteral}{'bps'}}
+\DoxyCodeLine{20             cmd\_prfx += \textcolor{stringliteral}{';police meter-\/type '} + meter\_type}
+\DoxyCodeLine{21         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'mode'} \textcolor{keywordflow}{in} police\_inst:}
+\DoxyCodeLine{22             cmd\_prfx += \textcolor{stringliteral}{';police mode '} + police\_inst[\textcolor{stringliteral}{'mode'}]}
+\DoxyCodeLine{23             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'green\_action'} \textcolor{keywordflow}{in} police\_inst:}
+\DoxyCodeLine{24                 cmd\_prfx += \textcolor{stringliteral}{' green '} + police\_inst[\textcolor{stringliteral}{'green\_action'}]}
+\DoxyCodeLine{25             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'yellow\_action'} \textcolor{keywordflow}{in} police\_inst:}
+\DoxyCodeLine{26                 cmd\_prfx += \textcolor{stringliteral}{' yellow '} + police\_inst[\textcolor{stringliteral}{'yellow\_action'}]}
+\DoxyCodeLine{27             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'red\_action'} \textcolor{keywordflow}{in} police\_inst:}
+\DoxyCodeLine{28                 cmd\_prfx += \textcolor{stringliteral}{' red '} + police\_inst[\textcolor{stringliteral}{'red\_action'}]}
+\DoxyCodeLine{29         cmd\_str = cmd\_prfx}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+
+\end{DoxyCode}

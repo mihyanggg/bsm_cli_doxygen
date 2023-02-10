@@ -1,0 +1,408 @@
+\hypertarget{namespacesonic__cli__ipsla}{}\doxysection{sonic\+\_\+cli\+\_\+ipsla 네임스페이스 참조}
+\label{namespacesonic__cli__ipsla}\index{sonic\_cli\_ipsla@{sonic\_cli\_ipsla}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__ipsla_a01a111c913ee542b714a7dbf4aaed8c1}{invoke}} (func, args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__ipsla_a6b85f72ed7b9f08595f89e54125112bf}{run}} (func, args)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__ipsla_a01a111c913ee542b714a7dbf4aaed8c1}\label{namespacesonic__cli__ipsla_a01a111c913ee542b714a7dbf4aaed8c1}} 
+\index{sonic\_cli\_ipsla@{sonic\_cli\_ipsla}!invoke@{invoke}}
+\index{invoke@{invoke}!sonic\_cli\_ipsla@{sonic\_cli\_ipsla}}
+\doxysubsubsection{\texorpdfstring{invoke()}{invoke()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+ipsla.\+invoke (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+ipsla.\+py 파일의 31 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{31 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__ipsla_a01a111c913ee542b714a7dbf4aaed8c1}{invoke}}(func, args):}
+\DoxyCodeLine{32     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{33     aa = cc.ApiClient()}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{comment}{\# nothing}}
+\DoxyCodeLine{36     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{''}:}
+\DoxyCodeLine{37         keypath = cc.Path(\textcolor{stringliteral}{''})}
+\DoxyCodeLine{38         \textcolor{keywordflow}{return} aa.get(keypath)}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{comment}{\# IP SLA show}}
+\DoxyCodeLine{41     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'get\_ipsla'}:}
+\DoxyCodeLine{42         \textcolor{keywordflow}{if} len(args) == 1:}
+\DoxyCodeLine{43             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas'})}
+\DoxyCodeLine{44             \textcolor{keywordflow}{return} aa.get(keypath)}
+\DoxyCodeLine{45         \textcolor{keywordflow}{elif} len(args) == 2 \textcolor{keywordflow}{and} args[1] == \textcolor{stringliteral}{'x'}:}
+\DoxyCodeLine{46             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{id\}'}, id=args[0])}
+\DoxyCodeLine{47             \textcolor{keywordflow}{return} aa.get(keypath)}
+\DoxyCodeLine{48         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{49             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/operations/openconfig-\/ip-\/sla:get-\/ipsla-\/history'})}
+\DoxyCodeLine{50             body = \{\textcolor{stringliteral}{"openconfig-\/ip-\/sla:input"}: \{\textcolor{stringliteral}{"ip-\/sla-\/id"}: args[0]\}\}}
+\DoxyCodeLine{51             \textcolor{keywordflow}{return} aa.post(keypath, body)}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{comment}{\# IP SLA clear}}
+\DoxyCodeLine{54     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'clear\_ipsla'}:}
+\DoxyCodeLine{55         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/ip-\/sla:clear-\/ipsla-\/counters'})}
+\DoxyCodeLine{56         body = \{\textcolor{stringliteral}{"sonic-\/ip-\/sla:input"}: \{\textcolor{stringliteral}{"ip\_sla\_id"}: args[0]\}\}}
+\DoxyCodeLine{57         \textcolor{keywordflow}{return} aa.post(keypath, body)}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'clear\_ipsla\_all'}:}
+\DoxyCodeLine{60         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/ip-\/sla:clear-\/ipsla-\/counters'})}
+\DoxyCodeLine{61         body = \{\textcolor{stringliteral}{"sonic-\/ip-\/sla:input"}: \{\textcolor{stringliteral}{"ip\_sla\_id"}: \textcolor{stringliteral}{"all"}\}\}}
+\DoxyCodeLine{62         \textcolor{keywordflow}{return} aa.post(keypath, body)}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \textcolor{comment}{\# IP SLA delete}}
+\DoxyCodeLine{65     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'del\_ipsla'} :}
+\DoxyCodeLine{66         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}'}, slaid=args[0])}
+\DoxyCodeLine{67         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69     \textcolor{comment}{\# IP SLA set}}
+\DoxyCodeLine{70     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'post\_ipsla'} :}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas'}, slaid=args[0])}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74         body=collections.defaultdict(dict)}
+\DoxyCodeLine{75         def\_enable\_value = \textcolor{keyword}{True}}
+\DoxyCodeLine{76         \textcolor{comment}{\#body = \{"openconfig-\/ip-\/sla:config": \{"ip-\/sla-\/id": int(args[0]), "enabled": def\_enable\_value\}\}}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78         body = \{\textcolor{stringliteral}{"openconfig-\/ip-\/sla:ip-\/slas"}: \{\textcolor{stringliteral}{"ip-\/sla"}: [\{\textcolor{stringliteral}{"ip-\/sla-\/id"}: int(args[0]), \textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"ip-\/sla-\/id"}: int(args[0]), \textcolor{stringliteral}{"enabled"}: def\_enable\_value\}\}]\}\}}
+\DoxyCodeLine{79         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81     \textcolor{comment}{\# IP SLA frequency delete}}
+\DoxyCodeLine{82     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'del\_freq'} :}
+\DoxyCodeLine{83         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config/frequency'}, slaid=args[0])}
+\DoxyCodeLine{84         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     \textcolor{comment}{\# IP SLA frequency set}}
+\DoxyCodeLine{87     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_freq'} :}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config'}, slaid=args[0])}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91         body=collections.defaultdict(dict)}
+\DoxyCodeLine{92         body = \{\textcolor{stringliteral}{"openconfig-\/ip-\/sla:config"}: \{\textcolor{stringliteral}{"frequency"}: int(args[1])\}\}}
+\DoxyCodeLine{93         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96     \textcolor{comment}{\# IP SLA threshold delete}}
+\DoxyCodeLine{97     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'del\_threshold'} :}
+\DoxyCodeLine{98         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config/threshold'}, slaid=args[0])}
+\DoxyCodeLine{99         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101     \textcolor{comment}{\# IP SLA threshold set}}
+\DoxyCodeLine{102     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_threshold'} :}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config'}, slaid=args[0])}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106         body=collections.defaultdict(dict)}
+\DoxyCodeLine{107         body = \{\textcolor{stringliteral}{"openconfig-\/ip-\/sla:config"}: \{\textcolor{stringliteral}{"threshold"}: int(args[1])\}\}}
+\DoxyCodeLine{108         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110     \textcolor{comment}{\# IP SLA timeout delete}}
+\DoxyCodeLine{111     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'del\_timeout'} :}
+\DoxyCodeLine{112         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config/timeout'}, slaid=args[0])}
+\DoxyCodeLine{113         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115     \textcolor{comment}{\# IP SLA timeout set}}
+\DoxyCodeLine{116     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_timeout'} :}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config'}, slaid=args[0])}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120         body=collections.defaultdict(dict)}
+\DoxyCodeLine{121         body = \{\textcolor{stringliteral}{"openconfig-\/ip-\/sla:config"}: \{\textcolor{stringliteral}{"timeout"}: int(args[1])\}\}}
+\DoxyCodeLine{122         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124     \textcolor{comment}{\# IP SLA icmp-\/echo delete}}
+\DoxyCodeLine{125     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'del\_icmp'} :}
+\DoxyCodeLine{126         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config/icmp-\/source-\/ip'}, slaid=args[0])}
+\DoxyCodeLine{127         aa.delete(keypath)}
+\DoxyCodeLine{128         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config/icmp-\/source-\/interface'}, slaid=args[0])}
+\DoxyCodeLine{129         aa.delete(keypath)}
+\DoxyCodeLine{130         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config/icmp-\/size'}, slaid=args[0])}
+\DoxyCodeLine{131         aa.delete(keypath)}
+\DoxyCodeLine{132         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config/icmp-\/vrf'}, slaid=args[0])}
+\DoxyCodeLine{133         aa.delete(keypath)}
+\DoxyCodeLine{134         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config/icmp-\/ttl'}, slaid=args[0])}
+\DoxyCodeLine{135         aa.delete(keypath)}
+\DoxyCodeLine{136         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config/icmp-\/tos'}, slaid=args[0])}
+\DoxyCodeLine{137         aa.delete(keypath)}
+\DoxyCodeLine{138         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config/icmp-\/dst-\/ip'}, slaid=args[0])}
+\DoxyCodeLine{139         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141     \textcolor{comment}{\# IP SLA icmp-\/echo set}}
+\DoxyCodeLine{142     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_icmp'} :}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config'}, slaid=args[0])}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146         body=collections.defaultdict(dict)}
+\DoxyCodeLine{147         \textcolor{keywordflow}{if} len(args) == 2:}
+\DoxyCodeLine{148             body = \{\textcolor{stringliteral}{"openconfig-\/ip-\/sla:config"}: \{\textcolor{stringliteral}{"icmp-\/dst-\/ip"}:args[1]\}\}}
+\DoxyCodeLine{149         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{150             body = \{\textcolor{stringliteral}{"openconfig-\/ip-\/sla:config"}: \{\textcolor{stringliteral}{"icmp-\/dst-\/ip"}:args[1],\textcolor{stringliteral}{"icmp-\/vrf"}:args[2]\}\}}
+\DoxyCodeLine{151         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153     \textcolor{comment}{\# IP SLA tcp-\/connect delete}}
+\DoxyCodeLine{154     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'del\_tcp'} :}
+\DoxyCodeLine{155         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config/tcp-\/source-\/ip'}, slaid=args[0])}
+\DoxyCodeLine{156         aa.delete(keypath)}
+\DoxyCodeLine{157         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config/tcp-\/source-\/interface'}, slaid=args[0])}
+\DoxyCodeLine{158         aa.delete(keypath)}
+\DoxyCodeLine{159         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config/tcp-\/source-\/port'}, slaid=args[0])}
+\DoxyCodeLine{160         aa.delete(keypath)}
+\DoxyCodeLine{161         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config/tcp-\/dst-\/port'}, slaid=args[0])}
+\DoxyCodeLine{162         aa.delete(keypath)}
+\DoxyCodeLine{163         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config/tcp-\/vrf'}, slaid=args[0])}
+\DoxyCodeLine{164         aa.delete(keypath)}
+\DoxyCodeLine{165         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config/tcp-\/ttl'}, slaid=args[0])}
+\DoxyCodeLine{166         aa.delete(keypath)}
+\DoxyCodeLine{167         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config/tcp-\/tos'}, slaid=args[0])}
+\DoxyCodeLine{168         aa.delete(keypath)}
+\DoxyCodeLine{169         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config/tcp-\/dst-\/ip'}, slaid=args[0])}
+\DoxyCodeLine{170         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{172     \textcolor{comment}{\# IP SLA tcp-\/connect set}}
+\DoxyCodeLine{173     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_tcp'} :}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{175         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config'}, slaid=args[0])}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177         body=collections.defaultdict(dict)}
+\DoxyCodeLine{178         \textcolor{keywordflow}{if} len(args) == 3:}
+\DoxyCodeLine{179             body = \{\textcolor{stringliteral}{"openconfig-\/ip-\/sla:config"}: \{\textcolor{stringliteral}{"tcp-\/dst-\/ip"}:args[1],\textcolor{stringliteral}{"tcp-\/dst-\/port"}:int(args[2])\}\}}
+\DoxyCodeLine{180         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{181             body = \{\textcolor{stringliteral}{"openconfig-\/ip-\/sla:config"}: \{\textcolor{stringliteral}{"tcp-\/dst-\/ip"}:args[1],\textcolor{stringliteral}{"tcp-\/dst-\/port"}:int(args[2]),\textcolor{stringliteral}{"tcp-\/vrf"}:args[3]\}\}}
+\DoxyCodeLine{182         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184     \textcolor{comment}{\# IP SLA icmp-\/echo source-\/ip delete}}
+\DoxyCodeLine{185     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'del\_icmp\_src\_ip'} :}
+\DoxyCodeLine{186         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config/icmp-\/source-\/ip'}, slaid=args[0])}
+\DoxyCodeLine{187         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189     \textcolor{comment}{\# IP SLA icmp-\/echo source-\/ip set}}
+\DoxyCodeLine{190     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_icmp\_src\_ip'} :}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{192         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config'}, slaid=args[0])}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{194         body=collections.defaultdict(dict)}
+\DoxyCodeLine{195         body = \{\textcolor{stringliteral}{"openconfig-\/ip-\/sla:config"}: \{\textcolor{stringliteral}{"icmp-\/source-\/ip"}:args[1]\}\}}
+\DoxyCodeLine{196         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{198     \textcolor{comment}{\# IP SLA icmp-\/echo source-\/if delete}}
+\DoxyCodeLine{199     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'del\_icmp\_src\_if'} :}
+\DoxyCodeLine{200         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config/icmp-\/source-\/interface'}, slaid=args[0])}
+\DoxyCodeLine{201         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{202 }
+\DoxyCodeLine{203     \textcolor{comment}{\# IP SLA icmp-\/echo source-\/if set}}
+\DoxyCodeLine{204     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_icmp\_src\_if'} :}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{206         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config'}, slaid=args[0])}
+\DoxyCodeLine{207         ifname = args[1]}
+\DoxyCodeLine{208         body=collections.defaultdict(dict)}
+\DoxyCodeLine{209         body = \{\textcolor{stringliteral}{"openconfig-\/ip-\/sla:config"}: \{\textcolor{stringliteral}{"icmp-\/source-\/interface"}:ifname\}\}}
+\DoxyCodeLine{210         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{211 }
+\DoxyCodeLine{212     \textcolor{comment}{\# IP SLA icmp-\/echo data-\/size delete}}
+\DoxyCodeLine{213     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'del\_icmp\_data\_size'} :}
+\DoxyCodeLine{214         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config/icmp-\/size'}, slaid=args[0])}
+\DoxyCodeLine{215         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{216 }
+\DoxyCodeLine{217     \textcolor{comment}{\# IP SLA icmp-\/echo data-\/size set}}
+\DoxyCodeLine{218     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_icmp\_data\_size'} :}
+\DoxyCodeLine{219 }
+\DoxyCodeLine{220         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config'}, slaid=args[0])}
+\DoxyCodeLine{221 }
+\DoxyCodeLine{222         body=collections.defaultdict(dict)}
+\DoxyCodeLine{223         body = \{\textcolor{stringliteral}{"openconfig-\/ip-\/sla:config"}: \{\textcolor{stringliteral}{"icmp-\/size"}: int(args[1])\}\}}
+\DoxyCodeLine{224         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{225 }
+\DoxyCodeLine{226     \textcolor{comment}{\# IP SLA icmp-\/echo vrf delete}}
+\DoxyCodeLine{227     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'del\_icmp\_vrf'} :}
+\DoxyCodeLine{228         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config/icmp-\/vrf'}, slaid=args[0])}
+\DoxyCodeLine{229         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{230 }
+\DoxyCodeLine{231     \textcolor{comment}{\# IP SLA icmp-\/echo vrf set}}
+\DoxyCodeLine{232     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_icmp\_vrf'} :}
+\DoxyCodeLine{233 }
+\DoxyCodeLine{234         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config'}, slaid=args[0])}
+\DoxyCodeLine{235 }
+\DoxyCodeLine{236         body=collections.defaultdict(dict)}
+\DoxyCodeLine{237         body = \{\textcolor{stringliteral}{"openconfig-\/ip-\/sla:config"}: \{\textcolor{stringliteral}{"icmp-\/vrf"}:args[1]\}\}}
+\DoxyCodeLine{238         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{239 }
+\DoxyCodeLine{240     \textcolor{comment}{\# IP SLA icmp-\/echo ttl delete}}
+\DoxyCodeLine{241     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'del\_icmp\_ttl'} :}
+\DoxyCodeLine{242         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config/icmp-\/ttl'}, slaid=args[0])}
+\DoxyCodeLine{243         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{244 }
+\DoxyCodeLine{245     \textcolor{comment}{\# IP SLA icmp-\/echo ttl set}}
+\DoxyCodeLine{246     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_icmp\_ttl'} :}
+\DoxyCodeLine{247 }
+\DoxyCodeLine{248         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config'}, slaid=args[0])}
+\DoxyCodeLine{249 }
+\DoxyCodeLine{250         body=collections.defaultdict(dict)}
+\DoxyCodeLine{251         body = \{\textcolor{stringliteral}{"openconfig-\/ip-\/sla:config"}: \{\textcolor{stringliteral}{"icmp-\/ttl"}: int(args[1])\}\}}
+\DoxyCodeLine{252         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{253 }
+\DoxyCodeLine{254     \textcolor{comment}{\# IP SLA icmp-\/echo tos delete}}
+\DoxyCodeLine{255     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'del\_icmp\_tos'} :}
+\DoxyCodeLine{256         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config/icmp-\/tos'}, slaid=args[0])}
+\DoxyCodeLine{257         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{258 }
+\DoxyCodeLine{259     \textcolor{comment}{\# IP SLA icmp-\/echo tos set}}
+\DoxyCodeLine{260     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_icmp\_tos'} :}
+\DoxyCodeLine{261 }
+\DoxyCodeLine{262         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config'}, slaid=args[0])}
+\DoxyCodeLine{263 }
+\DoxyCodeLine{264         body=collections.defaultdict(dict)}
+\DoxyCodeLine{265         body = \{\textcolor{stringliteral}{"openconfig-\/ip-\/sla:config"}: \{\textcolor{stringliteral}{"icmp-\/tos"}: int(args[1])\}\}}
+\DoxyCodeLine{266         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{267 }
+\DoxyCodeLine{268 }
+\DoxyCodeLine{269     \textcolor{comment}{\# IP SLA tcp-\/connect source-\/ip delete}}
+\DoxyCodeLine{270     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'del\_tcp\_src\_ip'} :}
+\DoxyCodeLine{271         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config/tcp-\/source-\/ip'}, slaid=args[0])}
+\DoxyCodeLine{272         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{273 }
+\DoxyCodeLine{274     \textcolor{comment}{\# IP SLA tcp-\/connect source-\/ip set}}
+\DoxyCodeLine{275     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_tcp\_src\_ip'} :}
+\DoxyCodeLine{276 }
+\DoxyCodeLine{277         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config'}, slaid=args[0])}
+\DoxyCodeLine{278 }
+\DoxyCodeLine{279         body=collections.defaultdict(dict)}
+\DoxyCodeLine{280         body = \{\textcolor{stringliteral}{"openconfig-\/ip-\/sla:config"}: \{\textcolor{stringliteral}{"tcp-\/source-\/ip"}:args[1]\}\}}
+\DoxyCodeLine{281         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{282 }
+\DoxyCodeLine{283     \textcolor{comment}{\# IP SLA tcp-\/connect source-\/port delete}}
+\DoxyCodeLine{284     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'del\_tcp\_src\_port'} :}
+\DoxyCodeLine{285         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config/tcp-\/source-\/port'}, slaid=args[0])}
+\DoxyCodeLine{286         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{287 }
+\DoxyCodeLine{288     \textcolor{comment}{\# IP SLA tcp-\/connect source-\/port set}}
+\DoxyCodeLine{289     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_tcp\_src\_port'} :}
+\DoxyCodeLine{290         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config'}, slaid=args[0])}
+\DoxyCodeLine{291 }
+\DoxyCodeLine{292         body=collections.defaultdict(dict)}
+\DoxyCodeLine{293         body = \{\textcolor{stringliteral}{"openconfig-\/ip-\/sla:config"}: \{\textcolor{stringliteral}{"tcp-\/source-\/port"}:int(args[1])\}\}}
+\DoxyCodeLine{294         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{295 }
+\DoxyCodeLine{296     \textcolor{comment}{\# IP SLA tcp-\/connect source-\/if delete}}
+\DoxyCodeLine{297     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'del\_tcp\_src\_if'} :}
+\DoxyCodeLine{298         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config/tcp-\/source-\/interface'}, slaid=args[0])}
+\DoxyCodeLine{299         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{300 }
+\DoxyCodeLine{301     \textcolor{comment}{\# IP SLA tcp-\/connect source-\/if set}}
+\DoxyCodeLine{302     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_tcp\_src\_if'} :}
+\DoxyCodeLine{303 }
+\DoxyCodeLine{304         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config'}, slaid=args[0])}
+\DoxyCodeLine{305         ifname = args[1]}
+\DoxyCodeLine{306         body=collections.defaultdict(dict)}
+\DoxyCodeLine{307         body = \{\textcolor{stringliteral}{"openconfig-\/ip-\/sla:config"}: \{\textcolor{stringliteral}{"tcp-\/source-\/interface"}:ifname\}\}}
+\DoxyCodeLine{308         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{309 }
+\DoxyCodeLine{310 }
+\DoxyCodeLine{311     \textcolor{comment}{\# IP SLA tcp-\/connect vrf delete}}
+\DoxyCodeLine{312     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'del\_tcp\_vrf'} :}
+\DoxyCodeLine{313         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config/tcp-\/vrf'}, slaid=args[0])}
+\DoxyCodeLine{314         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{315 }
+\DoxyCodeLine{316     \textcolor{comment}{\# IP SLA tcp-\/connect vrf set}}
+\DoxyCodeLine{317     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_tcp\_vrf'} :}
+\DoxyCodeLine{318 }
+\DoxyCodeLine{319         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config'}, slaid=args[0])}
+\DoxyCodeLine{320 }
+\DoxyCodeLine{321         body=collections.defaultdict(dict)}
+\DoxyCodeLine{322         body = \{\textcolor{stringliteral}{"openconfig-\/ip-\/sla:config"}: \{\textcolor{stringliteral}{"tcp-\/vrf"}:args[1]\}\}}
+\DoxyCodeLine{323         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{324 }
+\DoxyCodeLine{325     \textcolor{comment}{\# IP SLA tcp-\/connect tos delete}}
+\DoxyCodeLine{326     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'del\_tcp\_tos'} :}
+\DoxyCodeLine{327         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config/tcp-\/tos'}, slaid=args[0])}
+\DoxyCodeLine{328         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{329 }
+\DoxyCodeLine{330     \textcolor{comment}{\# IP SLA tcp-\/connect tos set}}
+\DoxyCodeLine{331     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_tcp\_tos'} :}
+\DoxyCodeLine{332 }
+\DoxyCodeLine{333         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config'}, slaid=args[0])}
+\DoxyCodeLine{334 }
+\DoxyCodeLine{335         body=collections.defaultdict(dict)}
+\DoxyCodeLine{336         body = \{\textcolor{stringliteral}{"openconfig-\/ip-\/sla:config"}: \{\textcolor{stringliteral}{"tcp-\/tos"}: int(args[1])\}\}}
+\DoxyCodeLine{337         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{338 }
+\DoxyCodeLine{339     \textcolor{comment}{\# IP SLA tcp-\/connect ttl delete}}
+\DoxyCodeLine{340     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'del\_tcp\_ttl'} :}
+\DoxyCodeLine{341         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config/tcp-\/ttl'}, slaid=args[0])}
+\DoxyCodeLine{342         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{343 }
+\DoxyCodeLine{344     \textcolor{comment}{\# IP SLA tcp-\/connect ttl set}}
+\DoxyCodeLine{345     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_tcp\_ttl'} :}
+\DoxyCodeLine{346 }
+\DoxyCodeLine{347         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ip-\/sla:ip-\/slas/ip-\/sla=\{slaid\}/config'}, slaid=args[0])}
+\DoxyCodeLine{348 }
+\DoxyCodeLine{349         body=collections.defaultdict(dict)}
+\DoxyCodeLine{350         body = \{\textcolor{stringliteral}{"openconfig-\/ip-\/sla:config"}: \{\textcolor{stringliteral}{"tcp-\/ttl"}: int(args[1])\}\}}
+\DoxyCodeLine{351         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{352 }
+\DoxyCodeLine{353     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{354         print(\textcolor{stringliteral}{"\%Error: not implemented"})}
+\DoxyCodeLine{355         exit(1)}
+\DoxyCodeLine{356 }
+\DoxyCodeLine{357 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{d1/d26/namespacesonic__cli__ipsla_a01a111c913ee542b714a7dbf4aaed8c1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__ipsla_a6b85f72ed7b9f08595f89e54125112bf}\label{namespacesonic__cli__ipsla_a6b85f72ed7b9f08595f89e54125112bf}} 
+\index{sonic\_cli\_ipsla@{sonic\_cli\_ipsla}!run@{run}}
+\index{run@{run}!sonic\_cli\_ipsla@{sonic\_cli\_ipsla}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+ipsla.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+ipsla.\+py 파일의 358 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{358 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__ipsla_a6b85f72ed7b9f08595f89e54125112bf}{run}}(func, args):}
+\DoxyCodeLine{359     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{360         api\_response = \mbox{\hyperlink{namespacesonic__cli__ipsla_a01a111c913ee542b714a7dbf4aaed8c1}{invoke}}(func, args)}
+\DoxyCodeLine{361 }
+\DoxyCodeLine{362         \textcolor{keywordflow}{if} api\_response.ok():}
+\DoxyCodeLine{363             response = api\_response.content}
+\DoxyCodeLine{364             \textcolor{keywordflow}{if} response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{365                 \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{366             \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'openconfig-\/ip-\/sla:ip-\/sla'} \textcolor{keywordflow}{in} response.keys():}
+\DoxyCodeLine{367                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{"show\_ipsla.j2"}, response)}
+\DoxyCodeLine{368                 \textcolor{keywordflow}{return}}
+\DoxyCodeLine{369             \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'openconfig-\/ip-\/sla:ip-\/slas'} \textcolor{keywordflow}{in} response.keys():}
+\DoxyCodeLine{370                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{"show\_ipsla\_summary.j2"}, response)}
+\DoxyCodeLine{371                 \textcolor{keywordflow}{return}}
+\DoxyCodeLine{372             \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'sonic-\/ip-\/sla:output'} \textcolor{keywordflow}{in} response.keys():}
+\DoxyCodeLine{373                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{"show\_ipsla\_history.j2"}, response)}
+\DoxyCodeLine{374         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{375             print(api\_response.error\_message())}
+\DoxyCodeLine{376             \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{377 }
+\DoxyCodeLine{378     \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{379             \textcolor{comment}{\# system/network error}}
+\DoxyCodeLine{380             \textcolor{keywordflow}{raise}}
+\DoxyCodeLine{381 }
+\DoxyCodeLine{382 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/d26/namespacesonic__cli__ipsla_a6b85f72ed7b9f08595f89e54125112bf_cgraph}
+\end{center}
+\end{figure}

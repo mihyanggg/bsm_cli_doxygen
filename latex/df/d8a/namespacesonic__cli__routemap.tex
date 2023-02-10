@@ -1,0 +1,275 @@
+\hypertarget{namespacesonic__cli__routemap}{}\doxysection{sonic\+\_\+cli\+\_\+routemap 네임스페이스 참조}
+\label{namespacesonic__cli__routemap}\index{sonic\_cli\_routemap@{sonic\_cli\_routemap}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__routemap_ae5b99f218069520bf869ce9d02766a25}{invoke\+\_\+api}} (\mbox{\hyperlink{namespacesonic__cli__routemap_af1200975e831a608dc4bf881030152c5}{func}}, args=\mbox{[}$\,$\mbox{]})
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__routemap_a217b4c14c10960b627e5c562d93628c1}{run}} (\mbox{\hyperlink{namespacesonic__cli__routemap_af1200975e831a608dc4bf881030152c5}{func}}, args)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacesonic__cli__routemap_af1200975e831a608dc4bf881030152c5}{func}} = sys.\+argv\mbox{[}1\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__routemap_ae5b99f218069520bf869ce9d02766a25}\label{namespacesonic__cli__routemap_ae5b99f218069520bf869ce9d02766a25}} 
+\index{sonic\_cli\_routemap@{sonic\_cli\_routemap}!invoke\_api@{invoke\_api}}
+\index{invoke\_api@{invoke\_api}!sonic\_cli\_routemap@{sonic\_cli\_routemap}}
+\doxysubsubsection{\texorpdfstring{invoke\_api()}{invoke\_api()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+routemap.\+invoke\+\_\+api (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args = {\ttfamily \mbox{[}\mbox{]}} }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+routemap.\+py 파일의 30 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{30 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__routemap_ae5b99f218069520bf869ce9d02766a25}{invoke\_api}}(func, args=[]):}
+\DoxyCodeLine{31     api = cc.ApiClient()}
+\DoxyCodeLine{32     keypath = []}
+\DoxyCodeLine{33     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{34     internal\_op = \textcolor{stringliteral}{"REPLACE"}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     op, attr = func.split(\textcolor{stringliteral}{'\_'}, 1)}
+\DoxyCodeLine{37     \textcolor{keywordflow}{if} op == \textcolor{stringliteral}{'patchRemove'}:}
+\DoxyCodeLine{38         internal\_op = \textcolor{stringliteral}{"REMOVE"}}
+\DoxyCodeLine{39         op = \textcolor{stringliteral}{'patch'}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \textcolor{keywordflow}{if} op == \textcolor{stringliteral}{'patch'}:}
+\DoxyCodeLine{42         uri = restconf\_map[attr]}
+\DoxyCodeLine{43         \textcolor{keywordflow}{if} attr == \textcolor{stringliteral}{'openconfig\_routing\_policy\_routing\_policy\_policy\_definitions\_policy\_definition\_statements\_statement\_actions\_config\_policy\_result'}:}
+\DoxyCodeLine{44             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/policy-\/definitions'})}
+\DoxyCodeLine{45             body = \{ \textcolor{stringliteral}{"openconfig-\/routing-\/policy:policy-\/definitions"}:}
+\DoxyCodeLine{46                      \{\textcolor{stringliteral}{"policy-\/definition"}:[\{\textcolor{stringliteral}{"name"}:args[0],\textcolor{stringliteral}{"config"}:\{\textcolor{stringliteral}{"name"}:args[0]\},}
+\DoxyCodeLine{47                       \textcolor{stringliteral}{"statements"}:\{\textcolor{stringliteral}{"statement"}: [\{\textcolor{stringliteral}{"name"}:args[1],\textcolor{stringliteral}{"config"}:\{\textcolor{stringliteral}{"name"}:args[1]\},}
+\DoxyCodeLine{48                        \textcolor{stringliteral}{"actions"}: \{ \textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"policy-\/result"}: \textcolor{stringliteral}{"ACCEPT\_ROUTE"} \textcolor{keywordflow}{if} args[2] == \textcolor{stringliteral}{'permit'} \textcolor{keywordflow}{else} \textcolor{stringliteral}{"REJECT\_ROUTE"}\}\}}
+\DoxyCodeLine{49                        \}] \} \}] \}\}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51             \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53         \textcolor{keywordflow}{elif} attr == \textcolor{stringliteral}{'openconfig\_routing\_policy\_routing\_policy\_policy\_definitions\_policy\_definition\_statements\_statement\_actions\_metric\_action\_config\_set\_metric'}:}
+\DoxyCodeLine{54             \textcolor{comment}{\#print("Set metric arguments -\/ args \{\}".format(args))}}
+\DoxyCodeLine{55             \textcolor{keywordflow}{if} len(args) < 3 :}
+\DoxyCodeLine{56                 \textcolor{keywordflow}{return} api.cli\_not\_implemented(func)}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58             metric\_action = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{59             metric\_value = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{60             metric\_type = args[2]}
+\DoxyCodeLine{61             \textcolor{keywordflow}{if} metric\_type == \textcolor{stringliteral}{'metric'} :}
+\DoxyCodeLine{62                 metric\_value\_str = args[3]}
+\DoxyCodeLine{63                 metric\_action = \textcolor{stringliteral}{'METRIC\_SET\_VALUE'}}
+\DoxyCodeLine{64                 \textcolor{keywordflow}{if} metric\_value\_str.startswith(\textcolor{stringliteral}{'+'}) :}
+\DoxyCodeLine{65                     metric\_value = long(metric\_value\_str[1:])}
+\DoxyCodeLine{66                     metric\_action = \textcolor{stringliteral}{'METRIC\_ADD\_VALUE'}}
+\DoxyCodeLine{67                 \textcolor{keywordflow}{if} metric\_value\_str.startswith(\textcolor{stringliteral}{'-\/'}) :}
+\DoxyCodeLine{68                     metric\_value = long(metric\_value\_str[1:])}
+\DoxyCodeLine{69                     metric\_action = \textcolor{stringliteral}{'METRIC\_SUBTRACT\_VALUE'}}
+\DoxyCodeLine{70                 \textcolor{keywordflow}{else} :}
+\DoxyCodeLine{71                     metric\_value = long(metric\_value\_str)}
+\DoxyCodeLine{72             \textcolor{keywordflow}{elif} metric\_type == \textcolor{stringliteral}{'rtt'} :}
+\DoxyCodeLine{73                 metric\_action = \textcolor{stringliteral}{'METRIC\_SET\_RTT'}}
+\DoxyCodeLine{74             \textcolor{keywordflow}{elif} metric\_type == \textcolor{stringliteral}{'+rtt'} :}
+\DoxyCodeLine{75                 metric\_action = \textcolor{stringliteral}{'METRIC\_ADD\_RTT'}}
+\DoxyCodeLine{76             \textcolor{keywordflow}{elif} metric\_type == \textcolor{stringliteral}{'-\/rtt'} :}
+\DoxyCodeLine{77                 metric\_action = \textcolor{stringliteral}{'METRIC\_SUBTRACT\_RTT'}}
+\DoxyCodeLine{78             \textcolor{keywordflow}{else} :}
+\DoxyCodeLine{79                 \textcolor{keywordflow}{return} api.cli\_not\_implemented(func)}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81             \textcolor{comment}{\#print("Set metric type: \{\} vlaue \{\}".format(metric\_action, metric\_value))}}
+\DoxyCodeLine{82             \textcolor{comment}{\#This block have to be removed once bgp med config is reorganized}}
+\DoxyCodeLine{83             \textcolor{keywordflow}{if} metric\_action == \textcolor{stringliteral}{'METRIC\_SET\_VALUE'}  \textcolor{keywordflow}{and} metric\_value != \textcolor{stringliteral}{''} :}
+\DoxyCodeLine{84                 med\_uri = restconf\_map[\textcolor{stringliteral}{'openconfig\_bgp\_policy\_routing\_policy\_policy\_definitions\_policy\_definition\_statements\_statement\_actions\_bgp\_actions\_config\_set\_med'}]}
+\DoxyCodeLine{85                 med\_keypath = cc.Path(med\_uri, name=args[0], name1=args[1])}
+\DoxyCodeLine{86                 med\_body = \{ \textcolor{stringliteral}{"openconfig-\/bgp-\/policy:set-\/med"} : metric\_value \}}
+\DoxyCodeLine{87                 api.patch(med\_keypath, med\_body)}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89             keypath = cc.Path(uri, name=args[0], name1=args[1])}
+\DoxyCodeLine{90             \textcolor{keywordflow}{if} metric\_value != \textcolor{stringliteral}{''} :}
+\DoxyCodeLine{91                 body = \{\textcolor{stringliteral}{"openconfig-\/routing-\/policy-\/ext:config"}: \{ \textcolor{stringliteral}{"action"}: metric\_action, \textcolor{stringliteral}{"metric"}: metric\_value \}\}}
+\DoxyCodeLine{92             \textcolor{keywordflow}{else} :}
+\DoxyCodeLine{93                 body = \{\textcolor{stringliteral}{"openconfig-\/routing-\/policy-\/ext:config"}: \{ \textcolor{stringliteral}{"action"}: metric\_action \}\}}
+\DoxyCodeLine{94             \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96         \textcolor{keywordflow}{elif} attr == \textcolor{stringliteral}{'openconfig\_bgp\_policy\_routing\_policy\_policy\_definitions\_policy\_definition\_statements\_statement\_actions\_bgp\_actions\_config\_set\_next\_hop'}:}
+\DoxyCodeLine{97             \textcolor{keywordflow}{if} args[2] == \textcolor{stringliteral}{'ipv6'} \textcolor{keywordflow}{and} args[3] == \textcolor{stringliteral}{'prefer-\/global'}:}
+\DoxyCodeLine{98                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/policy-\/definitions/policy-\/definition=\{name\}/statements/statement=\{name1\}/actions/openconfig-\/bgp-\/policy:bgp-\/actions/config/openconfig-\/bgp-\/policy-\/ext:set-\/ipv6-\/next-\/hop-\/prefer-\/global'}, name=args[0], name1=args[1])}
+\DoxyCodeLine{99                 body = \{ \textcolor{stringliteral}{"openconfig-\/bgp-\/policy-\/ext:set-\/ipv6-\/next-\/hop-\/prefer-\/global"} : \textcolor{keyword}{True} \}}
+\DoxyCodeLine{100             \textcolor{keywordflow}{elif} args[2] == \textcolor{stringliteral}{'ipv6'} \textcolor{keywordflow}{and} args[3] == \textcolor{stringliteral}{'global'}:}
+\DoxyCodeLine{101                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/policy-\/definitions/policy-\/definition=\{name\}/statements/statement=\{name1\}/actions/openconfig-\/bgp-\/policy:bgp-\/actions/config/openconfig-\/bgp-\/policy-\/ext:set-\/ipv6-\/next-\/hop-\/global'}, name=args[0], name1=args[1])}
+\DoxyCodeLine{102                 body = \{ \textcolor{stringliteral}{"openconfig-\/bgp-\/policy-\/ext:set-\/ipv6-\/next-\/hop-\/global"} : args[4] \}}
+\DoxyCodeLine{103             \textcolor{keywordflow}{elif} args[2] == \textcolor{stringliteral}{'ipv4'}:}
+\DoxyCodeLine{104                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/policy-\/definitions/policy-\/definition=\{name\}/statements/statement=\{name1\}/actions/openconfig-\/bgp-\/policy:bgp-\/actions/config/set-\/next-\/hop'}, name=args[0], name1=args[1])}
+\DoxyCodeLine{105                 body = \{ \textcolor{stringliteral}{"openconfig-\/bgp-\/policy:set-\/next-\/hop"} : args[3] \}}
+\DoxyCodeLine{106             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{107                 \textcolor{keywordflow}{return} api.cli\_not\_implemented(func)}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109             \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{110         \textcolor{keywordflow}{elif} attr == \textcolor{stringliteral}{'openconfig\_bgp\_policy\_routing\_policy\_policy\_definitions\_policy\_definition\_statements\_statement\_actions\_bgp\_actions\_config\_set\_local\_pref'}:}
+\DoxyCodeLine{111             keypath = cc.Path(uri, name=args[0], name1=args[1])}
+\DoxyCodeLine{112             body = \{ \textcolor{stringliteral}{"openconfig-\/bgp-\/policy:set-\/local-\/pref"} : int(args[2]) \}}
+\DoxyCodeLine{113             \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{114         \textcolor{keywordflow}{elif} attr == \textcolor{stringliteral}{'openconfig\_bgp\_policy\_routing\_policy\_policy\_definitions\_policy\_definition\_statements\_statement\_actions\_bgp\_actions\_config\_set\_med'}:}
+\DoxyCodeLine{115             keypath = cc.Path(uri, name=args[0], name1=args[1])}
+\DoxyCodeLine{116             body = \{ \textcolor{stringliteral}{"openconfig-\/bgp-\/policy:set-\/med"} : int(args[2]) \}}
+\DoxyCodeLine{117             \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{118         \textcolor{keywordflow}{elif} attr == \textcolor{stringliteral}{'openconfig\_bgp\_policy\_routing\_policy\_policy\_definitions\_policy\_definition\_statements\_statement\_actions\_bgp\_actions\_config\_set\_route\_origin'}:}
+\DoxyCodeLine{119             keypath = cc.Path(uri, name=args[0], name1=args[1])}
+\DoxyCodeLine{120             body = \{ \textcolor{stringliteral}{"openconfig-\/bgp-\/policy:set-\/route-\/origin"} : args[2].upper() \}}
+\DoxyCodeLine{121             \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{122         \textcolor{keywordflow}{elif} attr == \textcolor{stringliteral}{'openconfig\_routing\_policy\_ext\_routing\_policy\_policy\_definitions\_policy\_definition\_statements\_statement\_actions\_bgp\_actions\_set\_as\_path\_prepend\_config\_asn\_list'}:}
+\DoxyCodeLine{123             keypath = cc.Path(uri, name=args[0], name1=args[1])}
+\DoxyCodeLine{124             body = \{\textcolor{stringliteral}{"openconfig-\/routing-\/policy-\/ext:asn-\/list"}:args[2]\}}
+\DoxyCodeLine{125             \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{126         \textcolor{keywordflow}{elif} attr == \textcolor{stringliteral}{'bgp\_actions\_set\_community'}:}
+\DoxyCodeLine{127             keypath = cc.Path(uri, name=args[0], name1=args[1])}
+\DoxyCodeLine{128             comm\_list = []}
+\DoxyCodeLine{129             i = 0}
+\DoxyCodeLine{130             \textcolor{keywordflow}{for} arg \textcolor{keywordflow}{in} args[2:]:}
+\DoxyCodeLine{131                 \textcolor{keywordflow}{if} arg == \textcolor{stringliteral}{"additive"}:}
+\DoxyCodeLine{132                     comm\_val = \textcolor{stringliteral}{"ADDITIVE"}}
+\DoxyCodeLine{133                 \textcolor{keywordflow}{elif} arg == \textcolor{stringliteral}{"local-\/as"}: }
+\DoxyCodeLine{134                     comm\_val = \textcolor{stringliteral}{"NO\_EXPORT\_SUBCONFED"}}
+\DoxyCodeLine{135                 \textcolor{keywordflow}{elif} arg == \textcolor{stringliteral}{"no-\/advertise"}:}
+\DoxyCodeLine{136                     comm\_val = \textcolor{stringliteral}{"NO\_ADVERTISE"}}
+\DoxyCodeLine{137                 \textcolor{keywordflow}{elif} arg == \textcolor{stringliteral}{"no-\/export"}:}
+\DoxyCodeLine{138                     comm\_val = \textcolor{stringliteral}{"NO\_EXPORT"}  }
+\DoxyCodeLine{139                 \textcolor{keywordflow}{elif} arg == \textcolor{stringliteral}{"no-\/peer"}: }
+\DoxyCodeLine{140                     comm\_val = \textcolor{stringliteral}{"NOPEER"}}
+\DoxyCodeLine{141                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{142                     comm\_val = arg}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144                 comm\_list.insert(i, comm\_val)}
+\DoxyCodeLine{145                 i = i + 1}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147             body = \{ \textcolor{stringliteral}{"openconfig-\/bgp-\/policy:set-\/community"}: \{ \textcolor{stringliteral}{"config"} : \{ \textcolor{stringliteral}{"method"}:\textcolor{stringliteral}{"INLINE"}, \textcolor{stringliteral}{"options"}: internal\_op \}, \textcolor{stringliteral}{"inline"}: \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"communities"}:comm\_list\}\}\}\}}
+\DoxyCodeLine{148             \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{149         \textcolor{keywordflow}{elif} attr == \textcolor{stringliteral}{'bgp\_actions\_set\_ext\_community'}:}
+\DoxyCodeLine{150             keypath = cc.Path(uri, name=args[0], name1=args[1])}
+\DoxyCodeLine{151             \textcolor{keywordflow}{if} \textcolor{stringliteral}{"rt"} == args[2]:}
+\DoxyCodeLine{152                 body = \{ \textcolor{stringliteral}{"openconfig-\/bgp-\/policy:set-\/ext-\/community"}: \{ \textcolor{stringliteral}{"config"} : \{ \textcolor{stringliteral}{"method"}:\textcolor{stringliteral}{"INLINE"}, \textcolor{stringliteral}{"options"}:args[4]\}, \textcolor{stringliteral}{"inline"}: \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"communities"}:[\textcolor{stringliteral}{"route-\/target:"}+args[3]]\}\}\}\}}
+\DoxyCodeLine{153             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{154                 body = \{ \textcolor{stringliteral}{"openconfig-\/bgp-\/policy:set-\/ext-\/community"}: \{ \textcolor{stringliteral}{"config"} : \{ \textcolor{stringliteral}{"method"}:\textcolor{stringliteral}{"INLINE"}, \textcolor{stringliteral}{"options"}:args[4]\}, \textcolor{stringliteral}{"inline"}: \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"communities"}:[\textcolor{stringliteral}{"route-\/origin:"}+args[3]]\}\}\}\}}
+\DoxyCodeLine{155             \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{156     \textcolor{keywordflow}{elif} op == \textcolor{stringliteral}{'delete'}:}
+\DoxyCodeLine{157         uri = restconf\_map[attr]}
+\DoxyCodeLine{158         \textcolor{keywordflow}{if} attr == \textcolor{stringliteral}{'openconfig\_bgp\_policy\_routing\_policy\_policy\_definitions\_policy\_definition\_statements\_statement\_actions\_bgp\_actions\_config\_set\_next\_hop'}:}
+\DoxyCodeLine{159             \textcolor{keywordflow}{if} args[2] == \textcolor{stringliteral}{'ipv6'} \textcolor{keywordflow}{and} args[3] == \textcolor{stringliteral}{'prefer-\/global'}:}
+\DoxyCodeLine{160                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/policy-\/definitions/policy-\/definition=\{name\}/statements/statement=\{name1\}/actions/openconfig-\/bgp-\/policy:bgp-\/actions/config/openconfig-\/bgp-\/policy-\/ext:set-\/ipv6-\/next-\/hop-\/prefer-\/global'}, name=args[0], name1=args[1])}
+\DoxyCodeLine{161             \textcolor{keywordflow}{elif} args[2] == \textcolor{stringliteral}{'ipv6'} \textcolor{keywordflow}{and} args[3] == \textcolor{stringliteral}{'global'}:}
+\DoxyCodeLine{162                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/policy-\/definitions/policy-\/definition=\{name\}/statements/statement=\{name1\}/actions/openconfig-\/bgp-\/policy:bgp-\/actions/config/openconfig-\/bgp-\/policy-\/ext:set-\/ipv6-\/next-\/hop-\/global'}, name=args[0], name1=args[1])}
+\DoxyCodeLine{163             \textcolor{keywordflow}{elif} args[2] == \textcolor{stringliteral}{'ipv4'}:}
+\DoxyCodeLine{164                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/policy-\/definitions/policy-\/definition=\{name\}/statements/statement=\{name1\}/actions/openconfig-\/bgp-\/policy:bgp-\/actions/config/set-\/next-\/hop'}, name=args[0], name1=args[1])}
+\DoxyCodeLine{165             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{166                 \textcolor{keywordflow}{return} api.cli\_not\_implemented(func)}
+\DoxyCodeLine{167             \textcolor{keywordflow}{return} api.delete(keypath)}
+\DoxyCodeLine{168         \textcolor{keywordflow}{elif} attr == \textcolor{stringliteral}{'openconfig\_routing\_policy\_routing\_policy\_policy\_definitions\_policy\_definition'}:}
+\DoxyCodeLine{169             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/policy-\/definitions/policy-\/definition=\{name\}'},}
+\DoxyCodeLine{170             name=args[0])}
+\DoxyCodeLine{171             \textcolor{keywordflow}{return} api.delete(keypath)}
+\DoxyCodeLine{172         \textcolor{keywordflow}{elif} attr == \textcolor{stringliteral}{'openconfig\_routing\_policy\_routing\_policy\_policy\_definitions\_policy\_definition\_statements\_statement\_actions\_metric\_action\_config\_set\_metric'}:}
+\DoxyCodeLine{173             med\_uri = restconf\_map[\textcolor{stringliteral}{'openconfig\_bgp\_policy\_routing\_policy\_policy\_definitions\_policy\_definition\_statements\_statement\_actions\_bgp\_actions\_config\_set\_med'}]}
+\DoxyCodeLine{174             med\_keypath = cc.Path(med\_uri, name=args[0], name1=args[1])}
+\DoxyCodeLine{175             api.delete(med\_keypath)}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177         keypath = cc.Path(uri, name=args[0], name1=args[1])}
+\DoxyCodeLine{178         \textcolor{keywordflow}{return} api.delete(keypath)}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180     \textcolor{keywordflow}{elif} op == \textcolor{stringliteral}{'get'}:}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{182         \textcolor{keywordflow}{if} attr == \textcolor{stringliteral}{'openconfig\_routing\_policy\_routing\_policy\_policy\_definitions\_policy\_definition'}:}
+\DoxyCodeLine{183             \textcolor{keywordflow}{if} len(args) > 1:}
+\DoxyCodeLine{184                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/policy-\/definitions/policy-\/definition=\{name\}'},name=args[1])}
+\DoxyCodeLine{185             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{186                 keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/routing-\/policy:routing-\/policy/policy-\/definitions'})}
+\DoxyCodeLine{187             \textcolor{keywordflow}{return} api.get(keypath)}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189     \textcolor{keywordflow}{elif} op == \textcolor{stringliteral}{'PyParse'}:}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{191         \textcolor{keywordflow}{if} attr == \textcolor{stringliteral}{'no\_route\_map'}:}
+\DoxyCodeLine{192             \textcolor{keywordflow}{if} args[0] == \textcolor{stringliteral}{"action-\/switch:"}:}
+\DoxyCodeLine{193                 \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__routemap_ae5b99f218069520bf869ce9d02766a25}{invoke\_api}}(\textcolor{stringliteral}{"delete\_openconfig\_routing\_policy\_routing\_policy\_policy\_definitions\_policy\_definition"}, args[1:2])}
+\DoxyCodeLine{194             \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{"action-\/switch:permit"}:}
+\DoxyCodeLine{195                 \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__routemap_ae5b99f218069520bf869ce9d02766a25}{invoke\_api}}(\textcolor{stringliteral}{"delete\_openconfig\_routing\_policy\_routing\_policy\_policy\_definitions\_policy\_definition\_statements\_statement"}, args[1:3] + [ \textcolor{stringliteral}{"ACCEPT\_ROUTE"} ])}
+\DoxyCodeLine{196             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{197                 \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__routemap_ae5b99f218069520bf869ce9d02766a25}{invoke\_api}}(\textcolor{stringliteral}{"delete\_openconfig\_routing\_policy\_routing\_policy\_policy\_definitions\_policy\_definition\_statements\_statement"}, args[1:3] + [ \textcolor{stringliteral}{"REJECT\_ROUTE"} ])}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{199         \textcolor{keywordflow}{elif} attr == \textcolor{stringliteral}{'no\_set\_extcommunity'}:}
+\DoxyCodeLine{200             \textcolor{keywordflow}{if} len(args) == 2:}
+\DoxyCodeLine{201                 \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__routemap_ae5b99f218069520bf869ce9d02766a25}{invoke\_api}}(\textcolor{stringliteral}{"delete\_bgp\_actions\_set\_ext\_community"}, args[0:2])}
+\DoxyCodeLine{202             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{203                 \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__routemap_ae5b99f218069520bf869ce9d02766a25}{invoke\_api}}(\textcolor{stringliteral}{"patch\_bgp\_actions\_set\_ext\_community"}, args[0:5] + [ \textcolor{stringliteral}{"REMOVE"} ])}
+\DoxyCodeLine{204 }
+\DoxyCodeLine{205         \textcolor{keywordflow}{elif} attr == \textcolor{stringliteral}{'set\_community'}:}
+\DoxyCodeLine{206             \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__routemap_ae5b99f218069520bf869ce9d02766a25}{invoke\_api}}(\textcolor{stringliteral}{"patch\_bgp\_actions\_set\_community"}, args)}
+\DoxyCodeLine{207 }
+\DoxyCodeLine{208         \textcolor{keywordflow}{elif} attr == \textcolor{stringliteral}{'no\_set\_community'}:}
+\DoxyCodeLine{209             \textcolor{keywordflow}{if} len(args) == 2:}
+\DoxyCodeLine{210                 \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__routemap_ae5b99f218069520bf869ce9d02766a25}{invoke\_api}}(\textcolor{stringliteral}{"delete\_bgp\_actions\_set\_community"}, args)}
+\DoxyCodeLine{211             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{212                 \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__routemap_ae5b99f218069520bf869ce9d02766a25}{invoke\_api}}(\textcolor{stringliteral}{"patchRemove\_bgp\_actions\_set\_community"}, args)}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{214     \textcolor{keywordflow}{return} api.cli\_not\_implemented(func)}
+\DoxyCodeLine{215 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/d8a/namespacesonic__cli__routemap_ae5b99f218069520bf869ce9d02766a25_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__routemap_a217b4c14c10960b627e5c562d93628c1}\label{namespacesonic__cli__routemap_a217b4c14c10960b627e5c562d93628c1}} 
+\index{sonic\_cli\_routemap@{sonic\_cli\_routemap}!run@{run}}
+\index{run@{run}!sonic\_cli\_routemap@{sonic\_cli\_routemap}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+routemap.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+routemap.\+py 파일의 216 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{216 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__routemap_a217b4c14c10960b627e5c562d93628c1}{run}}(func, args):}
+\DoxyCodeLine{217     response = \mbox{\hyperlink{namespacesonic__cli__routemap_ae5b99f218069520bf869ce9d02766a25}{invoke\_api}}(func, args)}
+\DoxyCodeLine{218 }
+\DoxyCodeLine{219     \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{220         \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{221             \textcolor{comment}{\# Get Command Output}}
+\DoxyCodeLine{222             api\_response = response.content}
+\DoxyCodeLine{223             \textcolor{keywordflow}{if} api\_response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{224                 \textcolor{keywordflow}{print} (\textcolor{stringliteral}{"\%Error: Internal error."})}
+\DoxyCodeLine{225                 \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{226             \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], api\_response)}
+\DoxyCodeLine{227     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{228         \textcolor{keywordflow}{print} response.error\_message()}
+\DoxyCodeLine{229         \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{230 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/d8a/namespacesonic__cli__routemap_a217b4c14c10960b627e5c562d93628c1_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__routemap_af1200975e831a608dc4bf881030152c5}\label{namespacesonic__cli__routemap_af1200975e831a608dc4bf881030152c5}} 
+\index{sonic\_cli\_routemap@{sonic\_cli\_routemap}!func@{func}}
+\index{func@{func}!sonic\_cli\_routemap@{sonic\_cli\_routemap}}
+\doxysubsubsection{\texorpdfstring{func}{func}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+routemap.\+func = sys.\+argv\mbox{[}1\mbox{]}}
+
+
+
+sonic\+\_\+cli\+\_\+routemap.\+py 파일의 234 번째 라인에서 정의되었습니다.
+

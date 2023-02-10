@@ -1,0 +1,701 @@
+\hypertarget{namespacesonic__cli__igmp}{}\doxysection{sonic\+\_\+cli\+\_\+igmp 네임스페이스 참조}
+\label{namespacesonic__cli__igmp}\index{sonic\_cli\_igmp@{sonic\_cli\_igmp}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__igmp_acf695ce74f1e3f7d3af879899939b3e2}{generate\+\_\+show\+\_\+ip\+\_\+igmp\+\_\+sources}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__igmp_af540983f7ef22313819a22b44e06f62c}{generate\+\_\+show\+\_\+ip\+\_\+igmp\+\_\+statistics}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__igmp_a50cc09e05d065f2e7af3c01a1537a4b4}{generate\+\_\+show\+\_\+ip\+\_\+igmp\+\_\+interface}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__igmp_ad1c50dea87206e764a4fd94284b968f2}{generate\+\_\+show\+\_\+ip\+\_\+igmp\+\_\+groups}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__igmp_a85f80b6f29591c21b60c15c7c7651eac}{generate\+\_\+show\+\_\+ip\+\_\+igmp\+\_\+joins}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__igmp_ac671b9bc722f2b349a0af495351a5e15}{generate\+\_\+show\+\_\+ip\+\_\+igmp\+\_\+vrf\+\_\+all\+\_\+groups}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__igmp_aceda5944c316ee1c1de1f9cb650c2017}{generate\+\_\+show\+\_\+ip\+\_\+igmp\+\_\+vrf\+\_\+all\+\_\+sources}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__igmp_a261accfc9cfc4c7c3a77138098414947}{generate\+\_\+show\+\_\+ip\+\_\+igmp\+\_\+vrf\+\_\+all\+\_\+joins}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__igmp_a4c0db3813a1ad4ce851970c6fc1bf57f}{generate\+\_\+show\+\_\+ip\+\_\+igmp\+\_\+interface\+\_\+all}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__igmp_a9db3b03e9decccd2add76d7efcd4eb41}{generate\+\_\+show\+\_\+ip\+\_\+igmp\+\_\+vrf\+\_\+all\+\_\+interfaces}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__igmp_a0fa4aa05245ef9f962d468caa0df21e4}{invoke\+\_\+show\+\_\+api}} (\mbox{\hyperlink{namespacesonic__cli__igmp_a797ede63811d165fc2ac2a1cbf8bb1ed}{func}}, args=\mbox{[}$\,$\mbox{]})
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__igmp_a88d0b6a92073c6fe08da9466db365fa7}{run}} (\mbox{\hyperlink{namespacesonic__cli__igmp_a797ede63811d165fc2ac2a1cbf8bb1ed}{func}}, args)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacesonic__cli__igmp_a797ede63811d165fc2ac2a1cbf8bb1ed}{func}} = sys.\+argv\mbox{[}1\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__igmp_ad1c50dea87206e764a4fd94284b968f2}\label{namespacesonic__cli__igmp_ad1c50dea87206e764a4fd94284b968f2}} 
+\index{sonic\_cli\_igmp@{sonic\_cli\_igmp}!generate\_show\_ip\_igmp\_groups@{generate\_show\_ip\_igmp\_groups}}
+\index{generate\_show\_ip\_igmp\_groups@{generate\_show\_ip\_igmp\_groups}!sonic\_cli\_igmp@{sonic\_cli\_igmp}}
+\doxysubsubsection{\texorpdfstring{generate\_show\_ip\_igmp\_groups()}{generate\_show\_ip\_igmp\_groups()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+igmp.\+generate\+\_\+show\+\_\+ip\+\_\+igmp\+\_\+groups (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+igmp.\+py 파일의 120 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{120 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__igmp_ad1c50dea87206e764a4fd94284b968f2}{generate\_show\_ip\_igmp\_groups}}(args):}
+\DoxyCodeLine{121     api = cc.ApiClient()}
+\DoxyCodeLine{122     keypath = []}
+\DoxyCodeLine{123     vrfName = \textcolor{stringliteral}{"default"}}
+\DoxyCodeLine{124     i = 0}
+\DoxyCodeLine{125     \textcolor{keywordflow}{for} arg \textcolor{keywordflow}{in} args:}
+\DoxyCodeLine{126         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"vrf"} \textcolor{keywordflow}{in} arg \textcolor{keywordflow}{or} \textcolor{stringliteral}{"Vrf"} \textcolor{keywordflow}{in} arg  \textcolor{keywordflow}{or} \textcolor{stringliteral}{"all"} \textcolor{keywordflow}{in} arg:}
+\DoxyCodeLine{127             vrfName = args[i]}
+\DoxyCodeLine{128         i = i + 1}
+\DoxyCodeLine{129     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{name\}/protocols/protocol=IGMP,igmp/igmp/openconfig-\/igmp-\/ext:groups'}, name=vrfName)}
+\DoxyCodeLine{130     response = api.get(keypath)}
+\DoxyCodeLine{131     if(response.ok()):}
+\DoxyCodeLine{132         \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{133             \textcolor{comment}{\# Get Command Output}}
+\DoxyCodeLine{134             api\_response = response.content}
+\DoxyCodeLine{135             \textcolor{keywordflow}{if} api\_response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{136                 \textcolor{keywordflow}{return}}
+\DoxyCodeLine{137     \textcolor{keywordflow}{return} api\_response}
+\DoxyCodeLine{138 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/db0/namespacesonic__cli__igmp_ad1c50dea87206e764a4fd94284b968f2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__igmp_a50cc09e05d065f2e7af3c01a1537a4b4}\label{namespacesonic__cli__igmp_a50cc09e05d065f2e7af3c01a1537a4b4}} 
+\index{sonic\_cli\_igmp@{sonic\_cli\_igmp}!generate\_show\_ip\_igmp\_interface@{generate\_show\_ip\_igmp\_interface}}
+\index{generate\_show\_ip\_igmp\_interface@{generate\_show\_ip\_igmp\_interface}!sonic\_cli\_igmp@{sonic\_cli\_igmp}}
+\doxysubsubsection{\texorpdfstring{generate\_show\_ip\_igmp\_interface()}{generate\_show\_ip\_igmp\_interface()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+igmp.\+generate\+\_\+show\+\_\+ip\+\_\+igmp\+\_\+interface (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+igmp.\+py 파일의 92 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{92 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__igmp_a50cc09e05d065f2e7af3c01a1537a4b4}{generate\_show\_ip\_igmp\_interface}}(args):}
+\DoxyCodeLine{93     api = cc.ApiClient()}
+\DoxyCodeLine{94     keypath = []}
+\DoxyCodeLine{95     vrfName = \textcolor{stringliteral}{"default"}}
+\DoxyCodeLine{96     interfacename = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{97     i = 0}
+\DoxyCodeLine{98     \textcolor{keywordflow}{for} arg \textcolor{keywordflow}{in} args:}
+\DoxyCodeLine{99         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"vrf"} \textcolor{keywordflow}{in} arg \textcolor{keywordflow}{or} \textcolor{stringliteral}{"Vrf"} \textcolor{keywordflow}{in} arg:}
+\DoxyCodeLine{100             vrfName = args[i]}
+\DoxyCodeLine{101         i = i + 1}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'interface'} \textcolor{keywordflow}{in} args:}
+\DoxyCodeLine{104         interfacename = args[args.index(\textcolor{stringliteral}{'interface'}) + 1]}
+\DoxyCodeLine{105     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{106         interfacename = args[len(args)-\/1]}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{name\}/protocols/protocol=IGMP,igmp/igmp/openconfig-\/igmp-\/ext:interfaces/interface=\{name1\}'}, name=vrfName, name1=interfacename)}
+\DoxyCodeLine{109     response = api.get(keypath)}
+\DoxyCodeLine{110     if(response.ok()):}
+\DoxyCodeLine{111         \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{112             \textcolor{comment}{\# Get Command Output}}
+\DoxyCodeLine{113             api\_response = response.content}
+\DoxyCodeLine{114             \textcolor{keywordflow}{if} api\_response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{115                 print(\textcolor{stringliteral}{"\% No such Interface"})}
+\DoxyCodeLine{116                 \textcolor{keywordflow}{return}}
+\DoxyCodeLine{117     \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], api\_response)}
+\DoxyCodeLine{118     \textcolor{keywordflow}{return} api\_response}
+\DoxyCodeLine{119 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/db0/namespacesonic__cli__igmp_a50cc09e05d065f2e7af3c01a1537a4b4_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/db0/namespacesonic__cli__igmp_a50cc09e05d065f2e7af3c01a1537a4b4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__igmp_a4c0db3813a1ad4ce851970c6fc1bf57f}\label{namespacesonic__cli__igmp_a4c0db3813a1ad4ce851970c6fc1bf57f}} 
+\index{sonic\_cli\_igmp@{sonic\_cli\_igmp}!generate\_show\_ip\_igmp\_interface\_all@{generate\_show\_ip\_igmp\_interface\_all}}
+\index{generate\_show\_ip\_igmp\_interface\_all@{generate\_show\_ip\_igmp\_interface\_all}!sonic\_cli\_igmp@{sonic\_cli\_igmp}}
+\doxysubsubsection{\texorpdfstring{generate\_show\_ip\_igmp\_interface\_all()}{generate\_show\_ip\_igmp\_interface\_all()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+igmp.\+generate\+\_\+show\+\_\+ip\+\_\+igmp\+\_\+interface\+\_\+all (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+igmp.\+py 파일의 228 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{228 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__igmp_a4c0db3813a1ad4ce851970c6fc1bf57f}{generate\_show\_ip\_igmp\_interface\_all}}(args):}
+\DoxyCodeLine{229     api = cc.ApiClient()}
+\DoxyCodeLine{230     keypath = []}
+\DoxyCodeLine{231 }
+\DoxyCodeLine{232     vrfName = \textcolor{stringliteral}{"default"}}
+\DoxyCodeLine{233     i = 0}
+\DoxyCodeLine{234     \textcolor{keywordflow}{for} arg \textcolor{keywordflow}{in} args:}
+\DoxyCodeLine{235         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"vrf"} \textcolor{keywordflow}{in} arg \textcolor{keywordflow}{or} \textcolor{stringliteral}{"Vrf"} \textcolor{keywordflow}{in} arg:}
+\DoxyCodeLine{236             vrfName = args[i]}
+\DoxyCodeLine{237         i = i + 1}
+\DoxyCodeLine{238 }
+\DoxyCodeLine{239     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{name\}/protocols/protocol=IGMP,igmp/igmp/openconfig-\/igmp-\/ext:interfaces'}, name=vrfName)}
+\DoxyCodeLine{240     response = api.get(keypath)}
+\DoxyCodeLine{241     if(response.ok()):}
+\DoxyCodeLine{242         \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{243             \textcolor{comment}{\# Get Command Output}}
+\DoxyCodeLine{244             api\_response = response.content}
+\DoxyCodeLine{245             \textcolor{keywordflow}{if} api\_response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{246                 print(\textcolor{stringliteral}{"\% No such Interface"})}
+\DoxyCodeLine{247                 \textcolor{keywordflow}{return} api\_response, \textcolor{keyword}{False}}
+\DoxyCodeLine{248     ret = \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], api\_response)}
+\DoxyCodeLine{249     \textcolor{keywordflow}{return} api\_response, ret}
+\DoxyCodeLine{250 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/db0/namespacesonic__cli__igmp_a4c0db3813a1ad4ce851970c6fc1bf57f_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/db0/namespacesonic__cli__igmp_a4c0db3813a1ad4ce851970c6fc1bf57f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__igmp_a85f80b6f29591c21b60c15c7c7651eac}\label{namespacesonic__cli__igmp_a85f80b6f29591c21b60c15c7c7651eac}} 
+\index{sonic\_cli\_igmp@{sonic\_cli\_igmp}!generate\_show\_ip\_igmp\_joins@{generate\_show\_ip\_igmp\_joins}}
+\index{generate\_show\_ip\_igmp\_joins@{generate\_show\_ip\_igmp\_joins}!sonic\_cli\_igmp@{sonic\_cli\_igmp}}
+\doxysubsubsection{\texorpdfstring{generate\_show\_ip\_igmp\_joins()}{generate\_show\_ip\_igmp\_joins()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+igmp.\+generate\+\_\+show\+\_\+ip\+\_\+igmp\+\_\+joins (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+igmp.\+py 파일의 139 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{139 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__igmp_a85f80b6f29591c21b60c15c7c7651eac}{generate\_show\_ip\_igmp\_joins}}(args):}
+\DoxyCodeLine{140     api = cc.ApiClient()}
+\DoxyCodeLine{141     keypath = []}
+\DoxyCodeLine{142     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{143     vrfName = \textcolor{stringliteral}{"default"}}
+\DoxyCodeLine{144     i = 0}
+\DoxyCodeLine{145     \textcolor{keywordflow}{for} arg \textcolor{keywordflow}{in} args:}
+\DoxyCodeLine{146         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"vrf"} \textcolor{keywordflow}{in} arg \textcolor{keywordflow}{or} \textcolor{stringliteral}{"Vrf"} \textcolor{keywordflow}{in} arg:}
+\DoxyCodeLine{147             vrfName = args[i]}
+\DoxyCodeLine{148         i = i + 1}
+\DoxyCodeLine{149     d = \{\}}
+\DoxyCodeLine{150     method = \textcolor{stringliteral}{"rpc"}}
+\DoxyCodeLine{151     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/igmp:get-\/igmp-\/join'})}
+\DoxyCodeLine{152     inputs = \{\textcolor{stringliteral}{"vrf-\/name"}:vrfName\}}
+\DoxyCodeLine{153     body = \{\textcolor{stringliteral}{"sonic-\/igmp:input"}: inputs\}}
+\DoxyCodeLine{154     response = api.post(keypath, body)}
+\DoxyCodeLine{155     if(response.ok()):}
+\DoxyCodeLine{156         d = response.content[\textcolor{stringliteral}{'sonic-\/igmp:output'}][\textcolor{stringliteral}{'response'}]}
+\DoxyCodeLine{157         \textcolor{keywordflow}{if} len(d) != 0 \textcolor{keywordflow}{and} \textcolor{stringliteral}{"warning"} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} d \textcolor{keywordflow}{and} \textcolor{stringliteral}{"Unknown command:"} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} d:}
+\DoxyCodeLine{158              \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{159                  d = json.loads(d)}
+\DoxyCodeLine{160              \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{161                  \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{162              \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{'show\_ip\_igmp\_joins.j2'},d)}
+\DoxyCodeLine{163 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/db0/namespacesonic__cli__igmp_a85f80b6f29591c21b60c15c7c7651eac_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/db0/namespacesonic__cli__igmp_a85f80b6f29591c21b60c15c7c7651eac_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__igmp_acf695ce74f1e3f7d3af879899939b3e2}\label{namespacesonic__cli__igmp_acf695ce74f1e3f7d3af879899939b3e2}} 
+\index{sonic\_cli\_igmp@{sonic\_cli\_igmp}!generate\_show\_ip\_igmp\_sources@{generate\_show\_ip\_igmp\_sources}}
+\index{generate\_show\_ip\_igmp\_sources@{generate\_show\_ip\_igmp\_sources}!sonic\_cli\_igmp@{sonic\_cli\_igmp}}
+\doxysubsubsection{\texorpdfstring{generate\_show\_ip\_igmp\_sources()}{generate\_show\_ip\_igmp\_sources()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+igmp.\+generate\+\_\+show\+\_\+ip\+\_\+igmp\+\_\+sources (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+igmp.\+py 파일의 30 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{30 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__igmp_acf695ce74f1e3f7d3af879899939b3e2}{generate\_show\_ip\_igmp\_sources}}(args):}
+\DoxyCodeLine{31     api = cc.ApiClient()}
+\DoxyCodeLine{32     keypath = []}
+\DoxyCodeLine{33     vrfName = \textcolor{stringliteral}{"default"}}
+\DoxyCodeLine{34     i = 0}
+\DoxyCodeLine{35     \textcolor{keywordflow}{for} arg \textcolor{keywordflow}{in} args:}
+\DoxyCodeLine{36         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"vrf"} \textcolor{keywordflow}{in} arg \textcolor{keywordflow}{or} \textcolor{stringliteral}{"Vrf"} \textcolor{keywordflow}{in} arg \textcolor{keywordflow}{or} \textcolor{stringliteral}{"all"} \textcolor{keywordflow}{in} arg:}
+\DoxyCodeLine{37             vrfName = args[i]}
+\DoxyCodeLine{38         i = i + 1}
+\DoxyCodeLine{39     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{name\}/protocols/protocol=IGMP,igmp/igmp/openconfig-\/igmp-\/ext:sources'}, name=vrfName)}
+\DoxyCodeLine{40     response = api.get(keypath)}
+\DoxyCodeLine{41     if(response.ok()):}
+\DoxyCodeLine{42         \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{43             \textcolor{comment}{\# Get Command Output}}
+\DoxyCodeLine{44             api\_response = response.content}
+\DoxyCodeLine{45             \textcolor{keywordflow}{if} api\_response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{46                 \textcolor{keywordflow}{return}}
+\DoxyCodeLine{47     \textcolor{keywordflow}{return} api\_response}
+\DoxyCodeLine{48 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/db0/namespacesonic__cli__igmp_acf695ce74f1e3f7d3af879899939b3e2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__igmp_af540983f7ef22313819a22b44e06f62c}\label{namespacesonic__cli__igmp_af540983f7ef22313819a22b44e06f62c}} 
+\index{sonic\_cli\_igmp@{sonic\_cli\_igmp}!generate\_show\_ip\_igmp\_statistics@{generate\_show\_ip\_igmp\_statistics}}
+\index{generate\_show\_ip\_igmp\_statistics@{generate\_show\_ip\_igmp\_statistics}!sonic\_cli\_igmp@{sonic\_cli\_igmp}}
+\doxysubsubsection{\texorpdfstring{generate\_show\_ip\_igmp\_statistics()}{generate\_show\_ip\_igmp\_statistics()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+igmp.\+generate\+\_\+show\+\_\+ip\+\_\+igmp\+\_\+statistics (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+igmp.\+py 파일의 49 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{49 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__igmp_af540983f7ef22313819a22b44e06f62c}{generate\_show\_ip\_igmp\_statistics}}(args):}
+\DoxyCodeLine{50     api = cc.ApiClient()}
+\DoxyCodeLine{51     keypath = []}
+\DoxyCodeLine{52     vrfName = \textcolor{stringliteral}{"default"}}
+\DoxyCodeLine{53     interfaceName = \textcolor{stringliteral}{"None"}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{keywordflow}{if} len(args) == 2:}
+\DoxyCodeLine{56         interfaceName = args[1]}
+\DoxyCodeLine{57     \textcolor{keywordflow}{elif} len(args) > 2:}
+\DoxyCodeLine{58         vrfName = args[1]}
+\DoxyCodeLine{59         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"interface"} \textcolor{keywordflow}{in} args:}
+\DoxyCodeLine{60             interfaceName = args[len(args) -\/ 1]}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     \textcolor{comment}{\#}}
+\DoxyCodeLine{63     \textcolor{comment}{\#i = 0}}
+\DoxyCodeLine{64     \textcolor{comment}{\#for arg in args:}}
+\DoxyCodeLine{65     \textcolor{comment}{\#    if "vrf" in arg or "Vrf" in arg:}}
+\DoxyCodeLine{66     \textcolor{comment}{\#        vrfName = args[i]}}
+\DoxyCodeLine{67     \textcolor{comment}{\#    if "interface" in arg:}}
+\DoxyCodeLine{68     \textcolor{comment}{\#        interfaceName = arg[i]}}
+\DoxyCodeLine{69     \textcolor{comment}{\#    i = i + 1}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     dlist = []}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74     \textcolor{keywordflow}{if} interfaceName \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{stringliteral}{"None"}:}
+\DoxyCodeLine{75         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{name\}/protocols/protocol=IGMP,igmp/igmp/interfaces/interface=\{ifId\}/counters'}, name=vrfName, ifId=interfaceName)}
+\DoxyCodeLine{76     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{77         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/network-\/instance:network-\/instances/network-\/instance=\{name\}/protocols/protocol=IGMP,igmp/igmp/openconfig-\/igmp-\/ext:statistics'}, name=vrfName)}
+\DoxyCodeLine{78     response = api.get(keypath)}
+\DoxyCodeLine{79     if(response.ok()):}
+\DoxyCodeLine{80         \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{81             \textcolor{comment}{\# Get Command Output}}
+\DoxyCodeLine{82             api\_response = response.content}
+\DoxyCodeLine{83             \textcolor{keywordflow}{if} api\_response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{84                 \textcolor{keywordflow}{return}}
+\DoxyCodeLine{85             dlist.append(api\_response)}
+\DoxyCodeLine{86     \textcolor{keywordflow}{if} interfaceName \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{stringliteral}{"None"}:}
+\DoxyCodeLine{87         \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{'show\_ip\_igmp\_statistics\_interface.j2'}, api\_response)}
+\DoxyCodeLine{88     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{89         \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], api\_response)}
+\DoxyCodeLine{90     \textcolor{keywordflow}{return} api\_response}
+\DoxyCodeLine{91 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/db0/namespacesonic__cli__igmp_af540983f7ef22313819a22b44e06f62c_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/db0/namespacesonic__cli__igmp_af540983f7ef22313819a22b44e06f62c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__igmp_ac671b9bc722f2b349a0af495351a5e15}\label{namespacesonic__cli__igmp_ac671b9bc722f2b349a0af495351a5e15}} 
+\index{sonic\_cli\_igmp@{sonic\_cli\_igmp}!generate\_show\_ip\_igmp\_vrf\_all\_groups@{generate\_show\_ip\_igmp\_vrf\_all\_groups}}
+\index{generate\_show\_ip\_igmp\_vrf\_all\_groups@{generate\_show\_ip\_igmp\_vrf\_all\_groups}!sonic\_cli\_igmp@{sonic\_cli\_igmp}}
+\doxysubsubsection{\texorpdfstring{generate\_show\_ip\_igmp\_vrf\_all\_groups()}{generate\_show\_ip\_igmp\_vrf\_all\_groups()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+igmp.\+generate\+\_\+show\+\_\+ip\+\_\+igmp\+\_\+vrf\+\_\+all\+\_\+groups (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+igmp.\+py 파일의 164 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{164 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__igmp_ac671b9bc722f2b349a0af495351a5e15}{generate\_show\_ip\_igmp\_vrf\_all\_groups}}(args):}
+\DoxyCodeLine{165     api = cc.ApiClient()}
+\DoxyCodeLine{166     keypath = []}
+\DoxyCodeLine{167     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{168     args[0] = \textcolor{stringliteral}{'show\_ip\_igmp\_groups.j2'}}
+\DoxyCodeLine{169     \textcolor{comment}{\# Use SONIC model to get all configued VRF names}}
+\DoxyCodeLine{170     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/vrf:sonic-\/vrf/VRF/VRF\_LIST'})}
+\DoxyCodeLine{171     sonic\_vrfs = api.get(keypath)}
+\DoxyCodeLine{172     \textcolor{keywordflow}{if} sonic\_vrfs.ok():}
+\DoxyCodeLine{173         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/vrf:VRF\_LIST'} \textcolor{keywordflow}{in} sonic\_vrfs.content:}
+\DoxyCodeLine{174             vrf\_list = sonic\_vrfs.content[\textcolor{stringliteral}{'sonic-\/vrf:VRF\_LIST'}]}
+\DoxyCodeLine{175             \textcolor{keywordflow}{for} vrf \textcolor{keywordflow}{in} vrf\_list:}
+\DoxyCodeLine{176                vrf\_name = vrf[\textcolor{stringliteral}{'vrf\_name'}]}
+\DoxyCodeLine{177                args[1] = vrf\_name}
+\DoxyCodeLine{178                d = \{\}}
+\DoxyCodeLine{179                dlist = []}
+\DoxyCodeLine{180                d = \{\textcolor{stringliteral}{'vrfName'}: vrf\_name\}}
+\DoxyCodeLine{181                dlist.append(d)}
+\DoxyCodeLine{182                api\_response = \mbox{\hyperlink{namespacesonic__cli__igmp_ad1c50dea87206e764a4fd94284b968f2}{generate\_show\_ip\_igmp\_groups}}(args)}
+\DoxyCodeLine{183                dlist.append(api\_response)}
+\DoxyCodeLine{184                \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], dlist)}
+\DoxyCodeLine{185 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/db0/namespacesonic__cli__igmp_ac671b9bc722f2b349a0af495351a5e15_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/db0/namespacesonic__cli__igmp_ac671b9bc722f2b349a0af495351a5e15_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__igmp_a9db3b03e9decccd2add76d7efcd4eb41}\label{namespacesonic__cli__igmp_a9db3b03e9decccd2add76d7efcd4eb41}} 
+\index{sonic\_cli\_igmp@{sonic\_cli\_igmp}!generate\_show\_ip\_igmp\_vrf\_all\_interfaces@{generate\_show\_ip\_igmp\_vrf\_all\_interfaces}}
+\index{generate\_show\_ip\_igmp\_vrf\_all\_interfaces@{generate\_show\_ip\_igmp\_vrf\_all\_interfaces}!sonic\_cli\_igmp@{sonic\_cli\_igmp}}
+\doxysubsubsection{\texorpdfstring{generate\_show\_ip\_igmp\_vrf\_all\_interfaces()}{generate\_show\_ip\_igmp\_vrf\_all\_interfaces()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+igmp.\+generate\+\_\+show\+\_\+ip\+\_\+igmp\+\_\+vrf\+\_\+all\+\_\+interfaces (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+igmp.\+py 파일의 251 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{251 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__igmp_a9db3b03e9decccd2add76d7efcd4eb41}{generate\_show\_ip\_igmp\_vrf\_all\_interfaces}}(args):}
+\DoxyCodeLine{252     api = cc.ApiClient()}
+\DoxyCodeLine{253     keypath = []}
+\DoxyCodeLine{254     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{255     args[0] = \textcolor{stringliteral}{'show\_ip\_igmp\_interface.j2'}}
+\DoxyCodeLine{256     \textcolor{comment}{\# Use SONIC model to get all configued VRF names}}
+\DoxyCodeLine{257     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/vrf:sonic-\/vrf/VRF/VRF\_LIST'})}
+\DoxyCodeLine{258     sonic\_vrfs = api.get(keypath)}
+\DoxyCodeLine{259     \textcolor{keywordflow}{if} sonic\_vrfs.ok():}
+\DoxyCodeLine{260         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/vrf:VRF\_LIST'} \textcolor{keywordflow}{in} sonic\_vrfs.content:}
+\DoxyCodeLine{261             vrf\_list = sonic\_vrfs.content[\textcolor{stringliteral}{'sonic-\/vrf:VRF\_LIST'}]}
+\DoxyCodeLine{262             \textcolor{keywordflow}{for} vrf \textcolor{keywordflow}{in} vrf\_list:}
+\DoxyCodeLine{263                vrf\_name = vrf[\textcolor{stringliteral}{'vrf\_name'}]}
+\DoxyCodeLine{264                args[1] = vrf\_name}
+\DoxyCodeLine{265                d = \{\}}
+\DoxyCodeLine{266                dlist = []}
+\DoxyCodeLine{267                d = \{\textcolor{stringliteral}{'vrfName'}: vrf\_name\}}
+\DoxyCodeLine{268                dlist.append(d)}
+\DoxyCodeLine{269                api\_response, ret = \mbox{\hyperlink{namespacesonic__cli__igmp_a4c0db3813a1ad4ce851970c6fc1bf57f}{generate\_show\_ip\_igmp\_interface\_all}}(args)}
+\DoxyCodeLine{270                api\_response[\textcolor{stringliteral}{"VRF"}] = vrf\_name}
+\DoxyCodeLine{271                dlist.append(api\_response)}
+\DoxyCodeLine{272                \textcolor{keywordflow}{if} ret:}
+\DoxyCodeLine{273                    \textcolor{keywordflow}{break}}
+\DoxyCodeLine{274                \textcolor{comment}{\#show\_cli\_output(args[0], dlist)}}
+\DoxyCodeLine{275 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/db0/namespacesonic__cli__igmp_a9db3b03e9decccd2add76d7efcd4eb41_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/db0/namespacesonic__cli__igmp_a9db3b03e9decccd2add76d7efcd4eb41_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__igmp_a261accfc9cfc4c7c3a77138098414947}\label{namespacesonic__cli__igmp_a261accfc9cfc4c7c3a77138098414947}} 
+\index{sonic\_cli\_igmp@{sonic\_cli\_igmp}!generate\_show\_ip\_igmp\_vrf\_all\_joins@{generate\_show\_ip\_igmp\_vrf\_all\_joins}}
+\index{generate\_show\_ip\_igmp\_vrf\_all\_joins@{generate\_show\_ip\_igmp\_vrf\_all\_joins}!sonic\_cli\_igmp@{sonic\_cli\_igmp}}
+\doxysubsubsection{\texorpdfstring{generate\_show\_ip\_igmp\_vrf\_all\_joins()}{generate\_show\_ip\_igmp\_vrf\_all\_joins()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+igmp.\+generate\+\_\+show\+\_\+ip\+\_\+igmp\+\_\+vrf\+\_\+all\+\_\+joins (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+igmp.\+py 파일의 209 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{209 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__igmp_a261accfc9cfc4c7c3a77138098414947}{generate\_show\_ip\_igmp\_vrf\_all\_joins}}(args):}
+\DoxyCodeLine{210     api = cc.ApiClient()}
+\DoxyCodeLine{211     keypath = []}
+\DoxyCodeLine{212     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{213     vrfName = \textcolor{stringliteral}{"default"}}
+\DoxyCodeLine{214     \textcolor{comment}{\# Use SONIC model to get all configued VRF names}}
+\DoxyCodeLine{215     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/vrf:sonic-\/vrf/VRF/VRF\_LIST'})}
+\DoxyCodeLine{216     sonic\_vrfs = api.get(keypath)}
+\DoxyCodeLine{217     \textcolor{keywordflow}{if} sonic\_vrfs.ok():}
+\DoxyCodeLine{218         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/vrf:VRF\_LIST'} \textcolor{keywordflow}{in} sonic\_vrfs.content:}
+\DoxyCodeLine{219             vrf\_list = sonic\_vrfs.content[\textcolor{stringliteral}{'sonic-\/vrf:VRF\_LIST'}]}
+\DoxyCodeLine{220             \textcolor{keywordflow}{for} vrf \textcolor{keywordflow}{in} vrf\_list:}
+\DoxyCodeLine{221                vrf\_name = vrf[\textcolor{stringliteral}{'vrf\_name'}]}
+\DoxyCodeLine{222                args[1] = vrf\_name}
+\DoxyCodeLine{223                print(\textcolor{stringliteral}{"VRF : "}+vrf\_name)}
+\DoxyCodeLine{224                \textcolor{keywordflow}{if} \mbox{\hyperlink{namespacesonic__cli__igmp_a85f80b6f29591c21b60c15c7c7651eac}{generate\_show\_ip\_igmp\_joins}}(args):}
+\DoxyCodeLine{225                    \textcolor{keywordflow}{break}}
+\DoxyCodeLine{226 }
+\DoxyCodeLine{227 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/db0/namespacesonic__cli__igmp_a261accfc9cfc4c7c3a77138098414947_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/db0/namespacesonic__cli__igmp_a261accfc9cfc4c7c3a77138098414947_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__igmp_aceda5944c316ee1c1de1f9cb650c2017}\label{namespacesonic__cli__igmp_aceda5944c316ee1c1de1f9cb650c2017}} 
+\index{sonic\_cli\_igmp@{sonic\_cli\_igmp}!generate\_show\_ip\_igmp\_vrf\_all\_sources@{generate\_show\_ip\_igmp\_vrf\_all\_sources}}
+\index{generate\_show\_ip\_igmp\_vrf\_all\_sources@{generate\_show\_ip\_igmp\_vrf\_all\_sources}!sonic\_cli\_igmp@{sonic\_cli\_igmp}}
+\doxysubsubsection{\texorpdfstring{generate\_show\_ip\_igmp\_vrf\_all\_sources()}{generate\_show\_ip\_igmp\_vrf\_all\_sources()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+igmp.\+generate\+\_\+show\+\_\+ip\+\_\+igmp\+\_\+vrf\+\_\+all\+\_\+sources (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+igmp.\+py 파일의 186 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{186 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__igmp_aceda5944c316ee1c1de1f9cb650c2017}{generate\_show\_ip\_igmp\_vrf\_all\_sources}}(args):}
+\DoxyCodeLine{187     api = cc.ApiClient()}
+\DoxyCodeLine{188     keypath = []}
+\DoxyCodeLine{189     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{190     vrfName = \textcolor{stringliteral}{"default"}}
+\DoxyCodeLine{191     args[0] = \textcolor{stringliteral}{'show\_ip\_igmp\_sources.j2'}}
+\DoxyCodeLine{192     \textcolor{comment}{\# Use SONIC model to get all configued VRF names}}
+\DoxyCodeLine{193     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/vrf:sonic-\/vrf/VRF/VRF\_LIST'})}
+\DoxyCodeLine{194     sonic\_vrfs = api.get(keypath)}
+\DoxyCodeLine{195     \textcolor{keywordflow}{if} sonic\_vrfs.ok():}
+\DoxyCodeLine{196         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/vrf:VRF\_LIST'} \textcolor{keywordflow}{in} sonic\_vrfs.content:}
+\DoxyCodeLine{197             vrf\_list = sonic\_vrfs.content[\textcolor{stringliteral}{'sonic-\/vrf:VRF\_LIST'}]}
+\DoxyCodeLine{198             \textcolor{keywordflow}{for} vrf \textcolor{keywordflow}{in} vrf\_list:}
+\DoxyCodeLine{199                vrf\_name = vrf[\textcolor{stringliteral}{'vrf\_name'}]}
+\DoxyCodeLine{200                args[1] = vrf\_name}
+\DoxyCodeLine{201                d = \{\}}
+\DoxyCodeLine{202                dlist = []}
+\DoxyCodeLine{203                d = \{ \textcolor{stringliteral}{'vrfName'}: vrf\_name \}}
+\DoxyCodeLine{204                dlist.append(d)}
+\DoxyCodeLine{205                api\_response = \mbox{\hyperlink{namespacesonic__cli__igmp_acf695ce74f1e3f7d3af879899939b3e2}{generate\_show\_ip\_igmp\_sources}}(args)}
+\DoxyCodeLine{206                dlist.append(api\_response)}
+\DoxyCodeLine{207                \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], dlist)}
+\DoxyCodeLine{208 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/db0/namespacesonic__cli__igmp_aceda5944c316ee1c1de1f9cb650c2017_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/db0/namespacesonic__cli__igmp_aceda5944c316ee1c1de1f9cb650c2017_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__igmp_a0fa4aa05245ef9f962d468caa0df21e4}\label{namespacesonic__cli__igmp_a0fa4aa05245ef9f962d468caa0df21e4}} 
+\index{sonic\_cli\_igmp@{sonic\_cli\_igmp}!invoke\_show\_api@{invoke\_show\_api}}
+\index{invoke\_show\_api@{invoke\_show\_api}!sonic\_cli\_igmp@{sonic\_cli\_igmp}}
+\doxysubsubsection{\texorpdfstring{invoke\_show\_api()}{invoke\_show\_api()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+igmp.\+invoke\+\_\+show\+\_\+api (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args = {\ttfamily \mbox{[}\mbox{]}} }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+igmp.\+py 파일의 276 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{276 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__igmp_a0fa4aa05245ef9f962d468caa0df21e4}{invoke\_show\_api}}(func, args=[]):}
+\DoxyCodeLine{277     api = cc.ApiClient()}
+\DoxyCodeLine{278     keypath = []}
+\DoxyCodeLine{279     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{280     dlist = []}
+\DoxyCodeLine{281     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'show\_ip\_igmp\_groups'}:}
+\DoxyCodeLine{282         api\_response = \mbox{\hyperlink{namespacesonic__cli__igmp_ad1c50dea87206e764a4fd94284b968f2}{generate\_show\_ip\_igmp\_groups}}(args)}
+\DoxyCodeLine{283         dlist.append(api\_response)}
+\DoxyCodeLine{284         \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], dlist)}
+\DoxyCodeLine{285     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'show\_ip\_igmp\_sources'}:}
+\DoxyCodeLine{286         api\_response = \mbox{\hyperlink{namespacesonic__cli__igmp_acf695ce74f1e3f7d3af879899939b3e2}{generate\_show\_ip\_igmp\_sources}}(args)}
+\DoxyCodeLine{287         dlist.append(api\_response)}
+\DoxyCodeLine{288         \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], dlist)}
+\DoxyCodeLine{289     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'show\_ip\_igmp\_joins'}:}
+\DoxyCodeLine{290         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__igmp_a85f80b6f29591c21b60c15c7c7651eac}{generate\_show\_ip\_igmp\_joins}}(args)}
+\DoxyCodeLine{291     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'show\_ip\_igmp\_statistics'}:}
+\DoxyCodeLine{292         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__igmp_af540983f7ef22313819a22b44e06f62c}{generate\_show\_ip\_igmp\_statistics}}(args)}
+\DoxyCodeLine{293     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'show\_ip\_igmp\_interface'}:}
+\DoxyCodeLine{294         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__igmp_a50cc09e05d065f2e7af3c01a1537a4b4}{generate\_show\_ip\_igmp\_interface}}(args)}
+\DoxyCodeLine{295     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'show\_ip\_igmp\_vrf'}:}
+\DoxyCodeLine{296         \textcolor{keywordflow}{if} args[2].lower() == \textcolor{stringliteral}{'statistics'}:}
+\DoxyCodeLine{297            api\_response = \mbox{\hyperlink{namespacesonic__cli__igmp_af540983f7ef22313819a22b44e06f62c}{generate\_show\_ip\_igmp\_statistics}}(args)}
+\DoxyCodeLine{298            \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{'show\_ip\_igmp\_statistics.j2'}, api\_response)}
+\DoxyCodeLine{299         \textcolor{keywordflow}{elif} args[2].lower() == \textcolor{stringliteral}{'interface'}:}
+\DoxyCodeLine{300            \textcolor{keywordflow}{if} args[1].lower() == \textcolor{stringliteral}{'all'}:}
+\DoxyCodeLine{301               \mbox{\hyperlink{namespacesonic__cli__igmp_a9db3b03e9decccd2add76d7efcd4eb41}{generate\_show\_ip\_igmp\_vrf\_all\_interfaces}}(args)}
+\DoxyCodeLine{302            \textcolor{keywordflow}{elif} len(args) > args.index(\textcolor{stringliteral}{'interface'}) + 1 \textcolor{keywordflow}{and} args[args.index(\textcolor{stringliteral}{'interface'}) + 1] != \textcolor{stringliteral}{'detail'} \textcolor{keywordflow}{and} args[args.index(\textcolor{stringliteral}{'interface'}) + 1] != \textcolor{stringliteral}{'\(\backslash\)\(\backslash\)|'}:}
+\DoxyCodeLine{303               api\_response = \mbox{\hyperlink{namespacesonic__cli__igmp_a50cc09e05d065f2e7af3c01a1537a4b4}{generate\_show\_ip\_igmp\_interface}}(args)}
+\DoxyCodeLine{304               \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{'show\_ip\_igmp\_interface.j2'}, api\_response)}
+\DoxyCodeLine{305            \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{306               api\_response, ret = \mbox{\hyperlink{namespacesonic__cli__igmp_a4c0db3813a1ad4ce851970c6fc1bf57f}{generate\_show\_ip\_igmp\_interface\_all}}(args)}
+\DoxyCodeLine{307               \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{'show\_ip\_igmp\_interface.j2'}, api\_response)}
+\DoxyCodeLine{308         \textcolor{keywordflow}{elif} args[2].lower() == \textcolor{stringliteral}{'groups'}:}
+\DoxyCodeLine{309            \textcolor{keywordflow}{if} args[1].lower() == \textcolor{stringliteral}{'all'}:}
+\DoxyCodeLine{310               \mbox{\hyperlink{namespacesonic__cli__igmp_ac671b9bc722f2b349a0af495351a5e15}{generate\_show\_ip\_igmp\_vrf\_all\_groups}}(args)}
+\DoxyCodeLine{311            \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{312               api\_response = \mbox{\hyperlink{namespacesonic__cli__igmp_ad1c50dea87206e764a4fd94284b968f2}{generate\_show\_ip\_igmp\_groups}}(args)}
+\DoxyCodeLine{313               dlist.append(api\_response)}
+\DoxyCodeLine{314               \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{'show\_ip\_igmp\_groups.j2'}, dlist)}
+\DoxyCodeLine{315         \textcolor{keywordflow}{elif} args[2].lower() == \textcolor{stringliteral}{'sources'}:}
+\DoxyCodeLine{316            \textcolor{keywordflow}{if} args[1].lower() == \textcolor{stringliteral}{'all'}:}
+\DoxyCodeLine{317               \mbox{\hyperlink{namespacesonic__cli__igmp_aceda5944c316ee1c1de1f9cb650c2017}{generate\_show\_ip\_igmp\_vrf\_all\_sources}}(args)}
+\DoxyCodeLine{318            \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{319               api\_response = \mbox{\hyperlink{namespacesonic__cli__igmp_acf695ce74f1e3f7d3af879899939b3e2}{generate\_show\_ip\_igmp\_sources}}(args)}
+\DoxyCodeLine{320               dlist.append(api\_response)}
+\DoxyCodeLine{321               \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{'show\_ip\_igmp\_sources.j2'}, dlist)}
+\DoxyCodeLine{322         \textcolor{keywordflow}{elif} args[2].lower() == \textcolor{stringliteral}{'join'}:}
+\DoxyCodeLine{323               \textcolor{keywordflow}{if} args[1].lower() == \textcolor{stringliteral}{'all'}:}
+\DoxyCodeLine{324                  \mbox{\hyperlink{namespacesonic__cli__igmp_a261accfc9cfc4c7c3a77138098414947}{generate\_show\_ip\_igmp\_vrf\_all\_joins}}(args)}
+\DoxyCodeLine{325               \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{326                  \mbox{\hyperlink{namespacesonic__cli__igmp_a85f80b6f29591c21b60c15c7c7651eac}{generate\_show\_ip\_igmp\_joins}}(args)}
+\DoxyCodeLine{327     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'clear\_igmp'} :}
+\DoxyCodeLine{328         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/igmp:clear-\/igmp'})}
+\DoxyCodeLine{329         vrfname = \textcolor{stringliteral}{"default"}}
+\DoxyCodeLine{330         body = \{\textcolor{stringliteral}{"sonic-\/igmp:input"}: \{ \textcolor{stringliteral}{"vrf-\/name"} : vrfname,\textcolor{stringliteral}{"interface\_all"} : \textcolor{keyword}{True} \} \}}
+\DoxyCodeLine{331         \textcolor{keywordflow}{return} api.post(keypath, body)}
+\DoxyCodeLine{332     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'clear\_igmp\_vrf'} :}
+\DoxyCodeLine{333         vrfname = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{334         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/igmp:clear-\/igmp'})}
+\DoxyCodeLine{335         \_, vrfname = args[0].split(\textcolor{stringliteral}{"="})}
+\DoxyCodeLine{336         body = \{\textcolor{stringliteral}{"sonic-\/igmp:input"}: \{ \textcolor{stringliteral}{"vrf-\/name"} : vrfname,\textcolor{stringliteral}{"interface\_all"} : \textcolor{keyword}{True} \} \}}
+\DoxyCodeLine{337         \textcolor{keywordflow}{return} api.post(keypath, body)}
+\DoxyCodeLine{338     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{339         \textcolor{keywordflow}{return} api.cli\_not\_implemented(func)}
+\DoxyCodeLine{340 }
+\DoxyCodeLine{341 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/db0/namespacesonic__cli__igmp_a0fa4aa05245ef9f962d468caa0df21e4_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=347pt]{df/db0/namespacesonic__cli__igmp_a0fa4aa05245ef9f962d468caa0df21e4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__igmp_a88d0b6a92073c6fe08da9466db365fa7}\label{namespacesonic__cli__igmp_a88d0b6a92073c6fe08da9466db365fa7}} 
+\index{sonic\_cli\_igmp@{sonic\_cli\_igmp}!run@{run}}
+\index{run@{run}!sonic\_cli\_igmp@{sonic\_cli\_igmp}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+igmp.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+igmp.\+py 파일의 342 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{342 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__igmp_a88d0b6a92073c6fe08da9466db365fa7}{run}}(func, args):}
+\DoxyCodeLine{343     \mbox{\hyperlink{namespacesonic__cli__igmp_a0fa4aa05245ef9f962d468caa0df21e4}{invoke\_show\_api}}(func, args)}
+\DoxyCodeLine{344 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/db0/namespacesonic__cli__igmp_a88d0b6a92073c6fe08da9466db365fa7_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__igmp_a797ede63811d165fc2ac2a1cbf8bb1ed}\label{namespacesonic__cli__igmp_a797ede63811d165fc2ac2a1cbf8bb1ed}} 
+\index{sonic\_cli\_igmp@{sonic\_cli\_igmp}!func@{func}}
+\index{func@{func}!sonic\_cli\_igmp@{sonic\_cli\_igmp}}
+\doxysubsubsection{\texorpdfstring{func}{func}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+igmp.\+func = sys.\+argv\mbox{[}1\mbox{]}}
+
+
+
+sonic\+\_\+cli\+\_\+igmp.\+py 파일의 348 번째 라인에서 정의되었습니다.
+

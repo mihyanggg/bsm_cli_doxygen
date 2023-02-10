@@ -1,0 +1,50 @@
+\hypertarget{namespaceshow__config__logging}{}\doxysection{show\+\_\+config\+\_\+logging 네임스페이스 참조}
+\label{namespaceshow__config__logging}\index{show\_config\_logging@{show\_config\_logging}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceshow__config__logging_aa3546ffa50d0afd3d5b0d91eab9baafa}{show\+\_\+logging\+\_\+server\+\_\+cmd}} (render\+\_\+tables)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespaceshow__config__logging_aa3546ffa50d0afd3d5b0d91eab9baafa}\label{namespaceshow__config__logging_aa3546ffa50d0afd3d5b0d91eab9baafa}} 
+\index{show\_config\_logging@{show\_config\_logging}!show\_logging\_server\_cmd@{show\_logging\_server\_cmd}}
+\index{show\_logging\_server\_cmd@{show\_logging\_server\_cmd}!show\_config\_logging@{show\_config\_logging}}
+\doxysubsubsection{\texorpdfstring{show\_logging\_server\_cmd()}{show\_logging\_server\_cmd()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+logging.\+show\+\_\+logging\+\_\+server\+\_\+cmd (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+logging.\+py 파일의 22 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__logging_aa3546ffa50d0afd3d5b0d91eab9baafa}{show\_logging\_server\_cmd}}(render\_tables):}
+\DoxyCodeLine{23     serevrs = render\_tables.get(\textcolor{stringliteral}{'sonic-\/system-\/logging:sonic-\/system-\/logging/SYSLOG\_SERVER/SYSLOG\_SERVER\_LIST'})}
+\DoxyCodeLine{24     \textcolor{keywordflow}{if} serevrs \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{25         \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, \textcolor{stringliteral}{''}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     commands = []}
+\DoxyCodeLine{28     \textcolor{keywordflow}{for} server \textcolor{keywordflow}{in} serevrs:}
+\DoxyCodeLine{29         cmd = \textcolor{stringliteral}{'logging server '} + server[\textcolor{stringliteral}{'ipaddress'}]}
+\DoxyCodeLine{30         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'remote-\/port'} \textcolor{keywordflow}{in} server:}
+\DoxyCodeLine{31             cmd += (\textcolor{stringliteral}{' remote-\/port '} + str(server[\textcolor{stringliteral}{'remote-\/port'}]))}
+\DoxyCodeLine{32         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'src\_intf'} \textcolor{keywordflow}{in} server:}
+\DoxyCodeLine{33             cmd += (\textcolor{stringliteral}{' source-\/interface '} + \mbox{\hyperlink{namespaceshow__config__if__cmd_a63c7cd04994357ce4f432c6ee0b691df}{format\_intf\_name}}(server[\textcolor{stringliteral}{'src\_intf'}]))}
+\DoxyCodeLine{34         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'vrf\_name'} \textcolor{keywordflow}{in} server:}
+\DoxyCodeLine{35             cmd += (\textcolor{stringliteral}{' vrf '} + server[\textcolor{stringliteral}{'vrf\_name'}])}
+\DoxyCodeLine{36         commands.append(cmd)}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, \textcolor{stringliteral}{';'}.join(commands)}
+\DoxyCodeLine{39 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/ded/namespaceshow__config__logging_aa3546ffa50d0afd3d5b0d91eab9baafa_cgraph}
+\end{center}
+\end{figure}

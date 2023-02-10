@@ -1,0 +1,976 @@
+\hypertarget{namespacesonic__cli__if__range}{}\doxysection{sonic\+\_\+cli\+\_\+if\+\_\+range 네임스페이스 참조}
+\label{namespacesonic__cli__if__range}\index{sonic\_cli\_if\_range@{sonic\_cli\_if\_range}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__if__range_acd7b89d7fa6b59fadddd841a6b43e4fa}{get\+Id}} (item)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__if__range_adb1ac9cd49ad48ca9a5576fdb27bcc4a}{get\+Sonic\+Id}} (item)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__if__range_ab0530dc8fd336588ef0236c97f40cfff}{intersection}} (lst1, lst2)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__if__range_aecae68301f202f215b10b3e1923aca87}{rangetolst}} (givenifrange)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__if__range_ace52f6822a71861f5241c7c3e51beb1b}{check\+\_\+in\+\_\+range}} (if\+Name, rangelst)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__if__range_a572b024b469f52a6fe0fd7e685330edf}{eth\+\_\+intf\+\_\+range\+\_\+expand}} (givenifrange)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__if__range_a15d906f9fc8f8dc0db49b94361e91c77}{generate\+\_\+body}} (\mbox{\hyperlink{namespacesonic__cli__if__range_aefbb815178d3c18600fc3fa0d140b7bb}{func}}, args=\mbox{[}$\,$\mbox{]})
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__if__range_a5a771a939d776aae18c22fffe63eca6d}{invoke\+\_\+api}} (\mbox{\hyperlink{namespacesonic__cli__if__range_aefbb815178d3c18600fc3fa0d140b7bb}{func}}, args=\mbox{[}$\,$\mbox{]})
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__if__range_afe26c400d524c280934f149414e5377c}{check\+\_\+response}} (response, \mbox{\hyperlink{namespacesonic__cli__if__range_aefbb815178d3c18600fc3fa0d140b7bb}{func}}, args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__if__range_aff9715e91205ac75363e17c504a007ff}{run}} (\mbox{\hyperlink{namespacesonic__cli__if__range_aefbb815178d3c18600fc3fa0d140b7bb}{func}}, args)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+dictionary \mbox{\hyperlink{namespacesonic__cli__if__range_a208c1055b31d90c4dfac4424050a48f6}{lag\+\_\+type\+\_\+map}} = \{\char`\"{}active\char`\"{} \+: \char`\"{}L\+A\+CP\char`\"{}, \char`\"{}on\char`\"{}\+: \char`\"{}S\+T\+A\+T\+IC\char`\"{}\}
+\item 
+\mbox{\hyperlink{namespacesonic__cli__if__range_aefbb815178d3c18600fc3fa0d140b7bb}{func}} = sys.\+argv\mbox{[}1\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__if__range_ace52f6822a71861f5241c7c3e51beb1b}\label{namespacesonic__cli__if__range_ace52f6822a71861f5241c7c3e51beb1b}} 
+\index{sonic\_cli\_if\_range@{sonic\_cli\_if\_range}!check\_in\_range@{check\_in\_range}}
+\index{check\_in\_range@{check\_in\_range}!sonic\_cli\_if\_range@{sonic\_cli\_if\_range}}
+\doxysubsubsection{\texorpdfstring{check\_in\_range()}{check\_in\_range()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+if\+\_\+range.\+check\+\_\+in\+\_\+range (\begin{DoxyParamCaption}\item[{}]{if\+Name,  }\item[{}]{rangelst }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+if\+\_\+range.\+py 파일의 81 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{81 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__if__range_ace52f6822a71861f5241c7c3e51beb1b}{check\_in\_range}}(ifName, rangelst):}
+\DoxyCodeLine{82     port\_val = \mbox{\hyperlink{namespacesonic__intf__utils_a9d08993d978e51fcb254e67534a554a2}{name\_to\_int\_val}}(ifName)}
+\DoxyCodeLine{83     \textcolor{keywordflow}{for} r \textcolor{keywordflow}{in} rangelst:}
+\DoxyCodeLine{84         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"-\/"} \textcolor{keywordflow}{in} r:}
+\DoxyCodeLine{85             sId, eId = \mbox{\hyperlink{DB-PARSED_8txt_a2f17a95f95f14e0f847ea893e98f909a}{map}}(\textcolor{keyword}{lambda} x : \mbox{\hyperlink{namespacesonic__intf__utils_a9d08993d978e51fcb254e67534a554a2}{name\_to\_int\_val}}(\textcolor{stringliteral}{"Eth"}+x), r.split(\textcolor{stringliteral}{'-\/'}))}
+\DoxyCodeLine{86             \textcolor{keywordflow}{if} (sId == eId) \textcolor{keywordflow}{and} (port\_val) == sId:}
+\DoxyCodeLine{87                 \textcolor{keywordflow}{return} \textcolor{keyword}{True}}
+\DoxyCodeLine{88             \textcolor{keywordflow}{elif} (sId < eId) \textcolor{keywordflow}{and} (sId <= port\_val <= eId):}
+\DoxyCodeLine{89                 \textcolor{keywordflow}{return} \textcolor{keyword}{True}}
+\DoxyCodeLine{90             \textcolor{keywordflow}{elif} (sId > eId) \textcolor{keywordflow}{and} (eId <= port\_val <= sId):}
+\DoxyCodeLine{91                 \textcolor{keywordflow}{return} \textcolor{keyword}{True}}
+\DoxyCodeLine{92         \textcolor{keywordflow}{elif} port\_val == \mbox{\hyperlink{namespacesonic__intf__utils_a9d08993d978e51fcb254e67534a554a2}{name\_to\_int\_val}}(\textcolor{stringliteral}{"Eth"}+r):}
+\DoxyCodeLine{93             \textcolor{keywordflow}{return} \textcolor{keyword}{True}}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95 \textcolor{comment}{\# Function to expand range to available physical interfaces list}}
+\DoxyCodeLine{96 \textcolor{comment}{\# Param: Physical interface range string in standard or non-\/standard naming format}}
+\DoxyCodeLine{97 \textcolor{comment}{\# Return: List of all available physical interfaces in the range}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/dfe/namespacesonic__cli__if__range_ace52f6822a71861f5241c7c3e51beb1b_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/dfe/namespacesonic__cli__if__range_ace52f6822a71861f5241c7c3e51beb1b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__if__range_afe26c400d524c280934f149414e5377c}\label{namespacesonic__cli__if__range_afe26c400d524c280934f149414e5377c}} 
+\index{sonic\_cli\_if\_range@{sonic\_cli\_if\_range}!check\_response@{check\_response}}
+\index{check\_response@{check\_response}!sonic\_cli\_if\_range@{sonic\_cli\_if\_range}}
+\doxysubsubsection{\texorpdfstring{check\_response()}{check\_response()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+if\+\_\+range.\+check\+\_\+response (\begin{DoxyParamCaption}\item[{}]{response,  }\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+if\+\_\+range.\+py 파일의 498 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{498 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__if__range_afe26c400d524c280934f149414e5377c}{check\_response}}(response, func, args):}
+\DoxyCodeLine{499     \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{500         api\_response = response.content}
+\DoxyCodeLine{501         \textcolor{keywordflow}{if} api\_response \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{502             \textcolor{comment}{\# Get Command Output}}
+\DoxyCodeLine{503             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/interfaces:interfaces'} \textcolor{keywordflow}{in} api\_response:}
+\DoxyCodeLine{504                 value = api\_response[\textcolor{stringliteral}{'openconfig-\/interfaces:interfaces'}]}
+\DoxyCodeLine{505                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'interface'} \textcolor{keywordflow}{in} value:}
+\DoxyCodeLine{506                     tup = value[\textcolor{stringliteral}{'interface'}]}
+\DoxyCodeLine{507                     value[\textcolor{stringliteral}{'interface'}] = sorted(tup, key=getId)}
+\DoxyCodeLine{508             \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'sonic-\/port:PORT\_TABLE'} \textcolor{keywordflow}{in} api\_response:}
+\DoxyCodeLine{509                 value = api\_response[\textcolor{stringliteral}{'sonic-\/port:PORT\_TABLE'}]}
+\DoxyCodeLine{510                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'PORT\_TABLE\_LIST'} \textcolor{keywordflow}{in} value:}
+\DoxyCodeLine{511                     tup = value[\textcolor{stringliteral}{'PORT\_TABLE\_LIST'}]}
+\DoxyCodeLine{512                     value[\textcolor{stringliteral}{'PORT\_TABLE\_LIST'}] =  sorted(tup, key=getSonicId)}
+\DoxyCodeLine{513             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{514                 \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'get\_openconfig\_interfaces\_interfaces\_interface'}:}
+\DoxyCodeLine{515                     \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[1], api\_response)}
+\DoxyCodeLine{516                 \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_openconfig\_interfaces\_interfaces'}:}
+\DoxyCodeLine{517                     \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], api\_response)}
+\DoxyCodeLine{518                 \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_sonic\_port\_sonic\_port\_port\_table'}:}
+\DoxyCodeLine{519                     \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], api\_response)}
+\DoxyCodeLine{520     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{521         \textcolor{keywordflow}{print} response.error\_message()}
+\DoxyCodeLine{522         \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{523 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/dfe/namespacesonic__cli__if__range_afe26c400d524c280934f149414e5377c_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/dfe/namespacesonic__cli__if__range_afe26c400d524c280934f149414e5377c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__if__range_a572b024b469f52a6fe0fd7e685330edf}\label{namespacesonic__cli__if__range_a572b024b469f52a6fe0fd7e685330edf}} 
+\index{sonic\_cli\_if\_range@{sonic\_cli\_if\_range}!eth\_intf\_range\_expand@{eth\_intf\_range\_expand}}
+\index{eth\_intf\_range\_expand@{eth\_intf\_range\_expand}!sonic\_cli\_if\_range@{sonic\_cli\_if\_range}}
+\doxysubsubsection{\texorpdfstring{eth\_intf\_range\_expand()}{eth\_intf\_range\_expand()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+if\+\_\+range.\+eth\+\_\+intf\+\_\+range\+\_\+expand (\begin{DoxyParamCaption}\item[{}]{givenifrange }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+if\+\_\+range.\+py 파일의 98 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{98 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__if__range_a572b024b469f52a6fe0fd7e685330edf}{eth\_intf\_range\_expand}}(givenifrange):}
+\DoxyCodeLine{99     intf\_list = set()}
+\DoxyCodeLine{100     temp = re.compile(\textcolor{stringliteral}{"(Eth|Ethernet)([0-\/9].*)"}) \textcolor{comment}{\#ex: Ethernet1-\/10,20 or Eth1/1-\/1/10,1/5/2}}
+\DoxyCodeLine{101     res = temp.match(givenifrange).groups()}
+\DoxyCodeLine{102     iftype = res[0]}
+\DoxyCodeLine{103     rangelst = res[1].split(\textcolor{stringliteral}{','}) \textcolor{comment}{\#ex: [1-\/20,40,44-\/80] or [1/1-\/1/10,1/2/3]}}
+\DoxyCodeLine{104     iflist = \mbox{\hyperlink{namespacesonic__cli__if__range_a5a771a939d776aae18c22fffe63eca6d}{invoke\_api}}(\textcolor{stringliteral}{"get\_available\_interface\_names\_list"}, [iftype])}
+\DoxyCodeLine{105     \textcolor{keywordflow}{for} p \textcolor{keywordflow}{in} iflist:}
+\DoxyCodeLine{106         \textcolor{comment}{\#store the interfaces that fall inside any subset in the range}}
+\DoxyCodeLine{107         \textcolor{keywordflow}{if} \mbox{\hyperlink{namespacesonic__cli__if__range_ace52f6822a71861f5241c7c3e51beb1b}{check\_in\_range}}(p, rangelst):}
+\DoxyCodeLine{108             intf\_list.add(p)}
+\DoxyCodeLine{109     \textcolor{keywordflow}{return} list(intf\_list)}
+\DoxyCodeLine{110     }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/dfe/namespacesonic__cli__if__range_a572b024b469f52a6fe0fd7e685330edf_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/dfe/namespacesonic__cli__if__range_a572b024b469f52a6fe0fd7e685330edf_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__if__range_a15d906f9fc8f8dc0db49b94361e91c77}\label{namespacesonic__cli__if__range_a15d906f9fc8f8dc0db49b94361e91c77}} 
+\index{sonic\_cli\_if\_range@{sonic\_cli\_if\_range}!generate\_body@{generate\_body}}
+\index{generate\_body@{generate\_body}!sonic\_cli\_if\_range@{sonic\_cli\_if\_range}}
+\doxysubsubsection{\texorpdfstring{generate\_body()}{generate\_body()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+if\+\_\+range.\+generate\+\_\+body (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args = {\ttfamily \mbox{[}\mbox{]}} }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+if\+\_\+range.\+py 파일의 111 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{111 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__if__range_a15d906f9fc8f8dc0db49b94361e91c77}{generate\_body}}(func, args=[]):}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113     body = \{\}}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_interface\_config'}:}
+\DoxyCodeLine{116         body = \{\textcolor{stringliteral}{"name"}: args[0],\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"name"}: args[0]\}\}}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'portchannel\_config'}:}
+\DoxyCodeLine{119         body = \{}
+\DoxyCodeLine{120                  \textcolor{stringliteral}{"name"}: args[0],}
+\DoxyCodeLine{121                  \textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"name"}: args[0]\},}
+\DoxyCodeLine{122                  \textcolor{stringliteral}{"openconfig-\/if-\/aggregate:aggregation"} : \{\textcolor{stringliteral}{"config"}: \{\}\}}
+\DoxyCodeLine{123                \}}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125         \textcolor{comment}{\# Configure lag type (active/on)}}
+\DoxyCodeLine{126         mode = args[1].split(\textcolor{stringliteral}{"="})[1]}
+\DoxyCodeLine{127         \textcolor{keywordflow}{if} mode != \textcolor{stringliteral}{""} :}
+\DoxyCodeLine{128             body[\textcolor{stringliteral}{"openconfig-\/if-\/aggregate:aggregation"}][\textcolor{stringliteral}{"config"}].update( \{\textcolor{stringliteral}{"lag-\/type"}: lag\_type\_map[mode] \} )}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130         \textcolor{comment}{\# Configure Min links}}
+\DoxyCodeLine{131         links = args[2].split(\textcolor{stringliteral}{"="})[1]}
+\DoxyCodeLine{132         \textcolor{keywordflow}{if} links != \textcolor{stringliteral}{""}:}
+\DoxyCodeLine{133             body[\textcolor{stringliteral}{"openconfig-\/if-\/aggregate:aggregation"}][\textcolor{stringliteral}{"config"}].update( \{\textcolor{stringliteral}{"min-\/links"}: int(links) \} )}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135         \textcolor{comment}{\# Configure Fallback}}
+\DoxyCodeLine{136         fallback = args[3].split(\textcolor{stringliteral}{"="})[1]}
+\DoxyCodeLine{137         \textcolor{keywordflow}{if} fallback != \textcolor{stringliteral}{""}:}
+\DoxyCodeLine{138             body[\textcolor{stringliteral}{"openconfig-\/if-\/aggregate:aggregation"}][\textcolor{stringliteral}{"config"}].update( \{\textcolor{stringliteral}{"openconfig-\/interfaces-\/ext:fallback"}: \textcolor{keyword}{True}\} )}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140         \textcolor{comment}{\# Configure Fast Rate}}
+\DoxyCodeLine{141         fast\_rate = args[4].split(\textcolor{stringliteral}{"="})[1]}
+\DoxyCodeLine{142         \textcolor{keywordflow}{if} fast\_rate != \textcolor{stringliteral}{""}:}
+\DoxyCodeLine{143             body[\textcolor{stringliteral}{"openconfig-\/if-\/aggregate:aggregation"}][\textcolor{stringliteral}{"config"}].update( \{\textcolor{stringliteral}{"openconfig-\/interfaces-\/ext:fast\_rate"}: \textcolor{keyword}{True}\} )}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145     \textcolor{comment}{\#Configure description}}
+\DoxyCodeLine{146     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_description'}:}
+\DoxyCodeLine{147         \textcolor{keywordflow}{if} len(args) == 1:}
+\DoxyCodeLine{148             body = \{\textcolor{stringliteral}{"name"}: args[0],\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"description"}: \textcolor{stringliteral}{""}\}\}}
+\DoxyCodeLine{149         \textcolor{keywordflow}{if} len(args) == 2:}
+\DoxyCodeLine{150             body = \{\textcolor{stringliteral}{"name"}: args[0],\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"description"}: args[1]\}\}}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{152     \textcolor{comment}{\# Enable or diable interface}}
+\DoxyCodeLine{153     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_enabled'}:}
+\DoxyCodeLine{154         body = \{\textcolor{stringliteral}{"name"}: args[0],\textcolor{stringliteral}{"config"}: \{\}\}}
+\DoxyCodeLine{155         \textcolor{keywordflow}{if} args[1] == \textcolor{stringliteral}{"True"}:}
+\DoxyCodeLine{156            body[\textcolor{stringliteral}{"config"}].update( \{\textcolor{stringliteral}{"enabled"}: \textcolor{keyword}{True}\} )}
+\DoxyCodeLine{157         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{158            body[\textcolor{stringliteral}{"config"}].update( \{\textcolor{stringliteral}{"enabled"}: \textcolor{keyword}{False}\} )}
+\DoxyCodeLine{159         }
+\DoxyCodeLine{160     \textcolor{comment}{\# Configure MTU}}
+\DoxyCodeLine{161     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_mtu'}:}
+\DoxyCodeLine{162         body = \{\textcolor{stringliteral}{"name"}: args[0],\textcolor{stringliteral}{"config"}: \{\}\}}
+\DoxyCodeLine{163         body[\textcolor{stringliteral}{"config"}].update( \{\textcolor{stringliteral}{"mtu"}: int(args[1])\} )}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{165     \textcolor{comment}{\# Add members to port-\/channel}}
+\DoxyCodeLine{166     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_aggregate\_id'}:}
+\DoxyCodeLine{167         body = \{}
+\DoxyCodeLine{168                  \textcolor{stringliteral}{"name"}: args[0],}
+\DoxyCodeLine{169                  \textcolor{stringliteral}{"openconfig-\/if-\/ethernet:ethernet"} : \{\textcolor{stringliteral}{"config"}: \{\}\}}
+\DoxyCodeLine{170                \}}
+\DoxyCodeLine{171         body[\textcolor{stringliteral}{"openconfig-\/if-\/ethernet:ethernet"}][\textcolor{stringliteral}{"config"}].update( \{ \textcolor{stringliteral}{"openconfig-\/if-\/aggregate:aggregate-\/id"}: args[1] \} )}
+\DoxyCodeLine{172     }
+\DoxyCodeLine{173      \textcolor{comment}{\#configure switchport}}
+\DoxyCodeLine{174     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_access\_vlan'}:}
+\DoxyCodeLine{175         body = \{}
+\DoxyCodeLine{176                  \textcolor{stringliteral}{"name"}: args[0],}
+\DoxyCodeLine{177                  \textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"name"}: args[0]\},}
+\DoxyCodeLine{178                  \textcolor{stringliteral}{"openconfig-\/if-\/ethernet:ethernet"}: \{\textcolor{stringliteral}{"openconfig-\/vlan:switched-\/vlan"}:\{\}\}}
+\DoxyCodeLine{179         \}}
+\DoxyCodeLine{180         body[\textcolor{stringliteral}{"openconfig-\/if-\/ethernet:ethernet"}][\textcolor{stringliteral}{"openconfig-\/vlan:switched-\/vlan"}].update(\{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"interface-\/mode"}: \textcolor{stringliteral}{"ACCESS"}, \textcolor{stringliteral}{"access-\/vlan"}: int(args[1])\}\})}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{182     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_trunk\_vlan'}:}
+\DoxyCodeLine{183         vlanlst = args[1].split(\textcolor{stringliteral}{','})}
+\DoxyCodeLine{184         vlanlst = [sub.replace(\textcolor{stringliteral}{'-\/'}, \textcolor{stringliteral}{'..'}) \textcolor{keywordflow}{for} sub \textcolor{keywordflow}{in} vlanlst]}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{186         body = \{}
+\DoxyCodeLine{187                  \textcolor{stringliteral}{"name"}: args[0],}
+\DoxyCodeLine{188                  \textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"name"}: args[0]\},}
+\DoxyCodeLine{189                  \textcolor{stringliteral}{"openconfig-\/if-\/ethernet:ethernet"}: \{\textcolor{stringliteral}{"openconfig-\/vlan:switched-\/vlan"}:\{\}\}}
+\DoxyCodeLine{190         \}}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{192         body[\textcolor{stringliteral}{"openconfig-\/if-\/ethernet:ethernet"}][\textcolor{stringliteral}{"openconfig-\/vlan:switched-\/vlan"}].update(\{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"interface-\/mode"}: \textcolor{stringliteral}{"TRUNK"}, \textcolor{stringliteral}{"trunk-\/vlans"}: [int(i) \textcolor{keywordflow}{if} \textcolor{stringliteral}{'..'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} i \textcolor{keywordflow}{else} i \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} vlanlst]\}\}) }
+\DoxyCodeLine{193    }
+\DoxyCodeLine{194     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_aggregation\_access\_vlan'}:}
+\DoxyCodeLine{195         body = \{}
+\DoxyCodeLine{196                  \textcolor{stringliteral}{"name"}: args[0],}
+\DoxyCodeLine{197                  \textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"name"}: args[0]\},}
+\DoxyCodeLine{198                  \textcolor{stringliteral}{"openconfig-\/if-\/aggregate:aggregation"}: \{\textcolor{stringliteral}{"openconfig-\/vlan:switched-\/vlan"}:\{\}\}}
+\DoxyCodeLine{199         \}}
+\DoxyCodeLine{200         body[\textcolor{stringliteral}{"openconfig-\/if-\/aggregate:aggregation"}][\textcolor{stringliteral}{"openconfig-\/vlan:switched-\/vlan"}].update(\{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"interface-\/mode"}: \textcolor{stringliteral}{"ACCESS"}, \textcolor{stringliteral}{"access-\/vlan"}: int(args[1])\}\})}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{202     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_aggregation\_trunk\_vlan'}:}
+\DoxyCodeLine{203         vlanlst = args[1].split(\textcolor{stringliteral}{','})}
+\DoxyCodeLine{204         vlanlst = [sub.replace(\textcolor{stringliteral}{'-\/'}, \textcolor{stringliteral}{'..'}) \textcolor{keywordflow}{for} sub \textcolor{keywordflow}{in} vlanlst]}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{206         body = \{}
+\DoxyCodeLine{207                  \textcolor{stringliteral}{"name"}: args[0],}
+\DoxyCodeLine{208                  \textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"name"}: args[0]\},}
+\DoxyCodeLine{209                  \textcolor{stringliteral}{"openconfig-\/if-\/aggregate:aggregation"}: \{\textcolor{stringliteral}{"openconfig-\/vlan:switched-\/vlan"}:\{\}\}}
+\DoxyCodeLine{210         \}}
+\DoxyCodeLine{211 }
+\DoxyCodeLine{212         body[\textcolor{stringliteral}{"openconfig-\/if-\/aggregate:aggregation"}][\textcolor{stringliteral}{"openconfig-\/vlan:switched-\/vlan"}].update(\{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"interface-\/mode"}: \textcolor{stringliteral}{"TRUNK"}, \textcolor{stringliteral}{"trunk-\/vlans"}: [int(i) \textcolor{keywordflow}{if} \textcolor{stringliteral}{'..'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} i \textcolor{keywordflow}{else} i \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} vlanlst]\}\})}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{214     \textcolor{comment}{\# Graceful-\/shutdown mode config}}
+\DoxyCodeLine{215     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'graceful\_shutdown\_enabled'}:}
+\DoxyCodeLine{216         body = \{}
+\DoxyCodeLine{217                  \textcolor{stringliteral}{"name"}: args[0],}
+\DoxyCodeLine{218                  \textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"name"}: args[0]\},}
+\DoxyCodeLine{219                  \textcolor{stringliteral}{"openconfig-\/if-\/aggregate:aggregation"} : \{\textcolor{stringliteral}{"config"}: \{\}\}}
+\DoxyCodeLine{220                \}}
+\DoxyCodeLine{221 }
+\DoxyCodeLine{222         \textcolor{keywordflow}{if} args[1] == \textcolor{stringliteral}{'True'}:}
+\DoxyCodeLine{223             mode = \textcolor{stringliteral}{"enable"}}
+\DoxyCodeLine{224         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{225             mode = \textcolor{stringliteral}{"disable"}}
+\DoxyCodeLine{226 }
+\DoxyCodeLine{227         body[\textcolor{stringliteral}{"openconfig-\/if-\/aggregate:aggregation"}][\textcolor{stringliteral}{"config"}].update( \{\textcolor{stringliteral}{"openconfig-\/interfaces-\/ext:graceful-\/shutdown-\/mode"}: mode\} )}
+\DoxyCodeLine{228 }
+\DoxyCodeLine{229     \textcolor{comment}{\# Speed config}}
+\DoxyCodeLine{230     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_port\_speed'}:}
+\DoxyCodeLine{231         body = \{}
+\DoxyCodeLine{232                  \textcolor{stringliteral}{"name"}: args[0],}
+\DoxyCodeLine{233                  \textcolor{stringliteral}{"openconfig-\/if-\/ethernet:ethernet"} : \{\textcolor{stringliteral}{"config"}: \{\}\}}
+\DoxyCodeLine{234                \}}
+\DoxyCodeLine{235 }
+\DoxyCodeLine{236         speed\_map = \{\textcolor{stringliteral}{"10MBPS"}:\textcolor{stringliteral}{"SPEED\_10MB"}, \textcolor{stringliteral}{"100MBPS"}:\textcolor{stringliteral}{"SPEED\_100MB"}, \textcolor{stringliteral}{"1GIGE"}:\textcolor{stringliteral}{"SPEED\_1GB"}, \textcolor{stringliteral}{"auto"}:\textcolor{stringliteral}{"SPEED\_1GB"}, \textcolor{stringliteral}{"10GIGE"}:\textcolor{stringliteral}{"SPEED\_10GB"},}
+\DoxyCodeLine{237                         \textcolor{stringliteral}{"25GIGE"}:\textcolor{stringliteral}{"SPEED\_25GB"}, \textcolor{stringliteral}{"40GIGE"}:\textcolor{stringliteral}{"SPEED\_40GB"}, \textcolor{stringliteral}{"100GIGE"}:\textcolor{stringliteral}{"SPEED\_100GB"}, \textcolor{stringliteral}{"SPEED\_UNKNOWN"}:\textcolor{stringliteral}{"SPEED\_UNKNOWN"}\}}
+\DoxyCodeLine{238         \textcolor{keywordflow}{if} args[1] \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} speed\_map.keys():}
+\DoxyCodeLine{239             print(\textcolor{stringliteral}{"\%Error: Invalid port speed config"})}
+\DoxyCodeLine{240             exit(1)}
+\DoxyCodeLine{241         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{242             speed = speed\_map.get(args[1])}
+\DoxyCodeLine{243             body[\textcolor{stringliteral}{"openconfig-\/if-\/ethernet:ethernet"}][\textcolor{stringliteral}{"config"}].update( \{ \textcolor{stringliteral}{"openconfig-\/if-\/ethernet:port-\/speed"}: speed \} )}
+\DoxyCodeLine{244     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_ipv6\_enabled'}:}
+\DoxyCodeLine{245         parent\_if=args[0]}
+\DoxyCodeLine{246         sub\_if = 0}
+\DoxyCodeLine{247         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'.'} \textcolor{keywordflow}{in} parent\_if:}
+\DoxyCodeLine{248             parent\_if = args[0].split(\textcolor{stringliteral}{'.'})[0]}
+\DoxyCodeLine{249             sub\_if = int(args[0].split(\textcolor{stringliteral}{'.'})[1])}
+\DoxyCodeLine{250         parent\_if = parent\_if.replace(\textcolor{stringliteral}{"po"}, \textcolor{stringliteral}{"PortChannel"})}
+\DoxyCodeLine{251         body = \{ \textcolor{stringliteral}{"name"}: parent\_if \}}
+\DoxyCodeLine{252         \textcolor{keywordflow}{if} parent\_if.startswith(\textcolor{stringliteral}{"Vlan"}):}
+\DoxyCodeLine{253             body.update(\{\textcolor{stringliteral}{"openconfig-\/vlan:routed-\/vlan"} : \{\textcolor{stringliteral}{"openconfig-\/if-\/ip:ipv6"}: \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"enabled"}: bool(args[1])\}\}\}\})}
+\DoxyCodeLine{254         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{255             body.update(\{\textcolor{stringliteral}{"subinterfaces"} : \{\textcolor{stringliteral}{"subinterface"}: [ \{\textcolor{stringliteral}{"index"}: sub\_if,\textcolor{stringliteral}{"openconfig-\/if-\/ip:ipv6"}: \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"enabled"}: bool(args[1])\}\}\} ] \}\})}
+\DoxyCodeLine{256 }
+\DoxyCodeLine{257     \textcolor{comment}{\# FEC config}}
+\DoxyCodeLine{258     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_port\_fec'}:}
+\DoxyCodeLine{259         body = \{}
+\DoxyCodeLine{260                  \textcolor{stringliteral}{"name"}: args[0],}
+\DoxyCodeLine{261                  \textcolor{stringliteral}{"openconfig-\/if-\/ethernet:ethernet"} : \{\textcolor{stringliteral}{"config"}: \{\}\}}
+\DoxyCodeLine{262                \}}
+\DoxyCodeLine{263 }
+\DoxyCodeLine{264         fec\_map = \{\textcolor{stringliteral}{"RS"}: \textcolor{stringliteral}{"FEC\_RS"}, \textcolor{stringliteral}{"FC"}: \textcolor{stringliteral}{"FEC\_FC"}, \textcolor{stringliteral}{"off"}: \textcolor{stringliteral}{"FEC\_DISABLED"}, \textcolor{stringliteral}{"default"}: \textcolor{stringliteral}{"FEC\_AUTO"}\}}
+\DoxyCodeLine{265         fec = args[1]}
+\DoxyCodeLine{266         \textcolor{keywordflow}{if} fec \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} fec\_map.keys():}
+\DoxyCodeLine{267             print(\textcolor{stringliteral}{"\%Error: Invalid port FEC config"})}
+\DoxyCodeLine{268             \textcolor{keywordflow}{return} \textcolor{keywordtype}{None}}
+\DoxyCodeLine{269         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{270             fec = fec\_map.get(args[1])}
+\DoxyCodeLine{271             body[\textcolor{stringliteral}{"openconfig-\/if-\/ethernet:ethernet"}][\textcolor{stringliteral}{"config"}].update( \{ \textcolor{stringliteral}{"openconfig-\/if-\/ethernet:port-\/fec"}: fec \} )}
+\DoxyCodeLine{272 }
+\DoxyCodeLine{273     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{274         print(\textcolor{stringliteral}{"\%Error: \%s not supported"} \% func)}
+\DoxyCodeLine{275 }
+\DoxyCodeLine{276     \textcolor{keywordflow}{return} body}
+\DoxyCodeLine{277         }
+\DoxyCodeLine{278  }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/dfe/namespacesonic__cli__if__range_a15d906f9fc8f8dc0db49b94361e91c77_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__if__range_acd7b89d7fa6b59fadddd841a6b43e4fa}\label{namespacesonic__cli__if__range_acd7b89d7fa6b59fadddd841a6b43e4fa}} 
+\index{sonic\_cli\_if\_range@{sonic\_cli\_if\_range}!getId@{getId}}
+\index{getId@{getId}!sonic\_cli\_if\_range@{sonic\_cli\_if\_range}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+if\+\_\+range.\+get\+Id (\begin{DoxyParamCaption}\item[{}]{item }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+if\+\_\+range.\+py 파일의 44 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{44 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__if__range_acd7b89d7fa6b59fadddd841a6b43e4fa}{getId}}(item):}
+\DoxyCodeLine{45     state\_dict = item[\textcolor{stringliteral}{'state'}]}
+\DoxyCodeLine{46     ifName = state\_dict[\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{47     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__intf__utils_a9d08993d978e51fcb254e67534a554a2}{name\_to\_int\_val}}(ifName)}
+\DoxyCodeLine{48 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/dfe/namespacesonic__cli__if__range_acd7b89d7fa6b59fadddd841a6b43e4fa_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__if__range_adb1ac9cd49ad48ca9a5576fdb27bcc4a}\label{namespacesonic__cli__if__range_adb1ac9cd49ad48ca9a5576fdb27bcc4a}} 
+\index{sonic\_cli\_if\_range@{sonic\_cli\_if\_range}!getSonicId@{getSonicId}}
+\index{getSonicId@{getSonicId}!sonic\_cli\_if\_range@{sonic\_cli\_if\_range}}
+\doxysubsubsection{\texorpdfstring{getSonicId()}{getSonicId()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+if\+\_\+range.\+get\+Sonic\+Id (\begin{DoxyParamCaption}\item[{}]{item }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+if\+\_\+range.\+py 파일의 49 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{49 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__if__range_adb1ac9cd49ad48ca9a5576fdb27bcc4a}{getSonicId}}(item):}
+\DoxyCodeLine{50     state\_dict = item}
+\DoxyCodeLine{51     ifName = state\_dict[\textcolor{stringliteral}{'ifname'}]}
+\DoxyCodeLine{52     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__intf__utils_a9d08993d978e51fcb254e67534a554a2}{name\_to\_int\_val}}(ifName)}
+\DoxyCodeLine{53 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/dfe/namespacesonic__cli__if__range_adb1ac9cd49ad48ca9a5576fdb27bcc4a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__if__range_ab0530dc8fd336588ef0236c97f40cfff}\label{namespacesonic__cli__if__range_ab0530dc8fd336588ef0236c97f40cfff}} 
+\index{sonic\_cli\_if\_range@{sonic\_cli\_if\_range}!intersection@{intersection}}
+\index{intersection@{intersection}!sonic\_cli\_if\_range@{sonic\_cli\_if\_range}}
+\doxysubsubsection{\texorpdfstring{intersection()}{intersection()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+if\+\_\+range.\+intersection (\begin{DoxyParamCaption}\item[{}]{lst1,  }\item[{}]{lst2 }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+if\+\_\+range.\+py 파일의 54 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{54 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__if__range_ab0530dc8fd336588ef0236c97f40cfff}{intersection}}(lst1, lst2): }
+\DoxyCodeLine{55     \textcolor{keywordflow}{return} list(set(lst1) \& set(lst2)) }
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \textcolor{comment}{\# Function to expand range into list of individual interfaces}}
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/dfe/namespacesonic__cli__if__range_ab0530dc8fd336588ef0236c97f40cfff_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__if__range_a5a771a939d776aae18c22fffe63eca6d}\label{namespacesonic__cli__if__range_a5a771a939d776aae18c22fffe63eca6d}} 
+\index{sonic\_cli\_if\_range@{sonic\_cli\_if\_range}!invoke\_api@{invoke\_api}}
+\index{invoke\_api@{invoke\_api}!sonic\_cli\_if\_range@{sonic\_cli\_if\_range}}
+\doxysubsubsection{\texorpdfstring{invoke\_api()}{invoke\_api()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+if\+\_\+range.\+invoke\+\_\+api (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args = {\ttfamily \mbox{[}\mbox{]}} }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+if\+\_\+range.\+py 파일의 279 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{279 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__if__range_a5a771a939d776aae18c22fffe63eca6d}{invoke\_api}}(func, args=[]):}
+\DoxyCodeLine{280     api = cc.ApiClient()}
+\DoxyCodeLine{281 }
+\DoxyCodeLine{282     \textcolor{comment}{\# Delete interface}}
+\DoxyCodeLine{283     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'delete\_interface'}:}
+\DoxyCodeLine{284         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'.'} \textcolor{keywordflow}{in} args[0]:}
+\DoxyCodeLine{285             path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{sub\}'}, }
+\DoxyCodeLine{286                 name=args[0].split(\textcolor{stringliteral}{'.'})[0], sub=args[0].split(\textcolor{stringliteral}{'.'})[1])}
+\DoxyCodeLine{287             \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{288         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}'}, name=args[0])}
+\DoxyCodeLine{289         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{290 }
+\DoxyCodeLine{291     \textcolor{comment}{\# Remove members from port-\/channel}}
+\DoxyCodeLine{292     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_aggregate\_id'}:}
+\DoxyCodeLine{293         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/if-\/ethernet:ethernet/config/openconfig-\/if-\/aggregate:aggregate-\/id'}, name=args[0])}
+\DoxyCodeLine{294         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{295 }
+\DoxyCodeLine{296     \textcolor{comment}{\#Remove access vlan}}
+\DoxyCodeLine{297     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_access\_vlan'}:}
+\DoxyCodeLine{298     path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/if-\/ethernet:ethernet/openconfig-\/vlan:switched-\/vlan/config/access-\/vlan'}, name=args[0])}
+\DoxyCodeLine{299         \textcolor{keywordflow}{return} api.delete(path) }
+\DoxyCodeLine{300 }
+\DoxyCodeLine{301     \textcolor{comment}{\#Remove trunk vlan}}
+\DoxyCodeLine{302     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_trunk\_vlan'}:}
+\DoxyCodeLine{303         vlanStr = args[1].replace(\textcolor{stringliteral}{'-\/'}, \textcolor{stringliteral}{'..'})}
+\DoxyCodeLine{304         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/if-\/ethernet:ethernet/openconfig-\/vlan:switched-\/vlan/config/trunk-\/vlans=\{trunk\}'}, name=args[0], trunk=vlanStr)}
+\DoxyCodeLine{305         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{306 }
+\DoxyCodeLine{307     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_trunk\_vlan\_all'}:}
+\DoxyCodeLine{308         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/if-\/ethernet:ethernet/openconfig-\/vlan:switched-\/vlan/config/trunk-\/vlans'},name=args[0])}
+\DoxyCodeLine{309         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{310 }
+\DoxyCodeLine{311     \textcolor{comment}{\#Remove aggregate access vlan}}
+\DoxyCodeLine{312     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_aggregate\_access\_vlan'}:}
+\DoxyCodeLine{313         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/if-\/aggregate:aggregation/openconfig-\/vlan:switched-\/vlan/config/access-\/vlan'}, name=args[0])}
+\DoxyCodeLine{314         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{315 }
+\DoxyCodeLine{316       \textcolor{comment}{\#Remove aggregate trunk vlan}}
+\DoxyCodeLine{317     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_aggregate\_trunk\_vlan'}:}
+\DoxyCodeLine{318         vlanStr = args[1].replace(\textcolor{stringliteral}{'-\/'}, \textcolor{stringliteral}{'..'})}
+\DoxyCodeLine{319         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/if-\/aggregate:aggregation/openconfig-\/vlan:switched-\/vlan/config/trunk-\/vlans=\{trunk\}'}, name=args[0], trunk=vlanStr)}
+\DoxyCodeLine{320         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{321     }
+\DoxyCodeLine{322     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_aggregate\_trunk\_vlan\_all'}:}
+\DoxyCodeLine{323     path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/if-\/aggregate:aggregation/openconfig-\/vlan:switched-\/vlan/config/trunk-\/vlans'},name=args[0])}
+\DoxyCodeLine{324     \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{325 }
+\DoxyCodeLine{326     \textcolor{comment}{\#Remove all vlans}}
+\DoxyCodeLine{327     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_all\_vlan'}:}
+\DoxyCodeLine{328         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/if-\/ethernet:ethernet/openconfig-\/vlan:switched-\/vlan/config'}, name=args[0])}
+\DoxyCodeLine{329         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{330         }
+\DoxyCodeLine{331     \textcolor{comment}{\#Remove aggregate all vlans}}
+\DoxyCodeLine{332     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_aggregate\_all\_vlan'}:}
+\DoxyCodeLine{333         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/if-\/aggregate:aggregation/openconfig-\/vlan:switched-\/vlan/config'}, name=args[0])}
+\DoxyCodeLine{334         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{335 }
+\DoxyCodeLine{336     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'rpc\_replace\_vlan'}:}
+\DoxyCodeLine{337         vlanlst = args[1].split(\textcolor{stringliteral}{','})}
+\DoxyCodeLine{338         vlanlst = [sub.replace(\textcolor{stringliteral}{'-\/'}, \textcolor{stringliteral}{'..'}) \textcolor{keywordflow}{for} sub \textcolor{keywordflow}{in} vlanlst]}
+\DoxyCodeLine{339     ifList = args[0]}
+\DoxyCodeLine{340         body = \{\textcolor{stringliteral}{"openconfig-\/interfaces-\/ext:input"}:\{\textcolor{stringliteral}{"ifname"}:ifList,\textcolor{stringliteral}{"vlanlist"}:vlanlst\}\}}
+\DoxyCodeLine{341         path = cc.Path(\textcolor{stringliteral}{'/restconf/operations/openconfig-\/interfaces-\/ext:vlan-\/replace'})}
+\DoxyCodeLine{342         \textcolor{keywordflow}{return} api.post(path,body)}
+\DoxyCodeLine{343 }
+\DoxyCodeLine{344     \textcolor{comment}{\#Delete port speed to revert the speed to default.}}
+\DoxyCodeLine{345     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_port\_speed'}:}
+\DoxyCodeLine{346         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/if-\/ethernet:ethernet/config/port-\/speed'}, name=args[0])}
+\DoxyCodeLine{347         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{348 }
+\DoxyCodeLine{349     \textcolor{comment}{\# Remove IP addresses from interface}}
+\DoxyCodeLine{350     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_if\_ip'}:}
+\DoxyCodeLine{351     \textcolor{keywordflow}{if} args[0].startswith(\textcolor{stringliteral}{"Vlan"}):}
+\DoxyCodeLine{352             path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv4/addresses'}, name=args[0])}
+\DoxyCodeLine{353         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{354             path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/addresses'}, name=args[0], index=\textcolor{stringliteral}{"0"})}
+\DoxyCodeLine{355         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{356     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_if\_ip6'}:}
+\DoxyCodeLine{357     \textcolor{keywordflow}{if} args[0].startswith(\textcolor{stringliteral}{"Vlan"}):}
+\DoxyCodeLine{358             path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv6/addresses'}, name=args[0])}
+\DoxyCodeLine{359         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{360             path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv6/addresses'}, name=args[0], index=\textcolor{stringliteral}{"0"})}
+\DoxyCodeLine{361         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{362 }
+\DoxyCodeLine{363     \textcolor{comment}{\# Disable IPv6}}
+\DoxyCodeLine{364     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_if\_ip6\_enabled'}:}
+\DoxyCodeLine{365     \textcolor{keywordflow}{if} args[0].startswith(\textcolor{stringliteral}{"Vlan"}):}
+\DoxyCodeLine{366             path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv6/config/enabled'}, name=args[0])}
+\DoxyCodeLine{367         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{368             parent\_if=args[0]}
+\DoxyCodeLine{369             sub\_if=\textcolor{stringliteral}{"0"}}
+\DoxyCodeLine{370             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'.'} \textcolor{keywordflow}{in} parent\_if:}
+\DoxyCodeLine{371                 parent\_if = args[0].split(\textcolor{stringliteral}{'.'})[0]}
+\DoxyCodeLine{372                 sub\_if = args[0].split(\textcolor{stringliteral}{'.'})[1]}
+\DoxyCodeLine{373             parent\_if = parent\_if.replace(\textcolor{stringliteral}{"po"}, \textcolor{stringliteral}{"PortChannel"})}
+\DoxyCodeLine{374             path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv6/config/enabled'}, name=parent\_if, index=sub\_if)}
+\DoxyCodeLine{375         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{376 }
+\DoxyCodeLine{377     \textcolor{comment}{\# Get interface}}
+\DoxyCodeLine{378     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_openconfig\_interfaces\_interfaces\_interface'}:}
+\DoxyCodeLine{379         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}'}, name=args[0])}
+\DoxyCodeLine{380         \textcolor{keywordflow}{return} api.get(path)}
+\DoxyCodeLine{381     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_openconfig\_platform\_components\_component\_port\_state\_media\_fec\_mode'}:}
+\DoxyCodeLine{382         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/platform:components/component=\{name\}/port/state/openconfig-\/port-\/media-\/fec-\/ext:media-\/fec-\/mode'}, name=(args[0]))}
+\DoxyCodeLine{383         \textcolor{keywordflow}{return} api.get(path)}
+\DoxyCodeLine{384     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_sonic\_port\_sonic\_port\_port\_table'}:}
+\DoxyCodeLine{385         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/port:sonic-\/port/PORT\_TABLE'})}
+\DoxyCodeLine{386         \textcolor{keywordflow}{return} api.get(path)}
+\DoxyCodeLine{387     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_openconfig\_interfaces\_interfaces'}:}
+\DoxyCodeLine{388         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces'})}
+\DoxyCodeLine{389         \textcolor{keywordflow}{return} api.get(path)}
+\DoxyCodeLine{390 }
+\DoxyCodeLine{391     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_available\_interface\_names\_list'}:}
+\DoxyCodeLine{392     iflist = [] \textcolor{comment}{\#To store list of existing intefaces of given interface type}}
+\DoxyCodeLine{393     \textcolor{keywordflow}{if} args[0].startswith(\textcolor{stringliteral}{"Eth"}) :}
+\DoxyCodeLine{394             path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/port:sonic-\/port/PORT\_TABLE/PORT\_TABLE\_LIST'})}
+\DoxyCodeLine{395             responsePortTbl = api.get(path)}
+\DoxyCodeLine{396             \textcolor{keywordflow}{if} responsePortTbl.ok():}
+\DoxyCodeLine{397         intf\_map = responsePortTbl.content}
+\DoxyCodeLine{398                 tbl\_key = \textcolor{stringliteral}{"sonic-\/port:PORT\_TABLE\_LIST"}}
+\DoxyCodeLine{399         \textcolor{keywordflow}{if} tbl\_key \textcolor{keywordflow}{in} intf\_map:}
+\DoxyCodeLine{400             iflist = [i[\textcolor{stringliteral}{"ifname"}] \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} intf\_map[tbl\_key] \textcolor{keywordflow}{if} i[\textcolor{stringliteral}{"ifname"}].startswith(\textcolor{stringliteral}{"Eth"})]}
+\DoxyCodeLine{401     \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{"Vlan"}:}
+\DoxyCodeLine{402             path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/vlan:sonic-\/vlan/VLAN/VLAN\_LIST'})}
+\DoxyCodeLine{403             responseVlanTbl = api.get(path)}
+\DoxyCodeLine{404         iflist = []}
+\DoxyCodeLine{405             \textcolor{keywordflow}{if} responseVlanTbl.ok():}
+\DoxyCodeLine{406         intf\_map = responseVlanTbl.content}
+\DoxyCodeLine{407                 tbl\_key = \textcolor{stringliteral}{"sonic-\/vlan:VLAN\_LIST"}}
+\DoxyCodeLine{408         \textcolor{keywordflow}{if} tbl\_key \textcolor{keywordflow}{in} intf\_map:}
+\DoxyCodeLine{409             iflist = [i[\textcolor{stringliteral}{"name"}] \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} intf\_map[tbl\_key] \textcolor{keywordflow}{if} i[\textcolor{stringliteral}{"name"}].startswith(\textcolor{stringliteral}{"Vlan"})]}
+\DoxyCodeLine{410     \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{"PortChannel"}:}
+\DoxyCodeLine{411             path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/portchannel:sonic-\/portchannel/PORTCHANNEL/PORTCHANNEL\_LIST'})}
+\DoxyCodeLine{412             responseLagTbl = api.get(path)}
+\DoxyCodeLine{413         iflist = []}
+\DoxyCodeLine{414             \textcolor{keywordflow}{if} responseLagTbl.ok():}
+\DoxyCodeLine{415         intf\_map = responseLagTbl.content}
+\DoxyCodeLine{416             tbl\_key = \textcolor{stringliteral}{"sonic-\/portchannel:PORTCHANNEL\_LIST"}}
+\DoxyCodeLine{417         \textcolor{keywordflow}{if} tbl\_key \textcolor{keywordflow}{in} intf\_map:}
+\DoxyCodeLine{418             iflist = [i[\textcolor{stringliteral}{"name"}] \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} intf\_map[tbl\_key] \textcolor{keywordflow}{if} i[\textcolor{stringliteral}{"name"}].startswith(\textcolor{stringliteral}{"PortChannel"})]}
+\DoxyCodeLine{419     \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{"SubInterface"}:}
+\DoxyCodeLine{420             path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/interface:sonic-\/interface/VLAN\_SUB\_INTERFACE/VLAN\_SUB\_INTERFACE\_LIST'})}
+\DoxyCodeLine{421             responseSubIntfTbl = api.get(path)}
+\DoxyCodeLine{422         iflist = []}
+\DoxyCodeLine{423             \textcolor{keywordflow}{if} responseSubIntfTbl.ok():}
+\DoxyCodeLine{424         intf\_map = responseSubIntfTbl.content}
+\DoxyCodeLine{425             tbl\_key = \textcolor{stringliteral}{"sonic-\/interface:VLAN\_SUB\_INTERFACE\_LIST"}}
+\DoxyCodeLine{426         \textcolor{keywordflow}{if} tbl\_key \textcolor{keywordflow}{in} intf\_map:}
+\DoxyCodeLine{427             iflist = [i[\textcolor{stringliteral}{"id"}] \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} intf\_map[tbl\_key] \textcolor{keywordflow}{if} i[\textcolor{stringliteral}{"id"}].startswith(\textcolor{stringliteral}{"Po"})]}
+\DoxyCodeLine{428         }
+\DoxyCodeLine{429     \textcolor{keywordflow}{return} iflist}
+\DoxyCodeLine{430 }
+\DoxyCodeLine{431     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'create\_if\_range'}: }
+\DoxyCodeLine{432         \textcolor{stringliteral}{"""}}
+\DoxyCodeLine{433 \textcolor{stringliteral}{            Create number, range, or comma-\/delimited list of numbers and range of Vlan or PortChannel interfaces}}
+\DoxyCodeLine{434 \textcolor{stringliteral}{            param:}}
+\DoxyCodeLine{435 \textcolor{stringliteral}{                -\/range of interfaces}}
+\DoxyCodeLine{436 \textcolor{stringliteral}{        """}}
+\DoxyCodeLine{437         ifrange = args[0].split(\textcolor{stringliteral}{"="})[1]}
+\DoxyCodeLine{438         iftype, ifrangelist = \mbox{\hyperlink{namespacesonic__cli__if__range_aecae68301f202f215b10b3e1923aca87}{rangetolst}}(ifrange)}
+\DoxyCodeLine{439         body = \{\textcolor{stringliteral}{"openconfig-\/interfaces:interfaces"}: \{\textcolor{stringliteral}{"interface"}: []\} \}}
+\DoxyCodeLine{440         \textcolor{keywordflow}{if} iftype == \textcolor{stringliteral}{"Vlan"}:}
+\DoxyCodeLine{441             subfunc = \textcolor{stringliteral}{"patch\_interface\_config"}}
+\DoxyCodeLine{442         \textcolor{keywordflow}{elif} iftype == \textcolor{stringliteral}{"PortChannel"}:}
+\DoxyCodeLine{443             subfunc = \textcolor{stringliteral}{"portchannel\_config"}}
+\DoxyCodeLine{444         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{445             \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\%Error: Not supported"}}
+\DoxyCodeLine{446             \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{447         \textcolor{keywordflow}{for} intf \textcolor{keywordflow}{in} ifrangelist:}
+\DoxyCodeLine{448             intfargs = [intf]+args[1:]}
+\DoxyCodeLine{449             body[\textcolor{stringliteral}{"openconfig-\/interfaces:interfaces"}][\textcolor{stringliteral}{"interface"}].append(\mbox{\hyperlink{namespacesonic__cli__if__range_a15d906f9fc8f8dc0db49b94361e91c77}{generate\_body}}(subfunc, intfargs))}
+\DoxyCodeLine{450         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces'})}
+\DoxyCodeLine{451         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{452 }
+\DoxyCodeLine{453     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'config\_if\_range'}:}
+\DoxyCodeLine{454         \textcolor{stringliteral}{"""}}
+\DoxyCodeLine{455 \textcolor{stringliteral}{            -\/ Configure number, range, or comma-\/delimited list of numbers and range of Vlan or Ethernet or PortChannel interfaces}}
+\DoxyCodeLine{456 \textcolor{stringliteral}{            param:}}
+\DoxyCodeLine{457 \textcolor{stringliteral}{                -\/ List of available interfaces to be configured}}
+\DoxyCodeLine{458 \textcolor{stringliteral}{                -\/ API to be called to generate payload}}
+\DoxyCodeLine{459 \textcolor{stringliteral}{        """}}
+\DoxyCodeLine{460         body = \{\textcolor{stringliteral}{"openconfig-\/interfaces:interfaces"}: \{\textcolor{stringliteral}{"interface"}: []\} \}}
+\DoxyCodeLine{461         iflistStr = args[0].split(\textcolor{stringliteral}{"="})[1]}
+\DoxyCodeLine{462         iflist = iflistStr.rstrip().split(\textcolor{stringliteral}{','}) }
+\DoxyCodeLine{463         subfunc = args[1]}
+\DoxyCodeLine{464         \textcolor{keywordflow}{for} intf \textcolor{keywordflow}{in} iflist:}
+\DoxyCodeLine{465             intfargs = [intf]+ args[2:]}
+\DoxyCodeLine{466             body[\textcolor{stringliteral}{"openconfig-\/interfaces:interfaces"}][\textcolor{stringliteral}{"interface"}].append(\mbox{\hyperlink{namespacesonic__cli__if__range_a15d906f9fc8f8dc0db49b94361e91c77}{generate\_body}}(subfunc, intfargs))}
+\DoxyCodeLine{467         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces'})}
+\DoxyCodeLine{468         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{469 }
+\DoxyCodeLine{470     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'config\_if\_range\_autostate'}:}
+\DoxyCodeLine{471         \textcolor{stringliteral}{"""}}
+\DoxyCodeLine{472 \textcolor{stringliteral}{            -\/ Configure number, range, or comma-\/delimited list of numbers and range of Vlan interfaces}}
+\DoxyCodeLine{473 \textcolor{stringliteral}{            param:}}
+\DoxyCodeLine{474 \textcolor{stringliteral}{                -\/ List of available interfaces to be configured}}
+\DoxyCodeLine{475 \textcolor{stringliteral}{                -\/ autostate enable/disable}}
+\DoxyCodeLine{476 \textcolor{stringliteral}{        """}}
+\DoxyCodeLine{477         maplist = []}
+\DoxyCodeLine{478         iflistStr = args[0].split(\textcolor{stringliteral}{"="})[1]}
+\DoxyCodeLine{479         iflist = iflistStr.rstrip().split(\textcolor{stringliteral}{','}) }
+\DoxyCodeLine{480         \textcolor{keywordflow}{for} intf \textcolor{keywordflow}{in} iflist:}
+\DoxyCodeLine{481             listobj = \{}
+\DoxyCodeLine{482                 \textcolor{stringliteral}{"name"}: intf,}
+\DoxyCodeLine{483                 \textcolor{stringliteral}{"vlanid"}: int(intf[4:]),}
+\DoxyCodeLine{484                 \textcolor{stringliteral}{"autostate"}: \textcolor{stringliteral}{"enable"} \textcolor{keywordflow}{if} args[1] == \textcolor{stringliteral}{"True"} \textcolor{keywordflow}{else} \textcolor{stringliteral}{"disable"}}
+\DoxyCodeLine{485             \}}
+\DoxyCodeLine{486             maplist.append(listobj)}
+\DoxyCodeLine{487         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/vlan:sonic-\/vlan/VLAN'})}
+\DoxyCodeLine{488         body1 = \{}
+\DoxyCodeLine{489                \textcolor{stringliteral}{"VLAN\_LIST"}: maplist}
+\DoxyCodeLine{490         \}}
+\DoxyCodeLine{491         body = \{}
+\DoxyCodeLine{492                 \textcolor{stringliteral}{"sonic-\/vlan:VLAN"}: body1}
+\DoxyCodeLine{493         \}}
+\DoxyCodeLine{494         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{495 }
+\DoxyCodeLine{496     \textcolor{keywordflow}{return} api.cli\_not\_implemented(func)}
+\DoxyCodeLine{497 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/dfe/namespacesonic__cli__if__range_a5a771a939d776aae18c22fffe63eca6d_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/dfe/namespacesonic__cli__if__range_a5a771a939d776aae18c22fffe63eca6d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__if__range_aecae68301f202f215b10b3e1923aca87}\label{namespacesonic__cli__if__range_aecae68301f202f215b10b3e1923aca87}} 
+\index{sonic\_cli\_if\_range@{sonic\_cli\_if\_range}!rangetolst@{rangetolst}}
+\index{rangetolst@{rangetolst}!sonic\_cli\_if\_range@{sonic\_cli\_if\_range}}
+\doxysubsubsection{\texorpdfstring{rangetolst()}{rangetolst()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+if\+\_\+range.\+rangetolst (\begin{DoxyParamCaption}\item[{}]{givenifrange }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+if\+\_\+range.\+py 파일의 58 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{58 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__if__range_aecae68301f202f215b10b3e1923aca87}{rangetolst}}(givenifrange):}
+\DoxyCodeLine{59     temp = re.compile(\textcolor{stringliteral}{"(Vlan|PortChannel)([0-\/9].*)"}) \textcolor{comment}{\#ex: Vlan1-\/10,20 or PortChannel20,1-\/10}}
+\DoxyCodeLine{60     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{61         res = temp.match(givenifrange).groups()}
+\DoxyCodeLine{62     \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{63         \textcolor{keywordflow}{return} \textcolor{keywordtype}{None}, \textcolor{keywordtype}{None}}
+\DoxyCodeLine{64     iftype = res[0]}
+\DoxyCodeLine{65     idlst = res[1].split(\textcolor{stringliteral}{','})}
+\DoxyCodeLine{66     givenifrange = []}
+\DoxyCodeLine{67     \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} idlst:}
+\DoxyCodeLine{68         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"-\/"} \textcolor{keywordflow}{in} i:}
+\DoxyCodeLine{69             sId, eId = \mbox{\hyperlink{DB-PARSED_8txt_a2f17a95f95f14e0f847ea893e98f909a}{map}}(int, i.split(\textcolor{stringliteral}{'-\/'}))}
+\DoxyCodeLine{70             \textcolor{keywordflow}{if} sId > eId:}
+\DoxyCodeLine{71                 givenifrange.extend(list(range(eId,sId+1)))}
+\DoxyCodeLine{72             givenifrange.extend(list(range(sId,eId+1)))}
+\DoxyCodeLine{73         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{74             givenifrange.append(i)}
+\DoxyCodeLine{75     ifrangelist = [iftype+str(i) \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} givenifrange]}
+\DoxyCodeLine{76     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'.'} \textcolor{keywordflow}{in} idlst[0]:}
+\DoxyCodeLine{77         iftype = \textcolor{stringliteral}{'SubInterface'}}
+\DoxyCodeLine{78     \textcolor{keywordflow}{return} iftype, ifrangelist}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 \textcolor{comment}{\# Function to check if intf fall inside any subset in the range list}}
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/dfe/namespacesonic__cli__if__range_aecae68301f202f215b10b3e1923aca87_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__if__range_aff9715e91205ac75363e17c504a007ff}\label{namespacesonic__cli__if__range_aff9715e91205ac75363e17c504a007ff}} 
+\index{sonic\_cli\_if\_range@{sonic\_cli\_if\_range}!run@{run}}
+\index{run@{run}!sonic\_cli\_if\_range@{sonic\_cli\_if\_range}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+if\+\_\+range.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+if\+\_\+range.\+py 파일의 524 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{524 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__if__range_aff9715e91205ac75363e17c504a007ff}{run}}(func, args):}
+\DoxyCodeLine{525     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{526         \textcolor{keywordflow}{if} len(args) == 0:}
+\DoxyCodeLine{527             \textcolor{keywordflow}{return}}
+\DoxyCodeLine{528         \textcolor{comment}{\# Get available interfaces in given range}}
+\DoxyCodeLine{529         \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'get\_available\_iflist\_in\_range'}:}
+\DoxyCodeLine{530             givenifrange = args[0]}
+\DoxyCodeLine{531             \textcolor{keywordflow}{if} givenifrange.startswith(\textcolor{stringliteral}{"Eth"}):}
+\DoxyCodeLine{532                 iflist = \mbox{\hyperlink{namespacesonic__cli__if__range_a572b024b469f52a6fe0fd7e685330edf}{eth\_intf\_range\_expand}}(givenifrange)}
+\DoxyCodeLine{533             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{534                 iftype, ifrangelist = \mbox{\hyperlink{namespacesonic__cli__if__range_aecae68301f202f215b10b3e1923aca87}{rangetolst}}(givenifrange)}
+\DoxyCodeLine{535                 iflist = \mbox{\hyperlink{namespacesonic__cli__if__range_a5a771a939d776aae18c22fffe63eca6d}{invoke\_api}}(\textcolor{stringliteral}{"get\_available\_interface\_names\_list"}, [iftype])}
+\DoxyCodeLine{536                 iflist = \mbox{\hyperlink{namespacesonic__cli__if__range_ab0530dc8fd336588ef0236c97f40cfff}{intersection}}(iflist, ifrangelist)}
+\DoxyCodeLine{537             res = \textcolor{stringliteral}{","}.join(natsorted(iflist)).encode(\textcolor{stringliteral}{'ascii'}, \textcolor{stringliteral}{'ignore'})}
+\DoxyCodeLine{538             \textcolor{keywordflow}{return} res}
+\DoxyCodeLine{539 }
+\DoxyCodeLine{540         \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'expand\_if\_range\_to\_list'}:}
+\DoxyCodeLine{541             givenifrange = args[0]}
+\DoxyCodeLine{542             \_, ifrangelist = \mbox{\hyperlink{namespacesonic__cli__if__range_aecae68301f202f215b10b3e1923aca87}{rangetolst}}(givenifrange)}
+\DoxyCodeLine{543             res = \textcolor{stringliteral}{","}.join(natsorted(ifrangelist))}
+\DoxyCodeLine{544             \textcolor{keywordflow}{return} res}
+\DoxyCodeLine{545 }
+\DoxyCodeLine{546     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'vlan\_trunk\_if\_range'}:}
+\DoxyCodeLine{547             \textcolor{keywordflow}{if} args[2] == \textcolor{stringliteral}{'all'}:}
+\DoxyCodeLine{548                 args.insert(2,\textcolor{stringliteral}{'1..4094'})}
+\DoxyCodeLine{549                 func = \textcolor{stringliteral}{'config\_if\_range'}}
+\DoxyCodeLine{550                 response = \mbox{\hyperlink{namespacesonic__cli__if__range_a5a771a939d776aae18c22fffe63eca6d}{invoke\_api}}(func, args)}
+\DoxyCodeLine{551                 \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__if__range_afe26c400d524c280934f149414e5377c}{check\_response}}(response, func, args)}
+\DoxyCodeLine{552         \textcolor{keywordflow}{elif} args[2] == \textcolor{stringliteral}{'none'}:}
+\DoxyCodeLine{553         func = \textcolor{stringliteral}{'delete\_if\_range'}}
+\DoxyCodeLine{554         args[1] = \textcolor{stringliteral}{'delete\_trunk\_vlan\_all'}}
+\DoxyCodeLine{555         \textcolor{keywordflow}{elif} args[3] == \textcolor{stringliteral}{'add'}:}
+\DoxyCodeLine{556         func = \textcolor{stringliteral}{'config\_if\_range'}}
+\DoxyCodeLine{557         response = \mbox{\hyperlink{namespacesonic__cli__if__range_a5a771a939d776aae18c22fffe63eca6d}{invoke\_api}}(func, args)}
+\DoxyCodeLine{558         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__if__range_afe26c400d524c280934f149414e5377c}{check\_response}}(response, func, args)}
+\DoxyCodeLine{559         \textcolor{keywordflow}{elif} args[3] == \textcolor{stringliteral}{'except'}:}
+\DoxyCodeLine{560         exceptStr = ifutils.vlanExceptList(args[2])}
+\DoxyCodeLine{561         args[2] = exceptStr}
+\DoxyCodeLine{562         func = \textcolor{stringliteral}{'replace\_vlan'}}
+\DoxyCodeLine{563         args[1] = \textcolor{stringliteral}{'rpc\_replace\_vlan'}}
+\DoxyCodeLine{564         \textcolor{keywordflow}{elif} args[3] == \textcolor{stringliteral}{'remove'}:}
+\DoxyCodeLine{565         func = \textcolor{stringliteral}{'delete\_if\_range'}}
+\DoxyCodeLine{566         args[1] = \textcolor{stringliteral}{'delete\_trunk\_vlan'}}
+\DoxyCodeLine{567         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{568                 func = \textcolor{stringliteral}{'replace\_vlan'}}
+\DoxyCodeLine{569                 args[1] = \textcolor{stringliteral}{'rpc\_replace\_vlan'}}
+\DoxyCodeLine{570 }
+\DoxyCodeLine{571     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'vlan\_trunk\_if\_range\_pc'}:}
+\DoxyCodeLine{572         \textcolor{keywordflow}{if} args[2] == \textcolor{stringliteral}{'all'}:}
+\DoxyCodeLine{573         args.insert(2,\textcolor{stringliteral}{'1..4094'})}
+\DoxyCodeLine{574         func = \textcolor{stringliteral}{'config\_if\_range'}}
+\DoxyCodeLine{575         response = \mbox{\hyperlink{namespacesonic__cli__if__range_a5a771a939d776aae18c22fffe63eca6d}{invoke\_api}}(func, args)}
+\DoxyCodeLine{576         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__if__range_afe26c400d524c280934f149414e5377c}{check\_response}}(response, func, args)}
+\DoxyCodeLine{577         \textcolor{keywordflow}{elif} args[2] == \textcolor{stringliteral}{'none'}:}
+\DoxyCodeLine{578         func = \textcolor{stringliteral}{'delete\_if\_range'}}
+\DoxyCodeLine{579         args[1] = \textcolor{stringliteral}{'delete\_aggregate\_trunk\_vlan\_all'}}
+\DoxyCodeLine{580         \textcolor{keywordflow}{elif} args[3] == \textcolor{stringliteral}{'add'}:}
+\DoxyCodeLine{581             func = \textcolor{stringliteral}{'config\_if\_range'}}
+\DoxyCodeLine{582                 response = \mbox{\hyperlink{namespacesonic__cli__if__range_a5a771a939d776aae18c22fffe63eca6d}{invoke\_api}}(func, args)}
+\DoxyCodeLine{583                 \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__if__range_afe26c400d524c280934f149414e5377c}{check\_response}}(response, func, args)}
+\DoxyCodeLine{584             \textcolor{keywordflow}{elif} args[3] == \textcolor{stringliteral}{'except'}:}
+\DoxyCodeLine{585                 exceptStr = ifutils.vlanExceptList(args[2])}
+\DoxyCodeLine{586                 args[2] = exceptStr}
+\DoxyCodeLine{587                 func = \textcolor{stringliteral}{'replace\_vlan'}}
+\DoxyCodeLine{588                 args[1] = \textcolor{stringliteral}{'rpc\_replace\_vlan'}}
+\DoxyCodeLine{589         \textcolor{keywordflow}{elif} args[3] == \textcolor{stringliteral}{'remove'}:}
+\DoxyCodeLine{590         func = \textcolor{stringliteral}{'delete\_if\_range'}}
+\DoxyCodeLine{591         args[1] = \textcolor{stringliteral}{'delete\_aggregate\_trunk\_vlan'}}
+\DoxyCodeLine{592         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{593             func = \textcolor{stringliteral}{'replace\_vlan'}}
+\DoxyCodeLine{594                 args[1] = \textcolor{stringliteral}{'rpc\_replace\_vlan'}}
+\DoxyCodeLine{595 }
+\DoxyCodeLine{596         \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'delete\_if\_range'}:}
+\DoxyCodeLine{597             \textcolor{stringliteral}{"""}}
+\DoxyCodeLine{598 \textcolor{stringliteral}{                -\/ Delete/Remove config for given number, range, or comma-\/delimited list of numbers and range of interfaces.}}
+\DoxyCodeLine{599 \textcolor{stringliteral}{                -\/ Transaction is per interface.}}
+\DoxyCodeLine{600 \textcolor{stringliteral}{                param:}}
+\DoxyCodeLine{601 \textcolor{stringliteral}{                    -\/List of available interfaces in given range of interfaces.}}
+\DoxyCodeLine{602 \textcolor{stringliteral}{                    -\/Delete API to be invoked}}
+\DoxyCodeLine{603 \textcolor{stringliteral}{            """}}
+\DoxyCodeLine{604             iflistStr = args[0].split(\textcolor{stringliteral}{"="})[1]}
+\DoxyCodeLine{605             \textcolor{keywordflow}{if} iflistStr == \textcolor{stringliteral}{""}:}
+\DoxyCodeLine{606                 \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{607             iflist = iflistStr.rstrip().split(\textcolor{stringliteral}{','})}
+\DoxyCodeLine{608             subfunc = args[1]  \textcolor{comment}{\#ex: delete\_interface or delete\_aggregate\_id}}
+\DoxyCodeLine{609             \textcolor{keywordflow}{for} intf \textcolor{keywordflow}{in} iflist:}
+\DoxyCodeLine{610                 intfargs = [intf]+ args[2:]}
+\DoxyCodeLine{611                 response = \mbox{\hyperlink{namespacesonic__cli__if__range_a5a771a939d776aae18c22fffe63eca6d}{invoke\_api}}(subfunc, intfargs)}
+\DoxyCodeLine{612                 \textcolor{keywordflow}{if} \mbox{\hyperlink{namespacesonic__cli__if__range_afe26c400d524c280934f149414e5377c}{check\_response}}(response, subfunc, intfargs):}
+\DoxyCodeLine{613                     \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\%Error: Interface: "}+intf}
+\DoxyCodeLine{614 }
+\DoxyCodeLine{615         \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'create\_if\_range'}: }
+\DoxyCodeLine{616             cmd = args[0].split(\textcolor{stringliteral}{"="})[1]}
+\DoxyCodeLine{617             iflistStr = args[1].split(\textcolor{stringliteral}{"="})[1]}
+\DoxyCodeLine{618             \textcolor{keywordflow}{if} cmd != \textcolor{stringliteral}{"create"}:}
+\DoxyCodeLine{619                 \textcolor{comment}{\# Validate if any interface exist in range}}
+\DoxyCodeLine{620                 \textcolor{keywordflow}{if} iflistStr == \textcolor{stringliteral}{""}:}
+\DoxyCodeLine{621                     print(\textcolor{stringliteral}{"\%Error: No interface exist in given range"})}
+\DoxyCodeLine{622                     \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{623                 print(\textcolor{stringliteral}{"\%Info: Configuring only existing interfaces in range"})}
+\DoxyCodeLine{624             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{625                 \textcolor{comment}{\# Create range of interfaces}}
+\DoxyCodeLine{626                 \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__if__range_afe26c400d524c280934f149414e5377c}{check\_response}}(\mbox{\hyperlink{namespacesonic__cli__if__range_a5a771a939d776aae18c22fffe63eca6d}{invoke\_api}}(func, args[2:]), func, args)}
+\DoxyCodeLine{627         \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_if\_range'}:}
+\DoxyCodeLine{628             \textcolor{stringliteral}{"""}}
+\DoxyCodeLine{629 \textcolor{stringliteral}{                -\/ Get state data of number, range, or comma-\/delimited list of numbers and range of interfaces.}}
+\DoxyCodeLine{630 \textcolor{stringliteral}{                -\/ Transaction is per interface.}}
+\DoxyCodeLine{631 \textcolor{stringliteral}{                param:}}
+\DoxyCodeLine{632 \textcolor{stringliteral}{                    -\/List of existing interfaces in given range of interfaces.}}
+\DoxyCodeLine{633 \textcolor{stringliteral}{            """}}
+\DoxyCodeLine{634             \textcolor{keywordflow}{if} args[0] == \textcolor{stringliteral}{""}:}
+\DoxyCodeLine{635                 \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{636             iflist = args[0].rstrip().split(\textcolor{stringliteral}{','}) }
+\DoxyCodeLine{637             get\_response\_if = []}
+\DoxyCodeLine{638             get\_response\_port = []}
+\DoxyCodeLine{639             response = \{\}}
+\DoxyCodeLine{640             \textcolor{keywordflow}{for} intf \textcolor{keywordflow}{in} iflist:}
+\DoxyCodeLine{641                 func = \textcolor{stringliteral}{"get\_openconfig\_platform\_components\_component\_port\_state\_media\_fec\_mode"}}
+\DoxyCodeLine{642                 intfargs = [intf]+args[1:]}
+\DoxyCodeLine{643                 response = \mbox{\hyperlink{namespacesonic__cli__if__range_a5a771a939d776aae18c22fffe63eca6d}{invoke\_api}}(func, intfargs)}
+\DoxyCodeLine{644                 \textcolor{keywordflow}{if} response \textcolor{keywordflow}{and} response.ok() \textcolor{keywordflow}{and} (response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}) \textcolor{keywordflow}{and} (\textcolor{stringliteral}{'openconfig-\/port-\/media-\/fec-\/ext:media-\/fec-\/mode'} \textcolor{keywordflow}{in} response.content):}
+\DoxyCodeLine{645                     get\_response\_port.append(response.content[\textcolor{stringliteral}{'openconfig-\/port-\/media-\/fec-\/ext:media-\/fec-\/mode'}])}
+\DoxyCodeLine{646                 func = \textcolor{stringliteral}{"get\_openconfig\_interfaces\_interfaces\_interface"}}
+\DoxyCodeLine{647                 intfargs = [intf]+args[1:]}
+\DoxyCodeLine{648                 response = \mbox{\hyperlink{namespacesonic__cli__if__range_a5a771a939d776aae18c22fffe63eca6d}{invoke\_api}}(func, intfargs)}
+\DoxyCodeLine{649                 \textcolor{keywordflow}{if} response \textcolor{keywordflow}{and} response.ok() \textcolor{keywordflow}{and} (response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}) \textcolor{keywordflow}{and} (\textcolor{stringliteral}{'openconfig-\/interfaces:interface'} \textcolor{keywordflow}{in} response.content):}
+\DoxyCodeLine{650                     get\_response\_if.append(response.content[\textcolor{stringliteral}{'openconfig-\/interfaces:interface'}][0])}
+\DoxyCodeLine{651             \textcolor{keywordflow}{if} len(get\_response\_if) > 0:}
+\DoxyCodeLine{652                 response.content[\textcolor{stringliteral}{'openconfig-\/interfaces:interface'}] = get\_response\_if}
+\DoxyCodeLine{653                 \textcolor{keywordflow}{if} len(get\_response\_port) > 0:}
+\DoxyCodeLine{654                     response.content[\textcolor{stringliteral}{'media-\/fec-\/mode'}] = get\_response\_port}
+\DoxyCodeLine{655                 \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__if__range_afe26c400d524c280934f149414e5377c}{check\_response}}(response, func, intfargs)}
+\DoxyCodeLine{656             \textcolor{keywordflow}{return} 0}
+\DoxyCodeLine{657         \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'default\_port\_config\_range'}:}
+\DoxyCodeLine{658             api = cc.ApiClient()}
+\DoxyCodeLine{659             iflistStr = args[0].split(\textcolor{stringliteral}{"="})[1]}
+\DoxyCodeLine{660             \textcolor{comment}{\# Validate if any interface exist in range}}
+\DoxyCodeLine{661             \textcolor{keywordflow}{if} iflistStr == \textcolor{stringliteral}{""}:}
+\DoxyCodeLine{662                 print(\textcolor{stringliteral}{"\%Error: No interface exists in the given range"})}
+\DoxyCodeLine{663                 \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{664             fail\_list = []}
+\DoxyCodeLine{665             iflist = iflistStr.rstrip().split(\textcolor{stringliteral}{','})}
+\DoxyCodeLine{666             \textcolor{keywordflow}{for} intf \textcolor{keywordflow}{in} iflist:}
+\DoxyCodeLine{667                 body = \{\textcolor{stringliteral}{"sonic-\/config-\/mgmt:input"}: \{ \textcolor{stringliteral}{"ifname"}: intf \}\}}
+\DoxyCodeLine{668                 path = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/config-\/mgmt:default-\/port-\/config'})}
+\DoxyCodeLine{669                 resp = api.post(path, body)}
+\DoxyCodeLine{670                 result = \textcolor{keyword}{False}}
+\DoxyCodeLine{671                 \textcolor{keywordflow}{if} resp.ok() \textcolor{keywordflow}{and} resp.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None} \textcolor{keywordflow}{and} \(\backslash\)}
+\DoxyCodeLine{672                    resp.content.get(\textcolor{stringliteral}{"sonic-\/config-\/mgmt:output"}) \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None} \textcolor{keywordflow}{and} \(\backslash\)}
+\DoxyCodeLine{673                    resp.content.get(\textcolor{stringliteral}{"sonic-\/config-\/mgmt:output"}).\mbox{\hyperlink{namespacescripts_1_1json__tools_afd87b9a49f4372aebe9a000a029a76fe}{get}}(\textcolor{stringliteral}{"status"}) \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None} \textcolor{keywordflow}{and} \(\backslash\)}
+\DoxyCodeLine{674                    resp.content[\textcolor{stringliteral}{"sonic-\/config-\/mgmt:output"}][\textcolor{stringliteral}{"status"}] == 0:}
+\DoxyCodeLine{675                     result = \textcolor{keyword}{True}}
+\DoxyCodeLine{676                 \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} result:}
+\DoxyCodeLine{677                     fail\_list.append(intf)}
+\DoxyCodeLine{678             \textcolor{keywordflow}{if} len(fail\_list) != 0:}
+\DoxyCodeLine{679                 print(\textcolor{stringliteral}{"\%Error: Failed to restore the following interfaces to their default configuration:\(\backslash\)n"} + \textcolor{stringliteral}{"\(\backslash\)n"}.join(fail\_list))}
+\DoxyCodeLine{680                 \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{681             print(\textcolor{stringliteral}{"\%Info: Configuring only existing interfaces in range"})}
+\DoxyCodeLine{682             \textcolor{keywordflow}{return} 0}
+\DoxyCodeLine{683         \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'replace\_vlan'}:}
+\DoxyCodeLine{684             iflistStr = args[0].split(\textcolor{stringliteral}{"="})[1]}
+\DoxyCodeLine{685             \textcolor{keywordflow}{if} iflistStr == \textcolor{stringliteral}{""}:}
+\DoxyCodeLine{686                 \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{687             iflist = iflistStr.rstrip().split(\textcolor{stringliteral}{','})}
+\DoxyCodeLine{688             subfunc = args[1]}
+\DoxyCodeLine{689         intfargs = [iflist]+ args[2:]}
+\DoxyCodeLine{690             response = \mbox{\hyperlink{namespacesonic__cli__if__range_a5a771a939d776aae18c22fffe63eca6d}{invoke\_api}}(subfunc, intfargs)}
+\DoxyCodeLine{691             \textcolor{keywordflow}{if} response \textcolor{keywordflow}{and} response.ok() \textcolor{keywordflow}{and} (response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}):}
+\DoxyCodeLine{692                 api\_response = response.content}
+\DoxyCodeLine{693                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/interfaces-\/ext:output'} \textcolor{keywordflow}{in} api\_response:}
+\DoxyCodeLine{694                     value = api\_response[\textcolor{stringliteral}{'openconfig-\/interfaces-\/ext:output'}]}
+\DoxyCodeLine{695                     \textcolor{keywordflow}{if} value[\textcolor{stringliteral}{"status"}] != 0:}
+\DoxyCodeLine{696                         \textcolor{keywordflow}{if} value[\textcolor{stringliteral}{"status-\/detail"}] != \textcolor{stringliteral}{''}:}
+\DoxyCodeLine{697                             print(\textcolor{stringliteral}{"\%Error: \{\}"}.format(value[\textcolor{stringliteral}{"status-\/detail"}]))}
+\DoxyCodeLine{698                         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{699                             \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\%Error: replacing VLANs for interface range failed"}}
+\DoxyCodeLine{700 }
+\DoxyCodeLine{701         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{702             response = \mbox{\hyperlink{namespacesonic__cli__if__range_a5a771a939d776aae18c22fffe63eca6d}{invoke\_api}}(func, args)}
+\DoxyCodeLine{703             \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__if__range_afe26c400d524c280934f149414e5377c}{check\_response}}(response, func, args)}
+\DoxyCodeLine{704 }
+\DoxyCodeLine{705     \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} e:}
+\DoxyCodeLine{706         syslog.syslog(syslog.LOG\_DEBUG, \textcolor{stringliteral}{"Exception: "} + traceback.format\_exc())}
+\DoxyCodeLine{707         print(\textcolor{stringliteral}{"\%Error: Internal error."})}
+\DoxyCodeLine{708         \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{709 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/dfe/namespacesonic__cli__if__range_aff9715e91205ac75363e17c504a007ff_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__if__range_aefbb815178d3c18600fc3fa0d140b7bb}\label{namespacesonic__cli__if__range_aefbb815178d3c18600fc3fa0d140b7bb}} 
+\index{sonic\_cli\_if\_range@{sonic\_cli\_if\_range}!func@{func}}
+\index{func@{func}!sonic\_cli\_if\_range@{sonic\_cli\_if\_range}}
+\doxysubsubsection{\texorpdfstring{func}{func}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+if\+\_\+range.\+func = sys.\+argv\mbox{[}1\mbox{]}}
+
+
+
+sonic\+\_\+cli\+\_\+if\+\_\+range.\+py 파일의 712 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__if__range_a208c1055b31d90c4dfac4424050a48f6}\label{namespacesonic__cli__if__range_a208c1055b31d90c4dfac4424050a48f6}} 
+\index{sonic\_cli\_if\_range@{sonic\_cli\_if\_range}!lag\_type\_map@{lag\_type\_map}}
+\index{lag\_type\_map@{lag\_type\_map}!sonic\_cli\_if\_range@{sonic\_cli\_if\_range}}
+\doxysubsubsection{\texorpdfstring{lag\_type\_map}{lag\_type\_map}}
+{\footnotesize\ttfamily dictionary sonic\+\_\+cli\+\_\+if\+\_\+range.\+lag\+\_\+type\+\_\+map = \{\char`\"{}active\char`\"{} \+: \char`\"{}L\+A\+CP\char`\"{}, \char`\"{}on\char`\"{}\+: \char`\"{}S\+T\+A\+T\+IC\char`\"{}\}}
+
+
+
+sonic\+\_\+cli\+\_\+if\+\_\+range.\+py 파일의 42 번째 라인에서 정의되었습니다.
+

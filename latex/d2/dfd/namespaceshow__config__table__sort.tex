@@ -1,0 +1,45 @@
+\hypertarget{namespaceshow__config__table__sort}{}\doxysection{show\+\_\+config\+\_\+table\+\_\+sort 네임스페이스 참조}
+\label{namespaceshow__config__table__sort}\index{show\_config\_table\_sort@{show\_config\_table\_sort}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceshow__config__table__sort_aff8adc16bb933db5e2a35db2bdf2f2da}{natsort\+\_\+list}} (sonic\+\_\+table\+\_\+lst, table\+\_\+path)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespaceshow__config__table__sort_aff8adc16bb933db5e2a35db2bdf2f2da}\label{namespaceshow__config__table__sort_aff8adc16bb933db5e2a35db2bdf2f2da}} 
+\index{show\_config\_table\_sort@{show\_config\_table\_sort}!natsort\_list@{natsort\_list}}
+\index{natsort\_list@{natsort\_list}!show\_config\_table\_sort@{show\_config\_table\_sort}}
+\doxysubsubsection{\texorpdfstring{natsort\_list()}{natsort\_list()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+table\+\_\+sort.\+natsort\+\_\+list (\begin{DoxyParamCaption}\item[{}]{sonic\+\_\+table\+\_\+lst,  }\item[{}]{table\+\_\+path }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+table\+\_\+sort.\+py 파일의 24 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__table__sort_aff8adc16bb933db5e2a35db2bdf2f2da}{natsort\_list}}(sonic\_table\_lst , table\_path):}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26    }
+\DoxyCodeLine{27     table\_keys = \mbox{\hyperlink{namespaceshow__config__utils_ae700764f5eef8241b6f5baa8dc3704fe}{get\_view\_table\_keys}}(table\_path)}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keywordflow}{if} table\_keys:}
+\DoxyCodeLine{30         \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{31             sonic\_table\_lst = natsorted(sonic\_table\_lst,key=\textcolor{keyword}{lambda} t: t[table\_keys[0][0]])}
+\DoxyCodeLine{32         \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{33             \mbox{\hyperlink{namespaceshow__config__utils_ade2a848c0e0759cedd94d752ba30ed55}{showrun\_log}}(logging.ERROR, \textcolor{stringliteral}{"Table \{\} sorting failure "}, table\_path)}
+\DoxyCodeLine{34             \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{35                 }
+\DoxyCodeLine{36     \textcolor{keywordflow}{return} sonic\_table\_lst}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/dfd/namespaceshow__config__table__sort_aff8adc16bb933db5e2a35db2bdf2f2da_cgraph}
+\end{center}
+\end{figure}

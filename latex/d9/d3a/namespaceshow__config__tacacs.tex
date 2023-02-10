@@ -1,0 +1,112 @@
+\hypertarget{namespaceshow__config__tacacs}{}\doxysection{show\+\_\+config\+\_\+tacacs 네임스페이스 참조}
+\label{namespaceshow__config__tacacs}\index{show\_config\_tacacs@{show\_config\_tacacs}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceshow__config__tacacs_aa19d737495929bef8a3d679936a0e5a0}{show\+\_\+tacacs\+\_\+global\+\_\+key}} (render\+\_\+tables)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__tacacs_aa166368d3618f644e34eb85e62194caa}{get\+\_\+tacacs\+\_\+entry}} (data)
+\item 
+def \mbox{\hyperlink{namespaceshow__config__tacacs_a4b25218cd99111e641a3b7a55f94c5d4}{show\+\_\+tacacs\+\_\+host\+\_\+config}} (render\+\_\+tables)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespaceshow__config__tacacs_aa166368d3618f644e34eb85e62194caa}\label{namespaceshow__config__tacacs_aa166368d3618f644e34eb85e62194caa}} 
+\index{show\_config\_tacacs@{show\_config\_tacacs}!get\_tacacs\_entry@{get\_tacacs\_entry}}
+\index{get\_tacacs\_entry@{get\_tacacs\_entry}!show\_config\_tacacs@{show\_config\_tacacs}}
+\doxysubsubsection{\texorpdfstring{get\_tacacs\_entry()}{get\_tacacs\_entry()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+tacacs.\+get\+\_\+tacacs\+\_\+entry (\begin{DoxyParamCaption}\item[{}]{data }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+tacacs.\+py 파일의 32 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{32 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__tacacs_aa166368d3618f644e34eb85e62194caa}{get\_tacacs\_entry}}(data):}
+\DoxyCodeLine{33     \textcolor{keywordflow}{for} entry \textcolor{keywordflow}{in} data.get(\textcolor{stringliteral}{'sonic-\/system-\/tacacs:sonic-\/system-\/tacacs/TACPLUS/TACPLUS\_LIST'}, []):}
+\DoxyCodeLine{34         \textcolor{keywordflow}{if} entry.get(\textcolor{stringliteral}{'type'}) == \textcolor{stringliteral}{'global'}:}
+\DoxyCodeLine{35             \textcolor{keywordflow}{return} entry}
+\DoxyCodeLine{36     \textcolor{keywordflow}{return} \{\}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{comment}{\# To show the running configuration of the 'tacacs-\/server host'}}
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d3a/namespaceshow__config__tacacs_aa166368d3618f644e34eb85e62194caa_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__tacacs_aa19d737495929bef8a3d679936a0e5a0}\label{namespaceshow__config__tacacs_aa19d737495929bef8a3d679936a0e5a0}} 
+\index{show\_config\_tacacs@{show\_config\_tacacs}!show\_tacacs\_global\_key@{show\_tacacs\_global\_key}}
+\index{show\_tacacs\_global\_key@{show\_tacacs\_global\_key}!show\_config\_tacacs@{show\_config\_tacacs}}
+\doxysubsubsection{\texorpdfstring{show\_tacacs\_global\_key()}{show\_tacacs\_global\_key()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+tacacs.\+show\+\_\+tacacs\+\_\+global\+\_\+key (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+tacacs.\+py 파일의 22 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__tacacs_aa19d737495929bef8a3d679936a0e5a0}{show\_tacacs\_global\_key}}(render\_tables):}
+\DoxyCodeLine{23     cmd = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{24     entry = \mbox{\hyperlink{namespaceshow__config__tacacs_aa166368d3618f644e34eb85e62194caa}{get\_tacacs\_entry}}(render\_tables)}
+\DoxyCodeLine{25     \textcolor{keywordflow}{for} key, value \textcolor{keywordflow}{in} entry.items():}
+\DoxyCodeLine{26         \textcolor{keywordflow}{if} (\textcolor{stringliteral}{'passkey'} == key):}
+\DoxyCodeLine{27             cmd = \textcolor{stringliteral}{'tacacs-\/server key '} + entry.get(\textcolor{stringliteral}{'passkey'}) + \textcolor{stringliteral}{' encrypted'}}
+\DoxyCodeLine{28     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{comment}{\# get\_tacacs\_entry returns global TACPLUS entry}}
+\DoxyCodeLine{31 \textcolor{comment}{\# Returns an empty dict if no matching entry found.}}
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d3a/namespaceshow__config__tacacs_aa19d737495929bef8a3d679936a0e5a0_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespaceshow__config__tacacs_a4b25218cd99111e641a3b7a55f94c5d4}\label{namespaceshow__config__tacacs_a4b25218cd99111e641a3b7a55f94c5d4}} 
+\index{show\_config\_tacacs@{show\_config\_tacacs}!show\_tacacs\_host\_config@{show\_tacacs\_host\_config}}
+\index{show\_tacacs\_host\_config@{show\_tacacs\_host\_config}!show\_config\_tacacs@{show\_config\_tacacs}}
+\doxysubsubsection{\texorpdfstring{show\_tacacs\_host\_config()}{show\_tacacs\_host\_config()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+tacacs.\+show\+\_\+tacacs\+\_\+host\+\_\+config (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+tacacs.\+py 파일의 39 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{39 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__tacacs_a4b25218cd99111e641a3b7a55f94c5d4}{show\_tacacs\_host\_config}}(render\_tables):}
+\DoxyCodeLine{40     cmd = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{41     \textcolor{keywordflow}{for} entry \textcolor{keywordflow}{in} render\_tables.get(\textcolor{stringliteral}{'sonic-\/system-\/tacacs:sonic-\/system-\/tacacs/TACPLUS\_SERVER/TACPLUS\_SERVER\_LIST'}, []):}
+\DoxyCodeLine{42         \textcolor{keywordflow}{if} cmd != \textcolor{stringliteral}{''}:}
+\DoxyCodeLine{43             cmd += \textcolor{stringliteral}{';'}}
+\DoxyCodeLine{44         cmd += \textcolor{stringliteral}{'tacacs-\/server host '} + entry.get(\textcolor{stringliteral}{'ipaddress'})}
+\DoxyCodeLine{45         auth\_port = entry.get(\textcolor{stringliteral}{'tcp\_port'})}
+\DoxyCodeLine{46         \textcolor{keywordflow}{if} auth\_port != \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{47             cmd += \textcolor{stringliteral}{' port '} + str(auth\_port)}
+\DoxyCodeLine{48         \textcolor{keywordflow}{if} entry.get(\textcolor{stringliteral}{'timeout'}) != \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{49             cmd += \textcolor{stringliteral}{' timeout '} + str(entry.get(\textcolor{stringliteral}{'timeout'}))}
+\DoxyCodeLine{50         \textcolor{keywordflow}{if} entry.get(\textcolor{stringliteral}{'passkey'}) != \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{51             cmd += \textcolor{stringliteral}{' key '} + entry.get(\textcolor{stringliteral}{'passkey'})}
+\DoxyCodeLine{52             cmd += \textcolor{stringliteral}{' encrypted '}}
+\DoxyCodeLine{53         \textcolor{keywordflow}{if} entry.get(\textcolor{stringliteral}{'auth\_type'}) != \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{54             cmd += \textcolor{stringliteral}{' type '} + entry.get(\textcolor{stringliteral}{'auth\_type'})}
+\DoxyCodeLine{55         priority = entry.get(\textcolor{stringliteral}{'priority'})}
+\DoxyCodeLine{56         \textcolor{keywordflow}{if} priority != \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{57             cmd += \textcolor{stringliteral}{' priority '} + str(priority)}
+\DoxyCodeLine{58         \textcolor{keywordflow}{if} entry.get(\textcolor{stringliteral}{'vrf'}) != \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{59             cmd += \textcolor{stringliteral}{' vrf '} + entry.get(\textcolor{stringliteral}{'vrf'})}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd}
+
+\end{DoxyCode}

@@ -1,0 +1,54 @@
+\hypertarget{namespaceshow__config__mirror}{}\doxysection{show\+\_\+config\+\_\+mirror 네임스페이스 참조}
+\label{namespaceshow__config__mirror}\index{show\_config\_mirror@{show\_config\_mirror}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceshow__config__mirror_a21c82993207a88655c24efbd3eff2cd7}{show\+\_\+mirror\+\_\+session}} (render\+\_\+tables)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespaceshow__config__mirror_a21c82993207a88655c24efbd3eff2cd7}\label{namespaceshow__config__mirror_a21c82993207a88655c24efbd3eff2cd7}} 
+\index{show\_config\_mirror@{show\_config\_mirror}!show\_mirror\_session@{show\_mirror\_session}}
+\index{show\_mirror\_session@{show\_mirror\_session}!show\_config\_mirror@{show\_config\_mirror}}
+\doxysubsubsection{\texorpdfstring{show\_mirror\_session()}{show\_mirror\_session()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+mirror.\+show\+\_\+mirror\+\_\+session (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+show\+\_\+config\+\_\+mirror.\+py 파일의 1 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__mirror_a21c82993207a88655c24efbd3eff2cd7}{show\_mirror\_session}}(render\_tables):}
+\DoxyCodeLine{2     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{3     cmd\_prfx = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/mirror-\/session:sonic-\/mirror-\/session/MIRROR\_SESSION/MIRROR\_SESSION\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{6         session = render\_tables[\textcolor{stringliteral}{'sonic-\/mirror-\/session:sonic-\/mirror-\/session/MIRROR\_SESSION/MIRROR\_SESSION\_LIST'}]}
+\DoxyCodeLine{7         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'dst\_port'} \textcolor{keywordflow}{in} session:}
+\DoxyCodeLine{8             cmd\_str=\textcolor{stringliteral}{"destination "} + session[\textcolor{stringliteral}{'dst\_port'}]}
+\DoxyCodeLine{9             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'src\_port'} \textcolor{keywordflow}{in} session:}
+\DoxyCodeLine{10                 cmd\_str+=\textcolor{stringliteral}{' source '} + session[\textcolor{stringliteral}{'src\_port'}]}
+\DoxyCodeLine{11             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'direction'} \textcolor{keywordflow}{in} session:}
+\DoxyCodeLine{12                 cmd\_str+=\textcolor{stringliteral}{' direction '} + session[\textcolor{stringliteral}{'direction'}].lower()}
+\DoxyCodeLine{13         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'dst\_ip'} \textcolor{keywordflow}{in} session:}
+\DoxyCodeLine{14             cmd\_str=\textcolor{stringliteral}{"destination erspan dst-\/ip "} + session[\textcolor{stringliteral}{'dst\_ip'}]}
+\DoxyCodeLine{15             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'src\_ip'} \textcolor{keywordflow}{in} session:}
+\DoxyCodeLine{16                 cmd\_str+=\textcolor{stringliteral}{' src-\/ip '} + session[\textcolor{stringliteral}{'src\_ip'}]}
+\DoxyCodeLine{17             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'dscp'} \textcolor{keywordflow}{in} session:}
+\DoxyCodeLine{18                 cmd\_str+=\textcolor{stringliteral}{' dscp '} + str(session[\textcolor{stringliteral}{'dscp'}])}
+\DoxyCodeLine{19             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'gre\_type'} \textcolor{keywordflow}{in} session:}
+\DoxyCodeLine{20                 cmd\_str+=\textcolor{stringliteral}{' gre '} + session[\textcolor{stringliteral}{'gre\_type'}]}
+\DoxyCodeLine{21             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'ttl'} \textcolor{keywordflow}{in} session:}
+\DoxyCodeLine{22                 cmd\_str+=\textcolor{stringliteral}{' ttl '} + str(session[\textcolor{stringliteral}{'ttl'}])}
+\DoxyCodeLine{23             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'queue'} \textcolor{keywordflow}{in} session:}
+\DoxyCodeLine{24                 cmd\_str+=\textcolor{stringliteral}{' queue '} + str(session[\textcolor{stringliteral}{'queue'}])}
+\DoxyCodeLine{25             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'src\_port'} \textcolor{keywordflow}{in} session:}
+\DoxyCodeLine{26                 cmd\_str+=\textcolor{stringliteral}{' source '} + session[\textcolor{stringliteral}{'src\_port'}]}
+\DoxyCodeLine{27             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'direction'} \textcolor{keywordflow}{in} session:}
+\DoxyCodeLine{28                 cmd\_str+=\textcolor{stringliteral}{' direction '} + session[\textcolor{stringliteral}{'direction'}].lower()}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+
+\end{DoxyCode}

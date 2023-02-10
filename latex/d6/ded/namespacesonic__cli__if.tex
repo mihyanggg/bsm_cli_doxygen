@@ -1,0 +1,1533 @@
+\hypertarget{namespacesonic__cli__if}{}\doxysection{sonic\+\_\+cli\+\_\+if 네임스페이스 참조}
+\label{namespacesonic__cli__if}\index{sonic\_cli\_if@{sonic\_cli\_if}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__if_a9391183a2438cfa7b3c90636365b982d}{filter\+\_\+address}} (d, is\+I\+Pv4)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__if_a2be661e923544177583cfe546baaf957}{get\+\_\+helper\+\_\+adr\+\_\+str}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__if_a918c3452d33c7c940bd1254ce69fc662}{build\+\_\+relay\+\_\+address\+\_\+info}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__if_aa502dff2a7058e096a6c6dfda0623135}{get\+\_\+if\+\_\+and\+\_\+subif}} (input\+\_\+if\+\_\+name)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__if_ad1f8e532b938a651576425220dfff9e8}{invoke\+\_\+api}} (\mbox{\hyperlink{namespacesonic__cli__if_aeb38b8a948b09a21a3bc1e6c5323294d}{func}}, args=\mbox{[}$\,$\mbox{]})
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__if_a1e866d4b1cc3df4dbbed88565bf00950}{get\+Id}} (item)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__if_abec7321b54ecc9ee33f8dc3371cedd50}{get\+Sonic\+Id}} (item)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__if_a625fb9a5171469b3369021da1dd035c4}{get\+\_\+all\+\_\+eth\+\_\+intfs\+\_\+list}} ()
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__if_a25a292c3e9a89f0db95d17f842f950b0}{hdl\+\_\+get\+\_\+all\+\_\+ethernet}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__if_a4aa7f8fdbcb7fde23b7c585acfc19405}{run}} (\mbox{\hyperlink{namespacesonic__cli__if_aeb38b8a948b09a21a3bc1e6c5323294d}{func}}, args)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+dictionary \mbox{\hyperlink{namespacesonic__cli__if_a10e7962a2d40a478346ecb6257a23090}{lag\+\_\+type\+\_\+map}} = \{\char`\"{}active\char`\"{} \+: \char`\"{}L\+A\+CP\char`\"{}, \char`\"{}on\char`\"{}\+: \char`\"{}S\+T\+A\+T\+IC\char`\"{}\}
+\item 
+\mbox{\hyperlink{namespacesonic__cli__if_aeb38b8a948b09a21a3bc1e6c5323294d}{func}} = sys.\+argv\mbox{[}1\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__if_a918c3452d33c7c940bd1254ce69fc662}\label{namespacesonic__cli__if_a918c3452d33c7c940bd1254ce69fc662}} 
+\index{sonic\_cli\_if@{sonic\_cli\_if}!build\_relay\_address\_info@{build\_relay\_address\_info}}
+\index{build\_relay\_address\_info@{build\_relay\_address\_info}!sonic\_cli\_if@{sonic\_cli\_if}}
+\doxysubsubsection{\texorpdfstring{build\_relay\_address\_info()}{build\_relay\_address\_info()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+if.\+build\+\_\+relay\+\_\+address\+\_\+info (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+if.\+py 파일의 112 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{112 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__if_a918c3452d33c7c940bd1254ce69fc662}{build\_relay\_address\_info}} (args):}
+\DoxyCodeLine{113     api = cc.ApiClient()}
+\DoxyCodeLine{114     output = \{\}}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116     \textcolor{keywordflow}{if} len(args) < 0:}
+\DoxyCodeLine{117         \textcolor{keywordflow}{return} output}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119     tIntf = (\textcolor{stringliteral}{"/restconf/data/sonic-\/interface:sonic-\/interface/INTERFACE/INTERFACE\_LIST"},}
+\DoxyCodeLine{120              \textcolor{stringliteral}{"sonic-\/interface:INTERFACE\_LIST"},}
+\DoxyCodeLine{121              \textcolor{stringliteral}{"portname"})}
+\DoxyCodeLine{122     tVlanIntf = (\textcolor{stringliteral}{"/restconf/data/sonic-\/vlan:sonic-\/vlan/VLAN/VLAN\_LIST"},}
+\DoxyCodeLine{123                  \textcolor{stringliteral}{"sonic-\/vlan:VLAN\_LIST"},}
+\DoxyCodeLine{124                  \textcolor{stringliteral}{"name"})}
+\DoxyCodeLine{125     tPortChannelIntf = (\textcolor{stringliteral}{"/restconf/data/sonic-\/portchannel-\/interface:sonic-\/portchannel-\/interface/PORTCHANNEL\_INTERFACE/PORTCHANNEL\_INTERFACE\_LIST"},}
+\DoxyCodeLine{126                         \textcolor{stringliteral}{"sonic-\/portchannel-\/interface:PORTCHANNEL\_INTERFACE\_LIST"},}
+\DoxyCodeLine{127                         \textcolor{stringliteral}{"pch\_name"})}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129     tSubIntf = (\textcolor{stringliteral}{"/restconf/data/sonic-\/interface:sonic-\/interface/VLAN\_SUB\_INTERFACE/VLAN\_SUB\_INTERFACE\_LIST"},}
+\DoxyCodeLine{130                         \textcolor{stringliteral}{"sonic-\/interface:VLAN\_SUB\_INTERFACE\_LIST"},}
+\DoxyCodeLine{131                         \textcolor{stringliteral}{"id"})}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133     requests = [tIntf, tVlanIntf, tPortChannelIntf, tSubIntf]}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135     reqStr = args[0]}
+\DoxyCodeLine{136     \textcolor{keywordflow}{for} request \textcolor{keywordflow}{in} requests:}
+\DoxyCodeLine{137         keypath = cc.Path(request[0])}
+\DoxyCodeLine{138         \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{139             response = api.get(keypath)}
+\DoxyCodeLine{140             response = response.content}
+\DoxyCodeLine{141             \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{142                 intfsList = response.get(request[1])}
+\DoxyCodeLine{143             \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} intfsList \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{144                 \textcolor{keywordflow}{for} intf \textcolor{keywordflow}{in} intfsList:}
+\DoxyCodeLine{145                     intfName = intf.get(request[2])}
+\DoxyCodeLine{146                     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} intfName \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{147                         \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} ((reqStr.find(\textcolor{stringliteral}{"ipv6"}) == -\/1)):}
+\DoxyCodeLine{148                             relay\_addresses = intf.get(\textcolor{stringliteral}{'dhcpv6\_servers'})}
+\DoxyCodeLine{149                         \textcolor{keywordflow}{elif} \textcolor{keywordflow}{not} ((reqStr.find(\textcolor{stringliteral}{"ip"}) == -\/1)):}
+\DoxyCodeLine{150                             relay\_addresses = intf.get(\textcolor{stringliteral}{'dhcp\_servers'})}
+\DoxyCodeLine{151                         \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} relay\_addresses \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{152                             output[intfName] = relay\_addresses}
+\DoxyCodeLine{153         \textcolor{keywordflow}{except}  Exception \textcolor{keyword}{as} e:}
+\DoxyCodeLine{154             log.syslog(log.LOG\_ERR, str(e))}
+\DoxyCodeLine{155             \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\%Error: Internal error"}}
+\DoxyCodeLine{156     \textcolor{keywordflow}{return} output}
+\DoxyCodeLine{157     }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/ded/namespacesonic__cli__if_a918c3452d33c7c940bd1254ce69fc662_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__if_a9391183a2438cfa7b3c90636365b982d}\label{namespacesonic__cli__if_a9391183a2438cfa7b3c90636365b982d}} 
+\index{sonic\_cli\_if@{sonic\_cli\_if}!filter\_address@{filter\_address}}
+\index{filter\_address@{filter\_address}!sonic\_cli\_if@{sonic\_cli\_if}}
+\doxysubsubsection{\texorpdfstring{filter\_address()}{filter\_address()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+if.\+filter\+\_\+address (\begin{DoxyParamCaption}\item[{}]{d,  }\item[{}]{is\+I\+Pv4 }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+if.\+py 파일의 42 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{42 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__if_a9391183a2438cfa7b3c90636365b982d}{filter\_address}}(d, isIPv4):}
+\DoxyCodeLine{43     \textcolor{keywordflow}{if} d \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{44         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{45     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/mgmt-\/interface:MGMT\_INTF\_TABLE\_IPADDR\_LIST'} \textcolor{keywordflow}{in} d:}
+\DoxyCodeLine{46         ipData = d[\textcolor{stringliteral}{'sonic-\/mgmt-\/interface:MGMT\_INTF\_TABLE\_IPADDR\_LIST'}]}
+\DoxyCodeLine{47         newIpData = []}
+\DoxyCodeLine{48         \textcolor{keywordflow}{for} l \textcolor{keywordflow}{in} ipData:}
+\DoxyCodeLine{49             \textcolor{keywordflow}{for} k, v \textcolor{keywordflow}{in} l.items():}
+\DoxyCodeLine{50                \textcolor{keywordflow}{if} k == \textcolor{stringliteral}{"ipPrefix"}:}
+\DoxyCodeLine{51                   ip = IPNetwork(v)}
+\DoxyCodeLine{52                   \textcolor{keywordflow}{if} isIPv4:}
+\DoxyCodeLine{53                       \textcolor{keywordflow}{if} ip.version == 4:}
+\DoxyCodeLine{54                           newIpData.append(l)}
+\DoxyCodeLine{55                   \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{56                       \textcolor{keywordflow}{if} ip.version == 6:}
+\DoxyCodeLine{57                           newIpData.append(l)}
+\DoxyCodeLine{58         del ipData[:]}
+\DoxyCodeLine{59         ipData.extend(newIpData)}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/interface:INTF\_TABLE\_IPADDR\_LIST'} \textcolor{keywordflow}{in} d:}
+\DoxyCodeLine{62         ipData = d[\textcolor{stringliteral}{'sonic-\/interface:INTF\_TABLE\_IPADDR\_LIST'}]}
+\DoxyCodeLine{63         newIpData = []}
+\DoxyCodeLine{64         \textcolor{keywordflow}{for} l \textcolor{keywordflow}{in} ipData:}
+\DoxyCodeLine{65             \textcolor{keywordflow}{for} k, v \textcolor{keywordflow}{in} l.items():}
+\DoxyCodeLine{66                \textcolor{keywordflow}{if} k == \textcolor{stringliteral}{"ipPrefix"}:}
+\DoxyCodeLine{67                   ip = IPNetwork(v)}
+\DoxyCodeLine{68                   \textcolor{keywordflow}{if} isIPv4:}
+\DoxyCodeLine{69                       \textcolor{keywordflow}{if} ip.version == 4:}
+\DoxyCodeLine{70                           newIpData.append(l)}
+\DoxyCodeLine{71                   \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{72                       \textcolor{keywordflow}{if} ip.version == 6:}
+\DoxyCodeLine{73                           newIpData.append(l)}
+\DoxyCodeLine{74         del ipData[:]}
+\DoxyCodeLine{75         ipData.extend(newIpData)}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/interface:VLAN\_SUB\_INTERFACE\_IPADDR\_LIST'} \textcolor{keywordflow}{in} d:}
+\DoxyCodeLine{78         ipData = d[\textcolor{stringliteral}{'sonic-\/interface:VLAN\_SUB\_INTERFACE\_IPADDR\_LIST'}]}
+\DoxyCodeLine{79         newIpData = []}
+\DoxyCodeLine{80         \textcolor{keywordflow}{for} l \textcolor{keywordflow}{in} ipData:}
+\DoxyCodeLine{81             \textcolor{keywordflow}{for} k, v \textcolor{keywordflow}{in} l.items():}
+\DoxyCodeLine{82                \textcolor{keywordflow}{if} k == \textcolor{stringliteral}{"ip\_prefix"}:}
+\DoxyCodeLine{83                   ip = IPNetwork(v)}
+\DoxyCodeLine{84                   \textcolor{keywordflow}{if} isIPv4:}
+\DoxyCodeLine{85                       \textcolor{keywordflow}{if} ip.version == 4:}
+\DoxyCodeLine{86                           newIpData.append(l)}
+\DoxyCodeLine{87                   \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{88                       \textcolor{keywordflow}{if} ip.version == 6:}
+\DoxyCodeLine{89                           newIpData.append(l)}
+\DoxyCodeLine{90         del ipData[:]}
+\DoxyCodeLine{91         ipData.extend(newIpData)}
+\DoxyCodeLine{92 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/ded/namespacesonic__cli__if_a9391183a2438cfa7b3c90636365b982d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__if_a625fb9a5171469b3369021da1dd035c4}\label{namespacesonic__cli__if_a625fb9a5171469b3369021da1dd035c4}} 
+\index{sonic\_cli\_if@{sonic\_cli\_if}!get\_all\_eth\_intfs\_list@{get\_all\_eth\_intfs\_list}}
+\index{get\_all\_eth\_intfs\_list@{get\_all\_eth\_intfs\_list}!sonic\_cli\_if@{sonic\_cli\_if}}
+\doxysubsubsection{\texorpdfstring{get\_all\_eth\_intfs\_list()}{get\_all\_eth\_intfs\_list()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+if.\+get\+\_\+all\+\_\+eth\+\_\+intfs\+\_\+list (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+if.\+py 파일의 1119 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1119 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__if_a625fb9a5171469b3369021da1dd035c4}{get\_all\_eth\_intfs\_list}}():}
+\DoxyCodeLine{1120     response = cc.ApiClient().\mbox{\hyperlink{namespacescripts_1_1json__tools_afd87b9a49f4372aebe9a000a029a76fe}{get}}(cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/port:sonic-\/port/PORT/PORT\_LIST'}))}
+\DoxyCodeLine{1121     \textcolor{keywordflow}{if} not(response \textcolor{keywordflow}{and} response.ok() \textcolor{keywordflow}{and} (response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}) \textcolor{keywordflow}{and} (\textcolor{stringliteral}{'sonic-\/port:PORT\_LIST'} \textcolor{keywordflow}{in} response.content)):}
+\DoxyCodeLine{1122         \textcolor{keywordflow}{return} \textcolor{keywordtype}{None}}
+\DoxyCodeLine{1123 }
+\DoxyCodeLine{1124     intfList = []}
+\DoxyCodeLine{1125     is\_mode\_std = ifutils.is\_intf\_naming\_mode\_std()}
+\DoxyCodeLine{1126     \textcolor{keywordflow}{for} port\_info \textcolor{keywordflow}{in} response.content[\textcolor{stringliteral}{'sonic-\/port:PORT\_LIST'}]:}
+\DoxyCodeLine{1127         \textcolor{keywordflow}{if} is\_mode\_std:}
+\DoxyCodeLine{1128             intfList.append(port\_info[\textcolor{stringliteral}{'alias'}])}
+\DoxyCodeLine{1129         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{1130             intfList.append(port\_info[\textcolor{stringliteral}{'ifname'}])}
+\DoxyCodeLine{1131 }
+\DoxyCodeLine{1132     \textcolor{keywordflow}{return} sorted(intfList, key= \textcolor{keyword}{lambda} intf: [ifutils.name\_to\_int\_val(intf)])}
+\DoxyCodeLine{1133 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/ded/namespacesonic__cli__if_a625fb9a5171469b3369021da1dd035c4_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/ded/namespacesonic__cli__if_a625fb9a5171469b3369021da1dd035c4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__if_a2be661e923544177583cfe546baaf957}\label{namespacesonic__cli__if_a2be661e923544177583cfe546baaf957}} 
+\index{sonic\_cli\_if@{sonic\_cli\_if}!get\_helper\_adr\_str@{get\_helper\_adr\_str}}
+\index{get\_helper\_adr\_str@{get\_helper\_adr\_str}!sonic\_cli\_if@{sonic\_cli\_if}}
+\doxysubsubsection{\texorpdfstring{get\_helper\_adr\_str()}{get\_helper\_adr\_str()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+if.\+get\+\_\+helper\+\_\+adr\+\_\+str (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+if.\+py 파일의 93 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{93 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__if_a2be661e923544177583cfe546baaf957}{get\_helper\_adr\_str}}(args):}
+\DoxyCodeLine{94     ipAdrStr = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{95     ipAdrIndex = 2}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'.'} \textcolor{keywordflow}{in} args[0] \textcolor{keywordflow}{and} args[0].startswith(\textcolor{stringliteral}{"PortChannel"}) == \textcolor{keyword}{True}:}
+\DoxyCodeLine{98         ipAdrIndex = 3}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100     \textcolor{keywordflow}{for} index,i \textcolor{keywordflow}{in}  enumerate(args):}
+\DoxyCodeLine{101         \textcolor{keywordflow}{if} (args[ipAdrIndex] == \textcolor{stringliteral}{'ip'}):}
+\DoxyCodeLine{102            \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} ((i.find(\textcolor{stringliteral}{"."}) == -\/1)):}
+\DoxyCodeLine{103               ipAdrStr += i}
+\DoxyCodeLine{104               ipAdrStr += \textcolor{stringliteral}{","}}
+\DoxyCodeLine{105         \textcolor{keywordflow}{elif} (args[ipAdrIndex] == \textcolor{stringliteral}{'ipv6'}):}
+\DoxyCodeLine{106            \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} ((i.find(\textcolor{stringliteral}{":"}) == -\/1)):}
+\DoxyCodeLine{107               ipAdrStr += i}
+\DoxyCodeLine{108               ipAdrStr += \textcolor{stringliteral}{","}}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110     \textcolor{keywordflow}{return} ipAdrStr[:-\/1];}
+\DoxyCodeLine{111 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/ded/namespacesonic__cli__if_a2be661e923544177583cfe546baaf957_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__if_aa502dff2a7058e096a6c6dfda0623135}\label{namespacesonic__cli__if_aa502dff2a7058e096a6c6dfda0623135}} 
+\index{sonic\_cli\_if@{sonic\_cli\_if}!get\_if\_and\_subif@{get\_if\_and\_subif}}
+\index{get\_if\_and\_subif@{get\_if\_and\_subif}!sonic\_cli\_if@{sonic\_cli\_if}}
+\doxysubsubsection{\texorpdfstring{get\_if\_and\_subif()}{get\_if\_and\_subif()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+if.\+get\+\_\+if\+\_\+and\+\_\+subif (\begin{DoxyParamCaption}\item[{}]{input\+\_\+if\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+if.\+py 파일의 158 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{158 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__if_aa502dff2a7058e096a6c6dfda0623135}{get\_if\_and\_subif}}(input\_if\_name):}
+\DoxyCodeLine{159     if\_name = input\_if\_name}
+\DoxyCodeLine{160     subif = \textcolor{stringliteral}{"0"}}
+\DoxyCodeLine{161     \textcolor{keywordflow}{if} \textcolor{stringliteral}{"."} \textcolor{keywordflow}{in} input\_if\_name:}
+\DoxyCodeLine{162         split\_if\_name = input\_if\_name.split(\textcolor{stringliteral}{"."})}
+\DoxyCodeLine{163         if\_name = split\_if\_name[0]}
+\DoxyCodeLine{164         subif = split\_if\_name[1]}
+\DoxyCodeLine{165     \textcolor{comment}{\#print("get\_if\_and\_subif if\_name \{\} subif \{\}".format(if\_name, subif))}}
+\DoxyCodeLine{166     \textcolor{keywordflow}{return} if\_name, subif}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/ded/namespacesonic__cli__if_aa502dff2a7058e096a6c6dfda0623135_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__if_a1e866d4b1cc3df4dbbed88565bf00950}\label{namespacesonic__cli__if_a1e866d4b1cc3df4dbbed88565bf00950}} 
+\index{sonic\_cli\_if@{sonic\_cli\_if}!getId@{getId}}
+\index{getId@{getId}!sonic\_cli\_if@{sonic\_cli\_if}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+if.\+get\+Id (\begin{DoxyParamCaption}\item[{}]{item }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+if.\+py 파일의 1109 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1109 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__if_a1e866d4b1cc3df4dbbed88565bf00950}{getId}}(item):}
+\DoxyCodeLine{1110     state\_dict = item[\textcolor{stringliteral}{'state'}]}
+\DoxyCodeLine{1111     ifName = state\_dict[\textcolor{stringliteral}{'name'}]}
+\DoxyCodeLine{1112     \textcolor{keywordflow}{return} ifutils.name\_to\_int\_val(ifName)}
+\DoxyCodeLine{1113 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacesonic__cli__if_abec7321b54ecc9ee33f8dc3371cedd50}\label{namespacesonic__cli__if_abec7321b54ecc9ee33f8dc3371cedd50}} 
+\index{sonic\_cli\_if@{sonic\_cli\_if}!getSonicId@{getSonicId}}
+\index{getSonicId@{getSonicId}!sonic\_cli\_if@{sonic\_cli\_if}}
+\doxysubsubsection{\texorpdfstring{getSonicId()}{getSonicId()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+if.\+get\+Sonic\+Id (\begin{DoxyParamCaption}\item[{}]{item }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+if.\+py 파일의 1114 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1114 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__if_abec7321b54ecc9ee33f8dc3371cedd50}{getSonicId}}(item):}
+\DoxyCodeLine{1115     state\_dict = item}
+\DoxyCodeLine{1116     ifName = state\_dict[\textcolor{stringliteral}{'ifname'}]}
+\DoxyCodeLine{1117     \textcolor{keywordflow}{return} ifutils.name\_to\_int\_val(ifName)}
+\DoxyCodeLine{1118 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacesonic__cli__if_a25a292c3e9a89f0db95d17f842f950b0}\label{namespacesonic__cli__if_a25a292c3e9a89f0db95d17f842f950b0}} 
+\index{sonic\_cli\_if@{sonic\_cli\_if}!hdl\_get\_all\_ethernet@{hdl\_get\_all\_ethernet}}
+\index{hdl\_get\_all\_ethernet@{hdl\_get\_all\_ethernet}!sonic\_cli\_if@{sonic\_cli\_if}}
+\doxysubsubsection{\texorpdfstring{hdl\_get\_all\_ethernet()}{hdl\_get\_all\_ethernet()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+if.\+hdl\+\_\+get\+\_\+all\+\_\+ethernet (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+if.\+py 파일의 1134 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1134 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__if_a25a292c3e9a89f0db95d17f842f950b0}{hdl\_get\_all\_ethernet}}(args):}
+\DoxyCodeLine{1135     get\_response = []}
+\DoxyCodeLine{1136     response = \{\}}
+\DoxyCodeLine{1137 }
+\DoxyCodeLine{1138     \textcolor{keywordflow}{for} intf \textcolor{keywordflow}{in} \mbox{\hyperlink{namespacesonic__cli__if_a625fb9a5171469b3369021da1dd035c4}{get\_all\_eth\_intfs\_list}}():}
+\DoxyCodeLine{1139         func = \textcolor{stringliteral}{"get\_openconfig\_interfaces\_interfaces\_interface"}}
+\DoxyCodeLine{1140         intfargs = [intf]+args[0:]}
+\DoxyCodeLine{1141         response = \mbox{\hyperlink{namespacesonic__cli__if_ad1f8e532b938a651576425220dfff9e8}{invoke\_api}}(func, intfargs)}
+\DoxyCodeLine{1142         \textcolor{keywordflow}{if} response \textcolor{keywordflow}{and} response.ok() \textcolor{keywordflow}{and} (response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}) \textcolor{keywordflow}{and} (\textcolor{stringliteral}{'openconfig-\/interfaces:interface'} \textcolor{keywordflow}{in} response.content):}
+\DoxyCodeLine{1143             get\_response.append(response.content[\textcolor{stringliteral}{'openconfig-\/interfaces:interface'}][0])}
+\DoxyCodeLine{1144 }
+\DoxyCodeLine{1145     \textcolor{keywordflow}{if} response \textcolor{keywordflow}{and} response.ok() \textcolor{keywordflow}{and} (response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}) \textcolor{keywordflow}{and} (\textcolor{stringliteral}{'openconfig-\/interfaces:interface'} \textcolor{keywordflow}{in} response.content):}
+\DoxyCodeLine{1146         response.content[\textcolor{stringliteral}{'openconfig-\/interfaces:interface'}] = get\_response}
+\DoxyCodeLine{1147         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__if__range_afe26c400d524c280934f149414e5377c}{check\_response}}(response, func, intfargs)}
+\DoxyCodeLine{1148 }
+\DoxyCodeLine{1149     \textcolor{keywordflow}{return} 0}
+\DoxyCodeLine{1150 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/ded/namespacesonic__cli__if_a25a292c3e9a89f0db95d17f842f950b0_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{d6/ded/namespacesonic__cli__if_a25a292c3e9a89f0db95d17f842f950b0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__if_ad1f8e532b938a651576425220dfff9e8}\label{namespacesonic__cli__if_ad1f8e532b938a651576425220dfff9e8}} 
+\index{sonic\_cli\_if@{sonic\_cli\_if}!invoke\_api@{invoke\_api}}
+\index{invoke\_api@{invoke\_api}!sonic\_cli\_if@{sonic\_cli\_if}}
+\doxysubsubsection{\texorpdfstring{invoke\_api()}{invoke\_api()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+if.\+invoke\+\_\+api (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args = {\ttfamily \mbox{[}\mbox{]}} }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+if.\+py 파일의 169 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{169 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__if_ad1f8e532b938a651576425220dfff9e8}{invoke\_api}}(func, args=[]):}
+\DoxyCodeLine{170     api = cc.ApiClient()}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{172     \textcolor{comment}{\# handle interfaces using the 'switch' mode}}
+\DoxyCodeLine{173     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'if\_config'}:}
+\DoxyCodeLine{174         \textcolor{keywordflow}{if} args[0] == \textcolor{stringliteral}{'phy-\/if-\/name'} \textcolor{keywordflow}{or} args[0] == \textcolor{stringliteral}{'vlan-\/if-\/name'}:}
+\DoxyCodeLine{175             body = \{ \textcolor{stringliteral}{"openconfig-\/interfaces:interfaces"}: \{ \textcolor{stringliteral}{"interface"}: [\{ \textcolor{stringliteral}{"name"}: args[1], \textcolor{stringliteral}{"config"}: \{ \textcolor{stringliteral}{"name"}: args[1] \}\} ]\}\}}
+\DoxyCodeLine{176             path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces'})}
+\DoxyCodeLine{177             \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{178         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{'phy-\/sub-\/if-\/name'}:}
+\DoxyCodeLine{179             parent\_if = args[1].split(\textcolor{stringliteral}{'.'})[0]}
+\DoxyCodeLine{180             sub\_if = int(args[1].split(\textcolor{stringliteral}{'.'})[1])}
+\DoxyCodeLine{181             body = \{ \textcolor{stringliteral}{"openconfig-\/interfaces:subinterfaces"}: \{ \textcolor{stringliteral}{"subinterface"}: [\{ \textcolor{stringliteral}{"index"}: sub\_if, \textcolor{stringliteral}{"config"}: \{ \textcolor{stringliteral}{"index"}: sub\_if \}\} ]\}\}}
+\DoxyCodeLine{182             path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces'}, name=parent\_if)}
+\DoxyCodeLine{183             \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{185     \textcolor{comment}{\# Create interface}}
+\DoxyCodeLine{186     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_openconfig\_interfaces\_interfaces\_interface'}:}
+\DoxyCodeLine{187         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}'}, name=args[0])}
+\DoxyCodeLine{188         \textcolor{keywordflow}{return} api.patch(path)}
+\DoxyCodeLine{189         }
+\DoxyCodeLine{190     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_interfaces\_interfaces\_interface\_config'}:}
+\DoxyCodeLine{191         body = \{ \textcolor{stringliteral}{"openconfig-\/interfaces:config"}: \{ \textcolor{stringliteral}{"name"}: args[0] \}\}}
+\DoxyCodeLine{192         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/config'}, name=args[0])}
+\DoxyCodeLine{193         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{195     \textcolor{comment}{\#Configure PortChannel}}
+\DoxyCodeLine{196     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'portchannel\_config'}:}
+\DoxyCodeLine{197         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'.'} \textcolor{keywordflow}{in} args[0]:}
+\DoxyCodeLine{198             parent\_if = args[0].split(\textcolor{stringliteral}{'.'})[0]}
+\DoxyCodeLine{199             sub\_if = int(args[0].split(\textcolor{stringliteral}{'.'})[1])}
+\DoxyCodeLine{200             body = \{ \textcolor{stringliteral}{"openconfig-\/interfaces:subinterfaces"}: \{ \textcolor{stringliteral}{"subinterface"}: [\{ \textcolor{stringliteral}{"index"}: sub\_if, \textcolor{stringliteral}{"config"}: \{ \textcolor{stringliteral}{"index"}: sub\_if \}\} ]\}\}}
+\DoxyCodeLine{201             path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces'}, name=parent\_if)}
+\DoxyCodeLine{202             \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{203         body =\{}
+\DoxyCodeLine{204                  \textcolor{stringliteral}{"openconfig-\/interfaces:interfaces"}: \{ \textcolor{stringliteral}{"interface"}: [\{}
+\DoxyCodeLine{205                                                       \textcolor{stringliteral}{"name"}: args[0],}
+\DoxyCodeLine{206                                                       \textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"name"}: args[0]\},}
+\DoxyCodeLine{207                                                       \textcolor{stringliteral}{"openconfig-\/if-\/aggregate:aggregation"} : \{\textcolor{stringliteral}{"config"}: \{\}\}}
+\DoxyCodeLine{208                                                     \}]\}}
+\DoxyCodeLine{209                \}}
+\DoxyCodeLine{210 }
+\DoxyCodeLine{211         \textcolor{comment}{\# Configure lag type (active/on)}}
+\DoxyCodeLine{212         mode = args[1].split(\textcolor{stringliteral}{"="})[1]}
+\DoxyCodeLine{213         \textcolor{keywordflow}{if} mode != \textcolor{stringliteral}{""} :}
+\DoxyCodeLine{214             body[\textcolor{stringliteral}{"openconfig-\/interfaces:interfaces"}][\textcolor{stringliteral}{"interface"}][0][\textcolor{stringliteral}{"openconfig-\/if-\/aggregate:aggregation"}][\textcolor{stringliteral}{"config"}].update( \{\textcolor{stringliteral}{"lag-\/type"}: lag\_type\_map[mode] \} )}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{216         \textcolor{comment}{\# Configure Min links}}
+\DoxyCodeLine{217         links = args[2].split(\textcolor{stringliteral}{"="})[1]}
+\DoxyCodeLine{218         \textcolor{keywordflow}{if} links != \textcolor{stringliteral}{""}:}
+\DoxyCodeLine{219             body[\textcolor{stringliteral}{"openconfig-\/interfaces:interfaces"}][\textcolor{stringliteral}{"interface"}][0][\textcolor{stringliteral}{"openconfig-\/if-\/aggregate:aggregation"}][\textcolor{stringliteral}{"config"}].update( \{\textcolor{stringliteral}{"min-\/links"}: int(links) \} )}
+\DoxyCodeLine{220 }
+\DoxyCodeLine{221         \textcolor{comment}{\# Configure Fallback}}
+\DoxyCodeLine{222         fallback = args[3].split(\textcolor{stringliteral}{"="})[1]}
+\DoxyCodeLine{223         \textcolor{keywordflow}{if} fallback != \textcolor{stringliteral}{""}:}
+\DoxyCodeLine{224             body[\textcolor{stringliteral}{"openconfig-\/interfaces:interfaces"}][\textcolor{stringliteral}{"interface"}][0][\textcolor{stringliteral}{"openconfig-\/if-\/aggregate:aggregation"}][\textcolor{stringliteral}{"config"}].update( \{\textcolor{stringliteral}{"openconfig-\/interfaces-\/ext:fallback"}: \textcolor{keyword}{True}\} )}
+\DoxyCodeLine{225 }
+\DoxyCodeLine{226         \textcolor{comment}{\# Configure Fast Rate}}
+\DoxyCodeLine{227         fastRate = args[4].split(\textcolor{stringliteral}{"="})[1]}
+\DoxyCodeLine{228         \textcolor{keywordflow}{if} fastRate != \textcolor{stringliteral}{""}:}
+\DoxyCodeLine{229             body[\textcolor{stringliteral}{"openconfig-\/interfaces:interfaces"}][\textcolor{stringliteral}{"interface"}][0][\textcolor{stringliteral}{"openconfig-\/if-\/aggregate:aggregation"}][\textcolor{stringliteral}{"config"}].update( \{\textcolor{stringliteral}{"openconfig-\/interfaces-\/ext:fast-\/rate"}: \textcolor{keyword}{True}\} )}
+\DoxyCodeLine{230 }
+\DoxyCodeLine{231         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces'})}
+\DoxyCodeLine{232         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{233 }
+\DoxyCodeLine{234     }
+\DoxyCodeLine{235     \textcolor{comment}{\# Delete interface}}
+\DoxyCodeLine{236     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_openconfig\_interfaces\_interfaces\_interface'}:}
+\DoxyCodeLine{237         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}'}, name=args[0])}
+\DoxyCodeLine{238         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{239     }
+\DoxyCodeLine{240     \textcolor{comment}{\#Configure description}}
+\DoxyCodeLine{241     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_interfaces\_interfaces\_interface\_config\_description'}:}
+\DoxyCodeLine{242         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/config/description'}, name=args[0])}
+\DoxyCodeLine{243         body = \{ \textcolor{stringliteral}{"openconfig-\/interfaces:description"}: args[1] \}}
+\DoxyCodeLine{244         \textcolor{keywordflow}{return} api.patch(path,body)}
+\DoxyCodeLine{245         }
+\DoxyCodeLine{246     \textcolor{comment}{\# Enable or diable interface}}
+\DoxyCodeLine{247     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_interfaces\_interfaces\_interface\_config\_enabled'}:}
+\DoxyCodeLine{248         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/config/enabled'}, name=args[0])}
+\DoxyCodeLine{249         \textcolor{keywordflow}{if} args[1] == \textcolor{stringliteral}{"True"}:}
+\DoxyCodeLine{250            body = \{ \textcolor{stringliteral}{"openconfig-\/interfaces:enabled"}: \textcolor{keyword}{True} \}}
+\DoxyCodeLine{251         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{252            body = \{ \textcolor{stringliteral}{"openconfig-\/interfaces:enabled"}: \textcolor{keyword}{False} \}}
+\DoxyCodeLine{253         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{254         }
+\DoxyCodeLine{255     \textcolor{comment}{\# Configure MTU}}
+\DoxyCodeLine{256     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_interfaces\_interfaces\_interface\_config\_mtu'}:}
+\DoxyCodeLine{257         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/config/mtu'}, name=args[0])}
+\DoxyCodeLine{258         body = \{ \textcolor{stringliteral}{"openconfig-\/interfaces:mtu"}:  int(args[1]) \}}
+\DoxyCodeLine{259         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{260         }
+\DoxyCodeLine{261     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_if\_ethernet\_interfaces\_interface\_ethernet\_config\_auto\_negotiate'}:}
+\DoxyCodeLine{262         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/if-\/ethernet:ethernet/config/auto-\/negotiate'}, name=args[0])}
+\DoxyCodeLine{263         \textcolor{keywordflow}{if} args[1] == \textcolor{stringliteral}{"true"}:}
+\DoxyCodeLine{264             body = \{ \textcolor{stringliteral}{"openconfig-\/if-\/ethernet:auto-\/negotiate"}: \textcolor{keyword}{True} \}}
+\DoxyCodeLine{265         \textcolor{keywordflow}{else} :}
+\DoxyCodeLine{266             body = \{ \textcolor{stringliteral}{"openconfig-\/if-\/ethernet:auto-\/negotiate"}: \textcolor{keyword}{False} \}}
+\DoxyCodeLine{267         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{268         }
+\DoxyCodeLine{269     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_if\_ethernet\_interfaces\_interface\_ethernet\_config\_port\_speed'}:}
+\DoxyCodeLine{270         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/if-\/ethernet:ethernet/config/port-\/speed'}, name=args[0])}
+\DoxyCodeLine{271         speed\_map = \{\textcolor{stringliteral}{"10MBPS"}:\textcolor{stringliteral}{"SPEED\_10MB"}, \textcolor{stringliteral}{"100MBPS"}:\textcolor{stringliteral}{"SPEED\_100MB"}, \textcolor{stringliteral}{"1GIGE"}:\textcolor{stringliteral}{"SPEED\_1GB"}, \textcolor{stringliteral}{"10GIGE"}:\textcolor{stringliteral}{"SPEED\_10GB"},}
+\DoxyCodeLine{272                         \textcolor{stringliteral}{"25GIGE"}:\textcolor{stringliteral}{"SPEED\_25GB"}, \textcolor{stringliteral}{"40GIGE"}:\textcolor{stringliteral}{"SPEED\_40GB"}, \textcolor{stringliteral}{"100GIGE"}:\textcolor{stringliteral}{"SPEED\_100GB"}\}}
+\DoxyCodeLine{273         \textcolor{keywordflow}{if} args[1] \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} speed\_map.keys():}
+\DoxyCodeLine{274             print(\textcolor{stringliteral}{"\%Error: Unsupported speed"})}
+\DoxyCodeLine{275             \textcolor{keywordflow}{return} \textcolor{keywordtype}{None}}
+\DoxyCodeLine{276         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{277             speed = speed\_map.get(args[1])}
+\DoxyCodeLine{278             body = \{ \textcolor{stringliteral}{"openconfig-\/if-\/ethernet:port-\/speed"}: speed \}}
+\DoxyCodeLine{279         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{280 }
+\DoxyCodeLine{281     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_if\_ethernet\_interfaces\_interface\_ethernet\_config\_port\_fec'}:}
+\DoxyCodeLine{282         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/if-\/ethernet:ethernet/config/openconfig-\/if-\/ethernet-\/ext2:port-\/fec'}, name=args[0])}
+\DoxyCodeLine{283         fec\_map = \{\textcolor{stringliteral}{"RS"}: \textcolor{stringliteral}{"FEC\_RS"}, \textcolor{stringliteral}{"FC"}: \textcolor{stringliteral}{"FEC\_FC"}, \textcolor{stringliteral}{"off"}: \textcolor{stringliteral}{"FEC\_DISABLED"}, \textcolor{stringliteral}{"default"}: \textcolor{stringliteral}{"FEC\_AUTO"}\}}
+\DoxyCodeLine{284 }
+\DoxyCodeLine{285         fec = args[1]}
+\DoxyCodeLine{286         \textcolor{keywordflow}{if} fec \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} fec\_map:}
+\DoxyCodeLine{287             print(\textcolor{stringliteral}{"\%Error: Invalid port FEC config"})}
+\DoxyCodeLine{288             \textcolor{keywordflow}{return} \textcolor{keywordtype}{None}}
+\DoxyCodeLine{289 }
+\DoxyCodeLine{290         body = \{ \textcolor{stringliteral}{"openconfig-\/if-\/ethernet:port-\/fec"}: fec\_map[fec]\}}
+\DoxyCodeLine{291         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{292 }
+\DoxyCodeLine{293     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_if\_ip\_interfaces\_interface\_subinterfaces\_subinterface\_ipv4\_addresses\_address\_config'}:}
+\DoxyCodeLine{294         sp = args[1].split(\textcolor{stringliteral}{'/'})}
+\DoxyCodeLine{295         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/addresses'}, name=args[0], index=\textcolor{stringliteral}{"0"})}
+\DoxyCodeLine{296         \textcolor{keywordflow}{if} len(args) > 2 \textcolor{keywordflow}{and} len(args[2]) > 0:}
+\DoxyCodeLine{297             body = \{ \textcolor{stringliteral}{"openconfig-\/if-\/ip:addresses"}: \{\textcolor{stringliteral}{"address"}:[ \{\textcolor{stringliteral}{"ip"}:sp[0], \textcolor{stringliteral}{"openconfig-\/if-\/ip:config"}:  \{\textcolor{stringliteral}{"ip"} : sp[0], \textcolor{stringliteral}{"prefix-\/length"} : int(sp[1]), \textcolor{stringliteral}{"openconfig-\/interfaces-\/ext:gw-\/addr"}: args[2]\} \}]\}\}}
+\DoxyCodeLine{298         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{299             body = \{ \textcolor{stringliteral}{"openconfig-\/if-\/ip:addresses"}: \{\textcolor{stringliteral}{"address"}:[ \{\textcolor{stringliteral}{"ip"}:sp[0], \textcolor{stringliteral}{"openconfig-\/if-\/ip:config"}:  \{\textcolor{stringliteral}{"ip"} : sp[0], \textcolor{stringliteral}{"prefix-\/length"} : int(sp[1])\} \}]\}\}}
+\DoxyCodeLine{300         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{301     }
+\DoxyCodeLine{302     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_if\_ip\_interfaces\_interface\_routed\_vlan\_ipv4\_addresses\_address\_config'}:}
+\DoxyCodeLine{303         sp = args[1].split(\textcolor{stringliteral}{'/'})}
+\DoxyCodeLine{304         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv4/addresses'}, name=args[0])}
+\DoxyCodeLine{305         body = \{ \textcolor{stringliteral}{"openconfig-\/if-\/ip:addresses"}: \{\textcolor{stringliteral}{"address"}:[ \{\textcolor{stringliteral}{"ip"}:sp[0], \textcolor{stringliteral}{"openconfig-\/if-\/ip:config"}:  \{\textcolor{stringliteral}{"ip"} : sp[0], \textcolor{stringliteral}{"prefix-\/length"} : int(sp[1])\} \}]\}\}}
+\DoxyCodeLine{306         \textcolor{keywordflow}{return} api.patch(path, body)    }
+\DoxyCodeLine{307     }
+\DoxyCodeLine{308     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_if\_ip\_interfaces\_interface\_subinterfaces\_subinterface\_ipv6\_addresses\_address\_config'}:}
+\DoxyCodeLine{309         parent\_if=args[0]}
+\DoxyCodeLine{310         sub\_if=\textcolor{stringliteral}{"0"}}
+\DoxyCodeLine{311         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'.'} \textcolor{keywordflow}{in} parent\_if:}
+\DoxyCodeLine{312             parent\_if = args[0].split(\textcolor{stringliteral}{'.'})[0]}
+\DoxyCodeLine{313             sub\_if = args[0].split(\textcolor{stringliteral}{'.'})[1]}
+\DoxyCodeLine{314         parent\_if = parent\_if.replace(\textcolor{stringliteral}{"po"}, \textcolor{stringliteral}{"PortChannel"})}
+\DoxyCodeLine{315         sp = args[1].split(\textcolor{stringliteral}{'/'})}
+\DoxyCodeLine{316         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv6/addresses'}, name=parent\_if, index=sub\_if)}
+\DoxyCodeLine{317         \textcolor{keywordflow}{if} len(args) > 2 \textcolor{keywordflow}{and} len(args[2]) > 0:}
+\DoxyCodeLine{318             body = \{ \textcolor{stringliteral}{"openconfig-\/if-\/ip:addresses"}: \{\textcolor{stringliteral}{"address"}:[ \{\textcolor{stringliteral}{"ip"}:sp[0], \textcolor{stringliteral}{"openconfig-\/if-\/ip:config"}:  \{\textcolor{stringliteral}{"ip"} : sp[0], \textcolor{stringliteral}{"prefix-\/length"} : int(sp[1]), \textcolor{stringliteral}{"openconfig-\/interfaces-\/ext:gw-\/addr"}: args[2]\} \}]\}\}}
+\DoxyCodeLine{319         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{320             body = \{ \textcolor{stringliteral}{"openconfig-\/if-\/ip:addresses"}: \{\textcolor{stringliteral}{"address"}:[ \{\textcolor{stringliteral}{"ip"}:sp[0], \textcolor{stringliteral}{"openconfig-\/if-\/ip:config"}:  \{\textcolor{stringliteral}{"ip"} : sp[0], \textcolor{stringliteral}{"prefix-\/length"} : int(sp[1])\} \}]\}\}}
+\DoxyCodeLine{321         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{322         }
+\DoxyCodeLine{323     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_if\_ipv4'}:}
+\DoxyCodeLine{324         parent\_if=args[0]}
+\DoxyCodeLine{325         sub\_if=\textcolor{stringliteral}{"0"}}
+\DoxyCodeLine{326         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'.'} \textcolor{keywordflow}{in} parent\_if:}
+\DoxyCodeLine{327             parent\_if = args[0].split(\textcolor{stringliteral}{'.'})[0]}
+\DoxyCodeLine{328             sub\_if = args[0].split(\textcolor{stringliteral}{'.'})[1]}
+\DoxyCodeLine{329         parent\_if = parent\_if.replace(\textcolor{stringliteral}{"po"}, \textcolor{stringliteral}{"PortChannel"})}
+\DoxyCodeLine{330         sp = args[1].split(\textcolor{stringliteral}{'/'})}
+\DoxyCodeLine{331         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/addresses'}, name=parent\_if, index=sub\_if)}
+\DoxyCodeLine{332         \textcolor{keywordflow}{if} len(args) > 2 \textcolor{keywordflow}{and} args[2] == \textcolor{stringliteral}{"secondary"}:}
+\DoxyCodeLine{333             body = \{ \textcolor{stringliteral}{"openconfig-\/if-\/ip:addresses"}: \{\textcolor{stringliteral}{"address"}:[ \{\textcolor{stringliteral}{"ip"}:sp[0], \textcolor{stringliteral}{"openconfig-\/if-\/ip:config"}:  \{\textcolor{stringliteral}{"ip"} : sp[0], \textcolor{stringliteral}{"prefix-\/length"} : int(sp[1]), \textcolor{stringliteral}{"openconfig-\/interfaces-\/ext:secondary"}: \textcolor{keyword}{True}\} \}]\}\}}
+\DoxyCodeLine{334         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{335             body = \{ \textcolor{stringliteral}{"openconfig-\/if-\/ip:addresses"}: \{\textcolor{stringliteral}{"address"}:[ \{\textcolor{stringliteral}{"ip"}:sp[0], \textcolor{stringliteral}{"openconfig-\/if-\/ip:config"}:  \{\textcolor{stringliteral}{"ip"} : sp[0], \textcolor{stringliteral}{"prefix-\/length"} : int(sp[1])\} \}]\}\}}
+\DoxyCodeLine{336         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{337 }
+\DoxyCodeLine{338     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_vlan\_if\_ipv4'}:}
+\DoxyCodeLine{339         sp = args[1].split(\textcolor{stringliteral}{'/'})}
+\DoxyCodeLine{340         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv4/addresses'}, name=args[0])}
+\DoxyCodeLine{341 }
+\DoxyCodeLine{342         \textcolor{keywordflow}{if} len(args) > 2 \textcolor{keywordflow}{and} args[2] == \textcolor{stringliteral}{"secondary"}:}
+\DoxyCodeLine{343             body = \{ \textcolor{stringliteral}{"openconfig-\/if-\/ip:addresses"}: \{\textcolor{stringliteral}{"address"}:[ \{\textcolor{stringliteral}{"ip"}:sp[0], \textcolor{stringliteral}{"openconfig-\/if-\/ip:config"}:  \{\textcolor{stringliteral}{"ip"} : sp[0], \textcolor{stringliteral}{"prefix-\/length"} : int(sp[1]), \textcolor{stringliteral}{"openconfig-\/interfaces-\/ext:secondary"}: \textcolor{keyword}{True}\} \}]\}\}}
+\DoxyCodeLine{344         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{345             body = \{ \textcolor{stringliteral}{"openconfig-\/if-\/ip:addresses"}: \{\textcolor{stringliteral}{"address"}:[ \{\textcolor{stringliteral}{"ip"}:sp[0], \textcolor{stringliteral}{"openconfig-\/if-\/ip:config"}:  \{\textcolor{stringliteral}{"ip"} : sp[0], \textcolor{stringliteral}{"prefix-\/length"} : int(sp[1])\} \}]\}\}}
+\DoxyCodeLine{346         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{347 }
+\DoxyCodeLine{348     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_mgmt\_if\_ipv4'}:}
+\DoxyCodeLine{349         sp = args[1].split(\textcolor{stringliteral}{'/'})}
+\DoxyCodeLine{350         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/addresses'}, name=args[0], index=\textcolor{stringliteral}{"0"})}
+\DoxyCodeLine{351 }
+\DoxyCodeLine{352         body = \{ \textcolor{stringliteral}{"openconfig-\/if-\/ip:addresses"}: \{\textcolor{stringliteral}{"address"}:[ \{\textcolor{stringliteral}{"ip"}:sp[0], \textcolor{stringliteral}{"openconfig-\/if-\/ip:config"}:  \{\textcolor{stringliteral}{"ip"} : sp[0], \textcolor{stringliteral}{"prefix-\/length"} : int(sp[1])\} \}]\}\}}
+\DoxyCodeLine{353 }
+\DoxyCodeLine{354         \textcolor{keywordflow}{if} len(args) > 2 \textcolor{keywordflow}{and} args[2] == \textcolor{stringliteral}{"secondary"}:}
+\DoxyCodeLine{355             body[\textcolor{stringliteral}{"openconfig-\/if-\/ip:addresses"}][\textcolor{stringliteral}{"address"}][0][\textcolor{stringliteral}{"openconfig-\/if-\/ip:config"}].update( \{\textcolor{stringliteral}{"openconfig-\/interfaces-\/ext:secondary"}: \textcolor{keyword}{True}\} )}
+\DoxyCodeLine{356 }
+\DoxyCodeLine{357         \textcolor{keywordflow}{if} len(args) > 3 \textcolor{keywordflow}{and} args[2] == \textcolor{stringliteral}{"gwaddr"}:}
+\DoxyCodeLine{358             body[\textcolor{stringliteral}{"openconfig-\/if-\/ip:addresses"}][\textcolor{stringliteral}{"address"}][0][\textcolor{stringliteral}{"openconfig-\/if-\/ip:config"}].update(\{ \textcolor{stringliteral}{"openconfig-\/interfaces-\/ext:gw-\/addr"}: args[3]\} )}
+\DoxyCodeLine{359 }
+\DoxyCodeLine{360         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{361 }
+\DoxyCodeLine{362 }
+\DoxyCodeLine{363     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_if\_ip\_interfaces\_interface\_routed\_vlan\_ipv6\_addresses\_address\_config'}:}
+\DoxyCodeLine{364         sp = args[1].split(\textcolor{stringliteral}{'/'})}
+\DoxyCodeLine{365     }
+\DoxyCodeLine{366         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv6/addresses'}, name=args[0])}
+\DoxyCodeLine{367         body = \{ \textcolor{stringliteral}{"openconfig-\/if-\/ip:addresses"}: \{\textcolor{stringliteral}{"address"}:[ \{\textcolor{stringliteral}{"ip"}:sp[0], \textcolor{stringliteral}{"openconfig-\/if-\/ip:config"}:  \{\textcolor{stringliteral}{"ip"} : sp[0], \textcolor{stringliteral}{"prefix-\/length"} : int(sp[1])\} \}]\}\}}
+\DoxyCodeLine{368         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{369     }
+\DoxyCodeLine{370     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_vlan\_interfaces\_interface\_ethernet\_switched\_vlan\_config'}:}
+\DoxyCodeLine{371         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/if-\/ethernet:ethernet/openconfig-\/vlan:switched-\/vlan/config'}, name=args[0])}
+\DoxyCodeLine{372         \textcolor{keywordflow}{if} args[1] == \textcolor{stringliteral}{"ACCESS"}:}
+\DoxyCodeLine{373            body = \{\textcolor{stringliteral}{"openconfig-\/vlan:config"}: \{\textcolor{stringliteral}{"interface-\/mode"}: \textcolor{stringliteral}{"ACCESS"},\textcolor{stringliteral}{"access-\/vlan"}: int(args[2])\}\}}
+\DoxyCodeLine{374         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{375            vlanlst = args[2].split(\textcolor{stringliteral}{','})}
+\DoxyCodeLine{376            vlanlst = [sub.replace(\textcolor{stringliteral}{'-\/'}, \textcolor{stringliteral}{'..'}) \textcolor{keywordflow}{for} sub \textcolor{keywordflow}{in} vlanlst]}
+\DoxyCodeLine{377            body = \{\textcolor{stringliteral}{"openconfig-\/vlan:config"}: \{\textcolor{stringliteral}{"interface-\/mode"}: \textcolor{stringliteral}{"TRUNK"},\textcolor{stringliteral}{"trunk-\/vlans"}: [int(i) \textcolor{keywordflow}{if} \textcolor{stringliteral}{'..'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} i \textcolor{keywordflow}{else} i \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} vlanlst]\}\}}
+\DoxyCodeLine{378 }
+\DoxyCodeLine{379         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{380 }
+\DoxyCodeLine{381     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_vlan\_interfaces\_interface\_aggregation\_switched\_vlan\_config'}:}
+\DoxyCodeLine{382         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/if-\/aggregate:aggregation/openconfig-\/vlan:switched-\/vlan/config'}, name=args[0])}
+\DoxyCodeLine{383         \textcolor{keywordflow}{if} args[1] == \textcolor{stringliteral}{"ACCESS"}:}
+\DoxyCodeLine{384            body = \{\textcolor{stringliteral}{"openconfig-\/vlan:config"}: \{\textcolor{stringliteral}{"interface-\/mode"}: \textcolor{stringliteral}{"ACCESS"},\textcolor{stringliteral}{"access-\/vlan"}: int(args[2])\}\}}
+\DoxyCodeLine{385         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{386            vlanlst = args[2].split(\textcolor{stringliteral}{','})}
+\DoxyCodeLine{387            vlanlst = [sub.replace(\textcolor{stringliteral}{'-\/'}, \textcolor{stringliteral}{'..'}) \textcolor{keywordflow}{for} sub \textcolor{keywordflow}{in} vlanlst]}
+\DoxyCodeLine{388            body = \{\textcolor{stringliteral}{"openconfig-\/vlan:config"}: \{\textcolor{stringliteral}{"interface-\/mode"}: \textcolor{stringliteral}{"TRUNK"},\textcolor{stringliteral}{"trunk-\/vlans"}: [int(i) \textcolor{keywordflow}{if} \textcolor{stringliteral}{'..'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} i \textcolor{keywordflow}{else} i \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} vlanlst]\}\}}
+\DoxyCodeLine{389         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{390 }
+\DoxyCodeLine{391     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_openconfig\_vlan\_interfaces\_interface\_ethernet\_switched\_vlan\_config\_access\_vlan'}:}
+\DoxyCodeLine{392         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/if-\/ethernet:ethernet/openconfig-\/vlan:switched-\/vlan/config/access-\/vlan'}, name=args[0])}
+\DoxyCodeLine{393         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{394     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_openconfig\_vlan\_interfaces\_interface\_aggregation\_switched\_vlan\_config\_access\_vlan'}:}
+\DoxyCodeLine{395         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/if-\/aggregate:aggregation/openconfig-\/vlan:switched-\/vlan/config/access-\/vlan'}, name=args[0])}
+\DoxyCodeLine{396         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{397 }
+\DoxyCodeLine{398     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'del\_llist\_openconfig\_vlan\_interfaces\_interface\_ethernet\_switched\_vlan\_config\_trunk\_vlans'}:}
+\DoxyCodeLine{399         vlanStr = args[2].replace(\textcolor{stringliteral}{'-\/'}, \textcolor{stringliteral}{'..'})}
+\DoxyCodeLine{400         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/if-\/ethernet:ethernet/openconfig-\/vlan:switched-\/vlan/config/trunk-\/vlans=\{trunk\}'}, name=args[0], trunk=vlanStr)}
+\DoxyCodeLine{401         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{402     }
+\DoxyCodeLine{403     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'del\_llist\_openconfig\_vlan\_interfaces\_interface\_ethernet\_switched\_vlan\_config\_trunk\_vlans\_all'}:}
+\DoxyCodeLine{404     path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/if-\/ethernet:ethernet/openconfig-\/vlan:switched-\/vlan/config/trunk-\/vlans'},name=args[0])}
+\DoxyCodeLine{405     \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{406 }
+\DoxyCodeLine{407     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'del\_llist\_openconfig\_vlan\_interfaces\_interface\_aggregation\_switched\_vlan\_config\_trunk\_vlans'}:}
+\DoxyCodeLine{408         vlanStr = args[2].replace(\textcolor{stringliteral}{'-\/'}, \textcolor{stringliteral}{'..'})}
+\DoxyCodeLine{409         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/if-\/aggregate:aggregation/openconfig-\/vlan:switched-\/vlan/config/trunk-\/vlans=\{trunk\}'}, name=args[0], trunk=vlanStr)}
+\DoxyCodeLine{410         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{411 }
+\DoxyCodeLine{412     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'del\_llist\_openconfig\_vlan\_interfaces\_interface\_aggregation\_switched\_vlan\_config\_trunk\_vlans\_all'}:}
+\DoxyCodeLine{413     path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/if-\/aggregate:aggregation/openconfig-\/vlan:switched-\/vlan/config/trunk-\/vlans'},name=args[0])}
+\DoxyCodeLine{414     \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{415 }
+\DoxyCodeLine{416     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'rpc\_replace\_vlan'}:}
+\DoxyCodeLine{417         vlanlst = args[2].split(\textcolor{stringliteral}{','})}
+\DoxyCodeLine{418         vlanlst = [sub.replace(\textcolor{stringliteral}{'-\/'}, \textcolor{stringliteral}{'..'}) \textcolor{keywordflow}{for} sub \textcolor{keywordflow}{in} vlanlst]}
+\DoxyCodeLine{419 }
+\DoxyCodeLine{420         body = \{\textcolor{stringliteral}{"openconfig-\/interfaces-\/ext:input"}:\{\textcolor{stringliteral}{"ifname"}:[args[0]],\textcolor{stringliteral}{"vlanlist"}:vlanlst\}\}}
+\DoxyCodeLine{421         path = cc.Path(\textcolor{stringliteral}{'/restconf/operations/openconfig-\/interfaces-\/ext:vlan-\/replace'})}
+\DoxyCodeLine{422         \textcolor{keywordflow}{return} api.post(path,body)}
+\DoxyCodeLine{423 }
+\DoxyCodeLine{424     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_openconfig\_if\_ip\_interfaces\_interface\_subinterfaces\_subinterface\_ipv4\_addresses\_address\_config\_prefix\_length'}:}
+\DoxyCodeLine{425         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/addresses/address=\{ip\}/config/prefix-\/length'}, name=args[0], index=\textcolor{stringliteral}{"0"}, ip=args[1])}
+\DoxyCodeLine{426         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{427         }
+\DoxyCodeLine{428     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_openconfig\_if\_ip\_interfaces\_interface\_subinterfaces\_subinterface\_ipv6\_addresses\_address\_config\_prefix\_length'}:}
+\DoxyCodeLine{429         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv6/addresses/address=\{ip\}/config/prefix-\/length'}, name=args[0], index=\textcolor{stringliteral}{"0"}, ip=args[1])}
+\DoxyCodeLine{430         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{431 }
+\DoxyCodeLine{432     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_phy\_if\_ip'}:}
+\DoxyCodeLine{433         \textcolor{keywordflow}{if} len(args) == 2:}
+\DoxyCodeLine{434             \textcolor{keywordflow}{if} args[1] == \textcolor{stringliteral}{"True"}:}
+\DoxyCodeLine{435                 path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/addresses'}, name=args[0], index=\textcolor{stringliteral}{"0"})}
+\DoxyCodeLine{436             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{437                 path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv6/addresses'}, name=args[0], index=\textcolor{stringliteral}{"0"})}
+\DoxyCodeLine{438 }
+\DoxyCodeLine{439         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{440             \textcolor{keywordflow}{if} len(args) == 4 \textcolor{keywordflow}{and} args[3] == \textcolor{stringliteral}{"secondary"}:}
+\DoxyCodeLine{441                 body = \{\textcolor{stringliteral}{"sonic-\/interface:input"}:\{\textcolor{stringliteral}{"ifName"}:args[0].replace(\textcolor{stringliteral}{"po"},\textcolor{stringliteral}{"PortChannel"}),\textcolor{stringliteral}{"ipPrefix"}:args[1],\textcolor{stringliteral}{"secondary"}: \textcolor{keyword}{True}\}\}}
+\DoxyCodeLine{442             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{443                 body = \{\textcolor{stringliteral}{"sonic-\/interface:input"}:\{\textcolor{stringliteral}{"ifName"}:args[0].replace(\textcolor{stringliteral}{"po"},\textcolor{stringliteral}{"PortChannel"}),\textcolor{stringliteral}{"ipPrefix"}:args[1]\}\}}
+\DoxyCodeLine{444             path = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/interface:clear\_ip'})}
+\DoxyCodeLine{445             \textcolor{keywordflow}{return} api.post(path, body)}
+\DoxyCodeLine{446         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{447 }
+\DoxyCodeLine{448     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_vlan\_if\_ip'}:}
+\DoxyCodeLine{449         \textcolor{keywordflow}{if} len(args) == 2:}
+\DoxyCodeLine{450             \textcolor{keywordflow}{if} args[1] == \textcolor{stringliteral}{"True"}:}
+\DoxyCodeLine{451                 path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv4/addresses'}, name=args[0])}
+\DoxyCodeLine{452             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{453                 path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv6/addresses'}, name=args[0])}
+\DoxyCodeLine{454         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{455             \textcolor{keywordflow}{if} len(args) == 4 \textcolor{keywordflow}{and} args[3] == \textcolor{stringliteral}{"secondary"}:}
+\DoxyCodeLine{456                 body = \{\textcolor{stringliteral}{"sonic-\/interface:input"}:\{\textcolor{stringliteral}{"ifName"}:args[0],\textcolor{stringliteral}{"ipPrefix"}:args[1],\textcolor{stringliteral}{"secondary"}: \textcolor{keyword}{True}\}\}}
+\DoxyCodeLine{457             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{458                 body = \{\textcolor{stringliteral}{"sonic-\/interface:input"}:\{\textcolor{stringliteral}{"ifName"}:args[0],\textcolor{stringliteral}{"ipPrefix"}:args[1]\}\}}
+\DoxyCodeLine{459             path = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/interface:clear\_ip'})}
+\DoxyCodeLine{460             \textcolor{keywordflow}{return} api.post(path, body)}
+\DoxyCodeLine{461         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{462 }
+\DoxyCodeLine{463     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_po\_if\_ip'}:}
+\DoxyCodeLine{464         \textcolor{keywordflow}{if} len(args) == 2:}
+\DoxyCodeLine{465             \textcolor{keywordflow}{if} args[1] == \textcolor{stringliteral}{"True"}:}
+\DoxyCodeLine{466                 path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/addresses'}, name=args[0], index=\textcolor{stringliteral}{"0"})}
+\DoxyCodeLine{467             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{468                 path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv6/addresses'}, name=args[0], index=\textcolor{stringliteral}{"0"})}
+\DoxyCodeLine{469         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{470             \textcolor{keywordflow}{if} len(args) == 4 \textcolor{keywordflow}{and} args[3] == \textcolor{stringliteral}{"secondary"}:}
+\DoxyCodeLine{471                 body = \{\textcolor{stringliteral}{"sonic-\/interface:input"}:\{\textcolor{stringliteral}{"ifName"}:args[0],\textcolor{stringliteral}{"ipPrefix"}:args[1],\textcolor{stringliteral}{"secondary"}: \textcolor{keyword}{True}\}\}}
+\DoxyCodeLine{472             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{473                 body = \{\textcolor{stringliteral}{"sonic-\/interface:input"}:\{\textcolor{stringliteral}{"ifName"}:args[0],\textcolor{stringliteral}{"ipPrefix"}:args[1]\}\}}
+\DoxyCodeLine{474             path = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/interface:clear\_ip'})}
+\DoxyCodeLine{475             \textcolor{keywordflow}{return} api.post(path, body)}
+\DoxyCodeLine{476         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{477 }
+\DoxyCodeLine{478     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_mgmt\_if\_ip'}:}
+\DoxyCodeLine{479         \textcolor{keywordflow}{if} len(args) == 2:}
+\DoxyCodeLine{480             \textcolor{keywordflow}{if} args[1] == \textcolor{stringliteral}{"True"}:}
+\DoxyCodeLine{481                 path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/addresses'}, name=args[0], index=\textcolor{stringliteral}{"0"})}
+\DoxyCodeLine{482             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{483                 path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv6/addresses'}, name=args[0], index=\textcolor{stringliteral}{"0"})}
+\DoxyCodeLine{484         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{485             \textcolor{keywordflow}{if} len(args) == 4 \textcolor{keywordflow}{and} args[3] == \textcolor{stringliteral}{"secondary"}:}
+\DoxyCodeLine{486                 body = \{\textcolor{stringliteral}{"sonic-\/interface:input"}:\{\textcolor{stringliteral}{"ifName"}:args[0],\textcolor{stringliteral}{"ipPrefix"}:args[1],\textcolor{stringliteral}{"secondary"}: \textcolor{keyword}{True}\}\}}
+\DoxyCodeLine{487             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{488                 body = \{\textcolor{stringliteral}{"sonic-\/interface:input"}:\{\textcolor{stringliteral}{"ifName"}:args[0],\textcolor{stringliteral}{"ipPrefix"}:args[1]\}\}}
+\DoxyCodeLine{489             path = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/interface:clear\_ip'})}
+\DoxyCodeLine{490             \textcolor{keywordflow}{return} api.post(path, body)}
+\DoxyCodeLine{491         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{492 }
+\DoxyCodeLine{493     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_lo\_if\_ip'}:}
+\DoxyCodeLine{494         \textcolor{keywordflow}{if} len(args) == 2:}
+\DoxyCodeLine{495             \textcolor{keywordflow}{if} args[1] == \textcolor{stringliteral}{"True"}:}
+\DoxyCodeLine{496                 path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/addresses'}, name=args[0], index=\textcolor{stringliteral}{"0"})}
+\DoxyCodeLine{497             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{498                 path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv6/addresses'}, name=args[0], index=\textcolor{stringliteral}{"0"})}
+\DoxyCodeLine{499         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{500             \textcolor{keywordflow}{if} len(args) == 4 \textcolor{keywordflow}{and} args[3] == \textcolor{stringliteral}{"secondary"}:}
+\DoxyCodeLine{501                 body = \{\textcolor{stringliteral}{"sonic-\/interface:input"}:\{\textcolor{stringliteral}{"ifName"}:args[0],\textcolor{stringliteral}{"ipPrefix"}:args[1],\textcolor{stringliteral}{"secondary"}: \textcolor{keyword}{True}\}\}}
+\DoxyCodeLine{502             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{503                 body = \{\textcolor{stringliteral}{"sonic-\/interface:input"}:\{\textcolor{stringliteral}{"ifName"}:args[0],\textcolor{stringliteral}{"ipPrefix"}:args[1]\}\}}
+\DoxyCodeLine{504             path = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/interface:clear\_ip'})}
+\DoxyCodeLine{505             \textcolor{keywordflow}{return} api.post(path, body)}
+\DoxyCodeLine{506         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{507  }
+\DoxyCodeLine{508     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_openconfig\_interfaces\_interfaces\_interface'}:}
+\DoxyCodeLine{509         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}'}, name=args[0])}
+\DoxyCodeLine{510         \textcolor{keywordflow}{return} api.get(path)}
+\DoxyCodeLine{511 }
+\DoxyCodeLine{512     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_sonic\_port\_sonic\_port\_port\_table'}:}
+\DoxyCodeLine{513         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/port:sonic-\/port/PORT\_TABLE'})}
+\DoxyCodeLine{514         \textcolor{keywordflow}{return} api.get(path)}
+\DoxyCodeLine{515 }
+\DoxyCodeLine{516     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_openconfig\_interfaces\_interfaces'}:}
+\DoxyCodeLine{517         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces'})}
+\DoxyCodeLine{518         \textcolor{keywordflow}{return} api.get(path)}
+\DoxyCodeLine{519     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'ip\_interfaces\_get'} \textcolor{keywordflow}{or} func == \textcolor{stringliteral}{'ip6\_interfaces\_get'}:}
+\DoxyCodeLine{520         d = \{\}}
+\DoxyCodeLine{521 }
+\DoxyCodeLine{522         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/mgmt-\/interface:sonic-\/mgmt-\/interface/MGMT\_INTF\_TABLE/MGMT\_INTF\_TABLE\_IPADDR\_LIST'})}
+\DoxyCodeLine{523         responseMgmtIntfTbl = api.get(path)}
+\DoxyCodeLine{524         \textcolor{keywordflow}{if} responseMgmtIntfTbl.ok():}
+\DoxyCodeLine{525             d.update(responseMgmtIntfTbl.content)}
+\DoxyCodeLine{526             mVrf = \{\}}
+\DoxyCodeLine{527             mVrf[\textcolor{stringliteral}{"isMgmtVrfEnabled"}] = ifutils.isMgmtVrfEnabled(cc)}
+\DoxyCodeLine{528             d.update(mVrf)}
+\DoxyCodeLine{529             \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'ip\_interfaces\_get'}:}
+\DoxyCodeLine{530                \mbox{\hyperlink{namespacesonic__cli__if_a9391183a2438cfa7b3c90636365b982d}{filter\_address}}(d, \textcolor{keyword}{True})}
+\DoxyCodeLine{531             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{532                \mbox{\hyperlink{namespacesonic__cli__if_a9391183a2438cfa7b3c90636365b982d}{filter\_address}}(d, \textcolor{keyword}{False})}
+\DoxyCodeLine{533 }
+\DoxyCodeLine{534             path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/mgmt-\/port:sonic-\/mgmt-\/port/MGMT\_PORT/MGMT\_PORT\_LIST'})}
+\DoxyCodeLine{535             responseMgmtPortTbl = api.get(path)}
+\DoxyCodeLine{536             \textcolor{keywordflow}{if} responseMgmtPortTbl.ok():}
+\DoxyCodeLine{537                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/mgmt-\/port:MGMT\_PORT\_LIST'} \textcolor{keywordflow}{in} responseMgmtPortTbl.content:}
+\DoxyCodeLine{538                     \textcolor{keywordflow}{for} port \textcolor{keywordflow}{in} responseMgmtPortTbl.content[\textcolor{stringliteral}{'sonic-\/mgmt-\/port:MGMT\_PORT\_LIST'}]:}
+\DoxyCodeLine{539                         ifname = port[\textcolor{stringliteral}{'ifname'}]}
+\DoxyCodeLine{540                         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/state/oper-\/status'}, name=ifname)}
+\DoxyCodeLine{541                         responseMgmtPortOperStatus = api.get(path)}
+\DoxyCodeLine{542                         \textcolor{keywordflow}{if} responseMgmtPortOperStatus.ok():}
+\DoxyCodeLine{543                             port.update(\{\textcolor{stringliteral}{'oper\_status'} : responseMgmtPortOperStatus.content[\textcolor{stringliteral}{'openconfig-\/interfaces:oper-\/status'}].lower()\})}
+\DoxyCodeLine{544                     d.update(responseMgmtPortTbl.content)}
+\DoxyCodeLine{545 }
+\DoxyCodeLine{546 }
+\DoxyCodeLine{547         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/interface:sonic-\/interface/INTF\_TABLE/INTF\_TABLE\_IPADDR\_LIST'})}
+\DoxyCodeLine{548         responseIntfTbl = api.get(path)}
+\DoxyCodeLine{549         \textcolor{keywordflow}{if} responseIntfTbl.ok():}
+\DoxyCodeLine{550             d.update(responseIntfTbl.content)}
+\DoxyCodeLine{551             tbl\_key = \textcolor{stringliteral}{"sonic-\/interface:INTF\_TABLE\_IPADDR\_LIST"}}
+\DoxyCodeLine{552             \textcolor{keywordflow}{if} tbl\_key \textcolor{keywordflow}{in} d:}
+\DoxyCodeLine{553                 d[tbl\_key] = natsorted(d[tbl\_key],key=\textcolor{keyword}{lambda} t: t[\textcolor{stringliteral}{"ifName"}])}
+\DoxyCodeLine{554             \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'ip\_interfaces\_get'}:}
+\DoxyCodeLine{555                 \mbox{\hyperlink{namespacesonic__cli__if_a9391183a2438cfa7b3c90636365b982d}{filter\_address}}(d, \textcolor{keyword}{True})}
+\DoxyCodeLine{556             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{557                 \mbox{\hyperlink{namespacesonic__cli__if_a9391183a2438cfa7b3c90636365b982d}{filter\_address}}(d, \textcolor{keyword}{False})}
+\DoxyCodeLine{558 }
+\DoxyCodeLine{559         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/interface:sonic-\/interface/INTF\_TABLE/INTF\_TABLE\_LIST'})}
+\DoxyCodeLine{560         responsePortTbl = api.get(path)}
+\DoxyCodeLine{561         \textcolor{keywordflow}{if} responsePortTbl.ok():}
+\DoxyCodeLine{562             d.update(responsePortTbl.content)}
+\DoxyCodeLine{563     }
+\DoxyCodeLine{564     path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/interface:sonic-\/interface/INTERFACE/INTERFACE\_LIST'})}
+\DoxyCodeLine{565         responseIntfVrfTbl =  api.get(path)}
+\DoxyCodeLine{566         \textcolor{keywordflow}{if} responseIntfVrfTbl.ok():}
+\DoxyCodeLine{567             d.update(responseIntfVrfTbl.content)}
+\DoxyCodeLine{568 }
+\DoxyCodeLine{569     }
+\DoxyCodeLine{570         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/port:sonic-\/port/PORT\_TABLE/PORT\_TABLE\_LIST'})}
+\DoxyCodeLine{571         responsePortTbl = api.get(path)}
+\DoxyCodeLine{572         \textcolor{keywordflow}{if} responsePortTbl.ok():}
+\DoxyCodeLine{573             d.update(responsePortTbl.content)}
+\DoxyCodeLine{574     }
+\DoxyCodeLine{575     path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/loopback-\/interface:sonic-\/loopback-\/interface/LOOPBACK\_INTERFACE/LOOPBACK\_INTERFACE\_LIST'})}
+\DoxyCodeLine{576         responseLoopVrfTbl =  api.get(path)}
+\DoxyCodeLine{577         \textcolor{keywordflow}{if} responseLoopVrfTbl.ok():}
+\DoxyCodeLine{578             d.update(responseLoopVrfTbl.content)}
+\DoxyCodeLine{579     }
+\DoxyCodeLine{580         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/portchannel:sonic-\/portchannel/LAG\_TABLE/LAG\_TABLE\_LIST'})}
+\DoxyCodeLine{581         responseLagTbl = api.get(path)}
+\DoxyCodeLine{582         \textcolor{keywordflow}{if} responseLagTbl.ok():}
+\DoxyCodeLine{583             d.update(responseLagTbl.content)}
+\DoxyCodeLine{584     }
+\DoxyCodeLine{585     path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/portchannel-\/interface:sonic-\/portchannel-\/interface/PORTCHANNEL\_INTERFACE/PORTCHANNEL\_INTERFACE\_LIST'})}
+\DoxyCodeLine{586         responseLagVrfTbl =  api.get(path)}
+\DoxyCodeLine{587         \textcolor{keywordflow}{if} responseLagVrfTbl.ok():}
+\DoxyCodeLine{588             d.update(responseLagVrfTbl.content)}
+\DoxyCodeLine{589 }
+\DoxyCodeLine{590         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/vlan:sonic-\/vlan/VLAN\_TABLE/VLAN\_TABLE\_LIST'})}
+\DoxyCodeLine{591         responseVlanTbl =  api.get(path)}
+\DoxyCodeLine{592         \textcolor{keywordflow}{if} responseVlanTbl.ok():}
+\DoxyCodeLine{593             d.update(responseVlanTbl.content)}
+\DoxyCodeLine{594         }
+\DoxyCodeLine{595     path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/vlan-\/interface:sonic-\/vlan-\/interface/VLAN\_INTERFACE/VLAN\_INTERFACE\_LIST'})}
+\DoxyCodeLine{596         responseVlanVrfTbl =  api.get(path)}
+\DoxyCodeLine{597         \textcolor{keywordflow}{if} responseVlanVrfTbl.ok():}
+\DoxyCodeLine{598             d.update(responseVlanVrfTbl.content)}
+\DoxyCodeLine{599 }
+\DoxyCodeLine{600         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/sag:sonic-\/sag/SAG\_INTF/SAG\_INTF\_LIST'})}
+\DoxyCodeLine{601         responseSAGTbl =  api.get(path)}
+\DoxyCodeLine{602         \textcolor{keywordflow}{if} responseSAGTbl.ok():}
+\DoxyCodeLine{603             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/sag:SAG\_INTF\_LIST'} \textcolor{keywordflow}{in} responseSAGTbl.content:}
+\DoxyCodeLine{604                 \textcolor{keywordflow}{for} sag \textcolor{keywordflow}{in} responseSAGTbl.content[\textcolor{stringliteral}{'sonic-\/sag:SAG\_INTF\_LIST'}]:}
+\DoxyCodeLine{605                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'v6GwIp'} \textcolor{keywordflow}{in} sag \textcolor{keywordflow}{and} func == \textcolor{stringliteral}{'ip\_interfaces\_get'}:}
+\DoxyCodeLine{606                         del sag[\textcolor{stringliteral}{'v6GwIp'}]}
+\DoxyCodeLine{607                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'v4GwIp'} \textcolor{keywordflow}{in} sag \textcolor{keywordflow}{and} func == \textcolor{stringliteral}{'ip6\_interfaces\_get'}:}
+\DoxyCodeLine{608                         del sag[\textcolor{stringliteral}{'v4GwIp'}]}
+\DoxyCodeLine{609             d.update(responseSAGTbl.content)}
+\DoxyCodeLine{610 }
+\DoxyCodeLine{611         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/interface:sonic-\/interface/VLAN\_SUB\_INTERFACE/VLAN\_SUB\_INTERFACE\_IPADDR\_LIST'})}
+\DoxyCodeLine{612         responseSubIntfIpTbl =  api.get(path)}
+\DoxyCodeLine{613         \textcolor{keywordflow}{if} responseSubIntfIpTbl.ok():}
+\DoxyCodeLine{614             d.update(responseSubIntfIpTbl.content)}
+\DoxyCodeLine{615             \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'ip\_interfaces\_get'}:}
+\DoxyCodeLine{616                \mbox{\hyperlink{namespacesonic__cli__if_a9391183a2438cfa7b3c90636365b982d}{filter\_address}}(d, \textcolor{keyword}{True})}
+\DoxyCodeLine{617             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{618                \mbox{\hyperlink{namespacesonic__cli__if_a9391183a2438cfa7b3c90636365b982d}{filter\_address}}(d, \textcolor{keyword}{False})}
+\DoxyCodeLine{619         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/interface:sonic-\/interface/VLAN\_SUB\_INTERFACE/VLAN\_SUB\_INTERFACE\_LIST'})}
+\DoxyCodeLine{620         responseSubIntfTbl =  api.get(path)}
+\DoxyCodeLine{621         \textcolor{keywordflow}{if} responseSubIntfTbl.ok():}
+\DoxyCodeLine{622             d.update(responseSubIntfTbl.content)}
+\DoxyCodeLine{623 }
+\DoxyCodeLine{624     \textcolor{keywordflow}{return} d}
+\DoxyCodeLine{625         }
+\DoxyCodeLine{626     \textcolor{comment}{\# Add members to port-\/channel}}
+\DoxyCodeLine{627     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_if\_aggregate\_interfaces\_interface\_ethernet\_config\_aggregate\_id'}:}
+\DoxyCodeLine{628         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/if-\/ethernet:ethernet/config/openconfig-\/if-\/aggregate:aggregate-\/id'}, name=args[0])}
+\DoxyCodeLine{629         body = \{ \textcolor{stringliteral}{"openconfig-\/if-\/aggregate:aggregate-\/id"}: args[1] \}}
+\DoxyCodeLine{630         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{631     }
+\DoxyCodeLine{632     \textcolor{comment}{\# Remove members from port-\/channel}}
+\DoxyCodeLine{633     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_openconfig\_if\_aggregate\_interfaces\_interface\_ethernet\_config\_aggregate\_id'}:}
+\DoxyCodeLine{634         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/if-\/ethernet:ethernet/config/openconfig-\/if-\/aggregate:aggregate-\/id'}, name=args[0])}
+\DoxyCodeLine{635         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{636 }
+\DoxyCodeLine{637     \textcolor{comment}{\# Config min-\/links for port-\/channel}}
+\DoxyCodeLine{638     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_if\_aggregate\_interfaces\_interface\_aggregation\_config\_min\_links'}:}
+\DoxyCodeLine{639         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/if-\/aggregate:aggregation/config/min-\/links'}, name=args[0])}
+\DoxyCodeLine{640         body = \{ \textcolor{stringliteral}{"openconfig-\/if-\/aggregate:min-\/links"}: int(args[1]) \}}
+\DoxyCodeLine{641         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{642     }
+\DoxyCodeLine{643     \textcolor{comment}{\# Config fallback mode for port-\/channel    }}
+\DoxyCodeLine{644     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_dell\_intf\_augments\_interfaces\_interface\_aggregation\_config\_fallback'}:}
+\DoxyCodeLine{645         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/if-\/aggregate:aggregation/config/openconfig-\/interfaces-\/ext:fallback'}, name=args[0])}
+\DoxyCodeLine{646         \textcolor{keywordflow}{if} args[1] == \textcolor{stringliteral}{"True"}:}
+\DoxyCodeLine{647             body = \{ \textcolor{stringliteral}{"openconfig-\/interfaces-\/ext:fallback"}: \textcolor{keyword}{True} \}}
+\DoxyCodeLine{648         \textcolor{keywordflow}{else} :}
+\DoxyCodeLine{649             body = \{ \textcolor{stringliteral}{"openconfig-\/interfaces-\/ext:fallback"}: \textcolor{keyword}{False} \}}
+\DoxyCodeLine{650         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{651 }
+\DoxyCodeLine{652     \textcolor{comment}{\# Configure IGMP}}
+\DoxyCodeLine{653     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_if\_ip\_interfaces\_interface\_subinterfaces\_subinterface\_igmp\_config'}:}
+\DoxyCodeLine{654         name, index = \mbox{\hyperlink{namespacesonic__cli__if_aa502dff2a7058e096a6c6dfda0623135}{get\_if\_and\_subif}}(args[0])}
+\DoxyCodeLine{655         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/openconfig-\/igmp-\/ext:igmp/joins'}, name=name, index=index)}
+\DoxyCodeLine{656         body = \{\textcolor{stringliteral}{"openconfig-\/igmp-\/ext:joins"}:\{\textcolor{stringliteral}{"join"}:[\{\textcolor{stringliteral}{"mcastgrpaddr"}:args[1],\textcolor{stringliteral}{"srcaddr"}:args[2],\textcolor{stringliteral}{"config"}:\{\textcolor{stringliteral}{"mcastgrpaddr"}:args[1],\textcolor{stringliteral}{"srcaddr"}:args[2]\}\}]\}\}}
+\DoxyCodeLine{657         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{658 }
+\DoxyCodeLine{659     \textcolor{comment}{\# Delete IGMP}}
+\DoxyCodeLine{660     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_openconfig\_if\_ip\_interfaces\_interface\_subinterfaces\_subinterface\_igmp\_config'}:}
+\DoxyCodeLine{661         name, index = \mbox{\hyperlink{namespacesonic__cli__if_aa502dff2a7058e096a6c6dfda0623135}{get\_if\_and\_subif}}(args[0])}
+\DoxyCodeLine{662         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/openconfig-\/igmp-\/ext:igmp/joins/join=\{mcastgrpaddr\},\{srcaddr\}'}, name=name, index=index,mcastgrpaddr=args[1], srcaddr=args[2])}
+\DoxyCodeLine{663         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{664 }
+\DoxyCodeLine{665     \textcolor{comment}{\# Enable IGMP}}
+\DoxyCodeLine{666     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_if\_ip\_enable\_igmp'}:}
+\DoxyCodeLine{667         name, index = \mbox{\hyperlink{namespacesonic__cli__if_aa502dff2a7058e096a6c6dfda0623135}{get\_if\_and\_subif}}(args[0])}
+\DoxyCodeLine{668         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/openconfig-\/igmp-\/ext:igmp/config/enabled'}, name=name, index=index)}
+\DoxyCodeLine{669         \textcolor{keywordflow}{if} args[1] == \textcolor{stringliteral}{"True"}:}
+\DoxyCodeLine{670             body = \{\textcolor{stringliteral}{"openconfig-\/igmp-\/ext:enabled"} : \textcolor{keyword}{True}\}}
+\DoxyCodeLine{671         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{672 }
+\DoxyCodeLine{673     \textcolor{comment}{\# Disable IGMP}}
+\DoxyCodeLine{674     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_if\_ip\_disable\_igmp'}:}
+\DoxyCodeLine{675         name, index = \mbox{\hyperlink{namespacesonic__cli__if_aa502dff2a7058e096a6c6dfda0623135}{get\_if\_and\_subif}}(args[0])}
+\DoxyCodeLine{676         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/openconfig-\/igmp-\/ext:igmp'}, name=name, index=index)}
+\DoxyCodeLine{677         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{678 }
+\DoxyCodeLine{679     \textcolor{comment}{\# Configure IGMP Version}}
+\DoxyCodeLine{680     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_igmp\_version\_config'}:}
+\DoxyCodeLine{681         name, index = \mbox{\hyperlink{namespacesonic__cli__if_aa502dff2a7058e096a6c6dfda0623135}{get\_if\_and\_subif}}(args[0])}
+\DoxyCodeLine{682         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/openconfig-\/igmp-\/ext:igmp/config/version'}, name=name, index=index)}
+\DoxyCodeLine{683         body = \{\textcolor{stringliteral}{"openconfig-\/igmp-\/ext:version"} : int(args[1])\}}
+\DoxyCodeLine{684         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{685 }
+\DoxyCodeLine{686     \textcolor{comment}{\# Delete IGMP Version}}
+\DoxyCodeLine{687     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_openconfig\_igmp\_version\_config'}:}
+\DoxyCodeLine{688         name, index = \mbox{\hyperlink{namespacesonic__cli__if_aa502dff2a7058e096a6c6dfda0623135}{get\_if\_and\_subif}}(args[0])}
+\DoxyCodeLine{689         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/openconfig-\/igmp-\/ext:igmp/config/version'}, name=name, index=index)}
+\DoxyCodeLine{690         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{691 }
+\DoxyCodeLine{692     \textcolor{comment}{\# Configure IGMP query-\/interval}}
+\DoxyCodeLine{693     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_igmp\_queryinterval\_config'}:}
+\DoxyCodeLine{694         name, index = \mbox{\hyperlink{namespacesonic__cli__if_aa502dff2a7058e096a6c6dfda0623135}{get\_if\_and\_subif}}(args[0])}
+\DoxyCodeLine{695         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/openconfig-\/igmp-\/ext:igmp/config/query-\/interval'}, name=name, index=index)}
+\DoxyCodeLine{696         body = \{\textcolor{stringliteral}{"openconfig-\/igmp-\/ext:query-\/interval"} : int(args[1])\}}
+\DoxyCodeLine{697         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{698 }
+\DoxyCodeLine{699     \textcolor{comment}{\# Delete IGMP query-\/interval}}
+\DoxyCodeLine{700     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_openconfig\_igmp\_queryinterval\_config'}:}
+\DoxyCodeLine{701         name, index = \mbox{\hyperlink{namespacesonic__cli__if_aa502dff2a7058e096a6c6dfda0623135}{get\_if\_and\_subif}}(args[0])}
+\DoxyCodeLine{702         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/openconfig-\/igmp-\/ext:igmp/config/query-\/interval'}, name=name, index=index)}
+\DoxyCodeLine{703         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{704 }
+\DoxyCodeLine{705     \textcolor{comment}{\# Configure IGMP last-\/member-\/query-\/count}}
+\DoxyCodeLine{706     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_igmp\_lmquerycount\_config'}:}
+\DoxyCodeLine{707         name, index = \mbox{\hyperlink{namespacesonic__cli__if_aa502dff2a7058e096a6c6dfda0623135}{get\_if\_and\_subif}}(args[0])}
+\DoxyCodeLine{708         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/openconfig-\/igmp-\/ext:igmp/config/last-\/member-\/query-\/count'}, name=name, index=index)}
+\DoxyCodeLine{709         body = \{\textcolor{stringliteral}{"openconfig-\/igmp-\/ext:last-\/member-\/query-\/count"} : int(args[1])\}}
+\DoxyCodeLine{710         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{711 }
+\DoxyCodeLine{712     \textcolor{comment}{\# Delete IGMP last-\/member-\/query-\/count}}
+\DoxyCodeLine{713     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_openconfig\_igmp\_lmquerycount\_config'}:}
+\DoxyCodeLine{714         name, index = \mbox{\hyperlink{namespacesonic__cli__if_aa502dff2a7058e096a6c6dfda0623135}{get\_if\_and\_subif}}(args[0])}
+\DoxyCodeLine{715         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/openconfig-\/igmp-\/ext:igmp/config/last-\/member-\/query-\/count'}, name=name, index=index)}
+\DoxyCodeLine{716         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{717 }
+\DoxyCodeLine{718     \textcolor{comment}{\# Configure IGMP last-\/member-\/query-\/interval}}
+\DoxyCodeLine{719     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_igmp\_lmqueryinterval\_config'}:}
+\DoxyCodeLine{720         name, index = \mbox{\hyperlink{namespacesonic__cli__if_aa502dff2a7058e096a6c6dfda0623135}{get\_if\_and\_subif}}(args[0])}
+\DoxyCodeLine{721         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/openconfig-\/igmp-\/ext:igmp/config/last-\/member-\/query-\/interval'}, name=name, index=index)}
+\DoxyCodeLine{722         body = \{\textcolor{stringliteral}{"openconfig-\/igmp-\/ext:last-\/member-\/query-\/interval"} : int(args[1])\}}
+\DoxyCodeLine{723         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{724 }
+\DoxyCodeLine{725     \textcolor{comment}{\# Delete IGMP last-\/member-\/query-\/interval}}
+\DoxyCodeLine{726     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_openconfig\_igmp\_lmqueryinterval\_config'}:}
+\DoxyCodeLine{727         name, index = \mbox{\hyperlink{namespacesonic__cli__if_aa502dff2a7058e096a6c6dfda0623135}{get\_if\_and\_subif}}(args[0])}
+\DoxyCodeLine{728         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/openconfig-\/igmp-\/ext:igmp/config/last-\/member-\/query-\/interval'}, name=name, index=index)}
+\DoxyCodeLine{729         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{730 }
+\DoxyCodeLine{731     \textcolor{comment}{\# Configure IGMP query-\/max-\/response-\/time}}
+\DoxyCodeLine{732     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_igmp\_querymaxrestime\_config'}:}
+\DoxyCodeLine{733         name, index = \mbox{\hyperlink{namespacesonic__cli__if_aa502dff2a7058e096a6c6dfda0623135}{get\_if\_and\_subif}}(args[0])}
+\DoxyCodeLine{734         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/openconfig-\/igmp-\/ext:igmp/config/query-\/max-\/response-\/time'}, name=name, index=index)}
+\DoxyCodeLine{735         body = \{\textcolor{stringliteral}{"openconfig-\/igmp-\/ext:query-\/max-\/response-\/time"} : int(args[1])\}}
+\DoxyCodeLine{736         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{737 }
+\DoxyCodeLine{738     \textcolor{comment}{\# Delete IGMP query-\/max-\/response-\/time}}
+\DoxyCodeLine{739     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_openconfig\_igmp\_querymaxrestime\_config'}:}
+\DoxyCodeLine{740         name, index = \mbox{\hyperlink{namespacesonic__cli__if_aa502dff2a7058e096a6c6dfda0623135}{get\_if\_and\_subif}}(args[0])}
+\DoxyCodeLine{741         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/openconfig-\/igmp-\/ext:igmp/config/query-\/max-\/response-\/time'}, name=name, index=index)}
+\DoxyCodeLine{742         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{743 }
+\DoxyCodeLine{744     \textcolor{comment}{\# Config IPv4 Unnumbered interface}}
+\DoxyCodeLine{745     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_intf\_ipv4\_unnumbered\_intf'}:}
+\DoxyCodeLine{746         if\_name, subif = \mbox{\hyperlink{namespacesonic__cli__if_aa502dff2a7058e096a6c6dfda0623135}{get\_if\_and\_subif}}(args[0])}
+\DoxyCodeLine{747         \textcolor{comment}{\#print("patch\_intf\_ipv4\_unnumbered\_intf args = \{\} if\_name \{\} subif \{\}".format(args, if\_name, subif))}}
+\DoxyCodeLine{748         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"Vlan"} \textcolor{keywordflow}{in} if\_name:}
+\DoxyCodeLine{749             path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv4/unnumbered/interface-\/ref/config/interface'}, name=if\_name)}
+\DoxyCodeLine{750         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{751             path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/unnumbered/interface-\/ref/config/interface'}, name=if\_name, index=subif)}
+\DoxyCodeLine{752 }
+\DoxyCodeLine{753         body = \{\}}
+\DoxyCodeLine{754         \textcolor{keywordflow}{if} if\_name == args[1] :}
+\DoxyCodeLine{755             body = \{ \textcolor{stringliteral}{"openconfig-\/if-\/ip:interface"} : args[2] \}}
+\DoxyCodeLine{756         \textcolor{keywordflow}{else} :}
+\DoxyCodeLine{757             body = \{ \textcolor{stringliteral}{"openconfig-\/if-\/ip:interface"} : args[1] \}}
+\DoxyCodeLine{758         \textcolor{keywordflow}{return} api.patch(path, body)    }
+\DoxyCodeLine{759     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_intf\_ipv4\_unnumbered\_intf'}:}
+\DoxyCodeLine{760         if\_name, subif = \mbox{\hyperlink{namespacesonic__cli__if_aa502dff2a7058e096a6c6dfda0623135}{get\_if\_and\_subif}}(args[0])}
+\DoxyCodeLine{761         \textcolor{keywordflow}{if} \textcolor{stringliteral}{"Vlan"} \textcolor{keywordflow}{in} if\_name:}
+\DoxyCodeLine{762             path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv4/unnumbered/interface-\/ref/config/interface'}, name=if\_name)}
+\DoxyCodeLine{763         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{764             path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/unnumbered/interface-\/ref/config/interface'}, name=if\_name, index=subif)}
+\DoxyCodeLine{765         \textcolor{keywordflow}{return} api.delete(path)    }
+\DoxyCodeLine{766      }
+\DoxyCodeLine{767     \textcolor{comment}{\# Configure static ARP}}
+\DoxyCodeLine{768     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_if\_ip\_interfaces\_interface\_subinterfaces\_subinterface\_static\_arp\_config'}:}
+\DoxyCodeLine{769         if\_name, subif = \mbox{\hyperlink{namespacesonic__cli__if_aa502dff2a7058e096a6c6dfda0623135}{get\_if\_and\_subif}}(args[0])}
+\DoxyCodeLine{770         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/neighbors'}, name=if\_name, index=subif)}
+\DoxyCodeLine{771         body = \{\textcolor{stringliteral}{"openconfig-\/if-\/ip:neighbors"}:\{\textcolor{stringliteral}{"neighbor"}:[\{\textcolor{stringliteral}{"ip"}:args[1],\textcolor{stringliteral}{"config"}:\{\textcolor{stringliteral}{"ip"}:args[1],\textcolor{stringliteral}{"link-\/layer-\/address"}:args[2]\}\}]\}\}}
+\DoxyCodeLine{772         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{773 }
+\DoxyCodeLine{774     \textcolor{comment}{\# Delete static ARP}}
+\DoxyCodeLine{775     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_openconfig\_if\_ip\_interfaces\_interface\_subinterfaces\_subinterface\_static\_arp\_config'}:}
+\DoxyCodeLine{776         if\_name, subif = \mbox{\hyperlink{namespacesonic__cli__if_aa502dff2a7058e096a6c6dfda0623135}{get\_if\_and\_subif}}(args[0])}
+\DoxyCodeLine{777         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv4/neighbors/neighbor=\{ip\}'}, name=if\_name, index=subif, ip=args[1])}
+\DoxyCodeLine{778         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{779 }
+\DoxyCodeLine{780     \textcolor{comment}{\# Configure static ND}}
+\DoxyCodeLine{781     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_if\_ipv6\_interfaces\_interface\_subinterfaces\_subinterface\_static\_nd\_config'}:}
+\DoxyCodeLine{782         if\_name, subif = \mbox{\hyperlink{namespacesonic__cli__if_aa502dff2a7058e096a6c6dfda0623135}{get\_if\_and\_subif}}(args[0])}
+\DoxyCodeLine{783         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv6/neighbors'}, name=if\_name, index=subif)}
+\DoxyCodeLine{784         body = \{\textcolor{stringliteral}{"openconfig-\/if-\/ip:neighbors"}:\{\textcolor{stringliteral}{"neighbor"}:[\{\textcolor{stringliteral}{"ip"}:args[1],\textcolor{stringliteral}{"config"}:\{\textcolor{stringliteral}{"ip"}:args[1],\textcolor{stringliteral}{"link-\/layer-\/address"}:args[2]\}\}]\}\}}
+\DoxyCodeLine{785         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{786 }
+\DoxyCodeLine{787     \textcolor{comment}{\# Delete static ND}}
+\DoxyCodeLine{788     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_openconfig\_if\_ipv6\_interfaces\_interface\_subinterfaces\_subinterface\_static\_nd\_config'}:}
+\DoxyCodeLine{789         if\_name, subif = \mbox{\hyperlink{namespacesonic__cli__if_aa502dff2a7058e096a6c6dfda0623135}{get\_if\_and\_subif}}(args[0])}
+\DoxyCodeLine{790         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/subinterfaces/subinterface=\{index\}/openconfig-\/if-\/ip:ipv6/neighbors/neighbor=\{ip\}'}, name=if\_name, index=subif, ip=args[1])}
+\DoxyCodeLine{791         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{792 }
+\DoxyCodeLine{793     \textcolor{comment}{\# Configure static ARP -\/ Routed Vlan interface}}
+\DoxyCodeLine{794     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_static\_arp\_config'}:}
+\DoxyCodeLine{795         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv4/neighbors'}, name=args[0], index=\textcolor{stringliteral}{"0"})}
+\DoxyCodeLine{796         body = \{\textcolor{stringliteral}{"openconfig-\/if-\/ip:neighbors"}:\{\textcolor{stringliteral}{"neighbor"}:[\{\textcolor{stringliteral}{"ip"}:args[1],\textcolor{stringliteral}{"config"}:\{\textcolor{stringliteral}{"ip"}:args[1],\textcolor{stringliteral}{"link-\/layer-\/address"}:args[2]\}\}]\}\}}
+\DoxyCodeLine{797         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{798 }
+\DoxyCodeLine{799     \textcolor{comment}{\# Delete static ARP -\/ Routed Vlan interface}}
+\DoxyCodeLine{800     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_static\_arp\_config'}:}
+\DoxyCodeLine{801         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv4/neighbors/neighbor=\{sip\}'}, name=args[0], index=\textcolor{stringliteral}{"0"},sip=args[1])}
+\DoxyCodeLine{802         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{803 }
+\DoxyCodeLine{804     \textcolor{comment}{\# Configure static ND -\/ Routed vlan interface}}
+\DoxyCodeLine{805     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_static\_nd\_config'}:}
+\DoxyCodeLine{806         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv6/neighbors'}, name=args[0], index=\textcolor{stringliteral}{"0"})}
+\DoxyCodeLine{807         body = \{\textcolor{stringliteral}{"openconfig-\/if-\/ip:neighbors"}:\{\textcolor{stringliteral}{"neighbor"}:[\{\textcolor{stringliteral}{"ip"}:args[1],\textcolor{stringliteral}{"config"}:\{\textcolor{stringliteral}{"ip"}:args[1],\textcolor{stringliteral}{"link-\/layer-\/address"}:args[2]\}\}]\}\}}
+\DoxyCodeLine{808         \textcolor{keywordflow}{return} api.patch(path, body)}
+\DoxyCodeLine{809 }
+\DoxyCodeLine{810     \textcolor{comment}{\# Delete static ND -\/ Routed vlan interface}}
+\DoxyCodeLine{811     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_static\_nd\_config'}:}
+\DoxyCodeLine{812         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/vlan:routed-\/vlan/openconfig-\/if-\/ip:ipv6/neighbors/neighbor=\{sip\}'}, name=args[0], index=\textcolor{stringliteral}{"0"},sip=args[1])}
+\DoxyCodeLine{813         \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{814 }
+\DoxyCodeLine{815     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_relay\_agent\_relay\_agent\_dhcp\_interfaces\_interface\_relay\_agent\_config'}:}
+\DoxyCodeLine{816         path1 = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcp/interfaces/interface=\{id\}/config/helper-\/address'}, id=args[0])}
+\DoxyCodeLine{817         body1 = \{\textcolor{stringliteral}{"openconfig-\/relay-\/agent:helper-\/address"}: [] \}}
+\DoxyCodeLine{818         j=0}
+\DoxyCodeLine{819         helperConfig = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{820         srcIntf = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{821         linkSelect = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{822         MaxHopCount = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{823         serverVrf = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{824         selectVrf = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{825         policyAction = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{826 }
+\DoxyCodeLine{827         \textcolor{keywordflow}{for} index,i \textcolor{keywordflow}{in}  enumerate(args):}
+\DoxyCodeLine{828                 \textcolor{comment}{\#Find the ipv4 address from the list of args}}
+\DoxyCodeLine{829                 \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} ((i.find(\textcolor{stringliteral}{"."}) == -\/1)) \textcolor{keywordflow}{and} i.startswith(\textcolor{stringliteral}{"Eth"}) == \textcolor{keyword}{False} \textcolor{keywordflow}{and} i.startswith(\textcolor{stringliteral}{"PortChannel"}) == \textcolor{keyword}{False}:}
+\DoxyCodeLine{830                    \textcolor{comment}{\#Insert the found v4 address in the body}}
+\DoxyCodeLine{831                    body1[\textcolor{stringliteral}{"openconfig-\/relay-\/agent:helper-\/address"}].insert(j,args[index])}
+\DoxyCodeLine{832                    j += 1}
+\DoxyCodeLine{833                    helperConfig = \textcolor{stringliteral}{"True"}}
+\DoxyCodeLine{834                 \textcolor{keywordflow}{if} ( i == \textcolor{stringliteral}{"source-\/interface"} ):}
+\DoxyCodeLine{835                    srcIntf = \textcolor{stringliteral}{"True"}}
+\DoxyCodeLine{836                    path2 = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcp/interfaces/interface=\{id\}/config/openconfig-\/relay-\/agent-\/ext:src-\/intf'}, id=args[0])}
+\DoxyCodeLine{837                    body2 = \{\textcolor{stringliteral}{"openconfig-\/relay-\/agent-\/ext:src-\/intf"}:  args[index+1] \}}
+\DoxyCodeLine{838                 \textcolor{keywordflow}{elif} ( i == \textcolor{stringliteral}{"link-\/select"} ):}
+\DoxyCodeLine{839                    linkSelect = \textcolor{stringliteral}{"True"}}
+\DoxyCodeLine{840                    path3 = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcp/interfaces/interface=\{id\}/config/openconfig-\/relay-\/agent-\/ext:link-\/select'}, id=args[0])}
+\DoxyCodeLine{841                    body3 = \{ \textcolor{stringliteral}{"openconfig-\/relay-\/agent-\/ext:link-\/select"}: \textcolor{stringliteral}{"ENABLE"} \}}
+\DoxyCodeLine{842                 \textcolor{keywordflow}{elif} ( i == \textcolor{stringliteral}{"max-\/hop-\/count"} ):}
+\DoxyCodeLine{843                    MaxHopCount = \textcolor{stringliteral}{"True"}}
+\DoxyCodeLine{844                    path4 = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcp/interfaces/interface=\{id\}/config/openconfig-\/relay-\/agent-\/ext:max-\/hop-\/count'}, id=args[0])}
+\DoxyCodeLine{845                    body4 = \{\textcolor{stringliteral}{"openconfig-\/relay-\/agent-\/ext:max-\/hop-\/count"}: int(args[index+1]) \}}
+\DoxyCodeLine{846                 \textcolor{keywordflow}{elif} ( i == \textcolor{stringliteral}{"vrf-\/name"} ):}
+\DoxyCodeLine{847                    serverVrf = \textcolor{stringliteral}{"True"}}
+\DoxyCodeLine{848                    path5 = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcp/interfaces/interface=\{id\}/config/openconfig-\/relay-\/agent-\/ext:vrf'}, id=args[0])}
+\DoxyCodeLine{849                    body5 = \{\textcolor{stringliteral}{"openconfig-\/relay-\/agent-\/ext:vrf"}: args[index+1] \}}
+\DoxyCodeLine{850                 \textcolor{keywordflow}{elif} ( i == \textcolor{stringliteral}{"vrf-\/select"} ):}
+\DoxyCodeLine{851                    selectVrf = \textcolor{stringliteral}{"True"}}
+\DoxyCodeLine{852                    path6 = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcp/interfaces/interface=\{id\}/config/openconfig-\/relay-\/agent-\/ext:vrf-\/select'}, id=args[0])}
+\DoxyCodeLine{853                    body6 = \{\textcolor{stringliteral}{"openconfig-\/relay-\/agent-\/ext:vrf-\/select"}: \textcolor{stringliteral}{"ENABLE"} \}}
+\DoxyCodeLine{854                 \textcolor{keywordflow}{elif} ( i == \textcolor{stringliteral}{"policy-\/action"} ):}
+\DoxyCodeLine{855                    policyAction = \textcolor{stringliteral}{"True"}}
+\DoxyCodeLine{856                    path7 = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcp/interfaces/interface=\{id\}/config/openconfig-\/relay-\/agent-\/ext:policy-\/action'}, id=args[0])}
+\DoxyCodeLine{857                    body7 = \{\textcolor{stringliteral}{"openconfig-\/relay-\/agent-\/ext:policy-\/action"}: (args[index+1]).upper() \}}
+\DoxyCodeLine{858 }
+\DoxyCodeLine{859         \textcolor{keywordflow}{if} (helperConfig == \textcolor{stringliteral}{"True"}):}
+\DoxyCodeLine{860            \textcolor{keywordflow}{if} (serverVrf ==  \textcolor{stringliteral}{"True"}):}
+\DoxyCodeLine{861                body1.update(body5)}
+\DoxyCodeLine{862            \textcolor{keywordflow}{return}  api.patch(path1, body1)}
+\DoxyCodeLine{863         \textcolor{keywordflow}{elif} ( srcIntf == \textcolor{stringliteral}{"True"} ):}
+\DoxyCodeLine{864            \textcolor{keywordflow}{return}  api.patch(path2, body2)}
+\DoxyCodeLine{865         \textcolor{keywordflow}{elif} ( linkSelect == \textcolor{stringliteral}{"True"}):}
+\DoxyCodeLine{866            \textcolor{keywordflow}{return}  api.patch(path3, body3)}
+\DoxyCodeLine{867         \textcolor{keywordflow}{elif} (MaxHopCount ==  \textcolor{stringliteral}{"True"}):}
+\DoxyCodeLine{868            \textcolor{keywordflow}{return} api.patch(path4, body4)}
+\DoxyCodeLine{869         \textcolor{keywordflow}{elif} (selectVrf ==  \textcolor{stringliteral}{"True"}):}
+\DoxyCodeLine{870            \textcolor{keywordflow}{return} api.patch(path6, body6)}
+\DoxyCodeLine{871         \textcolor{keywordflow}{elif} (policyAction ==  \textcolor{stringliteral}{"True"}):}
+\DoxyCodeLine{872            \textcolor{keywordflow}{return} api.patch(path7, body7)}
+\DoxyCodeLine{873 }
+\DoxyCodeLine{874     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_relay\_agent\_relay\_agent\_dhcpv6\_interfaces\_interface\_relay\_agent\_config'}:}
+\DoxyCodeLine{875         path1 = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcpv6/interfaces/interface=\{id\}/config/helper-\/address'}, id=args[0])}
+\DoxyCodeLine{876         body1 = \{\textcolor{stringliteral}{"openconfig-\/relay-\/agent:helper-\/address"}: [] \}}
+\DoxyCodeLine{877         j=0}
+\DoxyCodeLine{878         helperConfig = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{879         srcIntf = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{880         linkSelect = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{881         MaxHopCount = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{882         serverVrf = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{883         selectVrf = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{884 }
+\DoxyCodeLine{885         \textcolor{keywordflow}{for} index,i \textcolor{keywordflow}{in}  enumerate(args):}
+\DoxyCodeLine{886                 \textcolor{comment}{\#Find the ipv6 address from the list of args}}
+\DoxyCodeLine{887                 \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} ((i.find(\textcolor{stringliteral}{":"}) == -\/1)):}
+\DoxyCodeLine{888                    \textcolor{comment}{\#Insert the found v4 address in the body}}
+\DoxyCodeLine{889                    body1[\textcolor{stringliteral}{"openconfig-\/relay-\/agent:helper-\/address"}].insert(j,args[index])}
+\DoxyCodeLine{890                    j += 1}
+\DoxyCodeLine{891                    helperConfig = \textcolor{stringliteral}{"True"}}
+\DoxyCodeLine{892                 \textcolor{keywordflow}{if} ( i == \textcolor{stringliteral}{"source-\/interface"} ):}
+\DoxyCodeLine{893                    srcIntf = \textcolor{stringliteral}{"True"}}
+\DoxyCodeLine{894                    path2 = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcpv6/interfaces/interface=\{id\}/config/openconfig-\/relay-\/agent-\/ext:src-\/intf'}, id=args[0])}
+\DoxyCodeLine{895                    body2 = \{\textcolor{stringliteral}{"openconfig-\/relay-\/agent-\/ext:src-\/intf"}:  args[index+1] \}}
+\DoxyCodeLine{896                 \textcolor{keywordflow}{elif} ( i == \textcolor{stringliteral}{"max-\/hop-\/count"} ):}
+\DoxyCodeLine{897                    MaxHopCount = \textcolor{stringliteral}{"True"}}
+\DoxyCodeLine{898                    path3 = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcpv6/interfaces/interface=\{id\}/config/openconfig-\/relay-\/agent-\/ext:max-\/hop-\/count'}, id=args[0])}
+\DoxyCodeLine{899                    body3 = \{\textcolor{stringliteral}{"openconfig-\/relay-\/agent-\/ext:max-\/hop-\/count"}: int(args[index+1]) \}}
+\DoxyCodeLine{900                 \textcolor{keywordflow}{elif} ( i == \textcolor{stringliteral}{"vrf-\/name"} ):}
+\DoxyCodeLine{901                    serverVrf = \textcolor{stringliteral}{"True"}}
+\DoxyCodeLine{902                    path4 = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcpv6/interfaces/interface=\{id\}/config/openconfig-\/relay-\/agent-\/ext:vrf'}, id=args[0])}
+\DoxyCodeLine{903                    body4 = \{\textcolor{stringliteral}{"openconfig-\/relay-\/agent-\/ext:vrf"}: args[index+1] \}}
+\DoxyCodeLine{904                 \textcolor{keywordflow}{elif} ( i == \textcolor{stringliteral}{"vrf-\/select"} ):}
+\DoxyCodeLine{905                    selectVrf = \textcolor{stringliteral}{"True"}}
+\DoxyCodeLine{906                    path5 = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcpv6/interfaces/interface=\{id\}/config/openconfig-\/relay-\/agent-\/ext:vrf-\/select'}, id=args[0])}
+\DoxyCodeLine{907                    body5 = \{\textcolor{stringliteral}{"openconfig-\/relay-\/agent-\/ext:vrf-\/select"}: \textcolor{stringliteral}{"ENABLE"}\}}
+\DoxyCodeLine{908 }
+\DoxyCodeLine{909         \textcolor{keywordflow}{if} (helperConfig == \textcolor{stringliteral}{"True"}):}
+\DoxyCodeLine{910            \textcolor{keywordflow}{if} (serverVrf ==  \textcolor{stringliteral}{"True"}):}
+\DoxyCodeLine{911                body1.update(body4)}
+\DoxyCodeLine{912            \textcolor{keywordflow}{return}  api.patch(path1, body1)}
+\DoxyCodeLine{913         \textcolor{keywordflow}{elif} ( srcIntf == \textcolor{stringliteral}{"True"} ):}
+\DoxyCodeLine{914            \textcolor{keywordflow}{return}  api.patch(path2, body2)}
+\DoxyCodeLine{915         \textcolor{keywordflow}{elif} (MaxHopCount ==  \textcolor{stringliteral}{"True"}):}
+\DoxyCodeLine{916            \textcolor{keywordflow}{return} api.patch(path3, body3)}
+\DoxyCodeLine{917         \textcolor{keywordflow}{elif} (selectVrf ==  \textcolor{stringliteral}{"True"}):}
+\DoxyCodeLine{918            \textcolor{keywordflow}{return} api.patch(path5, body5)}
+\DoxyCodeLine{919 }
+\DoxyCodeLine{920 }
+\DoxyCodeLine{921     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'del\_llist\_openconfig\_relay\_agent\_relay\_agent\_dhcp\_interfaces\_interface\_relay\_agent\_config'}:}
+\DoxyCodeLine{922         ipAdrStr = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{923         ipAdrStr = \mbox{\hyperlink{namespacesonic__cli__if_a2be661e923544177583cfe546baaf957}{get\_helper\_adr\_str}}(args)}
+\DoxyCodeLine{924         helperAddress=ipAdrStr}
+\DoxyCodeLine{925         path1 = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{926         path = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{927         \textcolor{keywordflow}{if} len(helperAddress):}
+\DoxyCodeLine{928            \textcolor{comment}{\#Delete specified ipv4 adresses}}
+\DoxyCodeLine{929            path1 = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcp/interfaces/interface=\{id\}/config/helper-\/address=\{helperAddress\}'}, id=args[0], helperAddress=ipAdrStr)}
+\DoxyCodeLine{930         \textcolor{keywordflow}{elif} len(args) == 4:}
+\DoxyCodeLine{931            \textcolor{comment}{\#No adress specified so delete all the configured relay adressess}}
+\DoxyCodeLine{932            path1 = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcp/interfaces/interface=\{id\}/config/helper-\/address'}, id=args[0])}
+\DoxyCodeLine{933 }
+\DoxyCodeLine{934         \textcolor{keywordflow}{if} (path1 != \textcolor{stringliteral}{""}):}
+\DoxyCodeLine{935            api.delete(path1)}
+\DoxyCodeLine{936            path2 = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcp/interfaces/interface=\{id\}/config/helper-\/address'}, id=args[0])}
+\DoxyCodeLine{937            resp = api.get(path2)}
+\DoxyCodeLine{938            \textcolor{keywordflow}{if}  resp.ok():}
+\DoxyCodeLine{939               \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} \textcolor{stringliteral}{'openconfig-\/relay-\/agent:helper-\/address'} \textcolor{keywordflow}{in} resp.content:}
+\DoxyCodeLine{940                  path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcp/interfaces/interface=\{id\}/config/openconfig-\/relay-\/agent-\/ext:src-\/intf'}, id=args[0])}
+\DoxyCodeLine{941                  api.delete(path)}
+\DoxyCodeLine{942                  path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcp/interfaces/interface=\{id\}/config/openconfig-\/relay-\/agent-\/ext:link-\/select'}, id=args[0])}
+\DoxyCodeLine{943                  api.delete(path)}
+\DoxyCodeLine{944                  path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcp/interfaces/interface=\{id\}/config/openconfig-\/relay-\/agent-\/ext:max-\/hop-\/count'}, id=args[0])}
+\DoxyCodeLine{945                  api.delete(path)}
+\DoxyCodeLine{946                  path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcp/interfaces/interface=\{id\}/config/openconfig-\/relay-\/agent-\/ext:vrf'}, id=args[0])}
+\DoxyCodeLine{947                  api.delete(path)}
+\DoxyCodeLine{948                  path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcp/interfaces/interface=\{id\}/config/openconfig-\/relay-\/agent-\/ext:vrf-\/select'}, id=args[0])}
+\DoxyCodeLine{949                  api.delete(path)}
+\DoxyCodeLine{950                  path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcp/interfaces/interface=\{id\}/config/openconfig-\/relay-\/agent-\/ext:policy-\/action'}, id=args[0])}
+\DoxyCodeLine{951                  api.delete(path)}
+\DoxyCodeLine{952 }
+\DoxyCodeLine{953         \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} args:}
+\DoxyCodeLine{954            \textcolor{keywordflow}{if} ( i == \textcolor{stringliteral}{"source-\/interface"} ):}
+\DoxyCodeLine{955              path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcp/interfaces/interface=\{id\}/config/openconfig-\/relay-\/agent-\/ext:src-\/intf'}, id=args[0])}
+\DoxyCodeLine{956              api.delete(path)}
+\DoxyCodeLine{957            \textcolor{keywordflow}{elif} ( i == \textcolor{stringliteral}{"link-\/select"} ):}
+\DoxyCodeLine{958              path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcp/interfaces/interface=\{id\}/config/openconfig-\/relay-\/agent-\/ext:link-\/select'}, id=args[0])}
+\DoxyCodeLine{959              api.delete(path)}
+\DoxyCodeLine{960            \textcolor{keywordflow}{elif} ( i == \textcolor{stringliteral}{"max-\/hop-\/count"}) :}
+\DoxyCodeLine{961              path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcp/interfaces/interface=\{id\}/config/openconfig-\/relay-\/agent-\/ext:max-\/hop-\/count'}, id=args[0])}
+\DoxyCodeLine{962              api.delete(path)}
+\DoxyCodeLine{963            \textcolor{keywordflow}{elif} ( i == \textcolor{stringliteral}{"vrf-\/name"}) :}
+\DoxyCodeLine{964              path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcp/interfaces/interface=\{id\}/config/openconfig-\/relay-\/agent-\/ext:vrf'}, id=args[0])}
+\DoxyCodeLine{965              api.delete(path)}
+\DoxyCodeLine{966            \textcolor{keywordflow}{elif} ( i == \textcolor{stringliteral}{"vrf-\/select"}) :}
+\DoxyCodeLine{967              path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcp/interfaces/interface=\{id\}/config/openconfig-\/relay-\/agent-\/ext:vrf-\/select'}, id=args[0])}
+\DoxyCodeLine{968              api.delete(path)}
+\DoxyCodeLine{969            \textcolor{keywordflow}{elif} ( i == \textcolor{stringliteral}{"policy-\/action"}) :}
+\DoxyCodeLine{970              path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcp/interfaces/interface=\{id\}/config/openconfig-\/relay-\/agent-\/ext:policy-\/action'}, id=args[0])}
+\DoxyCodeLine{971              api.delete(path)}
+\DoxyCodeLine{972 }
+\DoxyCodeLine{973         \textcolor{keywordflow}{if} (path1 != \textcolor{stringliteral}{""}):}
+\DoxyCodeLine{974            \textcolor{keywordflow}{return} api.delete(path1)}
+\DoxyCodeLine{975         \textcolor{keywordflow}{if} (path != \textcolor{stringliteral}{""}):}
+\DoxyCodeLine{976            \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{977 }
+\DoxyCodeLine{978     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'del\_llist\_openconfig\_relay\_agent\_relay\_agent\_dhcpv6\_interfaces\_interface\_relay\_agent\_config'}:}
+\DoxyCodeLine{979         ipAdrStr = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{980         ipAdrStr = \mbox{\hyperlink{namespacesonic__cli__if_a2be661e923544177583cfe546baaf957}{get\_helper\_adr\_str}}(args)}
+\DoxyCodeLine{981         helperAddress=ipAdrStr}
+\DoxyCodeLine{982         path1 = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{983         path = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{984         \textcolor{keywordflow}{if} len(helperAddress):}
+\DoxyCodeLine{985            \textcolor{comment}{\#Delete specified ipv6 adresses}}
+\DoxyCodeLine{986            path1 = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcpv6/interfaces/interface=\{id\}/config/helper-\/address=\{helperAddress\}'}, id=args[0], helperAddress=ipAdrStr)}
+\DoxyCodeLine{987         \textcolor{keywordflow}{elif} len(args) == 4:}
+\DoxyCodeLine{988            \textcolor{comment}{\#No adress specified so delete all the configured relay adressess}}
+\DoxyCodeLine{989            path1 = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcpv6/interfaces/interface=\{id\}/config/helper-\/address'}, id=args[0])}
+\DoxyCodeLine{990 }
+\DoxyCodeLine{991         \textcolor{keywordflow}{if} (path1 != \textcolor{stringliteral}{""}):}
+\DoxyCodeLine{992            api.delete(path1)}
+\DoxyCodeLine{993            path2 = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcpv6/interfaces/interface=\{id\}/config/helper-\/address'}, id=args[0])}
+\DoxyCodeLine{994            resp = api.get(path2)}
+\DoxyCodeLine{995            \textcolor{keywordflow}{if}  resp.ok():}
+\DoxyCodeLine{996               \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} \textcolor{stringliteral}{'openconfig-\/relay-\/agent:helper-\/address'} \textcolor{keywordflow}{in} resp.content:}
+\DoxyCodeLine{997                  path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcpv6/interfaces/interface=\{id\}/config/openconfig-\/relay-\/agent-\/ext:src-\/intf'}, id=args[0])}
+\DoxyCodeLine{998                  api.delete(path)}
+\DoxyCodeLine{999                  path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcpv6/interfaces/interface=\{id\}/config/openconfig-\/relay-\/agent-\/ext:max-\/hop-\/count'}, id=args[0])}
+\DoxyCodeLine{1000                  api.delete(path)}
+\DoxyCodeLine{1001                  path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcpv6/interfaces/interface=\{id\}/config/openconfig-\/relay-\/agent-\/ext:vrf'}, id=args[0])}
+\DoxyCodeLine{1002                  api.delete(path)}
+\DoxyCodeLine{1003                  path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcpv6/interfaces/interface=\{id\}/config/openconfig-\/relay-\/agent-\/ext:vrf-\/select'}, id=args[0])}
+\DoxyCodeLine{1004                  api.delete(path)}
+\DoxyCodeLine{1005 }
+\DoxyCodeLine{1006         \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} args:}
+\DoxyCodeLine{1007            \textcolor{keywordflow}{if} ( i == \textcolor{stringliteral}{"source-\/interface"} ):}
+\DoxyCodeLine{1008              path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcpv6/interfaces/interface=\{id\}/config/openconfig-\/relay-\/agent-\/ext:src-\/intf'}, id=args[0])}
+\DoxyCodeLine{1009              api.delete(path)}
+\DoxyCodeLine{1010            \textcolor{keywordflow}{elif} ( i == \textcolor{stringliteral}{"max-\/hop-\/count"}) :}
+\DoxyCodeLine{1011              path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcpv6/interfaces/interface=\{id\}/config/openconfig-\/relay-\/agent-\/ext:max-\/hop-\/count'}, id=args[0])}
+\DoxyCodeLine{1012              api.delete(path)}
+\DoxyCodeLine{1013            \textcolor{keywordflow}{elif} ( i == \textcolor{stringliteral}{"vrf-\/name"}) :}
+\DoxyCodeLine{1014              path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcpv6/interfaces/interface=\{id\}/config/openconfig-\/relay-\/agent-\/ext:vrf'}, id=args[0])}
+\DoxyCodeLine{1015              api.delete(path)}
+\DoxyCodeLine{1016            \textcolor{keywordflow}{elif} ( i == \textcolor{stringliteral}{"vrf-\/select"}) :}
+\DoxyCodeLine{1017              path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcpv6/interfaces/interface=\{id\}/config/openconfig-\/relay-\/agent-\/ext:vrf-\/select'}, id=args[0])}
+\DoxyCodeLine{1018              api.delete(path)}
+\DoxyCodeLine{1019 }
+\DoxyCodeLine{1020         \textcolor{keywordflow}{if} (path1 != \textcolor{stringliteral}{""}):}
+\DoxyCodeLine{1021            \textcolor{keywordflow}{return} api.delete(path1)}
+\DoxyCodeLine{1022         \textcolor{keywordflow}{if} (path != \textcolor{stringliteral}{""}):}
+\DoxyCodeLine{1023            \textcolor{keywordflow}{return} api.delete(path)}
+\DoxyCodeLine{1024 }
+\DoxyCodeLine{1025     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_openconfig\_relay\_agent\_relay\_agent'}:}
+\DoxyCodeLine{1026         output = \mbox{\hyperlink{namespacesonic__cli__if_a918c3452d33c7c940bd1254ce69fc662}{build\_relay\_address\_info}}(args)}
+\DoxyCodeLine{1027         \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{'show\_dhcp\_relay\_brief\_sonic.j2'}, output)}
+\DoxyCodeLine{1028         \textcolor{keywordflow}{return} api.get(\textcolor{stringliteral}{""})}
+\DoxyCodeLine{1029 }
+\DoxyCodeLine{1030     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_openconfig\_relay\_agent\_relay\_agent\_dhcpv6'}:}
+\DoxyCodeLine{1031         output = \mbox{\hyperlink{namespacesonic__cli__if_a918c3452d33c7c940bd1254ce69fc662}{build\_relay\_address\_info}}(args)}
+\DoxyCodeLine{1032         \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{'show\_dhcp\_relay\_brief\_sonic.j2'}, output)}
+\DoxyCodeLine{1033         \textcolor{keywordflow}{return} api.get(\textcolor{stringliteral}{""})}
+\DoxyCodeLine{1034 }
+\DoxyCodeLine{1035     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_openconfig\_relay\_agent\_relay\_agent\_dhcp\_interfaces\_interface\_state'}:}
+\DoxyCodeLine{1036         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcp/interfaces/interface=\{id\}/state'}, id=args[1])}
+\DoxyCodeLine{1037         \textcolor{keywordflow}{return} api.get(path)}
+\DoxyCodeLine{1038 }
+\DoxyCodeLine{1039     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_openconfig\_relay\_agent\_relay\_agent\_dhcpv6\_interfaces\_interface\_state'}:}
+\DoxyCodeLine{1040         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcpv6/interfaces/interface=\{id\}/state'}, id=args[1])}
+\DoxyCodeLine{1041         \textcolor{keywordflow}{return} api.get(path)}
+\DoxyCodeLine{1042 }
+\DoxyCodeLine{1043     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_openconfig\_relay\_agent\_relay\_agent\_detail'}:}
+\DoxyCodeLine{1044         \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} len(args) > 1:}
+\DoxyCodeLine{1045            path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcp'})}
+\DoxyCodeLine{1046         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{1047            path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcp/interfaces/interface=\{id\}'}, id=args[1])}
+\DoxyCodeLine{1048         \textcolor{keywordflow}{return} api.get(path)}
+\DoxyCodeLine{1049 }
+\DoxyCodeLine{1050     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_openconfig\_relay\_agent\_relay\_agent\_detail\_dhcpv6'}:}
+\DoxyCodeLine{1051         \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} len(args) > 1:}
+\DoxyCodeLine{1052            path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcpv6'})}
+\DoxyCodeLine{1053         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{1054            path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/relay-\/agent:relay-\/agent/dhcpv6/interfaces/interface=\{id\}'}, id=args[1])}
+\DoxyCodeLine{1055         \textcolor{keywordflow}{return} api.get(path)}
+\DoxyCodeLine{1056     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'default\_port\_config'}:}
+\DoxyCodeLine{1057         path = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/config-\/mgmt:default-\/port-\/config'})}
+\DoxyCodeLine{1058         body = \{\textcolor{stringliteral}{"sonic-\/config-\/mgmt:input"}: \{ \textcolor{stringliteral}{"ifname"}: args[0] \}\}}
+\DoxyCodeLine{1059         resp = api.post(path, body)}
+\DoxyCodeLine{1060         result = \textcolor{keyword}{False}}
+\DoxyCodeLine{1061         \textcolor{keywordflow}{if} resp.ok() \textcolor{keywordflow}{and} resp.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None} \textcolor{keywordflow}{and} \(\backslash\)}
+\DoxyCodeLine{1062            resp.content.get(\textcolor{stringliteral}{"sonic-\/config-\/mgmt:output"}) \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None} \textcolor{keywordflow}{and} \(\backslash\)}
+\DoxyCodeLine{1063            resp.content.get(\textcolor{stringliteral}{"sonic-\/config-\/mgmt:output"}).\mbox{\hyperlink{namespacescripts_1_1json__tools_afd87b9a49f4372aebe9a000a029a76fe}{get}}(\textcolor{stringliteral}{"status"}) \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None} \textcolor{keywordflow}{and} \(\backslash\)}
+\DoxyCodeLine{1064            resp.content[\textcolor{stringliteral}{"sonic-\/config-\/mgmt:output"}][\textcolor{stringliteral}{"status"}] == 0:}
+\DoxyCodeLine{1065             result = \textcolor{keyword}{True}}
+\DoxyCodeLine{1066         \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} result:}
+\DoxyCodeLine{1067             print(\textcolor{stringliteral}{"\%Error: Failed to restore port "} + args[0] + \textcolor{stringliteral}{" to its default configuration"})}
+\DoxyCodeLine{1068         \textcolor{keywordflow}{return} resp}
+\DoxyCodeLine{1069     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'rpc\_interface\_counters'}:}
+\DoxyCodeLine{1070         ifname = args[1].split(\textcolor{stringliteral}{"="})[1]}
+\DoxyCodeLine{1071         \textcolor{keywordflow}{if} ifname != \textcolor{stringliteral}{""} :}
+\DoxyCodeLine{1072             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/state/counters'}, name=ifname)}
+\DoxyCodeLine{1073             ifcounters = api.get(keypath)}
+\DoxyCodeLine{1074             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/interfaces:interfaces/interface=\{name\}/openconfig-\/if-\/ethernet:ethernet/state/counters'}, name=ifname)}
+\DoxyCodeLine{1075             response = api.get(keypath)}
+\DoxyCodeLine{1076             \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{1077                 \textcolor{keywordflow}{if} response.content:}
+\DoxyCodeLine{1078                     response.content[ifname] = ifcounters.content.pop(\textcolor{stringliteral}{"openconfig-\/interfaces:counters"})}
+\DoxyCodeLine{1079                     response.content[ifname].update(response.content[\textcolor{stringliteral}{"openconfig-\/if-\/ethernet:counters"}].pop(\textcolor{stringliteral}{"openconfig-\/if-\/ethernet-\/ext2:eth-\/out-\/distribution"}))}
+\DoxyCodeLine{1080                     response.content[ifname].update(response.content[\textcolor{stringliteral}{"openconfig-\/if-\/ethernet:counters"}].pop(\textcolor{stringliteral}{"openconfig-\/if-\/ethernet-\/ext2:eth-\/in-\/distribution"}))}
+\DoxyCodeLine{1081                     response.content[ifname].update(response.content.pop(\textcolor{stringliteral}{"openconfig-\/if-\/ethernet:counters"}))}
+\DoxyCodeLine{1082 }
+\DoxyCodeLine{1083             \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{1084         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{1085             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/counters:interface\_counters'})}
+\DoxyCodeLine{1086         body = \{\}}
+\DoxyCodeLine{1087         \textcolor{keywordflow}{return} api.post(keypath, body)}
+\DoxyCodeLine{1088     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'showrun'}:}
+\DoxyCodeLine{1089        arglen =0}
+\DoxyCodeLine{1090        \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{1091          arglen = args.index(\textcolor{stringliteral}{'\(\backslash\)\(\backslash\)|'})}
+\DoxyCodeLine{1092        \textcolor{keywordflow}{except} ValueError:}
+\DoxyCodeLine{1093          arglen = len(args)}
+\DoxyCodeLine{1094 }
+\DoxyCodeLine{1095        \textcolor{keywordflow}{if} arglen == 3:}
+\DoxyCodeLine{1096          show\_args=[\textcolor{stringliteral}{"views=configure-\/if,configure-\/lag,configure-\/vlan,configure-\/vxlan,configure-\/lo,configure-\/if-\/mgmt"}]}
+\DoxyCodeLine{1097          \mbox{\hyperlink{namespacesonic__cli__show__config_a97db9b59be4b41ed63d8d28071ae9ac4}{sonic\_cli\_show\_config.run}}(\textcolor{stringliteral}{'show\_multi\_views'},show\_args)}
+\DoxyCodeLine{1098        \textcolor{keywordflow}{elif} arglen > 3:}
+\DoxyCodeLine{1099           show\_args= [\textcolor{stringliteral}{"views=configure-\/if"}]}
+\DoxyCodeLine{1100           intf = args[3]}
+\DoxyCodeLine{1101           \textcolor{keywordflow}{if} intf \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None} \textcolor{keywordflow}{and} \mbox{\hyperlink{DB-PARSED_8txt_ac29ea28f91ad2ea4368e6dd578e39341}{type}}(intf)== str:}
+\DoxyCodeLine{1102             \textcolor{keywordflow}{if} intf != \textcolor{stringliteral}{"Ethernet"} \textcolor{keywordflow}{and} intf != \textcolor{stringliteral}{"Eth"}:}
+\DoxyCodeLine{1103                view\_key\_str = \textcolor{stringliteral}{"view\_keys=\(\backslash\)"name="} + intf + \textcolor{stringliteral}{"\(\backslash\)""}}
+\DoxyCodeLine{1104                show\_args.append(view\_key\_str)}
+\DoxyCodeLine{1105           \mbox{\hyperlink{namespacesonic__cli__show__config_a97db9b59be4b41ed63d8d28071ae9ac4}{sonic\_cli\_show\_config.run}}(\textcolor{stringliteral}{'show\_view'},show\_args)}
+\DoxyCodeLine{1106        \textcolor{keywordflow}{return}}
+\DoxyCodeLine{1107     \textcolor{keywordflow}{return} api.cli\_not\_implemented(func)}
+\DoxyCodeLine{1108 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/ded/namespacesonic__cli__if_ad1f8e532b938a651576425220dfff9e8_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/ded/namespacesonic__cli__if_ad1f8e532b938a651576425220dfff9e8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__if_a4aa7f8fdbcb7fde23b7c585acfc19405}\label{namespacesonic__cli__if_a4aa7f8fdbcb7fde23b7c585acfc19405}} 
+\index{sonic\_cli\_if@{sonic\_cli\_if}!run@{run}}
+\index{run@{run}!sonic\_cli\_if@{sonic\_cli\_if}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+if.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+if.\+py 파일의 1151 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1151 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__if_a4aa7f8fdbcb7fde23b7c585acfc19405}{run}}(func, args):}
+\DoxyCodeLine{1152    }
+\DoxyCodeLine{1153     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'rpc\_relay\_clear'}:}
+\DoxyCodeLine{1154         api\_clear = cc.ApiClient()}
+\DoxyCodeLine{1155         \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} (args[0].startswith(\textcolor{stringliteral}{"Eth"}) \textcolor{keywordflow}{or} args[0].startswith(\textcolor{stringliteral}{"Vlan"}) \textcolor{keywordflow}{or} args[0].startswith(\textcolor{stringliteral}{"PortChannel"})):}
+\DoxyCodeLine{1156            print(\textcolor{stringliteral}{"\%Error: Invalid Interface"})}
+\DoxyCodeLine{1157            \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{1158 }
+\DoxyCodeLine{1159         path = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/counters:clear\_relay\_counters'})}
+\DoxyCodeLine{1160         body = \{\}}
+\DoxyCodeLine{1161 }
+\DoxyCodeLine{1162         \textcolor{keywordflow}{if} (args[2] == \textcolor{stringliteral}{"ip"}): }
+\DoxyCodeLine{1163             body = \{\textcolor{stringliteral}{"sonic-\/counters:input"}:\{\textcolor{stringliteral}{"ipv4-\/relay-\/param"}:args[0],\textcolor{stringliteral}{"ipv6-\/relay-\/param"}:\textcolor{stringliteral}{"NULL"}\}\}}
+\DoxyCodeLine{1164         \textcolor{keywordflow}{elif} (args[2] == \textcolor{stringliteral}{"ipv6"}):}
+\DoxyCodeLine{1165             body = \{\textcolor{stringliteral}{"sonic-\/counters:input"}:\{\textcolor{stringliteral}{"ipv4-\/relay-\/param"}:\textcolor{stringliteral}{"NULL"},\textcolor{stringliteral}{"ipv6-\/relay-\/param"}:args[0]\}\}}
+\DoxyCodeLine{1166         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{1167             print(\textcolor{stringliteral}{"\%Error: Invalid Interface family"})}
+\DoxyCodeLine{1168             \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{1169 }
+\DoxyCodeLine{1170         \textcolor{keywordflow}{return} api\_clear.post(path,body)}
+\DoxyCodeLine{1171 }
+\DoxyCodeLine{1172     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{"get\_all\_ethernet"}:}
+\DoxyCodeLine{1173         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__if_a25a292c3e9a89f0db95d17f842f950b0}{hdl\_get\_all\_ethernet}}(args)}
+\DoxyCodeLine{1174 }
+\DoxyCodeLine{1175     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'vlan\_trunk\_add\_remove\_ethernet'}:}
+\DoxyCodeLine{1176     \textcolor{keywordflow}{if} args[2] == \textcolor{stringliteral}{'all'}:}
+\DoxyCodeLine{1177         args.insert(2,\textcolor{stringliteral}{'1..4094'})}
+\DoxyCodeLine{1178         func = \textcolor{stringliteral}{'patch\_openconfig\_vlan\_interfaces\_interface\_ethernet\_switched\_vlan\_config'}}
+\DoxyCodeLine{1179     \textcolor{keywordflow}{elif} args[2] == \textcolor{stringliteral}{'none'}:}
+\DoxyCodeLine{1180         func = \textcolor{stringliteral}{'del\_llist\_openconfig\_vlan\_interfaces\_interface\_ethernet\_switched\_vlan\_config\_trunk\_vlans\_all'}}
+\DoxyCodeLine{1181         \textcolor{keywordflow}{elif} args[3] == \textcolor{stringliteral}{'add'}:}
+\DoxyCodeLine{1182             func = \textcolor{stringliteral}{'patch\_openconfig\_vlan\_interfaces\_interface\_ethernet\_switched\_vlan\_config'}}
+\DoxyCodeLine{1183         \textcolor{keywordflow}{elif} args[3] == \textcolor{stringliteral}{'remove'}:}
+\DoxyCodeLine{1184             func = \textcolor{stringliteral}{'del\_llist\_openconfig\_vlan\_interfaces\_interface\_ethernet\_switched\_vlan\_config\_trunk\_vlans'}}
+\DoxyCodeLine{1185     \textcolor{keywordflow}{elif} args[3] == \textcolor{stringliteral}{'except'}:}
+\DoxyCodeLine{1186         exceptStr = ifutils.vlanExceptList(args[2])}
+\DoxyCodeLine{1187         args[2] = exceptStr}
+\DoxyCodeLine{1188         func = \textcolor{stringliteral}{'rpc\_replace\_vlan'}}
+\DoxyCodeLine{1189     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{1190         func = \textcolor{stringliteral}{'rpc\_replace\_vlan'}}
+\DoxyCodeLine{1191 }
+\DoxyCodeLine{1192     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'vlan\_trunk\_add\_remove\_portchannel'}:}
+\DoxyCodeLine{1193     \textcolor{keywordflow}{if} args[2] == \textcolor{stringliteral}{'all'}:}
+\DoxyCodeLine{1194         args.insert(2,\textcolor{stringliteral}{'1..4094'})}
+\DoxyCodeLine{1195         func = \textcolor{stringliteral}{'patch\_openconfig\_vlan\_interfaces\_interface\_aggregation\_switched\_vlan\_config'}}
+\DoxyCodeLine{1196     \textcolor{keywordflow}{elif} args[2] == \textcolor{stringliteral}{'none'}:}
+\DoxyCodeLine{1197         func = \textcolor{stringliteral}{'del\_llist\_openconfig\_vlan\_interfaces\_interface\_aggregation\_switched\_vlan\_config\_trunk\_vlans\_all'}}
+\DoxyCodeLine{1198     \textcolor{keywordflow}{elif} args[3] == \textcolor{stringliteral}{'add'}:}
+\DoxyCodeLine{1199         func = \textcolor{stringliteral}{'patch\_openconfig\_vlan\_interfaces\_interface\_aggregation\_switched\_vlan\_config'}}
+\DoxyCodeLine{1200     \textcolor{keywordflow}{elif} args[3]==\textcolor{stringliteral}{'remove'}:}
+\DoxyCodeLine{1201         func = \textcolor{stringliteral}{'del\_llist\_openconfig\_vlan\_interfaces\_interface\_aggregation\_switched\_vlan\_config\_trunk\_vlans'}}
+\DoxyCodeLine{1202     \textcolor{keywordflow}{elif} args[3] == \textcolor{stringliteral}{'except'}:}
+\DoxyCodeLine{1203         exceptStr = ifutils.vlanExceptList(args[2])}
+\DoxyCodeLine{1204         args[2] = exceptStr}
+\DoxyCodeLine{1205         func = \textcolor{stringliteral}{'rpc\_replace\_vlan'}}
+\DoxyCodeLine{1206     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{1207         func = \textcolor{stringliteral}{'rpc\_replace\_vlan'}}
+\DoxyCodeLine{1208 }
+\DoxyCodeLine{1209     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{1210         response = \mbox{\hyperlink{namespacesonic__cli__if_ad1f8e532b938a651576425220dfff9e8}{invoke\_api}}(func, args)}
+\DoxyCodeLine{1211         \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'ip\_interfaces\_get'} \textcolor{keywordflow}{or} func == \textcolor{stringliteral}{'ip6\_interfaces\_get'}:}
+\DoxyCodeLine{1212             \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], response)}
+\DoxyCodeLine{1213             \textcolor{keywordflow}{return}}
+\DoxyCodeLine{1214         \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'showrun'}:}
+\DoxyCodeLine{1215             \textcolor{keywordflow}{return}    }
+\DoxyCodeLine{1216         \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{1217           \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{1218             \textcolor{comment}{\# Get Command Output}}
+\DoxyCodeLine{1219             api\_response = response.content}
+\DoxyCodeLine{1220             \textcolor{keywordflow}{if} api\_response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{1221                 print(\textcolor{stringliteral}{"Failed"})}
+\DoxyCodeLine{1222                 \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{1223 }
+\DoxyCodeLine{1224             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/interfaces:interfaces'} \textcolor{keywordflow}{in} api\_response:}
+\DoxyCodeLine{1225                 value = api\_response[\textcolor{stringliteral}{'openconfig-\/interfaces:interfaces'}]}
+\DoxyCodeLine{1226                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'interface'} \textcolor{keywordflow}{in} value:}
+\DoxyCodeLine{1227                     tup = value[\textcolor{stringliteral}{'interface'}]}
+\DoxyCodeLine{1228                     value[\textcolor{stringliteral}{'interface'}] = sorted(tup, key=getId)}
+\DoxyCodeLine{1229             \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'sonic-\/port:PORT\_TABLE'} \textcolor{keywordflow}{in} api\_response:}
+\DoxyCodeLine{1230                 value = api\_response[\textcolor{stringliteral}{'sonic-\/port:PORT\_TABLE'}]}
+\DoxyCodeLine{1231                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'PORT\_TABLE\_LIST'} \textcolor{keywordflow}{in} value:}
+\DoxyCodeLine{1232                     tup = value[\textcolor{stringliteral}{'PORT\_TABLE\_LIST'}]}
+\DoxyCodeLine{1233                     value[\textcolor{stringliteral}{'PORT\_TABLE\_LIST'}] =  sorted(tup, key=getSonicId)}
+\DoxyCodeLine{1234             \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'rpc\_interface\_counters'} \textcolor{keywordflow}{and} \textcolor{stringliteral}{'sonic-\/counters:output'} \textcolor{keywordflow}{in} api\_response:}
+\DoxyCodeLine{1235                 value = api\_response[\textcolor{stringliteral}{'sonic-\/counters:output'}]}
+\DoxyCodeLine{1236                 \textcolor{keywordflow}{if} value[\textcolor{stringliteral}{"status"}] != 0:}
+\DoxyCodeLine{1237                     print(\textcolor{stringliteral}{"\%Error: Internal error."})}
+\DoxyCodeLine{1238                     \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{1239                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'interfaces'} \textcolor{keywordflow}{in} value:}
+\DoxyCodeLine{1240                     interfaces = value[\textcolor{stringliteral}{'interfaces'}]}
+\DoxyCodeLine{1241                     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'interface'} \textcolor{keywordflow}{in} interfaces:}
+\DoxyCodeLine{1242                         tup = interfaces[\textcolor{stringliteral}{'interface'}]}
+\DoxyCodeLine{1243                         value[\textcolor{stringliteral}{'interfaces'}][\textcolor{stringliteral}{'interface'}] = sorted(tup.items(), key= \textcolor{keyword}{lambda} item: [ifutils.name\_to\_int\_val(item[0])])}
+\DoxyCodeLine{1244 }
+\DoxyCodeLine{1245             \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_phy\_if\_ip'} \textcolor{keywordflow}{or} func == \textcolor{stringliteral}{'delete\_mgmt\_if\_ip'} \textcolor{keywordflow}{or} func == \textcolor{stringliteral}{'delete\_vlan\_if\_ip'} \textcolor{keywordflow}{or} func == \textcolor{stringliteral}{'delete\_po\_if\_ip'} \textcolor{keywordflow}{or} func == \textcolor{stringliteral}{'delete\_lo\_if\_ip'}:}
+\DoxyCodeLine{1246                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/interface:output'} \textcolor{keywordflow}{in} api\_response:}
+\DoxyCodeLine{1247                     value = api\_response[\textcolor{stringliteral}{'sonic-\/interface:output'}]}
+\DoxyCodeLine{1248                     \textcolor{keywordflow}{if} value[\textcolor{stringliteral}{"status"}] != 0:}
+\DoxyCodeLine{1249                         \textcolor{keywordflow}{if} value[\textcolor{stringliteral}{"status-\/detail"}] != \textcolor{stringliteral}{''}:}
+\DoxyCodeLine{1250                             print(\textcolor{stringliteral}{"\%Error: \{\}"}.format(value[\textcolor{stringliteral}{"status-\/detail"}]))}
+\DoxyCodeLine{1251                         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{1252                             print(\textcolor{stringliteral}{"\%Error: Internal error."})}
+\DoxyCodeLine{1253 }
+\DoxyCodeLine{1254             \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'rpc\_replace\_vlan'}:}
+\DoxyCodeLine{1255                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/interfaces-\/ext:output'} \textcolor{keywordflow}{in} api\_response:}
+\DoxyCodeLine{1256                     value = api\_response[\textcolor{stringliteral}{'openconfig-\/interfaces-\/ext:output'}]}
+\DoxyCodeLine{1257                     \textcolor{keywordflow}{if} value[\textcolor{stringliteral}{"status"}] != 0:}
+\DoxyCodeLine{1258                         \textcolor{keywordflow}{if} value[\textcolor{stringliteral}{"status-\/detail"}] != \textcolor{stringliteral}{''}:}
+\DoxyCodeLine{1259                             print(\textcolor{stringliteral}{"\%Error: \{\}"}.format(value[\textcolor{stringliteral}{"status-\/detail"}]))}
+\DoxyCodeLine{1260                         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{1261                             print(\textcolor{stringliteral}{"\%Error: Internal error."})}
+\DoxyCodeLine{1262 }
+\DoxyCodeLine{1263             \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'get\_openconfig\_interfaces\_interfaces\_interface'}:}
+\DoxyCodeLine{1264                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[1], api\_response)}
+\DoxyCodeLine{1265             \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_openconfig\_interfaces\_interfaces'}:}
+\DoxyCodeLine{1266                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], api\_response)}
+\DoxyCodeLine{1267             \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_sonic\_port\_sonic\_port\_port\_table'}:}
+\DoxyCodeLine{1268                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], api\_response)}
+\DoxyCodeLine{1269             \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_openconfig\_relay\_agent\_relay\_agent\_dhcp\_interfaces\_interface\_state'}:}
+\DoxyCodeLine{1270                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], api\_response)}
+\DoxyCodeLine{1271             \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_openconfig\_relay\_agent\_relay\_agent\_dhcpv6\_interfaces\_interface\_state'}:}
+\DoxyCodeLine{1272                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], api\_response)}
+\DoxyCodeLine{1273             \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_openconfig\_relay\_agent\_relay\_agent\_detail'}:}
+\DoxyCodeLine{1274                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], api\_response)}
+\DoxyCodeLine{1275             \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_openconfig\_relay\_agent\_relay\_agent\_detail\_dhcpv6'}:}
+\DoxyCodeLine{1276                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], api\_response)}
+\DoxyCodeLine{1277             \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'rpc\_interface\_counters'}:}
+\DoxyCodeLine{1278                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], api\_response)}
+\DoxyCodeLine{1279 }
+\DoxyCodeLine{1280         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{1281             \textcolor{keywordflow}{print} response.error\_message()}
+\DoxyCodeLine{1282             \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{1283 }
+\DoxyCodeLine{1284     \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} e:}
+\DoxyCodeLine{1285         syslog.syslog(syslog.LOG\_DEBUG, \textcolor{stringliteral}{"Exception: "} + traceback.format\_exc())}
+\DoxyCodeLine{1286         print(\textcolor{stringliteral}{"\%Error: Transaction Failure"})}
+\DoxyCodeLine{1287         \textcolor{keywordflow}{return} 1}
+\DoxyCodeLine{1288 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/ded/namespacesonic__cli__if_a4aa7f8fdbcb7fde23b7c585acfc19405_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__if_aeb38b8a948b09a21a3bc1e6c5323294d}\label{namespacesonic__cli__if_aeb38b8a948b09a21a3bc1e6c5323294d}} 
+\index{sonic\_cli\_if@{sonic\_cli\_if}!func@{func}}
+\index{func@{func}!sonic\_cli\_if@{sonic\_cli\_if}}
+\doxysubsubsection{\texorpdfstring{func}{func}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+if.\+func = sys.\+argv\mbox{[}1\mbox{]}}
+
+
+
+sonic\+\_\+cli\+\_\+if.\+py 파일의 1292 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__if_a10e7962a2d40a478346ecb6257a23090}\label{namespacesonic__cli__if_a10e7962a2d40a478346ecb6257a23090}} 
+\index{sonic\_cli\_if@{sonic\_cli\_if}!lag\_type\_map@{lag\_type\_map}}
+\index{lag\_type\_map@{lag\_type\_map}!sonic\_cli\_if@{sonic\_cli\_if}}
+\doxysubsubsection{\texorpdfstring{lag\_type\_map}{lag\_type\_map}}
+{\footnotesize\ttfamily dictionary sonic\+\_\+cli\+\_\+if.\+lag\+\_\+type\+\_\+map = \{\char`\"{}active\char`\"{} \+: \char`\"{}L\+A\+CP\char`\"{}, \char`\"{}on\char`\"{}\+: \char`\"{}S\+T\+A\+T\+IC\char`\"{}\}}
+
+
+
+sonic\+\_\+cli\+\_\+if.\+py 파일의 40 번째 라인에서 정의되었습니다.
+

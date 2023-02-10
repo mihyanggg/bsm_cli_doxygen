@@ -1,0 +1,476 @@
+\hypertarget{namespacesonic__cli__logging}{}\doxysection{sonic\+\_\+cli\+\_\+logging 네임스페이스 참조}
+\label{namespacesonic__cli__logging}\index{sonic\_cli\_logging@{sonic\_cli\_logging}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__logging_a61be1406c382c46e89bfe1294b497fa4}{invoke\+\_\+api}} (\mbox{\hyperlink{namespacesonic__cli__logging_a2d85b0a7ff9d018b6fded1adae3ef1f5}{func}}, args=\mbox{[}$\,$\mbox{]})
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__logging_af129bd484743c7e9acbc6e68a433ddb1}{replace\+\_\+prefix}} (value, \mbox{\hyperlink{DB-PARSED_8txt_a1bdb52a70f2b944da1ac484fd1f99d09}{prefix}}, new\+\_\+prefix)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__logging_a9e94a7b0e7285fd65fb9b90d880d0e73}{get\+\_\+sonic\+\_\+logging\+\_\+servers}} (args=\mbox{[}$\,$\mbox{]})
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__logging_a905125b9c0f142f0d9c6217a085f84b5}{get\+\_\+sonic\+\_\+logging}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__logging_af7c5f795221109580d27d3597f392999}{clear\+\_\+sonic\+\_\+logging}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__logging_a57a99cb174c5d17103ba7170f104b4f0}{get\+\_\+openconfig\+\_\+system\+\_\+logging\+\_\+count}} (args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__logging_acc9b3f6130282c757963ab6b9530f6b7}{run}} (\mbox{\hyperlink{namespacesonic__cli__logging_a2d85b0a7ff9d018b6fded1adae3ef1f5}{func}}, args)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__logging_aece78e4ee53b1b8057e5196a8b952765}{S\+Y\+S\+T\+EM}} = \textquotesingle{}/restconf/data/openconfig-\/system\+:system/\textquotesingle{}
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__logging_a8c210e8e423bb5fad2d065e417d0fadc}{L\+O\+G\+\_\+\+S\+E\+R\+V\+E\+RS}} = \mbox{\hyperlink{namespacesonic__cli__logging_aece78e4ee53b1b8057e5196a8b952765}{S\+Y\+S\+T\+EM}}+\textquotesingle{}\mbox{\hyperlink{DB-PARSED_8txt_aaf6d45a31558bf3365d003044158db6e}{logging}}/remote-\/servers\textquotesingle{}
+\item 
+\mbox{\hyperlink{namespacesonic__cli__logging_a2d85b0a7ff9d018b6fded1adae3ef1f5}{func}} = sys.\+argv\mbox{[}1\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__logging_af7c5f795221109580d27d3597f392999}\label{namespacesonic__cli__logging_af7c5f795221109580d27d3597f392999}} 
+\index{sonic\_cli\_logging@{sonic\_cli\_logging}!clear\_sonic\_logging@{clear\_sonic\_logging}}
+\index{clear\_sonic\_logging@{clear\_sonic\_logging}!sonic\_cli\_logging@{sonic\_cli\_logging}}
+\doxysubsubsection{\texorpdfstring{clear\_sonic\_logging()}{clear\_sonic\_logging()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+logging.\+clear\+\_\+sonic\+\_\+logging (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+logging.\+py 파일의 189 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{189 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__logging_af7c5f795221109580d27d3597f392999}{clear\_sonic\_logging}}(args):}
+\DoxyCodeLine{190     aa = cc.ApiClient()}
+\DoxyCodeLine{191     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/operations/openconfig-\/system-\/ext:clear-\/sys-\/log'})}
+\DoxyCodeLine{192     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{193     templ=args[0]}
+\DoxyCodeLine{194     api\_response = aa.post(keypath, body)}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{196     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{197         \textcolor{keywordflow}{if} api\_response.ok():}
+\DoxyCodeLine{198            response = api\_response.content}
+\DoxyCodeLine{199            \textcolor{keywordflow}{if} response \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None} \textcolor{keywordflow}{and} \textcolor{stringliteral}{'sonic-\/system-\/infra:output'} \textcolor{keywordflow}{in} response:}
+\DoxyCodeLine{200                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(templ, response[\textcolor{stringliteral}{'openconfig-\/system-\/ext:output'}][\textcolor{stringliteral}{'result'}])}
+\DoxyCodeLine{201     \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} e:}
+\DoxyCodeLine{202         \textcolor{keywordflow}{raise} e}
+\DoxyCodeLine{203 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/dca/namespacesonic__cli__logging_af7c5f795221109580d27d3597f392999_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/dca/namespacesonic__cli__logging_af7c5f795221109580d27d3597f392999_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__logging_a57a99cb174c5d17103ba7170f104b4f0}\label{namespacesonic__cli__logging_a57a99cb174c5d17103ba7170f104b4f0}} 
+\index{sonic\_cli\_logging@{sonic\_cli\_logging}!get\_openconfig\_system\_logging\_count@{get\_openconfig\_system\_logging\_count}}
+\index{get\_openconfig\_system\_logging\_count@{get\_openconfig\_system\_logging\_count}!sonic\_cli\_logging@{sonic\_cli\_logging}}
+\doxysubsubsection{\texorpdfstring{get\_openconfig\_system\_logging\_count()}{get\_openconfig\_system\_logging\_count()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+logging.\+get\+\_\+openconfig\+\_\+system\+\_\+logging\+\_\+count (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+logging.\+py 파일의 204 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{204 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__logging_a57a99cb174c5d17103ba7170f104b4f0}{get\_openconfig\_system\_logging\_count}}(args):}
+\DoxyCodeLine{205     aa = cc.ApiClient()}
+\DoxyCodeLine{206     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/operations/openconfig-\/system-\/ext:sys-\/log-\/count'})}
+\DoxyCodeLine{207     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{208     templ=args[0]}
+\DoxyCodeLine{209     api\_response = aa.post(keypath, body)}
+\DoxyCodeLine{210 }
+\DoxyCodeLine{211     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{212         \textcolor{keywordflow}{if} api\_response.ok():}
+\DoxyCodeLine{213            response = api\_response.content}
+\DoxyCodeLine{214            \textcolor{keywordflow}{if} response \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None} \textcolor{keywordflow}{and} \textcolor{stringliteral}{'openconfig-\/system-\/ext:output'} \textcolor{keywordflow}{in} response:}
+\DoxyCodeLine{215               \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(templ, response[\textcolor{stringliteral}{'openconfig-\/system-\/ext:output'}][\textcolor{stringliteral}{'result'}])}
+\DoxyCodeLine{216     \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} e:}
+\DoxyCodeLine{217         \textcolor{keywordflow}{raise} e}
+\DoxyCodeLine{218 }
+\DoxyCodeLine{219 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/dca/namespacesonic__cli__logging_a57a99cb174c5d17103ba7170f104b4f0_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/dca/namespacesonic__cli__logging_a57a99cb174c5d17103ba7170f104b4f0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__logging_a905125b9c0f142f0d9c6217a085f84b5}\label{namespacesonic__cli__logging_a905125b9c0f142f0d9c6217a085f84b5}} 
+\index{sonic\_cli\_logging@{sonic\_cli\_logging}!get\_sonic\_logging@{get\_sonic\_logging}}
+\index{get\_sonic\_logging@{get\_sonic\_logging}!sonic\_cli\_logging@{sonic\_cli\_logging}}
+\doxysubsubsection{\texorpdfstring{get\_sonic\_logging()}{get\_sonic\_logging()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+logging.\+get\+\_\+sonic\+\_\+logging (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+logging.\+py 파일의 171 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{171 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__logging_a905125b9c0f142f0d9c6217a085f84b5}{get\_sonic\_logging}}(args):}
+\DoxyCodeLine{172     aa = cc.ApiClient()}
+\DoxyCodeLine{173     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/operations/openconfig-\/system-\/ext:show-\/sys-\/log'})}
+\DoxyCodeLine{174     \textcolor{keywordflow}{if} len(args) >= 2:}
+\DoxyCodeLine{175         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/ext:input"}:\{\textcolor{stringliteral}{"num-\/lines"}: int(args[1])\}\}}
+\DoxyCodeLine{176     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{177         body = \{ \textcolor{stringliteral}{"openconfig-\/system-\/ext:input"}:\{\textcolor{stringliteral}{"num-\/lines"}: 0\}\}}
+\DoxyCodeLine{178     templ=args[0]}
+\DoxyCodeLine{179     api\_response = aa.post(keypath, body)}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{182         \textcolor{keywordflow}{if} api\_response.ok():}
+\DoxyCodeLine{183            response = api\_response.content}
+\DoxyCodeLine{184            \textcolor{keywordflow}{if} response \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None} \textcolor{keywordflow}{and} \textcolor{stringliteral}{'openconfig-\/system-\/ext:output'} \textcolor{keywordflow}{in} response:}
+\DoxyCodeLine{185                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(templ, response)}
+\DoxyCodeLine{186     \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} e:}
+\DoxyCodeLine{187         \textcolor{keywordflow}{raise} e}
+\DoxyCodeLine{188 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/dca/namespacesonic__cli__logging_a905125b9c0f142f0d9c6217a085f84b5_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/dca/namespacesonic__cli__logging_a905125b9c0f142f0d9c6217a085f84b5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__logging_a9e94a7b0e7285fd65fb9b90d880d0e73}\label{namespacesonic__cli__logging_a9e94a7b0e7285fd65fb9b90d880d0e73}} 
+\index{sonic\_cli\_logging@{sonic\_cli\_logging}!get\_sonic\_logging\_servers@{get\_sonic\_logging\_servers}}
+\index{get\_sonic\_logging\_servers@{get\_sonic\_logging\_servers}!sonic\_cli\_logging@{sonic\_cli\_logging}}
+\doxysubsubsection{\texorpdfstring{get\_sonic\_logging\_servers()}{get\_sonic\_logging\_servers()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+logging.\+get\+\_\+sonic\+\_\+logging\+\_\+servers (\begin{DoxyParamCaption}\item[{}]{args = {\ttfamily \mbox{[}\mbox{]}} }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+logging.\+py 파일의 128 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{128 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__logging_a9e94a7b0e7285fd65fb9b90d880d0e73}{get\_sonic\_logging\_servers}}(args=[]):}
+\DoxyCodeLine{129     api\_response = \{\}}
+\DoxyCodeLine{130     api = cc.ApiClient()}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132     path = cc.Path(LOG\_SERVERS)}
+\DoxyCodeLine{133     response = api.get(path)}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response.ok():}
+\DoxyCodeLine{137         print(\textcolor{stringliteral}{"\%Error: Get Failure"})}
+\DoxyCodeLine{138         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140     \textcolor{keywordflow}{if} (\textcolor{keywordflow}{not} (\textcolor{stringliteral}{'openconfig-\/system:remote-\/servers'} \textcolor{keywordflow}{in} response.content)) \(\backslash\)}
+\DoxyCodeLine{141         \textcolor{keywordflow}{or} (\textcolor{keywordflow}{not} (\textcolor{stringliteral}{'remote-\/server'} \textcolor{keywordflow}{in} response.content[\textcolor{stringliteral}{'openconfig-\/system:remote-\/servers'}])):}
+\DoxyCodeLine{142         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144     api\_response[\textcolor{stringliteral}{'header'}] = \textcolor{stringliteral}{'True'}}
+\DoxyCodeLine{145     \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{"show\_logging\_server.j2"}, api\_response)}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147     \textcolor{keywordflow}{for} server \textcolor{keywordflow}{in} response.content[\textcolor{stringliteral}{'openconfig-\/system:remote-\/servers'}][\textcolor{stringliteral}{'remote-\/server'}]:}
+\DoxyCodeLine{148         api\_response.clear()}
+\DoxyCodeLine{149         api\_response[\textcolor{stringliteral}{'header'}] = \textcolor{stringliteral}{'False'}}
+\DoxyCodeLine{150         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'host'} \textcolor{keywordflow}{in} server:}
+\DoxyCodeLine{151             api\_response[\textcolor{stringliteral}{'host'}] = server[\textcolor{stringliteral}{'host'}]}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153         api\_response[\textcolor{stringliteral}{'source'}] = \textcolor{stringliteral}{"-\/"}}
+\DoxyCodeLine{154         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'config'} \textcolor{keywordflow}{in} server \(\backslash\)}
+\DoxyCodeLine{155                 \textcolor{keywordflow}{and} \textcolor{stringliteral}{'openconfig-\/system-\/ext:source-\/interface'} \textcolor{keywordflow}{in} server[\textcolor{stringliteral}{'config'}]:}
+\DoxyCodeLine{156             src\_intf = server[\textcolor{stringliteral}{'config'}][\textcolor{stringliteral}{'openconfig-\/system-\/ext:source-\/interface'}]}
+\DoxyCodeLine{157             api\_response[\textcolor{stringliteral}{'source'}] = \mbox{\hyperlink{namespacesonic__cli__logging_af129bd484743c7e9acbc6e68a433ddb1}{replace\_prefix}}(src\_intf, \textcolor{stringliteral}{'eth'}, \textcolor{stringliteral}{'Management'})}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159         api\_response[\textcolor{stringliteral}{'port'}] = \textcolor{stringliteral}{"-\/"}}
+\DoxyCodeLine{160         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'config'} \textcolor{keywordflow}{in} server \(\backslash\)}
+\DoxyCodeLine{161                 \textcolor{keywordflow}{and} \textcolor{stringliteral}{'remote-\/port'} \textcolor{keywordflow}{in} server[\textcolor{stringliteral}{'config'}]:}
+\DoxyCodeLine{162             api\_response[\textcolor{stringliteral}{'port'}] = server[\textcolor{stringliteral}{'config'}][\textcolor{stringliteral}{'remote-\/port'}]}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164         api\_response[\textcolor{stringliteral}{'vrf'}] = \textcolor{stringliteral}{"-\/"}}
+\DoxyCodeLine{165         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'config'} \textcolor{keywordflow}{in} server \(\backslash\)}
+\DoxyCodeLine{166                 \textcolor{keywordflow}{and} \textcolor{stringliteral}{'openconfig-\/system-\/ext:vrf-\/name'} \textcolor{keywordflow}{in} server[\textcolor{stringliteral}{'config'}]:}
+\DoxyCodeLine{167             api\_response[\textcolor{stringliteral}{'vrf'}] = \(\backslash\)}
+\DoxyCodeLine{168                 server[\textcolor{stringliteral}{'config'}][\textcolor{stringliteral}{'openconfig-\/system-\/ext:vrf-\/name'}]}
+\DoxyCodeLine{169         \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{"show\_logging\_server.j2"}, api\_response)}
+\DoxyCodeLine{170 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/dca/namespacesonic__cli__logging_a9e94a7b0e7285fd65fb9b90d880d0e73_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/dca/namespacesonic__cli__logging_a9e94a7b0e7285fd65fb9b90d880d0e73_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__logging_a61be1406c382c46e89bfe1294b497fa4}\label{namespacesonic__cli__logging_a61be1406c382c46e89bfe1294b497fa4}} 
+\index{sonic\_cli\_logging@{sonic\_cli\_logging}!invoke\_api@{invoke\_api}}
+\index{invoke\_api@{invoke\_api}!sonic\_cli\_logging@{sonic\_cli\_logging}}
+\doxysubsubsection{\texorpdfstring{invoke\_api()}{invoke\_api()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+logging.\+invoke\+\_\+api (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args = {\ttfamily \mbox{[}\mbox{]}} }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+logging.\+py 파일의 27 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{27 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__logging_a61be1406c382c46e89bfe1294b497fa4}{invoke\_api}}(func, args=[]):}
+\DoxyCodeLine{28     api = cc.ApiClient()}
+\DoxyCodeLine{29     keypath = []}
+\DoxyCodeLine{30     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_openconfig\_system\_logging\_server\_config\_host'}:}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34         rport=(args[1])[6:]}
+\DoxyCodeLine{35         vrf=(args[2])[4:]}
+\DoxyCodeLine{36         src\_intf = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{37         \textcolor{keywordflow}{if} len(args) > 3:}
+\DoxyCodeLine{38             src\_intf = \mbox{\hyperlink{namespacesonic__cli__logging_af129bd484743c7e9acbc6e68a433ddb1}{replace\_prefix}}(args[3], \textcolor{stringliteral}{'Management'}, \textcolor{stringliteral}{'eth'})}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40         \textcolor{comment}{\#keypath = cc.Path(LOG\_SERVERS +}}
+\DoxyCodeLine{41         \textcolor{comment}{\#    '/remote-\/server=\{address\}', address=args[0])}}
+\DoxyCodeLine{42         keypath = cc.Path(LOG\_SERVERS + \textcolor{stringliteral}{'/remote-\/server'})}
+\DoxyCodeLine{43         body = \{   \textcolor{stringliteral}{"openconfig-\/system:remote-\/server"}: [ \{}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45                        \textcolor{stringliteral}{"host"}: args[0],}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47                        \textcolor{stringliteral}{"config"}: \{}
+\DoxyCodeLine{48                            \textcolor{stringliteral}{"host"}: args[0],}
+\DoxyCodeLine{49                        \}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51                   \} ]}
+\DoxyCodeLine{52                \}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54         getpath = cc.Path(LOG\_SERVERS)}
+\DoxyCodeLine{55         response = api.get(getpath)}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57         exists=\textcolor{stringliteral}{'False'}}
+\DoxyCodeLine{58         \textcolor{keywordflow}{if} response.ok()\(\backslash\)}
+\DoxyCodeLine{59               \textcolor{keywordflow}{and} (\textcolor{stringliteral}{'openconfig-\/system:remote-\/servers'} \textcolor{keywordflow}{in} response.content)\(\backslash\)}
+\DoxyCodeLine{60               \textcolor{keywordflow}{and} (\textcolor{stringliteral}{'remote-\/server'} \textcolor{keywordflow}{in} response.content[\textcolor{stringliteral}{'openconfig-\/system:remote-\/servers'}]):}
+\DoxyCodeLine{61             \textcolor{keywordflow}{for} server \textcolor{keywordflow}{in} response.content[\textcolor{stringliteral}{'openconfig-\/system:remote-\/servers'}][\textcolor{stringliteral}{'remote-\/server'}]:}
+\DoxyCodeLine{62                 \textcolor{keywordflow}{if} (\textcolor{stringliteral}{'host'} \textcolor{keywordflow}{in} server) \textcolor{keywordflow}{and} (server[\textcolor{stringliteral}{'host'}] == args[0]):}
+\DoxyCodeLine{63                     exists=\textcolor{stringliteral}{'True'}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65         \textcolor{keywordflow}{if} (exists == \textcolor{stringliteral}{'False'}) \textcolor{keywordflow}{and} (len(rport) == 0):}
+\DoxyCodeLine{66             rport=\textcolor{stringliteral}{"514"}}
+\DoxyCodeLine{67         \textcolor{keywordflow}{if} len(rport) != 0:}
+\DoxyCodeLine{68             body[\textcolor{stringliteral}{"openconfig-\/system:remote-\/server"}][0]\(\backslash\)}
+\DoxyCodeLine{69                 [\textcolor{stringliteral}{"config"}][\textcolor{stringliteral}{"remote-\/port"}] = int(rport)}
+\DoxyCodeLine{70         \textcolor{keywordflow}{if} len(src\_intf) != 0:}
+\DoxyCodeLine{71             body[\textcolor{stringliteral}{"openconfig-\/system:remote-\/server"}][0]\(\backslash\)}
+\DoxyCodeLine{72                     [\textcolor{stringliteral}{"config"}][\textcolor{stringliteral}{"openconfig-\/system-\/ext:source-\/interface"}] = src\_intf}
+\DoxyCodeLine{73         \textcolor{keywordflow}{if} len(vrf) != 0:}
+\DoxyCodeLine{74             body[\textcolor{stringliteral}{"openconfig-\/system:remote-\/server"}][0]\(\backslash\)}
+\DoxyCodeLine{75                 [\textcolor{stringliteral}{"config"}][\textcolor{stringliteral}{"openconfig-\/system-\/ext:vrf-\/name"}] = vrf}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77         \textcolor{keywordflow}{return} api.patch(keypath, body)}
+\DoxyCodeLine{78     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_openconfig\_system\_looging\_server\_config\_host'}:}
+\DoxyCodeLine{79         path = LOG\_SERVERS + \textcolor{stringliteral}{'/remote-\/server=\{address\}'}}
+\DoxyCodeLine{80         \textcolor{keywordflow}{if} (len(args) >= 2) \textcolor{keywordflow}{and} (len(args[1]) != 0):}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82             \textcolor{keywordflow}{if} (args[1] == \textcolor{stringliteral}{"remote-\/port"}):}
+\DoxyCodeLine{83                 getpath = cc.Path(LOG\_SERVERS)}
+\DoxyCodeLine{84                 response = api.get(getpath)}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86                 \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} response.ok():}
+\DoxyCodeLine{87                     print(\textcolor{stringliteral}{"\%Error: Get Failure"})}
+\DoxyCodeLine{88                     \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90                 \textcolor{keywordflow}{if} (\textcolor{keywordflow}{not} (\textcolor{stringliteral}{'openconfig-\/system:remote-\/servers'} \textcolor{keywordflow}{in} response.content))\(\backslash\)}
+\DoxyCodeLine{91                   \textcolor{keywordflow}{or} (\textcolor{keywordflow}{not} (\textcolor{stringliteral}{'remote-\/server'} \(\backslash\)}
+\DoxyCodeLine{92                    \textcolor{keywordflow}{in} response.content[\textcolor{stringliteral}{'openconfig-\/system:remote-\/servers'}])):}
+\DoxyCodeLine{93                     \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95                 exists = \textcolor{stringliteral}{'False'}}
+\DoxyCodeLine{96                 \textcolor{keywordflow}{for} server \textcolor{keywordflow}{in} response.content[\textcolor{stringliteral}{'openconfig-\/system:remote-\/servers'}][\textcolor{stringliteral}{'remote-\/server'}]:}
+\DoxyCodeLine{97                     \textcolor{keywordflow}{if} (\textcolor{stringliteral}{'host'} \textcolor{keywordflow}{in} server) \textcolor{keywordflow}{and} (server[\textcolor{stringliteral}{'host'}] == args[0]):}
+\DoxyCodeLine{98                         exists = \textcolor{stringliteral}{'True'}}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100                 \textcolor{keywordflow}{if} exists == \textcolor{stringliteral}{'False'}:}
+\DoxyCodeLine{101                     \textcolor{keywordflow}{return} response}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103                 \textcolor{keywordflow}{if} (args[1] == \textcolor{stringliteral}{"remote-\/port"}):}
+\DoxyCodeLine{104                     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic__cli__logging_a61be1406c382c46e89bfe1294b497fa4}{invoke\_api}}(}
+\DoxyCodeLine{105                         \textcolor{stringliteral}{'patch\_openconfig\_system\_logging\_server\_config\_host'},}
+\DoxyCodeLine{106                         [args[0], \textcolor{stringliteral}{"rport=514"}, \textcolor{stringliteral}{"vrf="}])}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108             uri\_suffix = \{}
+\DoxyCodeLine{109                 \textcolor{stringliteral}{"remote-\/port"}: \textcolor{stringliteral}{"/config/remote-\/port"},}
+\DoxyCodeLine{110                 \textcolor{stringliteral}{"source-\/interface"}: \textcolor{stringliteral}{"/config/openconfig-\/system-\/ext:source-\/interface"},}
+\DoxyCodeLine{111                 \textcolor{stringliteral}{"vrf"}: \textcolor{stringliteral}{"/config/openconfig-\/system-\/ext:vrf-\/name"},}
+\DoxyCodeLine{112             \}}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114             path = path + uri\_suffix.get(args[1], \textcolor{stringliteral}{"Invalid Attribute"})}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116         keypath = cc.Path(path, address=args[0])}
+\DoxyCodeLine{117         \textcolor{keywordflow}{return} api.delete(keypath)}
+\DoxyCodeLine{118     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{119         body = \{\}}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121     \textcolor{keywordflow}{return} api.cli\_not\_implemented(func)}
+\DoxyCodeLine{122 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/dca/namespacesonic__cli__logging_a61be1406c382c46e89bfe1294b497fa4_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/dca/namespacesonic__cli__logging_a61be1406c382c46e89bfe1294b497fa4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__logging_af129bd484743c7e9acbc6e68a433ddb1}\label{namespacesonic__cli__logging_af129bd484743c7e9acbc6e68a433ddb1}} 
+\index{sonic\_cli\_logging@{sonic\_cli\_logging}!replace\_prefix@{replace\_prefix}}
+\index{replace\_prefix@{replace\_prefix}!sonic\_cli\_logging@{sonic\_cli\_logging}}
+\doxysubsubsection{\texorpdfstring{replace\_prefix()}{replace\_prefix()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+logging.\+replace\+\_\+prefix (\begin{DoxyParamCaption}\item[{}]{value,  }\item[{}]{prefix,  }\item[{}]{new\+\_\+prefix }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+logging.\+py 파일의 123 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{123 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__logging_af129bd484743c7e9acbc6e68a433ddb1}{replace\_prefix}}(value, prefix, new\_prefix):}
+\DoxyCodeLine{124     \textcolor{keywordflow}{if} value.startswith(prefix):}
+\DoxyCodeLine{125         \textcolor{keywordflow}{return} new\_prefix + value[len(prefix):]}
+\DoxyCodeLine{126     \textcolor{keywordflow}{return} value}
+\DoxyCodeLine{127 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/dca/namespacesonic__cli__logging_af129bd484743c7e9acbc6e68a433ddb1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__logging_acc9b3f6130282c757963ab6b9530f6b7}\label{namespacesonic__cli__logging_acc9b3f6130282c757963ab6b9530f6b7}} 
+\index{sonic\_cli\_logging@{sonic\_cli\_logging}!run@{run}}
+\index{run@{run}!sonic\_cli\_logging@{sonic\_cli\_logging}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+logging.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+logging.\+py 파일의 220 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{220 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__logging_acc9b3f6130282c757963ab6b9530f6b7}{run}}(func, args):}
+\DoxyCodeLine{221     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'get\_openconfig\_system\_logging\_servers'}:}
+\DoxyCodeLine{222         \mbox{\hyperlink{namespacesonic__cli__logging_a9e94a7b0e7285fd65fb9b90d880d0e73}{get\_sonic\_logging\_servers}}()}
+\DoxyCodeLine{223         \textcolor{keywordflow}{return} 0}
+\DoxyCodeLine{224 }
+\DoxyCodeLine{225     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'get\_openconfig\_system\_logging'}:}
+\DoxyCodeLine{226         \mbox{\hyperlink{namespacesonic__cli__logging_a905125b9c0f142f0d9c6217a085f84b5}{get\_sonic\_logging}}(args)}
+\DoxyCodeLine{227         \textcolor{keywordflow}{return} 0}
+\DoxyCodeLine{228 }
+\DoxyCodeLine{229     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'get\_openconfig\_clear\_logging'}:}
+\DoxyCodeLine{230         \mbox{\hyperlink{namespacesonic__cli__logging_af7c5f795221109580d27d3597f392999}{clear\_sonic\_logging}}(args)}
+\DoxyCodeLine{231         \textcolor{keywordflow}{return} 0}
+\DoxyCodeLine{232 }
+\DoxyCodeLine{233     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'get\_openconfig\_system\_logging\_count'}:}
+\DoxyCodeLine{234         \mbox{\hyperlink{namespacesonic__cli__logging_a57a99cb174c5d17103ba7170f104b4f0}{get\_openconfig\_system\_logging\_count}}(args)}
+\DoxyCodeLine{235         \textcolor{keywordflow}{return} 0}
+\DoxyCodeLine{236 }
+\DoxyCodeLine{237     response = \mbox{\hyperlink{namespacesonic__cli__logging_a61be1406c382c46e89bfe1294b497fa4}{invoke\_api}}(func, args)}
+\DoxyCodeLine{238 }
+\DoxyCodeLine{239     \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{240         \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{241             print(\textcolor{stringliteral}{"\%Error: Transaction Failure"})}
+\DoxyCodeLine{242     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{243         print(response.error\_message())}
+\DoxyCodeLine{244 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/dca/namespacesonic__cli__logging_acc9b3f6130282c757963ab6b9530f6b7_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__logging_a2d85b0a7ff9d018b6fded1adae3ef1f5}\label{namespacesonic__cli__logging_a2d85b0a7ff9d018b6fded1adae3ef1f5}} 
+\index{sonic\_cli\_logging@{sonic\_cli\_logging}!func@{func}}
+\index{func@{func}!sonic\_cli\_logging@{sonic\_cli\_logging}}
+\doxysubsubsection{\texorpdfstring{func}{func}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+logging.\+func = sys.\+argv\mbox{[}1\mbox{]}}
+
+
+
+sonic\+\_\+cli\+\_\+logging.\+py 파일의 250 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__logging_a8c210e8e423bb5fad2d065e417d0fadc}\label{namespacesonic__cli__logging_a8c210e8e423bb5fad2d065e417d0fadc}} 
+\index{sonic\_cli\_logging@{sonic\_cli\_logging}!LOG\_SERVERS@{LOG\_SERVERS}}
+\index{LOG\_SERVERS@{LOG\_SERVERS}!sonic\_cli\_logging@{sonic\_cli\_logging}}
+\doxysubsubsection{\texorpdfstring{LOG\_SERVERS}{LOG\_SERVERS}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+logging.\+L\+O\+G\+\_\+\+S\+E\+R\+V\+E\+RS = \mbox{\hyperlink{namespacesonic__cli__logging_aece78e4ee53b1b8057e5196a8b952765}{S\+Y\+S\+T\+EM}}+\textquotesingle{}\mbox{\hyperlink{DB-PARSED_8txt_aaf6d45a31558bf3365d003044158db6e}{logging}}/remote-\/servers\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+logging.\+py 파일의 25 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__logging_aece78e4ee53b1b8057e5196a8b952765}\label{namespacesonic__cli__logging_aece78e4ee53b1b8057e5196a8b952765}} 
+\index{sonic\_cli\_logging@{sonic\_cli\_logging}!SYSTEM@{SYSTEM}}
+\index{SYSTEM@{SYSTEM}!sonic\_cli\_logging@{sonic\_cli\_logging}}
+\doxysubsubsection{\texorpdfstring{SYSTEM}{SYSTEM}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+logging.\+S\+Y\+S\+T\+EM = \textquotesingle{}/restconf/data/openconfig-\/system\+:system/\textquotesingle{}}
+
+
+
+sonic\+\_\+cli\+\_\+logging.\+py 파일의 24 번째 라인에서 정의되었습니다.
+

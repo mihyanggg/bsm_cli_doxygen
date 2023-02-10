@@ -1,0 +1,50 @@
+\hypertarget{namespaceshow__config__vxlan}{}\doxysection{show\+\_\+config\+\_\+vxlan 네임스페이스 참조}
+\label{namespaceshow__config__vxlan}\index{show\_config\_vxlan@{show\_config\_vxlan}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceshow__config__vxlan_a42b6602490563627c6cab57d105115ba}{show\+\_\+vlanvrfvnimap}} (render\+\_\+tables)
+\begin{DoxyCompactList}\small\item\em Copyright 2019 Broadcom. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespaceshow__config__vxlan_a42b6602490563627c6cab57d105115ba}\label{namespaceshow__config__vxlan_a42b6602490563627c6cab57d105115ba}} 
+\index{show\_config\_vxlan@{show\_config\_vxlan}!show\_vlanvrfvnimap@{show\_vlanvrfvnimap}}
+\index{show\_vlanvrfvnimap@{show\_vlanvrfvnimap}!show\_config\_vxlan@{show\_config\_vxlan}}
+\doxysubsubsection{\texorpdfstring{show\_vlanvrfvnimap()}{show\_vlanvrfvnimap()}}
+{\footnotesize\ttfamily def show\+\_\+config\+\_\+vxlan.\+show\+\_\+vlanvrfvnimap (\begin{DoxyParamCaption}\item[{}]{render\+\_\+tables }\end{DoxyParamCaption})}
+
+
+
+Copyright 2019 Broadcom. 
+
+The term \char`\"{}\+Broadcom\char`\"{} refers to Broadcom Inc. and/or its subsidiaries.
+
+Licensed under the Apache License, Version 2.\+0 (the \char`\"{}\+License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at \begin{DoxyVerb}http://www.apache.org/licenses/LICENSE-2.0
+\end{DoxyVerb}
+
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\+A\+S I\+S\char`\"{} B\+A\+S\+IS, W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+T\+I\+ES OR C\+O\+N\+D\+I\+T\+I\+O\+NS OF A\+NY K\+I\+ND, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+show\+\_\+config\+\_\+vxlan.\+py 파일의 20 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{20 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceshow__config__vxlan_a42b6602490563627c6cab57d105115ba}{show\_vlanvrfvnimap}}(render\_tables):}
+\DoxyCodeLine{21     cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{22     vrf\_cmd\_str = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/vxlan:sonic-\/vxlan/VXLAN\_TUNNEL\_MAP/VXLAN\_TUNNEL\_MAP\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{25        \textcolor{keywordflow}{for} vlan\_vni\_map \textcolor{keywordflow}{in} render\_tables[\textcolor{stringliteral}{'sonic-\/vxlan:sonic-\/vxlan/VXLAN\_TUNNEL\_MAP/VXLAN\_TUNNEL\_MAP\_LIST'}]:}
+\DoxyCodeLine{26             cmd\_str += \textcolor{stringliteral}{'map vni '} + str(vlan\_vni\_map[\textcolor{stringliteral}{'vni'}]) + \textcolor{stringliteral}{' '} + \textcolor{stringliteral}{'vlan '} + vlan\_vni\_map[\textcolor{stringliteral}{'vlan'}].lstrip(\textcolor{stringliteral}{'Vlan'})  + \textcolor{stringliteral}{';'}}
+\DoxyCodeLine{27     }
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/vrf:sonic-\/vrf/VRF/VRF\_LIST'} \textcolor{keywordflow}{in} render\_tables:}
+\DoxyCodeLine{30         \textcolor{keywordflow}{for} vrf\_vni\_map \textcolor{keywordflow}{in} render\_tables[\textcolor{stringliteral}{'sonic-\/vrf:sonic-\/vrf/VRF/VRF\_LIST'}]:}
+\DoxyCodeLine{31             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'vni'} \textcolor{keywordflow}{in} vrf\_vni\_map \textcolor{keywordflow}{and} vrf\_vni\_map[\textcolor{stringliteral}{'vni'}] != 0:}
+\DoxyCodeLine{32                vrf\_cmd\_str += \textcolor{stringliteral}{'map vni '} + str(vrf\_vni\_map[\textcolor{stringliteral}{'vni'}]) + \textcolor{stringliteral}{' '} + \textcolor{stringliteral}{'vrf '} + vrf\_vni\_map[\textcolor{stringliteral}{'vrf\_name'}] + \textcolor{stringliteral}{';'}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     cmd\_str += vrf\_cmd\_str}
+\DoxyCodeLine{35     \textcolor{keywordflow}{return} \textcolor{stringliteral}{'CB\_SUCCESS'}, cmd\_str}
+
+\end{DoxyCode}

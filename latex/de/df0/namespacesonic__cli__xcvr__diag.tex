@@ -1,0 +1,482 @@
+\hypertarget{namespacesonic__cli__xcvr__diag}{}\doxysection{sonic\+\_\+cli\+\_\+xcvr\+\_\+diag 네임스페이스 참조}
+\label{namespacesonic__cli__xcvr__diag}\index{sonic\_cli\_xcvr\_diag@{sonic\_cli\_xcvr\_diag}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__xcvr__diag_ade9565be348ced50281e8f07755b82c1}{get\+Port\+List\+U\+RI}} (\mbox{\hyperlink{DB-PARSED_8txt_a5a2822eef6a328ee35c9360627065e44}{intf}})
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__xcvr__diag_af6a02c48f7b3fba717b4b4f973d1ab0a}{get\+Xcvr\+Diag\+U\+RI}} (\mbox{\hyperlink{DB-PARSED_8txt_a5a2822eef6a328ee35c9360627065e44}{intf}})
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__xcvr__diag_acdccdc499e060c19e4bb22210f062811}{get\+Loopback\+Config\+U\+RI}} (\mbox{\hyperlink{DB-PARSED_8txt_a5a2822eef6a328ee35c9360627065e44}{intf}}, attr)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__xcvr__diag_a876924f1fc099e6d9562c6fba426d01d}{get\+Pattern\+Config\+U\+RI}} (\mbox{\hyperlink{DB-PARSED_8txt_a5a2822eef6a328ee35c9360627065e44}{intf}}, attr)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__xcvr__diag_a7600dd1862ce9f3063eeb222596440cb}{get\+Intf\+Master}} (\mbox{\hyperlink{DB-PARSED_8txt_a5a2822eef6a328ee35c9360627065e44}{intf}})
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__xcvr__diag_a7e0f5014e5a75f4e88b526e6a5857acc}{get\+Intf\+Breakout\+List}} (\mbox{\hyperlink{DB-PARSED_8txt_a5a2822eef6a328ee35c9360627065e44}{intf}})
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__xcvr__diag_abebb9f3138e33b30b139d4b5e95785e3}{get\+Intf\+List\+With\+Breakouts}} (intf\+List)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__xcvr__diag_a9a5e86abb242ebab1d39218b2cec4bc2}{run}} (func, args)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacesonic__cli__xcvr__diag_a75523c76bd4d68ce7e633f2d156309d7}{aa}} = cc.\+Api\+Client()
+\item 
+string \mbox{\hyperlink{namespacesonic__cli__xcvr__diag_a733b4672744d4e43bea007243dbf5066}{O\+C\+\_\+\+P\+L\+AT}} = \char`\"{}/restconf/data/openconfig-\/platform\+:components/component\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__xcvr__diag_a7e0f5014e5a75f4e88b526e6a5857acc}\label{namespacesonic__cli__xcvr__diag_a7e0f5014e5a75f4e88b526e6a5857acc}} 
+\index{sonic\_cli\_xcvr\_diag@{sonic\_cli\_xcvr\_diag}!getIntfBreakoutList@{getIntfBreakoutList}}
+\index{getIntfBreakoutList@{getIntfBreakoutList}!sonic\_cli\_xcvr\_diag@{sonic\_cli\_xcvr\_diag}}
+\doxysubsubsection{\texorpdfstring{getIntfBreakoutList()}{getIntfBreakoutList()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+xcvr\+\_\+diag.\+get\+Intf\+Breakout\+List (\begin{DoxyParamCaption}\item[{}]{intf }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+xcvr\+\_\+diag.\+py 파일의 64 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{64 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__xcvr__diag_a7e0f5014e5a75f4e88b526e6a5857acc}{getIntfBreakoutList}}(intf):}
+\DoxyCodeLine{65     intfList = [ intf ]}
+\DoxyCodeLine{66     path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/port-\/breakout:sonic-\/port-\/breakout/BREAKOUT\_CFG/BREAKOUT\_CFG\_LIST=\{0\}'}.format(intf.replace(\textcolor{stringliteral}{"/"}, \textcolor{stringliteral}{"\%2F"})))}
+\DoxyCodeLine{67     resp = aa.get(path, \textcolor{keywordtype}{None}, \textcolor{keyword}{False})}
+\DoxyCodeLine{68     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} resp.ok() \textcolor{keywordflow}{or} (resp.content \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}):}
+\DoxyCodeLine{69         \textcolor{keywordflow}{return} intfList}
+\DoxyCodeLine{70     list = resp.content.get(\textcolor{stringliteral}{'sonic-\/port-\/breakout:BREAKOUT\_CFG\_LIST'})}
+\DoxyCodeLine{71     \textcolor{keywordflow}{if} (list \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}) \textcolor{keywordflow}{or} (len(list) < 1):}
+\DoxyCodeLine{72         \textcolor{keywordflow}{return} intfList}
+\DoxyCodeLine{73     lanes = list[0].\mbox{\hyperlink{namespacescripts_1_1json__tools_afd87b9a49f4372aebe9a000a029a76fe}{get}}(\textcolor{stringliteral}{'lanes'})}
+\DoxyCodeLine{74     \textcolor{keywordflow}{if} (lanes \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}) \textcolor{keywordflow}{or} (len(lanes) <= 1):}
+\DoxyCodeLine{75         \textcolor{keywordflow}{return} intfList}
+\DoxyCodeLine{76     lanes\_num = len(lanes.split(\textcolor{stringliteral}{','}))}
+\DoxyCodeLine{77     brkout\_mode = list[0].\mbox{\hyperlink{namespacescripts_1_1json__tools_afd87b9a49f4372aebe9a000a029a76fe}{get}}(\textcolor{stringliteral}{'brkout\_mode'})}
+\DoxyCodeLine{78     \textcolor{keywordflow}{if} (brkout\_mode \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}) \textcolor{keywordflow}{or} (\textcolor{stringliteral}{'x'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} brkout\_mode):}
+\DoxyCodeLine{79         \textcolor{keywordflow}{return} intfList}
+\DoxyCodeLine{80     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{81         brkout\_num = int(brkout\_mode.split(\textcolor{stringliteral}{'x'})[0], 10)}
+\DoxyCodeLine{82     \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{83         brkout\_num = 1}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{86         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'Ethernet'} \textcolor{keywordflow}{in} intf:}
+\DoxyCodeLine{87             base = int(intf[8:], 10)}
+\DoxyCodeLine{88         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'Eth'} \textcolor{keywordflow}{in} intf:}
+\DoxyCodeLine{89             base = int(intf[3:], 10)}
+\DoxyCodeLine{90         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{91             \textcolor{keywordflow}{return} intfList}
+\DoxyCodeLine{92     \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{93         \textcolor{keywordflow}{return} intfList}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95     \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(brkout\_num):}
+\DoxyCodeLine{96         \textcolor{keywordflow}{if} i == 0:}
+\DoxyCodeLine{97             \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{98         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'Ethernet'} \textcolor{keywordflow}{in} intf:}
+\DoxyCodeLine{99             name = \textcolor{stringliteral}{"Ethernet\{0\}"}.format(i * (lanes\_num / brkout\_num) + base)}
+\DoxyCodeLine{100         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{101             name = \textcolor{stringliteral}{"Eth\{0\}"}.format(i * (lanes\_num / brkout\_num) + base)}
+\DoxyCodeLine{102         intfList.append(name)}
+\DoxyCodeLine{103     \textcolor{keywordflow}{return} intfList}
+\DoxyCodeLine{104 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/df0/namespacesonic__cli__xcvr__diag_a7e0f5014e5a75f4e88b526e6a5857acc_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/df0/namespacesonic__cli__xcvr__diag_a7e0f5014e5a75f4e88b526e6a5857acc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__xcvr__diag_abebb9f3138e33b30b139d4b5e95785e3}\label{namespacesonic__cli__xcvr__diag_abebb9f3138e33b30b139d4b5e95785e3}} 
+\index{sonic\_cli\_xcvr\_diag@{sonic\_cli\_xcvr\_diag}!getIntfListWithBreakouts@{getIntfListWithBreakouts}}
+\index{getIntfListWithBreakouts@{getIntfListWithBreakouts}!sonic\_cli\_xcvr\_diag@{sonic\_cli\_xcvr\_diag}}
+\doxysubsubsection{\texorpdfstring{getIntfListWithBreakouts()}{getIntfListWithBreakouts()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+xcvr\+\_\+diag.\+get\+Intf\+List\+With\+Breakouts (\begin{DoxyParamCaption}\item[{}]{intf\+List }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+xcvr\+\_\+diag.\+py 파일의 105 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{105 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__xcvr__diag_abebb9f3138e33b30b139d4b5e95785e3}{getIntfListWithBreakouts}}(intfList):}
+\DoxyCodeLine{106     list = []}
+\DoxyCodeLine{107     \textcolor{keywordflow}{for} intf \textcolor{keywordflow}{in} intfList:}
+\DoxyCodeLine{108         root = \mbox{\hyperlink{namespacesonic__cli__xcvr__diag_a7600dd1862ce9f3063eeb222596440cb}{getIntfMaster}}(intf)}
+\DoxyCodeLine{109         \textcolor{keywordflow}{for} port \textcolor{keywordflow}{in} \mbox{\hyperlink{namespacesonic__cli__xcvr__diag_a7e0f5014e5a75f4e88b526e6a5857acc}{getIntfBreakoutList}}(root):}
+\DoxyCodeLine{110             \textcolor{keywordflow}{if} port \textcolor{keywordflow}{in} list:}
+\DoxyCodeLine{111                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{112             list.append(port)}
+\DoxyCodeLine{113     \textcolor{keywordflow}{return} natsorted(list)}
+\DoxyCodeLine{114 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/df0/namespacesonic__cli__xcvr__diag_abebb9f3138e33b30b139d4b5e95785e3_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/df0/namespacesonic__cli__xcvr__diag_abebb9f3138e33b30b139d4b5e95785e3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__xcvr__diag_a7600dd1862ce9f3063eeb222596440cb}\label{namespacesonic__cli__xcvr__diag_a7600dd1862ce9f3063eeb222596440cb}} 
+\index{sonic\_cli\_xcvr\_diag@{sonic\_cli\_xcvr\_diag}!getIntfMaster@{getIntfMaster}}
+\index{getIntfMaster@{getIntfMaster}!sonic\_cli\_xcvr\_diag@{sonic\_cli\_xcvr\_diag}}
+\doxysubsubsection{\texorpdfstring{getIntfMaster()}{getIntfMaster()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+xcvr\+\_\+diag.\+get\+Intf\+Master (\begin{DoxyParamCaption}\item[{}]{intf }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+xcvr\+\_\+diag.\+py 파일의 53 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{53 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__xcvr__diag_a7600dd1862ce9f3063eeb222596440cb}{getIntfMaster}}(intf):}
+\DoxyCodeLine{54     path = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/port-\/breakout:sonic-\/port-\/breakout/BREAKOUT\_PORTS/BREAKOUT\_PORTS\_LIST=\{0\}'}.format(intf.replace(\textcolor{stringliteral}{"/"}, \textcolor{stringliteral}{"\%2F"})))}
+\DoxyCodeLine{55     resp = aa.get(path, \textcolor{keywordtype}{None}, \textcolor{keyword}{False})}
+\DoxyCodeLine{56     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} resp.ok() \textcolor{keywordflow}{or} (resp.content \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}):}
+\DoxyCodeLine{57         \textcolor{keywordflow}{return} intf}
+\DoxyCodeLine{58     list = resp.content.get(\textcolor{stringliteral}{'sonic-\/port-\/breakout:BREAKOUT\_PORTS\_LIST'})}
+\DoxyCodeLine{59     \textcolor{keywordflow}{if} (list \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}) \textcolor{keywordflow}{or} (len(list) < 1):}
+\DoxyCodeLine{60         \textcolor{keywordflow}{return} intf}
+\DoxyCodeLine{61     root = list[0].\mbox{\hyperlink{namespacescripts_1_1json__tools_afd87b9a49f4372aebe9a000a029a76fe}{get}}(\textcolor{stringliteral}{'master'})}
+\DoxyCodeLine{62     \textcolor{keywordflow}{return} intf \textcolor{keywordflow}{if} (root \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}) \textcolor{keywordflow}{else} root}
+\DoxyCodeLine{63 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/df0/namespacesonic__cli__xcvr__diag_a7600dd1862ce9f3063eeb222596440cb_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/df0/namespacesonic__cli__xcvr__diag_a7600dd1862ce9f3063eeb222596440cb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__xcvr__diag_acdccdc499e060c19e4bb22210f062811}\label{namespacesonic__cli__xcvr__diag_acdccdc499e060c19e4bb22210f062811}} 
+\index{sonic\_cli\_xcvr\_diag@{sonic\_cli\_xcvr\_diag}!getLoopbackConfigURI@{getLoopbackConfigURI}}
+\index{getLoopbackConfigURI@{getLoopbackConfigURI}!sonic\_cli\_xcvr\_diag@{sonic\_cli\_xcvr\_diag}}
+\doxysubsubsection{\texorpdfstring{getLoopbackConfigURI()}{getLoopbackConfigURI()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+xcvr\+\_\+diag.\+get\+Loopback\+Config\+U\+RI (\begin{DoxyParamCaption}\item[{}]{intf,  }\item[{}]{attr }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+xcvr\+\_\+diag.\+py 파일의 45 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{45 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__xcvr__diag_acdccdc499e060c19e4bb22210f062811}{getLoopbackConfigURI}}(intf, attr):}
+\DoxyCodeLine{46     intf = intf.replace(\textcolor{stringliteral}{"/"}, \textcolor{stringliteral}{"\%2F"})}
+\DoxyCodeLine{47     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"\{0\}=\{1\}/openconfig-\/platform-\/transceiver:transceiver/openconfig-\/platform-\/transceiver-\/ext:diagnostics/loopbacks/config/\{2\}"}.format(OC\_PLAT, intf, attr)}
+\DoxyCodeLine{48 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/df0/namespacesonic__cli__xcvr__diag_acdccdc499e060c19e4bb22210f062811_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__xcvr__diag_a876924f1fc099e6d9562c6fba426d01d}\label{namespacesonic__cli__xcvr__diag_a876924f1fc099e6d9562c6fba426d01d}} 
+\index{sonic\_cli\_xcvr\_diag@{sonic\_cli\_xcvr\_diag}!getPatternConfigURI@{getPatternConfigURI}}
+\index{getPatternConfigURI@{getPatternConfigURI}!sonic\_cli\_xcvr\_diag@{sonic\_cli\_xcvr\_diag}}
+\doxysubsubsection{\texorpdfstring{getPatternConfigURI()}{getPatternConfigURI()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+xcvr\+\_\+diag.\+get\+Pattern\+Config\+U\+RI (\begin{DoxyParamCaption}\item[{}]{intf,  }\item[{}]{attr }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+xcvr\+\_\+diag.\+py 파일의 49 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{49 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__xcvr__diag_a876924f1fc099e6d9562c6fba426d01d}{getPatternConfigURI}}(intf, attr):}
+\DoxyCodeLine{50     intf = intf.replace(\textcolor{stringliteral}{"/"}, \textcolor{stringliteral}{"\%2F"})}
+\DoxyCodeLine{51     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"\{0\}=\{1\}/openconfig-\/platform-\/transceiver:transceiver/openconfig-\/platform-\/transceiver-\/ext:diagnostics/patterns/config/\{2\}"}.format(OC\_PLAT, intf, attr)}
+\DoxyCodeLine{52 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/df0/namespacesonic__cli__xcvr__diag_a876924f1fc099e6d9562c6fba426d01d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__xcvr__diag_ade9565be348ced50281e8f07755b82c1}\label{namespacesonic__cli__xcvr__diag_ade9565be348ced50281e8f07755b82c1}} 
+\index{sonic\_cli\_xcvr\_diag@{sonic\_cli\_xcvr\_diag}!getPortListURI@{getPortListURI}}
+\index{getPortListURI@{getPortListURI}!sonic\_cli\_xcvr\_diag@{sonic\_cli\_xcvr\_diag}}
+\doxysubsubsection{\texorpdfstring{getPortListURI()}{getPortListURI()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+xcvr\+\_\+diag.\+get\+Port\+List\+U\+RI (\begin{DoxyParamCaption}\item[{}]{intf }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+xcvr\+\_\+diag.\+py 파일의 35 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{35 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__xcvr__diag_ade9565be348ced50281e8f07755b82c1}{getPortListURI}}(intf):}
+\DoxyCodeLine{36     uri = \textcolor{stringliteral}{"/restconf/data/sonic-\/port:sonic-\/port/PORT/PORT\_LIST"}}
+\DoxyCodeLine{37     \textcolor{keywordflow}{if} intf \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None} \textcolor{keywordflow}{and} len(intf) > 0:}
+\DoxyCodeLine{38         uri += \textcolor{stringliteral}{"=\{0\}"}.format(intf.replace(\textcolor{stringliteral}{"/"}, \textcolor{stringliteral}{"\%2F"}))}
+\DoxyCodeLine{39     \textcolor{keywordflow}{return} uri}
+\DoxyCodeLine{40 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/df0/namespacesonic__cli__xcvr__diag_ade9565be348ced50281e8f07755b82c1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__xcvr__diag_af6a02c48f7b3fba717b4b4f973d1ab0a}\label{namespacesonic__cli__xcvr__diag_af6a02c48f7b3fba717b4b4f973d1ab0a}} 
+\index{sonic\_cli\_xcvr\_diag@{sonic\_cli\_xcvr\_diag}!getXcvrDiagURI@{getXcvrDiagURI}}
+\index{getXcvrDiagURI@{getXcvrDiagURI}!sonic\_cli\_xcvr\_diag@{sonic\_cli\_xcvr\_diag}}
+\doxysubsubsection{\texorpdfstring{getXcvrDiagURI()}{getXcvrDiagURI()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+xcvr\+\_\+diag.\+get\+Xcvr\+Diag\+U\+RI (\begin{DoxyParamCaption}\item[{}]{intf }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+xcvr\+\_\+diag.\+py 파일의 41 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{41 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__xcvr__diag_af6a02c48f7b3fba717b4b4f973d1ab0a}{getXcvrDiagURI}}(intf):}
+\DoxyCodeLine{42     intf = intf.replace(\textcolor{stringliteral}{"/"}, \textcolor{stringliteral}{"\%2F"})}
+\DoxyCodeLine{43     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"\{0\}=\{1\}/openconfig-\/platform-\/transceiver:transceiver/openconfig-\/platform-\/transceiver-\/ext:diagnostics"}.format(OC\_PLAT, intf)}
+\DoxyCodeLine{44 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/df0/namespacesonic__cli__xcvr__diag_af6a02c48f7b3fba717b4b4f973d1ab0a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__xcvr__diag_a9a5e86abb242ebab1d39218b2cec4bc2}\label{namespacesonic__cli__xcvr__diag_a9a5e86abb242ebab1d39218b2cec4bc2}} 
+\index{sonic\_cli\_xcvr\_diag@{sonic\_cli\_xcvr\_diag}!run@{run}}
+\index{run@{run}!sonic\_cli\_xcvr\_diag@{sonic\_cli\_xcvr\_diag}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+xcvr\+\_\+diag.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+xcvr\+\_\+diag.\+py 파일의 115 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{115 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__xcvr__diag_a9a5e86abb242ebab1d39218b2cec4bc2}{run}}(func, args):}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117     \textcolor{comment}{\# omit pipe arguments}}
+\DoxyCodeLine{118     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'\(\backslash\)\(\backslash\)|'} \textcolor{keywordflow}{in} args:}
+\DoxyCodeLine{119         args = args[:args.index(\textcolor{stringliteral}{'\(\backslash\)\(\backslash\)|'})]}
+\DoxyCodeLine{120     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'|'} \textcolor{keywordflow}{in} args:}
+\DoxyCodeLine{121         args = args[:args.index(\textcolor{stringliteral}{'|'})]}
+\DoxyCodeLine{122     \textcolor{comment}{\# a workaround for 'do' command}}
+\DoxyCodeLine{123     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{"do"}:}
+\DoxyCodeLine{124         func = args[0]}
+\DoxyCodeLine{125         args = args[1:]}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127     path = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{128     template = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{129     last = len(args)}
+\DoxyCodeLine{130     if\_name = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{131     if\_list = []}
+\DoxyCodeLine{132     xcvr\_tmp = OrderedDict()}
+\DoxyCodeLine{133     xcvrInfo = OrderedDict()}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135     \textcolor{keywordflow}{for} idx \textcolor{keywordflow}{in} range(0, last):}
+\DoxyCodeLine{136         \textcolor{comment}{\# pull out the interface name}}
+\DoxyCodeLine{137         \textcolor{keywordflow}{if} (if\_name \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}) \textcolor{keywordflow}{and} args[idx].startswith(\textcolor{stringliteral}{"Eth"}):}
+\DoxyCodeLine{138             if\_name = args[idx]}
+\DoxyCodeLine{139             \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{140         func += \textcolor{stringliteral}{"-\/"}}
+\DoxyCodeLine{141         func += args[idx]}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143     \textcolor{comment}{\#print ("\#\#\# func='\{0\}'".format(func))}}
+\DoxyCodeLine{144     \textcolor{comment}{\#print ("\#\#\# intf='\{0\}'".format(if\_name))}}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146     path = cc.Path(\mbox{\hyperlink{namespacesonic__cli__xcvr__diag_ade9565be348ced50281e8f07755b82c1}{getPortListURI}}(if\_name))}
+\DoxyCodeLine{147     resp = aa.get(path, \textcolor{keywordtype}{None}, \textcolor{keyword}{False})}
+\DoxyCodeLine{148     \textcolor{keywordflow}{if} resp.ok() \textcolor{keywordflow}{and} (resp.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}) \textcolor{keywordflow}{and} (\textcolor{stringliteral}{'sonic-\/port:PORT\_LIST'} \textcolor{keywordflow}{in} resp.content):}
+\DoxyCodeLine{149         \textcolor{keywordflow}{for} intf \textcolor{keywordflow}{in} resp.content[\textcolor{stringliteral}{'sonic-\/port:PORT\_LIST'}]:}
+\DoxyCodeLine{150             name = intf.get(\textcolor{stringliteral}{'ifname'})}
+\DoxyCodeLine{151             \textcolor{keywordflow}{if} (name \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}) \textcolor{keywordflow}{or} (\textcolor{keywordflow}{not} name.startswith(\textcolor{stringliteral}{'Eth'})):}
+\DoxyCodeLine{152                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{153             if\_list.append(name)}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155     \textcolor{keywordflow}{if} len(if\_list) < 1:}
+\DoxyCodeLine{156         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158     \textcolor{comment}{\# Initialize the xcvrInfo}}
+\DoxyCodeLine{159     \textcolor{keywordflow}{for} intf \textcolor{keywordflow}{in} natsorted(if\_list):}
+\DoxyCodeLine{160         xcvrInfo[intf] = \{\}}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162     \textcolor{keywordflow}{if} func.startswith(\textcolor{stringliteral}{'show-\/'}):}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164         \textcolor{keywordflow}{for} intf \textcolor{keywordflow}{in} natsorted(if\_list):}
+\DoxyCodeLine{165             path = cc.Path(\mbox{\hyperlink{namespacesonic__cli__xcvr__diag_af6a02c48f7b3fba717b4b4f973d1ab0a}{getXcvrDiagURI}}(intf))}
+\DoxyCodeLine{166             resp = aa.get(path)}
+\DoxyCodeLine{167             \textcolor{keywordflow}{if} resp.ok() \textcolor{keywordflow}{and} (resp.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}):}
+\DoxyCodeLine{168                 \textcolor{keywordflow}{for} key \textcolor{keywordflow}{in} resp.content.keys():}
+\DoxyCodeLine{169                     xcvrInfo[intf].update(resp.content[key])}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{171         \textcolor{comment}{\#print("DEBUG: \{0\}".format(json.dumps(xcvrInfo, indent=4)))}}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{173         \textcolor{keywordflow}{if} func.find(\textcolor{stringliteral}{"show-\/interface-\/transceiver-\/diagnostics-\/capability"}) >= 0:}
+\DoxyCodeLine{174             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'summary'} \textcolor{keywordflow}{in} func:}
+\DoxyCodeLine{175                 template = \textcolor{stringliteral}{"show\_interface\_xcvr\_diag\_capability\_summary.j2"}}
+\DoxyCodeLine{176             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{177                 template = \textcolor{stringliteral}{"show\_interface\_xcvr\_diag\_capability.j2"}}
+\DoxyCodeLine{178         \textcolor{keywordflow}{elif} func.find(\textcolor{stringliteral}{"show-\/interface-\/transceiver-\/diagnostics-\/status"}) >= 0:}
+\DoxyCodeLine{179             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'summary'} \textcolor{keywordflow}{in} func:}
+\DoxyCodeLine{180                 template = \textcolor{stringliteral}{"show\_interface\_xcvr\_diag\_status\_summary.j2"}}
+\DoxyCodeLine{181             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{182                 template = \textcolor{stringliteral}{"show\_interface\_xcvr\_diag\_status.j2"}}
+\DoxyCodeLine{183         \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(template, xcvrInfo)}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{185     \textcolor{keywordflow}{elif} func.find(\textcolor{stringliteral}{'interface-\/transceiver-\/diagnostics-\/loopback'}) >= 0:}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187         \textcolor{keywordflow}{for} nm \textcolor{keywordflow}{in} \mbox{\hyperlink{namespacesonic__cli__xcvr__diag_abebb9f3138e33b30b139d4b5e95785e3}{getIntfListWithBreakouts}}(if\_list):}
+\DoxyCodeLine{188             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'media-\/side-\/input'} \textcolor{keywordflow}{in} func:}
+\DoxyCodeLine{189                 keypath = cc.Path(\mbox{\hyperlink{namespacesonic__cli__xcvr__diag_acdccdc499e060c19e4bb22210f062811}{getLoopbackConfigURI}}(nm, \textcolor{stringliteral}{'lb-\/media-\/input-\/enabled'}))}
+\DoxyCodeLine{190                 \textcolor{keywordflow}{if} func.startswith(\textcolor{stringliteral}{'no-\/'}):}
+\DoxyCodeLine{191                     body = \{ \textcolor{stringliteral}{"openconfig-\/platform-\/transceiver-\/ext:lb-\/media-\/input-\/enabled"}: \textcolor{keyword}{False} \}}
+\DoxyCodeLine{192                     aa.patch(keypath, body)}
+\DoxyCodeLine{193                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{194                     body = \{ \textcolor{stringliteral}{"openconfig-\/platform-\/transceiver-\/ext:lb-\/media-\/input-\/enabled"}: \textcolor{keyword}{True} \}}
+\DoxyCodeLine{195                     aa.patch(keypath, body)}
+\DoxyCodeLine{196             \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'media-\/side-\/output'} \textcolor{keywordflow}{in} func:}
+\DoxyCodeLine{197                 keypath = cc.Path(\mbox{\hyperlink{namespacesonic__cli__xcvr__diag_acdccdc499e060c19e4bb22210f062811}{getLoopbackConfigURI}}(nm, \textcolor{stringliteral}{'lb-\/media-\/output-\/enabled'}))}
+\DoxyCodeLine{198                 \textcolor{keywordflow}{if} func.startswith(\textcolor{stringliteral}{'no-\/'}):}
+\DoxyCodeLine{199                     body = \{ \textcolor{stringliteral}{"openconfig-\/platform-\/transceiver-\/ext:lb-\/media-\/output-\/enabled"}: \textcolor{keyword}{False} \}}
+\DoxyCodeLine{200                     aa.patch(keypath, body)}
+\DoxyCodeLine{201                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{202                     body = \{ \textcolor{stringliteral}{"openconfig-\/platform-\/transceiver-\/ext:lb-\/media-\/output-\/enabled"}: \textcolor{keyword}{True} \}}
+\DoxyCodeLine{203                     aa.patch(keypath, body)}
+\DoxyCodeLine{204             \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'host-\/side-\/input'} \textcolor{keywordflow}{in} func:}
+\DoxyCodeLine{205                 keypath = cc.Path(\mbox{\hyperlink{namespacesonic__cli__xcvr__diag_acdccdc499e060c19e4bb22210f062811}{getLoopbackConfigURI}}(nm, \textcolor{stringliteral}{'lb-\/host-\/input-\/enabled'}))}
+\DoxyCodeLine{206                 \textcolor{keywordflow}{if} func.startswith(\textcolor{stringliteral}{'no-\/'}):}
+\DoxyCodeLine{207                     body = \{ \textcolor{stringliteral}{"openconfig-\/platform-\/transceiver-\/ext:lb-\/host-\/input-\/enabled"}: \textcolor{keyword}{False} \}}
+\DoxyCodeLine{208                     aa.patch(keypath, body)}
+\DoxyCodeLine{209                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{210                     body = \{ \textcolor{stringliteral}{"openconfig-\/platform-\/transceiver-\/ext:lb-\/host-\/input-\/enabled"}: \textcolor{keyword}{True} \}}
+\DoxyCodeLine{211                     aa.patch(keypath, body)}
+\DoxyCodeLine{212             \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'host-\/side-\/output'} \textcolor{keywordflow}{in} func:}
+\DoxyCodeLine{213                 keypath = cc.Path(\mbox{\hyperlink{namespacesonic__cli__xcvr__diag_acdccdc499e060c19e4bb22210f062811}{getLoopbackConfigURI}}(nm, \textcolor{stringliteral}{'lb-\/host-\/output-\/enabled'}))}
+\DoxyCodeLine{214                 \textcolor{keywordflow}{if} func.startswith(\textcolor{stringliteral}{'no-\/'}):}
+\DoxyCodeLine{215                     body = \{ \textcolor{stringliteral}{"openconfig-\/platform-\/transceiver-\/ext:lb-\/host-\/output-\/enabled"}: \textcolor{keyword}{False} \}}
+\DoxyCodeLine{216                     aa.patch(keypath, body)}
+\DoxyCodeLine{217                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{218                     body = \{ \textcolor{stringliteral}{"openconfig-\/platform-\/transceiver-\/ext:lb-\/host-\/output-\/enabled"}: \textcolor{keyword}{True} \}}
+\DoxyCodeLine{219                     aa.patch(keypath, body)}
+\DoxyCodeLine{220             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{221                 print(\textcolor{stringliteral}{"Unknown diagnostic loopback control: \{0\}"}.format(func))}
+\DoxyCodeLine{222 }
+\DoxyCodeLine{223     \textcolor{keywordflow}{elif} func.find(\textcolor{stringliteral}{'interface-\/transceiver-\/diagnostics-\/pattern'}) >= 0:}
+\DoxyCodeLine{224 }
+\DoxyCodeLine{225         \textcolor{keywordflow}{for} nm \textcolor{keywordflow}{in} \mbox{\hyperlink{namespacesonic__cli__xcvr__diag_abebb9f3138e33b30b139d4b5e95785e3}{getIntfListWithBreakouts}}(if\_list):}
+\DoxyCodeLine{226             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'checker-\/host'} \textcolor{keywordflow}{in} func:}
+\DoxyCodeLine{227                 keypath = cc.Path(\mbox{\hyperlink{namespacesonic__cli__xcvr__diag_a876924f1fc099e6d9562c6fba426d01d}{getPatternConfigURI}}(nm, \textcolor{stringliteral}{'pattern-\/chk-\/host-\/enabled'}))}
+\DoxyCodeLine{228                 \textcolor{keywordflow}{if} func.startswith(\textcolor{stringliteral}{'no-\/'}):}
+\DoxyCodeLine{229                     body = \{ \textcolor{stringliteral}{"openconfig-\/platform-\/transceiver-\/ext:pattern-\/chk-\/host-\/enabled"}: \textcolor{keyword}{False} \}}
+\DoxyCodeLine{230                     aa.patch(keypath, body)}
+\DoxyCodeLine{231                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{232                     body = \{ \textcolor{stringliteral}{"openconfig-\/platform-\/transceiver-\/ext:pattern-\/chk-\/host-\/enabled"}: \textcolor{keyword}{True} \}}
+\DoxyCodeLine{233                     aa.patch(keypath, body)}
+\DoxyCodeLine{234             \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'checker-\/media'} \textcolor{keywordflow}{in} func:}
+\DoxyCodeLine{235                 keypath = cc.Path(\mbox{\hyperlink{namespacesonic__cli__xcvr__diag_a876924f1fc099e6d9562c6fba426d01d}{getPatternConfigURI}}(nm, \textcolor{stringliteral}{'pattern-\/chk-\/media-\/enabled'}))}
+\DoxyCodeLine{236                 \textcolor{keywordflow}{if} func.startswith(\textcolor{stringliteral}{'no-\/'}):}
+\DoxyCodeLine{237                     body = \{ \textcolor{stringliteral}{"openconfig-\/platform-\/transceiver-\/ext:pattern-\/chk-\/media-\/enabled"}: \textcolor{keyword}{False} \}}
+\DoxyCodeLine{238                     aa.patch(keypath, body)}
+\DoxyCodeLine{239                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{240                     body = \{ \textcolor{stringliteral}{"openconfig-\/platform-\/transceiver-\/ext:pattern-\/chk-\/media-\/enabled"}: \textcolor{keyword}{True} \}}
+\DoxyCodeLine{241                     aa.patch(keypath, body)}
+\DoxyCodeLine{242             \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'generator-\/host'} \textcolor{keywordflow}{in} func:}
+\DoxyCodeLine{243                 keypath = cc.Path(\mbox{\hyperlink{namespacesonic__cli__xcvr__diag_a876924f1fc099e6d9562c6fba426d01d}{getPatternConfigURI}}(nm, \textcolor{stringliteral}{'pattern-\/gen-\/host-\/enabled'}))}
+\DoxyCodeLine{244                 \textcolor{keywordflow}{if} func.startswith(\textcolor{stringliteral}{'no-\/'}):}
+\DoxyCodeLine{245                     body = \{ \textcolor{stringliteral}{"openconfig-\/platform-\/transceiver-\/ext:pattern-\/gen-\/host-\/enabled"}: \textcolor{keyword}{False} \}}
+\DoxyCodeLine{246                     aa.patch(keypath, body)}
+\DoxyCodeLine{247                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{248                     body = \{ \textcolor{stringliteral}{"openconfig-\/platform-\/transceiver-\/ext:pattern-\/gen-\/host-\/enabled"}: \textcolor{keyword}{True} \}}
+\DoxyCodeLine{249                     aa.patch(keypath, body)}
+\DoxyCodeLine{250             \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'generator-\/media'} \textcolor{keywordflow}{in} func:}
+\DoxyCodeLine{251                 keypath = cc.Path(\mbox{\hyperlink{namespacesonic__cli__xcvr__diag_a876924f1fc099e6d9562c6fba426d01d}{getPatternConfigURI}}(nm, \textcolor{stringliteral}{'pattern-\/gen-\/media-\/enabled'}))}
+\DoxyCodeLine{252                 \textcolor{keywordflow}{if} func.startswith(\textcolor{stringliteral}{'no-\/'}):}
+\DoxyCodeLine{253                     body = \{ \textcolor{stringliteral}{"openconfig-\/platform-\/transceiver-\/ext:pattern-\/gen-\/media-\/enabled"}: \textcolor{keyword}{False} \}}
+\DoxyCodeLine{254                     aa.patch(keypath, body)}
+\DoxyCodeLine{255                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{256                     body = \{ \textcolor{stringliteral}{"openconfig-\/platform-\/transceiver-\/ext:pattern-\/gen-\/media-\/enabled"}: \textcolor{keyword}{True} \}}
+\DoxyCodeLine{257                     aa.patch(keypath, body)}
+\DoxyCodeLine{258             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{259                 print(\textcolor{stringliteral}{"Unknown diagnostic pattern control: \{0\}"}.format(func))}
+\DoxyCodeLine{260 }
+\DoxyCodeLine{261     \textcolor{keywordflow}{return}}
+\DoxyCodeLine{262 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/df0/namespacesonic__cli__xcvr__diag_a9a5e86abb242ebab1d39218b2cec4bc2_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__xcvr__diag_a75523c76bd4d68ce7e633f2d156309d7}\label{namespacesonic__cli__xcvr__diag_a75523c76bd4d68ce7e633f2d156309d7}} 
+\index{sonic\_cli\_xcvr\_diag@{sonic\_cli\_xcvr\_diag}!aa@{aa}}
+\index{aa@{aa}!sonic\_cli\_xcvr\_diag@{sonic\_cli\_xcvr\_diag}}
+\doxysubsubsection{\texorpdfstring{aa}{aa}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+xcvr\+\_\+diag.\+aa = cc.\+Api\+Client()}
+
+
+
+sonic\+\_\+cli\+\_\+xcvr\+\_\+diag.\+py 파일의 32 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacesonic__cli__xcvr__diag_a733b4672744d4e43bea007243dbf5066}\label{namespacesonic__cli__xcvr__diag_a733b4672744d4e43bea007243dbf5066}} 
+\index{sonic\_cli\_xcvr\_diag@{sonic\_cli\_xcvr\_diag}!OC\_PLAT@{OC\_PLAT}}
+\index{OC\_PLAT@{OC\_PLAT}!sonic\_cli\_xcvr\_diag@{sonic\_cli\_xcvr\_diag}}
+\doxysubsubsection{\texorpdfstring{OC\_PLAT}{OC\_PLAT}}
+{\footnotesize\ttfamily string sonic\+\_\+cli\+\_\+xcvr\+\_\+diag.\+O\+C\+\_\+\+P\+L\+AT = \char`\"{}/restconf/data/openconfig-\/platform\+:components/component\char`\"{}}
+
+
+
+sonic\+\_\+cli\+\_\+xcvr\+\_\+diag.\+py 파일의 33 번째 라인에서 정의되었습니다.
+

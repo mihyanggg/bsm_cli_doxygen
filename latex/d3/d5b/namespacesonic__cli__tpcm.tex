@@ -1,0 +1,318 @@
+\hypertarget{namespacesonic__cli__tpcm}{}\doxysection{sonic\+\_\+cli\+\_\+tpcm 네임스페이스 참조}
+\label{namespacesonic__cli__tpcm}\index{sonic\_cli\_tpcm@{sonic\_cli\_tpcm}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__tpcm_a8ef3b137b7bbe92b9c32fe4a02ed8ede}{run\+\_\+tpcm\+\_\+list}} (argv)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__tpcm_acebedbe54965aec1b2900576014304a7}{build\+\_\+body}} (func, method, argv)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__tpcm_a4ea4470d7906f6185de86e50c9fe0702}{run\+\_\+tpcm\+\_\+install}} (func, method, argv)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__tpcm_a2f4e02dacf8b5b52320ccfcd22f0e9fb}{run\+\_\+tpcm\+\_\+upgrade}} (func, method, argv)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__tpcm_a7335651ceb26b513abdf9c892505536c}{run\+\_\+tpcm\+\_\+uninstall}} (func, method, argv)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__tpcm_a620240f3f703f43b9cc50d47e5a20616}{run}} (func, args)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__tpcm_acebedbe54965aec1b2900576014304a7}\label{namespacesonic__cli__tpcm_acebedbe54965aec1b2900576014304a7}} 
+\index{sonic\_cli\_tpcm@{sonic\_cli\_tpcm}!build\_body@{build\_body}}
+\index{build\_body@{build\_body}!sonic\_cli\_tpcm@{sonic\_cli\_tpcm}}
+\doxysubsubsection{\texorpdfstring{build\_body()}{build\_body()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+tpcm.\+build\+\_\+body (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{method,  }\item[{}]{argv }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+tpcm.\+py 파일의 20 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{20 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__tpcm_acebedbe54965aec1b2900576014304a7}{build\_body}}(func, method, argv):}
+\DoxyCodeLine{21     body=\textcolor{stringliteral}{""}}
+\DoxyCodeLine{22     args\_list=[]}
+\DoxyCodeLine{23     parameters = \{ \textcolor{stringliteral}{"args"} : \textcolor{stringliteral}{"string"},}
+\DoxyCodeLine{24                    \textcolor{stringliteral}{"skip"} : \textcolor{stringliteral}{"string"},}
+\DoxyCodeLine{25                    \textcolor{stringliteral}{"docker-\/name"} : \textcolor{stringliteral}{"string"},}
+\DoxyCodeLine{26                    \textcolor{stringliteral}{"image-\/name"} : \textcolor{stringliteral}{"string"},}
+\DoxyCodeLine{27                    \textcolor{stringliteral}{"remote-\/server"} : \textcolor{stringliteral}{"string"},}
+\DoxyCodeLine{28                    \textcolor{stringliteral}{"username"} : \textcolor{stringliteral}{"string"},}
+\DoxyCodeLine{29                    \textcolor{stringliteral}{"password"} : \textcolor{stringliteral}{"string"} \}}
+\DoxyCodeLine{30     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'tpcm\_uninstall'}:}
+\DoxyCodeLine{31        \textcolor{keywordflow}{if} argv[2] != \textcolor{stringliteral}{'null'}:}
+\DoxyCodeLine{32           parameters[\textcolor{stringliteral}{"skip"}] = argv[2]}
+\DoxyCodeLine{33        parameters[\textcolor{stringliteral}{"docker-\/name"}] = argv[0]}
+\DoxyCodeLine{34     \textcolor{keywordflow}{else}: }
+\DoxyCodeLine{35        \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'tpcm\_install'}:}
+\DoxyCodeLine{36           parameters[\textcolor{stringliteral}{"docker-\/name"}] = argv[4]}
+\DoxyCodeLine{37           \textcolor{keywordflow}{if} \textcolor{stringliteral}{'args'} \textcolor{keywordflow}{in} argv:}
+\DoxyCodeLine{38               value\_index = argv.index(\textcolor{stringliteral}{'args'})+1}
+\DoxyCodeLine{39               args\_list = argv[value\_index:]}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41        \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'tpcm\_upgrade'}:}
+\DoxyCodeLine{42           parameters[\textcolor{stringliteral}{"docker-\/name"}] = argv[4]}
+\DoxyCodeLine{43           \textcolor{keywordflow}{if} \textcolor{stringliteral}{'skip\_data\_migration'} \textcolor{keywordflow}{in} argv:}
+\DoxyCodeLine{44               value\_index = argv.index(\textcolor{stringliteral}{'skip\_data\_migration'}) + 1}
+\DoxyCodeLine{45               parameters[\textcolor{stringliteral}{"skip"}] = argv[value\_index]}
+\DoxyCodeLine{46           \textcolor{keywordflow}{if} \textcolor{stringliteral}{'args'} \textcolor{keywordflow}{in} argv:}
+\DoxyCodeLine{47               value\_index = argv.index(\textcolor{stringliteral}{'args'}) + 1}
+\DoxyCodeLine{48               \textcolor{keywordflow}{if} \textcolor{stringliteral}{'"'} \textcolor{keywordflow}{in} argv[value\_index]:}
+\DoxyCodeLine{49                    args\_list = argv[value\_index:]}
+\DoxyCodeLine{50               \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{51                    args\_list = argv[value\_index]}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     }
+\DoxyCodeLine{54        \textcolor{keywordflow}{if} method == \textcolor{stringliteral}{'scp'} \textcolor{keywordflow}{or} method == \textcolor{stringliteral}{'sftp'}:}
+\DoxyCodeLine{55            parameters[\textcolor{stringliteral}{'remote-\/server'}]=argv[6]}
+\DoxyCodeLine{56            parameters[\textcolor{stringliteral}{"username"}] = argv[argv.index(\textcolor{stringliteral}{'username'}) + 1]}
+\DoxyCodeLine{57            parameters[\textcolor{stringliteral}{"password"}] = argv[argv.index(\textcolor{stringliteral}{'password'}) + 1]}
+\DoxyCodeLine{58            parameters[\textcolor{stringliteral}{"image-\/name"}] = argv[argv.index(\textcolor{stringliteral}{'filename'}) + 1]}
+\DoxyCodeLine{59        \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{60            parameters[\textcolor{stringliteral}{"image-\/name"}] = argv[6] }
+\DoxyCodeLine{61        }
+\DoxyCodeLine{62        \textcolor{keywordflow}{if} args\_list:}
+\DoxyCodeLine{63            parameters[\textcolor{stringliteral}{'args'}]=  \textcolor{stringliteral}{" "}.join(args\_list)}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'tpcm\_install'}:}
+\DoxyCodeLine{66        body = \{\textcolor{stringliteral}{"openconfig-\/system-\/ext:input"}:\{\textcolor{stringliteral}{"docker-\/name"}:parameters[\textcolor{stringliteral}{'docker-\/name'}],\textcolor{stringliteral}{"image-\/source"}:method,\textcolor{stringliteral}{"image-\/name"}:parameters[\textcolor{stringliteral}{'image-\/name'}],\textcolor{stringliteral}{"remote-\/server"}:parameters[\textcolor{stringliteral}{'remote-\/server'}],\textcolor{stringliteral}{"username"}:parameters[\textcolor{stringliteral}{'username'}],\textcolor{stringliteral}{"password"}:parameters[\textcolor{stringliteral}{'password'}],\textcolor{stringliteral}{"args"}:parameters[\textcolor{stringliteral}{'args'}]\}\}}
+\DoxyCodeLine{67  }
+\DoxyCodeLine{68     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'tpcm\_upgrade'}:}
+\DoxyCodeLine{69        body = \{\textcolor{stringliteral}{"openconfig-\/system-\/ext:input"}:\{\textcolor{stringliteral}{"docker-\/name"}:parameters[\textcolor{stringliteral}{'docker-\/name'}],\textcolor{stringliteral}{"image-\/source"}:method,\textcolor{stringliteral}{"image-\/name"}:parameters[\textcolor{stringliteral}{'image-\/name'}],\textcolor{stringliteral}{"remote-\/server"}:parameters[\textcolor{stringliteral}{'remote-\/server'}],\textcolor{stringliteral}{"username"}:parameters[\textcolor{stringliteral}{'username'}],\textcolor{stringliteral}{"password"}:parameters[\textcolor{stringliteral}{'password'}],\textcolor{stringliteral}{"skip-\/data-\/migration"}:parameters[\textcolor{stringliteral}{'skip'}], \textcolor{stringliteral}{"args"}:parameters[\textcolor{stringliteral}{'args'}]\}\}}
+\DoxyCodeLine{70     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'tpcm\_uninstall'}:}
+\DoxyCodeLine{71        body = \{\textcolor{stringliteral}{"openconfig-\/system-\/ext:input"}:\{\textcolor{stringliteral}{"docker-\/name"}:parameters[\textcolor{stringliteral}{'docker-\/name'}],\textcolor{stringliteral}{"clean-\/data"}:parameters[\textcolor{stringliteral}{'skip'}]\}\}}
+\DoxyCodeLine{72     \textcolor{keywordflow}{return} body }
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d5b/namespacesonic__cli__tpcm_acebedbe54965aec1b2900576014304a7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__tpcm_a620240f3f703f43b9cc50d47e5a20616}\label{namespacesonic__cli__tpcm_a620240f3f703f43b9cc50d47e5a20616}} 
+\index{sonic\_cli\_tpcm@{sonic\_cli\_tpcm}!run@{run}}
+\index{run@{run}!sonic\_cli\_tpcm@{sonic\_cli\_tpcm}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+tpcm.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+tpcm.\+py 파일의 132 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{132 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__tpcm_a620240f3f703f43b9cc50d47e5a20616}{run}}(func, args):}
+\DoxyCodeLine{133     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'tpcm\_list'}:}
+\DoxyCodeLine{134        \mbox{\hyperlink{namespacesonic__cli__tpcm_a8ef3b137b7bbe92b9c32fe4a02ed8ede}{run\_tpcm\_list}}(args)}
+\DoxyCodeLine{135     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'tpcm\_install'}:}
+\DoxyCodeLine{136        \mbox{\hyperlink{namespacesonic__cli__tpcm_a4ea4470d7906f6185de86e50c9fe0702}{run\_tpcm\_install}}(func, args[5], args[0:])}
+\DoxyCodeLine{137     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'tpcm\_uninstall'}:}
+\DoxyCodeLine{138        \mbox{\hyperlink{namespacesonic__cli__tpcm_a7335651ceb26b513abdf9c892505536c}{run\_tpcm\_uninstall}}(func, args[0],  args[1:])}
+\DoxyCodeLine{139     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'tpcm\_upgrade'}:}
+\DoxyCodeLine{140        \mbox{\hyperlink{namespacesonic__cli__tpcm_a2f4e02dacf8b5b52320ccfcd22f0e9fb}{run\_tpcm\_upgrade}}(func, args[5], args[0:])}
+\DoxyCodeLine{141     \textcolor{keywordflow}{return} }
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d5b/namespacesonic__cli__tpcm_a620240f3f703f43b9cc50d47e5a20616_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__tpcm_a4ea4470d7906f6185de86e50c9fe0702}\label{namespacesonic__cli__tpcm_a4ea4470d7906f6185de86e50c9fe0702}} 
+\index{sonic\_cli\_tpcm@{sonic\_cli\_tpcm}!run\_tpcm\_install@{run\_tpcm\_install}}
+\index{run\_tpcm\_install@{run\_tpcm\_install}!sonic\_cli\_tpcm@{sonic\_cli\_tpcm}}
+\doxysubsubsection{\texorpdfstring{run\_tpcm\_install()}{run\_tpcm\_install()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+tpcm.\+run\+\_\+tpcm\+\_\+install (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{method,  }\item[{}]{argv }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+tpcm.\+py 파일의 75 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{75 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__tpcm_a4ea4470d7906f6185de86e50c9fe0702}{run\_tpcm\_install}}(func, method, argv):}
+\DoxyCodeLine{76     aa = cc.ApiClient()}
+\DoxyCodeLine{77     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/operations/openconfig-\/system-\/ext:tpcm-\/install'})}
+\DoxyCodeLine{78     templ = argv[0]}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80     body  = \mbox{\hyperlink{namespacesonic__cli__tpcm_acebedbe54965aec1b2900576014304a7}{build\_body}}(func, method, argv)}
+\DoxyCodeLine{81     }
+\DoxyCodeLine{82     \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\(\backslash\)nInstallation in process .....\(\backslash\)n"}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84     api\_response = aa.post(keypath, body)}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     \textcolor{keywordflow}{if} api\_response.ok():}
+\DoxyCodeLine{87         \textcolor{keywordflow}{if} api\_response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{88             response = api\_response.content}
+\DoxyCodeLine{89             \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(templ, response)}
+\DoxyCodeLine{90     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{91         \textcolor{keywordflow}{print} api\_response.error\_message()}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d5b/namespacesonic__cli__tpcm_a4ea4470d7906f6185de86e50c9fe0702_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{d3/d5b/namespacesonic__cli__tpcm_a4ea4470d7906f6185de86e50c9fe0702_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__tpcm_a8ef3b137b7bbe92b9c32fe4a02ed8ede}\label{namespacesonic__cli__tpcm_a8ef3b137b7bbe92b9c32fe4a02ed8ede}} 
+\index{sonic\_cli\_tpcm@{sonic\_cli\_tpcm}!run\_tpcm\_list@{run\_tpcm\_list}}
+\index{run\_tpcm\_list@{run\_tpcm\_list}!sonic\_cli\_tpcm@{sonic\_cli\_tpcm}}
+\doxysubsubsection{\texorpdfstring{run\_tpcm\_list()}{run\_tpcm\_list()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+tpcm.\+run\+\_\+tpcm\+\_\+list (\begin{DoxyParamCaption}\item[{}]{argv }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+tpcm.\+py 파일의 10 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{10 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__tpcm_a8ef3b137b7bbe92b9c32fe4a02ed8ede}{run\_tpcm\_list}}(argv):}
+\DoxyCodeLine{11     aa = cc.ApiClient()}
+\DoxyCodeLine{12     templ = argv[0]}
+\DoxyCodeLine{13     path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/system:system/openconfig-\/system-\/ext:tpcm/state/tpcm-\/image-\/list'})}
+\DoxyCodeLine{14     api\_response = aa.get(path)}
+\DoxyCodeLine{15     \textcolor{keywordflow}{if} api\_response.ok():}
+\DoxyCodeLine{16         \textcolor{keywordflow}{if} api\_response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{17             response = api\_response.content}
+\DoxyCodeLine{18             \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(templ, response)}
+\DoxyCodeLine{19 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d5b/namespacesonic__cli__tpcm_a8ef3b137b7bbe92b9c32fe4a02ed8ede_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{d3/d5b/namespacesonic__cli__tpcm_a8ef3b137b7bbe92b9c32fe4a02ed8ede_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__tpcm_a7335651ceb26b513abdf9c892505536c}\label{namespacesonic__cli__tpcm_a7335651ceb26b513abdf9c892505536c}} 
+\index{sonic\_cli\_tpcm@{sonic\_cli\_tpcm}!run\_tpcm\_uninstall@{run\_tpcm\_uninstall}}
+\index{run\_tpcm\_uninstall@{run\_tpcm\_uninstall}!sonic\_cli\_tpcm@{sonic\_cli\_tpcm}}
+\doxysubsubsection{\texorpdfstring{run\_tpcm\_uninstall()}{run\_tpcm\_uninstall()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+tpcm.\+run\+\_\+tpcm\+\_\+uninstall (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{method,  }\item[{}]{argv }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+tpcm.\+py 파일의 113 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{113 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__tpcm_a7335651ceb26b513abdf9c892505536c}{run\_tpcm\_uninstall}}(func, method, argv):}
+\DoxyCodeLine{114     aa = cc.ApiClient()}
+\DoxyCodeLine{115     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/operations/openconfig-\/system-\/ext:tpcm-\/uninstall'})}
+\DoxyCodeLine{116     templ = argv[1]}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118     body  = \mbox{\hyperlink{namespacesonic__cli__tpcm_acebedbe54965aec1b2900576014304a7}{build\_body}}(func, method, argv)}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120     \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\(\backslash\)nUninstallation in process .....\(\backslash\)n"}}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122     api\_response = aa.post(keypath, body)}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124     \textcolor{keywordflow}{if} api\_response.ok():}
+\DoxyCodeLine{125         \textcolor{keywordflow}{if} api\_response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{126             response = api\_response.content}
+\DoxyCodeLine{127             \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(templ, response)}
+\DoxyCodeLine{128     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{129         \textcolor{keywordflow}{print} api\_response.error\_message()}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d5b/namespacesonic__cli__tpcm_a7335651ceb26b513abdf9c892505536c_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{d3/d5b/namespacesonic__cli__tpcm_a7335651ceb26b513abdf9c892505536c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__tpcm_a2f4e02dacf8b5b52320ccfcd22f0e9fb}\label{namespacesonic__cli__tpcm_a2f4e02dacf8b5b52320ccfcd22f0e9fb}} 
+\index{sonic\_cli\_tpcm@{sonic\_cli\_tpcm}!run\_tpcm\_upgrade@{run\_tpcm\_upgrade}}
+\index{run\_tpcm\_upgrade@{run\_tpcm\_upgrade}!sonic\_cli\_tpcm@{sonic\_cli\_tpcm}}
+\doxysubsubsection{\texorpdfstring{run\_tpcm\_upgrade()}{run\_tpcm\_upgrade()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+tpcm.\+run\+\_\+tpcm\+\_\+upgrade (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{method,  }\item[{}]{argv }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+tpcm.\+py 파일의 95 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{95 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__tpcm_a2f4e02dacf8b5b52320ccfcd22f0e9fb}{run\_tpcm\_upgrade}}(func, method, argv):}
+\DoxyCodeLine{96     aa = cc.ApiClient()}
+\DoxyCodeLine{97     keypath = cc.Path(\textcolor{stringliteral}{'/restconf/operations/openconfig-\/system-\/ext:tpcm-\/upgrade'})}
+\DoxyCodeLine{98     templ = argv[0]}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100     body  = \mbox{\hyperlink{namespacesonic__cli__tpcm_acebedbe54965aec1b2900576014304a7}{build\_body}}(func, method, argv)}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102     \textcolor{keywordflow}{print} \textcolor{stringliteral}{"\(\backslash\)nUpgrade in process .....\(\backslash\)n"}}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104     api\_response = aa.post(keypath, body)}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106     \textcolor{keywordflow}{if} api\_response.ok():}
+\DoxyCodeLine{107         \textcolor{keywordflow}{if} api\_response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{108             response = api\_response.content}
+\DoxyCodeLine{109             \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(templ, response)}
+\DoxyCodeLine{110     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{111         \textcolor{keywordflow}{print} api\_response.error\_message()}
+\DoxyCodeLine{112 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d5b/namespacesonic__cli__tpcm_a2f4e02dacf8b5b52320ccfcd22f0e9fb_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{d3/d5b/namespacesonic__cli__tpcm_a2f4e02dacf8b5b52320ccfcd22f0e9fb_icgraph}
+\end{center}
+\end{figure}

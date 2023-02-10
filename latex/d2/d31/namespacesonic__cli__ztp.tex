@@ -1,0 +1,94 @@
+\hypertarget{namespacesonic__cli__ztp}{}\doxysection{sonic\+\_\+cli\+\_\+ztp 네임스페이스 참조}
+\label{namespacesonic__cli__ztp}\index{sonic\_cli\_ztp@{sonic\_cli\_ztp}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__ztp_aadc78dd943b61435e9e939c3cb6ea6b0}{invoke}} (func, args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__ztp_a2095db4a03bcb3ea3dcc9c53dab95323}{run}} (func, args)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__ztp_aadc78dd943b61435e9e939c3cb6ea6b0}\label{namespacesonic__cli__ztp_aadc78dd943b61435e9e939c3cb6ea6b0}} 
+\index{sonic\_cli\_ztp@{sonic\_cli\_ztp}!invoke@{invoke}}
+\index{invoke@{invoke}!sonic\_cli\_ztp@{sonic\_cli\_ztp}}
+\doxysubsubsection{\texorpdfstring{invoke()}{invoke()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+ztp.\+invoke (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+ztp.\+py 파일의 13 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{13 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__ztp_aadc78dd943b61435e9e939c3cb6ea6b0}{invoke}}(func, args):}
+\DoxyCodeLine{14     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{15     aa = cc.ApiClient()}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'get\_openconfig\_ztp\_ztp\_state'}:}
+\DoxyCodeLine{18         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ztp:ztp/state'})}
+\DoxyCodeLine{19         \textcolor{keywordflow}{return} aa.get(path)}
+\DoxyCodeLine{20     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{21         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/ztp:ztp/config'})}
+\DoxyCodeLine{22         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'no'} \textcolor{keywordflow}{in} args:}
+\DoxyCodeLine{23             body = \{}
+\DoxyCodeLine{24                      \textcolor{stringliteral}{"openconfig-\/ztp:config"}: \{}
+\DoxyCodeLine{25                      \textcolor{stringliteral}{"admin-\/mode"}:\textcolor{keyword}{False}}
+\DoxyCodeLine{26                      \}}
+\DoxyCodeLine{27                     \}}
+\DoxyCodeLine{28         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{29             body = \{}
+\DoxyCodeLine{30                      \textcolor{stringliteral}{"openconfig-\/ztp:config"}: \{}
+\DoxyCodeLine{31                      \textcolor{stringliteral}{"admin-\/mode"}:\textcolor{keyword}{True}}
+\DoxyCodeLine{32                      \}}
+\DoxyCodeLine{33                     \}}
+\DoxyCodeLine{34         \textcolor{keywordflow}{return} aa.patch(path,body)}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{d2/d31/namespacesonic__cli__ztp_aadc78dd943b61435e9e939c3cb6ea6b0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__ztp_a2095db4a03bcb3ea3dcc9c53dab95323}\label{namespacesonic__cli__ztp_a2095db4a03bcb3ea3dcc9c53dab95323}} 
+\index{sonic\_cli\_ztp@{sonic\_cli\_ztp}!run@{run}}
+\index{run@{run}!sonic\_cli\_ztp@{sonic\_cli\_ztp}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+ztp.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+ztp.\+py 파일의 37 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{37 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__ztp_a2095db4a03bcb3ea3dcc9c53dab95323}{run}}(func, args):}
+\DoxyCodeLine{38     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{39         api\_response = \mbox{\hyperlink{namespacesonic__cli__ztp_aadc78dd943b61435e9e939c3cb6ea6b0}{invoke}}(func, args)}
+\DoxyCodeLine{40         \textcolor{keywordflow}{if} api\_response.ok():}
+\DoxyCodeLine{41             \textcolor{keywordflow}{if} api\_response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{42                 response = api\_response.content}
+\DoxyCodeLine{43                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/ztp:state'} \textcolor{keywordflow}{in} response.keys():}
+\DoxyCodeLine{44                    value = response[\textcolor{stringliteral}{'openconfig-\/ztp:state'}]}
+\DoxyCodeLine{45                    \textcolor{keywordflow}{if} value \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{46                        \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0],value)}
+\DoxyCodeLine{47     \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} ex:}
+\DoxyCodeLine{48         \textcolor{keywordflow}{print} ex}
+\DoxyCodeLine{49         print(\textcolor{stringliteral}{"\%Error: Transaction Failure"})}
+\DoxyCodeLine{50 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/d31/namespacesonic__cli__ztp_a2095db4a03bcb3ea3dcc9c53dab95323_cgraph}
+\end{center}
+\end{figure}

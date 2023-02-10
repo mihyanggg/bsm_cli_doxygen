@@ -1,0 +1,159 @@
+\hypertarget{namespacesonic__cli__ip__loadshare}{}\doxysection{sonic\+\_\+cli\+\_\+ip\+\_\+loadshare 네임스페이스 참조}
+\label{namespacesonic__cli__ip__loadshare}\index{sonic\_cli\_ip\_loadshare@{sonic\_cli\_ip\_loadshare}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__ip__loadshare_aff52ed48e92f24772e03e2fca8d8d542}{invoke}} (func, args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__ip__loadshare_a9e7d18856689d12b0f3da9fffaceb208}{run}} (func, args)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__ip__loadshare_aff52ed48e92f24772e03e2fca8d8d542}\label{namespacesonic__cli__ip__loadshare_aff52ed48e92f24772e03e2fca8d8d542}} 
+\index{sonic\_cli\_ip\_loadshare@{sonic\_cli\_ip\_loadshare}!invoke@{invoke}}
+\index{invoke@{invoke}!sonic\_cli\_ip\_loadshare@{sonic\_cli\_ip\_loadshare}}
+\doxysubsubsection{\texorpdfstring{invoke()}{invoke()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+ip\+\_\+loadshare.\+invoke (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+ip\+\_\+loadshare.\+py 파일의 31 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{31 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__ip__loadshare_aff52ed48e92f24772e03e2fca8d8d542}{invoke}}(func, args):}
+\DoxyCodeLine{32     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{33     aa = cc.ApiClient()}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{comment}{\# nothing}}
+\DoxyCodeLine{36     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{''}:}
+\DoxyCodeLine{37         keypath = cc.Path(\textcolor{stringliteral}{''})}
+\DoxyCodeLine{38         \textcolor{keywordflow}{return} aa.get(keypath)}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_loadshare\_ipv4\_config'}:}
+\DoxyCodeLine{41         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/loadshare-\/mode-\/ext:loadshare/ipv4-\/attrs'})}
+\DoxyCodeLine{42         \textcolor{keywordflow}{if} args[0] == \textcolor{stringliteral}{'ipv4-\/l4-\/src-\/port'}:}
+\DoxyCodeLine{43             body = \{\textcolor{stringliteral}{"openconfig-\/loadshare-\/mode-\/ext:ipv4-\/attrs"}: \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"ipv4"}: \textcolor{stringliteral}{"ipv4"}, \textcolor{stringliteral}{"ipv4-\/l4-\/src-\/port"}: \textcolor{keyword}{True}\}\}\}}
+\DoxyCodeLine{44         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{'ipv4-\/l4-\/dst-\/port'}:}
+\DoxyCodeLine{45             body = \{\textcolor{stringliteral}{"openconfig-\/loadshare-\/mode-\/ext:ipv4-\/attrs"}: \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"ipv4"}: \textcolor{stringliteral}{"ipv4"}, \textcolor{stringliteral}{"ipv4-\/l4-\/dst-\/port"}: \textcolor{keyword}{True}\}\}\}}
+\DoxyCodeLine{46         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{'ipv4-\/src-\/ip'}:}
+\DoxyCodeLine{47             body = \{\textcolor{stringliteral}{"openconfig-\/loadshare-\/mode-\/ext:ipv4-\/attrs"}: \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"ipv4"}: \textcolor{stringliteral}{"ipv4"}, \textcolor{stringliteral}{"ipv4-\/src-\/ip"}: \textcolor{keyword}{True}\}\}\}}
+\DoxyCodeLine{48         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{'ipv4-\/dst-\/ip'}:}
+\DoxyCodeLine{49             body = \{\textcolor{stringliteral}{"openconfig-\/loadshare-\/mode-\/ext:ipv4-\/attrs"}: \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"ipv4"}: \textcolor{stringliteral}{"ipv4"}, \textcolor{stringliteral}{"ipv4-\/dst-\/ip"}: \textcolor{keyword}{True}\}\}\}}
+\DoxyCodeLine{50         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{'ipv4-\/ip-\/proto'}:}
+\DoxyCodeLine{51             body = \{\textcolor{stringliteral}{"openconfig-\/loadshare-\/mode-\/ext:ipv4-\/attrs"}: \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"ipv4"}: \textcolor{stringliteral}{"ipv4"}, \textcolor{stringliteral}{"ipv4-\/ip-\/proto"}: \textcolor{keyword}{True}\}\}\}}
+\DoxyCodeLine{52         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{'symmetric'}:}
+\DoxyCodeLine{53             body = \{\textcolor{stringliteral}{"openconfig-\/loadshare-\/mode-\/ext:ipv4-\/attrs"}: \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"ipv4"}: \textcolor{stringliteral}{"ipv4"}, \textcolor{stringliteral}{"ipv4-\/symmetric"}: \textcolor{keyword}{True}\}\}\}}
+\DoxyCodeLine{54         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_loadshare\_ipv4\_config'}:}
+\DoxyCodeLine{57         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/loadshare-\/mode-\/ext:loadshare/ipv4-\/attrs'})}
+\DoxyCodeLine{58         \textcolor{keywordflow}{if} args[0] == \textcolor{stringliteral}{'ipv4-\/l4-\/src-\/port'}:}
+\DoxyCodeLine{59             body = \{\textcolor{stringliteral}{"openconfig-\/loadshare-\/mode-\/ext:ipv4-\/attrs"}: \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"ipv4"}: \textcolor{stringliteral}{"ipv4"}, \textcolor{stringliteral}{"ipv4-\/l4-\/src-\/port"}: \textcolor{keyword}{False}\}\}\}}
+\DoxyCodeLine{60         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{'ipv4-\/l4-\/dst-\/port'}:}
+\DoxyCodeLine{61             body = \{\textcolor{stringliteral}{"openconfig-\/loadshare-\/mode-\/ext:ipv4-\/attrs"}: \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"ipv4"}: \textcolor{stringliteral}{"ipv4"}, \textcolor{stringliteral}{"ipv4-\/l4-\/dst-\/port"}: \textcolor{keyword}{False}\}\}\}}
+\DoxyCodeLine{62         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{'ipv4-\/src-\/ip'}:}
+\DoxyCodeLine{63             body = \{\textcolor{stringliteral}{"openconfig-\/loadshare-\/mode-\/ext:ipv4-\/attrs"}: \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"ipv4"}: \textcolor{stringliteral}{"ipv4"}, \textcolor{stringliteral}{"ipv4-\/src-\/ip"}: \textcolor{keyword}{False}\}\}\}}
+\DoxyCodeLine{64         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{'ipv4-\/dst-\/ip'}:}
+\DoxyCodeLine{65             body = \{\textcolor{stringliteral}{"openconfig-\/loadshare-\/mode-\/ext:ipv4-\/attrs"}: \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"ipv4"}: \textcolor{stringliteral}{"ipv4"}, \textcolor{stringliteral}{"ipv4-\/dst-\/ip"}: \textcolor{keyword}{False}\}\}\}}
+\DoxyCodeLine{66         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{'ipv4-\/ip-\/proto'}:}
+\DoxyCodeLine{67             body = \{\textcolor{stringliteral}{"openconfig-\/loadshare-\/mode-\/ext:ipv4-\/attrs"}: \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"ipv4"}: \textcolor{stringliteral}{"ipv4"}, \textcolor{stringliteral}{"ipv4-\/ip-\/proto"}: \textcolor{keyword}{False}\}\}\}}
+\DoxyCodeLine{68         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{'symmetric'}:}
+\DoxyCodeLine{69             body = \{\textcolor{stringliteral}{"openconfig-\/loadshare-\/mode-\/ext:ipv4-\/attrs"}: \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"ipv4"}: \textcolor{stringliteral}{"ipv4"}, \textcolor{stringliteral}{"ipv4-\/symmetric"}: \textcolor{keyword}{False}\}\}\}}
+\DoxyCodeLine{70         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_loadshare\_ipv6\_config'}:}
+\DoxyCodeLine{73         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/loadshare-\/mode-\/ext:loadshare/ipv6-\/attrs'})}
+\DoxyCodeLine{74         \textcolor{keywordflow}{if} args[0] == \textcolor{stringliteral}{'ipv6-\/l4-\/src-\/port'}:}
+\DoxyCodeLine{75             body = \{\textcolor{stringliteral}{"openconfig-\/loadshare-\/mode-\/ext:ipv6-\/attrs"}: \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"ipv6"}: \textcolor{stringliteral}{"ipv6"}, \textcolor{stringliteral}{"ipv6-\/l4-\/src-\/port"}: \textcolor{keyword}{True}\}\}\}}
+\DoxyCodeLine{76         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{'ipv6-\/l4-\/dst-\/port'}:}
+\DoxyCodeLine{77             body = \{\textcolor{stringliteral}{"openconfig-\/loadshare-\/mode-\/ext:ipv6-\/attrs"}: \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"ipv6"}: \textcolor{stringliteral}{"ipv6"}, \textcolor{stringliteral}{"ipv6-\/l4-\/dst-\/port"}: \textcolor{keyword}{True}\}\}\}}
+\DoxyCodeLine{78         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{'ipv6-\/src-\/ip'}:}
+\DoxyCodeLine{79             body = \{\textcolor{stringliteral}{"openconfig-\/loadshare-\/mode-\/ext:ipv6-\/attrs"}: \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"ipv6"}: \textcolor{stringliteral}{"ipv6"}, \textcolor{stringliteral}{"ipv6-\/src-\/ip"}: \textcolor{keyword}{True}\}\}\}}
+\DoxyCodeLine{80         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{'ipv6-\/dst-\/ip'}:}
+\DoxyCodeLine{81             body = \{\textcolor{stringliteral}{"openconfig-\/loadshare-\/mode-\/ext:ipv6-\/attrs"}: \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"ipv6"}: \textcolor{stringliteral}{"ipv6"}, \textcolor{stringliteral}{"ipv6-\/dst-\/ip"}: \textcolor{keyword}{True}\}\}\}}
+\DoxyCodeLine{82         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{'ipv6-\/next-\/hdr'}:}
+\DoxyCodeLine{83             body = \{\textcolor{stringliteral}{"openconfig-\/loadshare-\/mode-\/ext:ipv6-\/attrs"}: \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"ipv6"}: \textcolor{stringliteral}{"ipv6"}, \textcolor{stringliteral}{"ipv6-\/next-\/hdr"}: \textcolor{keyword}{True}\}\}\}}
+\DoxyCodeLine{84         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{'symmetric'}:}
+\DoxyCodeLine{85             body = \{\textcolor{stringliteral}{"openconfig-\/loadshare-\/mode-\/ext:ipv6-\/attrs"}: \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"ipv6"}: \textcolor{stringliteral}{"ipv6"}, \textcolor{stringliteral}{"ipv6-\/symmetric"}: \textcolor{keyword}{True}\}\}\}}
+\DoxyCodeLine{86         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_loadshare\_ipv6\_config'}:}
+\DoxyCodeLine{89         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/loadshare-\/mode-\/ext:loadshare/ipv6-\/attrs'})}
+\DoxyCodeLine{90         \textcolor{keywordflow}{if} args[0] == \textcolor{stringliteral}{'ipv6-\/l4-\/src-\/port'}:}
+\DoxyCodeLine{91             body = \{\textcolor{stringliteral}{"openconfig-\/loadshare-\/mode-\/ext:ipv6-\/attrs"}: \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"ipv6"}: \textcolor{stringliteral}{"ipv6"}, \textcolor{stringliteral}{"ipv6-\/l4-\/src-\/port"}: \textcolor{keyword}{False}\}\}\}}
+\DoxyCodeLine{92         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{'ipv6-\/l4-\/dst-\/port'}:}
+\DoxyCodeLine{93             body = \{\textcolor{stringliteral}{"openconfig-\/loadshare-\/mode-\/ext:ipv6-\/attrs"}: \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"ipv6"}: \textcolor{stringliteral}{"ipv6"}, \textcolor{stringliteral}{"ipv6-\/l4-\/dst-\/port"}: \textcolor{keyword}{False}\}\}\}}
+\DoxyCodeLine{94         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{'ipv6-\/src-\/ip'}:}
+\DoxyCodeLine{95             body = \{\textcolor{stringliteral}{"openconfig-\/loadshare-\/mode-\/ext:ipv6-\/attrs"}: \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"ipv6"}: \textcolor{stringliteral}{"ipv6"}, \textcolor{stringliteral}{"ipv6-\/src-\/ip"}: \textcolor{keyword}{False}\}\}\}}
+\DoxyCodeLine{96         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{'ipv6-\/dst-\/ip'}:}
+\DoxyCodeLine{97             body = \{\textcolor{stringliteral}{"openconfig-\/loadshare-\/mode-\/ext:ipv6-\/attrs"}: \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"ipv6"}: \textcolor{stringliteral}{"ipv6"}, \textcolor{stringliteral}{"ipv6-\/dst-\/ip"}: \textcolor{keyword}{False}\}\}\}}
+\DoxyCodeLine{98         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{'ipv6-\/next-\/hdr'}:}
+\DoxyCodeLine{99             body = \{\textcolor{stringliteral}{"openconfig-\/loadshare-\/mode-\/ext:ipv6-\/attrs"}: \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"ipv6"}: \textcolor{stringliteral}{"ipv6"}, \textcolor{stringliteral}{"ipv6-\/next-\/hdr"}: \textcolor{keyword}{False}\}\}\}}
+\DoxyCodeLine{100         \textcolor{keywordflow}{elif} args[0] == \textcolor{stringliteral}{'symmetric'}:}
+\DoxyCodeLine{101             body = \{\textcolor{stringliteral}{"openconfig-\/loadshare-\/mode-\/ext:ipv6-\/attrs"}: \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"ipv6"}: \textcolor{stringliteral}{"ipv6"}, \textcolor{stringliteral}{"ipv6-\/symmetric"}: \textcolor{keyword}{False}\}\}\}}
+\DoxyCodeLine{102         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'patch\_loadshare\_seed\_config'}:}
+\DoxyCodeLine{105         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/loadshare-\/mode-\/ext:loadshare/seed-\/attrs'})}
+\DoxyCodeLine{106         body = \{\textcolor{stringliteral}{"openconfig-\/loadshare-\/mode-\/ext:seed-\/attrs"}: \{\textcolor{stringliteral}{"config"}: \{\textcolor{stringliteral}{"hash"}: \textcolor{stringliteral}{"hash"}, \textcolor{stringliteral}{"ecmp-\/hash-\/seed"}: int(args[0])\}\}\}}
+\DoxyCodeLine{107         \textcolor{keywordflow}{return} aa.patch(keypath, body)}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_loadshare\_seed\_config'}:}
+\DoxyCodeLine{110         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/loadshare-\/mode-\/ext:loadshare/seed-\/attrs'})}
+\DoxyCodeLine{111         \textcolor{keywordflow}{return} aa.delete(keypath)}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'get\_load\_share'}:}
+\DoxyCodeLine{114         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/loadshare-\/mode-\/ext:loadshare'})}
+\DoxyCodeLine{115         \textcolor{keywordflow}{return} aa.get(keypath)}
+\DoxyCodeLine{116 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/da6/namespacesonic__cli__ip__loadshare_aff52ed48e92f24772e03e2fca8d8d542_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__ip__loadshare_a9e7d18856689d12b0f3da9fffaceb208}\label{namespacesonic__cli__ip__loadshare_a9e7d18856689d12b0f3da9fffaceb208}} 
+\index{sonic\_cli\_ip\_loadshare@{sonic\_cli\_ip\_loadshare}!run@{run}}
+\index{run@{run}!sonic\_cli\_ip\_loadshare@{sonic\_cli\_ip\_loadshare}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+ip\+\_\+loadshare.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+ip\+\_\+loadshare.\+py 파일의 117 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{117 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__ip__loadshare_a9e7d18856689d12b0f3da9fffaceb208}{run}}(func, args):}
+\DoxyCodeLine{118     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{119         api\_response = \mbox{\hyperlink{namespacesonic__cli__ip__loadshare_aff52ed48e92f24772e03e2fca8d8d542}{invoke}}(func, args)}
+\DoxyCodeLine{120         \textcolor{keywordflow}{if} api\_response.ok():}
+\DoxyCodeLine{121             response = api\_response.content}
+\DoxyCodeLine{122             \textcolor{keywordflow}{if} response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{123                 \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{124             \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'openconfig-\/loadshare-\/mode-\/ext:loadshare'} \textcolor{keywordflow}{in} response.keys():}
+\DoxyCodeLine{125                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(\textcolor{stringliteral}{"show\_ip\_loadshare.j2"}, response)}
+\DoxyCodeLine{126                 \textcolor{keywordflow}{return}}
+\DoxyCodeLine{127         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{128             print(api\_response.error\_message())}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130     \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{131         \textcolor{comment}{\# system/network error}}
+\DoxyCodeLine{132         \textcolor{keywordflow}{raise}}
+\DoxyCodeLine{133 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/da6/namespacesonic__cli__ip__loadshare_a9e7d18856689d12b0f3da9fffaceb208_cgraph}
+\end{center}
+\end{figure}

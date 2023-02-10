@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: cli/show_config_crm.py 소스 파일</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'검색');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','검색');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_2990d7c532eb7441b74916b8f5365141.html">cli</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">show_config_crm.py</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d0/d11/show__config__crm_8py.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="../../d6/d11/namespaceshow__config__crm.html">    1</a></span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="../../d6/d11/namespaceshow__config__crm.html#a3b445b3d0f64b2c9e6e8222995c2ae25">   20</a></span>&#160;cfgmap = {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="stringliteral">&#39;polling_interval&#39;</span>                    : <span class="stringliteral">&#39;crm polling interval&#39;</span>,</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="stringliteral">&#39;acl_group_threshold_type&#39;</span>            : <span class="stringliteral">&#39;crm thresholds acl group type&#39;</span>,</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="stringliteral">&#39;acl_group_high_threshold&#39;</span>            : <span class="stringliteral">&#39;crm thresholds acl group high&#39;</span>,</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="stringliteral">&#39;acl_group_low_threshold&#39;</span>             : <span class="stringliteral">&#39;crm thresholds acl group low&#39;</span>,</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="stringliteral">&#39;acl_counter_threshold_type&#39;</span>          : <span class="stringliteral">&#39;crm thresholds acl group counter type&#39;</span>,</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="stringliteral">&#39;acl_counter_high_threshold&#39;</span>          : <span class="stringliteral">&#39;crm thresholds acl group counter high&#39;</span>,</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="stringliteral">&#39;acl_counter_low_threshold&#39;</span>           : <span class="stringliteral">&#39;crm thresholds acl group counter low&#39;</span>,</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="stringliteral">&#39;acl_entry_threshold_type&#39;</span>            : <span class="stringliteral">&#39;crm thresholds acl group entry type&#39;</span>,</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="stringliteral">&#39;acl_entry_high_threshold&#39;</span>            : <span class="stringliteral">&#39;crm thresholds acl group entry high&#39;</span>,</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="stringliteral">&#39;acl_entry_low_threshold&#39;</span>             : <span class="stringliteral">&#39;crm thresholds acl group entry low&#39;</span>,</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="stringliteral">&#39;acl_table_threshold_type&#39;</span>            : <span class="stringliteral">&#39;crm thresholds acl table type&#39;</span>,</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="stringliteral">&#39;acl_table_high_threshold&#39;</span>            : <span class="stringliteral">&#39;crm thresholds acl table high&#39;</span>,</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="stringliteral">&#39;acl_table_low_threshold&#39;</span>             : <span class="stringliteral">&#39;crm thresholds acl table low&#39;</span>,</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="stringliteral">&#39;dnat_entry_threshold_type&#39;</span>           : <span class="stringliteral">&#39;crm thresholds dnat type&#39;</span>,</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="stringliteral">&#39;dnat_entry_high_threshold&#39;</span>           : <span class="stringliteral">&#39;crm thresholds dnat high&#39;</span>,</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="stringliteral">&#39;dnat_entry_low_threshold&#39;</span>            : <span class="stringliteral">&#39;crm thresholds dnat low&#39;</span>,</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="stringliteral">&#39;fdb_entry_threshold_type&#39;</span>            : <span class="stringliteral">&#39;crm thresholds fdb type&#39;</span>,</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="stringliteral">&#39;fdb_entry_high_threshold&#39;</span>            : <span class="stringliteral">&#39;crm thresholds fdb high&#39;</span>,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="stringliteral">&#39;fdb_entry_low_threshold&#39;</span>             : <span class="stringliteral">&#39;crm thresholds fdb low&#39;</span>,</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="stringliteral">&#39;ipmc_entry_threshold_type&#39;</span>           : <span class="stringliteral">&#39;crm thresholds ipmc type&#39;</span>,</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="stringliteral">&#39;ipmc_entry_high_threshold&#39;</span>           : <span class="stringliteral">&#39;crm thresholds ipmc high&#39;</span>,</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="stringliteral">&#39;ipmc_entry_low_threshold&#39;</span>            : <span class="stringliteral">&#39;crm thresholds ipmc low&#39;</span>,</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="stringliteral">&#39;ipv4_neighbor_threshold_type&#39;</span>        : <span class="stringliteral">&#39;crm thresholds ipv4 neighbor type&#39;</span>,</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="stringliteral">&#39;ipv4_neighbor_high_threshold&#39;</span>        : <span class="stringliteral">&#39;crm thresholds ipv4 neighbor high&#39;</span>,</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="stringliteral">&#39;ipv4_neighbor_low_threshold&#39;</span>         : <span class="stringliteral">&#39;crm thresholds ipv4 neighbor low&#39;</span>,</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="stringliteral">&#39;ipv4_nexthop_threshold_type&#39;</span>         : <span class="stringliteral">&#39;crm thresholds ipv4 nexthop type&#39;</span>,</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="stringliteral">&#39;ipv4_nexthop_high_threshold&#39;</span>         : <span class="stringliteral">&#39;crm thresholds ipv4 nexthop high&#39;</span>,</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="stringliteral">&#39;ipv4_nexthop_low_threshold&#39;</span>          : <span class="stringliteral">&#39;crm thresholds ipv4 nexthop low&#39;</span>,</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="stringliteral">&#39;ipv4_route_threshold_type&#39;</span>           : <span class="stringliteral">&#39;crm thresholds ipv4 route type&#39;</span>,</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="stringliteral">&#39;ipv4_route_high_threshold&#39;</span>           : <span class="stringliteral">&#39;crm thresholds ipv4 route high&#39;</span>,</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="stringliteral">&#39;ipv4_route_low_threshold&#39;</span>            : <span class="stringliteral">&#39;crm thresholds ipv4 route low&#39;</span>,</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="stringliteral">&#39;ipv6_neighbor_threshold_type&#39;</span>        : <span class="stringliteral">&#39;crm thresholds ipv6 neighbor type&#39;</span>,</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="stringliteral">&#39;ipv6_neighbor_high_threshold&#39;</span>        : <span class="stringliteral">&#39;crm thresholds ipv6 neighbor high&#39;</span>,</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="stringliteral">&#39;ipv6_neighbor_low_threshold&#39;</span>         : <span class="stringliteral">&#39;crm thresholds ipv6 neighbor low&#39;</span>,</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="stringliteral">&#39;ipv6_nexthop_threshold_type&#39;</span>         : <span class="stringliteral">&#39;crm thresholds ipv6 nexthop type&#39;</span>,</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="stringliteral">&#39;ipv6_nexthop_high_threshold&#39;</span>         : <span class="stringliteral">&#39;crm thresholds ipv6 nexthop high&#39;</span>,</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="stringliteral">&#39;ipv6_nexthop_low_threshold&#39;</span>          : <span class="stringliteral">&#39;crm thresholds ipv6 nexthop low&#39;</span>,</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="stringliteral">&#39;ipv6_route_threshold_type&#39;</span>           : <span class="stringliteral">&#39;crm thresholds ipv6 route type&#39;</span>,</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="stringliteral">&#39;ipv6_route_high_threshold&#39;</span>           : <span class="stringliteral">&#39;crm thresholds ipv6 route high&#39;</span>,</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="stringliteral">&#39;ipv6_route_low_threshold&#39;</span>            : <span class="stringliteral">&#39;crm thresholds ipv6 route low&#39;</span>,</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="stringliteral">&#39;nexthop_group_member_threshold_type&#39;</span> : <span class="stringliteral">&#39;crm thresholds nexthop group member type&#39;</span>,</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="stringliteral">&#39;nexthop_group_member_high_threshold&#39;</span> : <span class="stringliteral">&#39;crm thresholds nexthop group member high&#39;</span>,</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="stringliteral">&#39;nexthop_group_member_low_threshold&#39;</span>  : <span class="stringliteral">&#39;crm thresholds nexthop group member low&#39;</span>,</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="stringliteral">&#39;nexthop_group_threshold_type&#39;</span>        : <span class="stringliteral">&#39;crm thresholds nexthop group object type&#39;</span>,</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="stringliteral">&#39;nexthop_group_high_threshold&#39;</span>        : <span class="stringliteral">&#39;crm thresholds nexthop group object high&#39;</span>,</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="stringliteral">&#39;nexthop_group_low_threshold&#39;</span>         : <span class="stringliteral">&#39;crm thresholds nexthop group object low&#39;</span>,</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="stringliteral">&#39;snat_entry_threshold_type&#39;</span>           : <span class="stringliteral">&#39;crm thresholds snat type&#39;</span>,</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="stringliteral">&#39;snat_entry_high_threshold&#39;</span>           : <span class="stringliteral">&#39;crm thresholds snat high&#39;</span>,</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="stringliteral">&#39;snat_entry_low_threshold&#39;</span>            : <span class="stringliteral">&#39;crm thresholds snat low&#39;</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="../../d6/d11/namespaceshow__config__crm.html#a5c76ea3214f0bd51c64e5a86163fb182">   72</a></span>&#160;<span class="keyword">def </span><a class="code" href="../../d6/d11/namespaceshow__config__crm.html#a5c76ea3214f0bd51c64e5a86163fb182">get_crm_config</a>(info, field, prefix):</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    cfg_str = <span class="stringliteral">&quot;&quot;</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">if</span> field <span class="keywordflow">in</span> info:</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        cfg_str = <span class="stringliteral">&quot;{0} {1}&quot;</span>.format(prefix, info[field])</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">return</span> cfg_str</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="../../d6/d11/namespaceshow__config__crm.html#a38eca998c1c4a1e644059c7c42b0109a">   78</a></span>&#160;<span class="keyword">def </span><a class="code" href="../../d6/d11/namespaceshow__config__crm.html#a38eca998c1c4a1e644059c7c42b0109a">show_crm_config</a>(render_tables):</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    info = {}</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    cmds = []</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="comment"># skip if render_tables is None</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">if</span> render_tables <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&#39;CB_SUCCESS&#39;</span>, <span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    key = <span class="stringliteral">&#39;sonic-system-crm:sonic-system-crm/CRM/CRM_LIST&#39;</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">if</span> (key <span class="keywordflow">in</span> render_tables) <span class="keywordflow">and</span> (len(render_tables[key]) &gt; 0):</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        info = render_tables[key][0]</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="comment"># skip if render_tables[&#39;sonic-system-crm:sonic-system-crm/CRM&#39;][&#39;CRM_LIST&#39;][0] is not available</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">if</span> <span class="keywordflow">not</span> info:</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&#39;CB_SUCCESS&#39;</span>, <span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="comment"># sort dictionary by value (i.e. config command)</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">for</span> field, prefix <span class="keywordflow">in</span> sorted(cfgmap.items(), key=<span class="keyword">lambda</span> x: x[1]):</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        cmd = <a class="code" href="../../d6/d11/namespaceshow__config__crm.html#a5c76ea3214f0bd51c64e5a86163fb182">get_crm_config</a>(info, field, prefix)</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keywordflow">if</span> len(cmd) &gt; 0:</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            cmds.append(cmd)</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">return</span> <span class="stringliteral">&#39;CB_SUCCESS&#39;</span>, <span class="stringliteral">&quot;\n&quot;</span>.join(cmds)</div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="anamespaceshow__config__crm_html_a5c76ea3214f0bd51c64e5a86163fb182"><div class="ttname"><a href="../../d6/d11/namespaceshow__config__crm.html#a5c76ea3214f0bd51c64e5a86163fb182">show_config_crm.get_crm_config</a></div><div class="ttdeci">def get_crm_config(info, field, prefix)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d11/show__config__crm_8py_source.html#l00072">show_config_crm.py:72</a></div></div>
+<div class="ttc" id="anamespaceshow__config__crm_html_a38eca998c1c4a1e644059c7c42b0109a"><div class="ttname"><a href="../../d6/d11/namespaceshow__config__crm.html#a38eca998c1c4a1e644059c7c42b0109a">show_config_crm.show_crm_config</a></div><div class="ttdeci">def show_crm_config(render_tables)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d11/show__config__crm_8py_source.html#l00078">show_config_crm.py:78</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+다음에 의해 생성됨 :  &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

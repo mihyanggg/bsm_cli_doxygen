@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: cli/sonic_intf_utils.py 소스 파일</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'검색');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','검색');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_2990d7c532eb7441b74916b8f5365141.html">cli</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">sonic_intf_utils.py</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d8/d02/sonic__intf__utils_8py.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="../../da/df4/namespacesonic__intf__utils.html">    1</a></span>&#160; </div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">import</span> re</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">import</span> syslog</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">import</span> cli_client <span class="keyword">as</span> cc</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">from</span> itertools <span class="keyword">import</span> groupby</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">from</span> operator <span class="keyword">import</span> itemgetter</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="../../da/df4/namespacesonic__intf__utils.html#a9d08993d978e51fcb254e67534a554a2">   26</a></span>&#160;<span class="keyword">def </span><a class="code" href="../../da/df4/namespacesonic__intf__utils.html#a9d08993d978e51fcb254e67534a554a2">name_to_int_val</a>(ifName):</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    val = 0</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">if</span> ifName.startswith(<span class="stringliteral">&#39;Eth&#39;</span>):</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        tk = ifName.split(<span class="stringliteral">&#39;.&#39;</span>)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        plist = re.findall(<span class="stringliteral">r&#39;\d+&#39;</span>, tk[0])</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        val = 0</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">if</span> len(plist) == 1:  <span class="comment">#ex: Ethernet40</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;           val = int(plist[0]) * 10000</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">elif</span> len(plist) == 2:  <span class="comment">#ex: Eth1/5</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;           val= int(plist[0]+plist[1].zfill(3)+<span class="stringliteral">&#39;000000&#39;</span>)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">elif</span> len(plist) == 3:  <span class="comment">#ex: Eth1/5/2</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;           val= int(plist[0]+plist[1].zfill(3)+plist[2].zfill(2)+<span class="stringliteral">&#39;0000&#39;</span>)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">if</span> len(tk) == 2:   <span class="comment">#ex: 2345 in Eth1/1.2345</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;           val += int(tk[1])</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">elif</span> ifName.startswith(<span class="stringliteral">&#39;PortChannel&#39;</span>):</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        tk = ifName.split(<span class="stringliteral">&#39;.&#39;</span>)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        val = 2000000000 + int(tk[0][11:])</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">if</span> len(tk) == 2:   <span class="comment">#ex: 100 in PortChannel2.100</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;           val += int(tk[1])</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">elif</span> ifName.startswith(<span class="stringliteral">&#39;Vlan&#39;</span>):</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        val = 3000000000 + int(ifName[4:])</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">return</span> val</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="../../da/df4/namespacesonic__intf__utils.html#a37f5bc232488cc6b0495833c4819bbe1">   51</a></span>&#160;<span class="keyword">def </span><a class="code" href="../../da/df4/namespacesonic__intf__utils.html#a37f5bc232488cc6b0495833c4819bbe1">isMgmtVrfEnabled</a>(cc):</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    api = cc.ApiClient()</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        request = <span class="stringliteral">&quot;/restconf/data/openconfig-network-instance:network-instances/network-instance=mgmt/state/enabled/&quot;</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        response = api.get(request)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        response = response.content</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">if</span> response <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">False</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        response = response.get(<span class="stringliteral">&#39;openconfig-network-instance:enabled&#39;</span>)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">if</span> response <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">False</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">elif</span> response <span class="keywordflow">is</span> <span class="keyword">False</span>:</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">False</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">True</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">except</span> Exception <span class="keyword">as</span> e:</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        syslog.syslog(syslog.LOG_ERR, str(e))</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">False</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="../../da/df4/namespacesonic__intf__utils.html#af92507076f53fc7f8a52668d6cce11f6">   71</a></span>&#160;<span class="keyword">def </span><a class="code" href="../../da/df4/namespacesonic__intf__utils.html#af92507076f53fc7f8a52668d6cce11f6">is_intf_naming_mode_std</a>():</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    api = cc.ApiClient()</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        path = cc.Path(<span class="stringliteral">&#39;/restconf/data/sonic-device-metadata:sonic-device-metadata/DEVICE_METADATA/DEVICE_METADATA_LIST={name}/intf_naming_mode&#39;</span>, name=<span class="stringliteral">&quot;localhost&quot;</span>)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        response = api.get(path)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">if</span> response <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">False</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordflow">if</span> response.ok():</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            response = response.content</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="keywordflow">if</span> response <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">False</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        response = response.get(<span class="stringliteral">&#39;sonic-device-metadata:intf_naming_mode&#39;</span>)</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordflow">if</span> response <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">False</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">if</span> <span class="stringliteral">&quot;standard&quot;</span> <span class="keywordflow">in</span> response.lower():</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">True</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">False</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">except</span> Exception <span class="keyword">as</span> e:</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        syslog.syslog(syslog.LOG_ERR, str(e))</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">False</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="../../da/df4/namespacesonic__intf__utils.html#a6a5618c9d59c5c2edd261778710d19b4">   97</a></span>&#160;<span class="keyword">def </span><a class="code" href="../../da/df4/namespacesonic__intf__utils.html#a6a5618c9d59c5c2edd261778710d19b4">find_ranges</a>(vlan_lst):</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    ranges = []</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    vlan_lst.sort()</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">for</span> k, g <span class="keywordflow">in</span> groupby(enumerate(vlan_lst), <span class="keyword">lambda</span> (i,x):i-x):</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        group = <a class="code" href="../../d2/d95/DB-PARSED_8txt.html#a2f17a95f95f14e0f847ea893e98f909a">map</a>(itemgetter(1), g)</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        ranges.append((group[0], group[-1]))</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    vlan_list_str = <span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordflow">for</span> range <span class="keywordflow">in</span> ranges:</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;       <span class="keywordflow">if</span> vlan_list_str:</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;           vlan_list_str += <span class="stringliteral">&#39;,&#39;</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;       <span class="keywordflow">if</span> range[0] == range[1]:</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;           vlan_list_str += str(range[0])</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;       <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;           vlan_list_str = vlan_list_str + str(range[0]) + <span class="stringliteral">&quot;-&quot;</span> + str(range[1])</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordflow">return</span> vlan_list_str</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="../../da/df4/namespacesonic__intf__utils.html#a819da28a8cd2cf891b540b5a6709e5b9">  113</a></span>&#160;<span class="keyword">def </span><a class="code" href="../../da/df4/namespacesonic__intf__utils.html#a819da28a8cd2cf891b540b5a6709e5b9">vlanFullList</a>():</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    fullList = []</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range (1,4095):</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        fullList.append(i)</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordflow">return</span> fullList</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="../../da/df4/namespacesonic__intf__utils.html#a443ea428a73d97dbf276e0e912614e82">  119</a></span>&#160;<span class="keyword">def </span><a class="code" href="../../da/df4/namespacesonic__intf__utils.html#a443ea428a73d97dbf276e0e912614e82">vlanExceptList</a>(vlan):</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    exceptStr = <span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    exceptList = <a class="code" href="../../da/df4/namespacesonic__intf__utils.html#a819da28a8cd2cf891b540b5a6709e5b9">vlanFullList</a>()</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    vlanList = vlan.split(<span class="stringliteral">&#39;,&#39;</span>)</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordflow">for</span> vid <span class="keywordflow">in</span> vlanList:</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordflow">if</span> <span class="stringliteral">&#39;-&#39;</span> <span class="keywordflow">in</span> vid:</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            vid = vid.replace(<span class="stringliteral">&#39;-&#39;</span>,<span class="stringliteral">&#39;..&#39;</span>)</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="keywordflow">if</span> <span class="stringliteral">&#39;..&#39;</span> <span class="keywordflow">in</span> vid:</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            vidList = vid.split(<span class="stringliteral">&#39;..&#39;</span>)</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            lower = int(vidList[0])</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            upper = int(vidList[1])</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(lower,upper+1):</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                <span class="keywordflow">if</span> i <span class="keywordflow">in</span> exceptList:</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                    exceptList.remove(i)</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;            exceptList.remove(int(vid))</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    exceptStr = <a class="code" href="../../da/df4/namespacesonic__intf__utils.html#a6a5618c9d59c5c2edd261778710d19b4">find_ranges</a>(exceptList)</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keywordflow">return</span> exceptStr</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="anamespacesonic__intf__utils_html_a9d08993d978e51fcb254e67534a554a2"><div class="ttname"><a href="../../da/df4/namespacesonic__intf__utils.html#a9d08993d978e51fcb254e67534a554a2">sonic_intf_utils.name_to_int_val</a></div><div class="ttdeci">def name_to_int_val(ifName)</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d02/sonic__intf__utils_8py_source.html#l00026">sonic_intf_utils.py:26</a></div></div>
+<div class="ttc" id="aDB-PARSED_8txt_html_a2f17a95f95f14e0f847ea893e98f909a"><div class="ttname"><a href="../../d2/d95/DB-PARSED_8txt.html#a2f17a95f95f14e0f847ea893e98f909a">map</a></div><div class="ttdeci">sonic port qos map</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d95/DB-PARSED_8txt_source.html#l02159">DB-PARSED.txt:2159</a></div></div>
+<div class="ttc" id="anamespacesonic__intf__utils_html_af92507076f53fc7f8a52668d6cce11f6"><div class="ttname"><a href="../../da/df4/namespacesonic__intf__utils.html#af92507076f53fc7f8a52668d6cce11f6">sonic_intf_utils.is_intf_naming_mode_std</a></div><div class="ttdeci">def is_intf_naming_mode_std()</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d02/sonic__intf__utils_8py_source.html#l00071">sonic_intf_utils.py:71</a></div></div>
+<div class="ttc" id="anamespacesonic__intf__utils_html_a819da28a8cd2cf891b540b5a6709e5b9"><div class="ttname"><a href="../../da/df4/namespacesonic__intf__utils.html#a819da28a8cd2cf891b540b5a6709e5b9">sonic_intf_utils.vlanFullList</a></div><div class="ttdeci">def vlanFullList()</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d02/sonic__intf__utils_8py_source.html#l00113">sonic_intf_utils.py:113</a></div></div>
+<div class="ttc" id="anamespacesonic__intf__utils_html_a443ea428a73d97dbf276e0e912614e82"><div class="ttname"><a href="../../da/df4/namespacesonic__intf__utils.html#a443ea428a73d97dbf276e0e912614e82">sonic_intf_utils.vlanExceptList</a></div><div class="ttdeci">def vlanExceptList(vlan)</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d02/sonic__intf__utils_8py_source.html#l00119">sonic_intf_utils.py:119</a></div></div>
+<div class="ttc" id="anamespacesonic__intf__utils_html_a6a5618c9d59c5c2edd261778710d19b4"><div class="ttname"><a href="../../da/df4/namespacesonic__intf__utils.html#a6a5618c9d59c5c2edd261778710d19b4">sonic_intf_utils.find_ranges</a></div><div class="ttdeci">def find_ranges(vlan_lst)</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d02/sonic__intf__utils_8py_source.html#l00097">sonic_intf_utils.py:97</a></div></div>
+<div class="ttc" id="anamespacesonic__intf__utils_html_a37f5bc232488cc6b0495833c4819bbe1"><div class="ttname"><a href="../../da/df4/namespacesonic__intf__utils.html#a37f5bc232488cc6b0495833c4819bbe1">sonic_intf_utils.isMgmtVrfEnabled</a></div><div class="ttdeci">def isMgmtVrfEnabled(cc)</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d02/sonic__intf__utils_8py_source.html#l00051">sonic_intf_utils.py:51</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+다음에 의해 생성됨 :  &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

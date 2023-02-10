@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: cli/sonic_cli_database.py 소스 파일</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'검색');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','검색');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_2990d7c532eb7441b74916b8f5365141.html">cli</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">sonic_cli_database.py</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../dd/d6b/sonic__cli__database_8py.html">이 파일의 문서화 페이지로 가기</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="../../da/dcb/namespacesonic__cli__database.html">    1</a></span>&#160;<span class="comment">#!/usr/bin/python</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keyword">import</span> sys</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">from</span> <a class="code" href="../../d1/d3d/namespacescripts_1_1render__cli.html">scripts.render_cli</a> <span class="keyword">import</span> show_cli_output</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">from</span> swsssdk <span class="keyword">import</span> SonicDBConfig</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="../../da/dcb/namespacesonic__cli__database.html#a6e9c9fe8f5cb258b2455cb2076f862f2">    6</a></span>&#160;<span class="keyword">def </span><a class="code" href="../../da/dcb/namespacesonic__cli__database.html#a6e9c9fe8f5cb258b2455cb2076f862f2">invoke</a>(func, args):</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keywordflow">if</span> func == <span class="stringliteral">&#39;map&#39;</span>:</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../da/dcb/namespacesonic__cli__database.html#a20426383291ed7cf050dfff2664048cd">show_database_map</a>(args)</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="../../da/dcb/namespacesonic__cli__database.html#a20426383291ed7cf050dfff2664048cd">   10</a></span>&#160;<span class="keyword">def </span><a class="code" href="../../da/dcb/namespacesonic__cli__database.html#a20426383291ed7cf050dfff2664048cd">show_database_map</a>(args):</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        db_names = SonicDBConfig.get_dblist()</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        display_dict = dict()</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordflow">for</span> db_name <span class="keywordflow">in</span> db_names:</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;            db_dict = dict()</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            db_dict[<span class="stringliteral">&quot;name&quot;</span>] = db_name</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            db_dict[<span class="stringliteral">&quot;id&quot;</span>] = SonicDBConfig.get_dbid(db_name)</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            db_dict[<span class="stringliteral">&quot;port&quot;</span>] = SonicDBConfig.get_port(db_name)</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            db_dict[<span class="stringliteral">&quot;socket&quot;</span>] = SonicDBConfig.get_socket(db_name)</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            db_dict[<span class="stringliteral">&quot;instance&quot;</span>] = SonicDBConfig.get_instancename(db_name)</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            display_dict[SonicDBConfig.get_dbid(db_name)] = db_dict</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <a class="code" href="../../d1/d3d/namespacescripts_1_1render__cli.html#a21c728cd1db8b5bd209adc5f3325305d">show_cli_output</a>(args[0], display_dict)</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">except</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        print(<span class="stringliteral">&quot;%Error: Cannot read database configuration&quot;</span>)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">return</span> -1</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../da/dcb/namespacesonic__cli__database.html#ac698c020da97d6b64f10e7f84df13111">   27</a></span>&#160;<span class="keyword">def </span><a class="code" href="../../da/dcb/namespacesonic__cli__database.html#ac698c020da97d6b64f10e7f84df13111">run</a>(func, args):</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../da/dcb/namespacesonic__cli__database.html#a6e9c9fe8f5cb258b2455cb2076f862f2">invoke</a>(func, args)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">except</span> Exception <span class="keyword">as</span> ex:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        print(ex)</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        print(<span class="stringliteral">&quot;%Error: Transaction Failure&quot;</span>)</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordflow">return</span> -1</div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="anamespacesonic__cli__database_html_a6e9c9fe8f5cb258b2455cb2076f862f2"><div class="ttname"><a href="../../da/dcb/namespacesonic__cli__database.html#a6e9c9fe8f5cb258b2455cb2076f862f2">sonic_cli_database.invoke</a></div><div class="ttdeci">def invoke(func, args)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d6b/sonic__cli__database_8py_source.html#l00006">sonic_cli_database.py:6</a></div></div>
+<div class="ttc" id="anamespacesonic__cli__database_html_ac698c020da97d6b64f10e7f84df13111"><div class="ttname"><a href="../../da/dcb/namespacesonic__cli__database.html#ac698c020da97d6b64f10e7f84df13111">sonic_cli_database.run</a></div><div class="ttdeci">def run(func, args)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d6b/sonic__cli__database_8py_source.html#l00027">sonic_cli_database.py:27</a></div></div>
+<div class="ttc" id="anamespacescripts_1_1render__cli_html"><div class="ttname"><a href="../../d1/d3d/namespacescripts_1_1render__cli.html">scripts.render_cli</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d21/render__cli_8py_source.html#l00001">render_cli.py:1</a></div></div>
+<div class="ttc" id="anamespacescripts_1_1render__cli_html_a21c728cd1db8b5bd209adc5f3325305d"><div class="ttname"><a href="../../d1/d3d/namespacescripts_1_1render__cli.html#a21c728cd1db8b5bd209adc5f3325305d">scripts.render_cli.show_cli_output</a></div><div class="ttdeci">def show_cli_output(template_file, response, continuation=False, **kwargs)</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d21/render__cli_8py_source.html#l00144">render_cli.py:144</a></div></div>
+<div class="ttc" id="anamespacesonic__cli__database_html_a20426383291ed7cf050dfff2664048cd"><div class="ttname"><a href="../../da/dcb/namespacesonic__cli__database.html#a20426383291ed7cf050dfff2664048cd">sonic_cli_database.show_database_map</a></div><div class="ttdeci">def show_database_map(args)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d6b/sonic__cli__database_8py_source.html#l00010">sonic_cli_database.py:10</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+다음에 의해 생성됨 :  &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

@@ -1,0 +1,349 @@
+\hypertarget{namespacesonic-cli-sys}{}\doxysection{sonic-\/cli-\/sys 네임스페이스 참조}
+\label{namespacesonic-cli-sys}\index{sonic-\/cli-\/sys@{sonic-\/cli-\/sys}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic-cli-sys_adb6e4f592441eb7bb7a008763461add4}{get\+\_\+pwd}} (pw)
+\item 
+def \mbox{\hyperlink{namespacesonic-cli-sys_a5bb72eb217c6d33e45ccfaa8af97a19b}{util\+\_\+capitalize}} (value)
+\item 
+def \mbox{\hyperlink{namespacesonic-cli-sys_aead1cd58123074113d6c424fa0b8d670}{system\+\_\+state\+\_\+key\+\_\+change}} (value)
+\item 
+def \mbox{\hyperlink{namespacesonic-cli-sys_ac5bb30de03a21513da69493b536c8ea2}{memory\+\_\+key\+\_\+change}} (value)
+\item 
+def \mbox{\hyperlink{namespacesonic-cli-sys_a13dcfe91267bb2382ddaadde0abb8f41}{register}} (func)
+\item 
+def \mbox{\hyperlink{namespacesonic-cli-sys_a5ae9439c4a8fe0ccfa3c8f9a2e04cab9}{call\+\_\+method}} (\mbox{\hyperlink{DB-PARSED_8txt_a2f28cce84dbafd26b75c646321392848}{name}}, args)
+\item 
+def \mbox{\hyperlink{namespacesonic-cli-sys_a43f1e30e5a6801daae8d8481143dafd2}{invoke}} (func, args)
+\item 
+def \mbox{\hyperlink{namespacesonic-cli-sys_add5df08cf6097eb791f7c7f38e255779}{run}} (func, args)
+\end{DoxyCompactItemize}
+\doxysubsection*{변수}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacesonic-cli-sys_a03c718b174b8fb408c20eb3f8a258581}{plugins}} = dict()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic-cli-sys_a5ae9439c4a8fe0ccfa3c8f9a2e04cab9}\label{namespacesonic-cli-sys_a5ae9439c4a8fe0ccfa3c8f9a2e04cab9}} 
+\index{sonic-\/cli-\/sys@{sonic-\/cli-\/sys}!call\_method@{call\_method}}
+\index{call\_method@{call\_method}!sonic-\/cli-\/sys@{sonic-\/cli-\/sys}}
+\doxysubsubsection{\texorpdfstring{call\_method()}{call\_method()}}
+{\footnotesize\ttfamily def sonic-\/cli-\/sys.\+call\+\_\+method (\begin{DoxyParamCaption}\item[{}]{name,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic-\/cli-\/sys.\+py 파일의 76 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{76 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic-cli-sys_a5ae9439c4a8fe0ccfa3c8f9a2e04cab9}{call\_method}}(name, args):}
+\DoxyCodeLine{77     method = plugins[name]}
+\DoxyCodeLine{78     \textcolor{keywordflow}{return} method(args)}
+\DoxyCodeLine{79 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacesonic-cli-sys_adb6e4f592441eb7bb7a008763461add4}\label{namespacesonic-cli-sys_adb6e4f592441eb7bb7a008763461add4}} 
+\index{sonic-\/cli-\/sys@{sonic-\/cli-\/sys}!get\_pwd@{get\_pwd}}
+\index{get\_pwd@{get\_pwd}!sonic-\/cli-\/sys@{sonic-\/cli-\/sys}}
+\doxysubsubsection{\texorpdfstring{get\_pwd()}{get\_pwd()}}
+{\footnotesize\ttfamily def sonic-\/cli-\/sys.\+get\+\_\+pwd (\begin{DoxyParamCaption}\item[{}]{pw }\end{DoxyParamCaption})}
+
+
+
+sonic-\/cli-\/sys.\+py 파일의 37 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{37 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic-cli-sys_adb6e4f592441eb7bb7a008763461add4}{get\_pwd}}(pw):}
+\DoxyCodeLine{38     clear\_pwd = hashed\_pwd = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{39     pwd = pw.replace(\textcolor{stringliteral}{"\(\backslash\)\(\backslash\)"},\textcolor{stringliteral}{""})}
+\DoxyCodeLine{40     \textcolor{keywordflow}{if} pwd[:3] == \textcolor{stringliteral}{'\$6\$'}:}
+\DoxyCodeLine{41         hashed\_pwd = pwd}
+\DoxyCodeLine{42     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{43         clear\_pwd = pwd}
+\DoxyCodeLine{44     \textcolor{keywordflow}{return} clear\_pwd, hashed\_pwd}
+\DoxyCodeLine{45 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/d7b/namespacesonic-cli-sys_adb6e4f592441eb7bb7a008763461add4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic-cli-sys_a43f1e30e5a6801daae8d8481143dafd2}\label{namespacesonic-cli-sys_a43f1e30e5a6801daae8d8481143dafd2}} 
+\index{sonic-\/cli-\/sys@{sonic-\/cli-\/sys}!invoke@{invoke}}
+\index{invoke@{invoke}!sonic-\/cli-\/sys@{sonic-\/cli-\/sys}}
+\doxysubsubsection{\texorpdfstring{invoke()}{invoke()}}
+{\footnotesize\ttfamily def sonic-\/cli-\/sys.\+invoke (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic-\/cli-\/sys.\+py 파일의 80 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{80 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic-cli-sys_a43f1e30e5a6801daae8d8481143dafd2}{invoke}}(func, args):}
+\DoxyCodeLine{81     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{82     aa = cc.ApiClient()}
+\DoxyCodeLine{83     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'get\_openconfig\_system\_system\_state'}:}
+\DoxyCodeLine{84         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/system:system/state'})}
+\DoxyCodeLine{85     \textcolor{keywordflow}{return} aa.get(path)}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_openconfig\_system\_system\_clock'}:}
+\DoxyCodeLine{88         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/system:system/clock'})}
+\DoxyCodeLine{89     \textcolor{keywordflow}{return} aa.get(path)}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_openconfig\_system\_system\_memory'}:}
+\DoxyCodeLine{92         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/system:system/memory'})}
+\DoxyCodeLine{93     \textcolor{keywordflow}{return} aa.get(path)}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_openconfig\_system\_system\_cpus'}:}
+\DoxyCodeLine{96         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/system:system/cpus'})}
+\DoxyCodeLine{97     \textcolor{keywordflow}{return} aa.get(path)}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'get\_openconfig\_system\_system\_processes'}:}
+\DoxyCodeLine{100         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/system:system/processes'})}
+\DoxyCodeLine{101     \textcolor{keywordflow}{return} aa.get(path)}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_system\_system\_aaa\_authentication\_users\_user'}:}
+\DoxyCodeLine{104         clear\_pwd, hashed\_pwd = \mbox{\hyperlink{namespacesonic-cli-sys_adb6e4f592441eb7bb7a008763461add4}{get\_pwd}}(args[1])}
+\DoxyCodeLine{105         body =  \{ \textcolor{stringliteral}{"openconfig-\/system:user"}: [\{\textcolor{stringliteral}{"username"}: args[0],}
+\DoxyCodeLine{106                                              \textcolor{stringliteral}{"config"}: \{}
+\DoxyCodeLine{107                                                          \textcolor{stringliteral}{"username"}: args[0],}
+\DoxyCodeLine{108                                                          \textcolor{stringliteral}{"password"}: clear\_pwd,}
+\DoxyCodeLine{109                                                          \textcolor{stringliteral}{"password-\/hashed"}: hashed\_pwd,}
+\DoxyCodeLine{110                                                          \textcolor{stringliteral}{"ssh-\/key"}: \textcolor{stringliteral}{""},}
+\DoxyCodeLine{111                                                          \textcolor{stringliteral}{"role"}: args[2]}
+\DoxyCodeLine{112                                                         \}}
+\DoxyCodeLine{113                                              \}}
+\DoxyCodeLine{114                                            ]}
+\DoxyCodeLine{115                 \}}
+\DoxyCodeLine{116         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/system:system/aaa/authentication/users/user=\{username\}'},username=args[0])}
+\DoxyCodeLine{117         \textcolor{keywordflow}{return} aa.patch(path,body)}
+\DoxyCodeLine{118     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_openconfig\_system\_system\_aaa\_authentication\_users\_user'}:}
+\DoxyCodeLine{119         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/system:system/aaa/authentication/users/user=\{username\}'},username=args[0])}
+\DoxyCodeLine{120         \textcolor{keywordflow}{return} aa.delete(path)}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/d7b/namespacesonic-cli-sys_a43f1e30e5a6801daae8d8481143dafd2_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=325pt]{d7/d7b/namespacesonic-cli-sys_a43f1e30e5a6801daae8d8481143dafd2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic-cli-sys_ac5bb30de03a21513da69493b536c8ea2}\label{namespacesonic-cli-sys_ac5bb30de03a21513da69493b536c8ea2}} 
+\index{sonic-\/cli-\/sys@{sonic-\/cli-\/sys}!memory\_key\_change@{memory\_key\_change}}
+\index{memory\_key\_change@{memory\_key\_change}!sonic-\/cli-\/sys@{sonic-\/cli-\/sys}}
+\doxysubsubsection{\texorpdfstring{memory\_key\_change()}{memory\_key\_change()}}
+{\footnotesize\ttfamily def sonic-\/cli-\/sys.\+memory\+\_\+key\+\_\+change (\begin{DoxyParamCaption}\item[{}]{value }\end{DoxyParamCaption})}
+
+
+
+sonic-\/cli-\/sys.\+py 파일의 63 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{63 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic-cli-sys_ac5bb30de03a21513da69493b536c8ea2}{memory\_key\_change}}(value):}
+\DoxyCodeLine{64     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'physical'} \textcolor{keywordflow}{in} value:}
+\DoxyCodeLine{65         value[\textcolor{stringliteral}{'Total'}]=value.pop(\textcolor{stringliteral}{'physical'})}
+\DoxyCodeLine{66     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'reserved'} \textcolor{keywordflow}{in} value:}
+\DoxyCodeLine{67         value[\textcolor{stringliteral}{'Used'}]=value.pop(\textcolor{stringliteral}{'reserved'})}
+\DoxyCodeLine{68     \textcolor{keywordflow}{return} value}
+\DoxyCodeLine{69 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{d7/d7b/namespacesonic-cli-sys_ac5bb30de03a21513da69493b536c8ea2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic-cli-sys_a13dcfe91267bb2382ddaadde0abb8f41}\label{namespacesonic-cli-sys_a13dcfe91267bb2382ddaadde0abb8f41}} 
+\index{sonic-\/cli-\/sys@{sonic-\/cli-\/sys}!register@{register}}
+\index{register@{register}!sonic-\/cli-\/sys@{sonic-\/cli-\/sys}}
+\doxysubsubsection{\texorpdfstring{register()}{register()}}
+{\footnotesize\ttfamily def sonic-\/cli-\/sys.\+register (\begin{DoxyParamCaption}\item[{}]{func }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Register sdk client method as a plug-in\end{DoxyVerb}
+ 
+
+sonic-\/cli-\/sys.\+py 파일의 70 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{70 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic-cli-sys_a13dcfe91267bb2382ddaadde0abb8f41}{register}}(func):}
+\DoxyCodeLine{71     \textcolor{stringliteral}{"""Register sdk client method as a plug-\/in"""}}
+\DoxyCodeLine{72     plugins[func.\_\_name\_\_] = func}
+\DoxyCodeLine{73     \textcolor{keywordflow}{return} func}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacesonic-cli-sys_add5df08cf6097eb791f7c7f38e255779}\label{namespacesonic-cli-sys_add5df08cf6097eb791f7c7f38e255779}} 
+\index{sonic-\/cli-\/sys@{sonic-\/cli-\/sys}!run@{run}}
+\index{run@{run}!sonic-\/cli-\/sys@{sonic-\/cli-\/sys}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic-\/cli-\/sys.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic-\/cli-\/sys.\+py 파일의 123 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{123 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic-cli-sys_add5df08cf6097eb791f7c7f38e255779}{run}}(func, args):}
+\DoxyCodeLine{124     api\_response = \mbox{\hyperlink{namespacesonic-cli-sys_a43f1e30e5a6801daae8d8481143dafd2}{invoke}}(func,args)}
+\DoxyCodeLine{125     \textcolor{keywordflow}{if} api\_response.ok():}
+\DoxyCodeLine{126         \textcolor{keywordflow}{if} api\_response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{127             response = api\_response.content}
+\DoxyCodeLine{128             \textcolor{keywordflow}{if} \textcolor{stringliteral}{'openconfig-\/system:state'} \textcolor{keywordflow}{in} response.keys():}
+\DoxyCodeLine{129                 value = response[\textcolor{stringliteral}{'openconfig-\/system:state'}]}
+\DoxyCodeLine{130                 \textcolor{keywordflow}{if} value \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{131                     \textcolor{keywordflow}{return}}
+\DoxyCodeLine{132                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], \mbox{\hyperlink{namespacesonic-cli-sys_aead1cd58123074113d6c424fa0b8d670}{system\_state\_key\_change}}(value))}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134             \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'openconfig-\/system:memory'} \textcolor{keywordflow}{in} response.keys():}
+\DoxyCodeLine{135                 value = response[\textcolor{stringliteral}{'openconfig-\/system:memory'}]}
+\DoxyCodeLine{136                 \textcolor{keywordflow}{if} value \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{137                     \textcolor{keywordflow}{return}}
+\DoxyCodeLine{138         \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], \mbox{\hyperlink{namespacesonic-cli-sys_ac5bb30de03a21513da69493b536c8ea2}{memory\_key\_change}}(value[\textcolor{stringliteral}{'state'}]))}
+\DoxyCodeLine{139             \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'openconfig-\/system:cpus'} \textcolor{keywordflow}{in} response.keys():}
+\DoxyCodeLine{140                 value = response[\textcolor{stringliteral}{'openconfig-\/system:cpus'}]}
+\DoxyCodeLine{141                 \textcolor{keywordflow}{if} value \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{142                     \textcolor{keywordflow}{return}}
+\DoxyCodeLine{143                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], value[\textcolor{stringliteral}{'cpu'}])}
+\DoxyCodeLine{144             \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'openconfig-\/system:processes'} \textcolor{keywordflow}{in} response.keys():}
+\DoxyCodeLine{145                 value = response[\textcolor{stringliteral}{'openconfig-\/system:processes'}]}
+\DoxyCodeLine{146                 \textcolor{keywordflow}{if} value \textcolor{keywordflow}{is} \textcolor{keywordtype}{None} \textcolor{keywordflow}{or} \textcolor{stringliteral}{'process'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} value:}
+\DoxyCodeLine{147                     \textcolor{keywordflow}{return}}
+\DoxyCodeLine{148         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'default'} == args[1]:}
+\DoxyCodeLine{149                     value = sorted(value[\textcolor{stringliteral}{'process'}], key = \textcolor{keyword}{lambda} x: int(x[\textcolor{stringliteral}{'pid'}]))}
+\DoxyCodeLine{150         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'cpu'} == args[1]:}
+\DoxyCodeLine{151                     value = sorted(value[\textcolor{stringliteral}{'process'}], key = \textcolor{keyword}{lambda} x: float(x[\textcolor{stringliteral}{'state'}][\textcolor{stringliteral}{'cpu-\/utilization'}]), reverse=\textcolor{keyword}{True})}
+\DoxyCodeLine{152         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'mem-\/util'} == args[1]:}
+\DoxyCodeLine{153                     value = sorted(value[\textcolor{stringliteral}{'process'}], key = \textcolor{keyword}{lambda} x: float(x[\textcolor{stringliteral}{'state'}][\textcolor{stringliteral}{'memory-\/utilization'}]), reverse=\textcolor{keyword}{True})}
+\DoxyCodeLine{154         \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'mem-\/usage'} == args[1]:}
+\DoxyCodeLine{155                     value = sorted(value[\textcolor{stringliteral}{'process'}], key = \textcolor{keyword}{lambda} x: int(x[\textcolor{stringliteral}{'state'}][\textcolor{stringliteral}{'memory-\/usage'}]), reverse=\textcolor{keyword}{True})}
+\DoxyCodeLine{156             \textcolor{keywordflow}{elif} \textcolor{stringliteral}{'pid'} == args[1]:}
+\DoxyCodeLine{157             \textcolor{keywordflow}{for} proc \textcolor{keywordflow}{in} value[\textcolor{stringliteral}{'process'}]:}
+\DoxyCodeLine{158                 \textcolor{keywordflow}{if} proc[\textcolor{stringliteral}{'pid'}] == args[2]:}
+\DoxyCodeLine{159                     value = \mbox{\hyperlink{namespacesonic-cli-sys_a5bb72eb217c6d33e45ccfaa8af97a19b}{util\_capitalize}}(proc[\textcolor{stringliteral}{'state'}])}
+\DoxyCodeLine{160                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{161                     \textcolor{keywordflow}{return}}
+\DoxyCodeLine{162                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(args[0], value)}
+\DoxyCodeLine{163     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{164         print(api\_response.error\_message())}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/d7b/namespacesonic-cli-sys_add5df08cf6097eb791f7c7f38e255779_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic-cli-sys_aead1cd58123074113d6c424fa0b8d670}\label{namespacesonic-cli-sys_aead1cd58123074113d6c424fa0b8d670}} 
+\index{sonic-\/cli-\/sys@{sonic-\/cli-\/sys}!system\_state\_key\_change@{system\_state\_key\_change}}
+\index{system\_state\_key\_change@{system\_state\_key\_change}!sonic-\/cli-\/sys@{sonic-\/cli-\/sys}}
+\doxysubsubsection{\texorpdfstring{system\_state\_key\_change()}{system\_state\_key\_change()}}
+{\footnotesize\ttfamily def sonic-\/cli-\/sys.\+system\+\_\+state\+\_\+key\+\_\+change (\begin{DoxyParamCaption}\item[{}]{value }\end{DoxyParamCaption})}
+
+
+
+sonic-\/cli-\/sys.\+py 파일의 55 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{55 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic-cli-sys_aead1cd58123074113d6c424fa0b8d670}{system\_state\_key\_change}}(value):}
+\DoxyCodeLine{56     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'motd\_banner'} \textcolor{keywordflow}{in} value:}
+\DoxyCodeLine{57         value.pop(\textcolor{stringliteral}{'motd\_banner'})}
+\DoxyCodeLine{58     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'login\_banner'} \textcolor{keywordflow}{in} value:}
+\DoxyCodeLine{59         value.pop(\textcolor{stringliteral}{'login\_banner'})}
+\DoxyCodeLine{60     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacesonic-cli-sys_a5bb72eb217c6d33e45ccfaa8af97a19b}{util\_capitalize}}(value)}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{d7/d7b/namespacesonic-cli-sys_aead1cd58123074113d6c424fa0b8d670_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{d7/d7b/namespacesonic-cli-sys_aead1cd58123074113d6c424fa0b8d670_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic-cli-sys_a5bb72eb217c6d33e45ccfaa8af97a19b}\label{namespacesonic-cli-sys_a5bb72eb217c6d33e45ccfaa8af97a19b}} 
+\index{sonic-\/cli-\/sys@{sonic-\/cli-\/sys}!util\_capitalize@{util\_capitalize}}
+\index{util\_capitalize@{util\_capitalize}!sonic-\/cli-\/sys@{sonic-\/cli-\/sys}}
+\doxysubsubsection{\texorpdfstring{util\_capitalize()}{util\_capitalize()}}
+{\footnotesize\ttfamily def sonic-\/cli-\/sys.\+util\+\_\+capitalize (\begin{DoxyParamCaption}\item[{}]{value }\end{DoxyParamCaption})}
+
+
+
+sonic-\/cli-\/sys.\+py 파일의 46 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{46 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic-cli-sys_a5bb72eb217c6d33e45ccfaa8af97a19b}{util\_capitalize}}(value):}
+\DoxyCodeLine{47     \textcolor{keywordflow}{for} key,val \textcolor{keywordflow}{in} value.items():}
+\DoxyCodeLine{48         temp = key.split(\textcolor{stringliteral}{'-\/'})}
+\DoxyCodeLine{49         alt\_key = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{50         \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} temp:}
+\DoxyCodeLine{51             alt\_key = alt\_key + i.capitalize() + \textcolor{stringliteral}{' '}}
+\DoxyCodeLine{52         value[alt\_key]=value.pop(key)}
+\DoxyCodeLine{53     \textcolor{keywordflow}{return} value}
+\DoxyCodeLine{54 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/d7b/namespacesonic-cli-sys_a5bb72eb217c6d33e45ccfaa8af97a19b_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{변수 문서화}
+\mbox{\Hypertarget{namespacesonic-cli-sys_a03c718b174b8fb408c20eb3f8a258581}\label{namespacesonic-cli-sys_a03c718b174b8fb408c20eb3f8a258581}} 
+\index{sonic-\/cli-\/sys@{sonic-\/cli-\/sys}!plugins@{plugins}}
+\index{plugins@{plugins}!sonic-\/cli-\/sys@{sonic-\/cli-\/sys}}
+\doxysubsubsection{\texorpdfstring{plugins}{plugins}}
+{\footnotesize\ttfamily sonic-\/cli-\/sys.\+plugins = dict()}
+
+
+
+sonic-\/cli-\/sys.\+py 파일의 35 번째 라인에서 정의되었습니다.
+

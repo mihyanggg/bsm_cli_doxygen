@@ -1,0 +1,141 @@
+\hypertarget{namespacesonic__cli__show__subinterface}{}\doxysection{sonic\+\_\+cli\+\_\+show\+\_\+subinterface 네임스페이스 참조}
+\label{namespacesonic__cli__show__subinterface}\index{sonic\_cli\_show\_subinterface@{sonic\_cli\_show\_subinterface}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__show__subinterface_a7622080ec73eabac508be5950d2d5423}{add\+\_\+speed\+\_\+and\+\_\+mtu}} (data\+\_\+in)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__show__subinterface_ae9c8a3c106fd7f91dbad1f86110f4226}{invoke\+\_\+api}} (func, args=\mbox{[}$\,$\mbox{]})
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__show__subinterface_affc383a050c5d6d92629475905820afe}{run}} (func, args)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__show__subinterface_a7622080ec73eabac508be5950d2d5423}\label{namespacesonic__cli__show__subinterface_a7622080ec73eabac508be5950d2d5423}} 
+\index{sonic\_cli\_show\_subinterface@{sonic\_cli\_show\_subinterface}!add\_speed\_and\_mtu@{add\_speed\_and\_mtu}}
+\index{add\_speed\_and\_mtu@{add\_speed\_and\_mtu}!sonic\_cli\_show\_subinterface@{sonic\_cli\_show\_subinterface}}
+\doxysubsubsection{\texorpdfstring{add\_speed\_and\_mtu()}{add\_speed\_and\_mtu()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+show\+\_\+subinterface.\+add\+\_\+speed\+\_\+and\+\_\+mtu (\begin{DoxyParamCaption}\item[{}]{data\+\_\+in }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+subinterface.\+py 파일의 25 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{25 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__show__subinterface_a7622080ec73eabac508be5950d2d5423}{add\_speed\_and\_mtu}}(data\_in):}
+\DoxyCodeLine{26     api = cc.ApiClient()}
+\DoxyCodeLine{27     keypath = []}
+\DoxyCodeLine{28     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/interface:VLAN\_SUB\_INTERFACE\_LIST'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} data\_in:}
+\DoxyCodeLine{29         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{30     parent\_if\_list = set([d[\textcolor{stringliteral}{'parent'}] \textcolor{keywordflow}{for} d \textcolor{keywordflow}{in} data\_in[\textcolor{stringliteral}{'sonic-\/interface:VLAN\_SUB\_INTERFACE\_LIST'}]])}
+\DoxyCodeLine{31     parent\_data = dict()}
+\DoxyCodeLine{32     \textcolor{keywordflow}{for} item \textcolor{keywordflow}{in} parent\_if\_list:}
+\DoxyCodeLine{33         \textcolor{keywordflow}{if} item.startswith(\textcolor{stringliteral}{'Eth'}):}
+\DoxyCodeLine{34             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/port:sonic-\/port/PORT\_TABLE/PORT\_TABLE\_LIST=\{name\}'}, name=item)}
+\DoxyCodeLine{35             response = api.get(keypath)}
+\DoxyCodeLine{36             \textcolor{keywordflow}{if} response.ok() \textcolor{keywordflow}{and} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{37                 parent\_data[item] = dict()}
+\DoxyCodeLine{38                 parent\_data[item][\textcolor{stringliteral}{'mtu'}] = response.content[\textcolor{stringliteral}{'sonic-\/port:PORT\_TABLE\_LIST'}][0][\textcolor{stringliteral}{'mtu'}]}
+\DoxyCodeLine{39                 parent\_data[item][\textcolor{stringliteral}{'speed'}] = response.content[\textcolor{stringliteral}{'sonic-\/port:PORT\_TABLE\_LIST'}][0][\textcolor{stringliteral}{'speed'}]}
+\DoxyCodeLine{40         \textcolor{keywordflow}{elif} item.startswith(\textcolor{stringliteral}{'Po'}):}
+\DoxyCodeLine{41             keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/portchannel:sonic-\/portchannel/LAG\_TABLE/LAG\_TABLE\_LIST=\{name\}'}, name=item)}
+\DoxyCodeLine{42             response = api.get(keypath)}
+\DoxyCodeLine{43             \textcolor{keywordflow}{if} response.ok() \textcolor{keywordflow}{and} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{44                 parent\_data[item] = dict()}
+\DoxyCodeLine{45                 parent\_data[item][\textcolor{stringliteral}{'mtu'}] = response.content[\textcolor{stringliteral}{'sonic-\/portchannel:LAG\_TABLE\_LIST'}][0][\textcolor{stringliteral}{'mtu'}]}
+\DoxyCodeLine{46                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'speed'} \textcolor{keywordflow}{in} response.content[\textcolor{stringliteral}{'sonic-\/portchannel:LAG\_TABLE\_LIST'}][0]:}
+\DoxyCodeLine{47                     parent\_data[item][\textcolor{stringliteral}{'speed'}] = response.content[\textcolor{stringliteral}{'sonic-\/portchannel:LAG\_TABLE\_LIST'}][0][\textcolor{stringliteral}{'speed'}]}
+\DoxyCodeLine{48                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{49                     parent\_data[item][\textcolor{stringliteral}{'speed'}] = \textcolor{stringliteral}{"n/a"}}
+\DoxyCodeLine{50     data\_in[\textcolor{stringliteral}{'aux\_info'}] = parent\_data}
+\DoxyCodeLine{51 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/da6/namespacesonic__cli__show__subinterface_a7622080ec73eabac508be5950d2d5423_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__show__subinterface_ae9c8a3c106fd7f91dbad1f86110f4226}\label{namespacesonic__cli__show__subinterface_ae9c8a3c106fd7f91dbad1f86110f4226}} 
+\index{sonic\_cli\_show\_subinterface@{sonic\_cli\_show\_subinterface}!invoke\_api@{invoke\_api}}
+\index{invoke\_api@{invoke\_api}!sonic\_cli\_show\_subinterface@{sonic\_cli\_show\_subinterface}}
+\doxysubsubsection{\texorpdfstring{invoke\_api()}{invoke\_api()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+show\+\_\+subinterface.\+invoke\+\_\+api (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args = {\ttfamily \mbox{[}\mbox{]}} }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+subinterface.\+py 파일의 52 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{52 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__show__subinterface_ae9c8a3c106fd7f91dbad1f86110f4226}{invoke\_api}}(func, args=[]):}
+\DoxyCodeLine{53     api = cc.ApiClient()}
+\DoxyCodeLine{54     keypath = []}
+\DoxyCodeLine{55     }
+\DoxyCodeLine{56     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'status\_sonic'}:}
+\DoxyCodeLine{57         keypath = cc.Path(\textcolor{stringliteral}{'/restconf/data/sonic-\/interface:sonic-\/interface/VLAN\_SUB\_INTERFACE/VLAN\_SUB\_INTERFACE\_LIST'})}
+\DoxyCodeLine{58         response = api.get(keypath)}
+\DoxyCodeLine{59         renderer = \textcolor{stringliteral}{'show\_subinterfaces\_status\_sonic.j2'}}
+\DoxyCodeLine{60         \textcolor{keywordflow}{return} response, renderer}
+\DoxyCodeLine{61     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{62         body = \{\}}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \textcolor{keywordflow}{return} api.cli\_not\_implemented(func), \textcolor{stringliteral}{''}}
+\DoxyCodeLine{65 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/da6/namespacesonic__cli__show__subinterface_ae9c8a3c106fd7f91dbad1f86110f4226_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__show__subinterface_affc383a050c5d6d92629475905820afe}\label{namespacesonic__cli__show__subinterface_affc383a050c5d6d92629475905820afe}} 
+\index{sonic\_cli\_show\_subinterface@{sonic\_cli\_show\_subinterface}!run@{run}}
+\index{run@{run}!sonic\_cli\_show\_subinterface@{sonic\_cli\_show\_subinterface}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+show\+\_\+subinterface.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+subinterface.\+py 파일의 66 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{66 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__show__subinterface_affc383a050c5d6d92629475905820afe}{run}}(func, args):}
+\DoxyCodeLine{67     response, renderer = \mbox{\hyperlink{namespacesonic__cli__show__subinterface_ae9c8a3c106fd7f91dbad1f86110f4226}{invoke\_api}}(func, args[1:])}
+\DoxyCodeLine{68     \textcolor{keywordflow}{if} response.ok():}
+\DoxyCodeLine{69         \textcolor{keywordflow}{if} response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{70             api\_response = response.content}
+\DoxyCodeLine{71             \mbox{\hyperlink{namespacesonic__cli__show__subinterface_a7622080ec73eabac508be5950d2d5423}{add\_speed\_and\_mtu}}(api\_response)}
+\DoxyCodeLine{72             tbl\_key = \textcolor{stringliteral}{"sonic-\/interface:VLAN\_SUB\_INTERFACE\_LIST"}}
+\DoxyCodeLine{73             \textcolor{keywordflow}{if} tbl\_key \textcolor{keywordflow}{in} api\_response:}
+\DoxyCodeLine{74                 api\_response[tbl\_key] = natsorted(api\_response[tbl\_key],key=\textcolor{keyword}{lambda} t: t[\textcolor{stringliteral}{"id"}])}
+\DoxyCodeLine{75             \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(renderer, api\_response)}
+\DoxyCodeLine{76         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{77             print(\textcolor{stringliteral}{"Empty response"})}
+\DoxyCodeLine{78     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{79         print(response.error\_message())}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81 \textcolor{comment}{\#if \_\_name\_\_ == '\_\_main\_\_':}}
+\DoxyCodeLine{82 \textcolor{comment}{\#    pipestr().write(sys.argv)}}
+\DoxyCodeLine{83 \textcolor{comment}{\#    func = sys.argv[1]}}
+\DoxyCodeLine{84     \textcolor{comment}{\#run(func, sys.argv[3:], sys.argv[2])}}
+\DoxyCodeLine{85 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/da6/namespacesonic__cli__show__subinterface_affc383a050c5d6d92629475905820afe_cgraph}
+\end{center}
+\end{figure}

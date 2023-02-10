@@ -1,0 +1,508 @@
+\hypertarget{classsonic__cli__show__config_1_1cli__xml__view}{}\doxysection{sonic\+\_\+cli\+\_\+show\+\_\+config.\+cli\+\_\+xml\+\_\+view 클래스 참조}
+\label{classsonic__cli__show__config_1_1cli__xml__view}\index{sonic\_cli\_show\_config.cli\_xml\_view@{sonic\_cli\_show\_config.cli\_xml\_view}}
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+config.\+cli\+\_\+xml\+\_\+view에 대한 협력 다이어그램\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=241pt]{dd/dc5/classsonic__cli__show__config_1_1cli__xml__view__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classsonic__cli__show__config_1_1cli__xml__view_a1991c2d461cac198d2a91fbb7043bd9a}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, command\+\_\+line)
+\item 
+def \mbox{\hyperlink{classsonic__cli__show__config_1_1cli__xml__view_a27238d8fc7d84069f6a31655965fc516}{print\+\_\+view}} (self)
+\item 
+def \mbox{\hyperlink{classsonic__cli__show__config_1_1cli__xml__view_a3ed83af46ff3fe4f8e6e714b8662439d}{process\+\_\+view\+\_\+commands\+\_\+no\+\_\+table}} (self, member\+\_\+keys, indent)
+\item 
+def \mbox{\hyperlink{classsonic__cli__show__config_1_1cli__xml__view_a26e4ad467f0a4260a64b3d484f5c7fdd}{process\+\_\+view\+\_\+commands}} (self, view\+\_\+table\+\_\+keys, indent)
+\item 
+def \mbox{\hyperlink{classsonic__cli__show__config_1_1cli__xml__view_acecbabd4abcdec5f316371f87b5b4b7e}{process\+\_\+cli\+\_\+view}} (self, keys, depth)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public 속성}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classsonic__cli__show__config_1_1cli__xml__view_acc36b754e031d8db30efd1547b16a965}{name}}
+\item 
+\mbox{\hyperlink{classsonic__cli__show__config_1_1cli__xml__view_a2c0585cdd8c94c494bc736437c900cd1}{cfgcmd\+\_\+viewid}}
+\item 
+\mbox{\hyperlink{classsonic__cli__show__config_1_1cli__xml__view_ab34f2954a179e1c47a4cda59e4aca5ed}{view\+\_\+cmd\+\_\+list}}
+\item 
+\mbox{\hyperlink{classsonic__cli__show__config_1_1cli__xml__view_ace5c5ded124ba73364be7ab6d72fdb70}{primary\+\_\+table}}
+\item 
+\mbox{\hyperlink{classsonic__cli__show__config_1_1cli__xml__view_ab814beff0ec0eeb75a47c3a3fe4dad20}{dbpathstr}}
+\item 
+\mbox{\hyperlink{classsonic__cli__show__config_1_1cli__xml__view_a85fc1e414bfcc3199015e122e786eda7}{table\+\_\+keys}}
+\item 
+\mbox{\hyperlink{classsonic__cli__show__config_1_1cli__xml__view_a34b6dc9f16caa7c9b4ebcf3b1b0ec6d7}{table\+\_\+list}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{상세한 설명}
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+config.\+py 파일의 220 번째 라인에서 정의되었습니다.
+
+
+
+\doxysubsection{생성자 \& 소멸자 문서화}
+\mbox{\Hypertarget{classsonic__cli__show__config_1_1cli__xml__view_a1991c2d461cac198d2a91fbb7043bd9a}\label{classsonic__cli__show__config_1_1cli__xml__view_a1991c2d461cac198d2a91fbb7043bd9a}} 
+\index{sonic\_cli\_show\_config.cli\_xml\_view@{sonic\_cli\_show\_config.cli\_xml\_view}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!sonic\_cli\_show\_config.cli\_xml\_view@{sonic\_cli\_show\_config.cli\_xml\_view}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+show\+\_\+config.\+cli\+\_\+xml\+\_\+view.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{command\+\_\+line }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+config.\+py 파일의 222 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{222     \textcolor{keyword}{def }\_\_init\_\_(self, command\_line):}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224         \textcolor{comment}{\#xml view name (for e.g, config-\/router-\/bgp)}}
+\DoxyCodeLine{225         self.name = command\_line[CONFIG\_VIEW\_NAME\_IDX]}
+\DoxyCodeLine{226         \textcolor{comment}{\#view id for config cmd view (only for config cmd views).}}
+\DoxyCodeLine{227         self.cfgcmd\_viewid = command\_line[CONFIG\_VIEW\_RENDER\_CMD\_VIEWID\_IDX]}
+\DoxyCodeLine{228 }
+\DoxyCodeLine{229         \textcolor{comment}{\#List of command lines from DB.txt}}
+\DoxyCodeLine{230         self.view\_cmd\_list = []}
+\DoxyCodeLine{231         self.primary\_table = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{232         self.dbpathstr = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{233 }
+\DoxyCodeLine{234         \textcolor{comment}{\#All table keys for this view. for e.g. for config-\/router-\/bgp: vrfname=*, ip-\/prfx=*}}
+\DoxyCodeLine{235         \textcolor{comment}{\#Data represented as "view-\/keys" tag in the xml.}}
+\DoxyCodeLine{236         self.table\_keys = collections.OrderedDict()}
+\DoxyCodeLine{237         \textcolor{keywordflow}{if} command\_line[CONFIG\_VIEW\_TABLE\_KEYS\_IDX]:}
+\DoxyCodeLine{238             \textcolor{keywordflow}{for} keyVal \textcolor{keywordflow}{in} command\_line[CONFIG\_VIEW\_TABLE\_KEYS\_IDX].split(\textcolor{stringliteral}{','}):}
+\DoxyCodeLine{239                 \textcolor{keywordflow}{if} len(keyVal.split(\textcolor{stringliteral}{"="})) != 2:}
+\DoxyCodeLine{240                    \mbox{\hyperlink{namespaceshow__config__utils_ade2a848c0e0759cedd94d752ba30ed55}{showrun\_log}}(logging.WARNING,\textcolor{stringliteral}{"cli\_xml\_view init: Invalid key format; skip this key \{\}"} ,keyVal)}
+\DoxyCodeLine{241                    \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{242 }
+\DoxyCodeLine{243                 self.table\_keys.update(\{keyVal.split(\textcolor{stringliteral}{"="})[0]:keyVal.split(\textcolor{stringliteral}{"="})[1]\})}
+\DoxyCodeLine{244 }
+\DoxyCodeLine{245         \textcolor{comment}{\#List of all tables to be accessed for this view. This aggregated while parsing every command for the view.}}
+\DoxyCodeLine{246         \textcolor{comment}{\#Primary table is added to this list.}}
+\DoxyCodeLine{247 }
+\DoxyCodeLine{248         table\_lst = command\_line[CONFIG\_VIEW\_TABLES\_IDX].split(\textcolor{stringliteral}{';'})}
+\DoxyCodeLine{249 }
+\DoxyCodeLine{250         \textcolor{comment}{\#remove empty string from list}}
+\DoxyCodeLine{251         self.table\_list = list(filter(\textcolor{keywordtype}{None}, table\_lst))}
+\DoxyCodeLine{252 }
+\DoxyCodeLine{253         \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} self.table\_list:}
+\DoxyCodeLine{254             \mbox{\hyperlink{namespaceshow__config__utils_ade2a848c0e0759cedd94d752ba30ed55}{showrun\_log}}(logging.DEBUG,\textcolor{stringliteral}{"cli\_xml\_view init: table list length zero for view \{\}"} ,self.name)}
+\DoxyCodeLine{255         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{256             \textcolor{comment}{\#Primary table for this view. for e.g. "sonic-\/bgp-\/global:sonic-\/bgp-\/global/BGP\_GLOBALS/vrf\_name=\{vrf-\/name\}"}}
+\DoxyCodeLine{257             \textcolor{comment}{\#Data represented as "view\_table" tag in the xml.}}
+\DoxyCodeLine{258             self.primary\_table =self.table\_list[0]}
+\DoxyCodeLine{259             self.dbpathstr = \textcolor{stringliteral}{'/'}.join(self.primary\_table.split(\textcolor{stringliteral}{'/'})[:-\/1])}
+\DoxyCodeLine{260 }
+\DoxyCodeLine{261         \mbox{\hyperlink{namespaceshow__config__utils_ade2a848c0e0759cedd94d752ba30ed55}{showrun\_log}}(logging.DEBUG,\textcolor{stringliteral}{"name: \{\}, table\_keys: \{\}, primary\_table: \{\} dbpathstr \{\} tablelist"},}
+\DoxyCodeLine{262                 self.name, self.table\_keys, self.primary\_table, self.dbpathstr, self.table\_list)}
+\DoxyCodeLine{263 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{멤버 함수 문서화}
+\mbox{\Hypertarget{classsonic__cli__show__config_1_1cli__xml__view_a27238d8fc7d84069f6a31655965fc516}\label{classsonic__cli__show__config_1_1cli__xml__view_a27238d8fc7d84069f6a31655965fc516}} 
+\index{sonic\_cli\_show\_config.cli\_xml\_view@{sonic\_cli\_show\_config.cli\_xml\_view}!print\_view@{print\_view}}
+\index{print\_view@{print\_view}!sonic\_cli\_show\_config.cli\_xml\_view@{sonic\_cli\_show\_config.cli\_xml\_view}}
+\doxysubsubsection{\texorpdfstring{print\_view()}{print\_view()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+show\+\_\+config.\+cli\+\_\+xml\+\_\+view.\+print\+\_\+view (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+config.\+py 파일의 264 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{264     \textcolor{keyword}{def }print\_view(self):}
+\DoxyCodeLine{265         \mbox{\hyperlink{namespaceshow__config__utils_ade2a848c0e0759cedd94d752ba30ed55}{showrun\_log}}(logging.INFO,\textcolor{stringliteral}{'-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/'})}
+\DoxyCodeLine{266         \mbox{\hyperlink{namespaceshow__config__utils_ade2a848c0e0759cedd94d752ba30ed55}{showrun\_log}}(logging.INFO,\textcolor{stringliteral}{"view-\/name \{\}"},self.name)}
+\DoxyCodeLine{267         \textcolor{keywordflow}{for} cmd \textcolor{keywordflow}{in} self.view\_cmd\_list:}
+\DoxyCodeLine{268             \mbox{\hyperlink{namespaceshow__config__utils_ade2a848c0e0759cedd94d752ba30ed55}{showrun\_log}}(logging.INFO,\textcolor{stringliteral}{"\(\backslash\)t\{\}"},self.view\_cmd\_list)}
+\DoxyCodeLine{269             \mbox{\hyperlink{namespaceshow__config__utils_ade2a848c0e0759cedd94d752ba30ed55}{showrun\_log}}(logging.INFO,\textcolor{stringliteral}{'-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/'})}
+\DoxyCodeLine{270 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d07/classsonic__cli__show__config_1_1cli__xml__view_a27238d8fc7d84069f6a31655965fc516_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classsonic__cli__show__config_1_1cli__xml__view_acecbabd4abcdec5f316371f87b5b4b7e}\label{classsonic__cli__show__config_1_1cli__xml__view_acecbabd4abcdec5f316371f87b5b4b7e}} 
+\index{sonic\_cli\_show\_config.cli\_xml\_view@{sonic\_cli\_show\_config.cli\_xml\_view}!process\_cli\_view@{process\_cli\_view}}
+\index{process\_cli\_view@{process\_cli\_view}!sonic\_cli\_show\_config.cli\_xml\_view@{sonic\_cli\_show\_config.cli\_xml\_view}}
+\doxysubsubsection{\texorpdfstring{process\_cli\_view()}{process\_cli\_view()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+show\+\_\+config.\+cli\+\_\+xml\+\_\+view.\+process\+\_\+cli\+\_\+view (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{keys,  }\item[{}]{depth }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+config.\+py 파일의 464 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{464     \textcolor{keyword}{def }process\_cli\_view(self, keys, depth):}
+\DoxyCodeLine{465 }
+\DoxyCodeLine{466         \mbox{\hyperlink{namespaceshow__config__utils_ade2a848c0e0759cedd94d752ba30ed55}{showrun\_log}}(logging.INFO, \textcolor{stringliteral}{"Processing view: \{\}, keys \{\}, depth \{\} "},}
+\DoxyCodeLine{467                                   self.name, keys, depth)}
+\DoxyCodeLine{468         table\_keys = keys}
+\DoxyCodeLine{469         cmd\_status = CMD\_SUCCESS}
+\DoxyCodeLine{470 }
+\DoxyCodeLine{471         \textcolor{keywordflow}{if} self.table\_list:}
+\DoxyCodeLine{472             \mbox{\hyperlink{namespaceshow__config__utils_ade2a848c0e0759cedd94d752ba30ed55}{showrun\_log}}(logging.INFO,\textcolor{stringliteral}{"table list \{\}"} ,self.table\_list)}
+\DoxyCodeLine{473             cmd\_status= self.process\_view\_commands(table\_keys, depth)            }
+\DoxyCodeLine{474         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{475             \mbox{\hyperlink{namespaceshow__config__utils_ade2a848c0e0759cedd94d752ba30ed55}{showrun\_log}}(logging.INFO,\textcolor{stringliteral}{"table list empty for \{\}, next view, maybe command views"} ,self.name)}
+\DoxyCodeLine{476             cmd\_status= self.process\_view\_commands\_no\_table(table\_keys, depth)     }
+\DoxyCodeLine{477    }
+\DoxyCodeLine{478         \mbox{\hyperlink{namespaceshow__config__utils_ade2a848c0e0759cedd94d752ba30ed55}{showrun\_log}}(logging.DEBUG,os.linesep)}
+\DoxyCodeLine{479 }
+\DoxyCodeLine{480         \textcolor{keywordflow}{return} cmd\_status}
+\DoxyCodeLine{481 }
+\DoxyCodeLine{482 }
+\DoxyCodeLine{483 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d07/classsonic__cli__show__config_1_1cli__xml__view_acecbabd4abcdec5f316371f87b5b4b7e_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classsonic__cli__show__config_1_1cli__xml__view_a26e4ad467f0a4260a64b3d484f5c7fdd}\label{classsonic__cli__show__config_1_1cli__xml__view_a26e4ad467f0a4260a64b3d484f5c7fdd}} 
+\index{sonic\_cli\_show\_config.cli\_xml\_view@{sonic\_cli\_show\_config.cli\_xml\_view}!process\_view\_commands@{process\_view\_commands}}
+\index{process\_view\_commands@{process\_view\_commands}!sonic\_cli\_show\_config.cli\_xml\_view@{sonic\_cli\_show\_config.cli\_xml\_view}}
+\doxysubsubsection{\texorpdfstring{process\_view\_commands()}{process\_view\_commands()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+show\+\_\+config.\+cli\+\_\+xml\+\_\+view.\+process\+\_\+view\+\_\+commands (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{view\+\_\+table\+\_\+keys,  }\item[{}]{indent }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+config.\+py 파일의 344 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{344     \textcolor{keyword}{def }process\_view\_commands(self, view\_table\_keys, indent):}
+\DoxyCodeLine{345         \textcolor{keyword}{global} CMDS\_VIEW}
+\DoxyCodeLine{346 }
+\DoxyCodeLine{347         \textcolor{comment}{\#get primary table}}
+\DoxyCodeLine{348         primary\_table\_path = self.primary\_table}
+\DoxyCodeLine{349 }
+\DoxyCodeLine{350         \textcolor{comment}{\#get table keys from table path in form of dict =\{key:value, key1:value,..\}}}
+\DoxyCodeLine{351         primary\_table\_keys = \mbox{\hyperlink{namespaceshow__config__utils_ae700764f5eef8241b6f5baa8dc3704fe}{get\_view\_table\_keys}}(primary\_table\_path)}
+\DoxyCodeLine{352         \mbox{\hyperlink{namespaceshow__config__utils_ade2a848c0e0759cedd94d752ba30ed55}{showrun\_log}}(logging.DEBUG,\textcolor{stringliteral}{"Enter: table\_list= \{\}, view\_table\_keys= \{\},  Primary table path= \{\},  keys= \{\}"},}
+\DoxyCodeLine{353             self.table\_list, view\_table\_keys, primary\_table\_path, primary\_table\_keys)}
+\DoxyCodeLine{354 }
+\DoxyCodeLine{355         \textcolor{comment}{\#get configDB table using rest call.}}
+\DoxyCodeLine{356         response = \mbox{\hyperlink{namespacesonic__cli__show__config_a95cc2e7da00e7f6932643d7fd96f300a}{get\_rest\_table}}(primary\_table\_path, primary\_table\_keys)}
+\DoxyCodeLine{357 }
+\DoxyCodeLine{358         \textcolor{keywordflow}{if} response \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{359             \mbox{\hyperlink{namespaceshow__config__utils_ade2a848c0e0759cedd94d752ba30ed55}{showrun\_log}}(logging.INFO,\textcolor{stringliteral}{'Table \{\} not found return SUCCESS to continue next table/view'}, primary\_table\_path)}
+\DoxyCodeLine{360             \textcolor{keywordflow}{return} CMD\_SUCCESS}
+\DoxyCodeLine{361 }
+\DoxyCodeLine{362         \textcolor{comment}{\#get view primary table from response.}}
+\DoxyCodeLine{363 }
+\DoxyCodeLine{364 }
+\DoxyCodeLine{365         filter\_keys = []}
+\DoxyCodeLine{366         \textcolor{keywordflow}{for} table\_key, table\_key\_val \textcolor{keywordflow}{in} primary\_table\_keys:}
+\DoxyCodeLine{367             \textcolor{keywordflow}{if} table\_key\_val \textcolor{keywordflow}{in} view\_table\_keys:}
+\DoxyCodeLine{368                 view\_key\_val = view\_table\_keys.get(table\_key\_val)}
+\DoxyCodeLine{369                 \textcolor{keywordflow}{if} view\_key\_val:}
+\DoxyCodeLine{370                     \textcolor{keywordflow}{if} view\_key\_val != \textcolor{stringliteral}{"*"}:}
+\DoxyCodeLine{371                         filter\_keys.append((table\_key,view\_key\_val))}
+\DoxyCodeLine{372                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{373                     \mbox{\hyperlink{namespaceshow__config__utils_ade2a848c0e0759cedd94d752ba30ed55}{showrun\_log}}(logging.WARNING,\textcolor{stringliteral}{'Key \{\} missing in table \{\}, skip view'}, table\_key\_val, primary\_table\_path)}
+\DoxyCodeLine{374                     \textcolor{keywordflow}{return} CMD\_SUCCESS}
+\DoxyCodeLine{375 }
+\DoxyCodeLine{376         \mbox{\hyperlink{namespaceshow__config__utils_ade2a848c0e0759cedd94d752ba30ed55}{showrun\_log}}(logging.DEBUG,\textcolor{stringliteral}{'Table keys \{\}, to filter primary table \{\}'} ,filter\_keys, primary\_table\_path)}
+\DoxyCodeLine{377 }
+\DoxyCodeLine{378         \textcolor{keywordflow}{if} self.name != CMDS\_VIEW:}
+\DoxyCodeLine{379             CMDS\_VIEW = self.name}
+\DoxyCodeLine{380             new\_view = \textcolor{keyword}{True}}
+\DoxyCodeLine{381         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{382             new\_view = \textcolor{keyword}{False}}
+\DoxyCodeLine{383 }
+\DoxyCodeLine{384         \textcolor{keywordflow}{for} member \textcolor{keywordflow}{in} response:}
+\DoxyCodeLine{385 }
+\DoxyCodeLine{386             skip\_record = \textcolor{keyword}{False}}
+\DoxyCodeLine{387             \textcolor{keywordflow}{for} (filter\_key, filter\_key\_value) \textcolor{keywordflow}{in} filter\_keys:}
+\DoxyCodeLine{388                 \textcolor{keywordflow}{if} ((filter\_key \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} member)) \textcolor{keywordflow}{or} (str(member[filter\_key]) != filter\_key\_value):}
+\DoxyCodeLine{389                     skip\_record = \textcolor{keyword}{True}}
+\DoxyCodeLine{390                     \textcolor{keywordflow}{break}}
+\DoxyCodeLine{391             \textcolor{keywordflow}{if} skip\_record:}
+\DoxyCodeLine{392                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{393 }
+\DoxyCodeLine{394             \textcolor{comment}{\#create member keys for processing commands and dependent tables}}
+\DoxyCodeLine{395             member\_keys =\mbox{\hyperlink{namespacesonic__cli__show__config_a7ea354d684f2c5422302a2ea430fc94f}{update\_table\_keys}}(primary\_table\_keys, member)}
+\DoxyCodeLine{396             \mbox{\hyperlink{namespaceshow__config__utils_ade2a848c0e0759cedd94d752ba30ed55}{showrun\_log}}(logging.DEBUG,\textcolor{stringliteral}{"Member key values \{\}, filter keys \{\}"},member\_keys, filter\_keys)}
+\DoxyCodeLine{397 }
+\DoxyCodeLine{398 }
+\DoxyCodeLine{399             \textcolor{comment}{\#process first command, if success continue others othewise}}
+\DoxyCodeLine{400             \textcolor{comment}{\#return to process next context.}}
+\DoxyCodeLine{401 }
+\DoxyCodeLine{402             \textcolor{keywordflow}{if} new\_view:}
+\DoxyCodeLine{403                 ret, is\_view\_rendered = \mbox{\hyperlink{namespacesonic__cli__show__config_ac41d749f75964c403bb7f9145ca1223a}{process\_command}}(self, member, self.table\_list, member\_keys, self.dbpathstr,\(\backslash\)}
+\DoxyCodeLine{404                                                               \textcolor{keyword}{True}, self.view\_cmd\_list[0], indent)}
+\DoxyCodeLine{405             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{406                 \textcolor{comment}{\#continuing cmds with previous view}}
+\DoxyCodeLine{407                 new\_view = \textcolor{keyword}{True}}
+\DoxyCodeLine{408                 ret, is\_view\_rendered = \mbox{\hyperlink{namespacesonic__cli__show__config_ac41d749f75964c403bb7f9145ca1223a}{process\_command}}(self, member, self.table\_list, member\_keys, self.dbpathstr,\(\backslash\)}
+\DoxyCodeLine{409                                                               \textcolor{keyword}{False}, self.view\_cmd\_list[0], indent + 1)}
+\DoxyCodeLine{410 }
+\DoxyCodeLine{411 \textcolor{comment}{\#            if is\_view\_rendered:}}
+\DoxyCodeLine{412 \textcolor{comment}{\#                showrun\_log(logging.INFO,' Entire view rendred by template for \{\}', self.name)}}
+\DoxyCodeLine{413 }
+\DoxyCodeLine{414 }
+\DoxyCodeLine{415             \textcolor{keywordflow}{if} ret == CMD\_SUCCESS:}
+\DoxyCodeLine{416             \textcolor{comment}{\#process all remaining commands under this view.}}
+\DoxyCodeLine{417             \textcolor{comment}{\#if view is rendered skip processing commands, go to child view.}}
+\DoxyCodeLine{418                 \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} is\_view\_rendered:}
+\DoxyCodeLine{419                     \textcolor{keywordflow}{for} cmd \textcolor{keywordflow}{in}  self.view\_cmd\_list[1:]:}
+\DoxyCodeLine{420                         ret, is\_view\_rendered = \mbox{\hyperlink{namespacesonic__cli__show__config_ac41d749f75964c403bb7f9145ca1223a}{process\_command}}(self, member, self.table\_list, member\_keys, self.dbpathstr,\(\backslash\)}
+\DoxyCodeLine{421                                                         \textcolor{keyword}{False}, cmd, indent +1)}
+\DoxyCodeLine{422 }
+\DoxyCodeLine{423                 \textcolor{comment}{\#Process child views.}}
+\DoxyCodeLine{424 }
+\DoxyCodeLine{425                 \textcolor{keywordflow}{if} view\_dependency.get(self.name) \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{426 }
+\DoxyCodeLine{427                     \textcolor{comment}{\#form the keys for the dependency view tables.}}
+\DoxyCodeLine{428                     \textcolor{keywordflow}{for} view \textcolor{keywordflow}{in} view\_dependency[self.name]:}
+\DoxyCodeLine{429                     \textcolor{comment}{\#     \#get keys from parent}}
+\DoxyCodeLine{430 }
+\DoxyCodeLine{431                         view\_key\_values = collections.OrderedDict()}
+\DoxyCodeLine{432                         cli\_view = CLI\_XML\_VIEW\_MAP.get(view)}
+\DoxyCodeLine{433                         \textcolor{keywordflow}{if} cli\_view == \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{434                             \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{435 }
+\DoxyCodeLine{436                         view\_keys = cli\_view.table\_keys}
+\DoxyCodeLine{437                         \mbox{\hyperlink{namespaceshow__config__utils_ade2a848c0e0759cedd94d752ba30ed55}{showrun\_log}}(logging.INFO,\textcolor{stringliteral}{"Preparing for child view: \{\}, child view keys: \{\}, parent view: \{\}, parent member keys: \{\} "}, }
+\DoxyCodeLine{438                          view, view\_keys, self.name,  member\_keys)}
+\DoxyCodeLine{439 }
+\DoxyCodeLine{440                         \textcolor{keywordflow}{for} key, value \textcolor{keywordflow}{in} view\_keys.items():}
+\DoxyCodeLine{441                             \textcolor{comment}{\# set default key value to wildcard}}
+\DoxyCodeLine{442                             \textcolor{comment}{\# check if key has a value or a dbpath to parent member key name.}}
+\DoxyCodeLine{443                             view\_key\_values.update(\{key.lstrip():\textcolor{stringliteral}{"*"}\})}
+\DoxyCodeLine{444                             \textcolor{keywordflow}{if} value \textcolor{keywordflow}{and} value != \textcolor{stringliteral}{"*"}:}
+\DoxyCodeLine{445                                 keypath\_list = value.split(\textcolor{stringliteral}{'/'})}
+\DoxyCodeLine{446                                 \textcolor{keywordflow}{if} len(keypath\_list) > 1:}
+\DoxyCodeLine{447                                     table\_attr = keypath\_list[-\/1]}
+\DoxyCodeLine{448                                     \textcolor{keywordflow}{if} table\_attr \textcolor{keywordflow}{is} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{449                                         \mbox{\hyperlink{namespaceshow__config__utils_ade2a848c0e0759cedd94d752ba30ed55}{showrun\_log}}(logging.INFO,\textcolor{stringliteral}{"Invalid view key \{\}, value \{\}, attr is None. Setting to wildcard"} ,key, value)}
+\DoxyCodeLine{450                                         \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{451                                     \textcolor{keywordflow}{if}  table\_attr \textcolor{keywordflow}{in} member:}
+\DoxyCodeLine{452                                         view\_key\_values.update(\{key.lstrip():member[table\_attr]\})}
+\DoxyCodeLine{453                                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{454                                     view\_key\_values.update(\{key.lstrip():keypath\_list[0]\})}
+\DoxyCodeLine{455 }
+\DoxyCodeLine{456                         \mbox{\hyperlink{namespaceshow__config__utils_ade2a848c0e0759cedd94d752ba30ed55}{showrun\_log}}(logging.INFO,\textcolor{stringliteral}{"Preparing for child view \{\}, child view keys \{\} "} ,cli\_view.name, view\_key\_values)}
+\DoxyCodeLine{457                         cmd\_status = cli\_view.process\_view\_commands(view\_key\_values, indent+1)}
+\DoxyCodeLine{458 }
+\DoxyCodeLine{459         \mbox{\hyperlink{namespaceshow__config__utils_ade2a848c0e0759cedd94d752ba30ed55}{showrun\_log}}(logging.DEBUG,\textcolor{stringliteral}{' Exit.view \{\}, view keys \{\}, status \{\}'}, self.name, view\_table\_keys, CMD\_SUCCESS)}
+\DoxyCodeLine{460         \textcolor{keywordflow}{return} CMD\_SUCCESS}
+\DoxyCodeLine{461 }
+\DoxyCodeLine{462 }
+\DoxyCodeLine{463 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d07/classsonic__cli__show__config_1_1cli__xml__view_a26e4ad467f0a4260a64b3d484f5c7fdd_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d07/classsonic__cli__show__config_1_1cli__xml__view_a26e4ad467f0a4260a64b3d484f5c7fdd_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classsonic__cli__show__config_1_1cli__xml__view_a3ed83af46ff3fe4f8e6e714b8662439d}\label{classsonic__cli__show__config_1_1cli__xml__view_a3ed83af46ff3fe4f8e6e714b8662439d}} 
+\index{sonic\_cli\_show\_config.cli\_xml\_view@{sonic\_cli\_show\_config.cli\_xml\_view}!process\_view\_commands\_no\_table@{process\_view\_commands\_no\_table}}
+\index{process\_view\_commands\_no\_table@{process\_view\_commands\_no\_table}!sonic\_cli\_show\_config.cli\_xml\_view@{sonic\_cli\_show\_config.cli\_xml\_view}}
+\doxysubsubsection{\texorpdfstring{process\_view\_commands\_no\_table()}{process\_view\_commands\_no\_table()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+show\+\_\+config.\+cli\+\_\+xml\+\_\+view.\+process\+\_\+view\+\_\+commands\+\_\+no\+\_\+table (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{member\+\_\+keys,  }\item[{}]{indent }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+config.\+py 파일의 272 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{272     \textcolor{keyword}{def }process\_view\_commands\_no\_table(self, member\_keys,indent):}
+\DoxyCodeLine{273         \textcolor{keyword}{global} CMDS\_VIEW, CMDS\_VIEW\_CHANGED}
+\DoxyCodeLine{274 }
+\DoxyCodeLine{275         \mbox{\hyperlink{namespaceshow__config__utils_ade2a848c0e0759cedd94d752ba30ed55}{showrun\_log}}(logging.DEBUG,\textcolor{stringliteral}{'ENTER view \{\} '}, self.name)}
+\DoxyCodeLine{276         \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} self.view\_cmd\_list:}
+\DoxyCodeLine{277             \textcolor{keywordflow}{return} CMD\_SUCCESS}
+\DoxyCodeLine{278 }
+\DoxyCodeLine{279         \textcolor{comment}{\#In executing "show running-\/configuration", a view with no primary table fo e.g. configure-\/view,}}
+\DoxyCodeLine{280         \textcolor{comment}{\#view\_keys are not expected. Each command is mapped to a different table, and keys for the command table}}
+\DoxyCodeLine{281         \textcolor{comment}{\#are specified by command\_keys tag and read later in process\_command.}}
+\DoxyCodeLine{282         \textcolor{comment}{\#For "show configuration" of a view which is rendered using a callback, keys are specified as argument to}}
+\DoxyCodeLine{283         \textcolor{comment}{\#the API. These keys are passed to this function as argument member\_keys and}}
+\DoxyCodeLine{284         \textcolor{comment}{\#applicable to the parent command which changes to a new view.}}
+\DoxyCodeLine{285 }
+\DoxyCodeLine{286         \textcolor{comment}{\#Process the first command in the view with argument is\_first\_command=True.}}
+\DoxyCodeLine{287         \textcolor{keywordflow}{if} self.name != CMDS\_VIEW:}
+\DoxyCodeLine{288             CMDS\_VIEW = self.name}
+\DoxyCodeLine{289             \textcolor{comment}{\#next cmds are different xml view}}
+\DoxyCodeLine{290             CMDS\_VIEW\_CHANGED = \textcolor{keyword}{True}}
+\DoxyCodeLine{291         view\_keys = copy.deepcopy(member\_keys)}
+\DoxyCodeLine{292         \mbox{\hyperlink{namespacesonic__cli__show__config_ac41d749f75964c403bb7f9145ca1223a}{process\_command}}(self, \textcolor{keywordtype}{None}, self.table\_list, view\_keys, self.dbpathstr,\(\backslash\)}
+\DoxyCodeLine{293                                                 CMDS\_VIEW\_CHANGED, self.view\_cmd\_list[0], indent)}
+\DoxyCodeLine{294         \textcolor{comment}{\#For the top view "configure", leave indent as zero.}}
+\DoxyCodeLine{295         \textcolor{keywordflow}{if} self.name != \textcolor{stringliteral}{"configure"}:}
+\DoxyCodeLine{296             indent +=1 }
+\DoxyCodeLine{297         \textcolor{keywordflow}{for} cmd \textcolor{keywordflow}{in}  self.view\_cmd\_list[1:]:}
+\DoxyCodeLine{298             view\_keys = copy.deepcopy(member\_keys)}
+\DoxyCodeLine{299             ret, is\_view\_rendered = \mbox{\hyperlink{namespacesonic__cli__show__config_ac41d749f75964c403bb7f9145ca1223a}{process\_command}}(self, \textcolor{keywordtype}{None}, self.table\_list, view\_keys, self.dbpathstr,\(\backslash\)}
+\DoxyCodeLine{300                                                 CMDS\_VIEW\_CHANGED, cmd, indent)}
+\DoxyCodeLine{301         \textcolor{comment}{\#Process child views.}}
+\DoxyCodeLine{302 }
+\DoxyCodeLine{303         \textcolor{keywordflow}{if} view\_dependency.get(self.name) \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{304 }
+\DoxyCodeLine{305             \textcolor{comment}{\#form the keys for the dependency view tables.}}
+\DoxyCodeLine{306             \textcolor{keywordflow}{for} view \textcolor{keywordflow}{in} view\_dependency[self.name]:}
+\DoxyCodeLine{307             \textcolor{comment}{\#     \#get keys from parent}}
+\DoxyCodeLine{308 }
+\DoxyCodeLine{309                 view\_key\_values = collections.OrderedDict()}
+\DoxyCodeLine{310                 cli\_view = CLI\_XML\_VIEW\_MAP.get(view)}
+\DoxyCodeLine{311                 \textcolor{keywordflow}{if} cli\_view == \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{312                     \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{313 }
+\DoxyCodeLine{314                 view\_keys = cli\_view.table\_keys}
+\DoxyCodeLine{315                 \mbox{\hyperlink{namespaceshow__config__utils_ade2a848c0e0759cedd94d752ba30ed55}{showrun\_log}}(logging.INFO,\textcolor{stringliteral}{"Preparing for child view: \{\}, child view keys: \{\}, parent view: \{\}, parent member keys: \{\} "},}
+\DoxyCodeLine{316                  view, view\_keys, self.name,  member\_keys)}
+\DoxyCodeLine{317 }
+\DoxyCodeLine{318                 \textcolor{keywordflow}{for} key, value \textcolor{keywordflow}{in} view\_keys.items():}
+\DoxyCodeLine{319                     \textcolor{comment}{\# set default key value to wildcard}}
+\DoxyCodeLine{320                     \textcolor{comment}{\# check if key has a value or a dbpath to parent member key name.}}
+\DoxyCodeLine{321                     view\_key\_values.update(\{key.lstrip():\textcolor{stringliteral}{"*"}\})}
+\DoxyCodeLine{322                     \textcolor{keywordflow}{if} value \textcolor{keywordflow}{and} value != \textcolor{stringliteral}{"*"}:}
+\DoxyCodeLine{323                         keypath\_list = value.split(\textcolor{stringliteral}{'/'})}
+\DoxyCodeLine{324                         \textcolor{keywordflow}{if} len(keypath\_list) > 1:}
+\DoxyCodeLine{325                             \mbox{\hyperlink{namespaceshow__config__utils_ade2a848c0e0759cedd94d752ba30ed55}{showrun\_log}}(logging.WARNING,\textcolor{stringliteral}{"no table member to get key value \{\} "},self.name)}
+\DoxyCodeLine{326                             \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{327                         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{328                             view\_key\_values.update(\{key.lstrip():keypath\_list[0]\})}
+\DoxyCodeLine{329 }
+\DoxyCodeLine{330                 \mbox{\hyperlink{namespaceshow__config__utils_ade2a848c0e0759cedd94d752ba30ed55}{showrun\_log}}(logging.INFO,\textcolor{stringliteral}{"Preparing for child view \{\}, child view keys \{\} "},cli\_view.name, view\_key\_values)}
+\DoxyCodeLine{331                 \textcolor{keywordflow}{if} cli\_view.table\_list:}
+\DoxyCodeLine{332                     cmd\_status = cli\_view.process\_cli\_view(view\_key\_values, indent+1)}
+\DoxyCodeLine{333                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{334                     cmd\_status = cli\_view.process\_view\_commands\_no\_table(view\_key\_values, indent)}
+\DoxyCodeLine{335 }
+\DoxyCodeLine{336         \mbox{\hyperlink{namespaceshow__config__utils_ade2a848c0e0759cedd94d752ba30ed55}{showrun\_log}}(logging.DEBUG,\textcolor{stringliteral}{' Exit.view \{\}, status \{\}'},self.name, CMD\_SUCCESS)}
+\DoxyCodeLine{337         \textcolor{keywordflow}{return} CMD\_SUCCESS}
+\DoxyCodeLine{338 }
+\DoxyCodeLine{339 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d07/classsonic__cli__show__config_1_1cli__xml__view_a3ed83af46ff3fe4f8e6e714b8662439d_cgraph}
+\end{center}
+\end{figure}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d07/classsonic__cli__show__config_1_1cli__xml__view_a3ed83af46ff3fe4f8e6e714b8662439d_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{멤버 데이터 문서화}
+\mbox{\Hypertarget{classsonic__cli__show__config_1_1cli__xml__view_a2c0585cdd8c94c494bc736437c900cd1}\label{classsonic__cli__show__config_1_1cli__xml__view_a2c0585cdd8c94c494bc736437c900cd1}} 
+\index{sonic\_cli\_show\_config.cli\_xml\_view@{sonic\_cli\_show\_config.cli\_xml\_view}!cfgcmd\_viewid@{cfgcmd\_viewid}}
+\index{cfgcmd\_viewid@{cfgcmd\_viewid}!sonic\_cli\_show\_config.cli\_xml\_view@{sonic\_cli\_show\_config.cli\_xml\_view}}
+\doxysubsubsection{\texorpdfstring{cfgcmd\_viewid}{cfgcmd\_viewid}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+show\+\_\+config.\+cli\+\_\+xml\+\_\+view.\+cfgcmd\+\_\+viewid}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+config.\+py 파일의 227 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{classsonic__cli__show__config_1_1cli__xml__view_ab814beff0ec0eeb75a47c3a3fe4dad20}\label{classsonic__cli__show__config_1_1cli__xml__view_ab814beff0ec0eeb75a47c3a3fe4dad20}} 
+\index{sonic\_cli\_show\_config.cli\_xml\_view@{sonic\_cli\_show\_config.cli\_xml\_view}!dbpathstr@{dbpathstr}}
+\index{dbpathstr@{dbpathstr}!sonic\_cli\_show\_config.cli\_xml\_view@{sonic\_cli\_show\_config.cli\_xml\_view}}
+\doxysubsubsection{\texorpdfstring{dbpathstr}{dbpathstr}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+show\+\_\+config.\+cli\+\_\+xml\+\_\+view.\+dbpathstr}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+config.\+py 파일의 232 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{classsonic__cli__show__config_1_1cli__xml__view_acc36b754e031d8db30efd1547b16a965}\label{classsonic__cli__show__config_1_1cli__xml__view_acc36b754e031d8db30efd1547b16a965}} 
+\index{sonic\_cli\_show\_config.cli\_xml\_view@{sonic\_cli\_show\_config.cli\_xml\_view}!name@{name}}
+\index{name@{name}!sonic\_cli\_show\_config.cli\_xml\_view@{sonic\_cli\_show\_config.cli\_xml\_view}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+show\+\_\+config.\+cli\+\_\+xml\+\_\+view.\+name}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+config.\+py 파일의 225 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{classsonic__cli__show__config_1_1cli__xml__view_ace5c5ded124ba73364be7ab6d72fdb70}\label{classsonic__cli__show__config_1_1cli__xml__view_ace5c5ded124ba73364be7ab6d72fdb70}} 
+\index{sonic\_cli\_show\_config.cli\_xml\_view@{sonic\_cli\_show\_config.cli\_xml\_view}!primary\_table@{primary\_table}}
+\index{primary\_table@{primary\_table}!sonic\_cli\_show\_config.cli\_xml\_view@{sonic\_cli\_show\_config.cli\_xml\_view}}
+\doxysubsubsection{\texorpdfstring{primary\_table}{primary\_table}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+show\+\_\+config.\+cli\+\_\+xml\+\_\+view.\+primary\+\_\+table}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+config.\+py 파일의 231 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{classsonic__cli__show__config_1_1cli__xml__view_a85fc1e414bfcc3199015e122e786eda7}\label{classsonic__cli__show__config_1_1cli__xml__view_a85fc1e414bfcc3199015e122e786eda7}} 
+\index{sonic\_cli\_show\_config.cli\_xml\_view@{sonic\_cli\_show\_config.cli\_xml\_view}!table\_keys@{table\_keys}}
+\index{table\_keys@{table\_keys}!sonic\_cli\_show\_config.cli\_xml\_view@{sonic\_cli\_show\_config.cli\_xml\_view}}
+\doxysubsubsection{\texorpdfstring{table\_keys}{table\_keys}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+show\+\_\+config.\+cli\+\_\+xml\+\_\+view.\+table\+\_\+keys}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+config.\+py 파일의 236 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{classsonic__cli__show__config_1_1cli__xml__view_a34b6dc9f16caa7c9b4ebcf3b1b0ec6d7}\label{classsonic__cli__show__config_1_1cli__xml__view_a34b6dc9f16caa7c9b4ebcf3b1b0ec6d7}} 
+\index{sonic\_cli\_show\_config.cli\_xml\_view@{sonic\_cli\_show\_config.cli\_xml\_view}!table\_list@{table\_list}}
+\index{table\_list@{table\_list}!sonic\_cli\_show\_config.cli\_xml\_view@{sonic\_cli\_show\_config.cli\_xml\_view}}
+\doxysubsubsection{\texorpdfstring{table\_list}{table\_list}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+show\+\_\+config.\+cli\+\_\+xml\+\_\+view.\+table\+\_\+list}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+config.\+py 파일의 251 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{classsonic__cli__show__config_1_1cli__xml__view_ab34f2954a179e1c47a4cda59e4aca5ed}\label{classsonic__cli__show__config_1_1cli__xml__view_ab34f2954a179e1c47a4cda59e4aca5ed}} 
+\index{sonic\_cli\_show\_config.cli\_xml\_view@{sonic\_cli\_show\_config.cli\_xml\_view}!view\_cmd\_list@{view\_cmd\_list}}
+\index{view\_cmd\_list@{view\_cmd\_list}!sonic\_cli\_show\_config.cli\_xml\_view@{sonic\_cli\_show\_config.cli\_xml\_view}}
+\doxysubsubsection{\texorpdfstring{view\_cmd\_list}{view\_cmd\_list}}
+{\footnotesize\ttfamily sonic\+\_\+cli\+\_\+show\+\_\+config.\+cli\+\_\+xml\+\_\+view.\+view\+\_\+cmd\+\_\+list}
+
+
+
+sonic\+\_\+cli\+\_\+show\+\_\+config.\+py 파일의 230 번째 라인에서 정의되었습니다.
+
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+cli/\mbox{\hyperlink{sonic__cli__show__config_8py}{sonic\+\_\+cli\+\_\+show\+\_\+config.\+py}}\end{DoxyCompactItemize}

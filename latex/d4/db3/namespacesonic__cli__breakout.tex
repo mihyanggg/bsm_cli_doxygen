@@ -1,0 +1,199 @@
+\hypertarget{namespacesonic__cli__breakout}{}\doxysection{sonic\+\_\+cli\+\_\+breakout 네임스페이스 참조}
+\label{namespacesonic__cli__breakout}\index{sonic\_cli\_breakout@{sonic\_cli\_breakout}}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__breakout_adcfa0164887fe56d22a11a878a97b547}{invoke}} (func, args)
+\item 
+def \mbox{\hyperlink{namespacesonic__cli__breakout_a494f6f5502f8d86e8e47ea7528484b64}{run}} (func, args)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{namespacesonic__cli__breakout_adcfa0164887fe56d22a11a878a97b547}\label{namespacesonic__cli__breakout_adcfa0164887fe56d22a11a878a97b547}} 
+\index{sonic\_cli\_breakout@{sonic\_cli\_breakout}!invoke@{invoke}}
+\index{invoke@{invoke}!sonic\_cli\_breakout@{sonic\_cli\_breakout}}
+\doxysubsubsection{\texorpdfstring{invoke()}{invoke()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+breakout.\+invoke (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+breakout.\+py 파일의 16 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{16 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__breakout_adcfa0164887fe56d22a11a878a97b547}{invoke}}(func, args):}
+\DoxyCodeLine{17     body = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{18     aa = cc.ApiClient()}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'dependencies'}:}
+\DoxyCodeLine{21         interface = args[0]}
+\DoxyCodeLine{22         path = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/port-\/breakout:breakout\_dependencies'})}
+\DoxyCodeLine{23         body = \{\textcolor{stringliteral}{"sonic-\/port-\/breakout:input"}: \{\textcolor{stringliteral}{"ifname"}: interface\}\}}
+\DoxyCodeLine{24         \textcolor{keywordflow}{return} aa.post(path, body)}
+\DoxyCodeLine{25     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'modes'}:}
+\DoxyCodeLine{26         path = cc.Path(\textcolor{stringliteral}{'/restconf/operations/sonic-\/port-\/breakout:breakout\_capabilities'})}
+\DoxyCodeLine{27         resp = aa.post(path, body)}
+\DoxyCodeLine{28         \textcolor{keywordflow}{if} \textcolor{stringliteral}{'sonic-\/port-\/breakout:output'} \textcolor{keywordflow}{in} resp.content:}
+\DoxyCodeLine{29            \textcolor{keywordflow}{if} \textcolor{stringliteral}{'caps'} \textcolor{keywordflow}{in} resp.content[\textcolor{stringliteral}{'sonic-\/port-\/breakout:output'}]:}
+\DoxyCodeLine{30               \textcolor{keywordflow}{for} cap \textcolor{keywordflow}{in} resp.content[\textcolor{stringliteral}{'sonic-\/port-\/breakout:output'}][\textcolor{stringliteral}{'caps'}]:}
+\DoxyCodeLine{31                  splitted\_modes = re.findall(\textcolor{stringliteral}{"\(\backslash\)dx|\(\backslash\)d\(\backslash\)dG|\(\backslash\)d\(\backslash\)d\(\backslash\)dG"}, cap[\textcolor{stringliteral}{'modes'}])}
+\DoxyCodeLine{32                  sup\_modes =\textcolor{stringliteral}{""}}
+\DoxyCodeLine{33                  chan =\textcolor{stringliteral}{""}}
+\DoxyCodeLine{34                  count = 0}
+\DoxyCodeLine{35                  overflow = \textcolor{stringliteral}{""}}
+\DoxyCodeLine{36                  \textcolor{keywordflow}{for} pat \textcolor{keywordflow}{in} splitted\_modes:}
+\DoxyCodeLine{37                      \textcolor{keywordflow}{if} \textcolor{stringliteral}{'x'} \textcolor{keywordflow}{in} pat:}
+\DoxyCodeLine{38                         chan = pat}
+\DoxyCodeLine{39                         \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{40                      \textcolor{keywordflow}{if} len(overflow):}
+\DoxyCodeLine{41                          overflow+=\textcolor{stringliteral}{", "}}
+\DoxyCodeLine{42                      \textcolor{keywordflow}{elif} len(sup\_modes):}
+\DoxyCodeLine{43                         sup\_modes+=\textcolor{stringliteral}{", "}}
+\DoxyCodeLine{44                      count+=1}
+\DoxyCodeLine{45                      \textcolor{keywordflow}{if} count < 6:}
+\DoxyCodeLine{46                          sup\_modes+=chan+pat}
+\DoxyCodeLine{47                      \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{48                          overflow+=chan+pat}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50                  cap[\textcolor{stringliteral}{'modes'}] = sup\_modes}
+\DoxyCodeLine{51                  \textcolor{keywordflow}{if} count > 5:}
+\DoxyCodeLine{52                     cap[\textcolor{stringliteral}{'modes\_ovf'}] = overflow}
+\DoxyCodeLine{53                  \textcolor{keywordflow}{if} \textcolor{stringliteral}{'['} \textcolor{keywordflow}{in} cap[\textcolor{stringliteral}{'defmode'}]:}
+\DoxyCodeLine{54                      cap[\textcolor{stringliteral}{'defmode'}] = cap[\textcolor{stringliteral}{'defmode'}][:cap[\textcolor{stringliteral}{'defmode'}].index(\textcolor{stringliteral}{'['})]}
+\DoxyCodeLine{55         \textcolor{keywordflow}{return} resp}
+\DoxyCodeLine{56     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'patch\_openconfig\_platform\_port\_components\_component\_port\_breakout\_mode\_config'}:}
+\DoxyCodeLine{57         interface = args[0]}
+\DoxyCodeLine{58         speed\_map = \{\textcolor{stringliteral}{"4x10G"}:\textcolor{stringliteral}{"SPEED\_10GB"}, \textcolor{stringliteral}{"1x100G"}:\textcolor{stringliteral}{"SPEED\_100GB"}, \textcolor{stringliteral}{"1x40G"}:\textcolor{stringliteral}{"SPEED\_40GB"},}
+\DoxyCodeLine{59                       \textcolor{stringliteral}{"4x25G"}:\textcolor{stringliteral}{"SPEED\_25GB"}, \textcolor{stringliteral}{"2x50G"}:\textcolor{stringliteral}{"SPEED\_50GB"}, \textcolor{stringliteral}{"1x400G"}:\textcolor{stringliteral}{"SPEED\_400GB"},}
+\DoxyCodeLine{60                       \textcolor{stringliteral}{"4x100G"}:\textcolor{stringliteral}{"SPEED\_100GB"}, \textcolor{stringliteral}{"4x50G"}:\textcolor{stringliteral}{"SPEED\_50GB"}, \textcolor{stringliteral}{"2x100G"}:\textcolor{stringliteral}{"SPEED\_100GB"},}
+\DoxyCodeLine{61                       \textcolor{stringliteral}{"2x200G"}:\textcolor{stringliteral}{"SPEED\_200GB"}, \textcolor{stringliteral}{"8x50G"}:\textcolor{stringliteral}{"SPEED\_50GB"}, \textcolor{stringliteral}{"8x25G"}:\textcolor{stringliteral}{"SPEED\_25GB"},}
+\DoxyCodeLine{62                       \textcolor{stringliteral}{"8x10G"}:\textcolor{stringliteral}{"SPEED\_10GB"}\}}
+\DoxyCodeLine{63         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/platform:components/'})}
+\DoxyCodeLine{64         body = \{\(\backslash\)}
+\DoxyCodeLine{65                  \textcolor{stringliteral}{"openconfig-\/platform:components"}: \{\(\backslash\)}
+\DoxyCodeLine{66                     \textcolor{stringliteral}{"component"}: [\(\backslash\)}
+\DoxyCodeLine{67                        \{\(\backslash\)}
+\DoxyCodeLine{68                          \textcolor{stringliteral}{"name"}: interface,\(\backslash\)}
+\DoxyCodeLine{69                          \textcolor{stringliteral}{"port"}: \{\(\backslash\)}
+\DoxyCodeLine{70                            \textcolor{stringliteral}{"openconfig-\/platform-\/port:breakout-\/mode"}: \{\(\backslash\)}
+\DoxyCodeLine{71                               \textcolor{stringliteral}{"config"}: \{\(\backslash\)}
+\DoxyCodeLine{72                                 \textcolor{stringliteral}{"num-\/channels"}: int(args[1][0]),\(\backslash\)}
+\DoxyCodeLine{73                                 \textcolor{stringliteral}{"channel-\/speed"}: speed\_map.get(args[1])\(\backslash\)}
+\DoxyCodeLine{74                                \}\(\backslash\)}
+\DoxyCodeLine{75                             \}\(\backslash\)}
+\DoxyCodeLine{76                           \}\(\backslash\)}
+\DoxyCodeLine{77                        \}\(\backslash\)}
+\DoxyCodeLine{78                     ]\(\backslash\)}
+\DoxyCodeLine{79                   \}\(\backslash\)}
+\DoxyCodeLine{80                 \}}
+\DoxyCodeLine{81         \textcolor{keywordflow}{return} aa.patch(path,body)}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83     \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'delete\_openconfig\_platform\_port\_components\_component\_port\_breakout\_mode\_config'}:}
+\DoxyCodeLine{84         interface = args[0]}
+\DoxyCodeLine{85         path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/platform:components/component=\{port\}/port/openconfig-\/platform-\/port:breakout-\/mode/config'},port=interface)}
+\DoxyCodeLine{86         get\_resp = aa.get(path)}
+\DoxyCodeLine{87         \textcolor{keywordflow}{if} get\_resp.ok() \textcolor{keywordflow}{and} get\_resp.content:}
+\DoxyCodeLine{88             \textcolor{keywordflow}{return} aa.delete(path)}
+\DoxyCodeLine{89         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{90             \textcolor{keywordflow}{return} aa.\_make\_error\_response(\textcolor{stringliteral}{'\%Error: No change in port breakout mode'})}
+\DoxyCodeLine{91     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{92         \textcolor{keywordflow}{if} len(args)<3:}
+\DoxyCodeLine{93             start = 1}
+\DoxyCodeLine{94             end = 106}
+\DoxyCodeLine{95             temp = args[1]}
+\DoxyCodeLine{96         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{97             start = int(args[0].split(\textcolor{stringliteral}{"/"})[1])}
+\DoxyCodeLine{98             end = start}
+\DoxyCodeLine{99             temp = args[3]}
+\DoxyCodeLine{100         resp = cc.Response(requests.Response())}
+\DoxyCodeLine{101         resp.content = OrderedDict()}
+\DoxyCodeLine{102         err\_count = 0}
+\DoxyCodeLine{103         \textcolor{keywordflow}{for} port \textcolor{keywordflow}{in} range(start, end+1):}
+\DoxyCodeLine{104             interface = \textcolor{stringliteral}{"1/"}+str(port)}
+\DoxyCodeLine{105             path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/platform:components/component=\{port\}/port/openconfig-\/platform-\/port:breakout-\/mode/config'},port=interface)}
+\DoxyCodeLine{106             config\_resp = aa.get(path)}
+\DoxyCodeLine{107             path = cc.Path(\textcolor{stringliteral}{'/restconf/data/openconfig-\/platform:components/component=\{port\}/port/openconfig-\/platform-\/port:breakout-\/mode/state'},port=interface)}
+\DoxyCodeLine{108             state\_resp = aa.get(path)}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110             \textcolor{keywordflow}{if} config\_resp.ok() \textcolor{keywordflow}{and} config\_resp.content:}
+\DoxyCodeLine{111                 \textcolor{keywordflow}{if} state\_resp.ok() \textcolor{keywordflow}{and} state\_resp.content:}
+\DoxyCodeLine{112                     config\_resp.content[\textcolor{stringliteral}{"openconfig-\/platform-\/port:config"}].update(state\_resp.content.pop(\textcolor{stringliteral}{'openconfig-\/platform-\/port:state'}))}
+\DoxyCodeLine{113                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{114                     config\_resp.content[\textcolor{stringliteral}{"openconfig-\/platform-\/port:config"}][\textcolor{stringliteral}{"openconfig-\/port-\/breakout-\/ext:status"}] = \textcolor{stringliteral}{"Completed"}}
+\DoxyCodeLine{115             \textcolor{keywordflow}{elif} state\_resp.ok() \textcolor{keywordflow}{and} state\_resp.content:}
+\DoxyCodeLine{116                 state\_resp.content[\textcolor{stringliteral}{"openconfig-\/platform-\/port:config"}] = OrderedDict()}
+\DoxyCodeLine{117                 state = state\_resp.content.pop(\textcolor{stringliteral}{'openconfig-\/platform-\/port:state'})}
+\DoxyCodeLine{118                 state\_resp.content[\textcolor{stringliteral}{"openconfig-\/platform-\/port:config"}][\textcolor{stringliteral}{"openconfig-\/port-\/breakout-\/ext:status"}]=state.pop(\textcolor{stringliteral}{'openconfig-\/port-\/breakout-\/ext:status'})}
+\DoxyCodeLine{119                 state\_resp.content[\textcolor{stringliteral}{"openconfig-\/platform-\/port:config"}][\textcolor{stringliteral}{"openconfig-\/port-\/breakout-\/ext:members"}]=state.pop(\textcolor{stringliteral}{'openconfig-\/port-\/breakout-\/ext:members'})}
+\DoxyCodeLine{120                 resp.content[interface] = state\_resp.content.pop(\textcolor{stringliteral}{"openconfig-\/platform-\/port:config"})}
+\DoxyCodeLine{121                 resp.status\_code = state\_resp.status\_code}
+\DoxyCodeLine{122                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{123             \textcolor{keywordflow}{if} config\_resp.content \textcolor{keywordflow}{and} \textcolor{stringliteral}{"openconfig-\/platform-\/port:config"} \textcolor{keywordflow}{in} config\_resp.content:}
+\DoxyCodeLine{124                 resp.content[interface] = config\_resp.content.pop(\textcolor{stringliteral}{"openconfig-\/platform-\/port:config"})}
+\DoxyCodeLine{125                 resp.status\_code = config\_resp.status\_code}
+\DoxyCodeLine{126             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{127                 err\_count+=1}
+\DoxyCodeLine{128         \textcolor{keywordflow}{if} err\_count > (end -\/ start):}
+\DoxyCodeLine{129             \textcolor{keywordflow}{if} (end > start) \textcolor{keywordflow}{or} (config\_resp.status\_code != 500):}
+\DoxyCodeLine{130                 print(\textcolor{stringliteral}{"No valid breakout configurations"})}
+\DoxyCodeLine{131             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{132                 print(\textcolor{stringliteral}{"\%Error: Invalid port"})}
+\DoxyCodeLine{133         \textcolor{keywordflow}{return} resp}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135 }
+
+\end{DoxyCode}
+이 함수를 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d4/db3/namespacesonic__cli__breakout_adcfa0164887fe56d22a11a878a97b547_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacesonic__cli__breakout_a494f6f5502f8d86e8e47ea7528484b64}\label{namespacesonic__cli__breakout_a494f6f5502f8d86e8e47ea7528484b64}} 
+\index{sonic\_cli\_breakout@{sonic\_cli\_breakout}!run@{run}}
+\index{run@{run}!sonic\_cli\_breakout@{sonic\_cli\_breakout}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def sonic\+\_\+cli\+\_\+breakout.\+run (\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+sonic\+\_\+cli\+\_\+breakout.\+py 파일의 136 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{136 \textcolor{keyword}{def }\mbox{\hyperlink{namespacesonic__cli__breakout_a494f6f5502f8d86e8e47ea7528484b64}{run}}(func, args):}
+\DoxyCodeLine{137     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{138         api\_response = \mbox{\hyperlink{namespacesonic__cli__breakout_adcfa0164887fe56d22a11a878a97b547}{invoke}}(func, args)}
+\DoxyCodeLine{139         \textcolor{keywordflow}{if} api\_response.ok():}
+\DoxyCodeLine{140             \textcolor{keywordflow}{if} (func.find(\textcolor{stringliteral}{"openconfig\_platform\_port\_components\_component\_port\_breakout\_mode\_config"}) != -\/1):}
+\DoxyCodeLine{141                 print(\textcolor{stringliteral}{"Dynamic Port Breakout in-\/progress, use \(\backslash\)'show interface breakout port \{\}\(\backslash\)' to check status."}.format(args[0]))}
+\DoxyCodeLine{142             \textcolor{keywordflow}{if} api\_response.content \textcolor{keywordflow}{is} \textcolor{keywordflow}{not} \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{143                 \textcolor{keywordflow}{if} func == \textcolor{stringliteral}{'dependencies'}:}
+\DoxyCodeLine{144                     temp = args[1]}
+\DoxyCodeLine{145                 \textcolor{keywordflow}{elif} func == \textcolor{stringliteral}{'modes'}:}
+\DoxyCodeLine{146                     temp = args[1]}
+\DoxyCodeLine{147                 \textcolor{keywordflow}{elif} len(args) > 3:}
+\DoxyCodeLine{148                    temp = args[3]}
+\DoxyCodeLine{149                 \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{150                    temp = args[1]}
+\DoxyCodeLine{151                 \mbox{\hyperlink{namespacescripts_1_1render__cli_a21c728cd1db8b5bd209adc5f3325305d}{show\_cli\_output}}(temp, api\_response.content)}
+\DoxyCodeLine{152         \textcolor{keywordflow}{elif} api\_response.error\_message():}
+\DoxyCodeLine{153             \textcolor{keywordflow}{print} api\_response.error\_message()}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155     \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} ex:}
+\DoxyCodeLine{156         print(ex)}
+\DoxyCodeLine{157         print(\textcolor{stringliteral}{"\%Error: Transaction Failure"})}
+\DoxyCodeLine{158 }
+
+\end{DoxyCode}
+이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d4/db3/namespacesonic__cli__breakout_a494f6f5502f8d86e8e47ea7528484b64_cgraph}
+\end{center}
+\end{figure}
